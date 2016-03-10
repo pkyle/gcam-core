@@ -383,6 +383,10 @@ protected:
 	//! Building size by period.
 	objects::PeriodVector<Value> mBuildingSize;
 
+	//! A flag to indicate the user wants to fix the building size to the
+    //! parsed value.
+	objects::PeriodVector<bool> mIsFixedBuildingSize;
+
 	//! Price exponent by period.
 	objects::PeriodVector<Value> mPriceExponent;
 

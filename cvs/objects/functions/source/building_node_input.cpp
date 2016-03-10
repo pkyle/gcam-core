@@ -66,6 +66,7 @@ extern Scenario* scenario;
 
 //! Default Constructor
 BuildingNodeInput::BuildingNodeInput():
+mIsFixedBuildingSize( false ),
 mInternalGainsTrialSupply( 0.001 )
 {
 }
@@ -172,8 +173,16 @@ void BuildingNodeInput::completeInit( const string& aRegionName, const string& a
     for( NestedInputIterator it = mNestedInputs.begin(); it != mNestedInputs.end(); ++it ) {
         (*it)->completeInit( aRegionName, aSectorName, aSubsectorName, aTechName, aTechInfo );
     }
+
+    // Note initializing the fixed building size flag before interpolations implies
+    // we will assume the user wanted to use calculated values instead of interpolated
+    // in those missing periods.
+    for( size_t period = 0; period < mBuildingSize.size(); ++period ) {
+        mIsFixedBuildingSize[ period ] = mBuildingSize[ period ].isInited();
+    }
     
-    // Interpolate parameters
+    // Interpolate parameters.  Note this will copy the last value to extrapolate
+    // if necessary.
     SectorUtils::fillMissingPeriodVectorInterpolated( mBuildingSize );
     SectorUtils::fillMissingPeriodVectorNextAvailable( mPriceExponent );
     SectorUtils::fillMissingPeriodVectorInterpolated( mShellConductance );
@@ -232,6 +241,7 @@ void BuildingNodeInput::copy( const BuildingNodeInput& aNodeInput ) {
     mFunctionType = aNodeInput.mFunctionType;
     mFunction = aNodeInput.mFunction;
     mBuildingSize = aNodeInput.mBuildingSize;
+    mIsFixedBuildingSize = aNodeInput.mIsFixedBuildingSize;
     mPriceExponent = aNodeInput.mPriceExponent;
     mShellConductance = aNodeInput.mShellConductance;
     mFloorToSurfaceRatio = aNodeInput.mFloorToSurfaceRatio;
@@ -261,9 +271,11 @@ void BuildingNodeInput::toInputXML( ostream& aOut, Tabs* aTabs ) const {
     
     const Modeltime* modeltime = scenario->getModeltime();
     // only write base year values
-    for( int period = 0; period <= modeltime->getFinalCalibrationPeriod(); period++ ) {
-        const int year = modeltime->getper_to_yr( period );
-        XMLWriteElement( mBuildingSize[ period ], "base-building-size", aOut, aTabs, year );
+    for( int period = 0; period < modeltime->getmaxper(); period++ ) {
+        if( mIsFixedBuildingSize[ period ] ) {
+            const int year = modeltime->getper_to_yr( period );
+            XMLWriteElement( mBuildingSize[ period ], "base-building-size", aOut, aTabs, year );
+        }
     }
     XMLWriteVector( mPriceExponent, "price-exponent", aOut, aTabs, modeltime );
     XMLWriteVector( mShellConductance, "shell-conductance", aOut, aTabs, modeltime );
@@ -297,6 +309,7 @@ void BuildingNodeInput::toDebugXML( const int aPeriod, ostream& aOut, Tabs* aTab
     XMLWriteOpeningTag ( getXMLReportingName(), aOut, aTabs, mName );
 
     XMLWriteElement( mBuildingSize[ aPeriod ], "building-size", aOut, aTabs );
+    XMLWriteElement( mIsFixedBuildingSize[ aPeriod ], "is-building-size-fixed", aOut, aTabs );
     XMLWriteElement( mPriceExponent[ aPeriod ], "price-exponent", aOut, aTabs );
     XMLWriteElement( mShellConductance[ aPeriod ], "shell-conductance", aOut, aTabs );
     XMLWriteElement( mFloorToSurfaceRatio[ aPeriod ], "floor-to-surface-ratio", aOut, aTabs );
@@ -481,7 +494,11 @@ void BuildingNodeInput::setPhysicalDemand( const double aPhysicalDemand,
                                     const std::string& aRegionName, 
                                     const int aPeriod )
 {
-    mBuildingSize[ aPeriod ].set( aPhysicalDemand );
+    // Only reset the building size to a calculated value when not
+    // running with a fixed path.
+    if( !mIsFixedBuildingSize[ aPeriod ] ) {
+        mBuildingSize[ aPeriod ].set( aPhysicalDemand );
+    }
 }
 
 double BuildingNodeInput::getPrice( const std::string& aRegionName,
