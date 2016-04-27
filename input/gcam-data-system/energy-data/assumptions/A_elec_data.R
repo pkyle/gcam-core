@@ -20,3 +20,7 @@ names_ElecReserve <- c( "region", "supplysector", "electricity.reserve.margin", 
 
 wind_base_cost_year <- 2005
 
+#Target capacity factors for existing NG and coal in the electricity dispatch sector. The CF for gas is high and the CF for coal is low, since the idea is that gas will replace some coal. 
+NG_ramp_CF_agg <- 0.9
+coal_curtail_CF_agg <- 0.1
+

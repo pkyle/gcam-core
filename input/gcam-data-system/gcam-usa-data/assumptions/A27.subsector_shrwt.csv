@@ -1,0 +1,3 @@
+#subsector shareweights,,,,
+supplysector,subsector,year.fillout,year,share.weight
+Coal-Gas Dispatch Output,Coal-Gas Dispatch Output,start-year,,1

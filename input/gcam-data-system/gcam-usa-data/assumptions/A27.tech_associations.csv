@@ -1,0 +1,4 @@
+# associated technologies in the power sector,,,,,
+supplysector,subsector,technology,elec_supplysector,elec_subsector,elec_technology
+Coal-Gas Dispatch Output,Coal-Gas Dispatch Output,existing coal,electricity,coal,coal (conv pul)
+Coal-Gas Dispatch Output,Coal-Gas Dispatch Output,existing gas,electricity,gas,gas (CC)

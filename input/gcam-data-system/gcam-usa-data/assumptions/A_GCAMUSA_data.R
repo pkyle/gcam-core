@@ -11,6 +11,10 @@ use_regional_fuel_markets <- TRUE
 elect_td_sectors <- c( "elect_td_bld", "elect_td_ind", "elect_td_trn" )
 use_regional_elec_markets <- TRUE
 
+#use_coal_gas_dispatcher: indicate whether to turn on the dispatch sector that competes coal and gas electricity in the
+#base year.
+use_coal_gas_dispatcher <- TRUE
+
 #Identifier columns
 state <- "state"
 state_F <- c( "state", "fuel" )

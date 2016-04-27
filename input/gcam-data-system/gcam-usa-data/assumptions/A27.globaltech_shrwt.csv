@@ -1,0 +1,5 @@
+# technology shareweights,,,,,,
+supplysector,subsector,technology,1971,2010,2011,2100
+Coal-Gas Dispatch Output,Coal-Gas Dispatch Output,existing coal,1,1,1,1
+Coal-Gas Dispatch Output,Coal-Gas Dispatch Output,existing gas,0,0,1,1
+electricity,coal,Coal-Gas Dispatch (existing),,1,,

@@ -1,0 +1,4 @@
+# non-energy costs,,,,,
+supplysector,subsector,technology,minicam.non.energy.input,1971,2100
+Coal-Gas Dispatch Output,Coal-Gas Dispatch Output,existing coal,non-energy,0,0
+Coal-Gas Dispatch Output,Coal-Gas Dispatch Output,existing gas,non-energy,0,0

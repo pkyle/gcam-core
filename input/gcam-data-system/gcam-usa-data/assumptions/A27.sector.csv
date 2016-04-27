@@ -1,0 +1,3 @@
+# District heat supplysector characteristics,,,,
+supplysector,output.unit,input.unit,price.unit,logit.exponent
+Coal-Gas Dispatch Output,EJ,EJ,1975$/GJ,-3
