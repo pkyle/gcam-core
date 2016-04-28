@@ -1,0 +1,71 @@
+INPUT_TABLE,,,,,
+Variable ID,,,,,
+RESPolicy,,,,,
+,,,,,
+region,policy.portfolio.standard,market,policyType,start.year,constraint
+AK,ELEC_RPS,Alaska grid,RES,2020,0
+AL,ELEC_RPS,Southeast grid,RES,2020,0
+AR,ELEC_RPS,Southeast grid,RES,2020,0
+AZ,ELEC_RPS,Southwest grid,RES,2020,0
+CA,ELEC_RPS,California grid,RES,2020,0
+CO,ELEC_RPS,Southwest grid,RES,2020,0
+CT,ELEC_RPS,New England grid,RES,2020,0
+DC,ELEC_RPS,Mid-Atlantic grid,RES,2020,0
+DE,ELEC_RPS,Mid-Atlantic grid,RES,2020,0
+FL,ELEC_RPS,Florida grid,RES,2020,0
+GA,ELEC_RPS,Southeast grid,RES,2020,0
+HI,ELEC_RPS,Hawaii grid,RES,2020,0
+IA,ELEC_RPS,Central Northwest grid,RES,2020,0
+ID,ELEC_RPS,Northwest grid,RES,2020,0
+IL,ELEC_RPS,Central Northeast grid,RES,2020,0
+IN,ELEC_RPS,Central East grid,RES,2020,0
+KS,ELEC_RPS,Central Southwest grid,RES,2020,0
+KY,ELEC_RPS,Central East grid,RES,2020,0
+LA,ELEC_RPS,Southeast grid,RES,2020,0
+MA,ELEC_RPS,New England grid,RES,2020,0
+MD,ELEC_RPS,Mid-Atlantic grid,RES,2020,0
+ME,ELEC_RPS,New England grid,RES,2020,0
+MI,ELEC_RPS,Central East grid,RES,2020,0
+MN,ELEC_RPS,Central Northwest grid,RES,2020,0
+MO,ELEC_RPS,Central Northeast grid,RES,2020,0
+MS,ELEC_RPS,Southeast grid,RES,2020,0
+MT,ELEC_RPS,Northwest grid,RES,2020,0
+NC,ELEC_RPS,Southeast grid,RES,2020,0
+ND,ELEC_RPS,Central Northwest grid,RES,2020,0
+NE,ELEC_RPS,Central Northwest grid,RES,2020,0
+NH,ELEC_RPS,New England grid,RES,2020,0
+NJ,ELEC_RPS,Mid-Atlantic grid,RES,2020,0
+NM,ELEC_RPS,Southwest grid,RES,2020,0
+NV,ELEC_RPS,Northwest grid,RES,2020,0
+NY,ELEC_RPS,New York grid,RES,2020,0
+OH,ELEC_RPS,Central East grid,RES,2020,0
+OK,ELEC_RPS,Central Southwest grid,RES,2020,0
+OR,ELEC_RPS,Northwest grid,RES,2020,0
+PA,ELEC_RPS,Mid-Atlantic grid,RES,2020,0
+RI,ELEC_RPS,New England grid,RES,2020,0
+SC,ELEC_RPS,Southeast grid,RES,2020,0
+SD,ELEC_RPS,Central Northwest grid,RES,2020,0
+TN,ELEC_RPS,Southeast grid,RES,2020,0
+TX,ELEC_RPS,Texas grid,RES,2020,0
+UT,ELEC_RPS,Northwest grid,RES,2020,0
+VA,ELEC_RPS,Southeast grid,RES,2020,0
+VT,ELEC_RPS,New England grid,RES,2020,0
+WA,ELEC_RPS,Northwest grid,RES,2020,0
+WI,ELEC_RPS,Central Northeast grid,RES,2020,0
+WV,ELEC_RPS,Central East grid,RES,2020,0
+WY,ELEC_RPS,Southwest grid,RES,2020,0
+Alaska grid,ELEC_RPS,Alaska grid,RES,2020,0
+California grid,ELEC_RPS,California grid,RES,2020,0
+Central East grid,ELEC_RPS,Central East grid,RES,2020,0
+Central Northeast grid,ELEC_RPS,Central Northeast grid,RES,2020,0
+Central Northwest grid,ELEC_RPS,Central Northwest grid,RES,2020,0
+Central Southwest grid,ELEC_RPS,Central Southwest grid,RES,2020,0
+Florida grid,ELEC_RPS,Florida grid,RES,2020,0
+Hawaii grid,ELEC_RPS,Hawaii grid,RES,2020,0
+Mid-Atlantic grid,ELEC_RPS,Mid-Atlantic grid,RES,2020,0
+New England grid,ELEC_RPS,New England grid,RES,2020,0
+New York grid,ELEC_RPS,New York grid,RES,2020,0
+Northwest grid,ELEC_RPS,Northwest grid,RES,2020,0
+Southeast grid,ELEC_RPS,Southeast grid,RES,2020,0
+Southwest grid,ELEC_RPS,Southwest grid,RES,2020,0
+Texas grid,ELEC_RPS,Texas grid,RES,2020,0

@@ -1,0 +1,7 @@
+
+StubTechCoef, world/+{name}region, region/+{name}supplysector, supplysector/+{name}subsector, subsector/+{name}stub-technology, stub-technology/+{year}period, period/+{name}minicam-energy-input, minicam-energy-input/+coefficient, minicam-energy-input/+market-name, minicam-energy-input/+new-vintage-only, scenario, scenario/world, period/{name=CO2}CO2
+
+StubTechRESSecondaryOutput, world/+{name}region, region/+{name}supplysector, supplysector/+{name}subsector, subsector/+{name}stub-technology, stub-technology/+{year}period, period/+{name}res-secondary-output, res-secondary-output/+output-ratio, res-secondary-output/+pMultiplier, res-secondary-output/+new-vintage-only, scenario, scenario/world
+
+RESPolicy, world/+{name}region, region/+{name}policy-portfolio-standard, policy-portfolio-standard/+market, policy-portfolio-standard/+policyType, policy-portfolio-standard/+{year;fillout=1}constraint, policy-portfolio-standard/+constraint, scenario, scenario/world
+

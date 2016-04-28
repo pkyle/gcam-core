@@ -6,7 +6,7 @@
 
 # -----------------------------------------------------------------------------
 # Load required libraries
-libs <- c( "reshape2", "stringr", "dplyr" )
+libs <- c( "reshape2", "stringr", "tidyr","assertr","dplyr" )
 for( i in libs ) {
 	if( !require( i, character.only=T ) ) {
 		cat( "Couldn't load", i, "; trying to download it...\n" )

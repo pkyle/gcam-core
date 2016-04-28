@@ -1,0 +1,8 @@
+# Fractions of PM2.5 combustion emissions that are BC and OC,,
+# Source: Developed from Bond et al (2004). A technology-based global inventory of black and organic carbon emissions from combustion. ,,
+# Provided by Dan Loughlin at EPA-ORD 8/2015,,
+fuel,BC_fraction,OC_fraction
+coal,0.006,0
+gas,0.06,0.5
+biomass,0.05,0.2
+refined liquids,0.3,0.09

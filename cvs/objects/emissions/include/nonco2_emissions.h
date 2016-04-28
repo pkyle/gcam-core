@@ -47,8 +47,10 @@
 #include "emissions/include/aghg.h"
 #include "util/base/include/value.h"
 
+// Forward declaration
 class AEmissionsDriver;
 class AEmissionsControl;
+class IInfo;
 
 /*! 
  * \ingroup Objects
@@ -56,6 +58,9 @@ class AEmissionsControl;
  * \author Kate Calvin
  */
 class NonCO2Emissions: public AGHG {
+    friend class GDPControl;
+    friend class MACControl;
+    friend class LinearControl;
 public:
     NonCO2Emissions();
     
@@ -104,10 +109,13 @@ protected:
 private:    
     //! The emissions coefficient.
     Value mEmissionsCoef;
-
+    
     //! Emissions to calibrate to if provided.
     Value mInputEmissions;
-
+    
+    //! Stored Emissions Coefficient (needed for some control technologies)
+    double mSavedEmissionsCoef; 
+    
     //! A flag to indicate if mInputEmissions should be used recalibrate mEmissionsCoef
     //! in the current model period.
     bool mShouldCalibrateEmissCoef;

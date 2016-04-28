@@ -1,0 +1,144 @@
+"# EGU emission factors for U. S. states for plants built after 2015, provided by Dan Loughlin at EPA-ORD",,,
+# Emission factors are assumed constant for all years,,,
+# Efs: kTonne/PJ,,,
+fuel,technology,Non.CO2,emiss.coeff
+refined liquids,refined liquids (steam/CT),CH4,0.002677453
+refined liquids,refined liquids (steam/CT),N2O,0.000532981
+refined liquids,refined liquids (steam/CT),NOx,0.230182415
+refined liquids,refined liquids (steam/CT),SO2,0.044161308
+refined liquids,refined liquids (steam/CT),PM10,0.013736371
+refined liquids,refined liquids (steam/CT),PM2.5,0.005732989
+refined liquids,refined liquids (steam/CT),CO,0.012823677
+refined liquids,refined liquids (steam/CT),NMVOC,0.000221647
+refined liquids,refined liquids (steam/CT),BC,0.001471096
+refined liquids,refined liquids (steam/CT),OC,0.000469063
+coal,coal (conv pul),CH4,0.000956252
+coal,coal (conv pul),N2O,0.001404218
+coal,coal (conv pul),NOx,0.172196044
+coal,coal (conv pul),SO2,0.051056127
+coal,coal (conv pul),PM10,0.013103139
+coal,coal (conv pul),PM2.5,0.010297601
+coal,coal (conv pul),CO,0.008716262
+coal,coal (conv pul),NMVOC,0.001034313
+coal,coal (conv pul),BC,0.000316911
+coal,coal (conv pul),OC,0.000468073
+coal,coal (IGCC),CH4,0.000665169
+coal,coal (IGCC),N2O,0.000997753
+coal,coal (IGCC),NOx,0.01115599
+coal,coal (IGCC),SO2,0.004081421
+coal,coal (IGCC),PM10,0.001702414
+coal,coal (IGCC),PM2.5,0
+coal,coal (IGCC),CO,0.006455686
+coal,coal (IGCC),NMVOC,0.000368651
+coal,coal (IGCC),BC,0
+coal,coal (IGCC),OC,0
+gas,gas (steam/CT),CH4,0.001093249
+gas,gas (steam/CT),N2O,0.000118428
+gas,gas (steam/CT),NOx,0.031011323
+gas,gas (steam/CT),SO2,0.000572696
+gas,gas (steam/CT),PM10,0.00303582
+gas,gas (steam/CT),PM2.5,0.00303582
+gas,gas (steam/CT),CO,0.018329644
+gas,gas (steam/CT),NMVOC,0.000965983
+gas,gas (steam/CT),BC,0.001926921
+gas,gas (steam/CT),OC,0.001379918
+gas,gas (CC),CH4,0.00112224
+gas,gas (CC),N2O,0.001132147
+gas,gas (CC),NOx,0.00890858
+gas,gas (CC),SO2,0.000287282
+gas,gas (CC),PM10,0.00011746
+gas,gas (CC),PM2.5,0.00011746
+gas,gas (CC),CO,0.018329644
+gas,gas (CC),NMVOC,0.000240581
+gas,gas (CC),BC,0.000817944
+gas,gas (CC),OC,5.34E-05
+biomass,biomass (conv),CH4,0.008207606
+biomass,biomass (conv),N2O,0.005080899
+biomass,biomass (conv),NOx,0.085984442
+biomass,biomass (conv),SO2,0.009770959
+biomass,biomass (conv),PM10,0.00957441
+biomass,biomass (conv),PM2.5,0.02067535
+biomass,biomass (conv),CO,0.234503023
+biomass,biomass (conv),NMVOC,0.006644252
+biomass,biomass (conv),BC,0.001092784
+biomass,biomass (conv),OC,0.003759155
+biomass,biomass (IGCC),CH4,0.00454631
+biomass,biomass (IGCC),N2O,9.09E-05
+biomass,biomass (IGCC),NOx,0.058625756
+biomass,biomass (IGCC),SO2,0.010064088
+biomass,biomass (IGCC),PM10,0.007740554
+biomass,biomass (IGCC),PM2.5,0.007740554
+biomass,biomass (IGCC),CO,0.089306568
+biomass,biomass (IGCC),NMVOC,0.003673881
+biomass,biomass (IGCC),BC,0.003283597
+biomass,biomass (IGCC),OC,0.001407373
+refined liquids,refined liquids (CC),CH4,0.003265604
+refined liquids,refined liquids (CC),N2O,0.000682557
+refined liquids,refined liquids (CC),NOx,0.223981035
+refined liquids,refined liquids (CC),SO2,0.134605114
+refined liquids,refined liquids (CC),PM10,0.000593688
+refined liquids,refined liquids (CC),PM2.5,0.000460862
+refined liquids,refined liquids (CC),CO,0.005410009
+refined liquids,refined liquids (CC),NMVOC,0.000514544
+refined liquids,refined liquids (CC),BC,0.001471096
+refined liquids,refined liquids (CC),OC,0.000469063
+refined liquids,refined liquids (CC CCS),CH4,0.001862437
+refined liquids,refined liquids (CC CCS),N2O,0.000378705
+refined liquids,refined liquids (CC CCS),NOx,0.014912728
+refined liquids,refined liquids (CC CCS),SO2,0.00353025
+refined liquids,refined liquids (CC CCS),PM10,0.001784686
+refined liquids,refined liquids (CC CCS),PM2.5,0
+refined liquids,refined liquids (CC CCS),CO,0.009497836
+refined liquids,refined liquids (CC CCS),NMVOC,7.90E-05
+refined liquids,refined liquids (CC CCS),BC,0
+refined liquids,refined liquids (CC CCS),OC,0
+coal,coal (conv pul CCS),CH4,0.000665169
+coal,coal (conv pul CCS),N2O,0.000997753
+coal,coal (conv pul CCS),NOx,0.01115599
+coal,coal (conv pul CCS),SO2,0.004081421
+coal,coal (conv pul CCS),PM10,0.001702414
+coal,coal (conv pul CCS),PM2.5,0
+coal,coal (conv pul CCS),CO,0.006455686
+coal,coal (conv pul CCS),NMVOC,0.000368651
+coal,coal (conv pul CCS),BC,0
+coal,coal (conv pul CCS),OC,0
+coal,coal (IGCC CCS),CH4,0.000665169
+coal,coal (IGCC CCS),N2O,0.000997753
+coal,coal (IGCC CCS),NOx,0.01115599
+coal,coal (IGCC CCS),SO2,0.004081421
+coal,coal (IGCC CCS),PM10,0.001702414
+coal,coal (IGCC CCS),PM2.5,0
+coal,coal (IGCC CCS),CO,0.006455686
+coal,coal (IGCC CCS),NMVOC,0.000368651
+coal,coal (IGCC CCS),BC,0
+coal,coal (IGCC CCS),OC,0
+biomass,biomass (conv CCS),CH4,0.00454631
+biomass,biomass (conv CCS),N2O,0.0000909
+biomass,biomass (conv CCS),NOx,0.058625756
+biomass,biomass (conv CCS),SO2,0.010064088
+biomass,biomass (conv CCS),PM10,0.007740554
+biomass,biomass (conv CCS),PM2.5,0.007740554
+biomass,biomass (conv CCS),CO,0.089306568
+biomass,biomass (conv CCS),NMVOC,0.003673881
+biomass,biomass (conv CCS),BC,0.003283597
+biomass,biomass (conv CCS),OC,0.001407373
+biomass,biomass (IGCC CCS),CH4,0.00454631
+biomass,biomass (IGCC CCS),N2O,0.0000909
+biomass,biomass (IGCC CCS),NOx,0.058625756
+biomass,biomass (IGCC CCS),SO2,0.010064088
+biomass,biomass (IGCC CCS),PM10,0.007740554
+biomass,biomass (IGCC CCS),PM2.5,0.007740554
+biomass,biomass (IGCC CCS),CO,0.089306568
+biomass,biomass (IGCC CCS),NMVOC,0.003673881
+biomass,biomass (IGCC CCS),BC,0.003283597
+biomass,biomass (IGCC CCS),OC,0.001407373
+gas,gas (CC CCS),CH4,0.00112224
+gas,gas (CC CCS),N2O,0.001132147
+gas,gas (CC CCS),NOx,0.00890858
+gas,gas (CC CCS),SO2,0.000287282
+gas,gas (CC CCS),PM10,0.00011746
+gas,gas (CC CCS),PM2.5,0.00011746
+gas,gas (CC CCS),CO,0.018329644
+gas,gas (CC CCS),NMVOC,0.000240581
+gas,gas (CC CCS),BC,0.000817944
+gas,gas (CC CCS),OC,5.34E-05

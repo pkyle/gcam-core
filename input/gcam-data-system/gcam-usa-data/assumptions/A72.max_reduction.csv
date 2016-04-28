@@ -1,0 +1,19 @@
+supplysector,subsector,stub.technology,SO2,NOx,CO,BC,OC,NMVOC,PM2.5,PM10,NH3
+electricity,biomass,biomass (conv),50,82,80,50,50,60,50,50,50
+electricity,biomass,biomass (IGCC CCS),0,10,0,0,0,0,0,0,0
+electricity,biomass,biomass (IGCC),0,10,0,0,0,0,0,0,0
+electricity,coal,coal (conv pul),98,95,80,50,50,60,50,50,50
+electricity,coal,coal (IGCC CCS),0,40,0,0,0,0,0,0,0
+electricity,coal,coal (IGCC),0,40,0,0,0,0,0,0,0
+electricity,gas,gas (CC CCS),10,55,80,50,50,60,50,50,50
+electricity,gas,gas (CC),10,55,80,50,50,60,50,50,50
+electricity,gas,gas (steam/CT),50,82,80,50,50,60,50,50,50
+electricity,geothermal,geothermal,,,,,,,,,
+electricity,hydro,hydro,,,,,,,,,
+electricity,nuclear,Gen_II_LWR,,,,,,,,,
+electricity,refined liquids,refined liquids (IGCC CCS),50,82,80,50,50,60,50,50,50
+electricity,refined liquids,refined liquids (IGCC),100,10,100,100,100,100,100,100,100
+electricity,refined liquids,refined liquids (steam/CT),100,10,100,100,100,100,100,100,100
+electricity,solar,CSP,,,,,,,,,
+electricity,solar,PV,,,,,,,,,
+electricity,wind,wind,,,,,,,,,

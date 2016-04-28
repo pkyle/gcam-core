@@ -111,6 +111,7 @@ public:
 
     virtual void initCalc( const std::string& aRegionName,
                            const std::string& aSectorName,
+                           const IInfo* aTechInfo,
                            const int aPeriod );
 
     virtual void postCalc( const std::string& aRegionName,
@@ -186,9 +187,12 @@ protected:
     //! Ratio of the secondary output to primary output production such that
     //! primary output multiplied by the ratio is equal to secondary output.
     Value mOutputRatio;
+    Value mOutputRatioToUse;
 
     //! Multiplier to price of secondary good to allow unit changes.
     double mPriceMult;
+
+    bool mIsNewVintageOnly;
     
     //! State value necessary to use Marketplace::addToDemand
     double mLastCalcValue;

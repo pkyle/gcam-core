@@ -39,7 +39,7 @@ conv_Pg_to_Tg <- 1000
 conv_t_kg <- 1e3
 conv_kg_t <- 1e-3
 conv_g_kg <- 1e-3
-conv_t_metric_short <- 1000/908
+conv_t_metric_short <- 1.10231
 
 #calorie conversions
 conv_Mcal_Pcal <- 1e-9

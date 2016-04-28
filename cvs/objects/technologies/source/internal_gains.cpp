@@ -166,6 +166,7 @@ void InternalGains::completeInit( const string& aSectorName,
 
 void InternalGains::initCalc( const string& aRegionName,
                               const string& aSectorName,
+                              const IInfo* aTechInfo,
                               const int aPeriod )
 {
 }

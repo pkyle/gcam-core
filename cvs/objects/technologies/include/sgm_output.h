@@ -118,6 +118,7 @@ public:
 
     virtual void initCalc( const std::string& aRegionName,
                            const std::string& aSectorName,
+                           const IInfo* aTechInfo,
                            const int aPeriod );
 
     virtual void postCalc( const std::string& aRegionName,

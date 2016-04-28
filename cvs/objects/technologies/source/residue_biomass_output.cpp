@@ -309,6 +309,7 @@ const std::string& ResidueBiomassOutput::getXMLNameStatic( void )
 }
 
 void ResidueBiomassOutput::initCalc( const std::string& aRegionName, const std::string& aSectorName,
+                                     const IInfo* aTechInfo,
                                      const int aPeriod )
 {
     assert( scenario != 0 );

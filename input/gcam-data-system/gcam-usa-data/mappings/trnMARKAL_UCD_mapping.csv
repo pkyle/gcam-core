@@ -1,0 +1,116 @@
+MARKAL_mode,MARKAL_class,MARKAL_fuel,UCD_mode,size.class,UCD_technology
+LDV,Compact car,B20,LDV_4W,Compact Car,Hybrid Liquids
+LDV,Compact car,DSL,LDV_4W,Compact Car,Liquids
+LDV,Compact car,E10,LDV_4W,Compact Car,Hybrid Liquids
+LDV,Compact car,E15,LDV_4W,Compact Car,Hybrid Liquids
+LDV,Compact car,E85,LDV_4W,Compact Car,Hybrid Liquids
+LDV,Compact car,ELC,LDV_4W,Compact Car,BEV
+LDV,Compact car,GSL,LDV_4W,Compact Car,Liquids
+LDV,Compact car,PH10E,LDV_4W,Compact Car,
+LDV,Compact car,PH10G,LDV_4W,Compact Car,
+LDV,Compact car,PH20E,LDV_4W,Compact Car,
+LDV,Compact car,PH20G,LDV_4W,Compact Car,
+LDV,Compact car,PH40E,LDV_4W,Compact Car,
+LDV,Compact car,PH40G,LDV_4W,Compact Car,
+LDV,Full size car,B20,LDV_4W,Midsize Car,Hybrid Liquids
+LDV,Full size car,DSL,LDV_4W,Midsize Car,Liquids
+LDV,Full size car,E10,LDV_4W,Midsize Car,Hybrid Liquids
+LDV,Full size car,E15,LDV_4W,Midsize Car,Hybrid Liquids
+LDV,Full size car,E85,LDV_4W,Midsize Car,Hybrid Liquids
+LDV,Full size car,ELC,LDV_4W,Midsize Car,BEV
+LDV,Full size car,GSL,LDV_4W,Midsize Car,Liquids
+LDV,Full size car,PH10E,LDV_4W,Midsize Car,
+LDV,Full size car,PH10G,LDV_4W,Midsize Car,
+LDV,Full size car,PH20E,LDV_4W,Midsize Car,
+LDV,Full size car,PH20G,LDV_4W,Midsize Car,
+LDV,Full size car,PH40E,LDV_4W,Midsize Car,
+LDV,Full size car,PH40G,LDV_4W,Midsize Car,
+LDV,Large SUV,B20,LDV_4W,Light Truck and SUV,Hybrid Liquids
+LDV,Large SUV,DSL,LDV_4W,Light Truck and SUV,Liquids
+LDV,Large SUV,E10,LDV_4W,Light Truck and SUV,Hybrid Liquids
+LDV,Large SUV,E15,LDV_4W,Light Truck and SUV,Hybrid Liquids
+LDV,Large SUV,E85,LDV_4W,Light Truck and SUV,Hybrid Liquids
+LDV,Large SUV,ELC,LDV_4W,Light Truck and SUV,BEV
+LDV,Large SUV,GSL,LDV_4W,Light Truck and SUV,Liquids
+LDV,Large SUV,PH10E,LDV_4W,Light Truck and SUV,
+LDV,Large SUV,PH10G,LDV_4W,Light Truck and SUV,
+LDV,Large SUV,PH20E,LDV_4W,Light Truck and SUV,
+LDV,Large SUV,PH20G,LDV_4W,Light Truck and SUV,
+LDV,Large SUV,PH40E,LDV_4W,Light Truck and SUV,
+LDV,Large SUV,PH40G,LDV_4W,Light Truck and SUV,
+LDV,Mini car,B20,LDV_4W,Compact Car,Hybrid Liquids
+LDV,Mini car,DSL,LDV_4W,Compact Car,Liquids
+LDV,Mini car,E10,LDV_4W,Compact Car,Hybrid Liquids
+LDV,Mini car,E15,LDV_4W,Compact Car,Hybrid Liquids
+LDV,Mini car,E85,LDV_4W,Compact Car,Hybrid Liquids
+LDV,Mini car,ELC,LDV_4W,Compact Car,BEV
+LDV,Mini car,GSL,LDV_4W,Compact Car,Liquids
+LDV,Mini car,PH10E,LDV_4W,Compact Car,
+LDV,Mini car,PH10G,LDV_4W,Compact Car,
+LDV,Mini car,PH20E,LDV_4W,Compact Car,
+LDV,Mini car,PH20G,LDV_4W,Compact Car,
+LDV,Mini car,PH40E,LDV_4W,Compact Car,
+LDV,Mini car,PH40G,LDV_4W,Compact Car,
+LDV,Minivan,B20,LDV_4W,Large Car,Hybrid Liquids
+LDV,Minivan,DSL,LDV_4W,Large Car,Liquids
+LDV,Minivan,E10,LDV_4W,Large Car,Hybrid Liquids
+LDV,Minivan,E15,LDV_4W,Large Car,Hybrid Liquids
+LDV,Minivan,E85,LDV_4W,Large Car,Hybrid Liquids
+LDV,Minivan,ELC,LDV_4W,Large Car,BEV
+LDV,Minivan,GSL,LDV_4W,Large Car,Liquids
+LDV,Minivan,PH10E,LDV_4W,Large Car,
+LDV,Minivan,PH10G,LDV_4W,Large Car,
+LDV,Minivan,PH20E,LDV_4W,Large Car,
+LDV,Minivan,PH20G,LDV_4W,Large Car,
+LDV,Minivan,PH40E,LDV_4W,Large Car,
+LDV,Minivan,PH40G,LDV_4W,Large Car,
+LDV,Pickup,B20,LDV_4W,Light Truck and SUV,Hybrid Liquids
+LDV,Pickup,DSL,LDV_4W,Light Truck and SUV,Liquids
+LDV,Pickup,E10,LDV_4W,Light Truck and SUV,Hybrid Liquids
+LDV,Pickup,E15,LDV_4W,Light Truck and SUV,Hybrid Liquids
+LDV,Pickup,E85,LDV_4W,Light Truck and SUV,Hybrid Liquids
+LDV,Pickup,ELC,LDV_4W,Light Truck and SUV,BEV
+LDV,Pickup,GSL,LDV_4W,Light Truck and SUV,Liquids
+LDV,Pickup,PH10E,LDV_4W,Light Truck and SUV,
+LDV,Pickup,PH10G,LDV_4W,Light Truck and SUV,
+LDV,Pickup,PH20E,LDV_4W,Light Truck and SUV,
+LDV,Pickup,PH20G,LDV_4W,Light Truck and SUV,
+LDV,Pickup,PH40E,LDV_4W,Light Truck and SUV,
+LDV,Pickup,PH40G,LDV_4W,Light Truck and SUV,
+LDV,Small SUV,B20,LDV_4W,Large Car,Hybrid Liquids
+LDV,Small SUV,DSL,LDV_4W,Large Car,Liquids
+LDV,Small SUV,E10,LDV_4W,Large Car,Hybrid Liquids
+LDV,Small SUV,E15,LDV_4W,Large Car,Hybrid Liquids
+LDV,Small SUV,E85,LDV_4W,Large Car,Hybrid Liquids
+LDV,Small SUV,ELC,LDV_4W,Large Car,BEV
+LDV,Small SUV,GSL,LDV_4W,Large Car,Liquids
+LDV,Small SUV,PH10E,LDV_4W,Large Car,
+LDV,Small SUV,PH10G,LDV_4W,Large Car,
+LDV,Small SUV,PH20E,LDV_4W,Large Car,
+LDV,Small SUV,PH20G,LDV_4W,Large Car,
+LDV,Small SUV,PH40E,LDV_4W,Large Car,
+LDV,Small SUV,PH40G,LDV_4W,Large Car,
+HDV,Bus,B0,Bus,All,Liquids
+HDV,Bus,B20,Bus,All,Liquids
+HDV,Bus,CNG,Bus,All,NG
+HDV,Bus,E0,Bus,All,Liquids
+HDV,Bus,E10,Bus,All,Liquids
+HDV,Bus,E15,Bus,All,Liquids
+HDV,Commercial Truck,B0,Truck,Truck (2.7-4.5t),Liquids
+HDV,Commercial Truck,B20,Truck,Truck (2.7-4.5t),Liquids
+HDV,Commercial Truck,CNG,Truck,Truck (2.7-4.5t),NG
+HDV,Commercial Truck,E0,Truck,Truck (2.7-4.5t),Liquids
+HDV,Commercial Truck,E10,Truck,Truck (2.7-4.5t),Liquids
+HDV,Commercial Truck,E15,Truck,Truck (2.7-4.5t),Liquids
+HDV,Heavy duty long haul truck,B0,Truck,Truck (>12t),Liquids
+HDV,Heavy duty long haul truck,B20,Truck,Truck (>12t),Liquids
+HDV,Heavy duty long haul truck,CNG,Truck,Truck (>12t),NG
+HDV,Heavy duty long haul truck,E0,Truck,Truck (>12t),Liquids
+HDV,Heavy duty long haul truck,E10,Truck,Truck (>12t),Liquids
+HDV,Heavy duty long haul truck,E15,Truck,Truck (>12t),Liquids
+HDV,Heavy duty short haul truck,B0,Truck,Truck (4.5-12t),Liquids
+HDV,Heavy duty short haul truck,B20,Truck,Truck (4.5-12t),Liquids
+HDV,Heavy duty short haul truck,CNG,Truck,Truck (4.5-12t),NG
+HDV,Heavy duty short haul truck,E0,Truck,Truck (4.5-12t),Liquids
+HDV,Heavy duty short haul truck,E10,Truck,Truck (4.5-12t),Liquids
+HDV,Heavy duty short haul truck,E15,Truck,Truck (4.5-12t),Liquids

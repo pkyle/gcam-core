@@ -197,6 +197,8 @@ protected:
     //! Current coefficient after adjustments have been made by the technology's
     //! capture component.
     std::vector<Value> mAdjustedCoefficients;
+
+    bool mIsNewVintageOnly;
     
     //! A pre-located market which has been cahced from the marketplace to get
     //! the price and add demands to.

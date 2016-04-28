@@ -319,7 +319,7 @@ void Resource::initCalc( const string& aRegionName, const int aPeriod ) {
     }
     
     for( unsigned int i = 0; i < mOutputs.size(); i++ ) {
-        mOutputs[ i ]->initCalc( aRegionName, mName, aPeriod );
+        mOutputs[ i ]->initCalc( aRegionName, mName, 0, aPeriod );
     }
     // setup supply curve boundaries here.
     double minprice = util::getLargeNumber();

@@ -684,7 +684,7 @@ void Technology::initCalc( const string& aRegionName,
     }
 
     for( unsigned int i = 0; i < mOutputs.size(); ++i ) {
-        mOutputs[ i ]->initCalc( aRegionName, aSectorName, aPeriod );
+        mOutputs[ i ]->initCalc( aRegionName, aSectorName, mTechnologyInfo.get(), aPeriod );
     }
 
     // Determine cumulative technical change. Alpha zero defaults to 1.

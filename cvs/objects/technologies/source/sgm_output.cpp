@@ -168,6 +168,7 @@ void SGMOutput::completeInit( const string& aSectorName,
 
 void SGMOutput::initCalc( const string& aRegionName,
                           const string& aSectorName,
+                          const IInfo* aTechInfo,
                           const int aPeriod )
 {
     // Make sure the sgm output has a name.

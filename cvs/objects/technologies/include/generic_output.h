@@ -87,6 +87,7 @@ public:
 
     virtual void initCalc( const std::string& aRegionName,
                            const std::string& aSectorName,
+                           const IInfo* aTechInfo,
                            const int aPeriod );
 
     virtual void setPhysicalOutput( const double aPrimaryOutput,

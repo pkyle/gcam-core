@@ -107,7 +107,9 @@ public :
 
     static const std::string& getXMLNameStatic( );
 
-    virtual void initCalc( const std::string& aRegionName, const std::string& aSectorName, const int aPeriod );
+    virtual void initCalc( const std::string& aRegionName, const std::string& aSectorName, 
+            const IInfo* aTechInfo,
+            const int aPeriod );
 
     virtual bool isSameType( const std::string& aType ) const { return getXMLNameStatic().compare( aType ) == 0; }
 

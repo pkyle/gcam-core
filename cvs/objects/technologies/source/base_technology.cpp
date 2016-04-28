@@ -340,7 +340,7 @@ void BaseTechnology::initCalc( const MoreSectorInfo* aMoreSectorInfo, const stri
     */
 
     for( unsigned int i = 0; i < mOutputs.size(); ++i ){
-        mOutputs[ i ]->initCalc( aRegionName, aSectorName, aPeriod );
+        mOutputs[ i ]->initCalc( aRegionName, aSectorName, 0, aPeriod );
     }
     mPricePaidCached = false;
 }

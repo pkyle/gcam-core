@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BatchRunner xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="batch_runner.xsd">
+
+	<ComponentSet name="End-Use Efficiency">
+
+        <FileSet name="Ref">
+		</FileSet>
+
+		<FileSet name="Adv_BldgEff">
+			<Value name="Enhanced Building End-use Efficiency">../input/gcam-data-system/xml/gcam-usa-xml/building_USA_adv_eff.xml</Value>
+	    </FileSet>
+	</ComponentSet>
+
+</BatchRunner>

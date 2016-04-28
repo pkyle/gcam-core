@@ -143,6 +143,7 @@ void PrimaryOutput::completeInit( const string& aSectorName,
 
 void PrimaryOutput::initCalc( const string& aRegionName,
                               const string& aSectorName,
+                              const IInfo* aTechInfo,
                               const int aPeriod )
 {
     // Make sure the primary output has a name.

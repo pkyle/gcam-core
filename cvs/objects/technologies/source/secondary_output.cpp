@@ -78,7 +78,8 @@ const string& SecondaryOutput::getXMLNameStatic()
 
 SecondaryOutput::SecondaryOutput()
     : mPhysicalOutputs( scenario->getModeltime()->getmaxper() ),
-      mPriceMult( 1.0 )
+      mPriceMult( 1.0 ),
+      mIsNewVintageOnly( false )
 {
 }
 
@@ -132,6 +133,9 @@ bool SecondaryOutput::XMLParse( const DOMNode* aNode )
         else if( nodeName == "pMultiplier" ) {
             mPriceMult = XMLHelper<double>::getValue( curr );
         }
+        else if( nodeName == "new-vintage-only" ) {
+            mIsNewVintageOnly = XMLHelper<bool>::getValue( curr );
+        }
         else if( nodeName == "market-name" ) {
             mMarketName = XMLHelper<string>::getValue( curr );
         }
@@ -152,6 +156,7 @@ void SecondaryOutput::toInputXML( ostream& aOut,
     XMLWriteOpeningTag( getXMLNameStatic(), aOut, aTabs, mName );
     XMLWriteElement( mOutputRatio, "output-ratio", aOut, aTabs );
     XMLWriteElementCheckDefault( mPriceMult, "pMultiplier", aOut, aTabs, 1.0 );
+    XMLWriteElementCheckDefault( mIsNewVintageOnly, "new-vintage-only", aOut, aTabs, false );
     XMLWriteElementCheckDefault( mMarketName, "market-name", aOut, aTabs, string() );
     XMLWriteClosingTag( getXMLNameStatic(), aOut, aTabs );
 }
@@ -161,7 +166,7 @@ void SecondaryOutput::toDebugXML( const int aPeriod,
                                   Tabs* aTabs ) const
 {
     XMLWriteOpeningTag( getXMLNameStatic(), aOut, aTabs, mName );
-    XMLWriteElement( mOutputRatio, "output-ratio", aOut, aTabs );
+    XMLWriteElement( mOutputRatioToUse, "output-ratio", aOut, aTabs );
     XMLWriteElement( mPriceMult, "pMultiplier", aOut, aTabs );
     XMLWriteElement( mPhysicalOutputs[ aPeriod ], "output", aOut, aTabs );
     XMLWriteElement( mCachedCO2Coef, "cached-co2-coef", aOut, aTabs );
@@ -185,12 +190,14 @@ void SecondaryOutput::completeInit( const string& aSectorName,
 
 void SecondaryOutput::initCalc( const string& aRegionName,
                                 const string& aSectorName,
+                                const IInfo* aTechInfo,
                                 const int aPeriod )
 {
+    mOutputRatioToUse = !mIsNewVintageOnly || aTechInfo->getBoolean( "new-vintage-tech", false ) ? mOutputRatio : Value( 0.0 );
     // Initialize the cached CO2 coefficient. Output ratio is determined by the
     // CO2 coefficient and the ratio of output to the primary good.
     const double CO2Coef = FunctionUtils::getCO2Coef( mMarketName.empty() ? aRegionName : mMarketName, mName, aPeriod );
-    mCachedCO2Coef.set( CO2Coef * mOutputRatio );
+    mCachedCO2Coef.set( CO2Coef * mOutputRatioToUse );
 }
 
 
@@ -251,7 +258,7 @@ double SecondaryOutput::getValue( const string& aRegionName,
 
     // The value of the secondary output is the market price multiplied by the
     // output ratio.
-    return price * mOutputRatio * mPriceMult;
+    return price * mOutputRatioToUse * mPriceMult;
 }
 
 string SecondaryOutput::getOutputUnits( const string& aRegionName ) const {
@@ -281,7 +288,7 @@ void SecondaryOutput::accept( IVisitor* aVisitor, const int aPeriod ) const
  * \return Physical output.
  */
 double SecondaryOutput::calcPhysicalOutputInternal( const double aPrimaryOutput ) const {
-    return aPrimaryOutput * mOutputRatio;
+    return aPrimaryOutput * mOutputRatioToUse;
 }
 
 void SecondaryOutput::doInterpolations( const int aYear, const int aPreviousYear,

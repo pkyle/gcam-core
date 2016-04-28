@@ -89,6 +89,7 @@ void GenericOutput::toDebugXML( const int aPeriod,
 
 void GenericOutput::initCalc( const string& aRegionName,
                               const string& aSectorName,
+                              const IInfo* aTechInfo,
                               const int aPeriod )
 {
     // Do mostly nothing

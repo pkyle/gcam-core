@@ -99,6 +99,7 @@ EnergyInput::EnergyInput() :
     mPhysicalDemand( scenario->getModeltime()->getmaxper() ),
     mCarbonContent( scenario->getModeltime()->getmaxper() ),
     mAdjustedCoefficients( scenario->getModeltime()->getmaxper() ),
+    mIsNewVintageOnly( false ),
     mCachedMarket( 0 )
 {
 }
@@ -138,6 +139,7 @@ EnergyInput::EnergyInput( const EnergyInput& aOther ){
     mIncomeElasticity = aOther.mIncomeElasticity;
     mTechChange = aOther.mTechChange;
     mPriceUnitConversionFactor = aOther.mPriceUnitConversionFactor;
+    mIsNewVintageOnly = aOther.mIsNewVintageOnly;
     
     // Resize vectors to the correct size.
     mPhysicalDemand.resize( scenario->getModeltime()->getmaxper() );
@@ -195,6 +197,9 @@ void EnergyInput::XMLParse( const xercesc::DOMNode* node ) {
         else if( nodeName == "price-unit-conversion" ){
             mPriceUnitConversionFactor = XMLHelper<double>::getValue( curr );
         }
+        else if( nodeName == "new-vintage-only" ){
+            mIsNewVintageOnly = XMLHelper<bool>::getValue( curr );
+        }
         else if( nodeName == "market-name" ){
             mMarketName = XMLHelper<string>::getValue( curr );
         }
@@ -231,6 +236,8 @@ void EnergyInput::toInputXML( ostream& aOut,
                                  aTabs, Value( 0 ) );
     XMLWriteElementCheckDefault( mPriceUnitConversionFactor, "price-unit-conversion", aOut,
                                  aTabs, Value( 1 ) );
+    XMLWriteElementCheckDefault( mIsNewVintageOnly, "new-vintage-only", aOut,
+                                 aTabs, false );
     XMLWriteElement( mMarketName, "market-name", aOut, aTabs );
     if( !mKeywordMap.empty() ) {
         XMLWriteElementWithAttributes( "", "keyword", aOut, aTabs, mKeywordMap );
@@ -311,6 +318,10 @@ void EnergyInput::initCalc( const string& aRegionName,
     }
     else if( !mAdjustedCoefficients[ aPeriod ].isInited() ){
         mAdjustedCoefficients[ aPeriod ] = 1;
+    }
+
+    if( mIsNewVintageOnly && !aTechInfo->getBoolean( "new-vintage-tech", false ) ) {
+        mAdjustedCoefficients[ aPeriod ] = 0;
     }
     
     mCachedMarket = scenario->getMarketplace()->locateMarket( mName, mMarketName, aPeriod );

@@ -31,6 +31,8 @@ state_S_F <- c( "state", "sector", "fuel" )
 UCD_techID <- c( "UCD_sector", "mode", "size.class", "UCD_technology", "UCD_fuel" )
 
 sup_sub_tech <- c( "supplysector", "subsector", "technology" )
+sup_sub_stubtech <- c( "supplysector", "subsector", "stub.technology" )
+R_sup_sub_stubtech <- c( "region","supplysector", "subsector", "stub.technology" )
 sup_sub_input <- c( "supplysector", "subsector", "minicam_energy_input" )
 sup_sub_tech_input <- c( "supplysector", "subsector", "technology", "minicam_energy_input" )
 R_sup_sub_tech_input <- c( "region", "supplysector", "subsector", "technology", "minicam_energy_input" )

@@ -607,11 +607,13 @@ void IntermittentTechnology::initializeInputLocations( const string& aRegionName
         else {
             if( mBackupInput != mInputs.end() ){
               // There already was a resource input.
+                /*
               ILogger& mainLog = ILogger::getLogger( "main_log" );
                 mainLog.setLevel( ILogger::NOTICE );
                 mainLog << "Intermittent technology " << mName << " in sector " << aSectorName
                         << " in region " << aRegionName
                         << " has more than one energy input that is not the resource." << endl;
+                        */
             }
             else {
                 mBackupInput = i;
