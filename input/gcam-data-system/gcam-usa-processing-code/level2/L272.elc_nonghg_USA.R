@@ -33,7 +33,7 @@ L123.in_EJ_state_elec_F <- readdata ( "GCAMUSA_LEVEL1_DATA", "L123.in_EJ_state_e
 L172.nonghg_tg_state_elec_F_Yb <- readdata( "GCAMUSA_LEVEL1_DATA", "L172.nonghg_tg_state_elec_F_Yb" )
 L172.nonghg_tgej_state_elec_F_Yf <- readdata ( "GCAMUSA_LEVEL1_DATA", "L172.nonghg_tgej_state_elec_F_Yf" )
 L223.StubTech_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTech_elec_USA", skip = 4 )
-EPA_state_egu_emission_factors_ktPJ_post2015<-readdata( "GCAMUSA_LEVEL0_DATA", "EPA_state_egu_emission_factors_ktPJ_post2015", skip = 3)
+EPA_state_egu_emission_factors_ktPJ_post2015 <- readdata( "GCAMUSA_LEVEL0_DATA", "EPA_state_egu_emission_factors_ktPJ_post2015")
 
 # -----------------------------------------------------------------------------
 # 2. Build tables for CSVs
@@ -136,11 +136,7 @@ L172.nonghg_tgej_state_elec_F_Yf.long <- L172.nonghg_tgej_state_elec_F_Yf %>%
   gather(year,emiss.coeff,-state,-sector,-fuel,-Non.CO2) %>%
   mutate(year = as.numeric(substr(year,2,5)))
 
-#Separate out NH3 emission factors
-L172.nonghg_tgej_state_elec_F_Yf.long_NH3<-subset(L172.nonghg_tgej_state_elec_F_Yf.long, Non.CO2=="NH3")
-L172.nonghg_tgej_state_elec_F_Yf.long_NH3<-L172.nonghg_tgej_state_elec_F_Yf.long_NH3[,c(1:3,5,4,6)]
-
-
+#Create a table to contain future emission factors, starting with exhaustive list of all technologies
 L272.nonghg_elec_tech_coeff_Yf_USA.NAs <- L223.StubTech_elec_USA %>%
   #Add on years from available data
   repeat_and_add_vector("year",unique(L172.nonghg_tgej_state_elec_F_Yf.long$year)) %>%
@@ -150,15 +146,15 @@ L272.nonghg_elec_tech_coeff_Yf_USA.NAs <- L223.StubTech_elec_USA %>%
   mutate(emiss.coeff = EPA_state_egu_emission_factors_ktPJ_post2015$emiss.coeff[match(
       paste(subsector,stub.technology,Non.CO2), 
       vecpaste(EPA_state_egu_emission_factors_ktPJ_post2015[c("fuel","technology","Non.CO2")]))]) %>%
-  #For NH3, use old data
-  mutate(emiss.coeff = ifelse(is.na(emiss.coeff)& Non.CO2=="NH3", 
-      L172.nonghg_tgej_state_elec_F_Yf.long_NH3$emiss.coeff[match(paste(region, subsector, Non.CO2, year), 
-      vecpaste(L172.nonghg_tgej_state_elec_F_Yf.long_NH3[c("state","fuel","Non.CO2", "year")]))
-  ], emiss.coeff)) 
+  ###MISSING VALUES: All emission factors for renewable energy technologies and all NH3 emission factors
+  #For NH3, use data from EPA-ORD
+  mutate(emiss.coeff = ifelse(is.na(emiss.coeff) & Non.CO2== "NH3", 
+      L172.nonghg_tgej_state_elec_F_Yf.long$emiss.coeff[match(paste(region, subsector, Non.CO2, year), 
+      vecpaste(L172.nonghg_tgej_state_elec_F_Yf.long[c("state","fuel","Non.CO2", "year")]))], emiss.coeff)) 
   ###MISSING VALUES: only in NH3. Replace what we can with averages 
 
 #Compute USA average emission factors for elec fuel inputs in future years
-avg_elec_emiss_coeffs_Yf <- L172.nonghg_tgej_state_elec_F_Yf.long_NH3 %>%
+avg_elec_emiss_coeffs_Yf <- L172.nonghg_tgej_state_elec_F_Yf.long %>%
   group_by(fuel,year,Non.CO2) %>%
   summarise(emiss.coeff = mean(emiss.coeff))
 

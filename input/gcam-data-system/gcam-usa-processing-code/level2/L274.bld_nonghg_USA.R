@@ -57,14 +57,13 @@ bld_fuel_input_tech_shares <- L244.StubTechCalInput_bld %>%
 # 2b. Share out NEI emissions to the buildings technologies using the sector/fuel technology shares
 printlog( "Base-year input emissions for buildings sector technologies in the USA")
 #Start with a table containing all of the technology combinations
-names(L244.StubTech_bld)[4]="stub.technology"
+names(L244.StubTech_bld)[4] <- "stub.technology"
 L274.bld_nonghg_emissions_USA <- L244.StubTech_bld %>%
+  #Filter out electricity because its use in buildings does not emit pollutants
+  filter(subsector != "electricity") %>%
   mutate(sector = ifelse(grepl("comm",supplysector),"comm","resid"), year = final_model_base_year) %>%
   #Add on pollutants in the NEI data
   repeat_and_add_vector("Non.CO2",unique(L174.nonghg_tg_state_bld_F_Yb$Non.CO2)) %>%
-  repeat_and_add_vector("region",states_subregions$state) %>%
-  #Filter to only include tech emissions with available data
-  filter(paste(sector,subsector,Non.CO2) %in% vecpaste(L174.nonghg_tg_state_bld_F_Yb[c(S_F,"Non.CO2")])) %>%
   #Match on the tech shares
   mutate(S_F_tech_share = bld_fuel_input_tech_shares$S_F_tech_share[match(paste(region,supplysector,subsector,stub.technology),
          vecpaste(bld_fuel_input_tech_shares[c(R_sup_sub_stubtech)]))]) %>%

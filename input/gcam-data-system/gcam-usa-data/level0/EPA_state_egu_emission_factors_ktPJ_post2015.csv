@@ -1,6 +1,6 @@
-"# EGU emission factors for U. S. states for plants built after 2015, provided by Dan Loughlin at EPA-ORD",,,
+# EGU emission factors for U. S. states for plants built after 2015, provided by Dan Loughlin at EPA-ORD,,,
 # Emission factors are assumed constant for all years,,,
-# Efs: kTonne/PJ,,,
+# Units: kTonne/PJ,,,
 fuel,technology,Non.CO2,emiss.coeff
 refined liquids,refined liquids (steam/CT),CH4,0.002677453
 refined liquids,refined liquids (steam/CT),N2O,0.000532981

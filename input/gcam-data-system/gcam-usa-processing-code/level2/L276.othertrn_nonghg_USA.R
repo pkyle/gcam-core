@@ -141,7 +141,8 @@ L276.nonghg_othertrn_tech_coeff_USA <- L276.nonghg_othertrn_tech_coeff_USA.NAs %
   select(region,supplysector,tranSubsector,stub.technology,year,Non.CO2,emiss.coeff) %>%
   distinct() %>%
   mutate(emiss.coeff = round(emiss.coeff,digits_emissions)) %>%
-  arrange(region,Non.CO2,supplysector,tranSubsector,stub.technology)
+  arrange(region,Non.CO2,supplysector,tranSubsector,stub.technology) %>%
+  filter(!(Non.CO2=="CO2"))
 
 stopifnot(!any(is.na(L276.nonghg_othertrn_tech_coeff_USA)))
 stopifnot(!any(is.infinite(L276.nonghg_othertrn_tech_coeff_USA$emiss.coeff)))

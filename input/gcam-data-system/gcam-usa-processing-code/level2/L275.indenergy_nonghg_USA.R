@@ -95,7 +95,8 @@ L275.nonghg_indenergy_tech_coeff_USA <- L275.nonghg_indenergy_tech_coeff_USA.NAs
           vecpaste(avg_indenergy_emiss_coeffs_Yb[c("fuel","Non.CO2")]))],emiss.coeff)) %>%
   select(region,supplysector,subsector,stub.technology,year,Non.CO2,emiss.coeff) %>%
   mutate(emiss.coeff = round(emiss.coeff,digits_emissions)) %>%
-  arrange(Non.CO2,supplysector,subsector,stub.technology,region)
+  arrange(Non.CO2,supplysector,subsector,stub.technology,region)%>%
+  filter(!(Non.CO2=="CO2"))
 
 # 2c. Apply trends to emission factors from industrial petroleum use
 printlog( "Applying trends to emission coefficients for industrial petroleum use technologies" )
@@ -115,7 +116,8 @@ L275.nonghg_indliq_tech_coeff_USA <- L275.nonghg_indenergy_tech_coeff_USA %>%
   mutate(emiss.coeff = emiss.coeff * indliq_emiss_factor_trends.long$multiplier[
          match(paste(year,Non.CO2),vecpaste(indliq_emiss_factor_trends.long[c("year","Non.CO2")]))]) %>%
   mutate(emiss.coeff = round(emiss.coeff,digits_emissions)) %>%
-  arrange(Non.CO2,supplysector,subsector,stub.technology,region)
+  arrange(Non.CO2,supplysector,subsector,stub.technology,region)%>%
+  filter(!(Non.CO2=="CO2"))
 
 
 stopifnot(!any(is.na(L275.nonghg_indenergy_tech_coeff_USA)))
