@@ -320,12 +320,6 @@ L223.calout_EJ_state_elec_F_tech <- subset( L1231.out_EJ_state_elec_F_tech,
 #L223.StubTechCalInput_elec_USA$tech.share.weight <- ifelse( L223.StubTechCalInput_elec_USA$calibrated.value > 0, 1, 0 )
 #L223.StubTechCalInput_elec_USA <- subset( L223.StubTechCalInput_elec_USA, !paste( region, subsector ) %in% geo_states_noresource )
 
-#Coal is calibrated as input via the dispatcher in 2010 so remove these rows
-if(use_coal_gas_dispatcher == TRUE){
-L223.StubTechProd_elec_USA <-   filter(L223.StubTechProd_elec_USA,
-                                       !(year == 2010 & stub.technology == "coal (conv pul)"))
-}
-
 printlog( "L223.StubTechFixOut_elec_USA: fixed output of electricity generation technologies")
 L223.StubTechFixOut_elec_USA <- L223.fixout_EJ_state_elec_F_tech[ names_StubTechYr ]
 L223.StubTechFixOut_elec_USA$fixedOutput <- round( L223.fixout_EJ_state_elec_F_tech$calOutputValue, digits_calOutput )
@@ -346,6 +340,11 @@ L223.StubTechProd_elec_USA$share.weight.year <- L223.StubTechProd_elec_USA$year
 L223.StubTechProd_elec_USA <- set_subsector_shrwt( L223.StubTechProd_elec_USA, value.name="calOutputValue" )
 L223.StubTechProd_elec_USA$share.weight <- ifelse( L223.StubTechProd_elec_USA$calOutputValue > 0, 1, 0 )
 L223.StubTechProd_elec_USA <- subset( L223.StubTechProd_elec_USA, !paste( region, subsector ) %in% geo_states_noresource )
+#Coal is calibrated as input via the dispatcher in 2010 so remove these rows
+if(use_coal_gas_dispatcher == TRUE){
+L223.StubTechProd_elec_USA <-   filter(L223.StubTechProd_elec_USA,
+                                       !(year == 2010 & stub.technology == "coal (conv pul)"))
+}
 
 printlog( "L223.StubTechMarket_elec_USA: market names of inputs to state electricity sectors" )
 L223.StubTechMarket_elec_USA <- repeat_and_add_vector( L223.StubTech_elec_USA, Y, model_years )

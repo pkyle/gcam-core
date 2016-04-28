@@ -234,6 +234,7 @@ void FractionalSecondaryOutput::completeInit( const string& aSectorName,
 
 void FractionalSecondaryOutput::initCalc( const string& aRegionName,
                                           const string& aSectorName,
+                                          const IInfo* aTechInfo,
                                           const int aPeriod )
 {
     // The fractional supply will not have any additional behavior below the minimum price

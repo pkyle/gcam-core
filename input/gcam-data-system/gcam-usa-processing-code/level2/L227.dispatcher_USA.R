@@ -49,12 +49,18 @@ L127.Remaining_Coal_USA <- readdata( "GCAMUSA_LEVEL1_DATA", "L127.Remaining_Coal
 # 2. Build tables for CSVs
 # 2a. Supplysector information
 printlog( "L227.Supplysector_disp_USA: Supply sector information for Coal-Gas Dispatch sector" )
-L227.Supplysector_disp_USA <- write_to_all_states( A27.sector, names_Supplysector )
+L227.Supplysector_disp_USA <- write_to_all_states( A27.sector, c( names_Supplysector, "logit.type" ) )
+L227.SectorLogitTables_disp_USA <- get_logit_fn_tables( L227.Supplysector_disp_USA, names_SupplysectorLogitType, base.header="Supplysector_",
+    include.equiv.table=T, write.all.regions=F )
+L227.Supplysector_disp_USA <- L227.Supplysector_disp_USA[, names_Supplysector ]
 stopifnot(!any(is.na(L227.Supplysector_disp_USA)))
 
 # 2b. Subsector information
 printlog( "L227.SubsectorLogit_disp_USA: Subsector logit exponents of Coal-Gas Dispatch sector" )
-L227.SubsectorLogit_disp_USA <- write_to_all_states( A27.subsector_logit, names_SubsectorLogit )
+L227.SubsectorLogit_disp_USA <- write_to_all_states( A27.subsector_logit, c( names_SubsectorLogit, "logit.type" ) )
+L227.SubsectorLogitTables_disp_USA <- get_logit_fn_tables( L227.SubsectorLogit_disp_USA, names_SubsectorLogitType, base.header="SubsectorLogit_",
+    include.equiv.table=F, write.all.regions=F )
+L227.SubsectorLogit_disp_USA <- L227.SubsectorLogit_disp_USA[, names_SubsectorLogit ]
 
 printlog( "L227.SubsectorShrwt_disp_USA and L227.SubsectorShrwtFllt_disp_USA: Subsector shareweights of electricity dispatch sector" )
 if( any( !is.na( A27.subsector_shrwt$year ) ) ){
@@ -191,8 +197,18 @@ stopifnot(!any(is.na(L227.GlobalTechAvail_disp)))
 
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
+for( curr_table in names ( L227.SectorLogitTables_disp_USA ) ) {
+write_mi_data( L227.SectorLogitTables_disp_USA[[ curr_table ]]$data, L227.SectorLogitTables_disp_USA[[ curr_table ]]$header,
+    "GCAMUSA_LEVEL2_DATA", paste0("L227.", L227.SectorLogitTables_disp_USA[[ curr_table ]]$header ), "GCAMUSA_XML_BATCH",
+    "batch_dispatcher_USA.xml" )
+}
 write_mi_data( L227.Supplysector_disp_USA, IDstring="Supplysector", domain="GCAMUSA_LEVEL2_DATA", fn="L227.Supplysector_disp_USA",
                batch_XML_domain="GCAMUSA_XML_BATCH", batch_XML_file="batch_dispatcher_USA.xml" ) 
+for( curr_table in names ( L227.SubsectorLogitTables_disp_USA ) ) {
+write_mi_data( L227.SubsectorLogitTables_disp_USA[[ curr_table ]]$data, L227.SubsectorLogitTables_disp_USA[[ curr_table ]]$header,
+    "GCAMUSA_LEVEL2_DATA", paste0("L227.", L227.SubsectorLogitTables_disp_USA[[ curr_table ]]$header ), "GCAMUSA_XML_BATCH",
+    "batch_dispatcher_USA.xml" )
+}
 write_mi_data( L227.SubsectorLogit_disp_USA, "SubsectorLogit", "GCAMUSA_LEVEL2_DATA", "L227.SubsectorLogit_disp_USA", "GCAMUSA_XML_BATCH", "batch_dispatcher_USA.xml" ) 
 
 if( exists( "L227.SubsectorShrwt_disp_USA" ) ) {
