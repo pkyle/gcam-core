@@ -82,7 +82,7 @@ cooling_services <- c( "resid cooling", "comm cooling" )
 floor_to_surface <- 5.5
 
 coal_phaseout_year <- 2020   #the year at which coal use in buildings is assumed to go to 0
-efficiency_partition_year <- 2005 # the year in which stock averages are used to allocate shares to hi-tech and typical techs
+efficiency_partition_year <- 2010 # the year in which stock averages are used to allocate shares to hi-tech and typical techs
 
 BEND_serviceID <- c( "BEND_sector", "BEND_service" )
 BEND_techID <- c( "BEND_sector", "BEND_service", "BEND_fuel", "BEND_technology" )

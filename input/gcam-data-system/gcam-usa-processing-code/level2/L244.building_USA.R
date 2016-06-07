@@ -37,7 +37,6 @@ A44.subsector_shrwt <- readdata( "GCAMUSA_ASSUMPTIONS", "A44.subsector_shrwt" )
 A44.globaltech_cost <- readdata( "GCAMUSA_ASSUMPTIONS", "A44.globaltech_cost" )
 A44.globaltech_eff <- readdata( "GCAMUSA_ASSUMPTIONS", "A44.globaltech_eff" )
 A44.globaltech_eff_avg <- readdata( "GCAMUSA_ASSUMPTIONS", "A44.globaltech_eff_avg" )
-A44.globaltech_eff_adv <- readdata( "GCAMUSA_ASSUMPTIONS", "A44.globaltech_eff_adv" )
 A44.globaltech_shares <- readdata( "GCAMUSA_ASSUMPTIONS", "A44.globaltech_shares" )
 A44.globaltech_intgains <- readdata( "GCAMUSA_ASSUMPTIONS", "A44.globaltech_intgains" )
 A44.globaltech_retirement <- readdata( "GCAMUSA_ASSUMPTIONS", "A44.globaltech_retirement" )
@@ -258,29 +257,7 @@ L244.end_use_eff_2010<-subset(L244.end_use_eff, year==2010)
 L244.end_use_eff[ c( "sector.name", "subsector.name" ) ] <- L244.end_use_eff[ c( supp, subs ) ]
 L244.GlobalTechEff_bld <- L244.end_use_eff[ names_GlobalTechEff ]
 
-#end use efficiency - advanced case
 #Note - this code assumes that base-year efficiences are identical (should fix to copy over to make sure)
-printlog( "L244.GlobalTechEff_bld_adv: Assumed efficiencies (all years) of buildings technologies - advanced efficiency case" )
-
-#Merge 2010 interpolated efficiencies with advanced building efficiencies
-L244.end_use_eff_2010<-subset(L244.end_use_eff_2010, L244.end_use_eff_2010$technology == A44.globaltech_eff_adv$technology)
-names(L244.end_use_eff_2010)[6]<-"X2010"
-L244.end_use_eff_2010<-L244.end_use_eff_2010[,c(1:4,6)]
-
-A44.globaltech_eff_adv<-merge(L244.end_use_eff_2010, A44.globaltech_eff_adv, by = intersect(names(L244.end_use_eff_2010), names(A44.globaltech_eff_adv)))
-A44.globaltech_eff_adv<-A44.globaltech_eff_adv[,c(1:4, 6:8, 5, 9:15)]
-
-L244.end_use_eff_adv <- interpolate_and_melt( A44.globaltech_eff_adv, model_years, value.name="efficiency", digits = digits_calOutput )
-L244.end_use_eff_adv$region <- L244.end_use_eff$state
-L244.end_use_eff_adv[ c( "sector.name", "subsector.name" ) ] <- L244.end_use_eff_adv[ c( supp, subs ) ]
-L244.GlobalTechEff_bld_adv <- L244.end_use_eff_adv[ names_GlobalTechEff ]
-
-#adv technology 
-printlog( "L244.StubTech_bld_adv_eff: Identification of stub technologies for buildings - advanced efficiency case" )
-L244.StubTech_bld_adv_eff <- write_to_all_states( unique( A44.globaltech_eff[ s_s_t ] ), names_Tech )
-names( L244.StubTech_bld ) <- sub( "technology", "stub.technology", names( L244.StubTech_bld ) )
-
-
 printlog( "L244.StubTechMarket_bld: Specify market names for fuel inputs to all technologies in each state" )
 L244.end_use_eff$market.name <- "USA"
 L244.end_use_eff$stub.technology <- L244.end_use_eff$technology
@@ -325,7 +302,8 @@ A44.globaltech_eff_avg$share_tech2 <- 1 - A44.globaltech_eff_avg$share_tech1
 L244.globaltech_shares <- rbind( A44.globaltech_eff_avg[ names( A44.globaltech_shares ) ], A44.globaltech_shares )
 
 #For calibration table, start with global tech efficiency table, repeat by states, and match in tech shares.
-L244.StubTechCalInput_bld <- repeat_and_add_vector( L244.GlobalTechEff_bld[ L244.GlobalTechEff_bld$year %in% model_base_years, names_GlobalTechInput ], "region", states_subregions$state )
+L244.StubTechCalInput_bld <- repeat_and_add_vector( L244.GlobalTechEff_bld[ L244.GlobalTechEff_bld$year %in% model_base_years, names_GlobalTechInput ],
+                                                    "region", states_subregions$state )
 L244.StubTechCalInput_bld[ c( supp, subs, "stub.technology" ) ] <- L244.StubTechCalInput_bld[ c( "sector.name", "subsector.name", "technology" ) ]
 L244.StubTechCalInput_bld$share <- 1
 L244.StubTechCalInput_bld$share[
@@ -359,7 +337,7 @@ L244.GlobalTechShrwt_bld[ c( "sector.name", "subsector.name" ) ] <- L244.GlobalT
 L244.GlobalTechShrwt_bld <- L244.GlobalTechShrwt_bld[ c( names_GlobalTechYr, "share.weight" ) ]
 
 printlog( "L244.GlobalTechInterpTo_bld: Technology shareweight interpolation (selected techs only)" )
-L244.GlobalTechInterpTo_bld <- A44.globaltech_interp
+L244.GlobalTechInterpTo_bld <- set_years( A44.globaltech_interp )
 L244.GlobalTechInterpTo_bld[ c( "sector.name", "subsector.name" ) ] <- L244.GlobalTechInterpTo_bld[ c( supp, subs ) ]
 L244.GlobalTechInterpTo_bld <- L244.GlobalTechInterpTo_bld[ names_GlobalTechInterpTo ]
 

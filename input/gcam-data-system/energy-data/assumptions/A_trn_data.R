@@ -4,7 +4,7 @@
 UCD_en_year <- 2005
 X_UCD_en_year <- paste0( "X", UCD_en_year )
 
-UCD_years <- seq( 2005, 2095, 15 )
+UCD_years <- c( 2005, 2010, seq( 2020, 2095, 15 ) )
 X_UCD_years <- paste0( "X", UCD_years )
 pre_UCD_years <- historical_years[ historical_years < min( UCD_years ) ]
 X_pre_UCD_years <- paste0( "X", pre_UCD_years )
