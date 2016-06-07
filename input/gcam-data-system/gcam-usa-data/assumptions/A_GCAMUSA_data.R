@@ -13,7 +13,7 @@ use_regional_elec_markets <- TRUE
 
 #use_coal_gas_dispatcher: indicate whether to turn on the dispatch sector that competes coal and gas electricity in the
 #base year.
-use_coal_gas_dispatcher <- TRUE
+use_coal_gas_dispatcher <- FALSE
 
 #Identifier columns
 state <- "state"
