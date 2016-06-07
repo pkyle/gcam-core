@@ -541,12 +541,4 @@ write_mi_data( L244.GlobalTechSCurve_bld, "GlobalTechSCurve", "GCAMUSA_LEVEL2_DA
 
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_building_USA.xml", "GCAMUSA_XML_FINAL", "building_USA.xml", "", xml_tag="outFile" )
 
-# Write add-on file for advanced efficiency case
-write_mi_data( L244.GlobalTechEff_bld_adv, "GlobalTechEff", "GCAMUSA_LEVEL2_DATA", "L244.GlobalTechEff_bld_adv", "GCAMUSA_XML_BATCH", "batch_building_USA_adv_eff.xml" ) 
-insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_building_USA_adv_eff.xml", "GCAMUSA_XML_FINAL", "building_USA_adv_eff.xml", "", xml_tag="outFile" )
-
-# Write add-on file for advanced efficiency case
-write_mi_data( L244.GlobalTechEff_bld_adv, "GlobalTechEff", "GCAMUSA_LEVEL2_DATA", "L244.GlobalTechEff_bld_adv", "GCAMUSA_XML_BATCH", "batch_building_USA_adv_eff.xml" ) 
-insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_building_USA_adv_eff.xml", "GCAMUSA_XML_FINAL", "building_USA_adv_eff.xml", "", xml_tag="outFile" )
-
 logstop()
