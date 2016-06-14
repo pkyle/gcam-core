@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+   <world>
+      <region name="AK">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.40457775</share-weight>
+               <share-weight year="2020">0.3482095</share-weight>
+               <share-weight year="2025">0.29184125</share-weight>
+               <share-weight year="2030">0.235473</share-weight>
+               <share-weight year="2035">0.17910475</share-weight>
+               <share-weight year="2040">0.1227365</share-weight>
+               <share-weight year="2045">0.06636825</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="AL">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="AR">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="AZ">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="CA">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.0697856</share-weight>
+               <share-weight year="2020">0.0612448</share-weight>
+               <share-weight year="2025">0.052704</share-weight>
+               <share-weight year="2030">0.0441632</share-weight>
+               <share-weight year="2035">0.0356224</share-weight>
+               <share-weight year="2040">0.0270816</share-weight>
+               <share-weight year="2045">0.0185408</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="CO">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="CT">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.091762625</share-weight>
+               <share-weight year="2020">0.08008225</share-weight>
+               <share-weight year="2025">0.068401875</share-weight>
+               <share-weight year="2030">0.0567215</share-weight>
+               <share-weight year="2035">0.045041125</share-weight>
+               <share-weight year="2040">0.03336075</share-weight>
+               <share-weight year="2045">0.021680375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="DC">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.00125</share-weight>
+               <share-weight year="2020">0.0025</share-weight>
+               <share-weight year="2025">0.00375</share-weight>
+               <share-weight year="2030">0.005</share-weight>
+               <share-weight year="2035">0.00625</share-weight>
+               <share-weight year="2040">0.0075</share-weight>
+               <share-weight year="2045">0.00875</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="DE">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="FL">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">2.15146625</share-weight>
+               <share-weight year="2020">1.8455425</share-weight>
+               <share-weight year="2025">1.53961875</share-weight>
+               <share-weight year="2030">1.233695</share-weight>
+               <share-weight year="2035">0.92777125</share-weight>
+               <share-weight year="2040">0.6218475</share-weight>
+               <share-weight year="2045">0.31592375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="GA">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="HI">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.009941235</share-weight>
+               <share-weight year="2020">0.00994963</share-weight>
+               <share-weight year="2025">0.009958025</share-weight>
+               <share-weight year="2030">0.00996642</share-weight>
+               <share-weight year="2035">0.009974815</share-weight>
+               <share-weight year="2040">0.00998321</share-weight>
+               <share-weight year="2045">0.009991605</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="IA">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="ID">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.00125</share-weight>
+               <share-weight year="2020">0.0025</share-weight>
+               <share-weight year="2025">0.00375</share-weight>
+               <share-weight year="2030">0.005</share-weight>
+               <share-weight year="2035">0.00625</share-weight>
+               <share-weight year="2040">0.0075</share-weight>
+               <share-weight year="2045">0.00875</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="IL">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.23579725</share-weight>
+               <share-weight year="2020">0.2035405</share-weight>
+               <share-weight year="2025">0.17128375</share-weight>
+               <share-weight year="2030">0.139027</share-weight>
+               <share-weight year="2035">0.10677025</share-weight>
+               <share-weight year="2040">0.0745135</share-weight>
+               <share-weight year="2045">0.04225675</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="IN">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="KS">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="KY">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="LA">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">2.887805</share-weight>
+               <share-weight year="2020">2.47669</share-weight>
+               <share-weight year="2025">2.065575</share-weight>
+               <share-weight year="2030">1.65446</share-weight>
+               <share-weight year="2035">1.243345</share-weight>
+               <share-weight year="2040">0.83223</share-weight>
+               <share-weight year="2045">0.421115</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MA">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.79574475</share-weight>
+               <share-weight year="2020">0.6834955</share-weight>
+               <share-weight year="2025">0.57124625</share-weight>
+               <share-weight year="2030">0.458997</share-weight>
+               <share-weight year="2035">0.34674775</share-weight>
+               <share-weight year="2040">0.2344985</share-weight>
+               <share-weight year="2045">0.12224925</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MD">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="ME">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.063665238</share-weight>
+               <share-weight year="2020">0.055998775</share-weight>
+               <share-weight year="2025">0.048332312</share-weight>
+               <share-weight year="2030">0.04066585</share-weight>
+               <share-weight year="2035">0.032999387</share-weight>
+               <share-weight year="2040">0.025332925</share-weight>
+               <share-weight year="2045">0.017666462</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MI">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MN">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MO">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MS">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">1.891565</share-weight>
+               <share-weight year="2020">1.62277</share-weight>
+               <share-weight year="2025">1.353975</share-weight>
+               <share-weight year="2030">1.08518</share-weight>
+               <share-weight year="2035">0.816385</share-weight>
+               <share-weight year="2040">0.54759</share-weight>
+               <share-weight year="2045">0.278795</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MT">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NC">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="ND">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NE">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NH">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.1649765</share-weight>
+               <share-weight year="2020">0.142837</share-weight>
+               <share-weight year="2025">0.1206975</share-weight>
+               <share-weight year="2030">0.098558</share-weight>
+               <share-weight year="2035">0.0764185</share-weight>
+               <share-weight year="2040">0.054279</share-weight>
+               <share-weight year="2045">0.0321395</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NJ">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.082197038</share-weight>
+               <share-weight year="2020">0.071883175</share-weight>
+               <share-weight year="2025">0.061569313</share-weight>
+               <share-weight year="2030">0.05125545</share-weight>
+               <share-weight year="2035">0.040941588</share-weight>
+               <share-weight year="2040">0.030627725</share-weight>
+               <share-weight year="2045">0.020313863</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NM">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NV">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.5063245</share-weight>
+               <share-weight year="2020">0.435421</share-weight>
+               <share-weight year="2025">0.3645175</share-weight>
+               <share-weight year="2030">0.293614</share-weight>
+               <share-weight year="2035">0.2227105</share-weight>
+               <share-weight year="2040">0.151807</share-weight>
+               <share-weight year="2045">0.0809035</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NY">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.471006</share-weight>
+               <share-weight year="2020">0.405148</share-weight>
+               <share-weight year="2025">0.33929</share-weight>
+               <share-weight year="2030">0.273432</share-weight>
+               <share-weight year="2035">0.207574</share-weight>
+               <share-weight year="2040">0.141716</share-weight>
+               <share-weight year="2045">0.075858</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="OH">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="OK">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">1.82918625</share-weight>
+               <share-weight year="2020">1.5693025</share-weight>
+               <share-weight year="2025">1.30941875</share-weight>
+               <share-weight year="2030">1.049535</share-weight>
+               <share-weight year="2035">0.78965125</share-weight>
+               <share-weight year="2040">0.5297675</share-weight>
+               <share-weight year="2045">0.26988375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="OR">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.441218375</share-weight>
+               <share-weight year="2020">0.37961575</share-weight>
+               <share-weight year="2025">0.318013125</share-weight>
+               <share-weight year="2030">0.2564105</share-weight>
+               <share-weight year="2035">0.194807875</share-weight>
+               <share-weight year="2040">0.13320525</share-weight>
+               <share-weight year="2045">0.071602625</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="PA">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="RI">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.00125</share-weight>
+               <share-weight year="2020">0.0025</share-weight>
+               <share-weight year="2025">0.00375</share-weight>
+               <share-weight year="2030">0.005</share-weight>
+               <share-weight year="2035">0.00625</share-weight>
+               <share-weight year="2040">0.0075</share-weight>
+               <share-weight year="2045">0.00875</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="SC">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.28778625</share-weight>
+               <share-weight year="2020">0.2481025</share-weight>
+               <share-weight year="2025">0.20841875</share-weight>
+               <share-weight year="2030">0.168735</share-weight>
+               <share-weight year="2035">0.12905125</share-weight>
+               <share-weight year="2040">0.0893675</share-weight>
+               <share-weight year="2045">0.04968375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="SD">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="TN">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="TX">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">5.6527175</share-weight>
+               <share-weight year="2020">4.846615</share-weight>
+               <share-weight year="2025">4.0405125</share-weight>
+               <share-weight year="2030">3.23441</share-weight>
+               <share-weight year="2035">2.4283075</share-weight>
+               <share-weight year="2040">1.622205</share-weight>
+               <share-weight year="2045">0.8161025</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="UT">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="VA">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="VT">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.00125</share-weight>
+               <share-weight year="2020">0.0025</share-weight>
+               <share-weight year="2025">0.00375</share-weight>
+               <share-weight year="2030">0.005</share-weight>
+               <share-weight year="2035">0.00625</share-weight>
+               <share-weight year="2040">0.0075</share-weight>
+               <share-weight year="2045">0.00875</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="WA">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">1.35654625</share-weight>
+               <share-weight year="2020">1.1641825</share-weight>
+               <share-weight year="2025">0.97181875</share-weight>
+               <share-weight year="2030">0.779455</share-weight>
+               <share-weight year="2035">0.58709125</share-weight>
+               <share-weight year="2040">0.3947275</share-weight>
+               <share-weight year="2045">0.20236375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="WI">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="WV">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="WY">
+         <supplysector name="electricity">
+            <subsector name="coal">
+               <share-weight year="2015">0.87625</share-weight>
+               <share-weight year="2020">0.7525</share-weight>
+               <share-weight year="2025">0.62875</share-weight>
+               <share-weight year="2030">0.505</share-weight>
+               <share-weight year="2035">0.38125</share-weight>
+               <share-weight year="2040">0.2575</share-weight>
+               <share-weight year="2045">0.13375</share-weight>
+               <share-weight year="2050">0.01</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+   </world>
+</scenario>

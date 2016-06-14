@@ -35,6 +35,7 @@ RECS_1997 <- readdata( "GCAMUSA_LEVEL0_DATA", "RECS_1997" )
 RECS_2001 <- readdata( "GCAMUSA_LEVEL0_DATA", "RECS_2001" )
 RECS_2005 <- readdata( "GCAMUSA_LEVEL0_DATA", "RECS_2005" )
 RECS_2009 <- readdata( "GCAMUSA_LEVEL0_DATA", "RECS_2009" )
+QER_flsp <- readdata( "GCAMUSA_LEVEL0_DATA", "QER_flsp")
 L142.in_EJ_state_bld_F <- readdata( "GCAMUSA_LEVEL1_DATA", "L142.in_EJ_state_bld_F" )
 L143.share_state_Pop_CDD_sR13 <- readdata( "GCAMUSA_LEVEL1_DATA", "L143.share_state_Pop_CDD_sR13" )
 L143.share_state_Pop_HDD_sR13 <- readdata( "GCAMUSA_LEVEL1_DATA", "L143.share_state_Pop_HDD_sR13" )
@@ -153,6 +154,11 @@ L144.flsp_bm2_state_res <- data.frame(
           match( Census_pop_hist$subregion13, L144.pcflsp_m2_sR13_res$subregion13 ), X_historical_years ] /
           conv_bm2_m2 )
 
+#Final step - hack for QER project requiring NEMS harmonization. NEMS res floorspace is a lot lower than RECS
+L144.flsp_scaler <- QER_flsp[[X_final_historical_year]][ QER_flsp$Sector == "Residential" ] /
+  sum( L144.flsp_bm2_state_res[[X_final_historical_year ]])
+L144.flsp_bm2_state_res[ X_historical_years ] <- L144.flsp_bm2_state_res[ X_historical_years ] * L144.flsp_scaler
+
 #2c: ENERGY CONSUMPTION BY STATE, SERVICE, AND YEAR
 printlog( "Aggregating energy consumption by sampling weights" )
 #Aggregate in a for loop
@@ -243,10 +249,11 @@ L144.EIA_AEO_Tab4[ L144.EIA_AEO_Tab4$Fuel == "Electricity" & L144.EIA_AEO_Tab4$S
 
 #Match in GCAM services and fuels
 L144.EIA_AEO_Tab4$fuel <- EIA_AEO_fuels$fuel[ match( L144.EIA_AEO_Tab4$Fuel, EIA_AEO_fuels$EIA_fuel ) ]
-L144.EIA_AEO_Tab4$service <- EIA_AEO_services $service[ match( L144.EIA_AEO_Tab4$Service, EIA_AEO_services$EIA_service ) ]
+EIA_AEO_services_res <- subset( EIA_AEO_services, EIA_sector == "Residential" )
+L144.EIA_AEO_Tab4$service <- EIA_AEO_services_res$service[ match( L144.EIA_AEO_Tab4$Service, EIA_AEO_services_res$EIA_service ) ]
 
 #Compute shares of "appliances and other" energy
-appl_other_services <- unique( EIA_AEO_services$service )[ !unique( EIA_AEO_services$service ) %in% RECS_variables$service ]
+appl_other_services <- unique( EIA_AEO_services_res$service )[ !unique( EIA_AEO_services_res$service ) %in% RECS_variables$service ]
 L144.EIA_AEO_appl_other_F <- aggregate( L144.EIA_AEO_Tab4[ L144.EIA_AEO_Tab4$service %in% appl_other_services, X_EIA_AEO_years ],
       by=as.list( L144.EIA_AEO_Tab4[ L144.EIA_AEO_Tab4$service %in% appl_other_services, F_U ] ), sum )
 L144.EIA_AEO_appl_other <- aggregate( L144.EIA_AEO_appl_other_F[ X_EIA_AEO_years ], by=as.list( L144.EIA_AEO_appl_other_F[ "fuel" ] ), sum )

@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+   <world>
+      <region name="USA">
+        <linked-ghg-policy name="CO2_LUC">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">0</demand-adjust>
+            <market>USA</market>
+            <linked-policy>CO2</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <!--region name="AK">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="AL">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="AR">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="AZ">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="CA">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="CO">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="CT">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="DC">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="DE">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="FL">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="GA">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="HI">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="IA">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="ID">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="IL">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="IN">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="KS">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="KY">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="LA">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="MA">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="MD">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="ME">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="MI">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="MN">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="MO">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="MS">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="MT">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="NC">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="ND">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="NE">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="NH">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="NJ">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="NM">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="NV">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="NY">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="OH">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="OK">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="OR">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="PA">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="RI">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="SC">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="SD">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="TN">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="TX">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="UT">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="VA">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="VT">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="WA">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="WI">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="WV">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region>
+      <region name="WY">
+         <linked-ghg-policy name="CO2">
+            <price-adjust fillout="1" year="2020">1</price-adjust>
+            <demand-adjust fillout="1" year="2020">3.6667</demand-adjust>
+            <market>USA</market>
+            <linked-policy>GHG</linked-policy>
+            <price-unit>1990$/tC</price-unit>
+            <output-unit>MTC</output-unit>
+         </linked-ghg-policy>
+      </region-->
+   </world>
+</scenario>

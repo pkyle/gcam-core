@@ -24,6 +24,8 @@ sourcedata( "GCAMUSA_ASSUMPTIONS", "A_GCAMUSA_data", extension = ".R" )
 states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
 Census_pop_hist <- readdata( "GCAMUSA_LEVEL0_DATA", "Census_pop_hist" )
 CBECS_variables <- readdata( "GCAMUSA_MAPPINGS", "CBECS_variables" )
+EIA_AEO_services <- readdata( "GCAMUSA_MAPPINGS", "EIA_AEO_services" )
+EIA_AEO_fuels <- readdata( "GCAMUSA_MAPPINGS", "EIA_AEO_fuels" )
 EIA_AEO_Tab5 <- readdata( "GCAMUSA_LEVEL0_DATA", "EIA_AEO_Tab5" )
 EIA_distheat <- readdata( "GCAMUSA_LEVEL0_DATA", "EIA_distheat" )
 PNNL_Commext_elec <- readdata( "GCAMUSA_LEVEL0_DATA", "PNNL_Commext_elec" )
@@ -239,6 +241,39 @@ printlog( "Assembling unscaled energy consumption by state, fuel, and service" )
 L144.in_EJ_state_comm_F_U_Y_unscaled <- rbind(
       L144.in_EJ_state_comm_F_heating_Y, L144.in_EJ_state_comm_F_cooling_Y, L144.in_EJ_state_comm_F_Uoth_Y )
 
+printlog( "HACK ALERT: messing with the energy quantities to better match NEMS for QER" )
+# The problem is likely that the CBECS is 10 years out of date; way too much lighting, not enough office
+L144.scaler_USA_comm_F_U_2010 <- aggregate( L144.in_EJ_state_comm_F_U_Y_unscaled[ X_final_historical_year ],
+                                                    by = L144.in_EJ_state_comm_F_U_Y_unscaled[ F_U ], sum )
+names( L144.scaler_USA_comm_F_U_2010 )[ names( L144.scaler_USA_comm_F_U_2010 ) == X_final_historical_year ] <- "initial"
+L144.EIA_QER_target <- EIA_AEO_Tab5[ c( F_U, X_final_historical_year ) ]
+names( L144.EIA_QER_target ) <- c( "EIA_fuel", "EIA_service", "QER_target" )
+
+# note that the EIA "target" estimates are in QBtu HHV, whereas GCAM uses EJ LHV, but this doesn't matter
+# because it's all going to be scaled later anyway. these unscaled values are only used to compute percentage-wise
+# by fuels to specific services
+L144.EIA_QER_target$EIA_sector <- "Commercial"
+L144.EIA_QER_target$fuel <- EIA_AEO_fuels$fuel[ match( L144.EIA_QER_target$EIA_fuel, EIA_AEO_fuels$EIA_fuel ) ]
+L144.EIA_QER_target$service <- EIA_AEO_services$service[
+  match( vecpaste( L144.EIA_QER_target[ c( "EIA_sector", "EIA_service" ) ] ),
+         vecpaste( EIA_AEO_services[ c( "EIA_sector", "EIA_service" ) ] ) ) ]
+L144.EIA_QER_target <- aggregate( L144.EIA_QER_target[ "QER_target" ],
+                                  by = L144.EIA_QER_target[ F_U ], sum )
+
+L144.scaler_USA_comm_F_U_2010$QER_target <- L144.EIA_QER_target$QER_target[
+  match( vecpaste( L144.scaler_USA_comm_F_U_2010[ F_U ] ),
+         vecpaste( L144.EIA_QER_target[ F_U ] ) ) ]
+#For comm other electricity, most of it is non-building, and will be taken into account below. Just set scaler to 1
+L144.scaler_USA_comm_F_U_2010$scaler <- with( L144.scaler_USA_comm_F_U_2010, QER_target / initial )
+L144.scaler_USA_comm_F_U_2010$scaler[ L144.scaler_USA_comm_F_U_2010$fuel == "electricity" &
+                                                L144.scaler_USA_comm_F_U_2010$service == "comm other" ] <- 1
+
+#Multiply state-level un-scaled energy use by these scalers prior to calculating end-use proportions
+L144.in_EJ_state_comm_F_U_Y_unscaled[[X_final_historical_year]] <- L144.in_EJ_state_comm_F_U_Y_unscaled[[X_final_historical_year]] *
+  L144.scaler_USA_comm_F_U_2010$scaler[
+    match( vecpaste( L144.in_EJ_state_comm_F_U_Y_unscaled[ F_U ] ),
+           vecpaste( L144.scaler_USA_comm_F_U_2010[ F_U ] ) ) ]
+
 printlog( "Calculating shares of energy consumption by each service, within each state and fuel")
 L144.in_EJ_state_comm_F_Y_unscaled <- aggregate( L144.in_EJ_state_comm_F_U_Y_unscaled[ X_historical_years ],
       by=as.list( L144.in_EJ_state_comm_F_U_Y_unscaled[ state_F ] ), sum )
@@ -261,12 +296,14 @@ L144.in_EJ_USA_commext_elec <- dcast( L144.in_TWh_USA_commext_elec.melt, service
 #This dataset needs to be expanded to all historical years. Use population ratios
 first_year_commext <- paste0( "X", min( PNNL_Commext_elec$Year ) )
 pre_commext_years <- paste0( "X", historical_years[ historical_years < min( PNNL_Commext_elec$Year ) ] )
-last_year_commext <- paste0( "X", max( PNNL_Commext_elec$Year ) )
-post_commext_years <- paste0( "X", historical_years[ historical_years > max( PNNL_Commext_elec$Year ) ] )
 L144.in_EJ_USA_commext_elec[ pre_commext_years ] <- L144.in_EJ_USA_commext_elec[[first_year_commext]] *
       colSums( Census_pop_hist[ pre_commext_years ] ) / sum( Census_pop_hist[[first_year_commext]])
-L144.in_EJ_USA_commext_elec[ post_commext_years ] <- L144.in_EJ_USA_commext_elec[[last_year_commext]] *
-      colSums( Census_pop_hist[ post_commext_years ] ) / sum( Census_pop_hist[[last_year_commext]])
+# one more hack - set the 2010 comm exterior other electricity use equal to QER_target - unscaled aggregated 2010 value. interpolate back
+L144.in_EJ_USA_commext_elec[[ X_final_historical_year ]] <- with(
+  subset( L144.scaler_USA_comm_F_U_2010, fuel == "electricity" & service == "comm other" ),
+  QER_target - initial )
+commext_interp_years <- historical_years[ historical_years > max( PNNL_Commext_elec$Year ) & historical_years < max( historical_years ) ]
+L144.in_EJ_USA_commext_elec <- gcam_interp( L144.in_EJ_USA_commext_elec, commext_interp_years )
 L144.in_EJ_USA_commext_elec <- L144.in_EJ_USA_commext_elec[ c( "service", X_historical_years ) ]
 
 #Table of population ratios

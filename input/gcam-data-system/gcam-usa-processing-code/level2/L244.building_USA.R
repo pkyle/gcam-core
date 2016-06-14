@@ -43,6 +43,7 @@ A44.globaltech_retirement <- readdata( "GCAMUSA_ASSUMPTIONS", "A44.globaltech_re
 A44.globaltech_shrwt <- readdata( "GCAMUSA_ASSUMPTIONS", "A44.globaltech_shrwt" )
 A44.globaltech_interp <- readdata( "GCAMUSA_ASSUMPTIONS", "A44.globaltech_interp" )
 A44.demand_satiation_mult <- readdata( "GCAMUSA_ASSUMPTIONS", "A44.demand_satiation_mult" )
+QER_flsp <- readdata( "GCAMUSA_LEVEL0_DATA", "QER_flsp")
 L144.flsp_bm2_state_res <- readdata( "GCAMUSA_LEVEL1_DATA", "L144.flsp_bm2_state_res" )
 L144.flsp_bm2_state_comm <- readdata( "GCAMUSA_LEVEL1_DATA", "L144.flsp_bm2_state_comm" )
 L144.in_EJ_state_comm_F_U_Y <- readdata("GCAMUSA_LEVEL1_DATA","L144.in_EJ_state_comm_F_U_Y")
@@ -422,8 +423,8 @@ printlog( "L244.GenericServiceSatiation: Satiation levels assumed for non-therma
 #Just multiply the base-service by an exogenous multiplier
 L244.GenericServiceSatiation <- subset( L244.GenericBaseService, year == max( model_base_years ) )
 L244.GenericServiceSatiation$flsp_bm2 <- L244.Floorspace$base.building.size[
-      match( vecpaste( L244.GenericServiceSatiation[ names_BldNodes ] ),
-             vecpaste( L244.Floorspace[ names_BldNodes ] ) ) ]
+      match( vecpaste( L244.GenericServiceSatiation[ c( names_BldNodes, Y ) ] ),
+             vecpaste( L244.Floorspace[ c( names_BldNodes, Y ) ] ) ) ]
 L244.GenericServiceSatiation$satiation.level <- round(
       L244.GenericServiceSatiation$base.service / L244.GenericServiceSatiation$flsp_bm2 *
       A44.demand_satiation_mult$multiplier[
@@ -434,8 +435,8 @@ L244.GenericServiceSatiation <- L244.GenericServiceSatiation[ names_GenericServi
 printlog( "L244.ThermalServiceSatiation: Satiation levels assumed for thermal building services")  
 L244.ThermalServiceSatiation <- subset( L244.ThermalBaseService, year == max( model_base_years ) )
 L244.ThermalServiceSatiation$flsp_bm2 <- L244.Floorspace$base.building.size[
-      match( vecpaste( L244.ThermalServiceSatiation[ names_BldNodes ] ),
-             vecpaste( L244.Floorspace[ names_BldNodes ] ) ) ]
+      match( vecpaste( L244.ThermalServiceSatiation[ c( names_BldNodes, Y ) ] ),
+             vecpaste( L244.Floorspace[ c( names_BldNodes, Y ) ] ) ) ]
 L244.ThermalServiceSatiation$satiation.level <- round(
       L244.ThermalServiceSatiation$base.service / L244.ThermalServiceSatiation$flsp_bm2 *
       A44.demand_satiation_mult$multiplier[
@@ -469,6 +470,32 @@ L244.Intgains_scalar$internal.gains.scalar <- round(
 threshold_HDD <- 500
 L244.Intgains_scalar$internal.gains.scalar[ L244.Intgains_scalar$variable == "HDD" & L244.Intgains_scalar$degree.days < threshold_HDD ] <- 0
 L244.Intgains_scalar <- L244.Intgains_scalar[ names_Intgains_scalar ]
+
+printlog( "L244.Floorspace_QER: Extend the base year floorspace through 2040 for QER harmonization" )
+printlog( "NOTE: This is a hack and only works when the final calibration year is 2010")
+X_QER_flsp_years <- names( L100.Pop_thous_state )[ names( L100.Pop_thous_state ) %in% names( QER_flsp ) ] 
+QER_flsp_years <- as.numeric( sub( "X", "", X_QER_flsp_years ) )
+L244.StateFlspShares <- L100.Pop_thous_state[ c( "state", X_QER_flsp_years ) ]
+L244.StateFlspShares[ X_QER_flsp_years ] <- sweep( L244.StateFlspShares[ X_QER_flsp_years ], 2,
+                                                   colSums( L244.StateFlspShares[ X_QER_flsp_years ] ), "/")
+QER_flsp_growth <- QER_flsp[ names( QER_flsp ) != X_final_historical_year ]
+QER_flsp_growth[ X_QER_flsp_years[-1]] <- QER_flsp[ X_QER_flsp_years[-1]] - QER_flsp[[X_final_historical_year]]
+QER_flsp_growth_state <- repeat_and_add_vector( QER_flsp_growth, "state", L244.StateFlspShares$state )
+QER_flsp_growth_state[ X_QER_flsp_years[-1] ] <- QER_flsp_growth_state[ X_QER_flsp_years[-1] ] *
+  L244.StateFlspShares[ match( QER_flsp_growth_state$state, L244.StateFlspShares$state ),
+                       X_QER_flsp_years[-1]]
+QER_flsp_growth_state.melt <- melt( QER_flsp_growth_state, id.vars = c( "Sector", "state" ), value.name = "flsp.growth", variable.name = Y )
+QER_flsp_growth_state.melt$gcam.consumer <- "resid"
+QER_flsp_growth_state.melt$gcam.consumer[ QER_flsp_growth_state.melt$Sector == "Commercial" ] <- "comm"
+QER_flsp_growth_state.melt[[Y]] <- as.numeric( sub( "X", "", QER_flsp_growth_state.melt[[Y]] ) )
+L244.Floorspace_QER_fby <- subset( L244.Floorspace, year == max( model_base_years ) )
+L244.Floorspace_QER_qyrs <- repeat_and_add_vector( L244.Floorspace_QER_fby, Y, QER_flsp_years[-1] )
+L244.Floorspace_QER_qyrs$flsp.growth <- QER_flsp_growth_state.melt$flsp.growth[
+  match( vecpaste( L244.Floorspace_QER_qyrs[ c( "region", "gcam.consumer", Y ) ] ),
+         vecpaste( QER_flsp_growth_state.melt[ c( "state", "gcam.consumer", Y ) ] ) ) ]
+L244.Floorspace_QER_qyrs$base.building.size <- with( L244.Floorspace_QER_qyrs, round( base.building.size + flsp.growth, digits = digits_floorspace ) )
+L244.Floorspace_QER_qyrs$flsp.growth <- NULL
+L244.Floorspace_QER <- rbind( L244.Floorspace, L244.Floorspace_QER_qyrs )
 
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
@@ -540,5 +567,8 @@ write_mi_data( L244.GlobalTechCost_bld, "GlobalTechCost", "GCAMUSA_LEVEL2_DATA",
 write_mi_data( L244.GlobalTechSCurve_bld, "GlobalTechSCurve", "GCAMUSA_LEVEL2_DATA", "L244.GlobalTechSCurve_bld", "GCAMUSA_XML_BATCH", "batch_building_USA.xml" )
 
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_building_USA.xml", "GCAMUSA_XML_FINAL", "building_USA.xml", "", xml_tag="outFile" )
+
+write_mi_data( L244.Floorspace_QER, "Floorspace", "GCAMUSA_LEVEL2_DATA", "L244.Floorspace_QER", "GCAMUSA_XML_BATCH", "batch_building_flsp_USA_QER.xml" ) 
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_building_flsp_USA_QER.xml", "GCAMUSA_XML_FINAL", "building_flsp_USA_QER.xml", "", xml_tag="outFile" )
 
 logstop()

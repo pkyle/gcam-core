@@ -1,0 +1,3143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+   <world>
+      <global-technology-database>
+         <location-info sector-name="electricity" subsector-name="coal">
+            <technology name="coal (conv pul)">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>724.0234164</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>724.0234164</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>724.0234164</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>724.0234164</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>724.0234164</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>724.0234164</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>709.5959489</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>699.1481345</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>694.6284477</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>680.42245</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>680.42245</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>680.42245</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>680.42245</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>680.42245</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>680.42245</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>680.42245</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>680.42245</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>680.42245</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>680.42245</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>680.42245</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>680.42245</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>680.42245</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+            <technology name="coal (conv pul CCS)">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>1797</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>1797</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>1797</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>1797</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>1797</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>1705</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>1631</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>1573</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>1526</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>1487</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>1456</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>1431</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>1409</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>1392</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>1377</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>1364</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>1352</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>1343</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>1334</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>1326</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>1319</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>1313</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+            <technology name="coal (IGCC)">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>948.1214221</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>948.1214221</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>948.1214221</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>948.1214221</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>948.1214221</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>948.1214221</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>923.0819531</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>899.1825556</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>884.3671402</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>857.8172664</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>857.8172664</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>857.8172664</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>857.8172664</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>857.8172664</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>857.8172664</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>857.8172664</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>857.8172664</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>857.8172664</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>857.8172664</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>857.8172664</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>857.8172664</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>857.8172664</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+            <technology name="coal (IGCC CCS)">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>1246.064437</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>1246.064437</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>1246.064437</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>1246.064437</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>1246.064437</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>1246.064437</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>1195.453127</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>1151.876005</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>1118.032452</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>1068.711795</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>1068.711795</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>1068.711795</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>1068.711795</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>1068.711795</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>1068.711795</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>1068.711795</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>1068.711795</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>1068.711795</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>1068.711795</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>1068.711795</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>1068.711795</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>1068.711795</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+         </location-info>
+         <location-info sector-name="electricity" subsector-name="gas">
+            <technology name="gas (steam/CT)">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>282.4051562</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>282.4051562</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>282.4051562</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>282.4051562</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>282.4051562</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>282.4051562</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>276.7806269</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>272.7083731</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>270.9484297</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>265.410147</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>265.410147</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>265.410147</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>265.410147</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>265.410147</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>265.410147</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>265.410147</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>265.410147</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>265.410147</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>265.410147</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>265.410147</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>265.410147</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>265.410147</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+            <technology name="gas (CC)">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>266.1125778</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>266.1125778</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>266.1125778</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>266.1125778</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>266.1125778</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>266.1125778</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>260.8125559</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>256.9752332</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>255.3168238</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>250.0980717</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>250.0980717</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>250.0980717</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>250.0980717</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>250.0980717</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>250.0980717</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>250.0980717</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>250.0980717</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>250.0980717</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>250.0980717</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>250.0980717</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>250.0980717</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>250.0980717</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+            <technology name="gas (CC CCS)">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>577.8366059</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>577.8366059</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>577.8366059</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>577.8366059</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>577.8366059</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>577.8366059</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>556.7451768</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>535.4666118</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>519.9396363</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>497.6805682</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>497.6805682</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>497.6805682</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>497.6805682</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>497.6805682</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>497.6805682</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>497.6805682</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>497.6805682</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>497.6805682</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>497.6805682</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>497.6805682</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>497.6805682</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>497.6805682</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+         </location-info>
+         <location-info sector-name="electricity" subsector-name="refined liquids">
+            <technology name="refined liquids (steam/CT)">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>232</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>232</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>232</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>232</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>232</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>230</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>227</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>224</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>222</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>219</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>217</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>215</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>213</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>211</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>209</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>208</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>206</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>205</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>203</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>202</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>200</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>199</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+            <technology name="refined liquids (CC)">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>325</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>325</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>325</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>325</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>325</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>321</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>318</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>314</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>311</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>307</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>304</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>301</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>298</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>296</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>293</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>291</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>288</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>286</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>284</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>282</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>280</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>279</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+            <technology name="refined liquids (CC CCS)">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>774</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>774</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>774</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>774</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>774</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>730</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>695</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>667</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>644</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>626</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>612</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>600</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>591</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>583</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>576</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>571</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>566</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>562</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>559</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>556</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>553</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>550</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+         </location-info>
+         <location-info sector-name="electricity" subsector-name="biomass">
+            <technology name="biomass (conv)">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>2412.961145</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>2412.961145</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>2412.961145</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>2412.961145</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>2412.961145</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>2412.961145</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>2364.903145</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>2330.108268</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>2315.07081</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>2267.750183</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>2267.750183</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>2267.750183</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>2267.750183</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>2267.750183</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>2267.750183</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>2267.750183</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>2267.750183</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>2267.750183</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>2267.750183</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>2267.750183</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>2267.750183</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>2267.750183</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+            <technology name="biomass (conv CCS)">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>2386</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>2386</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>2386</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>2386</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>2386</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>2267</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>2172</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>2096</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>2035</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>1985</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>1945</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>1911</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>1883</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>1860</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>1840</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>1823</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>1808</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>1795</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>1783</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>1773</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>1764</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>1755</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.85</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+            <technology name="biomass (IGCC)">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>1859</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>1859</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>1859</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>1859</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>1859</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>1780</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>1713</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>1654</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>1605</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>1562</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>1525</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>1493</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>1466</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>1443</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>1423</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>1406</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>1391</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>1378</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>1367</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>1358</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>1350</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>1343</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+            <technology name="biomass (IGCC CCS)">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>2742</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>2742</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>2742</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>2742</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>2742</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>2583</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>2454</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>2348</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>2261</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>2189</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>2131</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>2082</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>2041</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>2008</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>1980</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>1957</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>1937</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>1921</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>1907</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>1895</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>1886</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>1877</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.8</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+         </location-info>
+         <location-info sector-name="electricity" subsector-name="nuclear">
+            <technology name="Gen_II_LWR">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>1650</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>1650</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>1650</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>1650</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>1704</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+            <technology name="Gen_III">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>1335.452712</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>1335.452712</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>1335.452712</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>1335.452712</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>1335.452712</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>1335.452712</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>1335.452712</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>1296.939607</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>1253.727161</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>1209.125034</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>1209.125034</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>1209.125034</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>1209.125034</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>1209.125034</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>1209.125034</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>1209.125034</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>1209.125034</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>1209.125034</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>1209.125034</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>1209.125034</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>1209.125034</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>1209.125034</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+         </location-info>
+         <location-info sector-name="electricity" subsector-name="wind">
+            <technology name="wind_storage">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>1473</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>1191</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>916</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>1797</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>1797</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>1721</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>1655</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>1599</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>1551</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>1510</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>1474</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>1444</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>1417</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>1395</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>1375</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>1359</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>1345</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>1332</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>1322</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>1313</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>1305</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>1298</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+         </location-info>
+         <location-info sector-name="electricity" subsector-name="solar">
+            <technology name="PV_storage">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>1363</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>1363</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>1363</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>1363</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>1363</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>1305</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>1256</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>1213</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>1177</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>1145</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>1118</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>1095</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>1075</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>1058</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>1043</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>1031</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>1020</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>1011</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>1003</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>996</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>990</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>985</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+            <technology name="CSP_storage">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>2479</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>2479</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>2479</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>2479</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>2479</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>2302</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>2162</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>2050</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>1961</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>1890</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>1833</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>1788</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>1751</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>1721</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>1697</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>1677</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>1662</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>1649</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>1638</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>1629</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>1622</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>1616</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.65</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+         </location-info>
+         <location-info sector-name="electricity" subsector-name="geothermal">
+            <technology name="geothermal">
+               <period year="1975">
+                  <input-capital name="capital">
+                     <capital-overnight>681.8802982</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="1990">
+                  <input-capital name="capital">
+                     <capital-overnight>681.8802982</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2005">
+                  <input-capital name="capital">
+                     <capital-overnight>681.8802982</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2010">
+                  <input-capital name="capital">
+                     <capital-overnight>681.8802982</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2015">
+                  <input-capital name="capital">
+                     <capital-overnight>681.8802982</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2020">
+                  <input-capital name="capital">
+                     <capital-overnight>681.8802982</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2025">
+                  <input-capital name="capital">
+                     <capital-overnight>1212.365524</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2030">
+                  <input-capital name="capital">
+                     <capital-overnight>623.2022054</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2035">
+                  <input-capital name="capital">
+                     <capital-overnight>529.0998047</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2040">
+                  <input-capital name="capital">
+                     <capital-overnight>1161.788154</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2045">
+                  <input-capital name="capital">
+                     <capital-overnight>1161.788154</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2050">
+                  <input-capital name="capital">
+                     <capital-overnight>1161.788154</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2055">
+                  <input-capital name="capital">
+                     <capital-overnight>1161.788154</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2060">
+                  <input-capital name="capital">
+                     <capital-overnight>1161.788154</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2065">
+                  <input-capital name="capital">
+                     <capital-overnight>1161.788154</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2070">
+                  <input-capital name="capital">
+                     <capital-overnight>1161.788154</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2075">
+                  <input-capital name="capital">
+                     <capital-overnight>1161.788154</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2080">
+                  <input-capital name="capital">
+                     <capital-overnight>1161.788154</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2085">
+                  <input-capital name="capital">
+                     <capital-overnight>1161.788154</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2090">
+                  <input-capital name="capital">
+                     <capital-overnight>1161.788154</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2095">
+                  <input-capital name="capital">
+                     <capital-overnight>1161.788154</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+               <period year="2100">
+                  <input-capital name="capital">
+                     <capital-overnight>1161.788154</capital-overnight>
+                     <fixed-charge-rate>0.13</fixed-charge-rate>
+                     <capacity-factor>0.9</capacity-factor>
+                  </input-capital>
+               </period>
+            </technology>
+         </location-info>
+      </global-technology-database>
+   </world>
+</scenario>

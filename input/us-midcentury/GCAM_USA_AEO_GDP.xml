@@ -1,0 +1,1127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+   <world>
+      <region name="AK">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="AL">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="AR">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="AZ">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="CA">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="CO">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="CT">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="DC">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="DE">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="FL">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="GA">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="HI">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="IA">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="ID">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="IL">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="IN">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="KS">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="KY">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="LA">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="MA">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="MD">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="ME">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="MI">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="MN">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="MO">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="MS">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="MT">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="NC">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="ND">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="NE">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="NH">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="NJ">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="NM">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="NV">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="NY">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="OH">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="OK">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="OR">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="PA">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="RI">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="SC">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="SD">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="TN">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="TX">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="UT">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="VA">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="VT">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="WA">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="WI">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="WV">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+      <region name="WY">
+         <GDP>
+            <laborproductivity year="2015">0.028</laborproductivity>
+            <laborproductivity year="2020">0.018</laborproductivity>
+            <laborproductivity year="2025">0.018</laborproductivity>
+            <laborproductivity year="2030">0.016</laborproductivity>
+            <laborproductivity year="2035">0.016</laborproductivity>
+            <laborproductivity year="2040">0.018</laborproductivity>
+            <laborproductivity year="2045">0.018</laborproductivity>
+            <laborproductivity year="2050">0.018</laborproductivity>
+            <laborproductivity year="2055">0.017</laborproductivity>
+            <laborproductivity year="2060">0.016</laborproductivity>
+            <laborproductivity year="2065">0.015</laborproductivity>
+            <laborproductivity year="2070">0.014</laborproductivity>
+            <laborproductivity year="2075">0.014</laborproductivity>
+            <laborproductivity year="2080">0.014</laborproductivity>
+            <laborproductivity year="2085">0.014</laborproductivity>
+            <laborproductivity year="2090">0.014</laborproductivity>
+            <laborproductivity year="2095">0.014</laborproductivity>
+            <laborproductivity year="2100">0.014</laborproductivity>
+         </GDP>
+      </region>
+   </world>
+</scenario>

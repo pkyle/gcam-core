@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+   <world>
+      <region name="AK">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="AL">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="AR">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="AZ">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="CA">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="CO">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="CT">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="DC">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="DE">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="FL">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="GA">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="HI">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="IA">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="ID">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="IL">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="IN">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="KS">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="KY">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="LA">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MA">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MD">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="ME">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MI">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MN">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MO">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MS">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MT">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NC">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="ND">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NE">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NH">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NJ">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NM">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NV">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NY">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="OH">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="OK">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="OR">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="PA">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="RI">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="SC">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="SD">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="TN">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="TX">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="UT">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="VA">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="VT">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="WA">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="WI">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="WV">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="WY">
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <share-weight year="2015">0.125</share-weight>
+               <share-weight year="2020">0.25</share-weight>
+               <share-weight year="2025">0.375</share-weight>
+               <share-weight year="2030">0.5</share-weight>
+               <share-weight year="2035">0.625</share-weight>
+               <share-weight year="2040">0.75</share-weight>
+               <share-weight year="2045">0.875</share-weight>
+               <share-weight year="2050">1</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+   </world>
+</scenario>

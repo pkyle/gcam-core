@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+   <world>
+    <global-technology-database>
+         <location-info sector-name="electricity" subsector-name="wind">
+            <intermittent-technology name="wind">
+                     <period year="2020">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>-1.45</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2025">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2030">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2035">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2040">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2045">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2050">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2055">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+
+                    <period year="2060">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2065">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2070">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2075">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2080">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2085">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2090">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2095">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2100">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+          
+
+      </intermittent-technology>      
+       
+               <technology name="wind_storage">
+                    <period year="2020">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>-1.45</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2025">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2030">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2035">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2040">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2045">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2050">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2055">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+
+                    <period year="2060">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+              <period year="2065">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2070">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2075">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2080">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2085">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2090">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2095">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2100">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+       
+              </technology>   
+       </location-info>
+
+  <location-info sector-name="electricity" subsector-name="geothermal">
+                <technology name="geothermal">
+                    <period year="2020">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>-1.81</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2025">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2030">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2035">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2040">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2045">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2050">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2055">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+
+                    <period year="2060">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+           <period year="2065">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2070">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2075">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2080">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2085">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2090">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2095">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2100">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+       
+               </technology>
+
+  </location-info>
+
+   <location-info sector-name="electricity" subsector-name="biomass">
+                <technology name="biomass (conv)">
+                    <period year="2020">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>-0.96</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2025">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2030">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2035">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2040">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2045">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2050">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2055">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+
+                    <period year="2060">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+     
+             <period year="2065">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2070">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2075">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2080">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2085">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2090">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2095">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2100">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+
+               </technology>
+
+        <technology name="biomass (IGCC)">
+                    <period year="2020">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>-0.96</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2025">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2030">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2035">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2040">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2045">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2050">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                     <period year="2055">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+
+                    <period year="2060">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+           <period year="2065">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2070">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2075">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2080">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2085">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2090">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2095">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                    <period year="2100">
+                     <minicam-non-energy-input name="regional price adjustment">
+                        <input-cost>0</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+       
+               </technology>
+
+  </location-info>
+
+
+
+  </global-technology-database>
+
+   </world>
+</scenario>

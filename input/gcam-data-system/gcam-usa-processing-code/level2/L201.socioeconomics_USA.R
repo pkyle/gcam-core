@@ -26,6 +26,9 @@ L100.Pop_thous_state <- readdata( "GCAMUSA_LEVEL1_DATA", "L100.Pop_thous_state" 
 L100.GDP_mil90usd_state <- readdata("GCAMUSA_LEVEL1_DATA","L100.GDP_mil90usd_state")
 L102.pcgdp_thous90USD_GCAM3_ctry_Y <- readdata( "SOCIO_LEVEL1_DATA" , "L102.pcgdp_thous90USD_GCAM3_ctry_Y" )
 
+#Include QER harmonization scenario
+QER_socioeconomics <- readdata("GCAMUSA_LEVEL0_DATA","QER_socioeconomics")
+
 # -----------------------------------------------------------------------------
 # 2. Perform computations
 printlog( "L201.InterestRate: Interest rates by region" )
@@ -71,6 +74,40 @@ printlog( "NOTE: applying the USA average to all states equally" )
 L201.LaborProductivity_GCAMUSA <- interpolate_and_melt( L201.pcgdpGrowth_GCAMUSA_Y, model_years[ 2:length( model_years ) ], value.name = "laborproductivity" )
 L201.LaborProductivity_GCAMUSA <- write_to_all_states( L201.LaborProductivity_GCAMUSA, names_LaborProductivity )
 
+L201.QER_socioeconomics <- melt( QER_socioeconomics, variable.name = Y, id.vars = "variable",
+                                 measure.vars = names( QER_socioeconomics )[ names( QER_socioeconomics ) %in% X_model_years ] )
+L201.QER_socioeconomics[[Y]] <- as.numeric( sub( "X", "", L201.QER_socioeconomics[[Y]] ) )
+L201.QER_socioeconomics$variable[ grepl( "Population", L201.QER_socioeconomics$variable ) ] <- "Population"
+L201.QER_socioeconomics$variable[ grepl( "Gross", L201.QER_socioeconomics$variable ) ] <- "GDP"
+L201.QER_pop <- subset( L201.QER_socioeconomics, variable == "Population" )
+L201.QER_pop$totalPop <- L201.QER_pop$value * conv_mil_thous
+
+L201.Pop_GCAMUSA_tot <- aggregate( L201.Pop_GCAMUSA[ "totalPop" ],
+                                   by = L201.Pop_GCAMUSA[ Y ], sum )
+L201.QER_pop$unscaled <- L201.Pop_GCAMUSA_tot$totalPop[ match( L201.QER_pop$year, L201.Pop_GCAMUSA_tot$year ) ]
+L201.QER_pop$scaler <- with( L201.QER_pop, totalPop / unscaled )
+
+L201.Pop_GCAMUSA_QER <- L201.Pop_GCAMUSA
+L201.Pop_GCAMUSA_QER$scaler <- L201.QER_pop$scaler[ match( L201.Pop_GCAMUSA_QER[[Y]], L201.QER_pop[[Y]] ) ]
+L201.Pop_GCAMUSA_QER$scaler[ is.na( L201.Pop_GCAMUSA_QER$scaler ) ] <- 1
+L201.Pop_GCAMUSA_QER$totalPop <- L201.Pop_GCAMUSA$totalPop * L201.Pop_GCAMUSA_QER$scaler
+L201.Pop_GCAMUSA_QER$scaler <- NULL
+
+L201.QER_pcgdp <- dcast( L201.QER_socioeconomics, year~variable)
+L201.QER_pcgdp$pcgdp <- with( L201.QER_pcgdp, GDP / Population)
+L201.QER_pcgdp$laborproductivity <- NA
+L201.QER_pcgdp$laborproductivity[ -1 ] <-
+  ( L201.QER_pcgdp$pcgdp[ -1 ] / L201.QER_pcgdp$pcgdp[ -length( L201.QER_pcgdp$pcgdp ) ] ) ^
+  ( 1 / ( L201.QER_pcgdp$year[ -1 ] - L201.QER_pcgdp$year[ -length( L201.QER_pcgdp$year ) ] ) ) - 1
+L201.QER_pcgdp <- na.omit( L201.QER_pcgdp )
+
+L201.LaborProductivity_GCAMUSA_QER <- L201.LaborProductivity_GCAMUSA
+L201.LaborProductivity_GCAMUSA_QER$laborproductivity[ L201.LaborProductivity_GCAMUSA_QER[[Y]] %in% L201.QER_pcgdp[[Y]] ] <-
+  round( L201.QER_pcgdp$laborproductivity[
+     match( L201.LaborProductivity_GCAMUSA_QER[[Y]][ L201.LaborProductivity_GCAMUSA_QER[[Y]] %in% L201.QER_pcgdp[[Y]] ],
+            L201.QER_pcgdp[[Y]] ) ],
+     digits_LaborProductivity )
+
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
 write_mi_data( L201.InterestRate, "InterestRate", "GCAMUSA_LEVEL2_DATA", "L201.InterestRate", "GCAMUSA_XML_BATCH", "batch_interest_rate_USA.xml" ) 
@@ -81,5 +118,12 @@ write_mi_data( L201.LaborProductivity_GCAMUSA, "LaborProductivity", "GCAMUSA_LEV
 
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_interest_rate_USA.xml", "GCAMUSA_XML_FINAL", "interest_rate_USA.xml", "", xml_tag="outFile" )
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_socioeconomics_USA.xml", "GCAMUSA_XML_FINAL", "socioeconomics_USA.xml", "", xml_tag="outFile" )
+
+write_mi_data( L201.Pop_GCAMUSA_QER, "Pop", "GCAMUSA_LEVEL2_DATA", "L201.Pop_GCAMUSA_QER", "GCAMUSA_XML_BATCH", "batch_socioeconomics_USA_QER.xml" ) 
+write_mi_data( L201.BaseGDP_GCAMUSA, "BaseGDP", "GCAMUSA_LEVEL2_DATA", "L201.BaseGDP_GCAMUSA", "GCAMUSA_XML_BATCH", "batch_socioeconomics_USA_QER.xml" ) 
+write_mi_data( L201.LaborForceFillout, "LaborForceFillout", "GCAMUSA_LEVEL2_DATA", "L201.LaborForceFillout", "GCAMUSA_XML_BATCH", "batch_socioeconomics_USA_QER.xml" ) 
+write_mi_data( L201.LaborProductivity_GCAMUSA_QER, "LaborProductivity", "GCAMUSA_LEVEL2_DATA", "L201.LaborProductivity_GCAMUSA_QER", "GCAMUSA_XML_BATCH", "batch_socioeconomics_USA_QER.xml" ) 
+
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_socioeconomics_USA_QER.xml", "GCAMUSA_XML_FINAL", "socioeconomics_USA_QER.xml", "", xml_tag="outFile" )
 
 logstop()

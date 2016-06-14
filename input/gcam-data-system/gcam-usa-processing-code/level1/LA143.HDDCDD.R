@@ -23,6 +23,7 @@ states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
 Census_pop_hist <- readdata( "GCAMUSA_LEVEL0_DATA", "Census_pop_hist" )
 CDD_His <- readdata( "GCAMUSA_GIS_DATA", "CDD_His" )
 HDD_His <- readdata( "GCAMUSA_GIS_DATA", "HDD_His" )
+QER_HDDCDD <- readdata( "GCAMUSA_LEVEL0_DATA", "QER_HDDCDD" )
 
 # 1b. reading HDDCDD files in a loop as we do not know their names or how many there are
 GISfilepath <- readdomainpathmap()["GCAMUSA_GIS_DATA"][[1]]
@@ -115,6 +116,35 @@ L143.HDDCDD_scen_state[ X_future_years ] <- L143.HDDCDD_scen_state[[ X_final_his
       L143.HDDCDD_scen_state[ X_future_years ] / L143.HDDCDD_scen_state[[ "Scen_final_historical_year" ]]
 L143.HDDCDD_scen_state <- L143.HDDCDD_scen_state[ c( "state", "Scen", "GCM", "variable", X_historical_years, X_future_years ) ]
 
+printlog( "QER harmonization by census division and year, to 2040" )
+QER_DD_years <- seq( 2010, 2040, 5 )
+X_QER_DD_years <- paste0( "X", QER_DD_years )
+L143.Pop_sR9 <- aggregate( Census_pop_hist[ X_final_historical_year ], by = Census_pop_hist[ "subregion9" ], sum )
+
+L143.DDmult_sR9_Yqer <- rbind( data.frame( L143.Pop_CDD_sR9[ c( "subregion9", X_final_historical_year ) ], variable = "CDD" ),
+                          data.frame( L143.Pop_HDD_sR9[ c( "subregion9", X_final_historical_year ) ], variable = "HDD" ) )
+L143.DDmult_sR9_Yqer$population <- L143.Pop_sR9[[X_final_historical_year]][ match( L143.DDmult_sR9_Yqer$subregion9, L143.Pop_sR9$subregion9 ) ]
+L143.DDmult_sR9_Yqer$DD <- L143.DDmult_sR9_Yqer[[X_final_historical_year]] / L143.DDmult_sR9_Yqer$population
+L143.DDmult_sR9_Yqer[ X_QER_DD_years ] <- QER_HDDCDD[
+  match( vecpaste( L143.DDmult_sR9_Yqer[ c( "subregion9", "variable" ) ] ),
+         vecpaste( QER_HDDCDD[ c( "subregion9", "variable" ) ] ) ),
+  X_QER_DD_years ] /
+  L143.DDmult_sR9_Yqer$DD
+
+#Apply these multipliers by subregion9 to the state-level historical HDDCDD data, to create a scenario to 2040
+L143.HDDCDD_QER <- DD_His
+L143.HDDCDD_QER$subregion9 <- states_subregions$subregion9[ match( L143.HDDCDD_QER$state, states_subregions$state ) ]
+L143.HDDCDD_QER[ X_historical_years ] <- DD_His[ X_historical_years ] * L143.DDmult_sR9_Yqer[[X_final_historical_year]][
+  match( vecpaste( L143.HDDCDD_QER[ c( "subregion9", "variable" ) ] ),
+         vecpaste( L143.DDmult_sR9_Yqer[ c( "subregion9", "variable" ) ] ) ) ]
+L143.HDDCDD_QER[ X_QER_DD_years ] <- DD_His[[X_final_historical_year ]] * L143.DDmult_sR9_Yqer[
+  match( vecpaste( L143.HDDCDD_QER[ c( "subregion9", "variable" ) ] ),
+         vecpaste( L143.DDmult_sR9_Yqer[ c( "subregion9", "variable" ) ] ) ),
+  X_QER_DD_years ]
+L143.HDDCDD_QER <- gcam_interp( L143.HDDCDD_QER, future_years, rule = 2 )
+L143.HDDCDD_QER[ c( "Scen", "GCM" ) ] <- "QER"
+L143.HDDCDD_QER <- L143.HDDCDD_QER[ c( "state", "Scen", "GCM", "variable", X_historical_years, X_future_years ) ]
+L143.HDDCDD_scen_state <- rbind( L143.HDDCDD_scen_state, L143.HDDCDD_QER )
 
 # -----------------------------------------------------------------------------
 # 3. Output
