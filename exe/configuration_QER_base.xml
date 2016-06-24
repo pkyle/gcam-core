@@ -96,10 +96,12 @@
 		<Value name = "QER_shareweights">../input/us-midcentury/liquids_subsector_shrwt_USA.xml</Value>
 		<Value name = "QER_shareweights">../input/us-midcentury/coal_subsector_shrwt_USA.xml</Value>
 		<Value name = "QER_shareweights">../input/us-midcentury/rooftop_subsector_shrwt_USA.xml</Value>
+		<Value name = "QER_shareweights">../input/us-midcentury/solar200shwt.xml</Value>
+		<Value name = "QER_shareweights">../input/us-midcentury/wind_033shwt.xml</Value>
 
 	</ScenarioComponents>
 	<Strings>
-		<Value name="scenarioName">QER_base3</Value>
+		<Value name="scenarioName">EPSA_S5</Value>
 		<Value name="debug-region">USA</Value>
 		<Value name="MAGICC-input-dir">../input/magicc/inputs</Value>
 		<Value name="MAGICC-output-dir">../output</Value>
@@ -122,7 +124,7 @@
 		<Value name="carbon-output-start-year">1705</Value>
 		<Value name="climateOutputInterval">5</Value>
 		<Value name="parallel-grain-size">50</Value>
-		<Value name="stop-period">9</Value>
+		<Value name="stop-period">11</Value>
 	</Ints>
 	<Doubles>
 	</Doubles>

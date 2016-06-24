@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+   <world>
+      <region name="AK">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="AL">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="AR">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="AZ">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.340292125</share-weight>
+               <share-weight year="2020">0.57739325</share-weight>
+               <share-weight year="2025">0.814494375</share-weight>
+               <share-weight year="2030">1.0515955</share-weight>
+               <share-weight year="2035">1.288696625</share-weight>
+               <share-weight year="2040">1.52579775</share-weight>
+               <share-weight year="2045">1.762898875</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="CA">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.639360125</share-weight>
+               <share-weight year="2020">0.83373725</share-weight>
+               <share-weight year="2025">1.028114375</share-weight>
+               <share-weight year="2030">1.2224915</share-weight>
+               <share-weight year="2035">1.416868625</share-weight>
+               <share-weight year="2040">1.61124575</share-weight>
+               <share-weight year="2045">1.805622875</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="CO">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.361864375</share-weight>
+               <share-weight year="2020">0.59588375</share-weight>
+               <share-weight year="2025">0.829903125</share-weight>
+               <share-weight year="2030">1.0639225</share-weight>
+               <share-weight year="2035">1.297941875</share-weight>
+               <share-weight year="2040">1.53196125</share-weight>
+               <share-weight year="2045">1.765980625</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="CT">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="DC">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="DE">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="FL">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.306299688</share-weight>
+               <share-weight year="2020">0.548256875</share-weight>
+               <share-weight year="2025">0.790214062</share-weight>
+               <share-weight year="2030">1.03217125</share-weight>
+               <share-weight year="2035">1.274128438</share-weight>
+               <share-weight year="2040">1.516085625</share-weight>
+               <share-weight year="2045">1.758042812</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="GA">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="HI">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.250211717</share-weight>
+               <share-weight year="2020">0.500181471</share-weight>
+               <share-weight year="2025">0.750151226</share-weight>
+               <share-weight year="2030">1.000120981</share-weight>
+               <share-weight year="2035">1.250090736</share-weight>
+               <share-weight year="2040">1.50006049</share-weight>
+               <share-weight year="2045">1.750030245</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="IA">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="ID">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">3.0620225</share-weight>
+               <share-weight year="2020">2.910305</share-weight>
+               <share-weight year="2025">2.7585875</share-weight>
+               <share-weight year="2030">2.60687</share-weight>
+               <share-weight year="2035">2.4551525</share-weight>
+               <share-weight year="2040">2.303435</share-weight>
+               <share-weight year="2045">2.1517175</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="IL">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.251553685</share-weight>
+               <share-weight year="2020">0.50133173</share-weight>
+               <share-weight year="2025">0.751109775</share-weight>
+               <share-weight year="2030">1.00088782</share-weight>
+               <share-weight year="2035">1.250665865</share-weight>
+               <share-weight year="2040">1.50044391</share-weight>
+               <share-weight year="2045">1.750221955</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="IN">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="KS">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.420692375</share-weight>
+               <share-weight year="2020">0.64630775</share-weight>
+               <share-weight year="2025">0.871923125</share-weight>
+               <share-weight year="2030">1.0975385</share-weight>
+               <share-weight year="2035">1.323153875</share-weight>
+               <share-weight year="2040">1.54876925</share-weight>
+               <share-weight year="2045">1.774384625</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="KY">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="LA">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MA">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.251400123</share-weight>
+               <share-weight year="2020">0.501200105</share-weight>
+               <share-weight year="2025">0.751000088</share-weight>
+               <share-weight year="2030">1.00080007</share-weight>
+               <share-weight year="2035">1.250600053</share-weight>
+               <share-weight year="2040">1.500400035</share-weight>
+               <share-weight year="2045">1.750200018</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MD">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.250119962</share-weight>
+               <share-weight year="2020">0.500102824</share-weight>
+               <share-weight year="2025">0.750085687</share-weight>
+               <share-weight year="2030">1.00006855</share-weight>
+               <share-weight year="2035">1.250051412</share-weight>
+               <share-weight year="2040">1.500034275</share-weight>
+               <share-weight year="2045">1.750017137</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="ME">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MI">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MN">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MO">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MS">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="MT">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.306023013</share-weight>
+               <share-weight year="2020">0.548019725</share-weight>
+               <share-weight year="2025">0.790016438</share-weight>
+               <share-weight year="2030">1.03201315</share-weight>
+               <share-weight year="2035">1.274009863</share-weight>
+               <share-weight year="2040">1.516006575</share-weight>
+               <share-weight year="2045">1.758003288</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NC">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.252767459</share-weight>
+               <share-weight year="2020">0.502372107</share-weight>
+               <share-weight year="2025">0.751976756</share-weight>
+               <share-weight year="2030">1.001581405</share-weight>
+               <share-weight year="2035">1.251186054</share-weight>
+               <share-weight year="2040">1.500790703</share-weight>
+               <share-weight year="2045">1.750395351</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="ND">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25086162</share-weight>
+               <share-weight year="2020">0.500738532</share-weight>
+               <share-weight year="2025">0.750615443</share-weight>
+               <share-weight year="2030">1.000492355</share-weight>
+               <share-weight year="2035">1.250369266</share-weight>
+               <share-weight year="2040">1.500246177</share-weight>
+               <share-weight year="2045">1.750123089</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NE">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.397009625</share-weight>
+               <share-weight year="2020">0.62600825</share-weight>
+               <share-weight year="2025">0.855006875</share-weight>
+               <share-weight year="2030">1.0840055</share-weight>
+               <share-weight year="2035">1.313004125</share-weight>
+               <share-weight year="2040">1.54200275</share-weight>
+               <share-weight year="2045">1.771001375</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NH">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NJ">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.255782411</share-weight>
+               <share-weight year="2020">0.504956353</share-weight>
+               <share-weight year="2025">0.754130294</share-weight>
+               <share-weight year="2030">1.003304235</share-weight>
+               <share-weight year="2035">1.252478176</share-weight>
+               <share-weight year="2040">1.501652118</share-weight>
+               <share-weight year="2045">1.750826059</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NM">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.493917625</share-weight>
+               <share-weight year="2020">0.70907225</share-weight>
+               <share-weight year="2025">0.924226875</share-weight>
+               <share-weight year="2030">1.1393815</share-weight>
+               <share-weight year="2035">1.354536125</share-weight>
+               <share-weight year="2040">1.56969075</share-weight>
+               <share-weight year="2045">1.784845375</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NV">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.67287175</share-weight>
+               <share-weight year="2020">0.8624615</share-weight>
+               <share-weight year="2025">1.05205125</share-weight>
+               <share-weight year="2030">1.241641</share-weight>
+               <share-weight year="2035">1.43123075</share-weight>
+               <share-weight year="2040">1.6208205</share-weight>
+               <share-weight year="2045">1.81041025</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="NY">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="OH">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.254368035</share-weight>
+               <share-weight year="2020">0.50374403</share-weight>
+               <share-weight year="2025">0.753120025</share-weight>
+               <share-weight year="2030">1.00249602</share-weight>
+               <share-weight year="2035">1.251872015</share-weight>
+               <share-weight year="2040">1.50124801</share-weight>
+               <share-weight year="2045">1.750624005</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="OK">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.492662</share-weight>
+               <share-weight year="2020">0.707996</share-weight>
+               <share-weight year="2025">0.92333</share-weight>
+               <share-weight year="2030">1.138664</share-weight>
+               <share-weight year="2035">1.353998</share-weight>
+               <share-weight year="2040">1.569332</share-weight>
+               <share-weight year="2045">1.784666</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="OR">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.505066875</share-weight>
+               <share-weight year="2020">0.71862875</share-weight>
+               <share-weight year="2025">0.932190625</share-weight>
+               <share-weight year="2030">1.1457525</share-weight>
+               <share-weight year="2035">1.359314375</share-weight>
+               <share-weight year="2040">1.57287625</share-weight>
+               <share-weight year="2045">1.786438125</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="PA">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.251975164</share-weight>
+               <share-weight year="2020">0.501692998</share-weight>
+               <share-weight year="2025">0.751410831</share-weight>
+               <share-weight year="2030">1.001128665</share-weight>
+               <share-weight year="2035">1.250846499</share-weight>
+               <share-weight year="2040">1.500564332</share-weight>
+               <share-weight year="2045">1.750282166</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="RI">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="SC">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="SD">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.580022875</share-weight>
+               <share-weight year="2020">0.78287675</share-weight>
+               <share-weight year="2025">0.985730625</share-weight>
+               <share-weight year="2030">1.1885845</share-weight>
+               <share-weight year="2035">1.391438375</share-weight>
+               <share-weight year="2040">1.59429225</share-weight>
+               <share-weight year="2045">1.797146125</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="TN">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="TX">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.833744</share-weight>
+               <share-weight year="2020">1.000352</share-weight>
+               <share-weight year="2025">1.16696</share-weight>
+               <share-weight year="2030">1.333568</share-weight>
+               <share-weight year="2035">1.500176</share-weight>
+               <share-weight year="2040">1.666784</share-weight>
+               <share-weight year="2045">1.833392</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="UT">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.333788425</share-weight>
+               <share-weight year="2020">0.57181865</share-weight>
+               <share-weight year="2025">0.809848875</share-weight>
+               <share-weight year="2030">1.0478791</share-weight>
+               <share-weight year="2035">1.285909325</share-weight>
+               <share-weight year="2040">1.52393955</share-weight>
+               <share-weight year="2045">1.761969775</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="VA">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="VT">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="WA">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.2699199</share-weight>
+               <share-weight year="2020">0.5170742</share-weight>
+               <share-weight year="2025">0.7642285</share-weight>
+               <share-weight year="2030">1.0113828</share-weight>
+               <share-weight year="2035">1.2585371</share-weight>
+               <share-weight year="2040">1.5056914</share-weight>
+               <share-weight year="2045">1.7528457</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="WI">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="WV">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.25</share-weight>
+               <share-weight year="2020">0.5</share-weight>
+               <share-weight year="2025">0.75</share-weight>
+               <share-weight year="2030">1</share-weight>
+               <share-weight year="2035">1.25</share-weight>
+               <share-weight year="2040">1.5</share-weight>
+               <share-weight year="2045">1.75</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+      <region name="WY">
+         <supplysector name="electricity">
+            <subsector name="solar">
+               <share-weight year="2015">0.339863375</share-weight>
+               <share-weight year="2020">0.57702575</share-weight>
+               <share-weight year="2025">0.814188125</share-weight>
+               <share-weight year="2030">1.0513505</share-weight>
+               <share-weight year="2035">1.288512875</share-weight>
+               <share-weight year="2040">1.52567525</share-weight>
+               <share-weight year="2045">1.762837625</share-weight>
+               <share-weight year="2050">2</share-weight>
+            </subsector>
+         </supplysector>
+      </region>
+   </world>
+</scenario>

@@ -230,6 +230,26 @@ L254.AllTechOutput_USA$energy.final.demand <- A54.sector$energy.final.demand[
 L254.BaseService_trn_USA <- aggregate( L254.AllTechOutput_USA[ "base.service" ],
       by=as.list( L254.AllTechOutput_USA[ c( names_EnergyFinalDemand, "year" ) ] ), sum )
 
+#Time for some QER hacks! First, set the income elasticity on international shipping to -1 in 2015, and 0 thereafter (wtf?)
+L254.IncomeElasticity_trn_USA$income.elasticity[ L254.IncomeElasticity_trn_USA$year == 2015 &
+                                 L254.IncomeElasticity_trn_USA$energy.final.demand == "trn_shipping_intl" ] <- -1
+L254.IncomeElasticity_trn_USA$income.elasticity[ L254.IncomeElasticity_trn_USA$year > 2015 &
+                                 L254.IncomeElasticity_trn_USA$energy.final.demand == "trn_shipping_intl" ] <- 0
+
+#Then, reduce the demand for freight as a whole
+L254.IncomeElasticity_trn_USA$income.elasticity[ L254.IncomeElasticity_trn_USA$year > 2010 &
+                                 L254.IncomeElasticity_trn_USA$energy.final.demand == "trn_freight" ] <- 0.5
+
+#Reduce the demand for international aviation
+L254.IncomeElasticity_trn_USA$income.elasticity[ L254.IncomeElasticity_trn_USA$year > 2010 &
+                                                   L254.IncomeElasticity_trn_USA$energy.final.demand == "trn_aviation_intl" ] <- 0.25
+
+#Then, set a fuel preference elasticity that causes trains and ships to turn into trucks
+L254.tranSubsectorFuelPref_USA_frt <- subset( L254.tranSubsectorShrwtFllt_USA,
+                                              supplysector == "trn_freight" & tranSubsector %in% c( "Domestic Ship", "Freight Rail" ) )[
+                                                names( L254.tranSubsectorShrwtFllt_USA ) %in% names_tranSubsectorFuelPref ]
+L254.tranSubsectorFuelPref_USA_frt$fuelprefElasticity <- -0.5
+
 # -----------------------------------------------------------------------------
 ##WRITE OUT THE XML FILES THAT WEREN'T WRITTEN OUT IN THE LOOP ABOVE
 
@@ -237,6 +257,9 @@ write_mi_data( L254.StubTranTechCalInput_USA, "StubTranTechCalInput", "GCAMUSA_L
 write_mi_data( L254.StubTranTechProd_nonmotor_USA, "StubTranTechProd", "GCAMUSA_LEVEL2_DATA", "L254.StubTranTechProd_nonmotor_USA", "GCAMUSA_XML_BATCH", "batch_transportation_USA.xml" ) 
 write_mi_data( L254.StubTranTechCalInput_passthru_USA, "StubTranTechCalInput", "GCAMUSA_LEVEL2_DATA", "L254.StubTranTechCalInput_passthru_USA", "GCAMUSA_XML_BATCH", "batch_transportation_USA.xml" )
 write_mi_data( L254.BaseService_trn_USA, "BaseService", "GCAMUSA_LEVEL2_DATA", "L254.BaseService_trn_USA", "GCAMUSA_XML_BATCH", "batch_transportation_USA.xml" )
+
+write_mi_data( L254.IncomeElasticity_trn_USA, "IncomeElasticity", "GCAMUSA_LEVEL2_DATA", "L254.IncomeElasticity_trn_USA", "GCAMUSA_XML_BATCH", "batch_transportation_USA.xml" )
+write_mi_data( L254.tranSubsectorFuelPref_USA_frt, "tranSubsectorFuelPref", "GCAMUSA_LEVEL2_DATA", "L254.tranSubsectorFuelPref_USA_frt", "GCAMUSA_XML_BATCH", "batch_transportation_USA.xml" )
 
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_transportation_USA.xml", "GCAMUSA_XML_FINAL", "transportation_USA.xml", "", xml_tag="outFile" )
 
