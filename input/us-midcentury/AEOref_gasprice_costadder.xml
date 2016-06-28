@@ -7,42 +7,42 @@
                <technology name="regional natural gas">
                   <period year="2010">
                      <minicam-non-energy-input name="regional price adjustment">
-                        <input-cost>-0.8</input-cost>
+                        <input-cost>-0.29</input-cost>
                      </minicam-non-energy-input>
                   </period>
                   <period year="2015">
                      <minicam-non-energy-input name="regional price adjustment">
-                        <input-cost>-0.604</input-cost>
+                        <input-cost>-0.65</input-cost>
                      </minicam-non-energy-input>
                   </period>
                   <period year="2020">
                      <minicam-non-energy-input name="regional price adjustment">
-                        <input-cost>-0.476</input-cost>
+                        <input-cost>-0.43</input-cost>
                      </minicam-non-energy-input>
                   </period>
                   <period year="2025">
                      <minicam-non-energy-input name="regional price adjustment">
-                        <input-cost>-0.29</input-cost>
+                        <input-cost>-0.15</input-cost>
                      </minicam-non-energy-input>
                   </period>
                   <period year="2030">
                      <minicam-non-energy-input name="regional price adjustment">
-                        <input-cost>-0.13</input-cost>
+                        <input-cost>-0.10</input-cost>
                      </minicam-non-energy-input>
                   </period>
                   <period year="2035">
                      <minicam-non-energy-input name="regional price adjustment">
-                        <input-cost>-0.11</input-cost>
+                        <input-cost>-0.06</input-cost>
                      </minicam-non-energy-input>
                   </period>
                   <period year="2040">
                      <minicam-non-energy-input name="regional price adjustment">
-                        <input-cost>0</input-cost>
+                        <input-cost>0.23</input-cost>
                      </minicam-non-energy-input>
                   </period>
                   <period year="2045">
                      <minicam-non-energy-input name="regional price adjustment">
-                        <input-cost>0</input-cost>
+                        <input-cost>0.12</input-cost>
                      </minicam-non-energy-input>
                   </period>
                   <period year="2050">
