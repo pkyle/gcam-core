@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+   <world>
+      <global-technology-database>
+         <location-info sector-name="electricity" subsector-name="wind">
+            <intermittent-technology name="wind">
+               <period year="1975">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="1990">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2005">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2010">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2015">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2020">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2025">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2030">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2035">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2040">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2045">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2050">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2055">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2060">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2065">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2070">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2075">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2080">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2085">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2090">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2095">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+               <period year="2100">
+                  <input-OM-var name="OM-var">
+                     <OM-var>0</OM-var>
+                  </input-OM-var>
+               </period>
+            </intermittent-technology>
+         </location-info>
+      </global-technology-database>
+   </world>
+</scenario>

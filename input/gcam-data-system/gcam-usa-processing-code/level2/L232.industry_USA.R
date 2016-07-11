@@ -42,6 +42,7 @@ L232.StubTechInterp_ind <- readdata( "ENERGY_LEVEL2_DATA", "L232.StubTechInterp_
 L232.PerCapitaBased_ind <- readdata( "ENERGY_LEVEL2_DATA", "L232.PerCapitaBased_ind", skip = 4 )
 L232.PriceElasticity_ind <- readdata( "ENERGY_LEVEL2_DATA", "L232.PriceElasticity_ind", skip = 4 )
 L232.IncomeElasticity_ind_gcam3 <- readdata( "ENERGY_LEVEL2_DATA", "L232.IncomeElasticity_ind_gcam3", skip = 4 )
+A32.tech_eff_USA <- readdata( "GCAMUSA_ASSUMPTIONS", "A32.tech_eff_USA" )
 L132.in_EJ_state_indnochp_F <- readdata( "GCAMUSA_LEVEL1_DATA", "L132.in_EJ_state_indnochp_F", skip = 4 )
 L132.in_EJ_state_indfeed_F <- readdata( "GCAMUSA_LEVEL1_DATA", "L132.in_EJ_state_indfeed_F", skip = 4 )
 L132.in_EJ_state_indchp_F <- readdata( "GCAMUSA_LEVEL1_DATA", "L132.in_EJ_state_indchp_F", skip = 4 )
@@ -221,6 +222,23 @@ L232.BaseService_ind_USA <- data.frame(
       year = L232.StubTechProd_industry_USA$year,
       base.service = L232.StubTechProd_industry_USA$calOutputValue )
 
+printlog( "L232.StubTechEff_ind_USA_adv: advanced case efficiencies of the industrial sector" )
+L232.StubTechEff_ind_USA_adv <- interpolate_and_melt( A32.tech_eff_USA,
+                                                      years = model_future_years, value.name = "efficiency",
+                                                      digits = digits_efficiency )
+L232.StubTechEff_ind_USA_adv$stub.technology <- L232.StubTechEff_ind_USA_adv$technology
+#Market name is included in the stub tech efficiency header
+L232.StubTechEff_ind_USA_adv$market.name <- "USA"
+L232.StubTechEff_ind_USA_adv <- write_to_all_states( L232.StubTechEff_ind_USA_adv, names_StubTechEff )
+if( use_regional_fuel_markets ){
+  L232.StubTechEff_ind_USA_adv$market.name[ L232.StubTechEff_ind_USA_adv[[input]] %in% regional_fuel_markets ] <- states_subregions$grid_region[
+    match( L232.StubTechEff_ind_USA_adv$region[ L232.StubTechEff_ind_USA_adv[[input]] %in% regional_fuel_markets ],
+           states_subregions$state ) ]
+}
+printlog( "NOTE: electricity is consumed from state markets" )
+L232.StubTechEff_ind_USA_adv$market.name[ L232.StubTechEff_ind_USA_adv[[input]] %in% elect_td_sectors ] <-
+  L232.StubTechEff_ind_USA_adv$region[ L232.StubTechEff_ind_USA_adv[[input]] %in% elect_td_sectors ]
+
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
 write_mi_data( L232.StubTechCalInput_indenergy_USA, "StubTechCalInput", "GCAMUSA_LEVEL2_DATA", "L232.StubTechCalInput_indenergy_USA", "GCAMUSA_XML_BATCH", "batch_industry_USA.xml" )
@@ -230,7 +248,9 @@ write_mi_data( L232.StubTechCoef_industry_USA, "StubTechCoef", "GCAMUSA_LEVEL2_D
 write_mi_data( L232.StubTechMarket_ind_USA, "StubTechMarket", "GCAMUSA_LEVEL2_DATA", "L232.StubTechMarket_ind_USA", "GCAMUSA_XML_BATCH", "batch_industry_USA.xml" )
 write_mi_data( L232.StubTechSecMarket_ind_USA, "StubTechSecMarket", "GCAMUSA_LEVEL2_DATA", "L232.StubTechSecMarket_ind_USA", "GCAMUSA_XML_BATCH", "batch_industry_USA.xml" )
 write_mi_data( L232.BaseService_ind_USA, "BaseService", "GCAMUSA_LEVEL2_DATA", "L232.BaseService_ind_USA", "GCAMUSA_XML_BATCH", "batch_industry_USA.xml" )
+write_mi_data( L232.StubTechEff_ind_USA_adv, "StubTechEff", "GCAMUSA_LEVEL2_DATA", "L232.StubTechEff_ind_USA_adv", "GCAMUSA_XML_BATCH", "batch_industry_USA_adv_addon.xml" )
 
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_industry_USA.xml", "GCAMUSA_XML_FINAL", "industry_USA.xml", "", xml_tag="outFile" )
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_industry_USA_adv_addon.xml", "GCAMUSA_XML_FINAL", "industry_USA_adv_addon.xml", "", xml_tag="outFile" )
 
 logstop()

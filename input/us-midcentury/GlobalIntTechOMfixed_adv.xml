@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+   <world>
+      <global-technology-database>
+         <location-info sector-name="electricity" subsector-name="wind">
+            <intermittent-technology name="wind">
+               <period year="1975">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>17.60</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="1990">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>17.60</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2005">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>17.60</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2010">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>17.60</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2015">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>17.60</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2020">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>16.16</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2025">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2030">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2035">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2040">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2045">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2050">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2055">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2060">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2065">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2070">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2075">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2080">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2085">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2090">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2095">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2100">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.37</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+            </intermittent-technology>
+         </location-info>
+         <location-info sector-name="electricity" subsector-name="solar">
+            <intermittent-technology name="PV">
+               <period year="1975">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>5.41</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="1990">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>5.41</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2005">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>5.41</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2010">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>5.41</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2015">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>5.41</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2020">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2025">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2030">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2035">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2040">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2045">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2050">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2055">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2060">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2065">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2070">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2075">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2080">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2085">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2090">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2095">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2100">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>2.89</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+            </intermittent-technology>
+            <intermittent-technology name="CSP">
+               <period year="1975">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>13.17</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="1990">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>13.17</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2005">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>13.17</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2010">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>13.17</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2015">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>13.17</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2020">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>13.17</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2025">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>12.78</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2030">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>12.12</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2035">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.25</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2040">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>10.54</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2045">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>10.54</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2050">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>10.54</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2055">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>10.54</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2060">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>10.54</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2065">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>10.54</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2070">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>10.54</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2075">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>10.54</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2080">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>10.54</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2085">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>10.54</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2090">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>10.54</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2095">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>10.54</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2100">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>10.54</OM-fixed>
+                     <capacity-factor>0.25</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+            </intermittent-technology>
+         </location-info>
+         <location-info sector-name="elect_td_bld" subsector-name="rooftop_pv">
+            <intermittent-technology name="rooftop_pv">
+               <period year="1975">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>17.60</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="1990">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>17.60</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2005">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>17.60</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2010">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>17.60</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2015">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>17.60</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2020">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>16.16</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2025">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2030">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2035">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2040">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2045">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2050">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2055">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2060">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2065">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2070">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2075">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2080">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2085">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2090">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2095">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+               <period year="2100">
+                  <input-OM-fixed name="OM-fixed">
+                     <OM-fixed>11.54</OM-fixed>
+                     <capacity-factor>0.2</capacity-factor>
+                  </input-OM-fixed>
+               </period>
+            </intermittent-technology>
+         </location-info>
+      </global-technology-database>
+   </world>
+</scenario>

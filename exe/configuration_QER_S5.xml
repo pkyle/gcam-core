@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Files>
+		<Value name="xmlInputFileName">../input/gcam-data-system/xml/modeltime-xml/modeltime.xml</Value>
+		<Value name="BatchFileName">batch_ag.xml</Value>
+		<Value name="policy-target-file">../input/policy/forcing_target_4p5.xml</Value>
+		<Value name="GHGInputFileName">../input/magicc/inputs/input_gases.emk</Value>
+		<Value write-output="1" append-scenario-name="0" name="xmldb-location">../output/database_basexdb</Value>
+		<Value write-output="1" append-scenario-name="0" name="xmlOutputFileName">../output/output.xml</Value>
+		<Value write-output="1" append-scenario-name="1" name="xmlDebugFileName">debug.xml</Value>
+		<Value write-output="1" append-scenario-name="0" name="climatFileName">gas.emk</Value>
+		<Value write-output="1" append-scenario-name="0" name="outFileName">outFile.csv</Value>
+		<Value write-output="1" append-scenario-name="1" name="costCurvesOutputFileName">cost_curves.xml</Value>
+		<Value write-output="1" append-scenario-name="0" name="batchCSVOutputFile">batch-csv-out.csv</Value>
+		<Value write-output="0" append-scenario-name="0" name="supplyDemandOutputFileName">SDCurves.csv</Value>
+		<Value write-output="0" append-scenario-name="0" name="dependencyGraphName">DependencyGraph.dot</Value>
+		<Value write-output="0" append-scenario-name="0" name="landAllocatorGraphName">LandAllocatorGraph.dot</Value>
+		<Value write-output="0" append-scenario-name="0" name="ObjectSGMFileName">ObjectSGMout.csv</Value>
+		<Value write-output="0" append-scenario-name="0" name="ObjectSGMGenFileName">ObjectSGMGen.csv</Value>
+		<Value write-output="0" append-scenario-name="0" name="dbFileName">../output/output.mdb</Value>
+	</Files>
+	<ScenarioComponents>
+		<Value name = "climate">../input/climate/magicc.xml</Value>
+		<Value name = "hist_emissions">../input/magicc/Historical Emissions/Default Emissions Module/Default_Emissions_Input.xml</Value>
+		<Value name = "socioeconomics">../input/gcam-data-system/xml/socioeconomics-xml/interest_rate.xml</Value>
+		<Value name = "socioeconomics">../input/gcam-data-system/xml/socioeconomics-xml/socioeconomics_GCAM3.xml</Value>
+		<Value name = "resources">../input/gcam-data-system/xml/energy-xml/resources.xml</Value>
+		<Value name = "energy_supply">../input/gcam-data-system/xml/energy-xml/en_supply.xml</Value>
+		<Value name = "energy_transformation">../input/gcam-data-system/xml/energy-xml/en_transformation.xml</Value>
+		<Value name = "electricity">../input/gcam-data-system/xml/energy-xml/electricity.xml</Value>
+		<Value name = "heat">../input/gcam-data-system/xml/energy-xml/heat.xml</Value>
+		<Value name = "hydrogen">../input/gcam-data-system/xml/energy-xml/hydrogen.xml</Value>
+		<Value name = "energy_distribution">../input/gcam-data-system/xml/energy-xml/en_distribution.xml</Value>
+		<Value name = "industry">../input/gcam-data-system/xml/energy-xml/industry.xml</Value>
+		<Value name = "industry">../input/gcam-data-system/xml/energy-xml/industry_incelas_gcam3.xml</Value>
+		<Value name = "cement">../input/gcam-data-system/xml/energy-xml/cement.xml</Value>
+		<Value name = "cement">../input/gcam-data-system/xml/energy-xml/cement_incelas_gcam3.xml</Value>
+		<Value name = "fertilizer">../input/gcam-data-system/xml/energy-xml/en_Fert.xml</Value>
+		<Value name = "hddcdd">../input/gcam-data-system/xml/energy-xml/HDDCDD_constdd_no_GCM.xml</Value>
+		<Value name = "building">../input/gcam-data-system/xml/energy-xml/building_det.xml</Value>
+		<Value name = "transportation">../input/gcam-data-system/xml/energy-xml/transportation_UCD.xml</Value>
+		<Value name = "carbon_content">../input/gcam-data-system/xml/energy-xml/Ccoef.xml</Value>
+		<Value name = "carbon_storage">../input/gcam-data-system/xml/energy-xml/Cstorage.xml</Value>
+		<Value name = "ag_base">../input/gcam-data-system/xml/aglu-xml/ag_For_Past_bio_base.xml</Value>
+		<Value name = "ag_cost">../input/gcam-data-system/xml/aglu-xml/ag_cost.xml</Value>
+		<Value name = "ag_prodchange">../input/gcam-data-system/xml/aglu-xml/ag_prodchange_ref.xml</Value>
+		<Value name = "residue_bio">../input/gcam-data-system/xml/aglu-xml/resbio_input.xml</Value>
+		<Value name = "animal">../input/gcam-data-system/xml/aglu-xml/an_input.xml</Value>
+		<Value name = "fertilizer">../input/gcam-data-system/xml/aglu-xml/ag_Fert.xml</Value>
+		<Value name = "land">../input/gcam-data-system/xml/aglu-xml/land_input_1.xml</Value>
+		<Value name = "land">../input/gcam-data-system/xml/aglu-xml/land_input_2.xml</Value>
+		<Value name = "land">../input/gcam-data-system/xml/aglu-xml/land_input_3.xml</Value>
+		<Value name = "land">../input/gcam-data-system/xml/aglu-xml/protected_land_input_2.xml</Value>
+		<Value name = "land">../input/gcam-data-system/xml/aglu-xml/protected_land_input_3.xml</Value>
+		<Value name = "bio">../input/gcam-data-system/xml/aglu-xml/bio_hi.xml</Value>
+		<Value name = "demand">../input/gcam-data-system/xml/aglu-xml/demand_input.xml</Value>
+		<Value name = "ind_urb_proc">../input/gcam-data-system/xml/emissions-xml/ind_urb_processing_sectors.xml</Value>
+		<Value name = "nonco2_aglu">../input/gcam-data-system/xml/emissions-xml/all_aglu_emissions.xml</Value>
+		<Value name = "nonco2_energy">../input/gcam-data-system/xml/emissions-xml/all_energy_emissions.xml</Value>
+		<Value name = "nonco2_fgas">../input/gcam-data-system/xml/emissions-xml/all_fgas_emissions.xml</Value>
+		<Value name = "nonco2_unmgd">../input/gcam-data-system/xml/emissions-xml/all_unmgd_emissions.xml</Value>
+		<Value name = "solver">../input/solution/cal_broyden_config.xml</Value>
+
+		<Value name = "socio_usa">../input/gcam-data-system/xml/gcam-usa-xml/socioeconomics_USA_QER.xml</Value>
+		<Value name = "interest_usa">../input/gcam-data-system/xml/gcam-usa-xml/interest_rate_USA.xml</Value>
+		<Value name = "resource_usa">../input/gcam-data-system/xml/gcam-usa-xml/resources_USA.xml</Value>
+		<Value name = "Cstorage_usa">../input/gcam-data-system/xml/gcam-usa-xml/Cstorage_USA.xml</Value>
+		<Value name = "prices_usa">../input/gcam-data-system/xml/gcam-usa-xml/en_prices_USA.xml</Value>
+		<Value name = "en_transform_usa">../input/gcam-data-system/xml/gcam-usa-xml/en_transformation_USA.xml</Value>
+		<Value name = "elec_usa">../input/gcam-data-system/xml/gcam-usa-xml/electricity_USA.xml</Value>
+		<Value name = "h2_usa">../input/gcam-data-system/xml/gcam-usa-xml/hydrogen_USA.xml</Value>
+		<Value name = "elect_td_usa">../input/gcam-data-system/xml/gcam-usa-xml/electd_USA.xml</Value>
+		<Value name = "trn_usa">../input/gcam-data-system/xml/gcam-usa-xml/transportation_USA_S5.xml</Value>
+		<Value name = "bld_usa">../input/gcam-data-system/xml/gcam-usa-xml/building_USA_S5.xml</Value>
+		<Value name = "bld_usa">../input/gcam-data-system/xml/gcam-usa-xml/building_flsp_USA_QER.xml</Value>
+		<Value name = "dd_usa">../input/gcam-data-system/xml/gcam-usa-xml/HDDCDD_QER_QER_USA.xml</Value>
+		<Value name = "ind_usa">../input/gcam-data-system/xml/gcam-usa-xml/industry_USA.xml</Value>
+		<Value name = "cement_usa">../input/gcam-data-system/xml/gcam-usa-xml/cement_USA.xml</Value>
+		<Value name = "fert_usa">../input/gcam-data-system/xml/gcam-usa-xml/Fert_USA.xml</Value>
+		<!--Value name = "dispatcher_usa">../input/gcam-data-system/xml/gcam-usa-xml/dispatcher_USA.xml</Value-->
+<!-- mid-century files-->
+		<Value name = "no-new-coal">../input/us-midcentury/nonewconvpul.xml</Value>
+		<Value name = "no-new-coal">../input/us-midcentury/nonewIGCC.xml</Value>
+		<Value name = "PTC">../input/us-midcentury/PTC_cost_adder.xml</Value>
+        <Value name = "QER_elec_costs">../input/us-midcentury/GlobalTechCapital_elec_qer_itc.xml</Value>
+        <Value name = "QER_elec_costs">../input/us-midcentury/GlobalIntTechCapital_elec_qer_itc.xml</Value>     
+        <Value name = "AEO_refgas_price">../input/us-midcentury/AEOref_gasprice_costadder.xml</Value>
+		<Value name = "AEO_refcoal_price">../input/us-midcentury/AEOref_coalprice_costadder.xml</Value>
+		<Value name = "CPP">../input/us-midcentury/CO2_elec_bioCONSTR0_existCTCONSTR0_CHPCONSTR1.xml</Value>
+		<Value name = "CPP">../input/us-midcentury/CPP_national_trade_usa.xml</Value>
+		<Value name = "QER_no-BECCS-elec-us">../input/us-midcentury/no-BECCS-electricity.xml</Value> 
+		<Value name = "QER_shareweights">../input/us-midcentury/subsector_shrwt_USA_del.xml</Value>
+		<Value name = "QER_shareweights">../input/us-midcentury/solar_subsector_shrwt_USA.xml</Value>
+		<Value name = "QER_shareweights">../input/us-midcentury/wind_subsector_shrwt_USA.xml</Value>
+		<Value name = "QER_shareweights">../input/us-midcentury/nuclear_subsector_shrwt_USA.xml</Value>
+		<Value name = "QER_shareweights">../input/us-midcentury/liquids_subsector_shrwt_USA.xml</Value>
+		<Value name = "QER_shareweights">../input/us-midcentury/coal_subsector_shrwt_USA.xml</Value>
+		<Value name = "QER_shareweights">../input/us-midcentury/rooftop_subsector_shrwt_USA.xml</Value>
+		<Value name = "QER_shareweights">../input/us-midcentury/solar200shwt.xml</Value>
+		<Value name = "QER_shareweights">../input/us-midcentury/wind_033shwt.xml</Value>
+
+	</ScenarioComponents>
+	<Strings>
+		<Value name="scenarioName">EPSA_S5</Value>
+		<Value name="debug-region">USA</Value>
+		<Value name="MAGICC-input-dir">../input/magicc/inputs</Value>
+		<Value name="MAGICC-output-dir">../output</Value>
+	</Strings>
+	<Bools>
+		<Value name="CalibrationActive">1</Value>
+		<Value name="BatchMode">0</Value>
+		<Value name="find-path">0</Value>
+		<Value name="createCostCurve">0</Value>
+		<Value name="debugChecking">0</Value>
+		<Value name="simulActive">1</Value>
+		<Value name="PrintValuesOnGraphs">1</Value>
+		<Value name="ShowNullPaths">0</Value>
+		<Value name="PrintPrices">1</Value>
+	</Bools>
+	<Ints>
+		<Value name="numMarketsToFindSD">10</Value>
+		<Value name="numPointsForSD">21</Value>
+		<Value name="numPointsForCO2CostCurve">5</Value>
+		<Value name="carbon-output-start-year">1705</Value>
+		<Value name="climateOutputInterval">5</Value>
+		<Value name="parallel-grain-size">50</Value>
+		<Value name="stop-period">11</Value>
+	</Ints>
+	<Doubles>
+	</Doubles>
+</Configuration>
