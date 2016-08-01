@@ -38,7 +38,7 @@
 		<Value name = "fertilizer">../input/gcam-data-system/xml/energy-xml/en_Fert.xml</Value>
 		<Value name = "hddcdd">../input/gcam-data-system/xml/energy-xml/HDDCDD_constdd_no_GCM.xml</Value>
 		<Value name = "building">../input/gcam-data-system/xml/energy-xml/building_det.xml</Value>
-		<Value name = "transportation">../input/gcam-data-system/xml/energy-xml/transportation_UCD_S8.xml</Value>
+		<Value name = "transportation">../input/gcam-data-system/xml/energy-xml/transportation_UCD_S7.xml</Value>
 		<Value name = "carbon_content">../input/gcam-data-system/xml/energy-xml/Ccoef.xml</Value>
 		<Value name = "carbon_storage">../input/gcam-data-system/xml/energy-xml/Cstorage.xml</Value>
 		<Value name = "ag_base">../input/gcam-data-system/xml/aglu-xml/ag_For_Past_bio_base.xml</Value>
@@ -70,12 +70,12 @@
 		<Value name = "elec_usa">../input/gcam-data-system/xml/gcam-usa-xml/electricity_USA.xml</Value>
 		<Value name = "h2_usa">../input/gcam-data-system/xml/gcam-usa-xml/hydrogen_USA.xml</Value>
 		<Value name = "elect_td_usa">../input/gcam-data-system/xml/gcam-usa-xml/electd_USA.xml</Value>
-		<Value name = "trn_usa">../input/gcam-data-system/xml/gcam-usa-xml/transportation_USA_S8.xml</Value>
-		<Value name = "bld_usa">../input/gcam-data-system/xml/gcam-usa-xml/building_USA_S8.xml</Value>
+		<Value name = "trn_usa">../input/gcam-data-system/xml/gcam-usa-xml/transportation_USA_S7.xml</Value>
+		<Value name = "bld_usa">../input/gcam-data-system/xml/gcam-usa-xml/building_USA_S7.xml</Value>
 		<Value name = "bld_usa">../input/gcam-data-system/xml/gcam-usa-xml/building_flsp_USA_QER.xml</Value>
 		<Value name = "dd_usa">../input/gcam-data-system/xml/gcam-usa-xml/HDDCDD_QER_QER_USA.xml</Value>
 		<Value name = "ind_usa">../input/gcam-data-system/xml/gcam-usa-xml/industry_USA.xml</Value>
-		<Value name = "ind_usa">../input/gcam-data-system/xml/gcam-usa-xml/industry_USA_adv_addon.xml</Value>
+		<Value name = "ind_usa">../input/gcam-data-system/xml/gcam-usa-xml/industry_USA_hielec_addon.xml</Value>
 		<Value name = "cement_usa">../input/gcam-data-system/xml/gcam-usa-xml/cement_USA.xml</Value>
 		<Value name = "fert_usa">../input/gcam-data-system/xml/gcam-usa-xml/Fert_USA.xml</Value>
 		<!--Value name = "dispatcher_usa">../input/gcam-data-system/xml/gcam-usa-xml/dispatcher_USA.xml</Value-->
@@ -83,17 +83,10 @@
 		<Value name = "no-new-coal">../input/us-midcentury/nonewconvpul.xml</Value>
 		<Value name = "no-new-coal">../input/us-midcentury/nonewIGCC.xml</Value>
 		<Value name = "PTC">../input/us-midcentury/PTC_cost_adder.xml</Value>
-        <Value name = "QER_elec_costs">../input/us-midcentury/GlobalTechCapital_elec_qer_itc_adv.xml</Value>
-        <Value name = "QER_elec_costs">../input/us-midcentury/GlobalTechOMfixed_adv.xml</Value>
-        <Value name = "QER_elec_costs">../input/us-midcentury/GlobalTechOMvar_adv.xml</Value>
-        <Value name = "QER_elec_costs">../input/us-midcentury/GlobalIntTechCapital_elec_qer_itc_adv.xml</Value>
-        <Value name = "QER_elec_costs">../input/us-midcentury/GlobalIntTechOMfixed_adv.xml</Value>
-        <Value name = "QER_elec_costs">../input/us-midcentury/GlobalIntTechOMvar_adv.xml</Value>
+        <Value name = "QER_elec_costs">../input/us-midcentury/GlobalTechCapital_elec_qer_itc.xml</Value>
+        <Value name = "QER_elec_costs">../input/us-midcentury/GlobalIntTechCapital_elec_qer_itc.xml</Value>     
         <Value name = "AEO_refgas_price">../input/us-midcentury/AEOref_gasprice_costadder.xml</Value>
 		<Value name = "AEO_refcoal_price">../input/us-midcentury/AEOref_coalprice_costadder.xml</Value>
-		<Value name = "CPP">../input/us-midcentury/CO2_elec_bioCONSTR0_existCTCONSTR0_CHPCONSTR1.xml</Value>
-		<Value name = "CPP">../input/us-midcentury/CPP_national_trade_usa.xml</Value>
-		<Value name = "QER_no-BECCS-elec-us">../input/us-midcentury/no-BECCS-electricity.xml</Value> 
 		<Value name = "QER_shareweights">../input/us-midcentury/subsector_shrwt_USA_del.xml</Value>
 		<Value name = "QER_shareweights">../input/us-midcentury/solar_subsector_shrwt_USA.xml</Value>
 		<Value name = "QER_shareweights">../input/us-midcentury/wind_subsector_shrwt_USA.xml</Value>
@@ -106,7 +99,7 @@
 
 	</ScenarioComponents>
 	<Strings>
-		<Value name="scenarioName">EPSA_S8</Value>
+		<Value name="scenarioName">EPSA_S7_noCPP</Value>
 		<Value name="debug-region">USA</Value>
 		<Value name="MAGICC-input-dir">../input/magicc/inputs</Value>
 		<Value name="MAGICC-output-dir">../output</Value>

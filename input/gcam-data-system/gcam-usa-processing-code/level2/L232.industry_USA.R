@@ -25,6 +25,7 @@ sourcedata( "ENERGY_ASSUMPTIONS", "A_ind_data", extension = ".R" )
 sourcedata( "GCAMUSA_ASSUMPTIONS", "A_GCAMUSA_data", extension = ".R" )
 states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
 A32.demand <- readdata( "ENERGY_ASSUMPTIONS", "A32.demand" )
+A32.fuelprefElasticity_USA <- readdata( "GCAMUSA_ASSUMPTIONS", "A32.fuelprefElasticity_USA" )
 A32.globaltech_coef <- readdata( "ENERGY_ASSUMPTIONS", "A32.globaltech_coef" )
 A32.globaltech_eff <- readdata( "ENERGY_ASSUMPTIONS", "A32.globaltech_eff" )
 A32.globaltech_shrwt <- readdata( "ENERGY_ASSUMPTIONS", "A32.globaltech_shrwt" )
@@ -239,6 +240,9 @@ printlog( "NOTE: electricity is consumed from state markets" )
 L232.StubTechEff_ind_USA_adv$market.name[ L232.StubTechEff_ind_USA_adv[[input]] %in% elect_td_sectors ] <-
   L232.StubTechEff_ind_USA_adv$region[ L232.StubTechEff_ind_USA_adv[[input]] %in% elect_td_sectors ]
 
+printlog( "Fuel preference elasticity for hielec scenario" )
+L232.FuelPrefElast_indenergy_USA_hielec <- write_to_all_states( A32.fuelprefElasticity_USA, names_FuelPrefElasticity )
+
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
 write_mi_data( L232.StubTechCalInput_indenergy_USA, "StubTechCalInput", "GCAMUSA_LEVEL2_DATA", "L232.StubTechCalInput_indenergy_USA", "GCAMUSA_XML_BATCH", "batch_industry_USA.xml" )
@@ -249,8 +253,10 @@ write_mi_data( L232.StubTechMarket_ind_USA, "StubTechMarket", "GCAMUSA_LEVEL2_DA
 write_mi_data( L232.StubTechSecMarket_ind_USA, "StubTechSecMarket", "GCAMUSA_LEVEL2_DATA", "L232.StubTechSecMarket_ind_USA", "GCAMUSA_XML_BATCH", "batch_industry_USA.xml" )
 write_mi_data( L232.BaseService_ind_USA, "BaseService", "GCAMUSA_LEVEL2_DATA", "L232.BaseService_ind_USA", "GCAMUSA_XML_BATCH", "batch_industry_USA.xml" )
 write_mi_data( L232.StubTechEff_ind_USA_adv, "StubTechEff", "GCAMUSA_LEVEL2_DATA", "L232.StubTechEff_ind_USA_adv", "GCAMUSA_XML_BATCH", "batch_industry_USA_adv_addon.xml" )
+write_mi_data( L232.FuelPrefElast_indenergy_USA_hielec, "FuelPrefElast", "GCAMUSA_LEVEL2_DATA", "L232.FuelPrefElast_indenergy_USA_hielec", "GCAMUSA_XML_BATCH", "batch_industry_USA_hielec_addon.xml")
 
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_industry_USA.xml", "GCAMUSA_XML_FINAL", "industry_USA.xml", "", xml_tag="outFile" )
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_industry_USA_adv_addon.xml", "GCAMUSA_XML_FINAL", "industry_USA_adv_addon.xml", "", xml_tag="outFile" )
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_industry_USA_hielec_addon.xml", "GCAMUSA_XML_FINAL", "industry_USA_hielec_addon.xml", "", xml_tag="outFile" )
 
 logstop()
