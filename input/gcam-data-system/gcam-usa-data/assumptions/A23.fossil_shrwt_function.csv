@@ -1,0 +1,8 @@
+"# A223.Fossil_Interp_elec_USA_Assumptions: Interpolation function for Coal, Gas, and Refined liquids.",,,,,,
+# It does not contain a “to-value” option as the assumption for fossil fuels is that they remain fixed from the calibration year (2010).,,,,,,
+"# However, the R script can be modified to consider an “interpopTo” assumption file. ",,,,,,
+,,,,,,
+region,supplysector,subsector,apply.to,from.year,to.year,interpolation.function
+USA,electricity,coal,share-weight,2010,2100,fixed
+USA,electricity,gas,share-weight,2010,2100,fixed
+USA,electricity,refined liquids,share-weight,2015,2100,fixed

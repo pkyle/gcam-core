@@ -1,0 +1,12 @@
+"# Interpolation function for renewables sources (solar, wind, biomass, hydro, geothermal).",,,,,,
+"# If interpolation function “linear” is defined, then a shwrt for the “to-year” year needs to be given in the assumption file “A223.Shrwt_elec_USA_Assumptions”",,,,,,
+,,,,,,
+region,supplysector,subsector,apply.to,from.year,to.year,interpolation.function
+USA,electricity,solar,share-weight,2010,2050,linear
+USA,electricity,wind,share-weight,2010,2050,linear
+USA,electricity,biomass,share-weight,2010,2100,linear
+USA,electricity,hydro,share-weight,2010,2015,linear
+USA,electricity,geothermal,share-weight,2010,2100,linear
+USA,electricity,solar,share-weight,2050,2100,fixed
+USA,electricity,wind,share-weight,2050,2100,fixed
+USA,electricity,hydro,share-weight,2015,2100,fixed

@@ -1,0 +1,10 @@
+# This file creates the shrwts for all fuels but nuclear for the to-year value,,,,
+# in the assumption files A223.Fossil_Interp_elec_USA_Assumptions and A223.Renewables_Interp_elec_USA_Assumptions ,,,,
+,,,,
+region,supplysector,subsector,year,share.weight
+USA,electricity,solar,2050,1
+USA,electricity,wind,2050,0.5
+USA,electricity,refined liquids,2015,0
+USA,electricity,biomass,2100,1
+USA,electricity,hydro,2015,1
+USA,electricity,geothermal,2100,1

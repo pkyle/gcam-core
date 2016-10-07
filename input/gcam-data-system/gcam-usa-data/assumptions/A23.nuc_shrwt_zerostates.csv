@@ -1,0 +1,4 @@
+# This file creates a shrwt of 0 from the calibration year to 2100 for states with no nuclear resources.,,,,,,,
+,,,,,,,
+region,supplysector,subsector,apply.to,from.year,to.year,to.value,interpolation.function
+USA,electricity,nuclear,share-weight,2010,2100,0,fixed

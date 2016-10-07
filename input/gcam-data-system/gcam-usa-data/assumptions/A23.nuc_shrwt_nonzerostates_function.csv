@@ -1,0 +1,8 @@
+# Interpolation function for states with nuclear energy in the calibration year.,,,,,,
+# The shrwts are linear from calibration year to 2020 (to 0.2) and then fixed to 0.2 to 2100. ,,,,,,
+# NOTE: The interpolation function “linear from 2010 to 2020” works if and only if a shrwt of 0.2 (or any other value) is specified in the assumption file: ,,,,,,
+#  A223.Shrwt_elec_nuc_USA_Assumptions. This is true for any interpolation file that do not contain the “to-value” option.,,,,,,
+,,,,,,
+region,supplysector,subsector,apply.to,from.year,to.year,interpolation.function
+USA,electricity,nuclear,share-weight,2010,2020,linear
+USA,electricity,nuclear,share-weight,2020,2100,fixed
