@@ -78,30 +78,38 @@
 		<Value name = "cement_usa">../input/gcam-data-system/xml/gcam-usa-xml/cement_USA.xml</Value>
 		<Value name = "fert_usa">../input/gcam-data-system/xml/gcam-usa-xml/Fert_USA.xml</Value>
 		<!--Value name = "dispatcher_usa">../input/gcam-data-system/xml/gcam-usa-xml/dispatcher_USA.xml</Value-->
-<!-- mid-century files-->
+
+        <Value name = "elec_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/elec_emissions_USA.xml</Value>
+		<Value name = "transport_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/transport_emissions_USA.xml</Value>
+		<Value name = "ghg_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/ghg_emissions_USA.xml</Value>
+		<Value name = "bld_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/bld_emissions_USA.xml</Value>
+		<Value name = "indenergy_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/indenergy_emissions_USA.xml</Value>
+		<Value name = "othertrn_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/othertrn_emissions_USA.xml</Value>
+
+<!-- GCAM-USA-electricity-assumptions based on QER-->
 		<Value name = "no-new-coal">../input/us-midcentury/nonewconvpul.xml</Value>
 		<Value name = "no-new-coal">../input/us-midcentury/nonewIGCC.xml</Value>
-		<Value name = "PTC">../input/us-midcentury/PTC_cost_adder.xml</Value>
-        <Value name = "QER_elec_costs">../input/us-midcentury/GlobalTechCapital_elec_qer_itc.xml</Value>
-        <Value name = "QER_elec_costs">../input/us-midcentury/GlobalIntTechCapital_elec_qer_itc.xml</Value>     
+         <Value name = "no-new-coalcogen">../input/us-midcentury/coal_cogen_shrwt_interp_del.xml</Value>
+         <Value name = "no-new-coalcogen">../input/us-midcentury/nonewcoalcogen.xml</Value>
+		<Value name = "QER_elec_capital_overnight_costs">../input/gcam-data-system/xml/gcam-usa-xml/elec_capital_QER.xml</Value>
+
+<!--Investment tax Credits and Production Tax Credits-->
+		<Value name = "QER_itc">../input/gcam-data-system/xml/gcam-usa-xml/elec_itc_QER.xml</Value>
+		<Value name = "QER_ptc">../input/gcam-data-system/xml/gcam-usa-xml/elec_ptc_QER.xml</Value>
+
+<!--AEO fuel prices -->
         <Value name = "AEO_refgas_price">../input/us-midcentury/AEOref_gasprice_costadder.xml</Value>
 		<Value name = "AEO_refcoal_price">../input/us-midcentury/AEOref_coalprice_costadder.xml</Value>
+
+<!-- Clean Power Plan files-->
 		<Value name = "CPP">../input/us-midcentury/CO2_elec_bioCONSTR0_existCTCONSTR0_CHPCONSTR1.xml</Value>
-		<Value name = "CPP">../input/us-midcentury/CPP_national_trade_usa.xml</Value>
-		<Value name = "QER_no-BECCS-elec-us">../input/us-midcentury/no-BECCS-electricity.xml</Value> 
-		<Value name = "QER_shareweights">../input/us-midcentury/subsector_shrwt_USA_del.xml</Value>
-		<Value name = "QER_shareweights">../input/us-midcentury/solar_subsector_shrwt_USA.xml</Value>
-		<Value name = "QER_shareweights">../input/us-midcentury/wind_subsector_shrwt_USA.xml</Value>
-		<Value name = "QER_shareweights">../input/us-midcentury/nuclear_subsector_shrwt_USA.xml</Value>
-		<Value name = "QER_shareweights">../input/us-midcentury/liquids_subsector_shrwt_USA.xml</Value>
-		<Value name = "QER_shareweights">../input/us-midcentury/coal_subsector_shrwt_USA.xml</Value>
-		<Value name = "QER_shareweights">../input/us-midcentury/rooftop_subsector_shrwt_USA.xml</Value>
-		<Value name = "QER_shareweights">../input/us-midcentury/solar200shwt.xml</Value>
-		<Value name = "QER_shareweights">../input/us-midcentury/wind_033shwt.xml</Value>
+		<Value name = "CPP">../input/us-midcentury/CPP_national_trade_usa2020.xml</Value>
+
+
 
 	</ScenarioComponents>
 	<Strings>
-		<Value name="scenarioName">EPSA_S5</Value>
+		<Value name="scenarioName">GCAM_USA_Ref</Value>
 		<Value name="debug-region">USA</Value>
 		<Value name="MAGICC-input-dir">../input/magicc/inputs</Value>
 		<Value name="MAGICC-output-dir">../output</Value>
