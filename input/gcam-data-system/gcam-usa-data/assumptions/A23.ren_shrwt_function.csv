@@ -10,3 +10,5 @@ USA,electricity,geothermal,share-weight,2010,2100,linear
 USA,electricity,solar,share-weight,2050,2100,fixed
 USA,electricity,wind,share-weight,2050,2100,fixed
 USA,electricity,hydro,share-weight,2015,2100,fixed
+USA,elect_td_bld,rooftop_pv,share-weight,2010,2050,linear
+USA,elect_td_bld,rooftop_pv,share-weight,2050,2100,fixed

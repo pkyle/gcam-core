@@ -310,6 +310,7 @@ for( i in 1:length( L223.tables ) ){
       object<-object[object$subsector!="wind",]
       object<-object[object$subsector!="biomass",]
       object<-object[object$subsector!="geothermal",]
+     
       
       # Remove states with no geothermal resources
       geo_states_noresource_del<-NREL_us_re_technical_potential$state[ NREL_us_re_technical_potential$Geothermal_Hydrothermal_GWh == 0 ]
@@ -336,6 +337,7 @@ for( i in 1:length( L223.tables ) ){
       object<-object[object$subsector!="biomass",]
       object<-object[object$subsector!="nuclear",]
       object<-object[object$subsector!="geothermal",]
+     
       
       # Remove states with no geothermal resources
       geo_states_noresource_del<-NREL_us_re_technical_potential$state[ NREL_us_re_technical_potential$Geothermal_Hydrothermal_GWh == 0 ]
@@ -373,6 +375,7 @@ for( i in 1:length( L223.tables ) ){
       object<-object[object$subsector!="coal",]
       object<-object[object$subsector!="gas",]
       object<-object[object$subsector!="nuclear",]
+      object<-object[object$subsector!="rooftop_pv",]
       
       #Read the assumptions for states wit no nuclear (zerostates). 
       No_Nuc <- readdata( "GCAMUSA_ASSUMPTIONS","A23.nuc_shrwt_zerostates" , skip = 2, must.exist = F )
