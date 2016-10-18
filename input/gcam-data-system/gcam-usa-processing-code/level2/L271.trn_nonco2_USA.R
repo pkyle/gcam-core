@@ -184,7 +184,7 @@ prediction_table <- L254.StubTranTech_USA_trn %>%
 for(i in 1:nrow(prediction_table)){
   prediction_table[i,"final.emissions.coefficient"] <- predict.lm(
     model_list[[prediction_table[i,]$id]],
-    newdata=prediction_table[i,"year"])
+    newdata=prediction_table[i,])
 }
 
 #Add the final emissions coefficients onto the emissions control table
