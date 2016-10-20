@@ -88,10 +88,7 @@
 		<Value name = "othertrn_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/othertrn_emissions_USA.xml</Value>
 
 <!-- GCAM-USA-electricity-assumptions based on QER-->
-		<Value name = "no-new-coal">../input/us-midcentury/nonewconvpul.xml</Value>
-		<Value name = "no-new-coal">../input/us-midcentury/nonewIGCC.xml</Value>
-         <Value name = "no-new-coalcogen">../input/us-midcentury/coal_cogen_shrwt_interp_del.xml</Value>
-         <Value name = "no-new-coalcogen">../input/us-midcentury/nonewcoalcogen.xml</Value>
+		<Value name = "no-new-coal">../input/gcam-data-system/xml/gcam-usa-xml/nonewcoal_USA.xml</Value>
 		<Value name = "QER_elec_capital_overnight_costs">../input/gcam-data-system/xml/gcam-usa-xml/elec_capital_QER.xml</Value>
 
 <!-- Advanced Electricity Tech Files -->

@@ -28,10 +28,17 @@ L223.StubTechEff_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTechEff_
 # -----------------------------------------------------------------------------
 # 2. Build tables for CSVs
 
+gcamusa_regions <- unique(L223.StubTechEff_elec_USA$region)
+
 L223.StubTechEff_elec_USA %>% 
   filter(subsector == "coal") %>%
   filter(!duplicated(region)) %>%
-  select(region, supplysector, subsector, stub.technology) %>%
+  select(supplysector, subsector, stub.technology) %>%
+  unique()%>%
+  rbind(c("electricity", "coal", "coal (IGCC)")) %>%
+  rbind(c("industrial energy use", "coal", "coal cogen")) %>%
+  repeat_and_add_vector('region', gcamusa_regions) %>%
+  select(region, supplysector, subsector, stub.technology)%>%
   mutate(initial.available.year = min(model_base_years), final.available.year = max( model_base_years )) ->
   L2231.StubTechAvail_elec_USA
 
