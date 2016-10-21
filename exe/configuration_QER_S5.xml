@@ -71,7 +71,7 @@
 		<Value name = "h2_usa">../input/gcam-data-system/xml/gcam-usa-xml/hydrogen_USA.xml</Value>
 		<Value name = "elect_td_usa">../input/gcam-data-system/xml/gcam-usa-xml/electd_USA.xml</Value>
 		<Value name = "trn_usa">../input/gcam-data-system/xml/gcam-usa-xml/transportation_USA_S5.xml</Value>
-		<Value name = "bld_usa">../input/gcam-data-system/xml/gcam-usa-xml/building_USA_S5.xml</Value>
+		<Value name = "bld_usa">../input/gcam-data-system/xml/gcam-usa-xml/building_USA.xml</Value>
 		<Value name = "bld_usa">../input/gcam-data-system/xml/gcam-usa-xml/building_flsp_USA_QER.xml</Value>
 		<Value name = "dd_usa">../input/gcam-data-system/xml/gcam-usa-xml/HDDCDD_QER_QER_USA.xml</Value>
 		<Value name = "ind_usa">../input/gcam-data-system/xml/gcam-usa-xml/industry_USA.xml</Value>
@@ -87,10 +87,7 @@
 		<Value name = "othertrn_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/othertrn_emissions_USA.xml</Value>
 
 <!-- GCAM-USA-electricity-assumptions based on QER-->
-		<Value name = "no-new-coal">../input/us-midcentury/nonewconvpul.xml</Value>
-		<Value name = "no-new-coal">../input/us-midcentury/nonewIGCC.xml</Value>
-         <Value name = "no-new-coalcogen">../input/us-midcentury/coal_cogen_shrwt_interp_del.xml</Value>
-         <Value name = "no-new-coalcogen">../input/us-midcentury/nonewcoalcogen.xml</Value>
+		<Value name = "no-new-coal">../input/gcam-data-system/xml/gcam-usa-xml/nonewcoal_USA.xml</Value>
 		<Value name = "QER_elec_capital_overnight_costs">../input/gcam-data-system/xml/gcam-usa-xml/elec_capital_QER.xml</Value>
 
 <!--Investment tax Credits and Production Tax Credits-->
