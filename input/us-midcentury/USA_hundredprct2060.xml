@@ -4,18 +4,18 @@
       <region name="USA">
          <ghgpolicy name="GHG">
             <market>USA</market>
-            <constraint year="2020">5291.607133</constraint>
-            <constraint year="2025">4654.064105</constraint>
-            <constraint year="2030">3978.268495</constraint>
-            <constraint year="2035">3302.472885</constraint>
-            <constraint year="2040">2626.677276</constraint>
-            <constraint year="2045">1950.881666</constraint>
-            <constraint year="2050">1275.086056</constraint>
-            <constraint year="2055">642.543028</constraint>
+            <constraint year="2020">5545</constraint>
+            <constraint year="2025">4877</constraint>
+            <constraint year="2030">4169</constraint>
+            <constraint year="2035">3460</constraint>
+            <constraint year="2040">2752</constraint>
+            <constraint year="2045">2044</constraint>
+            <constraint year="2050">1336</constraint>
+            <constraint year="2055">668</constraint>
             <constraint year="2060">10</constraint>
          </ghgpolicy>
       </region>
-      <!--region name="AK">
+      <region name="AK">
          <ghgpolicy name="GHG">
             <market>USA</market>
          </ghgpolicy>
@@ -269,6 +269,40 @@
          <ghgpolicy name="GHG">
             <market>USA</market>
          </ghgpolicy>
-      </region-->
+      </region>
+
+      <region name="California grid">
+         <ghgpolicy name="GHG">            <market>USA</market>         </ghgpolicy>      </region>
+      <region name="Central East grid">
+         <ghgpolicy name="GHG">            <market>USA</market>         </ghgpolicy>      </region>
+      <region name="Central Northeast grid">
+         <ghgpolicy name="GHG">            <market>USA</market>         </ghgpolicy>      </region>
+      <region name="Central Northwest grid">
+         <ghgpolicy name="GHG">            <market>USA</market>         </ghgpolicy>      </region>
+      <region name="Central Southwest grid">
+         <ghgpolicy name="GHG">            <market>USA</market>         </ghgpolicy>      </region>
+      <region name="Florida grid">
+         <ghgpolicy name="GHG">            <market>USA</market>         </ghgpolicy>      </region>
+      <region name="Mid-Atlantic grid">
+         <ghgpolicy name="GHG">            <market>USA</market>         </ghgpolicy>      </region>
+      <region name="New England grid">
+         <ghgpolicy name="GHG">            <market>USA</market>         </ghgpolicy>      </region>
+      <region name="New York grid">
+         <ghgpolicy name="GHG">            <market>USA</market>         </ghgpolicy>      </region>
+      <region name="Northwest grid">
+         <ghgpolicy name="GHG">            <market>USA</market>         </ghgpolicy>      </region>
+      <region name="Southeast grid">
+         <ghgpolicy name="GHG">            <market>USA</market>         </ghgpolicy>      </region>
+      <region name="Southwest grid">
+         <ghgpolicy name="GHG">            <market>USA</market>         </ghgpolicy>      </region>
+      <region name="Texas grid">
+         <ghgpolicy name="GHG">            <market>USA</market>         </ghgpolicy>      </region>
+      <region name="Alaska grid">
+         <ghgpolicy name="GHG">            <market>USA</market>         </ghgpolicy>      </region>
+      <region name="Hawaii grid">
+         <ghgpolicy name="GHG">            <market>USA</market>         </ghgpolicy>      </region>
+
+
+
    </world>
 </scenario>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+   <world>
+<region name="USA">
+         
+         
+         <supplysector name="industry">
+            <relative-cost-logit>
+               <logit-exponent fillout="1" year="1975">-3</logit-exponent>
+            </relative-cost-logit>
+            <output-unit>EJ</output-unit>
+            <input-unit>EJ</input-unit>
+            <price-unit>1975$/GJ</price-unit>
+            <subsector name="industry">
+               <relative-cost-logit>
+                  <logit-exponent fillout="1" year="1975">-6</logit-exponent>
+               </relative-cost-logit>
+               <share-weight fillout="1" year="1975">1</share-weight>
+               <technology name="industry">
+                  <period year="1975">
+                  <share-weight>1</share-weight>
+                  <CO2 name="CO2"/>
+                     <minicam-energy-input name="industrial processes">
+                        <coefficient>0.000462981323405168</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="1990">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000483003729564232</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2005">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000446814620528943</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2010">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2015">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2020">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2045">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2050">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2055">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2060">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2065">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2070">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2075">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2080">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2085">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2090">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2095">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2100">
+                     <share-weight>1</share-weight><CO2 name="CO2"/><minicam-energy-input name="industrial processes">
+                        <coefficient>0.000490911073679289</coefficient>
+                     </minicam-energy-input>
+                  </period>
+               </technology>
+               <share-weight year="1975">1</share-weight>
+               <share-weight year="1990">1</share-weight>
+               <share-weight year="2005">1</share-weight>
+               <share-weight year="2010">1</share-weight>
+            </subsector>
+         </supplysector>
+         <energy-final-demand name="industry">
+            <perCapitaBased>1</perCapitaBased>
+            <final-energy-consumer/>
+            <price-elasticity year="2015">-0.65</price-elasticity>
+            <price-elasticity year="2020">-0.65</price-elasticity>
+            <price-elasticity year="2025">-0.65</price-elasticity>
+            <price-elasticity year="2030">-0.65</price-elasticity>
+            <price-elasticity year="2035">-0.65</price-elasticity>
+            <price-elasticity year="2040">-0.65</price-elasticity>
+            <price-elasticity year="2045">-0.65</price-elasticity>
+            <price-elasticity year="2050">-0.65</price-elasticity>
+            <price-elasticity year="2055">-0.65</price-elasticity>
+            <price-elasticity year="2060">-0.65</price-elasticity>
+            <price-elasticity year="2065">-0.65</price-elasticity>
+            <price-elasticity year="2070">-0.65</price-elasticity>
+            <price-elasticity year="2075">-0.65</price-elasticity>
+            <price-elasticity year="2080">-0.65</price-elasticity>
+            <price-elasticity year="2085">-0.65</price-elasticity>
+            <price-elasticity year="2090">-0.65</price-elasticity>
+            <price-elasticity year="2095">-0.65</price-elasticity>
+            <price-elasticity year="2100">-0.65</price-elasticity>
+            <base-service year="1975">17.2793148</base-service>
+            <base-service year="1990">18.2584033</base-service>
+            <base-service year="2005">19.2122596</base-service>
+            <base-service year="2010">17.6487812</base-service>
+         </energy-final-demand>
+      </region>   </world>
+</scenario>
