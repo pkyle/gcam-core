@@ -38,7 +38,7 @@
 		<Value name = "fertilizer">../input/gcam-data-system/xml/energy-xml/en_Fert.xml</Value>
 		<Value name = "hddcdd">../input/gcam-data-system/xml/energy-xml/HDDCDD_constdd_no_GCM.xml</Value>
 		<Value name = "building">../input/gcam-data-system/xml/energy-xml/building_det.xml</Value>
-		<Value name = "transportation">../input/gcam-data-system/xml/energy-xml/transportation_UCD.xml</Value>
+		<Value name = "transportation">../input/gcam-data-system/xml/energy-xml/transportation_UCD_S5.xml</Value>
 		<Value name = "carbon_content">../input/gcam-data-system/xml/energy-xml/Ccoef.xml</Value>
 		<Value name = "carbon_storage">../input/gcam-data-system/xml/energy-xml/Cstorage.xml</Value>
 		<Value name = "ag_base">../input/gcam-data-system/xml/aglu-xml/ag_For_Past_bio_base.xml</Value>
@@ -61,7 +61,7 @@
 		<Value name = "nonco2_unmgd">../input/gcam-data-system/xml/emissions-xml/all_unmgd_emissions.xml</Value>
 		<Value name = "solver">../input/solution/cal_broyden_config.xml</Value>
 
-		<Value name = "socio_usa">../input/gcam-data-system/xml/gcam-usa-xml/socioeconomics_USA.xml</Value>
+		<Value name = "socio_usa">../input/gcam-data-system/xml/gcam-usa-xml/socioeconomics_USA_QER.xml</Value>
 		<Value name = "interest_usa">../input/gcam-data-system/xml/gcam-usa-xml/interest_rate_USA.xml</Value>
 		<Value name = "resource_usa">../input/gcam-data-system/xml/gcam-usa-xml/resources_USA.xml</Value>
 		<Value name = "Cstorage_usa">../input/gcam-data-system/xml/gcam-usa-xml/Cstorage_USA.xml</Value>
@@ -70,15 +70,31 @@
 		<Value name = "elec_usa">../input/gcam-data-system/xml/gcam-usa-xml/electricity_USA.xml</Value>
 		<Value name = "h2_usa">../input/gcam-data-system/xml/gcam-usa-xml/hydrogen_USA.xml</Value>
 		<Value name = "elect_td_usa">../input/gcam-data-system/xml/gcam-usa-xml/electd_USA.xml</Value>
-		<Value name = "trn_usa">../input/gcam-data-system/xml/gcam-usa-xml/transportation_USA.xml</Value>
+		<Value name = "trn_usa">../input/gcam-data-system/xml/gcam-usa-xml/transportation_USA_S5.xml</Value>
 		<Value name = "bld_usa">../input/gcam-data-system/xml/gcam-usa-xml/building_USA.xml</Value>
-		<Value name = "dd_usa">../input/gcam-data-system/xml/gcam-usa-xml/HDDCDD_A2_GFDL_USA.xml</Value>
+		<Value name = "bld_usa">../input/gcam-data-system/xml/gcam-usa-xml/building_flsp_USA_QER.xml</Value>
+		<Value name = "dd_usa">../input/gcam-data-system/xml/gcam-usa-xml/HDDCDD_QER_QER_USA.xml</Value>
 		<Value name = "ind_usa">../input/gcam-data-system/xml/gcam-usa-xml/industry_USA.xml</Value>
 		<Value name = "cement_usa">../input/gcam-data-system/xml/gcam-usa-xml/cement_USA.xml</Value>
 		<Value name = "fert_usa">../input/gcam-data-system/xml/gcam-usa-xml/Fert_USA.xml</Value>
+		<!--Value name = "dispatcher_usa">../input/gcam-data-system/xml/gcam-usa-xml/dispatcher_USA.xml</Value-->
+
+        <Value name = "elec_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/elec_emissions_USA.xml</Value>
+		<Value name = "transport_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/transport_emissions_USA.xml</Value>
+		<Value name = "ghg_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/ghg_emissions_USA.xml</Value>
+		<Value name = "bld_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/bld_emissions_USA.xml</Value>
+		<Value name = "indenergy_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/indenergy_emissions_USA.xml</Value>
+		<Value name = "othertrn_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/othertrn_emissions_USA.xml</Value>
+
+<!-- GCAM-USA-electricity-assumptions based on QER-->
+		<Value name = "no-new-coal">../input/gcam-data-system/xml/gcam-usa-xml/nonewcoal_USA.xml</Value>
+		<Value name = "QER_elec_capital_overnight_costs">../input/gcam-data-system/xml/gcam-usa-xml/elec_capital_QER.xml</Value>
+
+
+
 	</ScenarioComponents>
 	<Strings>
-		<Value name="scenarioName">GCAM-USA_Ref</Value>
+		<Value name="scenarioName">GCAM_USA_Ref</Value>
 		<Value name="debug-region">USA</Value>
 		<Value name="MAGICC-input-dir">../input/magicc/inputs</Value>
 		<Value name="MAGICC-output-dir">../output</Value>
@@ -101,7 +117,7 @@
 		<Value name="carbon-output-start-year">1705</Value>
 		<Value name="climateOutputInterval">5</Value>
 		<Value name="parallel-grain-size">50</Value>
-		<Value name="stop-period">-1</Value>
+		<Value name="stop-period">11</Value>
 	</Ints>
 	<Doubles>
 	</Doubles>
