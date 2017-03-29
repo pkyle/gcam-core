@@ -164,13 +164,13 @@ L2233.GlobalIntTechFOM_elec_qer_adv$OM.fixed <- A23.OM_QER_adv$OM.fixed[match(ve
 
 
 L2233.GlobalIntTechFOM_elec_qer_adv$OM.fixed <- ifelse(L2233.GlobalIntTechFOM_elec_qer_adv$year < 2015, L2233.GlobalIntTechFOM_elec_qer_adv$OM.fixed[L2233.GlobalIntTechFOM_elec_qer_adv$year==2015],
-                                    ifelse(L2233.GlobalIntTechFOM_elec_qer_adv$year > 2040, L2233.GlobalIntTechFOM_elec_qer_adv$OM.fixed[L2233.GlobalIntTechFOM_elec_qer_adv$year==2040], L2233.GlobalIntTechFOM_elec_qer_adv$OM.fixed))
+                                    ifelse(L2233.GlobalIntTechFOM_elec_qer_adv$year > 2040, L2233.GlobalIntTechFOM_elec_qer_adv$OM.fixed[L2233.GlobalIntTechFOM_elec_qer_adv$year==2040], L2233.GlobalIntTechFOM_elec_qer_adv$OM.fixed)) * conv_2014_2013 * conv_2013_1975
 
 L2233.GlobalIntTechFOM_elec_qer_adv <- na.omit(L2233.GlobalIntTechFOM_elec_qer_adv)
 
 
 # OM fixed other techs
-printlog("L2233.GlobalTechFOM_elec_qer_adv: Advanced intermittent tech QER FO&M costs")
+printlog("L2233.GlobalTechFOM_elec_qer_adv: Advanced tech QER FO&M costs")
 
 L2233.GlobalTechFOM_elec_qer_adv <- L2233.globaltech_capital_QER[L2233.globaltech_capital_QER$technology %!in% inttechs,]
 L2233.GlobalTechFOM_elec_qer_adv <- L2233.GlobalTechFOM_elec_qer_adv[names(L2233.GlobalTechFOM_elec_qer_adv) != "overnight.cost"]
@@ -181,7 +181,7 @@ L2233.GlobalTechFOM_elec_qer_adv$OM.fixed <- A23.OM_QER_adv$OM.fixed[match(vecpa
 
 
 L2233.GlobalTechFOM_elec_qer_adv$OM.fixed <- ifelse(L2233.GlobalTechFOM_elec_qer_adv$year < 2015, L2233.GlobalTechFOM_elec_qer_adv$OM.fixed[L2233.GlobalTechFOM_elec_qer_adv$year==2015],
-                                    ifelse(L2233.GlobalTechFOM_elec_qer_adv$year > 2040, L2233.GlobalTechFOM_elec_qer_adv$OM.fixed[L2233.GlobalTechFOM_elec_qer_adv$year==2040], L2233.GlobalTechFOM_elec_qer_adv$OM.fixed))
+                                    ifelse(L2233.GlobalTechFOM_elec_qer_adv$year > 2040, L2233.GlobalTechFOM_elec_qer_adv$OM.fixed[L2233.GlobalTechFOM_elec_qer_adv$year==2040], L2233.GlobalTechFOM_elec_qer_adv$OM.fixed)) * conv_2014_2013 * conv_2013_1975
 
 L2233.GlobalTechFOM_elec_qer_adv <- na.omit(L2233.GlobalTechFOM_elec_qer_adv)
 
@@ -196,7 +196,7 @@ L2233.GlobalTechVOM_elec_qer_adv$OM.var <- A23.OM_QER_adv$OM.variable[match(vecp
                                                                   vecpaste(A23.OM_QER_adv[c("year","GCAM.technology")]))]
 
 L2233.GlobalTechVOM_elec_qer_adv$OM.var <- ifelse(L2233.GlobalTechVOM_elec_qer_adv$year < 2015, L2233.GlobalTechVOM_elec_qer_adv$OM.var[L2233.GlobalTechVOM_elec_qer_adv$year==2015],
-                                    ifelse(L2233.GlobalTechVOM_elec_qer_adv$year > 2040, L2233.GlobalTechVOM_elec_qer_adv$OM.var[L2233.GlobalTechVOM_elec_qer_adv$year==2040], L2233.GlobalTechVOM_elec_qer_adv$OM.var))
+                                    ifelse(L2233.GlobalTechVOM_elec_qer_adv$year > 2040, L2233.GlobalTechVOM_elec_qer_adv$OM.var[L2233.GlobalTechVOM_elec_qer_adv$year==2040], L2233.GlobalTechVOM_elec_qer_adv$OM.var))* conv_2014_2013 * conv_2013_1975
 
 L2233.GlobalTechVOM_elec_qer_adv <- na.omit(L2233.GlobalTechVOM_elec_qer_adv)
 
