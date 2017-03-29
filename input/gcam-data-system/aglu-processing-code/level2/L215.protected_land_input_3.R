@@ -45,13 +45,35 @@ L215.LC_bm2_R_Unmgd3_Yh_AEZ <- subset( L125.LC_bm2_R_LT_Yh_AEZ, Land_Type %in% A
 L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt <- melt( L215.LC_bm2_R_Unmgd3_Yh_AEZ, id.vars = R_LT_AEZ, variable.name = "Xyear" )
 L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt <- add_region_name( L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt )
 L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt[[Y]] <- sub( "X", "", L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt$Xyear )
-# Set the land allocation to the "unprotected value"
-L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt$allocation <- L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt$value * ( 1 - protect_land_fract )
 L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt <- add_node_leaf_names( L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt,
-       nesting_table = A_LandLeaf_Unmgd3, leaf_name = "UnmanagedLandLeaf", LN1 = "LandNode1", LN2 = "LandNode2", LN3 = "LandNode3" )
+   nesting_table = A_LandLeaf_Unmgd3, leaf_name = "UnmanagedLandLeaf", LN1 = "LandNode1", LN2 = "LandNode2", LN3 = "LandNode3" )
 
 #Remove other arable land since we don't want to protect it
 L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt <- subset( L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt, Land_Type != "OtherArableLand" )
+
+### Set protected area first
+printlog( "L215.LN1_HistProtectAllocation: Historical land cover, protected land in the third nest" )
+L215.LN1_AllProtectAllocation <- L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt
+
+# Set the land allocation to the "protected value"
+# calculate 2010 protection, and apply to all years
+L215.LN1_AllProtectAllocation_Ybase <- subset( L215.LN1_AllProtectAllocation,  year == final_historical_year )
+L215.LN1_AllProtectAllocation$allocation <- protect_land_fract * L215.LN1_AllProtectAllocation_Ybase$value[ 
+  match( vecpaste( L215.LN1_AllProtectAllocation[ c( R_LT, "AEZ")]), vecpaste( L215.LN1_AllProtectAllocation_Ybase[ c( R_LT, "AEZ")]))]
+# make sure the protected area does not exceed the total area
+L215.LN1_AllProtectAllocation$allocation <- pmin( L215.LN1_AllProtectAllocation$value, L215.LN1_AllProtectAllocation$allocation)
+
+L215.LN1_AllProtectAllocation$UnmanagedLandLeaf <- paste( "Protected", L215.LN1_AllProtectAllocation$UnmanagedLandLeaf, sep="")
+L215.LN1_AllProtectAllocation$LandNode1 <- L215.LN1_AllProtectAllocation$UnmanagedLandLeaf
+L215.LN1_HistProtectAllocation <- L215.LN1_AllProtectAllocation[
+  L215.LN1_AllProtectAllocation[[Y]] %in% land_history_years, names_LN1_UnmgdAllocation ]
+
+printlog( "L215.LN1_ProtectAllocation: Model base year land cover, protected land in the third nest" )
+L215.LN1_ProtectAllocation <- L215.LN1_AllProtectAllocation[
+  L215.LN1_AllProtectAllocation[[Y]] %in% model_base_years, names_LN1_UnmgdAllocation ]
+
+# Set the land allocation to the "unprotected value" by subtracting "protected value" from "total value"
+L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt$allocation <- L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt$value - L215.LN1_AllProtectAllocation$allocation
 
 printlog( "L215.LN3_HistUnmgdAllocation: Historical land cover, unmanaged land in the third nest" )
 L215.LN3_HistUnmgdAllocation <- L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt[ L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt[[Y]] %in% land_history_years,
@@ -60,19 +82,6 @@ L215.LN3_HistUnmgdAllocation <- L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt[ L215.LC_bm2_R_
 printlog( "L215.LN3_UnmgdAllocation: Model base year land cover, unmanaged land in the third nest" )
 L215.LN3_UnmgdAllocation <- L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt[ L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt[[Y]] %in% model_base_years,
        names_LN3_HistUnmgdAllocation ]
-
-printlog( "L215.LN1_HistProtectAllocation: Historical land cover, protected land in the third nest" )
-L215.LN1_AllProtectAllocation <- L215.LC_bm2_R_Unmgd3_Yh_AEZ.melt
-# Set the land allocation to the "protected value"
-L215.LN1_AllProtectAllocation$allocation <- L215.LN1_AllProtectAllocation$value * protect_land_fract
-L215.LN1_AllProtectAllocation$UnmanagedLandLeaf <- paste( "Protected", L215.LN1_AllProtectAllocation$UnmanagedLandLeaf, sep="")
-L215.LN1_AllProtectAllocation$LandNode1 <- L215.LN1_AllProtectAllocation$UnmanagedLandLeaf
-L215.LN1_HistProtectAllocation <- L215.LN1_AllProtectAllocation[
-      L215.LN1_AllProtectAllocation[[Y]] %in% land_history_years, names_LN1_UnmgdAllocation ]
-
-printlog( "L215.LN1_ProtectAllocation: Model base year land cover, protected land in the third nest" )
-L215.LN1_ProtectAllocation <- L215.LN1_AllProtectAllocation[
-      L215.LN1_AllProtectAllocation[[Y]] %in% model_base_years, names_LN1_UnmgdAllocation ]
 
 #CARBON CONTENTS AND MATURE AGES
 #Melt tables with compiled carbon contents and mature ages
