@@ -38,7 +38,7 @@
 		<Value name = "fertilizer">../input/gcam-data-system/xml/energy-xml/en_Fert.xml</Value>
 		<Value name = "hddcdd">../input/gcam-data-system/xml/energy-xml/HDDCDD_constdd_no_GCM.xml</Value>
 		<Value name = "building">../input/gcam-data-system/xml/energy-xml/building_det.xml</Value>
-		<Value name = "transportation">../input/gcam-data-system/xml/energy-xml/transportation_UCD_S5.xml</Value>
+		<Value name = "transportation">../input/gcam-data-system/xml/energy-xml/transportation_UCD.xml</Value>
 		<Value name = "carbon_content">../input/gcam-data-system/xml/energy-xml/Ccoef.xml</Value>
 		<Value name = "carbon_storage">../input/gcam-data-system/xml/energy-xml/Cstorage.xml</Value>
 		<Value name = "ag_base">../input/gcam-data-system/xml/aglu-xml/ag_For_Past_bio_base.xml</Value>
@@ -70,7 +70,7 @@
 		<Value name = "elec_usa">../input/gcam-data-system/xml/gcam-usa-xml/electricity_USA.xml</Value>
 		<Value name = "h2_usa">../input/gcam-data-system/xml/gcam-usa-xml/hydrogen_USA.xml</Value>
 		<Value name = "elect_td_usa">../input/gcam-data-system/xml/gcam-usa-xml/electd_USA.xml</Value>
-		<Value name = "trn_usa">../input/gcam-data-system/xml/gcam-usa-xml/transportation_USA_S5.xml</Value>
+		<Value name = "trn_usa">../input/gcam-data-system/xml/gcam-usa-xml/transportation_USA.xml</Value>
 		<Value name = "bld_usa">../input/gcam-data-system/xml/gcam-usa-xml/building_USA.xml</Value>
 		<Value name = "bld_usa">../input/gcam-data-system/xml/gcam-usa-xml/building_flsp_USA_QER.xml</Value>
 		<Value name = "dd_usa">../input/gcam-data-system/xml/gcam-usa-xml/HDDCDD_QER_QER_USA.xml</Value>
