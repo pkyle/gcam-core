@@ -1,0 +1,17 @@
+# This table specifies the fraction of demand supplied by vertical segment,,,,
+grid_region,off.peak.electricity.time,intermediate.electricity.time,subpeak.electricity.time,peak.electricity.time
+Alaska grid,0.333333333,0.291666667,0.25,0.125
+California grid,0.333333333,0.291666667,0.25,0.125
+Central East grid,0.66,0.25,0.05,0.04
+Central Northeast grid,0.66,0.25,0.05,0.04
+Central Northwest grid,0.66,0.25,0.05,0.04
+Central Southwest grid,0.66,0.25,0.05,0.04
+Florida grid,0.333333333,0.291666667,0.25,0.125
+Hawaii grid,0.333333333,0.291666667,0.25,0.125
+Mid-Atlantic grid,0.333333333,0.291666667,0.25,0.125
+New England grid,0.333333333,0.291666667,0.25,0.125
+New York grid,0.333333333,0.291666667,0.25,0.125
+Northwest grid,0.333333333,0.291666667,0.25,0.125
+Southeast grid,0.333333333,0.291666667,0.25,0.125
+Southwest grid,0.66,0.25,0.05,0.04
+Texas grid,0.333333333,0.291666667,0.25,0.125

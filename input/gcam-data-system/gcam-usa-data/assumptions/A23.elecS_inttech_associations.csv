@@ -1,0 +1,27 @@
+# associated technologies in the power sector,,,,,
+Electric sector,subsector,Electric sector intermittent-technology,supplysector,subsector,intermittent-technology
+base load generation,wind,wind_base,electricity,wind,wind
+intermediate generation,wind,wind_int,electricity,wind,wind
+subpeak generation,wind,wind_subpeak,electricity,wind,wind
+peak generation,wind,wind_peak,electricity,wind,wind
+base load generation,wind,wind_base_storage,electricity,wind,wind_storage
+intermediate generation,wind,wind_int_storage,electricity,wind,wind_storage
+subpeak generation,wind,wind_subpeak_storage,electricity,wind,wind_storage
+peak generation,wind,wind_peak_storage,electricity,wind,wind_storage
+base load generation,solar,PV_base,electricity,solar,PV
+intermediate generation,solar,PV_int,electricity,solar,PV
+subpeak generation,solar,PV_subpeak,electricity,solar,PV
+peak generation,solar,PV_peak,electricity,solar,PV
+base load generation,solar,PV_base_storage,electricity,solar,PV_storage
+intermediate generation,solar,PV_int_storage,electricity,solar,PV_storage
+subpeak generation,solar,PV_subpeak_storage,electricity,solar,PV_storage
+peak generation,solar,PV_peak_storage,electricity,solar,PV_storage
+base load generation,solar,CSP_base,electricity,solar,CSP
+intermediate generation,solar,CSP_int,electricity,solar,CSP
+subpeak generation,solar,CSP_subpeak,electricity,solar,CSP
+peak generation,solar,CSP_peak,electricity,solar,CSP
+base load generation,solar,CSP_base_storage,electricity,solar,CSP_storage
+intermediate generation,solar,CSP_int_storage,electricity,solar,CSP_storage
+subpeak generation,solar,CSP_subpeak_storage,electricity,solar,CSP_storage
+peak generation,solar,CSP_peak_storage,electricity,solar,CSP_storage
+elect_td_bld,rooftop_pv,rooftop_pv,elect_td_bld,rooftop_pv,rooftop_pv

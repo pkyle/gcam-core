@@ -15,6 +15,9 @@ use_regional_elec_markets <- TRUE
 #base year.
 use_coal_gas_dispatcher <- FALSE
 
+#use_mult_segments: indicate whether to turn on the multiple load segments feature
+use_mult_load_segments <- TRUE
+
 #Identifier columns
 state <- "state"
 state_F <- c( "state", "fuel" )

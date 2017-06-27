@@ -1,0 +1,25 @@
+# Non-energy inputs for new technologies that are not included in the energy system global technology database. Shareweights are read in separately.,,,,,,,,,,,,
+# Capital costs are in 1975 $/kW. Fixed-om costs are in 1975 $/kW. Variable OM costs are in 1975 $/MWh.,,,,,,,,,,,,
+supplysector,subsector,technology,period,capital.cost,lifetime,steepness,half.life,fixed.om,variable.om,fcr,capacity.factor,capacity.factor.om
+peak generation,grid_storage,battery,1975,545.8746884,-1,-1,-1,10.91749377,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,1990,545.8746884,-1,-1,-1,10.91749377,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2005,545.8746884,-1,-1,-1,10.91749377,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2010,545.8746884,-1,-1,-1,10.91749377,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2015,534.9571947,15,0.1,30,10.69914389,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2020,524.2580508,15,0.1,30,10.48516102,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2025,513.7728897,15,0.1,30,10.27545779,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2030,503.4974319,15,0.1,30,10.06994864,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2035,493.4274833,15,0.1,30,9.868549666,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2040,483.5589336,15,0.1,30,9.671178673,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2045,473.887755,15,0.1,30,9.477755099,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2050,464.4099999,15,0.1,30,9.288199997,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2055,455.1217999,15,0.1,30,9.102435997,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2060,446.0193639,15,0.1,30,8.920387278,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2065,437.0989766,15,0.1,30,8.741979532,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2070,428.3569971,15,0.1,30,8.567139941,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2075,419.7898571,15,0.1,30,8.395797143,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2080,411.39406,15,0.1,30,8.2278812,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2085,403.1661788,15,0.1,30,8.063323576,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2090,395.1028552,15,0.1,30,7.902057104,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2095,387.2007981,15,0.1,30,7.744015962,0,0.13,0.0625,0.0625
+peak generation,grid_storage,battery,2100,379.4567821,15,0.1,30,7.589135643,0,0.13,0.0625,0.0625

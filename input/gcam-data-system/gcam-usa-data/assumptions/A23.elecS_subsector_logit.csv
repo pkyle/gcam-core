@@ -1,0 +1,44 @@
+# Subsector logit exponents,,,
+supplysector,subsector,logit.exponent,logit.type
+base load generation,coal,-10,relative-cost-logit
+intermediate generation,coal,-10,relative-cost-logit
+subpeak generation,coal,-10,relative-cost-logit
+peak generation,coal,-10,relative-cost-logit
+base load generation,gas,-10,relative-cost-logit
+intermediate generation,gas,-10,relative-cost-logit
+subpeak generation,gas,-10,relative-cost-logit
+peak generation,gas,-10,relative-cost-logit
+base load generation,refined liquids,-10,relative-cost-logit
+intermediate generation,refined liquids,-10,relative-cost-logit
+subpeak generation,refined liquids,-10,relative-cost-logit
+peak generation,refined liquids,-10,relative-cost-logit
+base load generation,biomass,-10,relative-cost-logit
+intermediate generation,biomass,-10,relative-cost-logit
+subpeak generation,biomass,-10,relative-cost-logit
+peak generation,biomass,-10,relative-cost-logit
+base load generation,biomass,-10,relative-cost-logit
+intermediate generation,biomass,-10,relative-cost-logit
+subpeak generation,biomass,-10,relative-cost-logit
+peak generation,biomass,-10,relative-cost-logit
+base load generation,nuclear,-10,relative-cost-logit
+intermediate generation,nuclear,-10,relative-cost-logit
+subpeak generation,nuclear,-10,relative-cost-logit
+peak generation,nuclear,-10,relative-cost-logit
+base load generation,wind,-10,relative-cost-logit
+intermediate generation,wind,-10,relative-cost-logit
+subpeak generation,wind,-10,relative-cost-logit
+peak generation,wind,-10,relative-cost-logit
+base load generation,solar,-10,relative-cost-logit
+intermediate generation,solar,-10,relative-cost-logit
+subpeak generation,solar,-10,relative-cost-logit
+peak generation,solar,-10,relative-cost-logit
+base load generation,geothermal,-10,relative-cost-logit
+intermediate generation,geothermal,-10,relative-cost-logit
+subpeak generation,geothermal,-10,relative-cost-logit
+peak generation,geothermal,-10,relative-cost-logit
+base load generation,hydro,-10,relative-cost-logit
+intermediate generation,hydro,-10,relative-cost-logit
+subpeak generation,hydro,-10,relative-cost-logit
+peak generation,hydro,-10,relative-cost-logit
+elect_td_bld,rooftop_pv,-10,relative-cost-logit
+peak generation,grid_storage,-10,relative-cost-logit

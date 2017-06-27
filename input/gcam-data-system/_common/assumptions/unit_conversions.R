@@ -30,6 +30,7 @@ conv_2006_1975_USD <- 0.3257
 conv_2007_1975_USD <- 0.317
 conv_2008_1975_USD <- 0.3104
 conv_2009_1975_USD <- 0.3104
+conv_2013_1975_USD <- 0.2933
 
 #mass conversions
 conv_kg_Mt <- 1e-9

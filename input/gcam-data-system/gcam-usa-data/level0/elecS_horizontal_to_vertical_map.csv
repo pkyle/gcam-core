@@ -1,0 +1,6 @@
+# This table maps horizontal to verticla segments,
+vertical_segment,horizontal_segment
+off peak electricity,base load generation
+intermediate electricity,intermediate generation
+subpeak electricity,subpeak generation
+peak electricity,peak generation

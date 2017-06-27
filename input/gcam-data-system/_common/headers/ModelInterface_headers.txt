@@ -321,6 +321,8 @@ GlobalTranTechSCurve, global-technology-database/+{sector-name}location-info, gl
 
 DeleteStubTech, world/+{name}region, region/+{name}supplysector, supplysector/+{name}subsector, subsector/+{name;delete=1}stub-technology, scenario, scenario/world
 
+DeleteStubTechMinicamEnergyInput, world/+{name}region, region/+{name}supplysector, supplysector/+{name}subsector, subsector/+{name}stub-technology, stub-technology/+{year}period, period/+{name;delete=1}minicam-energy-input, scenario, scenario/world
+
 StubTech, world/+{name}region, region/+{name}supplysector, supplysector/+{name}subsector, subsector/+{name}stub-technology, scenario, scenario/world
 
 StubTechCO2, world/+{name}region, region/+{name}supplysector, supplysector/+{name}subsector, subsector/+{name}stub-technology, stub-technology/+{year}period, period/+{name}CO2, scenario, scenario/world
@@ -368,6 +370,8 @@ StubTechCapital, world/+{name}region, region/+{name}supplysector, supplysector/+
 StubTechFractSecOut, world/+{name}region, region/+{name}supplysector, supplysector/+{name}subsector, subsector/+{name}stub-technology, stub-technology/+{year}period, period/+{name}fractional-secondary-output, fractional-secondary-output/+output-ratio, scenario, scenario/world
 
 StubTechFractProd, world/+{name}region, region/+{name}supplysector, supplysector/+{name}subsector, subsector/+{name}stub-technology, stub-technology/+{year}period, period/+{name}fractional-secondary-output, fractional-secondary-output/+{price}fraction-produced, fractional-secondary-output/+fraction-produced, scenario, scenario/world
+
+StubTechSCurve, world/+{name}region, region/+{name}supplysector, supplysector/+{name}subsector, subsector/+{name}stub-technology, stub-technology/+{year}period, period/+lifetime, s-curve-shutdown-decider/+steepness, s-curve-shutdown-decider/+half-life, scenario, scenario/world, period/{name=s-curve}s-curve-shutdown-decider
 
 #####, STUB TRANSPORTATION TECHNOLOGY
 
