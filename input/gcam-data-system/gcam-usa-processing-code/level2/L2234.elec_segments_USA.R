@@ -163,244 +163,170 @@ stopifnot(!any(is.na(L2234.GlobalTechShrwt_elecS)))
 
 printlog( "L2234.GlobalTechCapital_elecS: Capital costs of electricity generation technologies" )
 
-L2234.GlobalTechCapital_elecS <- A23.elecS_tech_associations
-L2234.GlobalTechCapital_elecS <- L2234.GlobalTechCapital_elecS[rep(1:nrow(L2234.GlobalTechCapital_elecS), 
-                                                                   times = length(unique(L223.GlobalTechCapital_elec$year))),]
-L2234.GlobalTechCapital_elecS$year <- rep(unique(L223.GlobalTechCapital_elec$year),each = nrow(A23.elecS_tech_associations))
-L2234.GlobalTechCapital_elecS %>% 
-  left_join(L223.GlobalTechCapital_elec, by= c("technology","year")) %>%
-  filter(capital.overnight != "NA") %>%
-  select(-supplysector, -subsector.1, -technology, -sector.name, -subsector.name) -> L2234.GlobalTechCapital_elecS
-names(L2234.GlobalTechCapital_elecS) <- c("supplysector", "subsector", "technology", "year", "input.capital", "capital.overnight", "fixed.charge.rate","capacity.factor")
+A23.elecS_tech_associations %>%
+  left_join(L223.GlobalTechCapital_elec, by = c("subsector" = "subsector.name", "technology")) %>%
+  filter(is.na (capital.overnight) == FALSE) %>%
+  select(-supplysector, -subsector.1, -technology, -sector.name ) %>%
+  rename (supplysector = Electric.sector, technology = Electric.sector.technology) -> L2234.GlobalTechCapital_elecS
 
 # Read in lower capacity factors for non-baseload technologies. The fracctions are rather arbitrary and based on assumptions
 # made in previous versions of the multiple load segment model (GCAM 3.2).
 
-for( i in 1: nrow(L2234.GlobalTechCapital_elecS)) {
-  if (L2234.GlobalTechCapital_elecS$supplysector[[i]] == "intermediate generation") {
-    L2234.GlobalTechCapital_elecS$capacity.factor[[i]] = 0.627 * L2234.GlobalTechCapital_elecS$capacity.factor[[i]]
-  }
-  if (L2234.GlobalTechCapital_elecS$supplysector[[i]] == "subpeak generation") {
-    L2234.GlobalTechCapital_elecS$capacity.factor[[i]] = 0.301 * L2234.GlobalTechCapital_elecS$capacity.factor[[i]]
-  }
-  if (L2234.GlobalTechCapital_elecS$supplysector[[i]] == "peak generation") {
-    L2234.GlobalTechCapital_elecS$capacity.factor[[i]] = 0.072 * L2234.GlobalTechCapital_elecS$capacity.factor[[i]]
-  }
-  
-}
-
+L2234.GlobalTechCapital_elecS %>%
+  mutate(capacity.factor = if_else(supplysector == "intermediate generation", 0.627 * capacity.factor, capacity.factor )) %>%
+  mutate(capacity.factor = if_else(supplysector == "subpeak generation", 0.301 * capacity.factor, capacity.factor )) %>%
+  mutate(capacity.factor = if_else(supplysector == "peak generation", 0.072 * capacity.factor, capacity.factor )) -> L2234.GlobalTechCapital_elecS
 
 printlog( "L2234.GlobalIntTechCapital_elecS: Capital costs of intermittent electricity generation technologies" )
 
-L2234.GlobalIntTechCapital_elecS <- A23.elecS_inttech_associations
-L2234.GlobalIntTechCapital_elecS <- L2234.GlobalIntTechCapital_elecS[rep(1:nrow(L2234.GlobalIntTechCapital_elecS), 
-                                                                   times = length(unique(L223.GlobalIntTechCapital_elec$year))),]
-L2234.GlobalIntTechCapital_elecS$year <- rep(unique(L223.GlobalIntTechCapital_elec$year),each = nrow(A23.elecS_inttech_associations))
-L2234.GlobalIntTechCapital_elecS <- left_join(L2234.GlobalIntTechCapital_elecS,L223.GlobalIntTechCapital_elec, by= c("intermittent.technology","year"))
-L2234.GlobalIntTechCapital_elecS <- select(L2234.GlobalIntTechCapital_elecS, -supplysector, -subsector.1, -intermittent.technology, -sector.name, -subsector.name)
-L2234.GlobalIntTechCapital_elecS <- filter(L2234.GlobalIntTechCapital_elecS, capital.overnight != "NA")
-names(L2234.GlobalIntTechCapital_elecS) <- c("supplysector", "subsector", "intermittent.technology", "year", "input.capital", "capital.overnight", "fixed.charge.rate","capacity.factor")
-
-
+A23.elecS_inttech_associations %>%
+  left_join(L223.GlobalIntTechCapital_elec, by= c("subsector"= "subsector.name" , "intermittent.technology")) %>%
+  filter(is.na (capital.overnight) == FALSE) %>%
+  select(-supplysector, -subsector.1, -intermittent.technology, -sector.name) %>%
+  rename (supplysector = Electric.sector, intermittent.technology = Electric.sector.intermittent.technology) -> L2234.GlobalIntTechCapital_elecS
+  
 #O&M Costs of detailed electric sector technologies
 
 printlog( "L2234.GlobalTechOMfixed_elecS: Fixed OM costs of electricity generation technologies" )
 
-L2234.GlobalTechOMfixed_elecS <- A23.elecS_tech_associations
-L2234.GlobalTechOMfixed_elecS <- L2234.GlobalTechOMfixed_elecS[rep(1:nrow(L2234.GlobalTechOMfixed_elecS), 
-                                                                   times = length(unique(L223.GlobalTechOMfixed_elec$year))),]
-L2234.GlobalTechOMfixed_elecS$year <- rep(unique(L223.GlobalTechOMfixed_elec$year),each = nrow(A23.elecS_tech_associations))
-L2234.GlobalTechOMfixed_elecS %>%
-  left_join(L223.GlobalTechOMfixed_elec, by= c("technology","year")) %>%
-  filter(OM.fixed != "NA") %>%
-  select(-supplysector, -subsector.1, -technology, -sector.name, -subsector.name) -> L2234.GlobalTechOMfixed_elecS 
-names(L2234.GlobalTechOMfixed_elecS) <- c("supplysector", "subsector", "technology", "year", "input.OM.fixed", "OM.fixed", "capacity.factor")
+A23.elecS_tech_associations %>%
+  left_join(L223.GlobalTechOMfixed_elec, by = c("subsector" = "subsector.name", "technology")) %>%
+  filter(is.na (OM.fixed) == FALSE) %>%
+  select(-supplysector, -subsector.1, -technology, -sector.name ) %>%
+  rename (supplysector = Electric.sector, technology = Electric.sector.technology) -> L2234.GlobalTechOMfixed_elecS
 
 # Read in lower capacity factors for non-baseload technologies. The fracctions are rather arbitrary and based on assumptions
 # made in previous versions of the multiple load segment model (GCAM 3.2).
 
-for( i in 1: nrow(L2234.GlobalTechOMfixed_elecS)) {
-  if (L2234.GlobalTechOMfixed_elecS$supplysector[[i]] == "intermediate generation") {
-    L2234.GlobalTechOMfixed_elecS$capacity.factor[[i]] = 0.627 * L2234.GlobalTechOMfixed_elecS$capacity.factor[[i]]
-  }
-  if (L2234.GlobalTechOMfixed_elecS$supplysector[[i]] == "subpeak generation") {
-    L2234.GlobalTechOMfixed_elecS$capacity.factor[[i]] = 0.301 * L2234.GlobalTechOMfixed_elecS$capacity.factor[[i]]
-  }
-  if (L2234.GlobalTechOMfixed_elecS$supplysector[[i]] == "peak generation") {
-    L2234.GlobalTechOMfixed_elecS$capacity.factor[[i]] = 0.072 * L2234.GlobalTechOMfixed_elecS$capacity.factor[[i]]
-  }
-  
-}
+L2234.GlobalTechOMfixed_elecS %>%
+  mutate(capacity.factor = if_else(supplysector == "intermediate generation", 0.627 * capacity.factor, capacity.factor )) %>%
+  mutate(capacity.factor = if_else(supplysector == "subpeak generation", 0.301 * capacity.factor, capacity.factor )) %>%
+  mutate(capacity.factor = if_else(supplysector == "peak generation", 0.072 * capacity.factor, capacity.factor )) -> L2234.GlobalTechOMfixed_elecS
+
 
 printlog( "L2234.GlobalIntTechOMfixed_elecS: Fixed OM costs of intermittent electricity generation technologies" )
 
-L2234.GlobalIntTechOMfixed_elecS <- A23.elecS_inttech_associations
-L2234.GlobalIntTechOMfixed_elecS <- L2234.GlobalIntTechOMfixed_elecS[rep(1:nrow(L2234.GlobalIntTechOMfixed_elecS), 
-                                                                   times = length(unique(L223.GlobalIntTechOMfixed_elec$year))),]
-L2234.GlobalIntTechOMfixed_elecS$year <- rep(unique(L223.GlobalIntTechOMfixed_elec$year),each = nrow(A23.elecS_inttech_associations))
-L2234.GlobalIntTechOMfixed_elecS <- left_join(L2234.GlobalIntTechOMfixed_elecS,L223.GlobalIntTechOMfixed_elec, by= c("intermittent.technology","year"))
-L2234.GlobalIntTechOMfixed_elecS <- select(L2234.GlobalIntTechOMfixed_elecS, -supplysector, -subsector.1, -intermittent.technology, -sector.name, -subsector.name)
-L2234.GlobalIntTechOMfixed_elecS <- filter(L2234.GlobalIntTechOMfixed_elecS, input.OM.fixed != "NA")
-names(L2234.GlobalIntTechOMfixed_elecS) <- c("supplysector", "subsector", "intermittent.technology", "year", "input.OM.fixed", "OM.fixed", "capacity.factor")
-
+A23.elecS_inttech_associations %>%
+  left_join(L223.GlobalIntTechOMfixed_elec, by= c("subsector"= "subsector.name" , "intermittent.technology")) %>%
+  filter(is.na (OM.fixed) == FALSE) %>%
+  select(-supplysector, -subsector.1, -intermittent.technology, -sector.name) %>%
+  rename (supplysector = Electric.sector, intermittent.technology = Electric.sector.intermittent.technology) -> L2234.GlobalIntTechOMfixed_elecS
 
 printlog( "L2234.GlobalTechOMvar_elecS: Variable OM costs of electricity generation technologies" )
 
-L2234.GlobalTechOMvar_elecS <- A23.elecS_tech_associations
-L2234.GlobalTechOMvar_elecS <- L2234.GlobalTechOMvar_elecS[rep(1:nrow(L2234.GlobalTechOMvar_elecS), 
-                                                                   times = length(unique(L223.GlobalTechOMvar_elec$year))),]
-L2234.GlobalTechOMvar_elecS$year <- rep(unique(L223.GlobalTechOMvar_elec$year),each = nrow(A23.elecS_tech_associations))
-L2234.GlobalTechOMvar_elecS %>% 
-  left_join(L223.GlobalTechOMvar_elec, by= c("technology","year")) %>% 
-  filter(OM.var != "NA") %>%
-  select(-supplysector, -subsector.1, -technology, -sector.name, -subsector.name) -> L2234.GlobalTechOMvar_elecS
-names(L2234.GlobalTechOMvar_elecS) <- c("supplysector", "subsector", "technology", "year", "input.OM.var", "OM.var")
+A23.elecS_tech_associations %>%
+  left_join(L223.GlobalTechOMvar_elec, by = c("subsector" = "subsector.name", "technology")) %>%
+  filter(is.na (OM.var) == FALSE) %>%
+  select(-supplysector, -subsector.1, -technology, -sector.name ) %>%
+  rename (supplysector = Electric.sector, technology = Electric.sector.technology) -> L2234.GlobalTechOMvar_elecS
 
 printlog( "L2234.GlobalIntTechOMvar_elecS: Var OM costs of intermittent electricity generation technologies" )
 
-L2234.GlobalIntTechOMvar_elecS <- A23.elecS_inttech_associations
-L2234.GlobalIntTechOMvar_elecS <- L2234.GlobalIntTechOMvar_elecS[rep(1:nrow(L2234.GlobalIntTechOMvar_elecS), 
-                                                                         times = length(unique(L223.GlobalIntTechOMvar_elec$year))),]
-L2234.GlobalIntTechOMvar_elecS$year <- rep(unique(L223.GlobalIntTechOMvar_elec$year),each = nrow(A23.elecS_inttech_associations))
-L2234.GlobalIntTechOMvar_elecS <- left_join(L2234.GlobalIntTechOMvar_elecS,L223.GlobalIntTechOMvar_elec, by= c("intermittent.technology","year"))
-L2234.GlobalIntTechOMvar_elecS <- select(L2234.GlobalIntTechOMvar_elecS, -supplysector, -subsector.1, -intermittent.technology, -sector.name, -subsector.name)
-L2234.GlobalIntTechOMvar_elecS <- filter (L2234.GlobalIntTechOMvar_elecS, OM.var !="NA")
-names(L2234.GlobalIntTechOMvar_elecS) <- c("supplysector", "subsector", "intermittent.technology", "year", "input.OM.var", "OM.var")
+A23.elecS_inttech_associations %>%
+  left_join(L223.GlobalIntTechOMvar_elec, by= c("subsector"= "subsector.name" , "intermittent.technology")) %>%
+  filter(is.na (OM.var) == FALSE) %>%
+  select(-supplysector, -subsector.1, -intermittent.technology, -sector.name) %>%
+  rename (supplysector = Electric.sector, intermittent.technology = Electric.sector.intermittent.technology) -> L2234.GlobalIntTechOMvar_elecS
 
 #Efficiencies  
 printlog( "L2234.GlobalTechEff_elecS: Efficiencies of detailed electricity generation technologies in future years" )
 
-L2234.GlobalTechEff_elecS <- A23.elecS_tech_associations
-L2234.GlobalTechEff_elecS <- L2234.GlobalTechEff_elecS[rep(1:nrow(L2234.GlobalTechEff_elecS), 
-                                                                     times = length(unique(L223.GlobalTechEff_elec$year))),]
-L2234.GlobalTechEff_elecS$year <- rep(unique(L223.GlobalTechEff_elec$year),each = nrow(A23.elecS_tech_associations))
-L2234.GlobalTechEff_elecS %>%
-  left_join(L223.GlobalTechEff_elec, by= c("technology","year")) %>%
-  filter(efficiency != "NA") %>%
-  select(-supplysector, -subsector.1, -technology, -sector.name, -subsector.name) -> L2234.GlobalTechEff_elecS
-L2234.GlobalTechEff_elecS <- rename(L2234.GlobalTechEff_elecS, supplysector = Electric.sector, technology = Electric.sector.technology)
+A23.elecS_tech_associations %>%
+  left_join(L223.GlobalTechEff_elec, by = c("subsector" = "subsector.name", "technology")) %>%
+  filter(is.na (efficiency) == FALSE) %>%
+  select(-supplysector, -subsector.1, -technology, -sector.name ) %>%
+  rename (supplysector = Electric.sector, technology = Electric.sector.technology) -> L2234.GlobalTechEff_elecS
 
 printlog( "L2234.GlobalIntTechEff_elecS: Efficiencies of detailed electricity generation intermittent technologies in future years" )
 
-L2234.GlobalIntTechEff_elecS <- A23.elecS_inttech_associations
-L2234.GlobalIntTechEff_elecS <- L2234.GlobalIntTechEff_elecS[rep(1:nrow(L2234.GlobalIntTechEff_elecS), 
-                                                           times = length(unique(L223.GlobalIntTechEff_elec$year))),]
-L2234.GlobalIntTechEff_elecS$year <- rep(unique(L223.GlobalIntTechEff_elec$year),each = nrow(A23.elecS_inttech_associations))
-L2234.GlobalIntTechEff_elecS <- left_join(L2234.GlobalIntTechEff_elecS,L223.GlobalIntTechEff_elec, by= c("intermittent.technology","year"))
-L2234.GlobalIntTechEff_elecS <- select(L2234.GlobalIntTechEff_elecS, -supplysector, -subsector.1, -intermittent.technology, -sector.name, -subsector.name)
-L2234.GlobalIntTechEff_elecS <- filter(L2234.GlobalIntTechEff_elecS, efficiency != "NA")
-L2234.GlobalIntTechEff_elecS <- rename(L2234.GlobalIntTechEff_elecS, supplysector = Electric.sector, intermittent.technology = Electric.sector.intermittent.technology)
+A23.elecS_inttech_associations %>%
+  left_join(L223.GlobalIntTechEff_elec, by= c("subsector"= "subsector.name" , "intermittent.technology")) %>%
+  filter(is.na (efficiency) == FALSE) %>%
+  select(-supplysector, -subsector.1, -intermittent.technology, -sector.name) %>%
+  rename (supplysector = Electric.sector, intermittent.technology = Electric.sector.intermittent.technology) -> L2234.GlobalIntTechEff_elecS
 
 #Technology Lifetimes 
 printlog( "L2234.GlobalTechLifetime_elecS: Lifetimes of detailed electricity generation technologies" )
 
-L2234.GlobalTechLifetime_elecS <- A23.elecS_tech_associations
-L2234.GlobalTechLifetime_elecS <- L2234.GlobalTechLifetime_elecS[rep(1:nrow(L2234.GlobalTechLifetime_elecS), 
-                                                           times = length(unique(L223.GlobalTechLifetime_elec$year))),]
-L2234.GlobalTechLifetime_elecS$year <- rep(unique(L223.GlobalTechLifetime_elec$year),each = nrow(A23.elecS_tech_associations))
-L2234.GlobalTechLifetime_elecS <- left_join(L2234.GlobalTechLifetime_elecS,L223.GlobalTechLifetime_elec, by= c("technology","year"))
-L2234.GlobalTechLifetime_elecS <- filter(L2234.GlobalTechLifetime_elecS, lifetime != "NA")
-L2234.GlobalTechLifetime_elecS <- select(L2234.GlobalTechLifetime_elecS, -supplysector, -subsector.1, -technology, -sector.name, -subsector.name)
-L2234.GlobalTechLifetime_elecS <- rename(L2234.GlobalTechLifetime_elecS, supplysector = Electric.sector, technology = Electric.sector.technology)
+A23.elecS_tech_associations %>%
+  left_join(L223.GlobalTechLifetime_elec, by = c("subsector" = "subsector.name", "technology")) %>%
+  filter(is.na (lifetime) == FALSE) %>%
+  select(-supplysector, -subsector.1, -technology, -sector.name ) %>%
+  rename (supplysector = Electric.sector, technology = Electric.sector.technology) -> L2234.GlobalTechLifetime_elecS
 
 printlog( "L2234.GlobalIntTechLifetime_elecS: Lifetimes of detailed electricity generation intermittent technologies" )
-L2234.GlobalIntTechLifetime_elecS <- A23.elecS_inttech_associations
-L2234.GlobalIntTechLifetime_elecS <- L2234.GlobalIntTechLifetime_elecS[rep(1:nrow(L2234.GlobalIntTechLifetime_elecS), 
-                                                                 times = length(unique(L223.GlobalIntTechLifetime_elec$year))),]
-L2234.GlobalIntTechLifetime_elecS$year <- rep(unique(L223.GlobalIntTechLifetime_elec$year),each = nrow(A23.elecS_inttech_associations))
-L2234.GlobalIntTechLifetime_elecS <- left_join(L2234.GlobalIntTechLifetime_elecS,L223.GlobalIntTechLifetime_elec, by= c("intermittent.technology","year"))
-L2234.GlobalIntTechLifetime_elecS <- filter(L2234.GlobalIntTechLifetime_elecS, lifetime != "NA")
-L2234.GlobalIntTechLifetime_elecS <- select(L2234.GlobalIntTechLifetime_elecS, -supplysector, -subsector.1, -intermittent.technology, -sector.name, -subsector.name)
-L2234.GlobalIntTechLifetime_elecS <- rename(L2234.GlobalIntTechLifetime_elecS, supplysector = Electric.sector, intermittent.technology = Electric.sector.intermittent.technology)
+
+A23.elecS_inttech_associations %>%
+  left_join(L223.GlobalIntTechLifetime_elec, by= c("subsector"= "subsector.name" , "intermittent.technology")) %>%
+  filter(is.na (lifetime) == FALSE) %>%
+  select(-supplysector, -subsector.1, -intermittent.technology, -sector.name) %>%
+  rename (supplysector = Electric.sector, intermittent.technology = Electric.sector.intermittent.technology) -> L2234.GlobalIntTechLifetime_elecS
 
 # S-curve shut-down decider
 
 printlog( "L2234.GlobalTechSCurve_elecS: S-curve shutdown decider for detailed electricity generation technologies" )
 
-L2234.GlobalTechSCurve_elecS <- A23.elecS_tech_associations
-L2234.GlobalTechSCurve_elecS <- L2234.GlobalTechSCurve_elecS[rep(1:nrow(L2234.GlobalTechSCurve_elecS), 
-                                                                     times = length(unique(L223.GlobalTechSCurve_elec$year))),]
-L2234.GlobalTechSCurve_elecS$year <- rep(unique(L223.GlobalTechSCurve_elec$year),each = nrow(A23.elecS_tech_associations))
-L2234.GlobalTechSCurve_elecS <- left_join(L2234.GlobalTechSCurve_elecS,L223.GlobalTechSCurve_elec, by= c("technology","year"))
-L2234.GlobalTechSCurve_elecS <- filter(L2234.GlobalTechSCurve_elecS, lifetime != "NA")
-L2234.GlobalTechSCurve_elecS <- select(L2234.GlobalTechSCurve_elecS, -supplysector, -subsector.1, -technology, -sector.name, -subsector.name)
-L2234.GlobalTechSCurve_elecS <- rename(L2234.GlobalTechSCurve_elecS, supplysector = Electric.sector, technology = Electric.sector.technology)
-
+A23.elecS_tech_associations %>%
+  left_join(L223.GlobalTechSCurve_elec, by = c("subsector" = "subsector.name", "technology")) %>%
+  filter(is.na (lifetime) == FALSE) %>%
+  select(-supplysector, -subsector.1, -technology, -sector.name ) %>%
+  rename (supplysector = Electric.sector, technology = Electric.sector.technology) -> L2234.GlobalTechSCurve_elecS
 
 # Profit shut-down decider
 printlog( "L2234.GlobalTechProfitShutdown_elecS: Profit shut-down decider for detailed electricity generation technologies" )
 
-L2234.GlobalTechProfitShutdown_elecS <- A23.elecS_tech_associations
-L2234.GlobalTechProfitShutdown_elecS <- L2234.GlobalTechProfitShutdown_elecS[rep(1:nrow(L2234.GlobalTechProfitShutdown_elecS), 
-                                                                       times = length(unique(L223.GlobalTechProfitShutdown_elec$year))),]
-L2234.GlobalTechProfitShutdown_elecS$year <- rep(unique(L223.GlobalTechProfitShutdown_elec$year),each = nrow(A23.elecS_tech_associations))
-L2234.GlobalTechProfitShutdown_elecS <- left_join(L2234.GlobalTechProfitShutdown_elecS,L223.GlobalTechProfitShutdown_elec, by= c("technology","year"))
-L2234.GlobalTechProfitShutdown_elecS <- filter(L2234.GlobalTechProfitShutdown_elecS, median.shutdown.point != "NA")
-L2234.GlobalTechProfitShutdown_elecS <- select(L2234.GlobalTechProfitShutdown_elecS, -supplysector, -subsector.1, -technology, -sector.name, -subsector.name)
-L2234.GlobalTechProfitShutdown_elecS <- rename(L2234.GlobalTechProfitShutdown_elecS, supplysector = Electric.sector, technology = Electric.sector.technology)
+A23.elecS_tech_associations %>%
+  left_join(L223.GlobalTechProfitShutdown_elec, by = c("subsector" = "subsector.name", "technology")) %>%
+  filter(is.na (median.shutdown.point) == FALSE) %>%
+  select(-supplysector, -subsector.1, -technology, -sector.name ) %>%
+  rename (supplysector = Electric.sector, technology = Electric.sector.technology) -> L2234.GlobalTechProfitShutdown_elecS
 
 # Additional characteristics for CCS technologies
 printlog( "L2234.GlobalTechCapture_elecS: Characteristics of CCS technologies in detailed electricity generation sectors" )
 
-L2234.GlobalTechCapture_elecS <- A23.elecS_tech_associations
-L2234.GlobalTechCapture_elecS <- L2234.GlobalTechCapture_elecS[rep(1:nrow(L2234.GlobalTechCapture_elecS), 
-                                                                                 times = length(unique(L223.GlobalTechCapture_elec$year))),]
-L2234.GlobalTechCapture_elecS$year <- rep(unique(L223.GlobalTechCapture_elec$year),each = nrow(A23.elecS_tech_associations))
-L2234.GlobalTechCapture_elecS <- left_join(L2234.GlobalTechCapture_elecS,L223.GlobalTechCapture_elec, by= c("technology","year"))
-L2234.GlobalTechCapture_elecS <- filter(L2234.GlobalTechCapture_elecS, remove.fraction != "NA")
-L2234.GlobalTechCapture_elecS <- select(L2234.GlobalTechCapture_elecS, -supplysector, -subsector.1, -technology, -sector.name, -subsector.name)
-L2234.GlobalTechCapture_elecS <- rename(L2234.GlobalTechCapture_elecS, supplysector = Electric.sector, technology = Electric.sector.technology)
+A23.elecS_tech_associations %>%
+  left_join(L223.GlobalTechCapture_elec, by = c("subsector" = "subsector.name", "technology")) %>%
+  filter(is.na (remove.fraction) == FALSE) %>%
+  select(-supplysector, -subsector.1, -technology, -sector.name ) %>%
+  rename (supplysector = Electric.sector, technology = Electric.sector.technology) -> L2234.GlobalTechCapture_elecS
 
 # Additional characteristics for intermittent technologies
 
 printlog( "L2234.GlobalIntTechBackup_elecS: Backup characteristics for detailed electricity generation intermittent technologies" )
 
-L2234.GlobalIntTechBackup_elecS <- A23.elecS_inttech_associations
-L2234.GlobalIntTechBackup_elecS <- L2234.GlobalIntTechBackup_elecS[rep(1:nrow(L2234.GlobalIntTechBackup_elecS), 
-                                                                           times = length(unique(L223.GlobalIntTechBackup_elec$year))),]
-L2234.GlobalIntTechBackup_elecS$year <- rep(unique(L223.GlobalIntTechBackup_elec$year),each = nrow(A23.elecS_inttech_associations))
-L2234.GlobalIntTechBackup_elecS <- rename(L2234.GlobalIntTechBackup_elecS, technology = intermittent.technology)
-L2234.GlobalIntTechBackup_elecS <- left_join(L2234.GlobalIntTechBackup_elecS,L223.GlobalIntTechBackup_elec, by = c("technology","year"))
-L2234.GlobalIntTechBackup_elecS <- filter(L2234.GlobalIntTechBackup_elecS, capacity.limit != "NA")
-L2234.GlobalIntTechBackup_elecS <- select(L2234.GlobalIntTechBackup_elecS, -supplysector, -subsector.1, -technology, -sector.name, -subsector.name)
-L2234.GlobalIntTechBackup_elecS <- rename(L2234.GlobalIntTechBackup_elecS, supplysector = Electric.sector, intermittent.technology = Electric.sector.intermittent.technology)
+A23.elecS_inttech_associations %>%
+  left_join(L223.GlobalIntTechBackup_elec, by= c("subsector"= "subsector.name" , "intermittent.technology" ="technology")) %>%
+  filter(is.na (capacity.limit) == FALSE) %>%
+  select(-supplysector, -subsector.1, -intermittent.technology, -sector.name) %>%
+  rename (supplysector = Electric.sector, intermittent.technology = Electric.sector.intermittent.technology) -> L2234.GlobalIntTechBackup_elecS
 
 # Energy inputs 
-printlog( "L2234.StubTechMarket_elecS_USA: Energy inputs" )
-A23.elecS_inttech_associations %>%
-  rename(Electric.sector.technology = Electric.sector.intermittent.technology, technology = intermittent.technology) -> L2234.StubTechMarket_elecS_USA_temp
 
-L2234.StubTechMarket_elecS_USA_temp %>%
+printlog( "L2234.StubTechMarket_elecS_USA: Energy inputs" )
+
+A23.elecS_inttech_associations %>%
+  rename(Electric.sector.technology = Electric.sector.intermittent.technology, technology = intermittent.technology) %>%
   bind_rows(A23.elecS_tech_associations) -> L2234.StubTechMarket_elecS_USA_temp
 
-L2234.StubTechMarket_elecS_USA <- L2234.StubTechMarket_elecS_USA_temp [rep(1:nrow(L2234.StubTechMarket_elecS_USA_temp), 
-                                                                     times = length(unique(L223.StubTechMarket_elec_USA$year))),]
-L2234.StubTechMarket_elecS_USA$year <- rep(unique(L223.StubTechMarket_elec_USA$year),each = nrow(L2234.StubTechMarket_elecS_USA_temp))
-L2234.StubTechMarket_elecS_USA$region <- rep("AK",nrow(L2234.StubTechMarket_elecS_USA))
-L2234.StubTechMarket_elecS_USA <- write_to_all_states(L2234.StubTechMarket_elecS_USA, c("region","Electric.sector", "subsector", "Electric.sector.technology", "technology","year"))
-L2234.StubTechMarket_elecS_USA <- rename(L2234.StubTechMarket_elecS_USA, stub.technology=technology)
-L2234.StubTechMarket_elecS_USA <- left_join(L2234.StubTechMarket_elecS_USA,L223.StubTechMarket_elec_USA, by= c("stub.technology","year","region"))
-L2234.StubTechMarket_elecS_USA <- select(L2234.StubTechMarket_elecS_USA, -supplysector, -subsector.y, -stub.technology)
-L2234.StubTechMarket_elecS_USA <- filter(L2234.StubTechMarket_elecS_USA, minicam.energy.input != "NA")
-L2234.StubTechMarket_elecS_USA <- rename(L2234.StubTechMarket_elecS_USA, supplysector = Electric.sector, subsector = subsector.x, stub.technology = Electric.sector.technology)
+L223.StubTechMarket_elec_USA %>%
+  left_join(L2234.StubTechMarket_elecS_USA_temp, by= c("supplysector","subsector", "stub.technology" = "technology")) %>%
+  filter(is.na (minicam.energy.input) == FALSE) %>%
+  select(-supplysector, -subsector.1, -stub.technology) %>%
+  select(region, Electric.sector, subsector, Electric.sector.technology, year, minicam.energy.input, market.name) %>%
+  rename (supplysector = Electric.sector, stub.technology = Electric.sector.technology)-> L2234.StubTechMarket_elecS_USA
 
 # Backup markets
 
-printlog( "L2234.StubTechMarket_backup_elecS_USA: Energy inputs" )
+printlog( "L2234.StubTechMarket_backup_elecS_USA: Backup Energy inputs for intermittent technologies" )
 
-L2234.StubTechMarket_backup_elecS_USA_temp <- A23.elecS_inttech_associations
-L2234.StubTechMarket_backup_elecS_USA <- L2234.StubTechMarket_backup_elecS_USA_temp [rep(1:nrow(L2234.StubTechMarket_backup_elecS_USA_temp), 
-                                                                           times = length(unique(L223.StubTechMarket_backup_USA$year))),]
-L2234.StubTechMarket_backup_elecS_USA$year <- rep(unique(L223.StubTechMarket_backup_USA$year),each = nrow(L2234.StubTechMarket_backup_elecS_USA_temp))
-L2234.StubTechMarket_backup_elecS_USA$region <- rep("AK",nrow(L2234.StubTechMarket_backup_elecS_USA))
-L2234.StubTechMarket_backup_elecS_USA <- write_to_all_states(L2234.StubTechMarket_backup_elecS_USA, c("region","Electric.sector", "subsector", "Electric.sector.intermittent.technology", "intermittent.technology","year"))
-L2234.StubTechMarket_backup_elecS_USA <- rename(L2234.StubTechMarket_backup_elecS_USA, stub.technology=intermittent.technology)
-L2234.StubTechMarket_backup_elecS_USA <- left_join(L2234.StubTechMarket_backup_elecS_USA,L223.StubTechMarket_backup_USA, by= c("stub.technology","year","region"))
-L2234.StubTechMarket_backup_elecS_USA <- select(L2234.StubTechMarket_backup_elecS_USA, -supplysector, -subsector.y, -stub.technology)
-L2234.StubTechMarket_backup_elecS_USA <- filter(L2234.StubTechMarket_backup_elecS_USA, minicam.energy.input != "NA")
-L2234.StubTechMarket_backup_elecS_USA <- rename(L2234.StubTechMarket_backup_elecS_USA, supplysector = Electric.sector, subsector = subsector.x, stub.technology = Electric.sector.intermittent.technology)
+L223.StubTechMarket_backup_USA %>%
+  left_join (A23.elecS_inttech_associations, by = c("supplysector", "subsector", "stub.technology" = "intermittent.technology")) %>%
+  filter(is.na(minicam.energy.input) == FALSE) %>%
+  select(region, Electric.sector, subsector, Electric.sector.intermittent.technology, year, minicam.energy.input, market.name) %>%
+  rename (supplysector = Electric.sector, stub.technology = Electric.sector.intermittent.technology) -> L2234.StubTechMarket_backup_elecS_USA
 
 printlog( "L2234.StubTechElecMarket_backup_elecS_USA: electric sector name" )
+
 L2234.StubTechMarket_backup_elecS_USA %>%
   select(-minicam.energy.input, -market.name) %>%
   left_join(states_subregions, by = c("region" = "state")) %>%
@@ -410,29 +336,25 @@ L2234.StubTechMarket_backup_elecS_USA %>%
 # Calibration Year Outputs. Note that all technologies in GCAM-USA are calibrated on the output.
 printlog( "L2234.StubTechProd_elecS_USA: Calibration outputs" )
 
-L2234.StubTechProd_elecS_USA_temp1 <- A23.elecS_tech_associations
-L2234.StubTechProd_elecS_USA_temp2 <- A23.elecS_inttech_associations
-L2234.StubTechProd_elecS_USA_temp2  %>%
+A23.elecS_inttech_associations %>%
   rename(Electric.sector.technology = Electric.sector.intermittent.technology, technology = intermittent.technology)%>%
-  bind_rows(L2234.StubTechProd_elecS_USA_temp1) -> L2234.StubTechProd_elecS_USA_temp
+  bind_rows(A23.elecS_tech_associations) %>%
+  mutate(region = states_subregions[1,1]) -> L2234.StubTechProd_elecS_USA_temp
 
-L2234.StubTechProd_elecS_USA <- L2234.StubTechProd_elecS_USA_temp [rep(1:nrow(L2234.StubTechProd_elecS_USA_temp), 
-                                                                       times = length(model_base_years)),]
-L2234.StubTechProd_elecS_USA$year <- rep(model_base_years,each = nrow(L2234.StubTechProd_elecS_USA_temp))
-L2234.StubTechProd_elecS_USA$region <- rep("AK",nrow(L2234.StubTechProd_elecS_USA))
-L2234.StubTechProd_elecS_USA <- write_to_all_states(L2234.StubTechProd_elecS_USA, c("region","Electric.sector", "subsector", "Electric.sector.technology", "technology","year"))
+L2234.StubTechProd_elecS_USA_temp <- repeat_and_add_vector(L2234.StubTechProd_elecS_USA_temp, "year", model_base_years)
 
-L2234.StubTechProd_elecS_USA %>%
-  rename(stub.technology = technology) %>%
-  left_join(L223.StubTechProd_elec_USA, by= c("stub.technology","year","region")) %>%
-  select(-supplysector, -subsector.y, -stub.technology) %>%
-  rename(supplysector = Electric.sector, subsector = subsector.x, stub.technology = Electric.sector.technology) %>%
+L2234.StubTechProd_elecS_USA_temp <- write_to_all_states(L2234.StubTechProd_elecS_USA_temp, c("region","Electric.sector", "supplysector", "subsector", "Electric.sector.technology", "technology","year"))
+  
+L2234.StubTechProd_elecS_USA_temp %>%
+  left_join(L223.StubTechProd_elec_USA, by = c("region","supplysector", "subsector","technology" = "stub.technology", "year")) %>%
   filter(subsector != "hydro") %>%
+  select(-supplysector, -technology) %>%
+  rename(supplysector = Electric.sector, stub.technology = Electric.sector.technology) %>%
   mutate(share.weight.year = year) %>%
   mutate(calOutputValue = as.double(calOutputValue), subs.share.weight = as.double(subs.share.weight), share.weight = as.double(share.weight)) %>%
   mutate(calOutputValue = if_else(is.na (calOutputValue),0,calOutputValue)) %>%
   mutate(subs.share.weight = if_else(is.na(subs.share.weight),0,subs.share.weight)) %>% # Note that this is latter over-written to read in zero share-weights for subsectors in base-years with zero base-year calibration values and 1 for subsectors with any calibration values. 
-  mutate(share.weight = if_else(is.na(share.weight), 0,share.weight ))-> L2234.StubTechProd_elecS_USA 
+  mutate(share.weight = if_else(is.na(share.weight), 0,share.weight ))-> L2234.StubTechProd_elecS_USA
 
 L1239_state_elec_supply %>%
   select(state, fuel, segment, year, fraction)%>%
@@ -444,6 +366,43 @@ L2234.StubTechProd_elecS_USA %>%
   mutate(calOutputValue = calOutputValue*fraction) %>%
   select(-fraction) %>%
   mutate(calOutputValue = if_else(is.na (calOutputValue),0,calOutputValue)) -> L2234.StubTechProd_elecS_USA
+
+
+
+# L2234.StubTechProd_elecS_USA_temp1 <- A23.elecS_tech_associations
+# L2234.StubTechProd_elecS_USA_temp2 <- A23.elecS_inttech_associations
+# L2234.StubTechProd_elecS_USA_temp2  %>%
+#   rename(Electric.sector.technology = Electric.sector.intermittent.technology, technology = intermittent.technology)%>%
+#   bind_rows(L2234.StubTechProd_elecS_USA_temp1) -> L2234.StubTechProd_elecS_USA_temp
+# 
+# L2234.StubTechProd_elecS_USA <- L2234.StubTechProd_elecS_USA_temp [rep(1:nrow(L2234.StubTechProd_elecS_USA_temp),
+#                                                                        times = length(model_base_years)),]
+# L2234.StubTechProd_elecS_USA$year <- rep(model_base_years,each = nrow(L2234.StubTechProd_elecS_USA_temp))
+# L2234.StubTechProd_elecS_USA$region <- rep("AK",nrow(L2234.StubTechProd_elecS_USA))
+# L2234.StubTechProd_elecS_USA <- write_to_all_states(L2234.StubTechProd_elecS_USA, c("region","Electric.sector", "subsector", "Electric.sector.technology", "technology","year"))
+
+# L2234.StubTechProd_elecS_USA %>%
+#   rename(stub.technology = technology) %>%
+#   left_join(L223.StubTechProd_elec_USA, by= c("stub.technology","year","region")) %>%
+#   select(-supplysector, -subsector.y, -stub.technology) %>%
+#   rename(supplysector = Electric.sector, subsector = subsector.x, stub.technology = Electric.sector.technology) %>%
+#   filter(subsector != "hydro") %>%
+#   mutate(share.weight.year = year) %>%
+#   mutate(calOutputValue = as.double(calOutputValue), subs.share.weight = as.double(subs.share.weight), share.weight = as.double(share.weight)) %>%
+#   mutate(calOutputValue = if_else(is.na (calOutputValue),0,calOutputValue)) %>%
+#   mutate(subs.share.weight = if_else(is.na(subs.share.weight),0,subs.share.weight)) %>% # Note that this is latter over-written to read in zero share-weights for subsectors in base-years with zero base-year calibration values and 1 for subsectors with any calibration values.
+#   mutate(share.weight = if_else(is.na(share.weight), 0,share.weight ))-> L2234.StubTechProd_elecS_USA
+# 
+# L1239_state_elec_supply %>%
+#   select(state, fuel, segment, year, fraction)%>%
+#   rename(region = state, supplysector = segment, subsector = fuel) %>%
+#   mutate(year = as.numeric(year)) -> L2234_fuelfractions_segment_USA
+# 
+# L2234.StubTechProd_elecS_USA %>%
+#   left_join(L2234_fuelfractions_segment_USA, by = c("region", "supplysector", "subsector", "year")) %>%
+#   mutate(calOutputValue = calOutputValue*fraction) %>%
+#   select(-fraction) %>%
+#   mutate(calOutputValue = if_else(is.na (calOutputValue),0,calOutputValue)) -> L2234.StubTechProd_elecS_USA
 
     # Adjust subsector share-weights to read in zero share-weights for subsectors and technologies 
     # in base-years with zero base-year calibration values
@@ -506,55 +465,36 @@ L2234.StubTechProd_elecS_USA %>%
 # Fixed Output calibration for hydro
 printlog( "L2234.StubTechFixOut_elecS_USA: Calibration year fixed outputs for hydro" )
 
-L2234.StubTechFixOut_elecS_USA_temp <- A23.elecS_tech_associations
-L2234.StubTechFixOut_elecS_USA <- L2234.StubTechFixOut_elecS_USA_temp [rep(1:nrow(L2234.StubTechFixOut_elecS_USA_temp), 
-                                       times = length(unique(L223.StubTechFixOut_elec_USA$year))),]
-L2234.StubTechFixOut_elecS_USA$year <- rep(unique(L223.StubTechFixOut_elec_USA$year),each = nrow(L2234.StubTechFixOut_elecS_USA_temp))
-L2234.StubTechFixOut_elecS_USA$region <- rep("AK",nrow(L2234.StubTechFixOut_elecS_USA))
-L2234.StubTechFixOut_elecS_USA <- write_to_all_states(L2234.StubTechFixOut_elecS_USA, c("region","Electric.sector", "subsector", "Electric.sector.technology", "technology","year"))
+A23.elecS_tech_associations %>%
+  filter(subsector == "hydro")  -> L2234.StubTechFixOut_elecS_USA_temp
 
-L2234.StubTechFixOut_elecS_USA %>%
-  filter(subsector == "hydro") %>%
-  select(-technology) %>%
-  rename(supplysector = Electric.sector, stub.technology = Electric.sector.technology) %>%
-  left_join(L223.StubTechFixOut_elec_USA, by = c("region", "subsector", "year")) %>%
-  select(-supplysector.y, stub.technology.y) %>%
-  rename(supplysector = supplysector.x, stub.technology = stub.technology.x) %>%
+L223.StubTechFixOut_elec_USA %>%
+  left_join(L2234.StubTechFixOut_elecS_USA_temp, by = c("supplysector", "subsector","stub.technology" = "technology")) %>%
+  select (-supplysector, -subsector.1, -stub.technology) %>%
+  rename (supplysector = Electric.sector, stub.technology = Electric.sector.technology) %>%
   left_join(L2234_fuelfractions_segment_USA, by = c("region", "supplysector", "subsector", "year")) %>%
   mutate(fixedOutput = fixedOutput*fraction) %>%
-  select(-stub.technology.y, -fraction) -> L2234.StubTechFixOut_elecS_USA
+  select(region, supplysector, subsector, stub.technology, year, fixedOutput, share.weight.year, subs.share.weight, tech.share.weight) -> L2234.StubTechFixOut_elecS_USA
+  
+# Fixed Output for hydro in future years. We apply the same fule fractions in future years as in the final calibration year. 
 
-# Fixed Output for hydro in future years 
 printlog( "L2234.StubTechFixOut_hydro_elecS_USA: Fixed Output for hydro in future years" )
 
-L2234.StubTechFixOut_hydro_elecS_USA_temp <- A23.elecS_tech_associations
-L2234.StubTechFixOut_hydro_elecS_USA <- L2234.StubTechFixOut_hydro_elecS_USA_temp [rep(1:nrow(L2234.StubTechFixOut_hydro_elecS_USA_temp), 
-                                                                           times = length(unique(L223.StubTechFixOut_hydro_USA$year))),]
-L2234.StubTechFixOut_hydro_elecS_USA$year <- rep(unique(L223.StubTechFixOut_hydro_USA$year),each = nrow(L2234.StubTechFixOut_hydro_elecS_USA_temp))
-L2234.StubTechFixOut_hydro_elecS_USA$region <- rep("AK",nrow(L2234.StubTechFixOut_hydro_elecS_USA))
-L2234.StubTechFixOut_hydro_elecS_USA <- write_to_all_states(L2234.StubTechFixOut_hydro_elecS_USA, c("region","Electric.sector", "subsector", "Electric.sector.technology", "technology","year"))
-
 L2234_fuelfractions_segment_USA %>%
-  filter(year == 2010, subsector == "hydro") -> L2234_fuelfractions_segment_USA_hydro_temp
-L2234_fuelfractions_segment_USA_hydro <- L2234_fuelfractions_segment_USA_hydro_temp[rep(1:nrow(L2234_fuelfractions_segment_USA_hydro_temp),
-                                                                                        times = length(model_years) -3),]
-L2234_fuelfractions_segment_USA_hydro$year <- rep(model_years[4:length(model_years)],
-                                                  each = nrow(L2234_fuelfractions_segment_USA_hydro_temp))
+  filter(year == set_years("final-calibration-year"), subsector == "hydro") -> L2234_fuelfractions_segment_USA_hydro_final_calibration_year
 
-L2234.StubTechFixOut_hydro_elecS_USA %>%
-  filter(subsector =="hydro") %>%
-  select(-technology) %>%
-  rename(supplysector = Electric.sector, stub.technology = Electric.sector.technology) %>%
-  left_join(L223.StubTechFixOut_hydro_USA, by =c("region", "subsector", "year"))  %>%
-  select(-supplysector.y, -stub.technology.y) %>%
-  rename(supplysector = supplysector.x, stub.technology = stub.technology.x) %>%
-  left_join(L2234_fuelfractions_segment_USA_hydro, by = c("region", "supplysector", "subsector", "year")) %>%
+L223.StubTechFixOut_hydro_USA %>%
+  left_join(A23.elecS_tech_associations, by = c("supplysector","subsector","stub.technology" = "technology")) %>%
+  select (-supplysector, -subsector.1, -stub.technology) %>%
+  rename (supplysector = Electric.sector, stub.technology = Electric.sector.technology) %>%
+  left_join(L2234_fuelfractions_segment_USA_hydro_final_calibration_year, by = c("region", "supplysector", "subsector")) %>%
   mutate(fixedOutput = fixedOutput * fraction) %>%
-  select(-fraction)  -> L2234.StubTechFixOut_hydro_elecS_USA
-  
+  select(-fraction, -year.y)  %>%
+  rename(year = year.x) %>% 
+  select(region, supplysector, subsector, stub.technology, year, fixedOutput, share.weight.year, subs.share.weight, tech.share.weight) -> L2234.StubTechFixOut_hydro_elecS_USA
+
 # Efficiencies for biomass, coal, oil, and gas technologies in calibration years 
 printlog( "L2234.StubTechEff_elecS_USA: Efficiencies of coal, oil and gas technologies in calibration years" )
-
 
 L2234.StubTechProd_elecS_USA %>%
   filter(subsector %in% c("coal", "gas", "refined liquids", "biomass")) %>%
@@ -564,7 +504,7 @@ L2234.StubTechProd_elecS_USA %>%
   left_join(L223.StubTechEff_elec_USA, by = c("region", "subsector", "technology" = "stub.technology" , "year", "minicam.energy.input")) %>%
   select(region, supplysector.x, subsector, stub.technology, year, minicam.energy.input, efficiency, market.name.x) %>%
   rename(supplysector = supplysector.x, market.name=market.name.x) %>%
-  filter(efficiency != "NA") -> L2234.StubTechEff_elecS_USA
+  filter(is.na(efficiency) == FALSE) -> L2234.StubTechEff_elecS_USA
 
 
 # Capacity factors by state for wind and solar
@@ -578,7 +518,7 @@ A23.elecS_inttech_associations %>%
          input.capital, capacity.factor.capital,input.OM.fixed, capacity.factor.OM) %>%
   rename(supplysector = Electric.sector, subsector = subsector.x, stub.technology = Electric.sector.intermittent.technology) %>%
   filter(subsector != "solar") %>%
-  filter(capacity.factor.capital != "NA") -> L2234.StubTechCapFactor_elecS_wind_USA
+  filter(is.na(capacity.factor.capital) == FALSE) -> L2234.StubTechCapFactor_elecS_wind_USA
   
 A23.elecS_inttech_associations %>% 
   rename(stub.technology = intermittent.technology) %>%
@@ -587,7 +527,7 @@ A23.elecS_inttech_associations %>%
          input.capital, capacity.factor.capital,input.OM.fixed, capacity.factor.OM) %>%
   rename(supplysector = Electric.sector, subsector = subsector.x, stub.technology = Electric.sector.intermittent.technology) %>%
   filter(subsector != "wind") %>%
-  filter(capacity.factor.capital != "NA") -> L2234.StubTechCapFactor_elecS_solar_USA
+  filter(is.na(capacity.factor.capital) == FALSE) -> L2234.StubTechCapFactor_elecS_solar_USA
 
 
 # Final availble year for technologies (this is to make sure that, for example, no new coal comes in in the peak segment)
@@ -609,7 +549,7 @@ NREL_us_re_technical_potential %>%
   select(state, geothermal_resource) %>%
   rename(region = state) -> geo_states_noresource 
 
-  # Remove geothermal subsector from tables
+  # Remove geothermal subsector from tables. Is there a better way to do this without for loop?
 
 L2234.geo.tables <- list(L2234.SubsectorLogit_elecS_USA = L2234.SubsectorLogit_elecS_USA,
                                L2234.SubsectorShrwt_elecS_USA = L2234.SubsectorShrwt_elecS_USA,
@@ -642,9 +582,8 @@ L2234.StubTechProd_elecS_USA <- L2234.geo.tables[[7]]
 # and append them with corresponding tables
 
  # Non-energy inputs for additional technologies such as battery
-L2234.GlobalTech_non_energy_elecS <- A23.elecS_globaltech_non_energy_inputs
 
-L2234.GlobalTech_non_energy_elecS %>%
+A23.elecS_globaltech_non_energy_inputs %>%
   mutate(input.capital = "capital") %>%
   select(supplysector, subsector, technology, period, input.capital, capital.cost, fcr, capacity.factor) %>%
   rename(capital.overnight = capital.cost, fixed.charge.rate = fcr, year = period) -> L2234.GlobalTechCapital_elecS_additonal
@@ -652,7 +591,7 @@ L2234.GlobalTech_non_energy_elecS %>%
 L2234.GlobalTechCapital_elecS %>%
   bind_rows(L2234.GlobalTechCapital_elecS_additonal) -> L2234.GlobalTechCapital_elecS
   
-L2234.GlobalTech_non_energy_elecS %>%
+A23.elecS_globaltech_non_energy_inputs %>%
   mutate(input.OM.fixed = "OM-fixed") %>%
   select(supplysector, subsector, technology, period, input.OM.fixed, fixed.om, capacity.factor.om) %>%
   rename(OM.fixed = fixed.om, year = period, capacity.factor = capacity.factor.om ) -> L2234.GlobalTechOMfixed_elecS_additonal
@@ -660,7 +599,7 @@ L2234.GlobalTech_non_energy_elecS %>%
 L2234.GlobalTechOMfixed_elecS %>%
   bind_rows(L2234.GlobalTechOMfixed_elecS_additonal) -> L2234.GlobalTechOMfixed_elecS
 
-L2234.GlobalTech_non_energy_elecS %>%
+A23.elecS_globaltech_non_energy_inputs %>%
   mutate(input.OM.var = "OM-var") %>%
   select(supplysector, subsector, technology, period, input.OM.var, variable.om) %>%
   rename(OM.var = variable.om, year = period) -> L2234.GlobalTechOMvar_elecS_additonal
@@ -669,14 +608,14 @@ L2234.GlobalTechOMvar_elecS %>%
   bind_rows(L2234.GlobalTechOMvar_elecS_additonal) -> L2234.GlobalTechOMvar_elecS
 
 
-L2234.GlobalTech_non_energy_elecS %>%
+A23.elecS_globaltech_non_energy_inputs %>%
   select(supplysector, subsector, technology, period, lifetime) %>%
   rename(year = period) -> L2234.GlobalTechLifetime_elecS_additonal
 
 L2234.GlobalTechLifetime_elecS %>%
   bind_rows(L2234.GlobalTechLifetime_elecS_additonal) -> L2234.GlobalTechLifetime_elecS
 
-L2234.GlobalTech_non_energy_elecS %>%
+A23.elecS_globaltech_non_energy_inputs %>%
   select(supplysector, subsector, technology, period, lifetime, steepness, half.life) %>%
   rename(year = period) -> L2234.GlobalTechSCurve_elecS_additonal
 
@@ -744,7 +683,7 @@ L2234.SubsectorLogit_elecS_grid %>%
   mutate(to.year = set_years ("end-year") ) %>%
   mutate(interpolation.function = "fixed" ) -> L2234.SubsectorShrwtInterp_elecS_grid
 
-# Shareweights for technologies in grid region sectors. This is a new table that needs to created shareweights for state-level 
+# Shareweights for technologies in grid region sectors. This is a new table that needs to created. Shareweights for state-level 
 # technologies are read in the global-technology-database.
 
 L2234.SubsectorLogit_elecS_grid %>%
@@ -752,6 +691,8 @@ L2234.SubsectorLogit_elecS_grid %>%
   mutate(technology = subsector) %>%
   mutate(year = model_years[[1]]) %>%
   mutate (share.weight = 1) -> L2234.TechShrwt_elecS_grid_temp
+
+  # Is there a dplyr way to do the below? It's simply writing out to all model years.
 
 L2234.TechShrwt_elecS_grid <- L2234.TechShrwt_elecS_grid_temp[rep(1:nrow(L2234.TechShrwt_elecS_grid_temp), 
                                                                           times = length(unique(model_years))),]
@@ -787,13 +728,14 @@ L2234.StubTechProd_elecS_USA %>%
   group_by (region, grid_region,  supplysector, year) %>%
   summarise_if(is.numeric, sum) %>%
   ungroup()  %>%
-  left_join (L2234.TechFixOut_elecS_grid, by = c("region", "grid_region", "supplysector", "year")) -> L2234.TechProd_elecS_grid
+  left_join (L2234.TechFixOut_elecS_grid, by = c("region", "grid_region", "supplysector", "year")) %>%
+  mutate(fixedOutput = if_else(is.na(fixedOutput) == TRUE, 0,fixedOutput)) -> L2234.TechProd_elecS_grid
 
-for(i in 1: nrow(L2234.TechProd_elecS_grid)) {
-  if (is.na(L2234.TechProd_elecS_grid[i,"fixedOutput"])) {
-    L2234.TechProd_elecS_grid[i, "fixedOutput"] <- 0
-  }
-}
+# for(i in 1: nrow(L2234.TechProd_elecS_grid)) {
+#   if (is.na(L2234.TechProd_elecS_grid[i,"fixedOutput"])) {
+#     L2234.TechProd_elecS_grid[i, "fixedOutput"] <- 0
+#   }
+# }
 
 L2234.TechProd_elecS_grid %>%
   mutate(calOutputValue = calOutputValue + fixedOutput) %>%
