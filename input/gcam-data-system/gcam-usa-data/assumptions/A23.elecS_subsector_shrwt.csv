@@ -1,5 +1,13 @@
 # subsector shareweights at points of inflexion,,,,
 region,supplysector,subsector,year,share-weight
+USA,base load generation,gas,2015,1
+USA,intermediate generation,gas,2015,1
+USA,subpeak generation,gas,2015,1
+USA,peak generation,gas,2015,1
+USA,base load generation,gas,end-year,1
+USA,intermediate generation,gas,end-year,1
+USA,subpeak generation,gas,end-year,1
+USA,peak generation,gas,end-year,1
 USA,base load generation,biomass,end-year,1
 USA,intermediate generation,biomass,end-year,1
 USA,subpeak generation,biomass,end-year,1

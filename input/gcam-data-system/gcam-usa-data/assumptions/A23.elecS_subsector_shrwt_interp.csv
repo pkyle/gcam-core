@@ -4,10 +4,6 @@ USA,base load generation,coal,share-weight,final-calibration-year,end-year,fixed
 USA,intermediate generation,coal,share-weight,final-calibration-year,end-year,fixed
 USA,subpeak generation,coal,share-weight,final-calibration-year,end-year,fixed
 USA,peak generation,coal,share-weight,final-calibration-year,end-year,fixed
-USA,base load generation,gas,share-weight,final-calibration-year,end-year,fixed
-USA,intermediate generation,gas,share-weight,final-calibration-year,end-year,fixed
-USA,subpeak generation,gas,share-weight,final-calibration-year,end-year,fixed
-USA,peak generation,gas,share-weight,final-calibration-year,end-year,fixed
 USA,base load generation,refined liquids,share-weight,final-calibration-year,end-year,fixed
 USA,intermediate generation,refined liquids,share-weight,final-calibration-year,end-year,fixed
 USA,subpeak generation,refined liquids,share-weight,final-calibration-year,end-year,fixed

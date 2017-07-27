@@ -1,5 +1,9 @@
 # Subsector share-weights which need a to-value,,,,,,,
 region,supplysector,subsector,apply.to,from.year,to.year,to.value,interpolation.function
+USA,base load generation,gas,share-weight,2015,end-year,1,fixed
+USA,intermediate generation,gas,share-weight,2015,end-year,1,fixed
+USA,subpeak generation,gas,share-weight,2015,end-year,1,fixed
+USA,peak generation,gas,share-weight,2015,end-year,1,fixed
 USA,base load generation,biomass,share-weight,final-calibration-year,end-year,1,linear
 USA,intermediate generation,biomass,share-weight,final-calibration-year,end-year,1,linear
 USA,subpeak generation,biomass,share-weight,final-calibration-year,end-year,1,linear
