@@ -1,18 +1,8 @@
 # Electricity technology overnight capital costs (2013$/kW),,
-# Copied from revised QER base case and high NG resource side case 3-16-16,,
-# Received from Elke Hodson,,
-#,,
+"# Based on ""Base Case"" in DOE report "" “Energy CO2 Emissions Impacts of Clean Energy Technology Innovation and Policy”. Consistent with AEO-2016.",,
+# Reference: AEO-2016 and  https://energy.gov/sites/prod/files/2017/01/f34/Energy%20CO2%20Emissions%20Impacts%20of%20Clean%20Energy%20Technology%20Innovation%20and%20Policy.pdf,,
+# Source: Constructed from file rReceived from Elke Hodson (DOE-EPSA) [Filename: REVISED QER Base Case and high NG resource side case 3-16-16.xlsx and Adv Tech and QER Gen Tech Info for GCAM 06-22-2016.xlx],,
 year,GCAM.technology,overnight.cost
-2010,coal (IGCC),3246.050049
-2010,coal (IGCC CCS),4558.227816
-2010,coal (conv pul),2475.582275
-2010,gas (CC CCS),2039.593813
-2010,gas (CC),903.901794
-2010,gas (steam/CT),966.858826
-2010,Gen_III,4647.879193
-2010,CSP,3635.828085
-2010,PV,2169.423399
-2010,wind,1776.736375
 2015,coal (IGCC),3246.050049
 2015,coal (IGCC CCS),4558.227816
 2015,coal (conv pul),2475.582275

@@ -1,5 +1,7 @@
-# QER investment tax credit (% of overnight capital cost),,
-#,,
+# Investment tax credit (% of overnight capital cost),,
+"# Consistent with: Consolidated Appropriations Act of 2016, https://www.gpo.gov/fdsys/pkg/BILLS-114hr2029enr/pdf/BILLS-114hr2029enr.pdf",,
+# Reference: http://www.nrel.gov/docs/fy16osti/65571.pdf; https://www.gpo.gov/fdsys/pkg/BILLS-114hr2029enr/pdf/BILLS-114hr2029enr.pdf,,
+"# Source: Received from Elke Hodson, DOE-EPSA",,
 year,GCAM.technology,itc
 2020,PV,0.3
 2020,CSP,0.3
