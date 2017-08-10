@@ -56,11 +56,11 @@ L223.StubTechFixOut_hydro_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTech
 L223.StubTechMarket_backup_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTechMarket_backup_USA", skip = 4 )
 L223.StubTechCapFactor_elec_wind_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTechCapFactor_elec_wind_USA", skip = 4 )
 L223.StubTechCapFactor_elec_solar_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTechCapFactor_elec_solar_USA", skip = 4 )
+L2233.GlobalTechCapital_elec_itc <- readdata( "GCAMUSA_LEVEL2_DATA", "L2233.GlobalTechCapital_elec_itc", skip = 4 )
+L2233.GlobalIntTechCapital_elec_itc <- readdata( "GCAMUSA_LEVEL2_DATA", "L2233.GlobalIntTechCapital_elec_itc", skip = 4 )
 
 L223.GlobalTechEff_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalTechEff_elec", skip = 4 )
 L223.GlobalIntTechEff_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalIntTechEff_elec", skip = 4 )
-L223.GlobalTechCapital_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalTechCapital_elec", skip = 4 )
-L223.GlobalIntTechCapital_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalIntTechCapital_elec", skip = 4 )
 L223.GlobalTechLifetime_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalTechLifetime_elec", skip = 4 )
 L223.GlobalIntTechLifetime_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalIntTechLifetime_elec", skip = 4 )
 L223.GlobalTechOMfixed_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalTechOMfixed_elec", skip = 4 )
@@ -164,7 +164,7 @@ stopifnot(!any(is.na(L2234.GlobalTechShrwt_elecS)))
 printlog( "L2234.GlobalTechCapital_elecS: Capital costs of electricity generation technologies" )
 
 A23.elecS_tech_associations %>%
-  left_join(L223.GlobalTechCapital_elec, by = c("subsector" = "subsector.name", "technology")) %>%
+  left_join(L2233.GlobalTechCapital_elec_itc, by = c("subsector" = "subsector.name", "technology")) %>%
   filter(is.na (capital.overnight) == FALSE) %>%
   select(-supplysector, -subsector.1, -technology, -sector.name ) %>%
   rename (supplysector = Electric.sector, technology = Electric.sector.technology) -> L2234.GlobalTechCapital_elecS
@@ -180,7 +180,7 @@ L2234.GlobalTechCapital_elecS %>%
 printlog( "L2234.GlobalIntTechCapital_elecS: Capital costs of intermittent electricity generation technologies" )
 
 A23.elecS_inttech_associations %>%
-  left_join(L223.GlobalIntTechCapital_elec, by= c("subsector"= "subsector.name" , "intermittent.technology")) %>%
+  left_join(L2233.GlobalIntTechCapital_elec_itc, by= c("subsector"= "subsector.name" , "intermittent.technology")) %>%
   filter(is.na (capital.overnight) == FALSE) %>%
   select(-supplysector, -subsector.1, -intermittent.technology, -sector.name) %>%
   rename (supplysector = Electric.sector, intermittent.technology = Electric.sector.intermittent.technology) -> L2234.GlobalIntTechCapital_elecS
@@ -519,7 +519,19 @@ A23.elecS_inttech_associations %>%
   rename(supplysector = Electric.sector, subsector = subsector.x, stub.technology = Electric.sector.intermittent.technology) %>%
   filter(subsector != "solar") %>%
   filter(is.na(capacity.factor.capital) == FALSE) -> L2234.StubTechCapFactor_elecS_wind_USA
-  
+
+A23.elecS_tech_associations %>% 
+  rename(stub.technology = technology) %>%
+  left_join(L223.StubTechCapFactor_elec_wind_USA, by = "stub.technology") %>%
+  select(region, Electric.sector, subsector.x, Electric.sector.technology, year, 
+         input.capital, capacity.factor.capital,input.OM.fixed, capacity.factor.OM) %>%
+  rename(supplysector = Electric.sector, subsector = subsector.x, stub.technology = Electric.sector.technology) %>%
+  filter(subsector != "solar") %>%
+  filter(is.na(capacity.factor.capital) == FALSE) -> L2234.StubTechCapFactor_elecS_wind_storage_USA
+
+L2234.StubTechCapFactor_elecS_wind_USA %>%
+  bind_rows(L2234.StubTechCapFactor_elecS_wind_storage_USA) -> L2234.StubTechCapFactor_elecS_wind_USA
+
 A23.elecS_inttech_associations %>% 
   rename(stub.technology = intermittent.technology) %>%
   left_join(L223.StubTechCapFactor_elec_solar_USA, by = "stub.technology") %>%
@@ -529,6 +541,17 @@ A23.elecS_inttech_associations %>%
   filter(subsector != "wind") %>%
   filter(is.na(capacity.factor.capital) == FALSE) -> L2234.StubTechCapFactor_elecS_solar_USA
 
+A23.elecS_tech_associations %>% 
+  rename(stub.technology = technology) %>%
+  left_join(L223.StubTechCapFactor_elec_solar_USA, by = "stub.technology") %>%
+  select(region, Electric.sector, subsector.x, Electric.sector.technology, year, 
+         input.capital, capacity.factor.capital,input.OM.fixed, capacity.factor.OM) %>%
+  rename(supplysector = Electric.sector, subsector = subsector.x, stub.technology = Electric.sector.technology) %>%
+  filter(subsector != "wind") %>%
+  filter(is.na(capacity.factor.capital) == FALSE) -> L2234.StubTechCapFactor_elecS_solar_storage_USA
+
+L2234.StubTechCapFactor_elecS_solar_USA %>%
+  bind_rows(L2234.StubTechCapFactor_elecS_solar_storage_USA) -> L2234.StubTechCapFactor_elecS_solar_USA
 
 # Final availble year for technologies (this is to make sure that, for example, no new coal comes in in the peak segment)
 
