@@ -1,0 +1,53 @@
+# A mapping of EIA states to GCAM state-level regions and grid-regions,,
+state,region,grid_region
+Alaska,AK,Alaska grid
+Alabama,AL,Southeast grid
+Arkansas,AR,Southeast grid
+Arizona,AZ,Southwest grid
+California,CA,California grid
+Colorado,CO,Southwest grid
+Connecticut,CT,New England grid
+District Of Columbia,DC,Mid-Atlantic grid
+Delaware,DE,Mid-Atlantic grid
+Florida,FL,Florida grid
+Georgia,GA,Southeast grid
+Hawaii,HI,Hawaii grid
+Iowa,IA,Central Northwest grid
+Idaho,ID,Northwest grid
+Illinois,IL,Central Northeast grid
+Indiana,IN,Central East grid
+Kansas,KS,Central Southwest grid
+Kentucky,KY,Central East grid
+Louisiana,LA,Southeast grid
+Massachusetts,MA,New England grid
+Maryland,MD,Mid-Atlantic grid
+Maine,ME,New England grid
+Michigan,MI,Central East grid
+Minnesota,MN,Central Northwest grid
+Missouri,MO,Central Northeast grid
+Mississippi,MS,Southeast grid
+Montana,MT,Northwest grid
+North Carolina,NC,Southeast grid
+North Dakota,ND,Central Northwest grid
+Nebraska,NE,Central Northwest grid
+New Hampshire,NH,New England grid
+New Jersey,NJ,Mid-Atlantic grid
+New Mexico,NM,Southwest grid
+Nevada,NV,Northwest grid
+New York,NY,New York grid
+Ohio,OH,Central East grid
+Oklahoma,OK,Central Southwest grid
+Oregon,OR,Northwest grid
+Pennsylvania,PA,Mid-Atlantic grid
+Rhode Island,RI,New England grid
+South Carolina,SC,Southeast grid
+South Dakota,SD,Central Northwest grid
+Tennessee,TN,Southeast grid
+Texas,TX,Texas grid
+Utah,UT,Northwest grid
+Virginia,VA,Southeast grid
+Vermont,VT,New England grid
+Washington,WA,Northwest grid
+Wisconsin,WI,Central Northeast grid
+West Virginia,WV,Central East grid
+Wyoming,WY,Southwest grid

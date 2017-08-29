@@ -1,0 +1,9 @@
+"# A mapping of GCAM ""Refined liquids production by technology"" query results to fuel types",
+technology,Fuel
+FT biofuels,biomass
+biodiesel,biomass
+cellulosic ethanol,biomass
+corn ethanol,biomass
+coal to liquids,coal
+gas to liquids,gas
+oil refining,oil

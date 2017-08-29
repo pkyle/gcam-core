@@ -1,0 +1,986 @@
+"Net generation for electric power"
+"https://www.eia.gov/electricity/data/browser/#/topic/0?agg=2,0,1&fuel=fttb&geo=00fvvvvvvvvvo&sec=008&linechart=ELEC.GEN.COW-CT-98.A&columnchart=ELEC.GEN.COW-CT-98.A&map=ELEC.GEN.COW-CT-98.A&freq=A&start=2010&end=2016&ctype=linechart&ltype=pin&rtype=s&pin=&rse=0&maptype=0"
+"Fri Aug 18 2017 17:48:24 GMT-0400 (Eastern Daylight Time)"
+"Source: U.S. Energy Information Administration"
+"description","units","source key","2010","2011","2012","2013","2014","2015","2016"
+"Net generation for electric power","thousand megawatthours",,,,,,,,
+"United States",,"ELEC.GEN..A",,,,,,,
+"New England",,"ELEC.GEN..A",,,,,,,
+"Connecticut",,"ELEC.GEN..A",,,,,,,
+"Connecticut : all fuels (utility-scale)",,"ELEC.GEN.ALL-CT-98.A",,,,,,,
+"Connecticut : coal","thousand megawatthours","ELEC.GEN.COW-CT-98.A",2604,526,653,681,825,600,177
+"Connecticut : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-CT-98.A",407,161,108,302,501,418,88
+"Connecticut : petroleum coke","thousand megawatthours","ELEC.GEN.PC-CT-98.A","--","--","--","--","--","--","--"
+"Connecticut : natural gas","thousand megawatthours","ELEC.GEN.NG-CT-98.A",11355,14750,15808,14872,13822,16500,16987
+"Connecticut : other gases","thousand megawatthours","ELEC.GEN.OOG-CT-98.A",14,"--","--","--","--","--","--"
+"Connecticut : nuclear","thousand megawatthours","ELEC.GEN.NUC-CT-98.A",16750,15928,17078,17080,15841,17411,16575
+"Connecticut : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-CT-98.A",391,567,312,402,434,302,286
+"Connecticut : other renewables",,"ELEC.GEN.AOR-CT-98.A",,,,,,,
+"Connecticut : wind","thousand megawatthours","ELEC.GEN.WND-CT-98.A","--","--","--","--","--","--",14
+"Connecticut : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-CT-98.A","--","--","--",0,12,17,28
+"Connecticut : geothermal","thousand megawatthours","ELEC.GEN.GEO-CT-98.A","--","--","--","--","--","--","--"
+"Connecticut : biomass","thousand megawatthours","ELEC.GEN.BIO-CT-98.A",740,660,667,626,736,784,869
+"Connecticut : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-CT-98.A",9,6,3,-1,7,-4,6
+"Connecticut : other","thousand megawatthours","ELEC.GEN.OTH-CT-98.A",703,704,756,688,586,553,591
+"Connecticut : all solar",,"ELEC.GEN.TSN-CT-98.A",,,,,,,
+"Connecticut : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-CT-98.A","--","--","--","--","--","--","--"
+"Connecticut : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-CT-98.A","--","--","--",0,12,17,28
+"Maine",,"ELEC.GEN..A",,,,,,,
+"Maine : all fuels (utility-scale)",,"ELEC.GEN.ALL-ME-98.A",,,,,,,
+"Maine : coal","thousand megawatthours","ELEC.GEN.COW-ME-98.A",56,38,30,35,49,65,60
+"Maine : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-ME-98.A",167,90,65,205,262,512,99
+"Maine : petroleum coke","thousand megawatthours","ELEC.GEN.PC-ME-98.A","--","--","--","--","--","--","--"
+"Maine : natural gas","thousand megawatthours","ELEC.GEN.NG-ME-98.A",5861,4850,4057,2906,3352,2517,3159
+"Maine : other gases","thousand megawatthours","ELEC.GEN.OOG-ME-98.A","--","--","--","--","--","--","--"
+"Maine : nuclear","thousand megawatthours","ELEC.GEN.NUC-ME-98.A","--","--","--","--","--","--","--"
+"Maine : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-ME-98.A",3105,3231,3320,3124,3231,2971,2642
+"Maine : other renewables",,"ELEC.GEN.AOR-ME-98.A",,,,,,,
+"Maine : wind","thousand megawatthours","ELEC.GEN.WND-ME-98.A",499,707,887,1048,1097,1296,1614
+"Maine : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-ME-98.A","--","--","--","--","--","--","--"
+"Maine : geothermal","thousand megawatthours","ELEC.GEN.GEO-ME-98.A","--","--","--","--","--","--","--"
+"Maine : biomass","thousand megawatthours","ELEC.GEN.BIO-ME-98.A",1978,1714,1581,1595,1627,1816,1617
+"Maine : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-ME-98.A","--","--","--","--","--","--","--"
+"Maine : other","thousand megawatthours","ELEC.GEN.OTH-ME-98.A",218,261,245,195,186,146,171
+"Maine : all solar",,"ELEC.GEN.TSN-ME-98.A",,,,,,,
+"Maine : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-ME-98.A","--","--","--","--","--","--","--"
+"Maine : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-ME-98.A","--","--","--","--","--","--","--"
+"Massachusetts",,"ELEC.GEN..A",,,,,,,
+"Massachusetts : all fuels (utility-scale)",,"ELEC.GEN.ALL-MA-98.A",,,,,,,
+"Massachusetts : coal","thousand megawatthours","ELEC.GEN.COW-MA-98.A",8277,4029,2110,3934,2772,2236,1875
+"Massachusetts : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-MA-98.A",248,168,113,358,924,738,413
+"Massachusetts : petroleum coke","thousand megawatthours","ELEC.GEN.PC-MA-98.A","--","--","--","--","--","--","--"
+"Massachusetts : natural gas","thousand megawatthours","ELEC.GEN.NG-MA-98.A",25006,25361,24091,20638,17894,20390,20759
+"Massachusetts : other gases","thousand megawatthours","ELEC.GEN.OOG-MA-98.A","--","--","--","--","--","--","--"
+"Massachusetts : nuclear","thousand megawatthours","ELEC.GEN.NUC-MA-98.A",5918,5085,5860,4331,5769,4995,5414
+"Massachusetts : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-MA-98.A",986,1137,903,982,891,817,760
+"Massachusetts : other renewables",,"ELEC.GEN.AOR-MA-98.A",,,,,,,
+"Massachusetts : wind","thousand megawatthours","ELEC.GEN.WND-MA-98.A",20,52,80,190,197,186,205
+"Massachusetts : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-MA-98.A",1,4,29,106,301,448,700
+"Massachusetts : geothermal","thousand megawatthours","ELEC.GEN.GEO-MA-98.A","--","--","--","--","--","--","--"
+"Massachusetts : biomass","thousand megawatthours","ELEC.GEN.BIO-MA-98.A",1250,1137,1157,1137,1198,1166,1193
+"Massachusetts : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-MA-98.A",-337,-440,-308,-368,-458,-474,-500
+"Massachusetts : other","thousand megawatthours","ELEC.GEN.OTH-MA-98.A",771,860,877,876,878,868,886
+"Massachusetts : all solar",,"ELEC.GEN.TSN-MA-98.A",,,,,,,
+"Massachusetts : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-MA-98.A","--","--","--","--","--","--","--"
+"Massachusetts : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-MA-98.A",1,4,29,106,301,448,700
+"New Hampshire",,"ELEC.GEN..A",,,,,,,
+"New Hampshire : all fuels (utility-scale)",,"ELEC.GEN.ALL-NH-98.A",,,,,,,
+"New Hampshire : coal","thousand megawatthours","ELEC.GEN.COW-NH-98.A",3083,2208,1268,1464,1311,937,422
+"New Hampshire : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-NH-98.A",52,57,20,90,271,160,22
+"New Hampshire : petroleum coke","thousand megawatthours","ELEC.GEN.PC-NH-98.A","--","--","--","--","--","--","--"
+"New Hampshire : natural gas","thousand megawatthours","ELEC.GEN.NG-NH-98.A",5337,6631,7005,4055,4343,5998,4689
+"New Hampshire : other gases","thousand megawatthours","ELEC.GEN.OOG-NH-98.A","--","--","--","--","--","--","--"
+"New Hampshire : nuclear","thousand megawatthours","ELEC.GEN.NUC-NH-98.A",10910,8363,8189,10927,10168,9484,10761
+"New Hampshire : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-NH-98.A",1472,1600,1247,1427,1381,1270,1121
+"New Hampshire : other renewables",,"ELEC.GEN.AOR-NH-98.A",,,,,,,
+"New Hampshire : wind","thousand megawatthours","ELEC.GEN.WND-NH-98.A",76,66,209,389,412,423,447
+"New Hampshire : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-NH-98.A","--","--","--","--","--","--","--"
+"New Hampshire : geothermal","thousand megawatthours","ELEC.GEN.GEO-NH-98.A","--","--","--","--","--","--","--"
+"New Hampshire : biomass","thousand megawatthours","ELEC.GEN.BIO-NH-98.A",1156,1025,1142,1266,1503,1589,1645
+"New Hampshire : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-NH-98.A","--","--","--","--","--","--","--"
+"New Hampshire : other","thousand megawatthours","ELEC.GEN.OTH-NH-98.A",57,64,66,61,50,50,54
+"New Hampshire : all solar",,"ELEC.GEN.TSN-NH-98.A",,,,,,,
+"New Hampshire : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-NH-98.A","--","--","--","--","--","--","--"
+"New Hampshire : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-NH-98.A","--","--","--","--","--","--","--"
+"Rhode Island",,"ELEC.GEN..A",,,,,,,
+"Rhode Island : all fuels (utility-scale)",,"ELEC.GEN.ALL-RI-98.A",,,,,,,
+"Rhode Island : coal","thousand megawatthours","ELEC.GEN.COW-RI-98.A","--","--","--","--",0,0,0
+"Rhode Island : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-RI-98.A",11,12,11,37,71,98,24
+"Rhode Island : petroleum coke","thousand megawatthours","ELEC.GEN.PC-RI-98.A","--","--","--","--","--","--","--"
+"Rhode Island : natural gas","thousand megawatthours","ELEC.GEN.NG-RI-98.A",7552,8525,8140,6099,5920,6536,6245
+"Rhode Island : other gases","thousand megawatthours","ELEC.GEN.OOG-RI-98.A","--","--","--","--","--","--","--"
+"Rhode Island : nuclear","thousand megawatthours","ELEC.GEN.NUC-RI-98.A","--","--","--","--","--","--","--"
+"Rhode Island : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-RI-98.A",4,7,4,4,4,3,"NM"
+"Rhode Island : other renewables",,"ELEC.GEN.AOR-RI-98.A",,,,,,,
+"Rhode Island : wind","thousand megawatthours","ELEC.GEN.WND-RI-98.A",3,3,1,3,2,3,25
+"Rhode Island : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-RI-98.A","--","--","--",2,10,14,19
+"Rhode Island : geothermal","thousand megawatthours","ELEC.GEN.GEO-RI-98.A","--","--","--","--","--","--","--"
+"Rhode Island : biomass","thousand megawatthours","ELEC.GEN.BIO-RI-98.A",137,127,101,48,207,211,205
+"Rhode Island : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-RI-98.A","--","--","--","--","--","--","--"
+"Rhode Island : other","thousand megawatthours","ELEC.GEN.OTH-RI-98.A","--","--","--","--","--","--","--"
+"Rhode Island : all solar",,"ELEC.GEN.TSN-RI-98.A",,,,,,,
+"Rhode Island : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-RI-98.A","--","--","--","--","--","--","--"
+"Rhode Island : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-RI-98.A","--","--","--",2,10,14,19
+"Vermont",,"ELEC.GEN..A",,,,,,,
+"Vermont : all fuels (utility-scale)",,"ELEC.GEN.ALL-VT-98.A",,,,,,,
+"Vermont : coal","thousand megawatthours","ELEC.GEN.COW-VT-98.A","--","--","--","--","--","--","--"
+"Vermont : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-VT-98.A",5,6,2,4,4,2,"NM"
+"Vermont : petroleum coke","thousand megawatthours","ELEC.GEN.PC-VT-98.A","--","--","--","--","--","--","--"
+"Vermont : natural gas","thousand megawatthours","ELEC.GEN.NG-VT-98.A",4,3,3,3,2,1,1
+"Vermont : other gases","thousand megawatthours","ELEC.GEN.OOG-VT-98.A","--","--","--","--","--","--","--"
+"Vermont : nuclear","thousand megawatthours","ELEC.GEN.NUC-VT-98.A",4782,4907,4989,4846,5061,"--","--"
+"Vermont : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-VT-98.A",1322,1401,1128,1286,1175,1139,1056
+"Vermont : other renewables",,"ELEC.GEN.AOR-VT-98.A",,,,,,,
+"Vermont : wind","thousand megawatthours","ELEC.GEN.WND-VT-98.A",14,33,107,236,311,325,293
+"Vermont : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-VT-98.A","--",2,5,17,24,48,76
+"Vermont : geothermal","thousand megawatthours","ELEC.GEN.GEO-VT-98.A","--","--","--","--","--","--","--"
+"Vermont : biomass","thousand megawatthours","ELEC.GEN.BIO-VT-98.A",468,396,351,489,450,463,471
+"Vermont : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-VT-98.A","--","--","--","--","--","--","--"
+"Vermont : other","thousand megawatthours","ELEC.GEN.OTH-VT-98.A","--","--","--","--","--","--",0
+"Vermont : all solar",,"ELEC.GEN.TSN-VT-98.A",,,,,,,
+"Vermont : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-VT-98.A","--","--","--","--","--","--","--"
+"Vermont : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-VT-98.A","--",2,5,17,24,48,76
+"Middle Atlantic",,"ELEC.GEN..A",,,,,,,
+"New Jersey",,"ELEC.GEN..A",,,,,,,
+"New Jersey : all fuels (utility-scale)",,"ELEC.GEN.ALL-NJ-98.A",,,,,,,
+"New Jersey : coal","thousand megawatthours","ELEC.GEN.COW-NJ-98.A",6418,4155,1897,2022,2519,1759,1315
+"New Jersey : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-NJ-98.A",232,105,28,100,464,298,88
+"New Jersey : petroleum coke","thousand megawatthours","ELEC.GEN.PC-NJ-98.A","--","--","--","--","--","--","--"
+"New Jersey : natural gas","thousand megawatthours","ELEC.GEN.NG-NJ-98.A",24261,24587,27611,26487,30833,36428,43107
+"New Jersey : other gases","thousand megawatthours","ELEC.GEN.OOG-NJ-98.A","--","--","--","--","--","--","--"
+"New Jersey : nuclear","thousand megawatthours","ELEC.GEN.NUC-NJ-98.A",32771,33606,33110,33380,31507,33262,29885
+"New Jersey : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-NJ-98.A",18,24,11,18,17,10,"NM"
+"New Jersey : other renewables",,"ELEC.GEN.AOR-NJ-98.A",,,,,,,
+"New Jersey : wind","thousand megawatthours","ELEC.GEN.WND-NJ-98.A",13,11,12,11,23,22,22
+"New Jersey : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-NJ-98.A",21,60,266,353,406,494,875
+"New Jersey : geothermal","thousand megawatthours","ELEC.GEN.GEO-NJ-98.A","--","--","--","--","--","--","--"
+"New Jersey : biomass","thousand megawatthours","ELEC.GEN.BIO-NJ-98.A",651,639,808,841,829,774,796
+"New Jersey : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-NJ-98.A",-194,-197,-166,-202,-237,-170,-204
+"New Jersey : other","thousand megawatthours","ELEC.GEN.OTH-NJ-98.A",350,383,378,386,395,371,403
+"New Jersey : all solar",,"ELEC.GEN.TSN-NJ-98.A",,,,,,,
+"New Jersey : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-NJ-98.A","--","--","--","--","--","--","--"
+"New Jersey : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-NJ-98.A",21,60,266,353,406,494,875
+"New York",,"ELEC.GEN..A",,,,,,,
+"New York : all fuels (utility-scale)",,"ELEC.GEN.ALL-NY-98.A",,,,,,,
+"New York : coal","thousand megawatthours","ELEC.GEN.COW-NY-98.A",13212,9062,4236,4390,4283,2075,1437
+"New York : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-NY-98.A",1373,820,489,913,1977,1776,587
+"New York : petroleum coke","thousand megawatthours","ELEC.GEN.PC-NY-98.A",515,263,0,0,0,0,0
+"New York : natural gas","thousand megawatthours","ELEC.GEN.NG-NY-98.A",48106,50061,58604,53402,53464,55873,55660
+"New York : other gases","thousand megawatthours","ELEC.GEN.OOG-NY-98.A","--","--","--","--","--","--","--"
+"New York : nuclear","thousand megawatthours","ELEC.GEN.NUC-NY-98.A",41870,42695,40775,44756,43039,44603,41571
+"New York : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-NY-98.A",25411,27917,24588,24906,26016,25948,26544
+"New York : other renewables",,"ELEC.GEN.AOR-NY-98.A",,,,,,,
+"New York : wind","thousand megawatthours","ELEC.GEN.WND-NY-98.A",2596,2828,2988,3536,3966,3974,3942
+"New York : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-NY-98.A","--",6,53,67,71,98,171
+"New York : geothermal","thousand megawatthours","ELEC.GEN.GEO-NY-98.A","--","--","--","--","--","--","--"
+"New York : biomass","thousand megawatthours","ELEC.GEN.BIO-NY-98.A",1851,1725,1687,1826,1937,1814,1879
+"New York : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-NY-98.A",-529,-433,-413,-443,-491,-423,-471
+"New York : other","thousand megawatthours","ELEC.GEN.OTH-NY-98.A",744,799,757,692,737,721,699
+"New York : all solar",,"ELEC.GEN.TSN-NY-98.A",,,,,,,
+"New York : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-NY-98.A","--","--","--","--","--","--","--"
+"New York : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-NY-98.A","--",6,53,67,71,98,171
+"Pennsylvania",,"ELEC.GEN..A",,,,,,,
+"Pennsylvania : all fuels (utility-scale)",,"ELEC.GEN.ALL-PA-98.A",,,,,,,
+"Pennsylvania : coal","thousand megawatthours","ELEC.GEN.COW-PA-98.A",109320,99761,86769,87959,78442,64156,54054
+"Pennsylvania : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-PA-98.A",559,414,245,292,631,555,252
+"Pennsylvania : petroleum coke","thousand megawatthours","ELEC.GEN.PC-PA-98.A",0,0,0,0,0,0,0
+"Pennsylvania : natural gas","thousand megawatthours","ELEC.GEN.NG-PA-98.A",33102,41031,52185,48762,51647,58131,66536
+"Pennsylvania : other gases","thousand megawatthours","ELEC.GEN.OOG-PA-98.A",54,41,0,"--",0,0,"NM"
+"Pennsylvania : nuclear","thousand megawatthours","ELEC.GEN.NUC-PA-98.A",77828,76147,75174,78714,78715,80517,82924
+"Pennsylvania : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-PA-98.A",2332,3217,2242,2525,2641,2604,2376
+"Pennsylvania : other renewables",,"ELEC.GEN.AOR-PA-98.A",,,,,,,
+"Pennsylvania : wind","thousand megawatthours","ELEC.GEN.WND-PA-98.A",1854,1794,2129,3352,3565,3353,3472
+"Pennsylvania : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-PA-98.A",7,18,26,55,50,52,67
+"Pennsylvania : geothermal","thousand megawatthours","ELEC.GEN.GEO-PA-98.A","--","--","--","--","--","--","--"
+"Pennsylvania : biomass","thousand megawatthours","ELEC.GEN.BIO-PA-98.A",1800,1704,1699,1697,1686,1709,"NM"
+"Pennsylvania : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-PA-98.A",-708,-494,-443,-539,-579,-509,-562
+"Pennsylvania : other","thousand megawatthours","ELEC.GEN.OTH-PA-98.A",758,792,789,737,801,796,823
+"Pennsylvania : all solar",,"ELEC.GEN.TSN-PA-98.A",,,,,,,
+"Pennsylvania : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-PA-98.A","--","--","--","--","--","--","--"
+"Pennsylvania : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-PA-98.A",7,18,26,55,50,52,67
+"East North Central",,"ELEC.GEN..A",,,,,,,
+"Illinois",,"ELEC.GEN..A",,,,,,,
+"Illinois : all fuels (utility-scale)",,"ELEC.GEN.ALL-IL-98.A",,,,,,,
+"Illinois : coal","thousand megawatthours","ELEC.GEN.COW-IL-98.A",91713,88114,79041,86201,85491,72119,57816
+"Illinois : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-IL-98.A",110,84,71,72,87,56,64
+"Illinois : petroleum coke","thousand megawatthours","ELEC.GEN.PC-IL-98.A","--","--","--","--",0,0,0
+"Illinois : natural gas","thousand megawatthours","ELEC.GEN.NG-IL-98.A",4894,5157,10443,5876,4550,9905,16530
+"Illinois : other gases","thousand megawatthours","ELEC.GEN.OOG-IL-98.A",2,0,8,17,8,2,6
+"Illinois : nuclear","thousand megawatthours","ELEC.GEN.NUC-IL-98.A",96190,95823,96401,97131,97858,97282,98240
+"Illinois : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-IL-98.A",119,140,109,119,129,123,127
+"Illinois : other renewables",,"ELEC.GEN.AOR-IL-98.A",,,,,,,
+"Illinois : wind","thousand megawatthours","ELEC.GEN.WND-IL-98.A",4454,6213,7727,9625,10079,10742,10622
+"Illinois : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-IL-98.A",14,14,31,52,50,49,58
+"Illinois : geothermal","thousand megawatthours","ELEC.GEN.GEO-IL-98.A","--","--","--","--","--","--","--"
+"Illinois : biomass","thousand megawatthours","ELEC.GEN.BIO-IL-98.A",670,638,615,608,566,527,573
+"Illinois : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-IL-98.A","--","--","--","--","--","--","--"
+"Illinois : other","thousand megawatthours","ELEC.GEN.OTH-IL-98.A",17,6,0,0,-0,-5,-5
+"Illinois : all solar",,"ELEC.GEN.TSN-IL-98.A",,,,,,,
+"Illinois : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-IL-98.A","--","--","--","--","--","--","--"
+"Illinois : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-IL-98.A",14,14,31,52,50,49,58
+"Indiana",,"ELEC.GEN..A",,,,,,,
+"Indiana : all fuels (utility-scale)",,"ELEC.GEN.ALL-IN-98.A",,,,,,,
+"Indiana : coal","thousand megawatthours","ELEC.GEN.COW-IN-98.A",112133,103974,92279,92538,97468,78193,72538
+"Indiana : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-IN-98.A",138,157,108,131,149,141,100
+"Indiana : petroleum coke","thousand megawatthours","ELEC.GEN.PC-IN-98.A",0,1161,831,1433,1199,1179,497
+"Indiana : natural gas","thousand megawatthours","ELEC.GEN.NG-IN-98.A",5910,9533,13998,8533,9006,15553,19389
+"Indiana : other gases","thousand megawatthours","ELEC.GEN.OOG-IN-98.A",0,0,"--",4,20,20,"NM"
+"Indiana : nuclear","thousand megawatthours","ELEC.GEN.NUC-IN-98.A","--","--","--","--","--","--","--"
+"Indiana : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-IN-98.A",454,409,434,387,371,381,415
+"Indiana : other renewables",,"ELEC.GEN.AOR-IN-98.A",,,,,,,
+"Indiana : wind","thousand megawatthours","ELEC.GEN.WND-IN-98.A",2932,3284,3209,3480,3495,4514,4902
+"Indiana : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-IN-98.A","--","--","NM",31,102,156,271
+"Indiana : geothermal","thousand megawatthours","ELEC.GEN.GEO-IN-98.A","--","--","--","--","--","--","--"
+"Indiana : biomass","thousand megawatthours","ELEC.GEN.BIO-IN-98.A",274,295,286,315,304,355,363
+"Indiana : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-IN-98.A","--","--","--","--","--","--","--"
+"Indiana : other","thousand megawatthours","ELEC.GEN.OTH-IN-98.A","--",76,57,96,29,0,0
+"Indiana : all solar",,"ELEC.GEN.TSN-IN-98.A",,,,,,,
+"Indiana : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-IN-98.A","--","--","--","--","--","--","--"
+"Indiana : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-IN-98.A","--","--","NM",31,102,156,271
+"Michigan",,"ELEC.GEN..A",,,,,,,
+"Michigan : all fuels (utility-scale)",,"ELEC.GEN.ALL-MI-98.A",,,,,,,
+"Michigan : coal","thousand megawatthours","ELEC.GEN.COW-MI-98.A",65137,58501,52814,55951,52646,52689,40440
+"Michigan : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-MI-98.A",176,174,134,126,136,104,117
+"Michigan : petroleum coke","thousand megawatthours","ELEC.GEN.PC-MI-98.A",90,67,73,268,748,571,556
+"Michigan : natural gas","thousand megawatthours","ELEC.GEN.NG-MI-98.A",12012,12554,21097,11604,11825,19216,28617
+"Michigan : other gases","thousand megawatthours","ELEC.GEN.OOG-MI-98.A",299,269,315,957,1120,1213,1615
+"Michigan : nuclear","thousand megawatthours","ELEC.GEN.NUC-MI-98.A",29625,32889,28020,28921,31246,29334,31552
+"Michigan : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-MI-98.A",1222,1328,1181,1390,1571,1469,1518
+"Michigan : other renewables",,"ELEC.GEN.AOR-MI-98.A",,,,,,,
+"Michigan : wind","thousand megawatthours","ELEC.GEN.WND-MI-98.A",360,456,1132,2800,3868,4797,4693
+"Michigan : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-MI-98.A","--","--","--","--","--",1,17
+"Michigan : geothermal","thousand megawatthours","ELEC.GEN.GEO-MI-98.A","--","--","--","--","--","--","--"
+"Michigan : biomass","thousand megawatthours","ELEC.GEN.BIO-MI-98.A",1625,1665,1652,1747,1852,1609,1685
+"Michigan : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-MI-98.A",-1023,-945,-773,-871,-701,-481,-752
+"Michigan : other","thousand megawatthours","ELEC.GEN.OTH-MI-98.A",187,183,183,153,184,192,160
+"Michigan : all solar",,"ELEC.GEN.TSN-MI-98.A",,,,,,,
+"Michigan : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-MI-98.A","--","--","--","--","--","--","--"
+"Michigan : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-MI-98.A","--","--","--","--","--",1,17
+"Ohio",,"ELEC.GEN..A",,,,,,,
+"Ohio : all fuels (utility-scale)",,"ELEC.GEN.ALL-OH-98.A",,,,,,,
+"Ohio : coal","thousand megawatthours","ELEC.GEN.COW-OH-98.A",117484,105021,85346,94341,89639,71497,68795
+"Ohio : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-OH-98.A",296,312,256,224,302,214,211
+"Ohio : petroleum coke","thousand megawatthours","ELEC.GEN.PC-OH-98.A",1054,1075,1020,1140,939,1088,955
+"Ohio : natural gas","thousand megawatthours","ELEC.GEN.NG-OH-98.A",7083,12104,22285,21461,23491,27833,28646
+"Ohio : other gases","thousand megawatthours","ELEC.GEN.OOG-OH-98.A",105,116,350,746,725,748,696
+"Ohio : nuclear","thousand megawatthours","ELEC.GEN.NUC-OH-98.A",15805,14890,17087,16121,16284,17377,16817
+"Ohio : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-OH-98.A",429,384,414,549,478,457,517
+"Ohio : other renewables",,"ELEC.GEN.AOR-OH-98.A",,,,,,,
+"Ohio : wind","thousand megawatthours","ELEC.GEN.WND-OH-98.A",13,197,973,1117,1118,1169,1195
+"Ohio : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-OH-98.A",13,15,36,43,51,51,74
+"Ohio : geothermal","thousand megawatthours","ELEC.GEN.GEO-OH-98.A","--","--","--","--","--","--","--"
+"Ohio : biomass","thousand megawatthours","ELEC.GEN.BIO-OH-98.A",291,340,377,488,478,480,507
+"Ohio : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-OH-98.A","--","--","--","--","--","--","--"
+"Ohio : other","thousand megawatthours","ELEC.GEN.OTH-OH-98.A",0,0,"--",-2,-11,-11,11
+"Ohio : all solar",,"ELEC.GEN.TSN-OH-98.A",,,,,,,
+"Ohio : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-OH-98.A","--","--","--","--","--","--","--"
+"Ohio : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-OH-98.A",13,15,36,43,51,51,74
+"Wisconsin",,"ELEC.GEN..A",,,,,,,
+"Wisconsin : all fuels (utility-scale)",,"ELEC.GEN.ALL-WI-98.A",,,,,,,
+"Wisconsin : coal","thousand megawatthours","ELEC.GEN.COW-WI-98.A",39186,38984,31909,39824,36597,36499,32927
+"Wisconsin : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-WI-98.A",33,34,38,27,47,25,25
+"Wisconsin : petroleum coke","thousand megawatthours","ELEC.GEN.PC-WI-98.A",450,329,55,61,88,69,83
+"Wisconsin : natural gas","thousand megawatthours","ELEC.GEN.NG-WI-98.A",5332,6066,11357,7889,7794,13104,15251
+"Wisconsin : other gases","thousand megawatthours","ELEC.GEN.OOG-WI-98.A",0,"--","--","--","--","--","--"
+"Wisconsin : nuclear","thousand megawatthours","ELEC.GEN.NUC-WI-98.A",13281,11560,14300,11675,9447,10008,10151
+"Wisconsin : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-WI-98.A",1976,1994,1411,1824,2314,2178,2240
+"Wisconsin : other renewables",,"ELEC.GEN.AOR-WI-98.A",,,,,,,
+"Wisconsin : wind","thousand megawatthours","ELEC.GEN.WND-WI-98.A",1088,1188,1558,1558,1611,1582,1513
+"Wisconsin : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-WI-98.A","--","--","--","--",1,1,"NM"
+"Wisconsin : geothermal","thousand megawatthours","ELEC.GEN.GEO-WI-98.A","--","--","--","--","--","--","--"
+"Wisconsin : biomass","thousand megawatthours","ELEC.GEN.BIO-WI-98.A",707,939,1009,1004,1004,959,833
+"Wisconsin : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-WI-98.A","--","--","--","--","--","--","--"
+"Wisconsin : other","thousand megawatthours","ELEC.GEN.OTH-WI-98.A",24,31,39,30,27,27,18
+"Wisconsin : all solar",,"ELEC.GEN.TSN-WI-98.A",,,,,,,
+"Wisconsin : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-WI-98.A","--","--","--","--","--","--","--"
+"Wisconsin : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-WI-98.A","--","--","--","--",1,1,"NM"
+"West North Central",,"ELEC.GEN..A",,,,,,,
+"Iowa",,"ELEC.GEN..A",,,,,,,
+"Iowa : all fuels (utility-scale)",,"ELEC.GEN.ALL-IA-98.A",,,,,,,
+"Iowa : coal","thousand megawatthours","ELEC.GEN.COW-IA-98.A",39368,36122,33179,31194,31756,27880,23807
+"Iowa : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-IA-98.A",79,69,89,69,59,64,73
+"Iowa : petroleum coke","thousand megawatthours","ELEC.GEN.PC-IA-98.A",68,69,12,-0,0,0,0
+"Iowa : natural gas","thousand megawatthours","ELEC.GEN.NG-IA-98.A",1297,980,1868,1327,1277,2164,2720
+"Iowa : other gases","thousand megawatthours","ELEC.GEN.OOG-IA-98.A","--","--","--","--","--","--","--"
+"Iowa : nuclear","thousand megawatthours","ELEC.GEN.NUC-IA-98.A",4451,5215,4347,5321,4152,5243,4703
+"Iowa : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-IA-98.A",948,925,766,749,879,960,956
+"Iowa : other renewables",,"ELEC.GEN.AOR-IA-98.A",,,,,,,
+"Iowa : wind","thousand megawatthours","ELEC.GEN.WND-IA-98.A",9170,10705,14030,15565,16303,17870,20047
+"Iowa : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-IA-98.A","--","--","--","--","--","--","NM"
+"Iowa : geothermal","thousand megawatthours","ELEC.GEN.GEO-IA-98.A","--","--","--","--","--","--","--"
+"Iowa : biomass","thousand megawatthours","ELEC.GEN.BIO-IA-98.A",124,115,113,110,142,153,158
+"Iowa : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-IA-98.A","--","--","--","--","--","--","--"
+"Iowa : other","thousand megawatthours","ELEC.GEN.OTH-IA-98.A","--","--","--","--","--","--","--"
+"Iowa : all solar",,"ELEC.GEN.TSN-IA-98.A",,,,,,,
+"Iowa : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-IA-98.A","--","--","--","--","--","--","--"
+"Iowa : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-IA-98.A","--","--","--","--","--","--","NM"
+"Kansas",,"ELEC.GEN..A",,,,,,,
+"Kansas : all fuels (utility-scale)",,"ELEC.GEN.ALL-KS-98.A",,,,,,,
+"Kansas : coal","thousand megawatthours","ELEC.GEN.COW-KS-98.A",32505,31656,27983,29767,28752,24593,23096
+"Kansas : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-KS-98.A",45,38,35,51,45,49,28
+"Kansas : petroleum coke","thousand megawatthours","ELEC.GEN.PC-KS-98.A",58,19,-0,0,0,0,"--"
+"Kansas : natural gas","thousand megawatthours","ELEC.GEN.NG-KS-98.A",2287,2534,2795,1905,1412,1138,2043
+"Kansas : other gases","thousand megawatthours","ELEC.GEN.OOG-KS-98.A","--","--","--","--","--","--","--"
+"Kansas : nuclear","thousand megawatthours","ELEC.GEN.NUC-KS-98.A",9556,7319,8285,7168,8558,8630,8246
+"Kansas : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-KS-98.A",13,15,10,15,16,19,"NM"
+"Kansas : other renewables",,"ELEC.GEN.AOR-KS-98.A",,,,,,,
+"Kansas : wind","thousand megawatthours","ELEC.GEN.WND-KS-98.A",3405,3720,5195,9433,10845,10999,14113
+"Kansas : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-KS-98.A","--","--","--","--","--",2,"NM"
+"Kansas : geothermal","thousand megawatthours","ELEC.GEN.GEO-KS-98.A","--","--","--","--","--","--","--"
+"Kansas : biomass","thousand megawatthours","ELEC.GEN.BIO-KS-98.A",54,59,57,58,64,62,63
+"Kansas : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-KS-98.A","--","--","--","--","--","--","--"
+"Kansas : other","thousand megawatthours","ELEC.GEN.OTH-KS-98.A","--","--","--","--","--","--","--"
+"Kansas : all solar",,"ELEC.GEN.TSN-KS-98.A",,,,,,,
+"Kansas : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-KS-98.A","--","--","--","--","--","--","--"
+"Kansas : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-KS-98.A","--","--","--","--","--",2,"NM"
+"Minnesota",,"ELEC.GEN..A",,,,,,,
+"Minnesota : all fuels (utility-scale)",,"ELEC.GEN.ALL-MN-98.A",,,,,,,
+"Minnesota : coal","thousand megawatthours","ELEC.GEN.COW-MN-98.A",27176,27429,22107,22790,27248,24111,22960
+"Minnesota : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-MN-98.A",27,35,27,24,57,26,28
+"Minnesota : petroleum coke","thousand megawatthours","ELEC.GEN.PC-MN-98.A",0,0,0,0,0,"--","--"
+"Minnesota : natural gas","thousand megawatthours","ELEC.GEN.NG-MN-98.A",4178,3180,6903,6092,3694,7162,8717
+"Minnesota : other gases","thousand megawatthours","ELEC.GEN.OOG-MN-98.A",0,0,"--","--","--","--","--"
+"Minnesota : nuclear","thousand megawatthours","ELEC.GEN.NUC-MN-98.A",13478,11959,11944,10708,12707,12039,13861
+"Minnesota : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-MN-98.A",713,629,487,421,529,734,756
+"Minnesota : other renewables",,"ELEC.GEN.AOR-MN-98.A",,,,,,,
+"Minnesota : wind","thousand megawatthours","ELEC.GEN.WND-MN-98.A",4780,6703,8148,8231,9661,9750,10608
+"Minnesota : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-MN-98.A","--","--",0,3,3,3,21
+"Minnesota : geothermal","thousand megawatthours","ELEC.GEN.GEO-MN-98.A","--","--","--","--","--","--","--"
+"Minnesota : biomass","thousand megawatthours","ELEC.GEN.BIO-MN-98.A",1321,1151,1330,1080,1196,1207,1242
+"Minnesota : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-MN-98.A","--","--","--","--","--","--","--"
+"Minnesota : other","thousand megawatthours","ELEC.GEN.OTH-MN-98.A",224,298,311,279,306,305,323
+"Minnesota : all solar",,"ELEC.GEN.TSN-MN-98.A",,,,,,,
+"Minnesota : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-MN-98.A","--","--","--","--","--","--","--"
+"Minnesota : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-MN-98.A","--","--",0,3,3,3,21
+"Missouri",,"ELEC.GEN..A",,,,,,,
+"Missouri : all fuels (utility-scale)",,"ELEC.GEN.ALL-MO-98.A",,,,,,,
+"Missouri : coal","thousand megawatthours","ELEC.GEN.COW-MO-98.A",74829,78164,72661,75964,72288,65247,60521
+"Missouri : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-MO-98.A",117,79,78,65,107,99,77
+"Missouri : petroleum coke","thousand megawatthours","ELEC.GEN.PC-MO-98.A",8,0,0,0,0,"--","--"
+"Missouri : natural gas","thousand megawatthours","ELEC.GEN.NG-MO-98.A",4679,4488,6075,4328,3985,4500,5962
+"Missouri : other gases","thousand megawatthours","ELEC.GEN.OOG-MO-98.A",7,"--","--","--","--","--","--"
+"Missouri : nuclear","thousand megawatthours","ELEC.GEN.NUC-MO-98.A",8996,9371,10718,8367,9276,10440,9430
+"Missouri : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-MO-98.A",1539,1185,714,1136,697,1595,1237
+"Missouri : other renewables",,"ELEC.GEN.AOR-MO-98.A",,,,,,,
+"Missouri : wind","thousand megawatthours","ELEC.GEN.WND-MO-98.A",925,1178,1245,1167,1131,1033,1123
+"Missouri : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-MO-98.A","--","--","--","--",9,16,38
+"Missouri : geothermal","thousand megawatthours","ELEC.GEN.GEO-MO-98.A","--","--","--","--","--","--","--"
+"Missouri : biomass","thousand megawatthours","ELEC.GEN.BIO-MO-98.A",58,58,49,63,80,97,96
+"Missouri : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-MO-98.A",888,114,33,296,19,348,179
+"Missouri : other","thousand megawatthours","ELEC.GEN.OTH-MO-98.A",27,21,20,16,26,58,9
+"Missouri : all solar",,"ELEC.GEN.TSN-MO-98.A",,,,,,,
+"Missouri : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-MO-98.A","--","--","--","--","--","--","--"
+"Missouri : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-MO-98.A","--","--","--","--",9,16,38
+"Nebraska",,"ELEC.GEN..A",,,,,,,
+"Nebraska : all fuels (utility-scale)",,"ELEC.GEN.ALL-NE-98.A",,,,,,,
+"Nebraska : coal","thousand megawatthours","ELEC.GEN.COW-NE-98.A",23215,25708,24686,26434,24580,23804,21585
+"Nebraska : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-NE-98.A",31,37,23,43,43,6,6
+"Nebraska : petroleum coke","thousand megawatthours","ELEC.GEN.PC-NE-98.A","--","--","--","--","--","--","--"
+"Nebraska : natural gas","thousand megawatthours","ELEC.GEN.NG-NE-98.A",363,402,758,436,405,430,698
+"Nebraska : other gases","thousand megawatthours","ELEC.GEN.OOG-NE-98.A","--","--","--","--","--","--","--"
+"Nebraska : nuclear","thousand megawatthours","ELEC.GEN.NUC-NE-98.A",11054,6933,5802,6865,10102,10325,9351
+"Nebraska : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-NE-98.A",1314,1617,1257,1124,1158,1685,1725
+"Nebraska : other renewables",,"ELEC.GEN.AOR-NE-98.A",,,,,,,
+"Nebraska : wind","thousand megawatthours","ELEC.GEN.WND-NE-98.A",422,1051,1284,1802,2737,3180,3793
+"Nebraska : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-NE-98.A","--","--","--","--","--","--","NM"
+"Nebraska : geothermal","thousand megawatthours","ELEC.GEN.GEO-NE-98.A","--","--","--","--","--","--","--"
+"Nebraska : biomass","thousand megawatthours","ELEC.GEN.BIO-NE-98.A",59,52,46,49,47,55,79
+"Nebraska : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-NE-98.A","--","--","--","--","--","--","--"
+"Nebraska : other","thousand megawatthours","ELEC.GEN.OTH-NE-98.A","--","--","--","--","--","--","--"
+"Nebraska : all solar",,"ELEC.GEN.TSN-NE-98.A",,,,,,,
+"Nebraska : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-NE-98.A","--","--","--","--","--","--","--"
+"Nebraska : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-NE-98.A","--","--","--","--","--","--","NM"
+"North Dakota",,"ELEC.GEN..A",,,,,,,
+"North Dakota : all fuels (utility-scale)",,"ELEC.GEN.ALL-ND-98.A",,,,,,,
+"North Dakota : coal","thousand megawatthours","ELEC.GEN.COW-ND-98.A",28349,27011,28155,27377,27334,27632,26512
+"North Dakota : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-ND-98.A",36,40,32,33,26,26,30
+"North Dakota : petroleum coke","thousand megawatthours","ELEC.GEN.PC-ND-98.A","--","--","--","--","--","--","--"
+"North Dakota : natural gas","thousand megawatthours","ELEC.GEN.NG-ND-98.A",0,-0,0,37,213,690,844
+"North Dakota : other gases","thousand megawatthours","ELEC.GEN.OOG-ND-98.A","--","--","--","--","--","--","--"
+"North Dakota : nuclear","thousand megawatthours","ELEC.GEN.NUC-ND-98.A","--","--","--","--","--","--","--"
+"North Dakota : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-ND-98.A",2042,2580,2477,1852,2531,2094,1912
+"North Dakota : other renewables",,"ELEC.GEN.AOR-ND-98.A",,,,,,,
+"North Dakota : wind","thousand megawatthours","ELEC.GEN.WND-ND-98.A",4096,5236,5275,5519,6202,6506,8080
+"North Dakota : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-ND-98.A","--","--","--","--","--","--","--"
+"North Dakota : geothermal","thousand megawatthours","ELEC.GEN.GEO-ND-98.A","--","--","--","--","--","--","--"
+"North Dakota : biomass","thousand megawatthours","ELEC.GEN.BIO-ND-98.A","--","--","--","--","--","--","--"
+"North Dakota : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-ND-98.A","--","--","--","--","--","--","--"
+"North Dakota : other","thousand megawatthours","ELEC.GEN.OTH-ND-98.A",37,44,64,38,31,42,41
+"North Dakota : all solar",,"ELEC.GEN.TSN-ND-98.A",,,,,,,
+"North Dakota : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-ND-98.A","--","--","--","--","--","--","--"
+"North Dakota : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-ND-98.A","--","--","--","--","--","--","--"
+"South Dakota",,"ELEC.GEN..A",,,,,,,
+"South Dakota : all fuels (utility-scale)",,"ELEC.GEN.ALL-SD-98.A",,,,,,,
+"South Dakota : coal","thousand megawatthours","ELEC.GEN.COW-SD-98.A",3298,2586,2919,2849,2689,1495,2083
+"South Dakota : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-SD-98.A",6,8,6,7,7,17,3
+"South Dakota : petroleum coke","thousand megawatthours","ELEC.GEN.PC-SD-98.A","--","--","--","--","--","--","--"
+"South Dakota : natural gas","thousand megawatthours","ELEC.GEN.NG-SD-98.A",135,129,214,502,465,773,997
+"South Dakota : other gases","thousand megawatthours","ELEC.GEN.OOG-SD-98.A","--","--","--","--","--","--","--"
+"South Dakota : nuclear","thousand megawatthours","ELEC.GEN.NUC-SD-98.A","--","--","--","--","--","--","--"
+"South Dakota : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-SD-98.A",5239,6608,5981,4063,5498,4850,4134
+"South Dakota : other renewables",,"ELEC.GEN.AOR-SD-98.A",,,,,,,
+"South Dakota : wind","thousand megawatthours","ELEC.GEN.WND-SD-98.A",1372,2668,2354,2688,2336,2498,3145
+"South Dakota : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-SD-98.A","--","--","--","--","--","--","NM"
+"South Dakota : geothermal","thousand megawatthours","ELEC.GEN.GEO-SD-98.A","--","--","--","--","--","--","--"
+"South Dakota : biomass","thousand megawatthours","ELEC.GEN.BIO-SD-98.A",0,0,0,0,0,0,0
+"South Dakota : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-SD-98.A","--","--","--","--","--","--","--"
+"South Dakota : other","thousand megawatthours","ELEC.GEN.OTH-SD-98.A",0,0,0,0,0,0,0
+"South Dakota : all solar",,"ELEC.GEN.TSN-SD-98.A",,,,,,,
+"South Dakota : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-SD-98.A","--","--","--","--","--","--","--"
+"South Dakota : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-SD-98.A","--","--","--","--","--","--","NM"
+"South Atlantic",,"ELEC.GEN..A",,,,,,,
+"Delaware",,"ELEC.GEN..A",,,,,,,
+"Delaware : all fuels (utility-scale)",,"ELEC.GEN.ALL-DE-98.A",,,,,,,
+"Delaware : coal","thousand megawatthours","ELEC.GEN.COW-DE-98.A",2568,1455,1423,1545,865,599,479
+"Delaware : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-DE-98.A",56,38,22,23,183,154,54
+"Delaware : petroleum coke","thousand megawatthours","ELEC.GEN.PC-DE-98.A","--","--","--","--","--","--","--"
+"Delaware : natural gas","thousand megawatthours","ELEC.GEN.NG-DE-98.A",2865,4543,6287,5128,5659,5723,6824
+"Delaware : other gases","thousand megawatthours","ELEC.GEN.OOG-DE-98.A","--","--","--","--","--","--","--"
+"Delaware : nuclear","thousand megawatthours","ELEC.GEN.NUC-DE-98.A","--","--","--","--","--","--","--"
+"Delaware : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-DE-98.A","--","--","--","--","--","--","--"
+"Delaware : other renewables",,"ELEC.GEN.AOR-DE-98.A",,,,,,,
+"Delaware : wind","thousand megawatthours","ELEC.GEN.WND-DE-98.A",3,"--","--","--","--","--","--"
+"Delaware : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-DE-98.A","--",8,23,45,48,47,54
+"Delaware : geothermal","thousand megawatthours","ELEC.GEN.GEO-DE-98.A","--","--","--","--","--","--","--"
+"Delaware : biomass","thousand megawatthours","ELEC.GEN.BIO-DE-98.A",136,145,105,57,60,60,61
+"Delaware : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-DE-98.A","--","--","--","--","--","--","--"
+"Delaware : other","thousand megawatthours","ELEC.GEN.OTH-DE-98.A","--",0,"--","--","--","--","--"
+"Delaware : all solar",,"ELEC.GEN.TSN-DE-98.A",,,,,,,
+"Delaware : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-DE-98.A","--","--","--","--","--","--","--"
+"Delaware : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-DE-98.A","--",8,23,45,48,47,54
+"District Of Columbia",,"ELEC.GEN..A",,,,,,,
+"District Of Columbia : all fuels (utility-scale)",,"ELEC.GEN.ALL-DC-98.A",,,,,,,
+"District Of Columbia : coal","thousand megawatthours","ELEC.GEN.COW-DC-98.A","--","--","--","--","--","--","--"
+"District Of Columbia : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-DC-98.A",200,130,9,"--","--","--","--"
+"District Of Columbia : petroleum coke","thousand megawatthours","ELEC.GEN.PC-DC-98.A","--","--","--","--","--","--","--"
+"District Of Columbia : natural gas","thousand megawatthours","ELEC.GEN.NG-DC-98.A","--",71,"--","--","--",0,0
+"District Of Columbia : other gases","thousand megawatthours","ELEC.GEN.OOG-DC-98.A","--","--","--","--","--","--","--"
+"District Of Columbia : nuclear","thousand megawatthours","ELEC.GEN.NUC-DC-98.A","--","--","--","--","--","--","--"
+"District Of Columbia : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-DC-98.A","--","--","--","--","--","--","--"
+"District Of Columbia : other renewables",,"ELEC.GEN.AOR-DC-98.A",,,,,,,
+"District Of Columbia : wind","thousand megawatthours","ELEC.GEN.WND-DC-98.A","--","--","--","--","--","--","--"
+"District Of Columbia : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-DC-98.A","--","--","--","--","--","--","--"
+"District Of Columbia : geothermal","thousand megawatthours","ELEC.GEN.GEO-DC-98.A","--","--","--","--","--","--","--"
+"District Of Columbia : biomass","thousand megawatthours","ELEC.GEN.BIO-DC-98.A","--","--","--","--","--",31,0
+"District Of Columbia : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-DC-98.A","--","--","--","--","--","--","--"
+"District Of Columbia : other","thousand megawatthours","ELEC.GEN.OTH-DC-98.A","--","--","--","--","--","--","--"
+"District Of Columbia : all solar",,"ELEC.GEN.TSN-DC-98.A",,,,,,,
+"District Of Columbia : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-DC-98.A","--","--","--","--","--","--","--"
+"District Of Columbia : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-DC-98.A","--","--","--","--","--","--","--"
+"Florida",,"ELEC.GEN..A",,,,,,,
+"Florida : all fuels (utility-scale)",,"ELEC.GEN.ALL-FL-98.A",,,,,,,
+"Florida : coal","thousand megawatthours","ELEC.GEN.COW-FL-98.A",59539,51673,44054,46144,51792,42717,39255
+"Florida : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-FL-98.A",5876,1339,679,478,505,568,752
+"Florida : petroleum coke","thousand megawatthours","ELEC.GEN.PC-FL-98.A",3200,1898,646,2063,1351,1568,2048
+"Florida : natural gas","thousand megawatthours","ELEC.GEN.NG-FL-98.A",127085,134986,148296,137487,138735,154400,156793
+"Florida : other gases","thousand megawatthours","ELEC.GEN.OOG-FL-98.A",0,"--","--","--","--","--","--"
+"Florida : nuclear","thousand megawatthours","ELEC.GEN.NUC-FL-98.A",23936,22015,17870,26526,27868,28122,29320
+"Florida : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-FL-98.A",177,182,151,254,211,244,219
+"Florida : other renewables",,"ELEC.GEN.AOR-FL-98.A",,,,,,,
+"Florida : wind","thousand megawatthours","ELEC.GEN.WND-FL-98.A","--","--","--","--","--","--","--"
+"Florida : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-FL-98.A",80,126,193,208,240,222,351
+"Florida : geothermal","thousand megawatthours","ELEC.GEN.GEO-FL-98.A","--","--","--","--","--","--","--"
+"Florida : biomass","thousand megawatthours","ELEC.GEN.BIO-FL-98.A",2415,2433,2293,2275,2831,2765,2502
+"Florida : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-FL-98.A","--","--","--","--","--","--","--"
+"Florida : other","thousand megawatthours","ELEC.GEN.OTH-FL-98.A",1252,1486,1436,1393,1281,1372,1524
+"Florida : all solar",,"ELEC.GEN.TSN-FL-98.A",,,,,,,
+"Florida : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-FL-98.A","--","--","--","--","--","--","--"
+"Florida : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-FL-98.A",80,126,193,208,240,222,351
+"Georgia",,"ELEC.GEN..A",,,,,,,
+"Georgia : all fuels (utility-scale)",,"ELEC.GEN.ALL-GA-98.A",,,,,,,
+"Georgia : coal","thousand megawatthours","ELEC.GEN.COW-GA-98.A",72550,59452,40197,39768,44844,36915,37677
+"Georgia : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-GA-98.A",91,75,29,21,138,102,83
+"Georgia : petroleum coke","thousand megawatthours","ELEC.GEN.PC-GA-98.A","--","--","--","--","--","--","--"
+"Georgia : natural gas","thousand megawatthours","ELEC.GEN.NG-GA-98.A",23394,26037,41740,39736,40584,49880,52421
+"Georgia : other gases","thousand megawatthours","ELEC.GEN.OOG-GA-98.A","--","--","--","--","--","--","--"
+"Georgia : nuclear","thousand megawatthours","ELEC.GEN.NUC-GA-98.A",33512,32306,33942,32903,32570,33838,34481
+"Georgia : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-GA-98.A",3299,2686,2218,3690,3046,2962,3063
+"Georgia : other renewables",,"ELEC.GEN.AOR-GA-98.A",,,,,,,
+"Georgia : wind","thousand megawatthours","ELEC.GEN.WND-GA-98.A","--","--","--","--","--","--","--"
+"Georgia : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-GA-98.A","--","--","NM",11,116,126,903
+"Georgia : geothermal","thousand megawatthours","ELEC.GEN.GEO-GA-98.A","--","--","--","--","--","--","--"
+"Georgia : biomass","thousand megawatthours","ELEC.GEN.BIO-GA-98.A",151,165,218,501,624,679,701
+"Georgia : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-GA-98.A",-278,-734,-838,-427,-781,-815,-993
+"Georgia : other","thousand megawatthours","ELEC.GEN.OTH-GA-98.A",0,"--","--","--","--","--",0
+"Georgia : all solar",,"ELEC.GEN.TSN-GA-98.A",,,,,,,
+"Georgia : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-GA-98.A","--","--","--","--","--","--","--"
+"Georgia : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-GA-98.A","--","--","NM",11,116,126,903
+"Maryland",,"ELEC.GEN..A",,,,,,,
+"Maryland : all fuels (utility-scale)",,"ELEC.GEN.ALL-MD-98.A",,,,,,,
+"Maryland : coal","thousand megawatthours","ELEC.GEN.COW-MD-98.A",23435,20860,16005,15395,17444,13810,13751
+"Maryland : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-MD-98.A",313,226,114,170,439,214,172
+"Maryland : petroleum coke","thousand megawatthours","ELEC.GEN.PC-MD-98.A","--","--","--","--","--","--","--"
+"Maryland : natural gas","thousand megawatthours","ELEC.GEN.NG-MD-98.A",2839,2022,4658,2445,2089,4031,4888
+"Maryland : other gases","thousand megawatthours","ELEC.GEN.OOG-MD-98.A",215,"--","--","--","--","--","--"
+"Maryland : nuclear","thousand megawatthours","ELEC.GEN.NUC-MD-98.A",13994,14397,13579,14264,14343,14643,14760
+"Maryland : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-MD-98.A",1667,2547,1657,1727,1616,1623,1397
+"Maryland : other renewables",,"ELEC.GEN.AOR-MD-98.A",,,,,,,
+"Maryland : wind","thousand megawatthours","ELEC.GEN.WND-MD-98.A",1,271,322,322,324,435,527
+"Maryland : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-MD-98.A",0,3,21,60,95,112,257
+"Maryland : geothermal","thousand megawatthours","ELEC.GEN.GEO-MD-98.A","--","--","--","--","--","--","--"
+"Maryland : biomass","thousand megawatthours","ELEC.GEN.BIO-MD-98.A",384,343,378,401,408,400,410
+"Maryland : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-MD-98.A","--","--","--","--","--","--","--"
+"Maryland : other","thousand megawatthours","ELEC.GEN.OTH-MD-98.A",270,298,296,302,313,318,324
+"Maryland : all solar",,"ELEC.GEN.TSN-MD-98.A",,,,,,,
+"Maryland : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-MD-98.A","--","--","--","--","--","--","--"
+"Maryland : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-MD-98.A",0,3,21,60,95,112,257
+"North Carolina",,"ELEC.GEN..A",,,,,,,
+"North Carolina : all fuels (utility-scale)",,"ELEC.GEN.ALL-NC-98.A",,,,,,,
+"North Carolina : coal","thousand megawatthours","ELEC.GEN.COW-NC-98.A",71516,59406,50633,46751,48910,39686,37336
+"North Carolina : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-NC-98.A",251,191,166,207,444,421,277
+"North Carolina : petroleum coke","thousand megawatthours","ELEC.GEN.PC-NC-98.A","--","--","--","--","--",0,0
+"North Carolina : natural gas","thousand megawatthours","ELEC.GEN.NG-NC-98.A",8399,11095,19224,27886,28643,36361,39182
+"North Carolina : other gases","thousand megawatthours","ELEC.GEN.OOG-NC-98.A",0,"--","--","--","--","--","--"
+"North Carolina : nuclear","thousand megawatthours","ELEC.GEN.NUC-NC-98.A",40740,40527,39386,40242,40967,42097,42786
+"North Carolina : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-NC-98.A",4743,3882,3342,6005,4742,4731,4512
+"North Carolina : other renewables",,"ELEC.GEN.AOR-NC-98.A",,,,,,,
+"North Carolina : wind","thousand megawatthours","ELEC.GEN.WND-NC-98.A","--","--","--","--","--","--",6
+"North Carolina : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-NC-98.A",11,17,138,297,652,1296,3732
+"North Carolina : geothermal","thousand megawatthours","ELEC.GEN.GEO-NC-98.A","--","--","--","--","--","--","--"
+"North Carolina : biomass","thousand megawatthours","ELEC.GEN.BIO-NC-98.A",766,978,1227,1221,1331,1186,1137
+"North Carolina : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-NC-98.A",0,0,0,0,78,0,0
+"North Carolina : other","thousand megawatthours","ELEC.GEN.OTH-NC-98.A",28,106,141,229,313,386,401
+"North Carolina : all solar",,"ELEC.GEN.TSN-NC-98.A",,,,,,,
+"North Carolina : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-NC-98.A","--","--","--","--","--","--","--"
+"North Carolina : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-NC-98.A",11,17,138,297,652,1296,3732
+"South Carolina",,"ELEC.GEN..A",,,,,,,
+"South Carolina : all fuels (utility-scale)",,"ELEC.GEN.ALL-SC-98.A",,,,,,,
+"South Carolina : coal","thousand megawatthours","ELEC.GEN.COW-SC-98.A",37466,33906,28235,24248,28748,22488,20900
+"South Carolina : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-SC-98.A",150,101,100,94,236,178,100
+"South Carolina : petroleum coke","thousand megawatthours","ELEC.GEN.PC-SC-98.A",28,0,0,0,0,0,0
+"South Carolina : natural gas","thousand megawatthours","ELEC.GEN.NG-SC-98.A",10916,12915,14241,11771,11373,16510,16076
+"South Carolina : other gases","thousand megawatthours","ELEC.GEN.OOG-SC-98.A","--","--","--","--","--","--","--"
+"South Carolina : nuclear","thousand megawatthours","ELEC.GEN.NUC-SC-98.A",51988,52903,51145,54252,52419,53156,55826
+"South Carolina : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-SC-98.A",2375,1554,1420,3156,2566,2562,2397
+"South Carolina : other renewables",,"ELEC.GEN.AOR-SC-98.A",,,,,,,
+"South Carolina : wind","thousand megawatthours","ELEC.GEN.WND-SC-98.A","--","--","--","--","--","--","--"
+"South Carolina : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-SC-98.A","--","--","--",0,5,4,5
+"South Carolina : geothermal","thousand megawatthours","ELEC.GEN.GEO-SC-98.A","--","--","--","--","--","--","--"
+"South Carolina : biomass","thousand megawatthours","ELEC.GEN.BIO-SC-98.A",425,432,498,524,791,843,830
+"South Carolina : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-SC-98.A",-935,-890,-896,-795,-884,-904,-977
+"South Carolina : other","thousand megawatthours","ELEC.GEN.OTH-SC-98.A","--",0,48,5,5,4,6
+"South Carolina : all solar",,"ELEC.GEN.TSN-SC-98.A",,,,,,,
+"South Carolina : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-SC-98.A","--","--","--","--","--","--","--"
+"South Carolina : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-SC-98.A","--","--","--",0,5,4,5
+"Virginia",,"ELEC.GEN..A",,,,,,,
+"Virginia : all fuels (utility-scale)",,"ELEC.GEN.ALL-VA-98.A",,,,,,,
+"Virginia : coal","thousand megawatthours","ELEC.GEN.COW-VA-98.A",24732,19202,13543,20626,20340,16901,16238
+"Virginia : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-VA-98.A",1231,464,334,286,1194,1100,530
+"Virginia : petroleum coke","thousand megawatthours","ELEC.GEN.PC-VA-98.A","--","--","--","--","--","--","--"
+"Virginia : natural gas","thousand megawatthours","ELEC.GEN.NG-VA-98.A",16915,18238,24820,22403,20577,32747,40114
+"Virginia : other gases","thousand megawatthours","ELEC.GEN.OOG-VA-98.A","--","--","--","--","--","--","--"
+"Virginia : nuclear","thousand megawatthours","ELEC.GEN.NUC-VA-98.A",26572,25548,28723,29326,30221,28060,29732
+"Virginia : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-VA-98.A",1488,1199,1032,1248,945,1146,1514
+"Virginia : other renewables",,"ELEC.GEN.AOR-VA-98.A",,,,,,,
+"Virginia : wind","thousand megawatthours","ELEC.GEN.WND-VA-98.A","--","--","--","--","--","--","--"
+"Virginia : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-VA-98.A","--","--","--","--","--","--",22
+"Virginia : geothermal","thousand megawatthours","ELEC.GEN.GEO-VA-98.A","--","--","--","--","--","--","--"
+"Virginia : biomass","thousand megawatthours","ELEC.GEN.BIO-VA-98.A",1037,1004,1127,1427,2187,2318,2362
+"Virginia : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-VA-98.A",-1491,-1470,-1366,-1189,-1295,-1036,-1163
+"Virginia : other","thousand megawatthours","ELEC.GEN.OTH-VA-98.A",266,293,284,265,287,253,257
+"Virginia : all solar",,"ELEC.GEN.TSN-VA-98.A",,,,,,,
+"Virginia : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-VA-98.A","--","--","--","--","--","--","--"
+"Virginia : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-VA-98.A","--","--","--","--","--","--",22
+"West Virginia",,"ELEC.GEN..A",,,,,,,
+"West Virginia : all fuels (utility-scale)",,"ELEC.GEN.ALL-WV-98.A",,,,,,,
+"West Virginia : coal","thousand megawatthours","ELEC.GEN.COW-WV-98.A",77771,75523,69854,71837,76941,67516,71300
+"West Virginia : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-WV-98.A",155,188,143,150,163,140,123
+"West Virginia : petroleum coke","thousand megawatthours","ELEC.GEN.PC-WV-98.A",0,0,0,0,0,0,0
+"West Virginia : natural gas","thousand megawatthours","ELEC.GEN.NG-WV-98.A",131,246,228,270,653,1304,983
+"West Virginia : other gases","thousand megawatthours","ELEC.GEN.OOG-WV-98.A","--","--","--","--","--","--","--"
+"West Virginia : nuclear","thousand megawatthours","ELEC.GEN.NUC-WV-98.A","--","--","--","--","--","--","--"
+"West Virginia : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-WV-98.A",869,894,884,1080,713,832,915
+"West Virginia : other renewables",,"ELEC.GEN.AOR-WV-98.A",,,,,,,
+"West Virginia : wind","thousand megawatthours","ELEC.GEN.WND-WV-98.A",939,1103,1286,1387,1451,1376,1432
+"West Virginia : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-WV-98.A","--","--","--","--","--","--","--"
+"West Virginia : geothermal","thousand megawatthours","ELEC.GEN.GEO-WV-98.A","--","--","--","--","--","--","--"
+"West Virginia : biomass","thousand megawatthours","ELEC.GEN.BIO-WV-98.A",0,9,11,4,5,5,5
+"West Virginia : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-WV-98.A","--","--","--","--","--","--","--"
+"West Virginia : other","thousand megawatthours","ELEC.GEN.OTH-WV-98.A",0,0,0,0,0,0,-7
+"West Virginia : all solar",,"ELEC.GEN.TSN-WV-98.A",,,,,,,
+"West Virginia : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-WV-98.A","--","--","--","--","--","--","--"
+"West Virginia : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-WV-98.A","--","--","--","--","--","--","--"
+"East South Central",,"ELEC.GEN..A",,,,,,,
+"Alabama",,"ELEC.GEN..A",,,,,,,
+"Alabama : all fuels (utility-scale)",,"ELEC.GEN.ALL-AL-98.A",,,,,,,
+"Alabama : coal","thousand megawatthours","ELEC.GEN.COW-AL-98.A",62615,56597,45410,46860,47170,41311,34208
+"Alabama : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-AL-98.A",114,101,75,59,82,63,31
+"Alabama : petroleum coke","thousand megawatthours","ELEC.GEN.PC-AL-98.A","--",0,"--","--","--","--","--"
+"Alabama : natural gas","thousand megawatthours","ELEC.GEN.NG-AL-98.A",38298,46863,54679,45593,47295,54817,56708
+"Alabama : other gases","thousand megawatthours","ELEC.GEN.OOG-AL-98.A","--","--","--","--","--","--","--"
+"Alabama : nuclear","thousand megawatthours","ELEC.GEN.NUC-AL-98.A",37941,39356,40841,40816,41244,41951,39902
+"Alabama : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-AL-98.A",8704,8884,7435,12899,9467,9862,7721
+"Alabama : other renewables",,"ELEC.GEN.AOR-AL-98.A",,,,,,,
+"Alabama : wind","thousand megawatthours","ELEC.GEN.WND-AL-98.A","--","--","--","--","--","--","--"
+"Alabama : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-AL-98.A","--","--","--","--","--","--",31
+"Alabama : geothermal","thousand megawatthours","ELEC.GEN.GEO-AL-98.A","--","--","--","--","--","--","--"
+"Alabama : biomass","thousand megawatthours","ELEC.GEN.BIO-AL-98.A",261,232,191,199,245,256,273
+"Alabama : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-AL-98.A","--","--","--","--","--","--","--"
+"Alabama : other","thousand megawatthours","ELEC.GEN.OTH-AL-98.A","--",0,"--","--","--","--","--"
+"Alabama : all solar",,"ELEC.GEN.TSN-AL-98.A",,,,,,,
+"Alabama : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-AL-98.A","--","--","--","--","--","--","--"
+"Alabama : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-AL-98.A","--","--","--","--","--","--",31
+"Kentucky",,"ELEC.GEN..A",,,,,,,
+"Kentucky : all fuels (utility-scale)",,"ELEC.GEN.ALL-KY-98.A",,,,,,,
+"Kentucky : coal","thousand megawatthours","ELEC.GEN.COW-KY-98.A",91054,91656,82762,83303,83602,72620,66889
+"Kentucky : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-KY-98.A",123,139,107,107,120,113,106
+"Kentucky : petroleum coke","thousand megawatthours","ELEC.GEN.PC-KY-98.A",2162,1596,1429,1302,1033,964,1130
+"Kentucky : natural gas","thousand megawatthours","ELEC.GEN.NG-KY-98.A",1617,1308,2718,1214,2255,5709,8028
+"Kentucky : other gases","thousand megawatthours","ELEC.GEN.OOG-KY-98.A",3,"--","--","--","--","--","--"
+"Kentucky : nuclear","thousand megawatthours","ELEC.GEN.NUC-KY-98.A","--","--","--","--","--","--","--"
+"Kentucky : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-KY-98.A",2580,2969,2362,3275,3144,3403,3450
+"Kentucky : other renewables",,"ELEC.GEN.AOR-KY-98.A",,,,,,,
+"Kentucky : wind","thousand megawatthours","ELEC.GEN.WND-KY-98.A","--","--","--","--","--","--","--"
+"Kentucky : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-KY-98.A","--","--","--","--","--","--",12
+"Kentucky : geothermal","thousand megawatthours","ELEC.GEN.GEO-KY-98.A","--","--","--","--","--","--","--"
+"Kentucky : biomass","thousand megawatthours","ELEC.GEN.BIO-KY-98.A",89,95,95,98,94,92,94
+"Kentucky : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-KY-98.A","--","--","--","--","--","--","--"
+"Kentucky : other","thousand megawatthours","ELEC.GEN.OTH-KY-98.A",15,9,8,9,50,52,50
+"Kentucky : all solar",,"ELEC.GEN.TSN-KY-98.A",,,,,,,
+"Kentucky : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-KY-98.A","--","--","--","--","--","--","--"
+"Kentucky : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-KY-98.A","--","--","--","--","--","--",12
+"Mississippi",,"ELEC.GEN..A",,,,,,,
+"Mississippi : all fuels (utility-scale)",,"ELEC.GEN.ALL-MS-98.A",,,,,,,
+"Mississippi : coal","thousand megawatthours","ELEC.GEN.COW-MS-98.A",13629,9723,7212,8701,10743,6400,5342
+"Mississippi : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-MS-98.A",77,33,13,11,13,12,15
+"Mississippi : petroleum coke","thousand megawatthours","ELEC.GEN.PC-MS-98.A","--","--","--","--","--","--","--"
+"Mississippi : natural gas","thousand megawatthours","ELEC.GEN.NG-MS-98.A",29269,29622,37058,30404,32254,44698,49721
+"Mississippi : other gases","thousand megawatthours","ELEC.GEN.OOG-MS-98.A","--","--","--","--","--","--","--"
+"Mississippi : nuclear","thousand megawatthours","ELEC.GEN.NUC-MS-98.A",9643,10337,7296,10865,10252,11715,5897
+"Mississippi : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-MS-98.A","--","--","--","--","--","--","--"
+"Mississippi : other renewables",,"ELEC.GEN.AOR-MS-98.A",,,,,,,
+"Mississippi : wind","thousand megawatthours","ELEC.GEN.WND-MS-98.A","--","--","--","--","--","--","--"
+"Mississippi : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-MS-98.A","--","--","--","--","--","--","NM"
+"Mississippi : geothermal","thousand megawatthours","ELEC.GEN.GEO-MS-98.A","--","--","--","--","--","--","--"
+"Mississippi : biomass","thousand megawatthours","ELEC.GEN.BIO-MS-98.A",2,0,3,13,14,13,13
+"Mississippi : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-MS-98.A","--","--","--","--","--","--","--"
+"Mississippi : other","thousand megawatthours","ELEC.GEN.OTH-MS-98.A",1,"--","--","--","--","--","--"
+"Mississippi : all solar",,"ELEC.GEN.TSN-MS-98.A",,,,,,,
+"Mississippi : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-MS-98.A","--","--","--","--","--","--","--"
+"Mississippi : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-MS-98.A","--","--","--","--","--","--","NM"
+"Tennessee",,"ELEC.GEN..A",,,,,,,
+"Tennessee : all fuels (utility-scale)",,"ELEC.GEN.ALL-TN-98.A",,,,,,,
+"Tennessee : coal","thousand megawatthours","ELEC.GEN.COW-TN-98.A",42260,39430,34249,31264,34776,29584,30293
+"Tennessee : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-TN-98.A",212,193,144,129,183,133,119
+"Tennessee : petroleum coke","thousand megawatthours","ELEC.GEN.PC-TN-98.A","--","--","--","--","--","--","--"
+"Tennessee : natural gas","thousand megawatthours","ELEC.GEN.NG-TN-98.A",2189,3083,7892,4775,5955,8947,10777
+"Tennessee : other gases","thousand megawatthours","ELEC.GEN.OOG-TN-98.A","--","--","--","--","--","--","--"
+"Tennessee : nuclear","thousand megawatthours","ELEC.GEN.NUC-TN-98.A",27739,26919,25102,28494,27670,24960,29578
+"Tennessee : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-TN-98.A",8138,9576,7673,11369,8901,9581,7418
+"Tennessee : other renewables",,"ELEC.GEN.AOR-TN-98.A",,,,,,,
+"Tennessee : wind","thousand megawatthours","ELEC.GEN.WND-TN-98.A",41,53,47,47,51,46,38
+"Tennessee : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-TN-98.A","--","--",10,18,25,73,84
+"Tennessee : geothermal","thousand megawatthours","ELEC.GEN.GEO-TN-98.A","--","--","--","--","--","--","--"
+"Tennessee : biomass","thousand megawatthours","ELEC.GEN.BIO-TN-98.A",23,28,57,79,84,76,77
+"Tennessee : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-TN-98.A",-721,-660,-163,-42,-491,-531,-704
+"Tennessee : other","thousand megawatthours","ELEC.GEN.OTH-TN-98.A","--","--","--","--","--","--","--"
+"Tennessee : all solar",,"ELEC.GEN.TSN-TN-98.A",,,,,,,
+"Tennessee : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-TN-98.A","--","--","--","--","--","--","--"
+"Tennessee : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-TN-98.A","--","--",10,18,25,73,84
+"West South Central",,"ELEC.GEN..A",,,,,,,
+"Arkansas",,"ELEC.GEN..A",,,,,,,
+"Arkansas : all fuels (utility-scale)",,"ELEC.GEN.ALL-AR-98.A",,,,,,,
+"Arkansas : coal","thousand megawatthours","ELEC.GEN.COW-AR-98.A",28041,29317,28332,31803,33164,21683,23750
+"Arkansas : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-AR-98.A",42,53,31,40,26,52,39
+"Arkansas : petroleum coke","thousand megawatthours","ELEC.GEN.PC-AR-98.A","--","--","--","--","--","--","--"
+"Arkansas : natural gas","thousand megawatthours","ELEC.GEN.NG-AR-98.A",12244,12739,16895,11874,9332,14544,17963
+"Arkansas : other gases","thousand megawatthours","ELEC.GEN.OOG-AR-98.A","--","--","--","--","--","--","--"
+"Arkansas : nuclear","thousand megawatthours","ELEC.GEN.NUC-AR-98.A",15023,14194,15493,11945,14478,13838,13421
+"Arkansas : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-AR-98.A",3659,2958,2198,2655,2640,3569,3418
+"Arkansas : other renewables",,"ELEC.GEN.AOR-AR-98.A",,,,,,,
+"Arkansas : wind","thousand megawatthours","ELEC.GEN.WND-AR-98.A","--","--","--","--","--","--","--"
+"Arkansas : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-AR-98.A","--","--","--","--","--",1,30
+"Arkansas : geothermal","thousand megawatthours","ELEC.GEN.GEO-AR-98.A","--","--","--","--","--","--","--"
+"Arkansas : biomass","thousand megawatthours","ELEC.GEN.BIO-AR-98.A",52,76,65,100,98,85,100
+"Arkansas : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-AR-98.A",-1,34,42,31,67,32,39
+"Arkansas : other","thousand megawatthours","ELEC.GEN.OTH-AR-98.A","--","--","--","--","--","--","--"
+"Arkansas : all solar",,"ELEC.GEN.TSN-AR-98.A",,,,,,,
+"Arkansas : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-AR-98.A","--","--","--","--","--","--","--"
+"Arkansas : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-AR-98.A","--","--","--","--","--",1,30
+"Louisiana",,"ELEC.GEN..A",,,,,,,
+"Louisiana : all fuels (utility-scale)",,"ELEC.GEN.ALL-LA-98.A",,,,,,,
+"Louisiana : coal","thousand megawatthours","ELEC.GEN.COW-LA-98.A",23924,24609,21421,20844,19221,15165,12014
+"Louisiana : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-LA-98.A",96,42,29,39,42,78,15
+"Louisiana : petroleum coke","thousand megawatthours","ELEC.GEN.PC-LA-98.A",2813,4355,2691,4465,4779,3957,4569
+"Louisiana : natural gas","thousand megawatthours","ELEC.GEN.NG-LA-98.A",27639,30129,34567,27540,30144,41284,39881
+"Louisiana : other gases","thousand megawatthours","ELEC.GEN.OOG-LA-98.A",251,255,266,725,824,"--","--"
+"Louisiana : nuclear","thousand megawatthours","ELEC.GEN.NUC-LA-98.A",18639,16615,15659,16954,17311,15301,17152
+"Louisiana : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-LA-98.A",1109,1044,680,1045,1090,999,1103
+"Louisiana : other renewables",,"ELEC.GEN.AOR-LA-98.A",,,,,,,
+"Louisiana : wind","thousand megawatthours","ELEC.GEN.WND-LA-98.A","--","--","--","--","--","--","--"
+"Louisiana : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-LA-98.A","--","--","--","--","--","--","--"
+"Louisiana : geothermal","thousand megawatthours","ELEC.GEN.GEO-LA-98.A","--","--","--","--","--","--","--"
+"Louisiana : biomass","thousand megawatthours","ELEC.GEN.BIO-LA-98.A",73,70,60,73,85,89,95
+"Louisiana : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-LA-98.A","--","--","--","--","--","--","--"
+"Louisiana : other","thousand megawatthours","ELEC.GEN.OTH-LA-98.A","--","--","--","--","--","--","--"
+"Louisiana : all solar",,"ELEC.GEN.TSN-LA-98.A",,,,,,,
+"Louisiana : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-LA-98.A","--","--","--","--","--","--","--"
+"Louisiana : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-LA-98.A","--","--","--","--","--","--","--"
+"Oklahoma",,"ELEC.GEN..A",,,,,,,
+"Oklahoma : all fuels (utility-scale)",,"ELEC.GEN.ALL-OK-98.A",,,,,,,
+"Oklahoma : coal","thousand megawatthours","ELEC.GEN.COW-OK-98.A",31065,34086,28925,29619,29520,24494,18791
+"Oklahoma : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-OK-98.A",13,15,11,9,12,9,17
+"Oklahoma : petroleum coke","thousand megawatthours","ELEC.GEN.PC-OK-98.A","--","--","--","--","--","--","--"
+"Oklahoma : natural gas","thousand megawatthours","ELEC.GEN.NG-OK-98.A",33807,32725,38910,30029,26507,34106,36189
+"Oklahoma : other gases","thousand megawatthours","ELEC.GEN.OOG-OK-98.A","--","--","--","--","--","--","--"
+"Oklahoma : nuclear","thousand megawatthours","ELEC.GEN.NUC-OK-98.A","--","--","--","--","--","--","--"
+"Oklahoma : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-OK-98.A",2809,1507,1146,2178,1428,2664,2382
+"Oklahoma : other renewables",,"ELEC.GEN.AOR-OK-98.A",,,,,,,
+"Oklahoma : wind","thousand megawatthours","ELEC.GEN.WND-OK-98.A",3808,5605,8158,11162,11937,14031,19913
+"Oklahoma : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-OK-98.A","--","--","--","--","--",2,5
+"Oklahoma : geothermal","thousand megawatthours","ELEC.GEN.GEO-OK-98.A","--","--","--","--","--","--","--"
+"Oklahoma : biomass","thousand megawatthours","ELEC.GEN.BIO-OK-98.A",0,0,0,18,16,13,13
+"Oklahoma : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-OK-98.A",-153,-153,-117,-78,-106,-72,-87
+"Oklahoma : other","thousand megawatthours","ELEC.GEN.OTH-OK-98.A","--",0,0,0,0,0,22
+"Oklahoma : all solar",,"ELEC.GEN.TSN-OK-98.A",,,,,,,
+"Oklahoma : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-OK-98.A","--","--","--","--","--","--","--"
+"Oklahoma : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-OK-98.A","--","--","--","--","--",2,5
+"Texas",,"ELEC.GEN..A",,,,,,,
+"Texas : all fuels (utility-scale)",,"ELEC.GEN.ALL-TX-98.A",,,,,,,
+"Texas : coal","thousand megawatthours","ELEC.GEN.COW-TX-98.A",146850,157890,138088,149404,148174,121554,121231
+"Texas : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-TX-98.A",104,133,89,91,100,105,79
+"Texas : petroleum coke","thousand megawatthours","ELEC.GEN.PC-TX-98.A",455,719,55,101,0,0,0
+"Texas : natural gas","thousand megawatthours","ELEC.GEN.NG-TX-98.A",152007,164845,175977,165361,167034,197669,185651
+"Texas : other gases","thousand megawatthours","ELEC.GEN.OOG-TX-98.A",1678,1925,1633,1457,1144,1314,1318
+"Texas : nuclear","thousand megawatthours","ELEC.GEN.NUC-TX-98.A",41335,39648,38441,38315,39287,39355,42079
+"Texas : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-TX-98.A",1262,563,584,480,386,956,1103
+"Texas : other renewables",,"ELEC.GEN.AOR-TX-98.A",,,,,,,
+"Texas : wind","thousand megawatthours","ELEC.GEN.WND-TX-98.A",26251,30548,32214,35874,39982,44803,57508
+"Texas : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-TX-98.A",8,29,118,161,280,399,749
+"Texas : geothermal","thousand megawatthours","ELEC.GEN.GEO-TX-98.A","--","--","--","--","--","--","--"
+"Texas : biomass","thousand megawatthours","ELEC.GEN.BIO-TX-98.A",422,542,691,671,822,864,788
+"Texas : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-TX-98.A","--","--","--","--","--","--","--"
+"Texas : other","thousand megawatthours","ELEC.GEN.OTH-TX-98.A",0,0,0,-1,12,91,13
+"Texas : all solar",,"ELEC.GEN.TSN-TX-98.A",,,,,,,
+"Texas : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-TX-98.A","--","--","--","--","--","--","--"
+"Texas : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-TX-98.A",8,29,118,161,280,399,749
+"Mountain",,"ELEC.GEN..A",,,,,,,
+"Arizona",,"ELEC.GEN..A",,,,,,,
+"Arizona : all fuels (utility-scale)",,"ELEC.GEN.ALL-AZ-98.A",,,,,,,
+"Arizona : coal","thousand megawatthours","ELEC.GEN.COW-AZ-98.A",43348,43412,39930,43492,42665,36167,30403
+"Arizona : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-AZ-98.A",63,52,41,43,57,48,52
+"Arizona : petroleum coke","thousand megawatthours","ELEC.GEN.PC-AZ-98.A","--","--","--","--","--","--","--"
+"Arizona : natural gas","thousand megawatthours","ELEC.GEN.NG-AZ-98.A",29603,23187,30175,29547,27110,33527,34081
+"Arizona : other gases","thousand megawatthours","ELEC.GEN.OOG-AZ-98.A","--","--","--","--","--","--","--"
+"Arizona : nuclear","thousand megawatthours","ELEC.GEN.NUC-AZ-98.A",31200,31278,31934,31431,32321,32526,32377
+"Arizona : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-AZ-98.A",6622,9174,6717,5915,6118,6536,7158
+"Arizona : other renewables",,"ELEC.GEN.AOR-AZ-98.A",,,,,,,
+"Arizona : wind","thousand megawatthours","ELEC.GEN.WND-AZ-98.A",135,256,532,450,468,452,543
+"Arizona : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-AZ-98.A",16,81,951,2092,3118,3435,3732
+"Arizona : geothermal","thousand megawatthours","ELEC.GEN.GEO-AZ-98.A","--","--","--","--","--","--","--"
+"Arizona : biomass","thousand megawatthours","ELEC.GEN.BIO-AZ-98.A",164,186,207,171,231,227,219
+"Arizona : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-AZ-98.A",209,121,79,24,14,73,59
+"Arizona : other","thousand megawatthours","ELEC.GEN.OTH-AZ-98.A",15,15,24,3,0,"--","--"
+"Arizona : all solar",,"ELEC.GEN.TSN-AZ-98.A",,,,,,,
+"Arizona : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-AZ-98.A","--","--","--","--","--","--","--"
+"Arizona : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-AZ-98.A",16,81,951,2092,3118,3435,3732
+"Colorado",,"ELEC.GEN..A",,,,,,,
+"Colorado : all fuels (utility-scale)",,"ELEC.GEN.ALL-CO-98.A",,,,,,,
+"Colorado : coal","thousand megawatthours","ELEC.GEN.COW-CO-98.A",34559,33955,34513,33696,32537,31533,29974
+"Colorado : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-CO-98.A",17,22,11,10,10,7,10
+"Colorado : petroleum coke","thousand megawatthours","ELEC.GEN.PC-CO-98.A","--","--","--","--","--","--","--"
+"Colorado : natural gas","thousand megawatthours","ELEC.GEN.NG-CO-98.A",11045,10170,10505,10685,11929,11621,12647
+"Colorado : other gases","thousand megawatthours","ELEC.GEN.OOG-CO-98.A",0,"--","--","--","--","--","--"
+"Colorado : nuclear","thousand megawatthours","ELEC.GEN.NUC-CO-98.A","--","--","--","--","--","--","--"
+"Colorado : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-CO-98.A",1578,2083,1497,1206,1764,1614,1909
+"Colorado : other renewables",,"ELEC.GEN.AOR-CO-98.A",,,,,,,
+"Colorado : wind","thousand megawatthours","ELEC.GEN.WND-CO-98.A",3452,5192,5960,7196,7365,7469,9415
+"Colorado : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-CO-98.A",42,92,150,234,241,238,532
+"Colorado : geothermal","thousand megawatthours","ELEC.GEN.GEO-CO-98.A","--","--","--","--","--","--","--"
+"Colorado : biomass","thousand megawatthours","ELEC.GEN.BIO-CO-98.A",60,62,58,84,126,81,"NM"
+"Colorado : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-CO-98.A",-121,-243,-244,-280,-225,-279,-294
+"Colorado : other","thousand megawatthours","ELEC.GEN.OTH-CO-98.A",22,15,11,8,4,12,13
+"Colorado : all solar",,"ELEC.GEN.TSN-CO-98.A",,,,,,,
+"Colorado : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-CO-98.A","--","--","--","--","--","--","--"
+"Colorado : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-CO-98.A",42,92,150,234,241,238,532
+"Idaho",,"ELEC.GEN..A",,,,,,,
+"Idaho : all fuels (utility-scale)",,"ELEC.GEN.ALL-ID-98.A",,,,,,,
+"Idaho : coal","thousand megawatthours","ELEC.GEN.COW-ID-98.A","--","--","--","--","--","--","--"
+"Idaho : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-ID-98.A",0,0,0,0,0,0,"NM"
+"Idaho : petroleum coke","thousand megawatthours","ELEC.GEN.PC-ID-98.A","--","--","--","--","--","--","--"
+"Idaho : natural gas","thousand megawatthours","ELEC.GEN.NG-ID-98.A",1659,1069,1849,3349,2522,3734,3205
+"Idaho : other gases","thousand megawatthours","ELEC.GEN.OOG-ID-98.A","--","--","--","--","--","--","--"
+"Idaho : nuclear","thousand megawatthours","ELEC.GEN.NUC-ID-98.A","--","--","--","--","--","--","--"
+"Idaho : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-ID-98.A",9154,13405,10940,8473,9002,8757,9446
+"Idaho : other renewables",,"ELEC.GEN.AOR-ID-98.A",,,,,,,
+"Idaho : wind","thousand megawatthours","ELEC.GEN.WND-ID-98.A",441,1307,1891,2460,2806,2270,2427
+"Idaho : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-ID-98.A","--","--","--","--","--","--",29
+"Idaho : geothermal","thousand megawatthours","ELEC.GEN.GEO-ID-98.A",72,63,75,40,79,76,97
+"Idaho : biomass","thousand megawatthours","ELEC.GEN.BIO-ID-98.A",93,102,153,254,216,215,213
+"Idaho : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-ID-98.A","--","--","--","--","--","--","--"
+"Idaho : other","thousand megawatthours","ELEC.GEN.OTH-ID-98.A","--","--","--","--","--","--","--"
+"Idaho : all solar",,"ELEC.GEN.TSN-ID-98.A",,,,,,,
+"Idaho : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-ID-98.A","--","--","--","--","--","--","--"
+"Idaho : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-ID-98.A","--","--","--","--","--","--",29
+"Montana",,"ELEC.GEN..A",,,,,,,
+"Montana : all fuels (utility-scale)",,"ELEC.GEN.ALL-MT-98.A",,,,,,,
+"Montana : coal","thousand megawatthours","ELEC.GEN.COW-MT-98.A",18601,15047,13979,14870,15571,16007,14321
+"Montana : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-MT-98.A",13,18,13,15,26,14,17
+"Montana : petroleum coke","thousand megawatthours","ELEC.GEN.PC-MT-98.A",395,443,454,448,403,483,443
+"Montana : natural gas","thousand megawatthours","ELEC.GEN.NG-MT-98.A",53,418,464,614,515,599,694
+"Montana : other gases","thousand megawatthours","ELEC.GEN.OOG-MT-98.A",0,0,0,0,0,17,9
+"Montana : nuclear","thousand megawatthours","ELEC.GEN.NUC-MT-98.A","--","--","--","--","--","--","--"
+"Montana : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-MT-98.A",9415,12596,11283,9638,11483,9888,10183
+"Montana : other renewables",,"ELEC.GEN.AOR-MT-98.A",,,,,,,
+"Montana : wind","thousand megawatthours","ELEC.GEN.WND-MT-98.A",930,1265,1262,1755,1974,1965,2130
+"Montana : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-MT-98.A","--","--","--","--","--","--","--"
+"Montana : geothermal","thousand megawatthours","ELEC.GEN.GEO-MT-98.A","--","--","--","--","--","--","--"
+"Montana : biomass","thousand megawatthours","ELEC.GEN.BIO-MT-98.A","--","--","--","--","--","--","--"
+"Montana : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-MT-98.A","--","--","--","--","--","--","--"
+"Montana : other","thousand megawatthours","ELEC.GEN.OTH-MT-98.A",281,333,341,332,265,303,327
+"Montana : all solar",,"ELEC.GEN.TSN-MT-98.A",,,,,,,
+"Montana : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-MT-98.A","--","--","--","--","--","--","--"
+"Montana : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-MT-98.A","--","--","--","--","--","--","--"
+"Nevada",,"ELEC.GEN..A",,,,,,,
+"Nevada : all fuels (utility-scale)",,"ELEC.GEN.ALL-NV-98.A",,,,,,,
+"Nevada : coal","thousand megawatthours","ELEC.GEN.COW-NV-98.A",6997,5407,4079,5255,6548,2657,2167
+"Nevada : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-NV-98.A",11,14,19,19,15,16,11
+"Nevada : petroleum coke","thousand megawatthours","ELEC.GEN.PC-NV-98.A","--","--","--","--","--","--","--"
+"Nevada : natural gas","thousand megawatthours","ELEC.GEN.NG-NV-98.A",23427,21614,25325,24452,22659,28628,28466
+"Nevada : other gases","thousand megawatthours","ELEC.GEN.OOG-NV-98.A",6,7,7,6,5,6,1
+"Nevada : nuclear","thousand megawatthours","ELEC.GEN.NUC-NV-98.A","--","--","--","--","--","--","--"
+"Nevada : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-NV-98.A",2157,2191,2440,2682,2389,2264,1767
+"Nevada : other renewables",,"ELEC.GEN.AOR-NV-98.A",,,,,,,
+"Nevada : wind","thousand megawatthours","ELEC.GEN.WND-NV-98.A","--","--",129,251,300,310,344
+"Nevada : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-NV-98.A",215,258,438,711,980,1610,2466
+"Nevada : geothermal","thousand megawatthours","ELEC.GEN.GEO-NV-98.A",2070,2146,2347,2670,2729,3111,3848
+"Nevada : biomass","thousand megawatthours","ELEC.GEN.BIO-NV-98.A",0,0,19,24,25,26,26
+"Nevada : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-NV-98.A","--","--","--","--","--","--","--"
+"Nevada : other","thousand megawatthours","ELEC.GEN.OTH-NV-98.A",0,38,12,25,15,1,"NM"
+"Nevada : all solar",,"ELEC.GEN.TSN-NV-98.A",,,,,,,
+"Nevada : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-NV-98.A","--","--","--","--","--","--","--"
+"Nevada : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-NV-98.A",215,258,438,711,980,1610,2466
+"New Mexico",,"ELEC.GEN..A",,,,,,,
+"New Mexico : all fuels (utility-scale)",,"ELEC.GEN.ALL-NM-98.A",,,,,,,
+"New Mexico : coal","thousand megawatthours","ELEC.GEN.COW-NM-98.A",25618,27141,24994,24145,20356,20440,18365
+"New Mexico : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-NM-98.A",49,38,46,58,63,63,50
+"New Mexico : petroleum coke","thousand megawatthours","ELEC.GEN.PC-NM-98.A","--","--","--","--","--","--","--"
+"New Mexico : natural gas","thousand megawatthours","ELEC.GEN.NG-NM-98.A",8439,8447,8721,8887,8837,9242,9875
+"New Mexico : other gases","thousand megawatthours","ELEC.GEN.OOG-NM-98.A","--","--","--","--","--","--","--"
+"New Mexico : nuclear","thousand megawatthours","ELEC.GEN.NUC-NM-98.A","--","--","--","--","--","--","--"
+"New Mexico : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-NM-98.A",217,195,223,92,98,99,146
+"New Mexico : other renewables",,"ELEC.GEN.AOR-NM-98.A",,,,,,,
+"New Mexico : wind","thousand megawatthours","ELEC.GEN.WND-NM-98.A",1832,2101,2222,2190,2272,2087,3611
+"New Mexico : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-NM-98.A",9,128,334,388,515,615,804
+"New Mexico : geothermal","thousand megawatthours","ELEC.GEN.GEO-NM-98.A","--","--","--",0,9,10,16
+"New Mexico : biomass","thousand megawatthours","ELEC.GEN.BIO-NM-98.A",14,9,14,19,14,20,18
+"New Mexico : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-NM-98.A","--","--","--","--","--","--","--"
+"New Mexico : other","thousand megawatthours","ELEC.GEN.OTH-NM-98.A","--","--",0,1,1,1,"NM"
+"New Mexico : all solar",,"ELEC.GEN.TSN-NM-98.A",,,,,,,
+"New Mexico : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-NM-98.A","--","--","--","--","--","--","--"
+"New Mexico : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-NM-98.A",9,128,334,388,515,615,804
+"Utah",,"ELEC.GEN..A",,,,,,,
+"Utah : all fuels (utility-scale)",,"ELEC.GEN.ALL-UT-98.A",,,,,,,
+"Utah : coal","thousand megawatthours","ELEC.GEN.COW-UT-98.A",33218,32697,30394,33795,32930,31233,25460
+"Utah : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-UT-98.A",50,54,39,26,24,19,31
+"Utah : petroleum coke","thousand megawatthours","ELEC.GEN.PC-UT-98.A","--","--","--","--","--","--","--"
+"Utah : natural gas","thousand megawatthours","ELEC.GEN.NG-UT-98.A",6300,5084,6058,6117,7833,7704,8042
+"Utah : other gases","thousand megawatthours","ELEC.GEN.OOG-UT-98.A","--","--","--","--","--","--","--"
+"Utah : nuclear","thousand megawatthours","ELEC.GEN.NUC-UT-98.A","--","--","--","--","--","--","--"
+"Utah : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-UT-98.A",696,1230,748,505,633,769,816
+"Utah : other renewables",,"ELEC.GEN.AOR-UT-98.A",,,,,,,
+"Utah : wind","thousand megawatthours","ELEC.GEN.WND-UT-98.A",448,573,704,540,660,626,827
+"Utah : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-UT-98.A","--","--",2,2,2,32,874
+"Utah : geothermal","thousand megawatthours","ELEC.GEN.GEO-UT-98.A",277,330,335,319,522,430,530
+"Utah : biomass","thousand megawatthours","ELEC.GEN.BIO-UT-98.A",56,58,60,71,73,71,71
+"Utah : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-UT-98.A","--","--","--","--","--","--","--"
+"Utah : other","thousand megawatthours","ELEC.GEN.OTH-UT-98.A",4,5,5,5,4,4,"NM"
+"Utah : all solar",,"ELEC.GEN.TSN-UT-98.A",,,,,,,
+"Utah : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-UT-98.A","--","--","--","--","--","--","--"
+"Utah : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-UT-98.A","--","--",2,2,2,32,874
+"Wyoming",,"ELEC.GEN..A",,,,,,,
+"Wyoming : all fuels (utility-scale)",,"ELEC.GEN.ALL-WY-98.A",,,,,,,
+"Wyoming : coal","thousand megawatthours","ELEC.GEN.COW-WY-98.A",42766,40495,43001,45975,42945,42671,39481
+"Wyoming : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-WY-98.A",56,55,48,39,38,45,45
+"Wyoming : petroleum coke","thousand megawatthours","ELEC.GEN.PC-WY-98.A","--","--","--","--","--","--","--"
+"Wyoming : natural gas","thousand megawatthours","ELEC.GEN.NG-WY-98.A",54,37,46,51,78,140,184
+"Wyoming : other gases","thousand megawatthours","ELEC.GEN.OOG-WY-98.A","--","--","--","--","--","--","--"
+"Wyoming : nuclear","thousand megawatthours","ELEC.GEN.NUC-WY-98.A","--","--","--","--","--","--","--"
+"Wyoming : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-WY-98.A",1024,1224,893,711,869,868,998
+"Wyoming : other renewables",,"ELEC.GEN.AOR-WY-98.A",,,,,,,
+"Wyoming : wind","thousand megawatthours","ELEC.GEN.WND-WY-98.A",3247,4612,4369,4433,4406,3757,4363
+"Wyoming : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-WY-98.A","--","--","--","--","--","--","--"
+"Wyoming : geothermal","thousand megawatthours","ELEC.GEN.GEO-WY-98.A","--","--","--","--","--","--","--"
+"Wyoming : biomass","thousand megawatthours","ELEC.GEN.BIO-WY-98.A","--","--","--","--","--","--","--"
+"Wyoming : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-WY-98.A","--","--","--","--","--","--","--"
+"Wyoming : other","thousand megawatthours","ELEC.GEN.OTH-WY-98.A","--","--","--","--","--","--","--"
+"Wyoming : all solar",,"ELEC.GEN.TSN-WY-98.A",,,,,,,
+"Wyoming : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-WY-98.A","--","--","--","--","--","--","--"
+"Wyoming : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-WY-98.A","--","--","--","--","--","--","--"
+"Pacific Contiguous",,"ELEC.GEN..A",,,,,,,
+"California",,"ELEC.GEN..A",,,,,,,
+"California : all fuels (utility-scale)",,"ELEC.GEN.ALL-CA-98.A",,,,,,,
+"California : coal","thousand megawatthours","ELEC.GEN.COW-CA-98.A",1751,1608,1005,469,499,0,0
+"California : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-CA-98.A",51,43,46,39,43,59,41
+"California : petroleum coke","thousand megawatthours","ELEC.GEN.PC-CA-98.A",1006,864,156,21,19,0,0
+"California : natural gas","thousand megawatthours","ELEC.GEN.NG-CA-98.A",92923,74865,105782,105188,106440,102770,84838
+"California : other gases","thousand megawatthours","ELEC.GEN.OOG-CA-98.A",42,29,0,0,0,0,0
+"California : nuclear","thousand megawatthours","ELEC.GEN.NUC-CA-98.A",32201,36663,18507,17912,16986,18505,18908
+"California : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-CA-98.A",33424,42553,26835,23749,16527,13805,28921
+"California : other renewables",,"ELEC.GEN.AOR-CA-98.A",,,,,,,
+"California : wind","thousand megawatthours","ELEC.GEN.WND-CA-98.A",6079,7752,9754,12819,12988,12220,13688
+"California : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-CA-98.A",765,861,1328,3727,9834,14711,18893
+"California : geothermal","thousand megawatthours","ELEC.GEN.GEO-CA-98.A",12600,12552,12519,12307,12102,11883,12469
+"California : biomass","thousand megawatthours","ELEC.GEN.BIO-CA-98.A",4935,4351,4559,4874,5276,5032,4702
+"California : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-CA-98.A",-171,-89,575,196,-105,113,-259
+"California : other","thousand megawatthours","ELEC.GEN.OTH-CA-98.A",209,219,158,214,212,206,196
+"California : all solar",,"ELEC.GEN.TSN-CA-98.A",,,,,,,
+"California : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-CA-98.A","--","--","--","--","--","--","--"
+"California : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-CA-98.A",765,861,1328,3727,9834,14711,18893
+"Oregon",,"ELEC.GEN..A",,,,,,,
+"Oregon : all fuels (utility-scale)",,"ELEC.GEN.ALL-OR-98.A",,,,,,,
+"Oregon : coal","thousand megawatthours","ELEC.GEN.COW-OR-98.A",4126,3334,2634,3759,3193,2377,1898
+"Oregon : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-OR-98.A",3,7,6,6,10,6,5
+"Oregon : petroleum coke","thousand megawatthours","ELEC.GEN.PC-OR-98.A","--","--","--","--","--","--","--"
+"Oregon : natural gas","thousand megawatthours","ELEC.GEN.NG-OR-98.A",15532,8373,11441,14235,12552,16130,15224
+"Oregon : other gases","thousand megawatthours","ELEC.GEN.OOG-OR-98.A","--","--","--","--","--","--","--"
+"Oregon : nuclear","thousand megawatthours","ELEC.GEN.NUC-OR-98.A","--","--","--","--","--","--","--"
+"Oregon : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-OR-98.A",30542,42315,39410,33098,35262,31254,33700
+"Oregon : other renewables",,"ELEC.GEN.AOR-OR-98.A",,,,,,,
+"Oregon : wind","thousand megawatthours","ELEC.GEN.WND-OR-98.A",3920,4775,6343,7456,7555,6632,7163
+"Oregon : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-OR-98.A","--",0,6,20,24,24,70
+"Oregon : geothermal","thousand megawatthours","ELEC.GEN.GEO-OR-98.A","--","--",26,165,183,179,197
+"Oregon : biomass","thousand megawatthours","ELEC.GEN.BIO-OR-98.A",354,327,337,429,497,470,469
+"Oregon : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-OR-98.A","--","--","--","--","--","--","--"
+"Oregon : other","thousand megawatthours","ELEC.GEN.OTH-OR-98.A",38,43,42,35,43,42,47
+"Oregon : all solar",,"ELEC.GEN.TSN-OR-98.A",,,,,,,
+"Oregon : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-OR-98.A","--","--","--","--","--","--","--"
+"Oregon : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-OR-98.A","--",0,6,20,24,24,70
+"Washington",,"ELEC.GEN..A",,,,,,,
+"Washington : all fuels (utility-scale)",,"ELEC.GEN.ALL-WA-98.A",,,,,,,
+"Washington : coal","thousand megawatthours","ELEC.GEN.COW-WA-98.A",8487,5200,3728,6704,6676,5016,4569
+"Washington : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-WA-98.A",19,16,14,12,14,11,12
+"Washington : petroleum coke","thousand megawatthours","ELEC.GEN.PC-WA-98.A","--","--","--","--","--","--","--"
+"Washington : natural gas","thousand megawatthours","ELEC.GEN.NG-WA-98.A",10303,4787,5370,11336,10997,12969,11059
+"Washington : other gases","thousand megawatthours","ELEC.GEN.OOG-WA-98.A",292,297,405,410,337,395,402
+"Washington : nuclear","thousand megawatthours","ELEC.GEN.NUC-WA-98.A",9241,4806,9334,8461,9497,8161,9626
+"Washington : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-WA-98.A",68233,91815,89463,78155,79463,73405,76843
+"Washington : other renewables",,"ELEC.GEN.AOR-WA-98.A",,,,,,,
+"Washington : wind","thousand megawatthours","ELEC.GEN.WND-WA-98.A",4745,6262,6600,7004,7268,7075,8042
+"Washington : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-WA-98.A",0,1,1,1,1,1,1
+"Washington : geothermal","thousand megawatthours","ELEC.GEN.GEO-WA-98.A","--","--","--","--","--","--","--"
+"Washington : biomass","thousand megawatthours","ELEC.GEN.BIO-WA-98.A",692,600,434,557,538,589,581
+"Washington : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-WA-98.A",53,52,44,7,-5,40,-2
+"Washington : other","thousand megawatthours","ELEC.GEN.OTH-WA-98.A",62,70,69,67,65,54,63
+"Washington : all solar",,"ELEC.GEN.TSN-WA-98.A",,,,,,,
+"Washington : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-WA-98.A","--","--","--","--","--","--","--"
+"Washington : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-WA-98.A",0,1,1,1,1,1,1
+"Pacific Noncontiguous",,"ELEC.GEN..A",,,,,,,
+"Alaska",,"ELEC.GEN..A",,,,,,,
+"Alaska : all fuels (utility-scale)",,"ELEC.GEN.ALL-AK-98.A",,,,,,,
+"Alaska : coal","thousand megawatthours","ELEC.GEN.COW-AK-98.A",394,387,417,379,448,559,436
+"Alaska : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-AK-98.A",885,892,986,770,398,695,741
+"Alaska : petroleum coke","thousand megawatthours","ELEC.GEN.PC-AK-98.A","--","--","--","--","--","--","--"
+"Alaska : natural gas","thousand megawatthours","ELEC.GEN.NG-AK-98.A",3685,3846,3566,3356,3219,3019,2247
+"Alaska : other gases","thousand megawatthours","ELEC.GEN.OOG-AK-98.A","--","--","--","--","--","--","--"
+"Alaska : nuclear","thousand megawatthours","ELEC.GEN.NUC-AK-98.A","--","--","--","--","--","--","--"
+"Alaska : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-AK-98.A",1433,1345,1575,1435,1539,1569,1549
+"Alaska : other renewables",,"ELEC.GEN.AOR-AK-98.A",,,,,,,
+"Alaska : wind","thousand megawatthours","ELEC.GEN.WND-AK-98.A",13,12,37,145,152,160,164
+"Alaska : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-AK-98.A","--","--","--","--","--","--","--"
+"Alaska : geothermal","thousand megawatthours","ELEC.GEN.GEO-AK-98.A","--","--","--","--","--","--","--"
+"Alaska : biomass","thousand megawatthours","ELEC.GEN.BIO-AK-98.A","--","--","--",0,0,0,0
+"Alaska : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-AK-98.A","--","--","--","--","--","--","--"
+"Alaska : other","thousand megawatthours","ELEC.GEN.OTH-AK-98.A",0,0,0,-0,-2,-2,"NM"
+"Alaska : all solar",,"ELEC.GEN.TSN-AK-98.A",,,,,,,
+"Alaska : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-AK-98.A","--","--","--","--","--","--","--"
+"Alaska : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-AK-98.A","--","--","--","--","--","--","--"
+"Hawaii",,"ELEC.GEN..A",,,,,,,
+"Hawaii : all fuels (utility-scale)",,"ELEC.GEN.ALL-HI-98.A",,,,,,,
+"Hawaii : coal","thousand megawatthours","ELEC.GEN.COW-HI-98.A",1496,1377,1498,1357,1466,1303,1492
+"Hawaii : petroleum liquids","thousand megawatthours","ELEC.GEN.PEL-HI-98.A",7906,7773,7307,7085,6737,6815,6182
+"Hawaii : petroleum coke","thousand megawatthours","ELEC.GEN.PC-HI-98.A","--","--","--","--","--","--","--"
+"Hawaii : natural gas","thousand megawatthours","ELEC.GEN.NG-HI-98.A","--",0,"--","--","--","--","--"
+"Hawaii : other gases","thousand megawatthours","ELEC.GEN.OOG-HI-98.A","--","--","--","--","--","--","--"
+"Hawaii : nuclear","thousand megawatthours","ELEC.GEN.NUC-HI-98.A","--","--","--","--","--","--","--"
+"Hawaii : conventional hydroelectric","thousand megawatthours","ELEC.GEN.HYC-HI-98.A",29,45,56,34,42,63,58
+"Hawaii : other renewables",,"ELEC.GEN.AOR-HI-98.A",,,,,,,
+"Hawaii : wind","thousand megawatthours","ELEC.GEN.WND-HI-98.A",261,341,378,503,579,613,644
+"Hawaii : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-HI-98.A",2,4,5,19,39,54,92
+"Hawaii : geothermal","thousand megawatthours","ELEC.GEN.GEO-HI-98.A",201,224,261,275,254,230,260
+"Hawaii : biomass","thousand megawatthours","ELEC.GEN.BIO-HI-98.A",2,39,22,29,37,52,37
+"Hawaii : hydro-electric pumped storage","thousand megawatthours","ELEC.GEN.HPS-HI-98.A","--","--","--","--","--","--","--"
+"Hawaii : other","thousand megawatthours","ELEC.GEN.OTH-HI-98.A",227,211,216,219,218,187,12
+"Hawaii : all solar",,"ELEC.GEN.TSN-HI-98.A",,,,,,,
+"Hawaii : small-scale solar photovoltaic","thousand megawatthours","ELEC.GEN.DPV-HI-98.A","--","--","--","--","--","--","--"
+"Hawaii : all utility-scale solar","thousand megawatthours","ELEC.GEN.SUN-HI-98.A",2,4,5,19,39,54,92 

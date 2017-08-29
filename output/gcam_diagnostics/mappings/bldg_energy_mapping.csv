@@ -1,0 +1,7 @@
+"# A mapping of GCAM ""Building final energy by fuel"" query results to fuel types",
+input,Fuel
+delivered biomass,biomass
+delivered coal,coal
+delivered gas,gas
+elect_td_bld,electricity
+refined liquids enduse,liquids

@@ -1,0 +1,16 @@
+# A mapping of EIA electricity generation technologies to GCAM USA electricity generation aggregate technology,
+fuel,aggregate_tech
+all utility-scale solar,e Solar
+biomass,j Biomass w/o CCS
+coal,l Coal w/o CCS
+conventional hydroelectric,g Hydro
+geothermal,d Geothermal
+hydro-electric pumped storage,
+natural gas,n Gas w/o CCS
+nuclear,h Nuclear
+other,
+other gases,n Gas w/o CCS
+petroleum coke,p Oil w/o CCS
+petroleum liquids,p Oil w/o CCS
+small-scale solar photovoltaic,e Solar
+wind,f Wind

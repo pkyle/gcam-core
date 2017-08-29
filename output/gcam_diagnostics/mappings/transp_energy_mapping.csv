@@ -1,0 +1,6 @@
+"# A mapping of GCAM ""Transportation final energy by fuel"" query results to fuel types",
+input,Fuel
+H2 enduse,hydrogen
+delivered gas,gas
+elect_td_trn,electricity
+refined liquids enduse,liquids

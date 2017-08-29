@@ -1,0 +1,8 @@
+"# A mapping of GCAM ""Industry final energy by fuel"" query results to fuel types",
+input,Fuel
+H2 enduse,hydrogen
+delivered biomass,biomass
+delivered coal,coal
+elect_td_ind,electricity
+refined liquids industrial,liquids
+wholesale gas,gas

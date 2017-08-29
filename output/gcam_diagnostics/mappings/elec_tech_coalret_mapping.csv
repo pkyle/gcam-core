@@ -1,0 +1,52 @@
+# A mapping of GCAM EPSA MLS electricity generation technologies to aggregate technologies,
+technology,aggregate_tech
+battery,b Battery
+biomass_base_conv,j Biomass w/o CCS
+biomass_base_IGCC,j Biomass w/o CCS
+biomass_int_conv,j Biomass w/o CCS
+biomass_int_IGCC,j Biomass w/o CCS
+biomass_subpeak_conv,j Biomass w/o CCS
+coal_base_conv pul,l Coal w/o CCS
+coal_base_conv pul_slow_retire,l Coal w/o CCS
+coal_base_conv pul_fast_retire,l Coal w/o CCS
+coal_int_conv pul,l Coal w/o CCS
+coal_int_conv pul_slow_retire,l Coal w/o CCS
+coal_int_conv pul_fast_retire,l Coal w/o CCS
+coal_peak_conv pul,l Coal w/o CCS
+coal_peak_conv pul_slow_retire,l Coal w/o CCS
+coal_peak_conv pul_fast_retire,l Coal w/o CCS
+coal_subpeak_conv pul,l Coal w/o CCS
+coal_subpeak_conv pul_slow_retire,l Coal w/o CCS
+coal_subpeak_conv pul_fast_retire,l Coal w/o CCS
+CSP_base_storage,e Solar
+CSP_int,e Solar
+CSP_peak,e Solar
+CSP_subpeak,e Solar
+elect_td_bld,
+gas_base_CC,n Gas w/o CCS
+gas_base_steam/CT,n Gas w/o CCS
+gas_int_CC,n Gas w/o CCS
+gas_int_steam/CT,n Gas w/o CCS
+gas_peak_CC,n Gas w/o CCS
+gas_peak_steam/CT,n Gas w/o CCS
+gas_subpeak_CC,n Gas w/o CCS
+gas_subpeak_steam/CT,n Gas w/o CCS
+geo_base,d Geothermal
+hydro_base,g Hydro
+hydro_int,g Hydro
+nuc_base_Gen II,h Nuclear
+nuc_base_Gen III,h Nuclear
+PV_base_storage,e Solar
+PV_int,e Solar
+PV_peak,e Solar
+PV_subpeak,e Solar
+refined liquids_base_steam/CT,p Oil w/o CCS
+refined liquids_int_steam/CT,p Oil w/o CCS
+refined liquids_peak_steam/CT,p Oil w/o CCS
+refined liquids_subpeak_steam/CT,p Oil w/o CCS
+rooftop_pv,e Solar
+wind_base,f Wind
+wind_base_storage,f Wind
+wind_int,f Wind
+wind_subpeak,f Wind
+electricity,c CHP
