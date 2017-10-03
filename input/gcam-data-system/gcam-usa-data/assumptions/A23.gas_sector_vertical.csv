@@ -1,0 +1,4 @@
+# Vertical segment supplysector characteristics,,,,,
+supplysector,output.unit,input.unit,price.unit,logit.exponent,logit.type
+natural gas production,EJ,EJ,1975$/GJ,-3,relative-cost-logit
+regional natural gas,EJ,EJ,1975$/GJ,-6,relative-cost-logit

@@ -1,0 +1,4 @@
+# Global technologies for the natural gas sector,,,,
+supplysector,subsector,stub.technology,minicam.energy.input,coefficient
+regional natural gas,domestic natural gas,domestic natural gas,natural gas production,1
+regional natural gas,imported natural gas,imported natural gas,natural gas,1

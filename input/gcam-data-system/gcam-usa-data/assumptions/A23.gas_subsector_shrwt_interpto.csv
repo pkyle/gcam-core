@@ -1,0 +1,4 @@
+# subsector share-weights which need a to-value,,,,,,,
+region,supplysector,subsector,apply.to,from.year,to.year,to.value,interpolation.function
+USA,regional natural gas,imported natural gas,share-weight,2015,2050,0,linear
+USA,regional natural gas,imported natural gas,share-weight,2050,end-year,0,fixed

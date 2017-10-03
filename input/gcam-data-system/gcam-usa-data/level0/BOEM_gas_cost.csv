@@ -1,0 +1,63 @@
+# Offshore natural gas supply curves from BOEM,,
+# Prices are 2005$/thous-cf; quantities are tcf,,
+region,price,quantity
+Alaska OCS,1.42,0
+Alaska OCS,2.15,5.6
+Alaska OCS,2.88,15.6
+Alaska OCS,3.59,34
+Alaska OCS,4.29,54.6
+Alaska OCS,5,67.2
+Alaska OCS,5.7,77.2
+Alaska OCS,6.43,85
+Alaska OCS,7.16,91.2
+Alaska OCS,7.86,96.2
+Alaska OCS,8.56,100
+Alaska OCS,9.95,106.2
+Alaska OCS,11.42,110.2
+Alaska OCS,12.84,113.2
+Alaska OCS,14.3,115.2
+Atlantic OCS,1.42,11.83
+Atlantic OCS,2.15,15
+Atlantic OCS,2.88,16.72
+Atlantic OCS,3.59,17.89
+Atlantic OCS,4.29,18.89
+Atlantic OCS,5,19.72
+Atlantic OCS,5.7,20.27
+Atlantic OCS,6.43,20.67
+Atlantic OCS,7.16,21.06
+Atlantic OCS,7.86,21.27
+Atlantic OCS,8.56,21.67
+Atlantic OCS,9.95,22.22
+Atlantic OCS,11.42,22.72
+Atlantic OCS,12.84,23.17
+Atlantic OCS,14.3,23.67
+Gulf of Mexico OCS,1.42,114.29
+Gulf of Mexico OCS,2.15,136.43
+Gulf of Mexico OCS,2.88,151.07
+Gulf of Mexico OCS,3.59,160.71
+Gulf of Mexico OCS,4.29,167.86
+Gulf of Mexico OCS,5,173.21
+Gulf of Mexico OCS,5.7,176.07
+Gulf of Mexico OCS,6.43,178.57
+Gulf of Mexico OCS,7.16,180.36
+Gulf of Mexico OCS,7.86,181.79
+Gulf of Mexico OCS,8.56,183.93
+Gulf of Mexico OCS,9.95,185.71
+Gulf of Mexico OCS,11.42,187.5
+Gulf of Mexico OCS,12.84,188.57
+Gulf of Mexico OCS,14.3,190
+Pacific OCS,1.42,4.32
+Pacific OCS,2.15,6.65
+Pacific OCS,2.88,8.25
+Pacific OCS,3.59,9.39
+Pacific OCS,4.29,10.19
+Pacific OCS,5,10.77
+Pacific OCS,5.7,11.05
+Pacific OCS,6.43,11.33
+Pacific OCS,7.16,11.49
+Pacific OCS,7.86,11.66
+Pacific OCS,8.56,11.82
+Pacific OCS,9.95,12.1
+Pacific OCS,11.42,12.3
+Pacific OCS,12.84,12.46
+Pacific OCS,14.3,12.6

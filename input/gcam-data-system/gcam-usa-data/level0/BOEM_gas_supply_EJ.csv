@@ -1,0 +1,7 @@
+# Federal offshore gas supply from BOEM
+# Units are in EJ
+region,grade.1,grade.2,grade.3
+Alaska OCS,0,43.91666667,77.7962963
+Atlantic OCS,0,10.28703704,18.67592593
+Gulf of Mexico OCS,66.03703704,179.6203704,23.58333333
+Pacific OCS,1.166666667,9.361111111,5.546296296

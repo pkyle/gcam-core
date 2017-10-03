@@ -1,0 +1,9 @@
+# State natural gas interpolation rules,,,,,,,
+supplysector,subsector,apply.to,from.year,to.year,to.value,interpolation.function,traded
+natural gas production,coalbed methane,share-weight,final-calibration-year,end-year,,fixed,0
+natural gas production,conventional gas,share-weight,final-calibration-year,end-year,,fixed,0
+natural gas production,shale gas,share-weight,final-calibration-year,end-year,,fixed,0
+natural gas production,tight gas,share-weight,final-calibration-year,end-year,,fixed,0
+natural gas production,offshore gas,share-weight,final-calibration-year,end-year,,fixed,0
+natural gas production,unconventional gas other,share-weight,final-calibration-year,2050,,linear,0
+natural gas production,unconventional gas other,share-weight,2050,end-year,,fixed,0

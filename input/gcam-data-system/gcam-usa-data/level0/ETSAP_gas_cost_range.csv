@@ -1,0 +1,8 @@
+# Estimates for natural gas production costs by grade
+# Data from ETSAP brief; TODO: track down to original source
+# Units: 2008$/GJ
+type,low_cost,high_cost
+conventional gas,2,5.7
+coalbed methane,3.8,7.6
+shale gas,3.8,8.6
+tight gas,2.6,7.6

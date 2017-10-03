@@ -1,0 +1,5 @@
+# subsector shareweights at points of inflexion,,,,
+region,supplysector,subsector,year,share-weight
+USA,regional natural gas,imported natural gas,2015,0.1
+USA,regional natural gas,imported natural gas,2050,0
+USA,regional natural gas,imported natural gas,end-year,0

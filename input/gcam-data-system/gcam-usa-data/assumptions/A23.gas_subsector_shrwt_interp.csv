@@ -1,0 +1,3 @@
+# subsector shareweights for subsectors that are fixed at calibration values,,,,,,
+region,supplysector,subsector,apply-to,from-year,to-year,interpolation-function
+USA,regional natural gas,domestic natural gas,share-weight,final-calibration-year,end-year,fixed
