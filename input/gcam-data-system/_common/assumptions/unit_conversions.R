@@ -50,6 +50,7 @@ conv_Pcal_Mcal <- 1e9
 #volume conversions
 conv_m3_bm3 <- 1e-9
 conv_Mm3_km3 <- 1e-3
+conv_bcm_bcf <- 35.3147
 
 #area conversions
 conv_Ha_bm2 <- 1e-5
@@ -86,9 +87,25 @@ conv_MWh_GJ <- 3.6
 conv_MJ_btu <- 947.777
 conv_EJ_GJ <- 1e9
 conv_btu_kJ <- 1.0551
+conv_mtoe_EJ <- 0.04187
+conv_ft3_btu_gas <- 983
+conv_btu_EJ <- conv_btu_kJ*1e-15
+
+#convert volume of natural gas into energy
+conv_MMcf_EJ <- 0.0000010550559
 
 #from billion barrels a day to EJ per year
 conv_bbld_EJyr <- 6.119 * 365.25 * 1e-3
 
 conv_Tbtu_EJ <- 0.0010551         #trillion btu to EJ
 conv_kbtu_EJ <- 1.0551e-12        #thousand btu to EJ
+
+#from volume natural gas to EJ
+conv_bcm_EJ <- .03662134
+conv_bcf_EJ <- 0.001037
+
+#from MMcf natural gas to bcm 
+conv_MMcf_bcm <- conv_ft2_m2 * 0.3048 / 1000
+
+#from MT LNG to bcf natural gas
+conv_MT_bcf_LNG <- 45.909

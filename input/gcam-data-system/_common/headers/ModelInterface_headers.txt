@@ -98,6 +98,8 @@ SmthRenewRsrcTechChange, world/+{name}region, region/+{name}renewresource, renew
 
 DeleteDepRsrc, world/+{name}region, region/+{name; delete=1}depresource, scenario, scenario/world
 
+DeleteSubRsrc, world/+{name}region, region/+{name}depresource, depresource /+{name; delete=1}subresource, scenario, scenario/world
+
 DeleteRenewRsrc, world/+{name}region, region /+{name; delete=1}renewresource, scenario, scenario/world
 
 DeleteUnlimitRsrc, world/+{name}region, region/+{name; delete=1}unlimited-resource, scenario, scenario/world

@@ -1,0 +1,9 @@
+# Source: U.S. Energy Information Administration,,,,,,,,,,,,,,,,,,,
+# Net generation for conventional hydroelectric (thousand megawatthours),,,,,,,,,,,,,,,,,,,
+"# https://www.eia.gov/electricity/data/browser/#/topic/0?agg=1,0,2&fuel=04&geo=000000000004&sec=90k&linechart=ELEC.GEN.HYC-CA-1.A&columnchart=ELEC.GEN.HYC-CA-1.A&map=ELEC.GEN.HYC-CA-1.A&freq=A&ctype=linechart&ltype=pin&rtype=s&maptype=0&rse=0&pin=",,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+state,sector,units,source key,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016
+CA,electric utility,thousand megawatthours,ELEC.GEN.HYC-CA-1.A,24818,30237,35783,33609,38827,47127,26927,22871,26407,31947,40157,25548,22657,15830,13245,27477
+CA,independent power producers,thousand megawatthours,ELEC.GEN.HYC-CA-94.A,724,904,587,532,800,913,388,1257,1481,1477,2396,1286,1093,697,560,1444
+CA,commercial non-cogen,thousand megawatthours,ELEC.GEN.HYC-CA-4.A,--,--,0,0,0,2,0,0,0,2,2,0,3,3,3,NM
+CA,residential,thousand megawatthours,ELEC.GEN.HYC-CA-8.A,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,-- 
