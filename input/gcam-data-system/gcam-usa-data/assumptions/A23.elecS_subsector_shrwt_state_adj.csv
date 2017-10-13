@@ -1,0 +1,10 @@
+# subsector shareweights at points of inflexion - adjusting values for particular states ,,,,
+region,supplysector,subsector,year,share-weight
+CA,base load generation,nuclear,2015,0
+CA,intermediate generation,nuclear,2015,0
+CA,subpeak generation,nuclear,2015,0
+CA,peak generation,nuclear,2015,0
+CA,base load generation,nuclear,end-year,0
+CA,intermediate generation,nuclear,end-year,0
+CA,subpeak generation,nuclear,end-year,0
+CA,peak generation,nuclear,end-year,0

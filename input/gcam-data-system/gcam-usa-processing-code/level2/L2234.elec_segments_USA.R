@@ -43,6 +43,8 @@ A23.elecS_inttech_associations <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_in
 A23.elecS_tech_availability <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_tech_availability" )
 A23.elecS_globaltech_non_energy_inputs <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_globaltech_non_energy_inputs" )
 A23.elecS_stubtech_energy_inputs <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_stubtech_energy_inputs" )
+A23.elecS_subsector_shrwt_state_adj <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_subsector_shrwt_state_adj" )
+A23.elecS_subsector_shrwt_interpto_state_adj <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_subsector_shrwt_interpto_state_adj" )
 
 NREL_us_re_technical_potential <- readdata( "GCAMUSA_LEVEL0_DATA", "NREL_us_re_technical_potential" ) 
 
@@ -455,9 +457,25 @@ L2234.SubsectorShrwtInterpTo_elecS_USA %>%
   mutate(to.value = if_else(subsector.cal.value == 0, 0, to.value)) %>%
   select(region, supplysector, subsector, apply.to, from.year, to.year, to.value, interpolation.function) ->  L2234.SubsectorShrwtInterpTo_elecS_USA
 
+# State-specific adjustments to electricity generation subsector shareweights
+A23.elecS_subsector_shrwt_state_adj %>%
+  mutate(year = as.character(set_years(year))) -> A23.elecS_subsector_shrwt_state_adj
+
+L2234.SubsectorShrwt_elecS_USA %>%
+  anti_join(A23.elecS_subsector_shrwt_state_adj, by = c("region", "supplysector", "subsector")) %>%
+  bind_rows(A23.elecS_subsector_shrwt_state_adj) %>%
+  arrange(region, subsector, year, supplysector) -> L2234.SubsectorShrwt_elecS_USA
+
+A23.elecS_subsector_shrwt_interpto_state_adj %>%
+  mutate(from.year = as.character(set_years(from.year))) %>%
+  mutate(to.year = as.character(set_years(to.year))) -> A23.elecS_subsector_shrwt_interpto_state_adj
+
+L2234.SubsectorShrwtInterpTo_elecS_USA %>% 
+  anti_join(A23.elecS_subsector_shrwt_interpto_state_adj, by = c("region", "supplysector", "subsector")) %>%
+  bind_rows(A23.elecS_subsector_shrwt_interpto_state_adj) %>%
+  arrange(region, subsector, from.year, supplysector) -> L2234.SubsectorShrwtInterpTo_elecS_USA
 
 # Get the L2234.StubTechProd_elecS_USA in the right form without subsector.cal.value
-  
 L2234.StubTechProd_elecS_USA %>%
   select(region, supplysector, subsector, stub.technology, year, calOutputValue, share.weight.year,
          subs.share.weight, share.weight) -> L2234.StubTechProd_elecS_USA
