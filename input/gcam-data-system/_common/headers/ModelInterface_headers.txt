@@ -608,4 +608,16 @@ TrnInputEmissCoeff, world/+{name}region, region/+{name;nocreate=1}supplysector, 
 
 LinearCtrlInc, world/+{name}region, region/+{name;nocreate=1}supplysector, supplysector/+{name;nocreate=1}tranSubsector, tranSubsector/+{name;nocreate=1}stub-technology, stub-technology/+{year}period, period/+{name}Non-CO2, Non-CO2/+{name}linear-control, linear-control/+start-year, linear-control/+end-year, linear-control/+final-emissions-coefficient, linear-control/allow-ef-increase, scenario, scenario/world
 
+#####, water supply
+
+UnlimitedWaterSupply, world/+{name}region, region/+{name}unlimited-resource, unlimited-resource/+output-unit,unlimited-resource/+price-unit, unlimited-resource/+market,unlimited-resource/+capacity-factor,unlimited-resource/+{year}price, unlimited-resource/+price, scenario,scenario/world
+
 EQUIV_TABLE,NODE_EQUIVALENCE
+
+#####, primary energy water use
+
+PrimaryEnergyWater, world/+{name}region, region/+{name}supplysector, supplysector/+{name}subsector, subsector/+{name}technology, technology/+{year}period, period/+{name}minicam-energy-input, minicam-energy-input/+coefficient, minicam-energy-input/+market-name, scenario, scenario/world
+
+#####, industry water use
+
+IndustryWater, world/+{name;nocreate=1}region, region/+{name;nocreate=1}supplysector, supplysector/+{name;nocreate=1}subsector, subsector/+{name;nocreate=1}technology, technology/+{year}period, period/+{name}minicam-energy-input, minicam-energy-input/+coefficient, scenario, scenario/world

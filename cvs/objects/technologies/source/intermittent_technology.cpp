@@ -596,8 +596,8 @@ void IntermittentTechnology::initializeInputLocations( const string& aRegionName
                 // There already was a resource input.
                 ILogger& mainLog = ILogger::getLogger( "main_log" );
                 mainLog.setLevel( ILogger::NOTICE );
-                mainLog << "Intermittent technology " << mName << " in sector " << aSectorName
-                        << " in region " << aRegionName << " has more than one variable resource input." << endl;
+          //      mainLog << "Intermittent technology " << mName << " in sector " << aSectorName
+          //              << " in region " << aRegionName << " has more than one variable resource input." << endl;
             }
             else {
                 mResourceInput = i;

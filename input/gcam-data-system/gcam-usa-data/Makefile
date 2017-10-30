@@ -17,9 +17,14 @@ L1ALOGS	  = $(patsubst %.R,%.R.log,$(subst /level1/,/logs/,$(L1ASCRIPTS)))
 L1BSCRIPTS = $(sort $(wildcard $(GCAMUSAPROC)/level1/LB*.R))
 L1BLOGS	  = $(patsubst %.R,%.R.log,$(subst /level1/,/logs/,$(L1BSCRIPTS)))
 
-
-L2SCRIPTS = $(sort $(wildcard $(GCAMUSAPROC)/level2/*.R))
+L2SCRIPTS = $(sort $(wildcard $(GCAMUSAPROC)/level2/L2*.R))
 L2LOGS    = $(patsubst %.R,%.R.log,$(subst /level2/,/logs/,$(L2SCRIPTS)))
+
+L2ASCRIPTS = $(sort $(wildcard $(GCAMUSAPROC)/level2/LA*.R))
+L2ALOGS    = $(patsubst %.R,%.R.log,$(subst /level2/,/logs/,$(L2ASCRIPTS)))
+
+L2BSCRIPTS = $(sort $(wildcard $(GCAMUSAPROC)/level2/LB*.R))
+L2BLOGS    = $(patsubst %.R,%.R.log,$(subst /level2/,/logs/,$(L2BSCRIPTS)))
 
 LOGDEPS	  = $(wildcard $(GCAMUSAPROC)/logs/*.d)
 
@@ -28,7 +33,7 @@ XML_FILES = $(subst batch_,,$(subst $(GCAMUSAPROC)/xml-batch,$(GCAMUSAXML),$(XML
 
 include $(LOGDEPS)
 
-xml: level1A level1B level2
+xml: level1A level1B level2 level2A level2B
 	$(MAKE) XML_BATCH
 
 level1A: $(L1ALOGS)
@@ -36,6 +41,12 @@ level1A: $(L1ALOGS)
 level1B: $(L1BLOGS)
 
 level2: level1B $(L2LOGS)
+
+level2A: level1B $(L2ALOGS)
+
+level2B: level1B $(L2BLOGS)
+
+
 
 XML_BATCH: level2 $(XML_FILES)
 
@@ -51,6 +62,14 @@ $(GCAMUSAPROC)/logs/L2%.log: $(GCAMUSAPROC)/level2/L2%
 	@echo $?
 	$(RCMD) $< $(GCAMUSAPROC)/logs/L2.Rout
 
+$(GCAMUSAPROC)/logs/LA2%.log: $(GCAMUSAPROC)/level2/LA2%
+	@echo $?
+	$(RCMD) $< $(GCAMUSAPROC)/logs/L2A.Rout
+
+$(GCAMUSAPROC)/logs/LB2%.log: $(GCAMUSAPROC)/level2/LB2%
+	@echo $?
+	$(RCMD) $< $(GCAMUSAPROC)/logs/L2B.Rout
+
 $(GCAMUSAXML)/%.xml: $(GCAMUSAPROC)/xml-batch/batch_%.xml
 	@echo $?
 	java -Xmx2g -jar $(COMMON)/ModelInterface/src/CSVToXML.jar $<
@@ -65,6 +84,10 @@ clean:
 level2clean:
 	-rm -f $(GCAMUSAPROC)/logs/L2*.log
 	-rm -f $(GCAMUSAPROC)/logs/L2*.d
+	-rm -f $(GCAMUSAPROC)/logs/LA2*.log
+	-rm -f $(GCAMUSAPROC)/logs/LA2*.d
+	-rm -f $(GCAMUSAPROC)/logs/LB2*.log
+	-rm -f $(GCAMUSAPROC)/logs/LB2*.d
 	-rm -f $(GCAMUSAPROC)/xml-batch/*.xml
 	-rm -f $(GCAMUSAXML)/*.xml
 
@@ -72,4 +95,6 @@ test:
 	echo 'deps:  ' $(L1DEPS)
 	echo 'logfiles:  ' $(L1LOGS)
 	echo 'l2logs:  ' $(L2LOGS)
+	echo 'l2Alogs:  ' $(L2ALOGS)
+	echo 'l2Blogs:  ' $(L2BLOGS)
 	echo 'xml files:  ' $(XML_FILES)
