@@ -1,5 +1,6 @@
 # Offshore natural gas supply curves from BOEM,,
 # Prices are 2005$/thous-cf; quantities are tcf,,
+"# Source:  Bureau of Ocean Energy Management 2010 Resource Assesment, https://www.boem.gov/Oil-and-Gas-Energy-Program/Resource-Evaluation/Resource-Assessment/Index.aspx",,
 region,price,quantity
 Alaska OCS,1.42,0
 Alaska OCS,2.15,5.6

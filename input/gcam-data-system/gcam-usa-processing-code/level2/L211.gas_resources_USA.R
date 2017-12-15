@@ -28,7 +28,7 @@ A23.gas_sector_vertical <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.gas_sector_vert
 L111.gas_supply_state_T_EJ <- readdata( "GCAMUSA_LEVEL1_DATA", "L111.gas_supply_state_T_EJ" )
 L111.gas_prod_state_T_Yh_EJ <- readdata( "GCAMUSA_LEVEL1_DATA", "L111.gas_prod_state_T_Yh_EJ" )
 ETSAP_gas_cost_range <- readdata( "GCAMUSA_LEVEL0_DATA", "ETSAP_gas_cost_range" )
-BOEM_gas_cost <- readdata( "GCAMUSA_LEVEL0_DATA", "BOEM_gas_cost" )
+BOEM_gas_cost <- readdata( "GCAMUSA_LEVEL0_DATA", "BOEM_gas_cost", skip = 3 )
 A10.TechChange <- readdata( "GCAMUSA_ASSUMPTIONS", "A10.TechChange" )
 A10.subsector_interp <- readdata( "GCAMUSA_ASSUMPTIONS", "A10.subsector_interp" )
 A10.subsector_shrwt <- readdata( "GCAMUSA_ASSUMPTIONS", "A10.subsector_shrwt" )
