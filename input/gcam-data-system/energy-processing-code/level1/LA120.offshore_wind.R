@@ -59,8 +59,7 @@ NREL_offshore_energy %>%
 printlog( "L120.offshore_wind_matrix: Creating a matrix of costs (1975$/GJ) and 
           cumulative resource potential (EJ) by region and wind_class" )
 
-A20.offshore_wind_depth_cap_cost %>%
-  select(depth_class, capital.overnight) -> L120.offshore_wind_capital
+L120.offshore_wind_capital <- A20.offshore_wind_depth_cap_cost
 
 A23.globaltech_capital %>%
   filter(technology == "wind_offshore") %>%
