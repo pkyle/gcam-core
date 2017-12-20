@@ -1,0 +1,5 @@
+# Depth-class specific input capital cost assumptions for offshore wind,,,,,,,,
+sector.name,subsector.name,intermittent.technology,depth_class,year,input.capital,capital.overnight,fixed.charge.rate,OM.fixed
+electricity,wind,wind_offshore,shallow,2010,capital,1039,0.13,38
+electricity,wind,wind_offshore,transitional,2010,capital,1116,0.13,38
+electricity,wind,wind_offshore,deep,2010,capital,1370,0.13,38

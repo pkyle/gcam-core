@@ -41,6 +41,8 @@ L115.RsrcCurves_EJ_R_roofPV <- readdata( "ENERGY_LEVEL1_DATA", "L115.RsrcCurves_
 L116.RsrcCurves_EJ_R_geo <- readdata( "ENERGY_LEVEL1_DATA", "L116.RsrcCurves_EJ_R_geo" )
 L116.RsrcCurves_EJ_R_EGS <- readdata( "ENERGY_LEVEL1_DATA", "L116.RsrcCurves_EJ_R_EGS" )
 L117.RsrcCurves_EJ_R_tradbio <- readdata( "ENERGY_LEVEL1_DATA", "L117.RsrcCurves_EJ_R_tradbio" )
+L120.RsrcCurves_EJ_R_offshore_wind <- readdata( "ENERGY_LEVEL1_DATA", "L120.RsrcCurves_EJ_R_offshore_wind" )
+L120.TechChange_offshore_wind <- readdata( "ENERGY_LEVEL1_DATA", "L120.TechChange_offshore_wind" )
 
 # -----------------------------------------------------------------------------
 # 2. Build tables for CSVs
@@ -205,6 +207,15 @@ L210.SmthRenewRsrcTechChange <- data.frame(
       year.fillout = substr( L210.renew_rsrc_TechChange.melt$variable, 2, 5 ),
       techChange = L210.renew_rsrc_TechChange.melt$value )
 
+printlog( "L210.SmthRenewRsrcTechChange_offshore_wind: technological change for offshore wind" )
+# Write tech change values to all regions
+L210.SmthRenewRsrcTechChange_offshore_wind <- write_to_all_regions(L120.TechChange_offshore_wind, c("region", "year","tech.change"))
+L210.SmthRenewRsrcTechChange_offshore_wind %>%
+  mutate(renewresource = "offshore wind resource", smooth.renewable.subresource = "offshore wind resource") %>%
+  select(region,renewresource, smooth.renewable.subresource, 
+         year.fillout = year, techChange = tech.change) -> L210.SmthRenewRsrcTechChange_offshore_wind
+
+
 # 2c. Calibrated production (depletable resources only)
 printlog( "L210.DepRsrcCalProd: calibrated production of depletable resources" )
 printlog( "NOTE: Assuming only one calibrated subresource per depletable resource" )
@@ -242,6 +253,10 @@ L210.SmthRenewRsrcCurvesGdpElast_MSW <- convert_rsrc_to_L2( L210.RsrcCurves_EJ_R
 printlog( "L210.SmthRenewRsrcCurves_wind: supply curves of wind resources")
 L210.RsrcCurves_EJ_R_wind <- add_region_name( L114.RsrcCurves_EJ_R_wind )
 L210.SmthRenewRsrcCurves_wind <- convert_rsrc_to_L2( L210.RsrcCurves_EJ_R_wind, "renewresource", "smooth-renewable-subresource" )
+
+printlog( "L210.SmthRenewRsrcCurves_offshore_wind: supply curves of offshore wind resources")
+L210.RsrcCurves_EJ_R_offshore_wind <- add_region_name( L120.RsrcCurves_EJ_R_offshore_wind )
+L210.SmthRenewRsrcCurves_offshore_wind <- convert_rsrc_to_L2( L210.RsrcCurves_EJ_R_offshore_wind, "renewresource", "smooth-renewable-subresource" )
 
 printlog( "L210.SmthRenewRsrcCurves_roofPV: supply curves of rooftop PV resources")
 L210.RsrcCurves_EJ_R_roofPV <- add_region_name( L115.RsrcCurves_EJ_R_roofPV )
@@ -285,11 +300,13 @@ write_mi_data( L210.RenewRsrcPrice, "RenewRsrcPrice", "ENERGY_LEVEL2_DATA", "L21
 write_mi_data( L210.UnlimitRsrcPrice, "UnlimitRsrcPrice", "ENERGY_LEVEL2_DATA", "L210.UnlimitRsrcPrice", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
 write_mi_data( L210.DepRsrcTechChange, "DepRsrcTechChange", "ENERGY_LEVEL2_DATA", "L210.DepRsrcTechChange", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
 write_mi_data( L210.SmthRenewRsrcTechChange, "SmthRenewRsrcTechChange", "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcTechChange", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
+write_mi_data( L210.SmthRenewRsrcTechChange_offshore_wind, "SmthRenewRsrcTechChange", "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcTechChange_offshore_wind", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
 write_mi_data( L210.DepRsrcCalProd, "DepRsrcCalProd", "ENERGY_LEVEL2_DATA", "L210.DepRsrcCalProd", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
 write_mi_data( L210.DepRsrcCurves_fos, "DepRsrcCurves", "ENERGY_LEVEL2_DATA", "L210.DepRsrcCurves_fos", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
 write_mi_data( L210.DepRsrcCurves_U, "DepRsrcCurves", "ENERGY_LEVEL2_DATA", "L210.DepRsrcCurves_U", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
 write_mi_data( L210.SmthRenewRsrcCurvesGdpElast_MSW, "SmthRenewRsrcCurvesGdpElast", "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcCurves_MSW", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
 write_mi_data( L210.SmthRenewRsrcCurves_wind, "SmthRenewRsrcCurves", "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcCurves_wind", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
+write_mi_data( L210.SmthRenewRsrcCurves_offshore_wind, "SmthRenewRsrcCurves", "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcCurves_offshore_wind", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
 write_mi_data( L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV, "SmthRenewRsrcCurvesGdpElast", "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
 write_mi_data( L210.GrdRenewRsrcCurves_geo, "GrdRenewRsrcCurves", "ENERGY_LEVEL2_DATA", "L210.GrdRenewRsrcCurves_geo", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
 write_mi_data( L210.GrdRenewRsrcMax_geo, "GrdRenewRsrcMax", "ENERGY_LEVEL2_DATA", "L210.GrdRenewRsrcMax_geo", "ENERGY_XML_BATCH", "batch_resources.xml" ) 

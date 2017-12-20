@@ -51,6 +51,8 @@ A23.globaltech_co2capture <- readdata( "ENERGY_ASSUMPTIONS", "A23.globaltech_co2
 L114.RsrcCurves_EJ_R_wind <- readdata( "ENERGY_LEVEL1_DATA", "L114.RsrcCurves_EJ_R_wind" )
 L118.out_EJ_R_elec_hydro_Yfut <- readdata( "ENERGY_LEVEL1_DATA", "L118.out_EJ_R_elec_hydro_Yfut" )
 L119.Irradiance_rel_R <- readdata( "ENERGY_LEVEL1_DATA", "L119.Irradiance_rel_R" )
+L120.GridCost_offshore_wind  <- readdata( "ENERGY_LEVEL1_DATA", "L120.GridCost_offshore_wind" )
+L120.RegCapFactor_offshore_wind  <- readdata( "ENERGY_LEVEL1_DATA", "L120.RegCapFactor_offshore_wind" )
 L1231.in_EJ_R_elec_F_tech_Yh <- readdata( "ENERGY_LEVEL1_DATA", "L1231.in_EJ_R_elec_F_tech_Yh" )
 L1231.out_EJ_R_elec_F_tech_Yh <- readdata( "ENERGY_LEVEL1_DATA", "L1231.out_EJ_R_elec_F_tech_Yh" )
 L1231.eff_R_elec_F_tech_Yh <- readdata( "ENERGY_LEVEL1_DATA", "L1231.eff_R_elec_F_tech_Yh" )
@@ -385,7 +387,7 @@ L223.StubTechProd_elec <- L223.calout_EJ_R_elec_F_tech_Yh[ names_StubTechYr ]
 L223.StubTechProd_elec$calOutputValue <- round( L223.calout_EJ_R_elec_F_tech_Yh$value, digits_calOutput )
 L223.StubTechProd_elec$share.weight.year <- L223.StubTechProd_elec$year
 L223.StubTechProd_elec <- set_subsector_shrwt( L223.StubTechProd_elec, value.name="calOutputValue" )
-L223.StubTechProd_elec$share.weight <- ifelse( L223.StubTechProd_elec$calOutputValue > 0, 1, 0 )
+L223.StubTechProd_elec$share.weight <- ifelse( L223.StubTechProd_elec$calOutputValue > 0, 1, 0 ) 
 
 printlog( "L223.StubTechEff_elec: calibrated efficiencies of electricity generation technologies" )
 printlog( "NOTE: Electric sector efficiencies are assumed to apply for all historical years, regardless of final calibration year" )
@@ -462,6 +464,39 @@ L223.StubTechCapFactor_solar <- repeat_and_add_vector( L223.StubTechCapFactor_so
 L223.StubTechCapFactor_elec <- rbind( L223.StubTechCapFactor_elec,
     L223.StubTechCapFactor_solar[, names( L223.StubTechCapFactor_elec ) ] )
 
+# Adding offshore wind capacity factors
+L223.StubTechCapFactor_elec %>%
+  filter(stub.technology == "wind") %>%
+  mutate(stub.technology = "wind_offshore") %>%
+  left_join(L120.RegCapFactor_offshore_wind %>%
+              add_region_name(),
+            by = c("region")) %>%
+  mutate(capacity.factor.capital = round(CFmax,5), capacity.factor.OM = round(CFmax,5)) %>%
+  select(region, supplysector, subsector, stub.technology, year, input.capital, 
+         capacity.factor.capital, input.OM.fixed, capacity.factor.OM) -> L223.StubTechCapFactor_elec_offshore_wind
+
+L223.StubTechCapFactor_elec %>%
+  bind_rows(L223.StubTechCapFactor_elec_offshore_wind) -> L223.StubTechCapFactor_elec
+
+
+printlog( "L223.StubTechCost_offshore_wind: Regional non-energy cost adder for offshore wind grid connection cost" )
+
+gcam_regions <- unique(GCAM_region_names$region)
+
+A23.globaltech_capital %>%
+  filter(technology == "wind_offshore") %>%
+  select(supplysector, subsector, technology) %>%
+  repeat_and_add_vector('year', model_years) %>%
+  repeat_and_add_vector('region', gcam_regions) %>% 
+  mutate(minicam.energy.input = "regional price adjustment") %>%
+  left_join(L120.GridCost_offshore_wind %>%
+              add_region_name(), 
+            by = c("region")) %>%
+  rename (input.cost = grid.cost) %>%
+  filter(is.na(input.cost) == "FALSE") %>%
+  select(region, supplysector, subsector, stub.technology = technology, 
+         year, minicam.energy.input, input.cost) -> L223.StubTechCost_offshore_wind
+
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
 for( curr_table in names ( L223.SectorLogitTables) ) {
@@ -511,6 +546,7 @@ write_mi_data( L223.AvgFossilEffKeyword_elec, "AvgFossilEffKeyword", "ENERGY_LEV
 write_mi_data( L223.GlobalTechCapture_elec, "GlobalTechCapture", "ENERGY_LEVEL2_DATA", "L223.GlobalTechCapture_elec", "ENERGY_XML_BATCH", "batch_electricity.xml" )
 write_mi_data( L223.GlobalIntTechBackup_elec, "GlobalIntTechBackup", "ENERGY_LEVEL2_DATA", "L223.GlobalIntTechBackup_elec", "ENERGY_XML_BATCH", "batch_electricity.xml" )
 write_mi_data( L223.StubTechCapFactor_elec, "StubTechCapFactor", "ENERGY_LEVEL2_DATA", "L223.StubTechCapFactor_elec", "ENERGY_XML_BATCH", "batch_electricity.xml" )
+write_mi_data( L223.StubTechCost_offshore_wind, "StubTechCost", "ENERGY_LEVEL2_DATA", "L223.StubTechCost_offshore_wind", "ENERGY_XML_BATCH", "batch_electricity.xml" )
 if( exists( "L223.GlobalTechShutdown_elec" ) ) {
 	write_mi_data( L223.GlobalTechShutdown_elec, "GlobalTechShutdown", "ENERGY_LEVEL2_DATA", "L223.GlobalTechShutdown_elec",
 	               "ENERGY_XML_BATCH", "batch_electricity.xml" )
