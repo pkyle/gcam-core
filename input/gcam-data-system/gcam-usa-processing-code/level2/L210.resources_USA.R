@@ -37,9 +37,12 @@ L210.SmthRenewRsrcCurves_wind <- readdata( "ENERGY_LEVEL2_DATA", "L210.SmthRenew
 L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV <- readdata( "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV", skip = 4 )
 L210.GrdRenewRsrcCurves_geo <- readdata( "ENERGY_LEVEL2_DATA", "L210.GrdRenewRsrcCurves_geo", skip = 4 )
 L210.GrdRenewRsrcMax_geo <- readdata( "ENERGY_LEVEL2_DATA", "L210.GrdRenewRsrcMax_geo", skip = 4 )
+L210.SmthRenewRsrcTechChange_offshore_wind <- readdata( "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcTechChange_offshore_wind", skip = 4 )
+L120.RsrcCurves_EJ_R_offshore_wind_USA <- readdata( "GCAMUSA_LEVEL1_DATA", "L120.RsrcCurves_EJ_R_offshore_wind_USA", skip = 5  )
 
 # -----------------------------------------------------------------------------
 cement_states <- unique( L1321.out_Mt_state_cement_Yh$state )
+offshore_wind_states <- unique(L120.RsrcCurves_EJ_R_offshore_wind_USA$region)
 
 # 2. Perform computations
 printlog( "NOTE: geothermal resource is not created in the states considered to have zero hydrothermal production available" )
@@ -67,6 +70,12 @@ L210.RenewRsrc_USA <- write_to_all_states( subset( L210.RenewRsrc,
 L210.RenewRsrc_USA$market <- L210.RenewRsrc_USA$region
 #Drop geothermal in states where no resources exist
 L210.RenewRsrc_USA <- subset( L210.RenewRsrc_USA, !paste( region, renewresource ) %in% geo_states_noresource )
+# Remove offshore wind in states with no resource
+L210.RenewRsrc_USA %>%
+  filter(renewresource != "offshore wind resource") %>%
+  bind_rows(L210.RenewRsrc_USA %>%
+              filter(renewresource == "offshore wind resource", 
+                     region %in% offshore_wind_states)) -> L210.RenewRsrc_USA
 
 printlog( "L210.UnlimitRsrc_USA: unlimited resource info in the states" )
 L210.UnlimitRsrc_USA <- write_to_all_states( subset( L210.UnlimitRsrc,
@@ -86,6 +95,12 @@ L210.SmthRenewRsrcTechChange_USA <- write_to_all_states( subset( L210.SmthRenewR
 #If geothermal is included in this table, remove states that don't exist
 L210.SmthRenewRsrcTechChange_USA <- subset( L210.SmthRenewRsrcTechChange_USA, !paste( region, renewresource ) %in% geo_states_noresource )
 
+printlog( "L210.SmthRenewRsrcTechChange_offshore_wind_USA: technological change for offshore wind" )
+L210.SmthRenewRsrcTechChange_offshore_wind_USA <- write_to_all_states(L210.SmthRenewRsrcTechChange_offshore_wind %>% 
+                                                                        filter(region == "USA"),
+                                                                      names_SmthRenewRsrcTechChange ) %>% 
+  filter(region %in% offshore_wind_states)
+
 printlog( "L210.SmthRenewRsrcCurves_wind_USA: wind resource curves in the states" )
 # Convert us_state_wind units from 2007$/kWh to 1975$/GJ
 us_state_wind$mid_price_75USDGJ <- us_state_wind$mid_price_2007USDkwh * conv_2007_1975_USD / conv_kwh_GJ
@@ -94,6 +109,9 @@ L210.SmthRenewRsrcCurves_wind_USA <- repeat_and_add_vector(
 L210.SmthRenewRsrcCurves_wind_USA[ c( "maxSubResource", "mid.price", "curve.exponent" ) ] <- us_state_wind[
       match( L210.SmthRenewRsrcCurves_wind_USA$region, us_state_wind$region ),
       c( "maxResource", "mid_price_75USDGJ", "curve_exponent" ) ]
+
+printlog( "L210.SmthRenewRsrcCurves_offshore_wind: supply curves of offshore wind resources in the states")
+L210.SmthRenewRsrcCurves_offshore_wind_USA <- L120.RsrcCurves_EJ_R_offshore_wind_USA
 
 printlog( "L210.GrdRenewRsrcCurves_geo_USA: geothermal resource curves in the states" )
 L210.GrdRenewRsrcCurves_geo_USA <- subset( L210.GrdRenewRsrcCurves_geo, region == "USA" )
@@ -151,11 +169,12 @@ write_mi_data( L210.RenewRsrc_USA, "RenewRsrc", "GCAMUSA_LEVEL2_DATA", "L210.Ren
 write_mi_data( L210.UnlimitRsrc_USA, "UnlimitRsrc", "GCAMUSA_LEVEL2_DATA", "L210.UnlimitRsrc_USA", "GCAMUSA_XML_BATCH", "batch_resources_USA.xml" )
 write_mi_data( L210.UnlimitRsrcPrice_USA, "UnlimitRsrcPrice", "GCAMUSA_LEVEL2_DATA", "L210.UnlimitRsrcPrice_USA", "GCAMUSA_XML_BATCH", "batch_resources_USA.xml" )
 write_mi_data( L210.SmthRenewRsrcTechChange_USA, "SmthRenewRsrcTechChange", "GCAMUSA_LEVEL2_DATA", "L210.SmthRenewRsrcTechChange_USA", "GCAMUSA_XML_BATCH", "batch_resources_USA.xml" )
+write_mi_data( L210.SmthRenewRsrcTechChange_offshore_wind_USA, "SmthRenewRsrcTechChange", "GCAMUSA_LEVEL2_DATA", "L210.SmthRenewRsrcTechChange_offshore_wind_USA", "GCAMUSA_XML_BATCH", "batch_resources_USA.xml" )
 write_mi_data( L210.SmthRenewRsrcCurves_wind_USA, "SmthRenewRsrcCurves", "GCAMUSA_LEVEL2_DATA", "L210.SmthRenewRsrcCurves_wind_USA", "GCAMUSA_XML_BATCH", "batch_resources_USA.xml" )
+write_mi_data( L210.SmthRenewRsrcCurves_offshore_wind_USA, "SmthRenewRsrcCurves", "GCAMUSA_LEVEL2_DATA", "L210.SmthRenewRsrcCurves_offshore_wind_USA", "GCAMUSA_XML_BATCH", "batch_resources_USA.xml" )
 write_mi_data( L210.GrdRenewRsrcCurves_geo_USA, "GrdRenewRsrcCurves", "GCAMUSA_LEVEL2_DATA", "L210.GrdRenewRsrcCurves_geo_USA", "GCAMUSA_XML_BATCH", "batch_resources_USA.xml" )
 write_mi_data( L210.GrdRenewRsrcMax_geo_USA, "GrdRenewRsrcMax", "GCAMUSA_LEVEL2_DATA", "L210.GrdRenewRsrcMax_geo_USA", "GCAMUSA_XML_BATCH", "batch_resources_USA.xml" )
-write_mi_data( L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV_USA, "SmthRenewRsrcCurvesGdpElast", "GCAMUSA_LEVEL2_DATA",
-              "L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV_USA", "GCAMUSA_XML_BATCH", "batch_resources_USA.xml" )
+write_mi_data( L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV_USA, "SmthRenewRsrcCurvesGdpElast", "GCAMUSA_LEVEL2_DATA", "L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV_USA", "GCAMUSA_XML_BATCH", "batch_resources_USA.xml" )
 
 write_mi_data( L210.DeleteUnlimitRsrc_USAlimestone, "DeleteUnlimitRsrc", "GCAMUSA_LEVEL2_DATA", "L210.DeleteUnlimitRsrc_USAlimestone", "GCAMUSA_XML_BATCH", "batch_cement_USA.xml" )
 write_mi_data( L210.UnlimitRsrc_limestone_USA, "UnlimitRsrc", "GCAMUSA_LEVEL2_DATA", "L210.UnlimitRsrc_limestone_USA", "GCAMUSA_XML_BATCH", "batch_cement_USA.xml" )

@@ -99,7 +99,7 @@ grid_region_logit <- -6
 grid_region_logit_type <- "relative-cost-logit"
 
 #Resources that will be modeled at the state level
-state_renewable_resources <- c( "distributed_solar", "geothermal", "onshore wind resource" )
+state_renewable_resources <- c( "distributed_solar", "geothermal", "onshore wind resource", "offshore wind resource" )
 state_unlimited_resources <- c( "global solar resource", "limestone" )
 geothermal_default_efficiency <- 0.1
 

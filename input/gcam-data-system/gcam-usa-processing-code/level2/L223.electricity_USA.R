@@ -47,6 +47,9 @@ L1231.in_EJ_state_elec_F_tech <- readdata( "GCAMUSA_LEVEL1_DATA", "L1231.in_EJ_s
 L1231.out_EJ_state_elec_F_tech <- readdata( "GCAMUSA_LEVEL1_DATA", "L1231.out_EJ_state_elec_F_tech" )
 L1232.out_EJ_sR_elec <- readdata( "GCAMUSA_LEVEL1_DATA", "L1232.out_EJ_sR_elec" )
 L126.out_EJ_state_td_elec <- readdata( "GCAMUSA_LEVEL1_DATA", "L126.out_EJ_state_td_elec" )
+L120.RsrcCurves_EJ_R_offshore_wind_USA <- readdata( "GCAMUSA_LEVEL1_DATA", "L120.RsrcCurves_EJ_R_offshore_wind_USA", skip = 5  )
+L120.RegCapFactor_offshore_wind_USA <- readdata( "GCAMUSA_LEVEL1_DATA", "L120.RegCapFactor_offshore_wind_USA", skip = 5  )
+L120.GridCost_offshore_wind_USA <- readdata( "GCAMUSA_LEVEL1_DATA", "L120.GridCost_offshore_wind_USA", skip = 5  )
 
 # -----------------------------------------------------------------------------
 # 2. Perform computations
@@ -270,8 +273,6 @@ L223.tables <- c( read_logit_fn_tables( "ENERGY_LEVEL2_DATA", "L223.Supplysector
                   L223.tables )
 
 
-
-
 for( i in 1:length( L223.tables ) ){
   if( !is.null( L223.tables[[i]] ) ){
     objectname <- paste0( names( L223.tables[i] ), "_USA" )
@@ -324,7 +325,29 @@ for( i in 1:length( L223.tables ) ){
       object<-rbind(object,Shrwt_States)
 
     }
-    
+
+    if(objectname == "L223.StubTech_elec_USA"){
+      # Remove states with no offshore wind resources
+      offshore_wind_states <- unique(L120.RsrcCurves_EJ_R_offshore_wind_USA$region)
+      object %>%
+        filter(stub.technology != "wind_offshore") %>%
+        bind_rows(object %>%
+                    filter(stub.technology == "wind_offshore", 
+                           region %in% offshore_wind_states)) -> object
+      
+    }
+
+    if(objectname == "L223.StubTechCapFactor_elec_USA"){
+      # Remove states with no offshore wind resources
+      offshore_wind_states <- unique(L120.RsrcCurves_EJ_R_offshore_wind_USA$region)
+      object %>%
+        filter(stub.technology != "wind_offshore") %>%
+        bind_rows(object %>%
+                    filter(stub.technology == "wind_offshore", 
+                           region %in% offshore_wind_states)) -> object
+      
+    }
+
     #Read assumption files and write to all states (fossil and renewables)
     if(objectname=="L223.SubsectorInterp_elec_USA"){
       Fossil_Interp <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.fossil_shrwt_function" , skip = 4, must.exist = F )
@@ -367,7 +390,6 @@ for( i in 1:length( L223.tables ) ){
       
       object<-rbind(object,Nuc_state)
     }
-    
     
     if(objectname=="L223.SubsectorInterpTo_elec_USA"){
       
@@ -414,7 +436,6 @@ for( i in 1:length( L223.tables ) ){
     write_mi_data( object, IDstring, "GCAMUSA_LEVEL2_DATA", objectname, "GCAMUSA_XML_BATCH", "batch_electricity_USA.xml" )
   }
 }
-
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -498,7 +519,7 @@ L223.StubTechProd_elec_USA$share.weight.year <- L223.StubTechProd_elec_USA$year
 L223.StubTechProd_elec_USA <- set_subsector_shrwt( L223.StubTechProd_elec_USA, value.name="calOutputValue" )
 L223.StubTechProd_elec_USA$share.weight <- ifelse( L223.StubTechProd_elec_USA$calOutputValue > 0, 1, 0 )
 L223.StubTechProd_elec_USA <- subset( L223.StubTechProd_elec_USA, !paste( region, subsector ) %in% geo_states_noresource )
-#Coal is calibrated as input via the dispatcher in 2010 so remove these rows
+# Coal is calibrated as input via the dispatcher in 2010 so remove these rows
 if(use_coal_gas_dispatcher == TRUE){
   L223.StubTechProd_elec_USA <-   filter(L223.StubTechProd_elec_USA,
                                          !(year == 2010 & stub.technology == "coal (conv pul)"))
@@ -520,6 +541,13 @@ if( use_regional_fuel_markets ){
     match( L223.StubTechMarket_elec_USA$region[ L223.StubTechMarket_elec_USA[[input]] %in% regional_fuel_markets ],
            states_subregions$state ) ]
 }
+# Removing states with no offshore wind resource
+# offshore_wind_states <- unique(L120.RsrcCurves_EJ_R_offshore_wind_USA$region)
+L223.StubTechMarket_elec_USA %>%
+  filter(stub.technology != "wind_offshore") %>%
+  bind_rows(L223.StubTechMarket_elec_USA %>%
+              filter(stub.technology == "wind_offshore", 
+                     region %in% offshore_wind_states)) -> L223.StubTechMarket_elec_USA
 
 printlog( "L223.StubTechMarket_backup_USA: market names of backup inputs to state electricity sectors" )
 L223.GlobalIntTechBackup_elec[ c( supp, subs ) ] <- L223.GlobalIntTechBackup_elec[ c( "sector.name", "subsector.name" ) ]
@@ -527,6 +555,12 @@ L223.StubTechMarket_backup_USA <- repeat_and_add_vector( L223.GlobalIntTechBacku
 L223.StubTechMarket_backup_USA$market.name <- "USA"
 L223.StubTechMarket_backup_USA$stub.technology <- L223.StubTechMarket_backup_USA$technology
 L223.StubTechMarket_backup_USA <- L223.StubTechMarket_backup_USA[ names_StubTechMarket ]
+# Removing states with no offshore wind resource
+L223.StubTechMarket_backup_USA %>%
+  filter(stub.technology != "wind_offshore") %>%
+  bind_rows(L223.StubTechMarket_backup_USA %>%
+              filter(stub.technology == "wind_offshore", 
+                     region %in% offshore_wind_states)) -> L223.StubTechMarket_backup_USA
 
 #The backup electric market is only set here if regional electricity markets are not used (i.e., one national grid)
 if( !use_regional_elec_markets ){
@@ -536,7 +570,7 @@ if( !use_regional_elec_markets ){
 }
 
 printlog( "L223.StubTechCapFactor_elec_wind_USA: capacity factors for wind electricity in the states" )
-#Just use the subsector for matching - technologies include storage technologies as well
+# Just use the subsector for matching - technologies include storage technologies as well
 L114.CapacityFactor_wind_state[ c( supp, subs ) ] <- calibrated_techs[
   match( vecpaste( L114.CapacityFactor_wind_state[ S_F ] ),
          vecpaste( calibrated_techs[ S_F ] ) ),
@@ -552,6 +586,19 @@ L223.StubTechCapFactor_elec_wind_USA$capacity.factor.capital <- round(
   digits_capacity_factor )
 L223.StubTechCapFactor_elec_wind_USA$capacity.factor.OM <- L223.StubTechCapFactor_elec_wind_USA$capacity.factor.capital
 L223.StubTechCapFactor_elec_wind_USA <- L223.StubTechCapFactor_elec_wind_USA[ names_StubTechCapFactor ]
+# Replacing with correct state-specific offshore wind capacity factors
+L223.StubTechCapFactor_elec_wind_USA %>%
+  filter(stub.technology == "wind_offshore", 
+         region %in% offshore_wind_states) %>%
+  select(-capacity.factor.capital, -capacity.factor.OM) %>%
+  left_join(L120.RegCapFactor_offshore_wind_USA, 
+            by= c("region" = "State")) %>%
+    mutate(capacity.factor.capital = round(CFmax,5), capacity.factor.OM = round(CFmax,5)) %>%
+  select(region, supplysector, subsector, stub.technology, year, 
+         input.capital, capacity.factor.capital, input.OM.fixed, capacity.factor.OM) -> L223.StubTechCapFactor_elec_offshore_wind_USA
+L223.StubTechCapFactor_elec_wind_USA %>%
+  filter(stub.technology != "wind_offshore") %>%
+  bind_rows(L223.StubTechCapFactor_elec_offshore_wind_USA) -> L223.StubTechCapFactor_elec_wind_USA
 
 printlog( "L223.StubTechCapFactor_elec_solar_USA: capacity factors by state and solar electric technology" )
 L223.CapFacScaler_solar_state <- rbind( L119.CapFacScaler_PV_state, L119.CapFacScaler_CSP_state )
@@ -573,6 +620,14 @@ L223.StubTechCapFactor_elec_solar_USA$capacity.factor.capital <- round(
   digits_cost )
 L223.StubTechCapFactor_elec_solar_USA$capacity.factor.OM <- L223.StubTechCapFactor_elec_solar_USA$capacity.factor.capital
 L223.StubTechCapFactor_elec_solar_USA <- L223.StubTechCapFactor_elec_solar_USA[ names_StubTechCapFactor ]
+
+printlog( "L223.StubTechCost_offshore_wind_USA: State-specific non-energy cost adder for offshore wind grid connection cost" )
+L223.StubTechCapFactor_elec_wind_USA %>%
+  filter(stub.technology == "wind_offshore") %>%
+  select(region, supplysector, subsector, stub.technology, year) %>%
+  mutate(minicam.energy.input = "regional price adjustment") %>%
+  left_join(L120.GridCost_offshore_wind_USA, by = c("region" = "State")) %>%
+  rename (input.cost = grid.cost) -> L223.StubTechCost_offshore_wind_USA
 
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
@@ -632,6 +687,7 @@ if( !use_regional_elec_markets ){
 }
 write_mi_data( L223.StubTechCapFactor_elec_wind_USA, "StubTechCapFactor", "GCAMUSA_LEVEL2_DATA", "L223.StubTechCapFactor_elec_wind_USA", "GCAMUSA_XML_BATCH", "batch_electricity_USA.xml" )
 write_mi_data( L223.StubTechCapFactor_elec_solar_USA, "StubTechCapFactor", "GCAMUSA_LEVEL2_DATA", "L223.StubTechCapFactor_elec_solar_USA", "GCAMUSA_XML_BATCH", "batch_electricity_USA.xml" )
+write_mi_data( L223.StubTechCost_offshore_wind_USA, "StubTechCost", "GCAMUSA_LEVEL2_DATA", "L223.StubTechCost_offshore_wind_USA", "GCAMUSA_XML_BATCH", "batch_electricity_USA.xml" )
 
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_USA.xml", "GCAMUSA_XML_FINAL", "electricity_USA.xml", "", xml_tag="outFile" )
 

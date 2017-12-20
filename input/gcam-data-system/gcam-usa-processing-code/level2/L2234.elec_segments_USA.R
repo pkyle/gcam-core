@@ -74,6 +74,7 @@ L223.GlobalTechProfitShutdown_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.Glob
 L223.GlobalTechCapture_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalTechCapture_elec", skip = 4 )
 L223.GlobalIntTechBackup_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalIntTechBackup_elec", skip = 4 )
 
+L223.StubTechCost_offshore_wind_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTechCost_offshore_wind_USA", skip = 4 )
 
 # -----------------------------------------------------------------------------
 # Function to write to all grid regions similar to the "write_to_all_states" function. Might want to move this to 
@@ -356,7 +357,7 @@ L2234.StubTechProd_elecS_USA_temp %>%
   mutate(calOutputValue = as.double(calOutputValue), subs.share.weight = as.double(subs.share.weight), share.weight = as.double(share.weight)) %>%
   mutate(calOutputValue = if_else(is.na (calOutputValue),0,calOutputValue)) %>%
   mutate(subs.share.weight = if_else(is.na(subs.share.weight),0,subs.share.weight)) %>% # Note that this is latter over-written to read in zero share-weights for subsectors in base-years with zero base-year calibration values and 1 for subsectors with any calibration values. 
-  mutate(share.weight = if_else(is.na(share.weight), 0,share.weight ))-> L2234.StubTechProd_elecS_USA
+  mutate(share.weight = if_else(is.na(share.weight), 0,share.weight )) -> L2234.StubTechProd_elecS_USA
 
 L1239_state_elec_supply %>%
   select(state, fuel, segment, year, fraction)%>%
@@ -420,6 +421,15 @@ L2234.StubTechProd_elecS_USA %>%
   mutate(subs.share.weight = if_else(subsector.cal.value == 0, 0,1)) %>%
   mutate(share.weight = if_else(calOutputValue == 0, 0,1 )) -> L2234.StubTechProd_elecS_USA
 
+# Removing offshore wind technologies for states that don't have any resource
+offshore_wind_states <- L223.StubTechMarket_elec_USA %>%
+  filter(stub.technology == "wind_offshore") %>%
+  distinct(region)
+L2234.StubTechProd_elecS_USA %>%
+  filter(!grepl("_offshore", stub.technology)) %>%
+  bind_rows(L2234.StubTechProd_elecS_USA %>%
+              filter(grepl("_offshore", stub.technology)) %>%
+              semi_join(offshore_wind_states, by = c("region"))) -> L2234.StubTechProd_elecS_USA
 
     # Update future subsector share-weights as follows:
       # 1. For coal, gas and oil - fix share-weights to calibration values. This does not need any update 
@@ -844,6 +854,15 @@ L2234.SectorLogitTables_elecS_USA <- get_logit_fn_tables( L2234.Supplysector_ele
 L2234.SubsectorLogitTables_elecS_USA <- get_logit_fn_tables( L2234.SubsectorLogit_elecS_USA, names_SubsectorLogitType, base.header="SubsectorLogit_",
                                                              include.equiv.table=F, write.all.regions=F )
 
+
+printlog( "L2234.StubTechCost_offshore_wind_elecS_USA: State-specific non-energy cost adder for offshore wind grid connection cost" )
+L2234.StubTechMarket_elecS_USA %>%
+  filter(grepl("_offshore", stub.technology)) %>%
+  select(-minicam.energy.input, -market.name) %>%
+  left_join(L223.StubTechCost_offshore_wind_USA %>%
+              select(-supplysector, -stub.technology), 
+            by = c("region", "subsector", "year")) -> L2234.StubTechCost_offshore_wind_elecS_USA
+
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
 
@@ -956,7 +975,7 @@ write_mi_data( L2234.StubTechFixOut_elecS_USA, "StubTechFixOut", "GCAMUSA_LEVEL2
 write_mi_data( L2234.StubTechEff_elecS_USA, "StubTechEff", "GCAMUSA_LEVEL2_DATA", "L2234.StubTechEff_elecS_USA", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 write_mi_data( L2234.StubTechFixOut_hydro_elecS_USA, "StubTechFixOut", "GCAMUSA_LEVEL2_DATA", "L2234.StubTechFixOut_hydro_elecS_USA", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 write_mi_data( L2234.StubTechAvail_elecS_USA, "StubTechAvail", "GCAMUSA_LEVEL2_DATA", "L2234.StubTechAvail_elecS_USA", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
-
+write_mi_data( L2234.StubTechCost_offshore_wind_elecS_USA, "StubTechCost", "GCAMUSA_LEVEL2_DATA", "L2234.StubTechCost_offshore_wind_elecS_USA", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 
 write_mi_data( L2234.TechShrwt_elecS_grid, "TechShrwt", "GCAMUSA_LEVEL2_DATA", "L2234.TechShrwt_elecS_grid", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 write_mi_data( L2234.TechCoef_elecS_grid, "TechCoef", "GCAMUSA_LEVEL2_DATA", "L2234.TechCoef_elecS_grid", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )

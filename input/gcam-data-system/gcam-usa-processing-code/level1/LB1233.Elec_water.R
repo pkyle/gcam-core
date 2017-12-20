@@ -60,8 +60,8 @@ L1233.wcons_coef_R_elec_F_tech_Yh_ref$technology <- LA1233.CoolingSystemShares_R
 Macknick_elec_water_m3MWh[,"matching_tech"] <- elec_tech_water_map[match(Macknick_elec_water_m3MWh$technology,elec_tech_water_map$technology),"plant_type"]
 
 
-data_draw <- matrix(data = NA, ncol = 57, nrow = 1275)
-data_cons <- matrix(data = NA, ncol = 57, nrow = 1275)
+data_draw <- matrix(data = NA, ncol = 57, nrow = 1303)
+data_cons <- matrix(data = NA, ncol = 57, nrow = 1303)
 n <-1
 for (x in c(seq(1971,2008),seq(2010,2100,5)))
 {
@@ -143,8 +143,8 @@ L1233.wcons_coef_R_elec_F_tech_Yh_frozen$fuel <- LA1233.CoolingSystemShares_RG3_
 L1233.wcons_coef_R_elec_F_tech_Yh_frozen$plant_type <- LA1233.CoolingSystemShares_RG3_future_frozen$plant_type
 L1233.wcons_coef_R_elec_F_tech_Yh_frozen$technology <- LA1233.CoolingSystemShares_RG3_future_frozen$technology
 
-data_draw <- matrix(data = NA, ncol = 57, nrow = 1275)
-data_cons <- matrix(data = NA, ncol = 57, nrow = 1275)
+data_draw <- matrix(data = NA, ncol = 57, nrow = 1303)
+data_cons <- matrix(data = NA, ncol = 57, nrow = 1303)
 n <-1
 for (x in c(seq(1971,2008),seq(2010,2100,5)))
 {

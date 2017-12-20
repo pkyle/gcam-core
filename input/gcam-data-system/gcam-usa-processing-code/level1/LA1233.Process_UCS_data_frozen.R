@@ -84,8 +84,14 @@ complete_tech$NEMS <- mapping.df[match(complete_tech$State,mapping.df$state),"NE
 # Create a matrix to record cooling share data later
 cooling_share <- matrix(data=NA, ncol = 39, nrow = 51*90)
 cooling_share_future <- matrix(data=NA, ncol = 3, nrow = 51*90)
+
+# Read in table of states that have offshore wind
+L120.RsrcCurves_EJ_R_offshore_wind_USA <- readdata( "GCAMUSA_LEVEL1_DATA", "L120.RsrcCurves_EJ_R_offshore_wind_USA", skip = 4 )
+
 # -----------------------------------------------------------------------------
 # 2. Perform computations
+
+offshore_wind_states <- unique(L120.RsrcCurves_EJ_R_offshore_wind_USA$region)
 
 for (year in 1970:2008)
 {
@@ -290,6 +296,15 @@ complete_tech_cooling_share[,"2020"] <- complete_tech_cooling_share[,"2100"]
 
 # Mannually assume all PV have cooling share of 1
 complete_tech_cooling_share[complete_tech_cooling_share$fuel=="solar PV"&complete_tech_cooling_share$water_type=="fresh",8:49] <- 1
+
+# Mannually assume all wind_offshore have cooling share of 1
+complete_tech_cooling_share %>%
+  filter(technology == "wind") %>%
+  filter(State %in% offshore_wind_states) %>%
+  mutate(technology = "wind_offshore") -> offshore_wind_cooling_share
+
+complete_tech_cooling_share %>%
+  bind_rows(offshore_wind_cooling_share) -> complete_tech_cooling_share
 
 # -----------------------------------------------------------------------------
 

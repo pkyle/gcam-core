@@ -88,3 +88,4 @@ electricity generation,biomass,biomass (conv CCS),dry cooling,fresh,0,0
 electricity generation,biomass,biomass (conv CCS),once through,fresh,192.3055924,1.43888406
 electricity generation,biomass,biomass (conv CCS),recirculating,fresh,4.19043428,2.63795411
 electricity generation,biomass,biomass (conv CCS),once through,seawater,192.3055924,1.43888406
+electricity generation,wind,wind_offshore,none,none,0,0

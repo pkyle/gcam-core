@@ -1,0 +1,12 @@
+# Wind-class specific depth assumptions for USA state-level offshore wind,
+Wind.Class,depth_class
+class1,shallow
+class2,shallow
+class3,shallow
+class4,shallow
+class5,transitional
+class6,transitional
+class7,transitional
+class8,deep
+class9,deep
+class10,deep
