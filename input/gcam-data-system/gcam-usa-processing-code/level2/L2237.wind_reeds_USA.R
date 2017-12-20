@@ -226,31 +226,26 @@ L2233.GlobalIntTechCapital_elec_itc %>%
   filter(year > set_years("final-calibration-year"))-> L2237.wind_curve_tech_change
 
 
-# Grid connection costs are read in as fixed non-energy cost adders (in $/GJ) that vary by state. Our starting data comprises of grid connection
-# costs in $/MW by ReEDS region and wind class. This data also categorizes the connection cost into five bins in each region and class. 
-# We first calculate the average cost for a region and class.Using this data, we then obtain grid connection cost
-# in $/GJ for each region and class as FCR* (grid connection cost in $/MW) /(8760*CF*MWh_GJ). Costs are then obtained for a 
-# state by averaging. In the future, we might think about a separate state-level curve for grid connection costs. 
+# Grid connection costs are read in as fixed non-energy cost adders (in $/GJ) that vary by state. Our starting data consists 
+# of grid connection costs in $/MW by ReEDS region and wind class. This data also categorizes the connection cost into five 
+# bins in each region and class. Using this data, we obtain a grid connection cost in $/GJ for each region/ class/ bin data 
+# point as FCR * (grid connection cost in $/MW) / (8760*CF*MWh_GJ). Costs are then obtained for a state by averaging. 
+# In the future, we might think about a separate state-level curve for grid connection costs. 
 
 reeds_wind_curve_grid_cost %>%
   select(-Wind.Type) %>%
   gather(bin, cost, -Wind.Resource.Region, -Wind.Class) %>%
-  group_by(Wind.Resource.Region, Wind.Class) %>%
-  summarise (cost = mean(cost)) %>%
-  ungroup() %>%
+  filter(cost != 0) %>%
   left_join(L2237.wind_CF_reeds, by =c("Wind.Resource.Region", "Wind.Class" = "TRG")) %>%
   mutate(fcr = L2237.fcr) %>%
   mutate(grid.cost = fcr*cost/(8760*CF*conv_MWh_GJ)) %>%
-  mutate(grid.cost = grid.cost* conv_2013_1975_USD,3) %>%
-  left_join(reedsregions_states, by = c("Wind.Resource.Region" = "Region")) %>%
-  select(State, Wind.Resource.Region, Wind.Class, grid.cost) %>%
-  group_by(State, Wind.Class) %>%
-  summarise (grid.cost = mean(grid.cost)) %>%
-  ungroup() %>%
+  mutate(grid.cost = grid.cost*conv_2013_1975_USD) %>%
+  left_join(reedsregions_states%>%
+              select(Region, State), 
+            by = c("Wind.Resource.Region" = "Region")) %>%
   group_by(State) %>%
-  summarise (grid.cost = mean(grid.cost)) %>%
-  ungroup() %>%
-  mutate(grid.cost = round(grid.cost,5))-> L2237.grid.cost
+  summarise(grid.cost = round(mean(grid.cost),5)) %>%
+  ungroup() -> L2237.grid.cost
 
 # Preparing final tables to convert to level-2 csvs
 
@@ -263,14 +258,20 @@ L2237.wind_curve %>%
 
 if(use_mult_load_segments == "TRUE") {
   L2234.StubTechCapFactor_elecS_wind_USA %>%
-    left_join(L2237.wind_curve, by= c("region" = "State")) %>%
+    filter(!grepl("_offshore", stub.technology)) %>%
+    left_join(L2237.wind_curve %>%
+                distinct(State, CFmax), 
+              by= c("region" = "State")) %>%
     filter(is.na(CFmax) == "FALSE") %>%
     mutate(capacity.factor.capital = round(CFmax,5), capacity.factor.OM = round(CFmax,5)) %>%
     select(region, supplysector, subsector, stub.technology, year, 
            input.capital, capacity.factor.capital, input.OM.fixed, capacity.factor.OM) -> L2237.StubTechCapFactor_wind_USA_reeds
 } else{
   L223.StubTechCapFactor_elec_wind_USA %>%
-    left_join(L2237.wind_curve, by= c("region" = "State")) %>%
+    filter(!grepl("_offshore", stub.technology)) %>%
+    left_join(L2237.wind_curve %>%
+                distinct(State, CFmax), 
+              by= c("region" = "State")) %>%
     filter(is.na(CFmax) == "FALSE") %>%
     mutate(capacity.factor.capital = round(CFmax,5), capacity.factor.OM = round(CFmax,5)) %>%
     select(region, supplysector, subsector, stub.technology, year, 
@@ -289,6 +290,7 @@ L2237.SmthRenewRsrcTechChange_wind_USA_reeds %>%
 # Reading the grid connection cost as a state-level non-energy cost adder
 if(use_mult_load_segments == "TRUE") {
   L2234.StubTechCapFactor_elecS_wind_USA %>%
+    filter(!grepl("_offshore", stub.technology)) %>%
     select(region, supplysector, subsector, stub.technology, year) %>%
     mutate(minicam.energy.input = "regional price adjustment") %>%
     left_join(L2237.grid.cost, by = c("region" = "State")) %>%
@@ -296,6 +298,7 @@ if(use_mult_load_segments == "TRUE") {
     filter(is.na(input.cost) == "FALSE")-> L2237.StubTechCost_wind_USA_reeds
 } else {
   L223.StubTechCapFactor_elec_wind_USA %>%
+    filter(!grepl("_offshore", stub.technology)) %>%
     select(region, supplysector, subsector, stub.technology, year) %>%
     mutate(minicam.energy.input = "regional price adjustment") %>%
     left_join(L2237.grid.cost, by = c("region" = "State")) %>%
