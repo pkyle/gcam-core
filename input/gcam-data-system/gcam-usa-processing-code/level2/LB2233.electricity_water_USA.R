@@ -35,6 +35,9 @@ A23.elecS_inttech_associations <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_in
 A23.elecS_tech_associations <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_tech_associations", skip = 1 )
 #elec_tech_water_map <- readdata( "GCAMUSA_MAPPINGS", "elec_tech_water_segments" )
 NREL_us_re_technical_potential <- readdata( "GCAMUSA_LEVEL0_DATA", "NREL_us_re_technical_potential" )
+A23.elec_tech_associations_coal_retire <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elec_tech_associations_coal_retire" ) %>%
+  filter(Electric.sector == "electricity")
+
 # -----------------------------------------------------------------------------
 # 2. Perform computations
 # Created a mapping file
@@ -87,6 +90,21 @@ geo_states_noresource <- paste( states[ states %in% NREL_us_re_technical_potenti
 L2233.StubTech_WaterCoef_ref <- L2233.StubTech_WaterCoef_ref[paste(L2233.StubTech_WaterCoef_ref$region, L2233.StubTech_WaterCoef_ref$subsector) 
                                                              %!in% geo_states_noresource,]
 
+# Split conv_coal_pul into slow retire and fast retire conv_coal_pul
+L2233.StubTech_WaterCoef_ref_coal_split <- merge( L2233.StubTech_WaterCoef_ref, A23.elec_tech_associations_coal_retire)
+L2233.StubTech_WaterCoef_ref_coal_split$Electric.sector <- NULL # delete excessive column
+L2233.StubTech_WaterCoef_ref_coal_split$technology <- L2233.StubTech_WaterCoef_ref_coal_split$Electric.sector.technology
+L2233.StubTech_WaterCoef_ref_coal_split$Electric.sector.technology <- NULL
+
+# Remove duplicate entries
+L2233.StubTech_WaterCoef_ref <- subset(L2233.StubTech_WaterCoef_ref,(!L2233.StubTech_WaterCoef_ref$technology %in% c("coal (conv pul)"))) 
+L2233.StubTech_WaterCoef_ref <- rbind(L2233.StubTech_WaterCoef_ref_coal_split,L2233.StubTech_WaterCoef_ref)
+L2233.StubTech_WaterCoef_ref <- L2233.StubTech_WaterCoef_ref[c("region", "supplysector", "subsector", "technology","year","minicam.energy.input","coefficient","market.name")]
+L2233.StubTech_WaterCoef_ref <- L2233.StubTech_WaterCoef_ref[order(L2233.StubTech_WaterCoef_ref$subsector,
+                                                                   L2233.StubTech_WaterCoef_ref$technology,
+                                                                   L2233.StubTech_WaterCoef_ref$region, 
+                                                                   L2233.StubTech_WaterCoef_ref$year),]
+
 
 ######## Frozen scenario
 L1233.wdraw_coef_R_elec_F_tech_Yh_frozen$fuel <- gsub("solar CSP", "solar", L1233.wdraw_coef_R_elec_F_tech_Yh_frozen$fuel)
@@ -118,7 +136,20 @@ names(L2233.StubTech_WaterCoef_frozen)[1] <- "subsector"
 L2233.StubTech_WaterCoef_frozen$market.name <- L2233.StubTech_WaterCoef_frozen$region
 L2233.StubTech_WaterCoef_frozen <- L2233.StubTech_WaterCoef_frozen[, names_TechCoef ]
 
-L2233.StubTech_WaterCoef_frozen <- L2233.StubTech_WaterCoef_frozen[order(L2233.StubTech_WaterCoef_frozen$region, 
+# Split conv_coal_pul into slow retire and fast retire conv_coal_pul
+L2233.StubTech_WaterCoef_frozen_coal_split <- merge( L2233.StubTech_WaterCoef_frozen, A23.elec_tech_associations_coal_retire)
+L2233.StubTech_WaterCoef_frozen_coal_split$Electric.sector <- NULL # delete excessive column
+L2233.StubTech_WaterCoef_frozen_coal_split$technology <- L2233.StubTech_WaterCoef_frozen_coal_split$Electric.sector.technology
+L2233.StubTech_WaterCoef_frozen_coal_split$Electric.sector.technology <- NULL
+
+# Remove duplicate entries
+L2233.StubTech_WaterCoef_frozen <- subset(L2233.StubTech_WaterCoef_frozen,(!L2233.StubTech_WaterCoef_frozen$technology %in% c("coal (conv pul)"))) 
+L2233.StubTech_WaterCoef_frozen <- rbind(L2233.StubTech_WaterCoef_frozen_coal_split,L2233.StubTech_WaterCoef_frozen)
+
+L2233.StubTech_WaterCoef_frozen <- L2233.StubTech_WaterCoef_frozen[c("region", "supplysector", "subsector", "technology","year","minicam.energy.input","coefficient","market.name")]
+L2233.StubTech_WaterCoef_frozen <- L2233.StubTech_WaterCoef_frozen[order(L2233.StubTech_WaterCoef_frozen$subsector,
+                                                                         L2233.StubTech_WaterCoef_frozen$technology,
+                                                                         L2233.StubTech_WaterCoef_frozen$region, 
                                                                          L2233.StubTech_WaterCoef_frozen$year),]
 
 #delete state that doesn't have geothermal technology

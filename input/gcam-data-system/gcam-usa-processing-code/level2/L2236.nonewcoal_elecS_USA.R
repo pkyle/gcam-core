@@ -24,7 +24,7 @@ sourcedata( "SOCIO_ASSUMPTIONS", "A_socioeconomics_data", extension = ".R" )
 sourcedata( "GCAMUSA_ASSUMPTIONS", "A_GCAMUSA_data", extension = ".R" )
 sourcedata( "ENERGY_ASSUMPTIONS", "A_elec_data", extension = ".R" )
 A23.elecS_tech_associations <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_tech_associations" )
-A23.elecS_tech_associations_coal_retire <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_tech_associations_coal_retire" )
+A23.elec_tech_associations_coal_retire <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elec_tech_associations_coal_retire" )
 
 L223.StubTechEff_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTechEff_elec_USA", skip = 4 )
 
@@ -44,7 +44,8 @@ A23.elecS_tech_associations %>%
   mutate(initial.available.year = min(model_base_years), final.available.year = max( model_base_years )) ->
   L2236.StubTechAvail_NoNewCoal_elecS_USA
 
-A23.elecS_tech_associations_coal_retire %>%
+A23.elec_tech_associations_coal_retire %>%
+  filter(grepl("generation", Electric.sector)) %>%
   select(Electric.sector, subsector, Electric.sector.technology) %>%
   rename(supplysector = Electric.sector, stub.technology = Electric.sector.technology) %>%
   repeat_and_add_vector('region', gcamusa_regions) %>%

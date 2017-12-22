@@ -1,4 +1,4 @@
-# This script creates "natural gas production" sector for the USA region.
+# This script updates California's hydro-electricity fixed output.
 if( !exists( "GCAMUSAPROC_DIR" ) ){
     if( Sys.getenv( "GCAMUSAPROC" ) != "" ){
         GCAMUSAPROC_DIR <- Sys.getenv( "GCAMUSAPROC" )
@@ -28,6 +28,7 @@ states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
 
 A23.elecS_tech_associations <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_tech_associations" )
 EIA_CA_hydro_elec_gen <- readdata( "GCAMUSA_LEVEL0_DATA","EIA_CA_hydro_elec_gen" , skip = 4 )
+L223.StubTechFixOut_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L223.StubTechFixOut_elec_USA" , skip = 4 )
 L2234.StubTechFixOut_elecS_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2234.StubTechFixOut_elecS_USA" , skip = 4 )
 
 # -----------------------------------------------------------------------------
@@ -35,8 +36,13 @@ L2234.StubTechFixOut_elecS_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2234.StubTec
 
 printlog( "L2242.CA_hydro_2010_EIAratio: Ratio of 2010 GCAM hydro fixedOutput to 2010 EIA net generation for hydro" )
 # Isolate CA 2010 hydro fixedOutput
-L2234.StubTechFixOut_elecS_USA %>%
-  filter(region == "CA", subsector == "hydro", year == 2010) -> L2242.CA_hydro_2010_fixedOutput
+if(use_mult_load_segments == "TRUE") {
+  L2234.StubTechFixOut_elecS_USA %>%
+    filter(region == "CA", subsector == "hydro", year == 2010) -> L2242.CA_hydro_2010_fixedOutput
+} else{
+  L223.StubTechFixOut_elec_USA %>%
+    filter(region == "CA", subsector == "hydro", year == 2010) -> L2242.CA_hydro_2010_fixedOutput
+}
 
 # Collapse EIA sectors to get annual CA hydro net generation for 2010, 2015
 EIA_CA_hydro_elec_gen %>%

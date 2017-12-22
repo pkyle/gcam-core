@@ -36,7 +36,9 @@ A23.elecS_tech_associations <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_tech_
 #elec_tech_water_map <- readdata( "GCAMUSA_MAPPINGS", "elec_tech_water_segments" )
 NREL_us_re_technical_potential <- readdata( "GCAMUSA_LEVEL0_DATA", "NREL_us_re_technical_potential" )
 L223.StubTechMarket_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTechMarket_elec_USA", skip = 4 )
-A23.elecS_tech_associations_coal_retire <- readdata("GCAMUSA_ASSUMPTIONS","A23.elecS_tech_associations_coal_retire", skip =1)
+A23.elec_tech_associations_coal_retire <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elec_tech_associations_coal_retire" ) %>%
+  filter(grepl("generation", Electric.sector))
+
 # -----------------------------------------------------------------------------
 # 2. Perform computations
 # Created a mapping file
@@ -89,7 +91,7 @@ L2233.StubTech_WaterCoef_ref <- L2233.StubTech_WaterCoef_ref[paste(L2233.StubTec
                                                                    %!in% geo_states_noresource,]
 
 # Split conv_coal_pul into slow retire and fast retire conv_coal_pul
-L2233.StubTech_WaterCoef_ref_coal_split <- merge( L2233.StubTech_WaterCoef_ref, A23.elecS_tech_associations_coal_retire)
+L2233.StubTech_WaterCoef_ref_coal_split <- merge( L2233.StubTech_WaterCoef_ref, A23.elec_tech_associations_coal_retire)
 L2233.StubTech_WaterCoef_ref_coal_split$Electric.sector <- NULL # delete excessive column
 L2233.StubTech_WaterCoef_ref_coal_split$technology <- L2233.StubTech_WaterCoef_ref_coal_split$Electric.sector.technology
 L2233.StubTech_WaterCoef_ref_coal_split$Electric.sector.technology <- NULL
@@ -144,7 +146,7 @@ L2233.StubTech_WaterCoef_frozen <- L2233.StubTech_WaterCoef_frozen[paste(L2233.S
                                                                    %!in% geo_states_noresource,]
 
 # Split conv_coal_pul into slow retire and fast retire conv_coal_pul
-L2233.StubTech_WaterCoef_frozen_coal_split <- merge( L2233.StubTech_WaterCoef_frozen, A23.elecS_tech_associations_coal_retire)
+L2233.StubTech_WaterCoef_frozen_coal_split <- merge( L2233.StubTech_WaterCoef_frozen, A23.elec_tech_associations_coal_retire)
 L2233.StubTech_WaterCoef_frozen_coal_split$Electric.sector <- NULL # delete excessive column
 L2233.StubTech_WaterCoef_frozen_coal_split$technology <- L2233.StubTech_WaterCoef_frozen_coal_split$Electric.sector.technology
 L2233.StubTech_WaterCoef_frozen_coal_split$Electric.sector.technology <- NULL

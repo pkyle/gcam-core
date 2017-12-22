@@ -24,6 +24,7 @@ sourcedata( "SOCIO_ASSUMPTIONS", "A_socioeconomics_data", extension = ".R" )
 sourcedata( "GCAMUSA_ASSUMPTIONS", "A_GCAMUSA_data", extension = ".R" )
 sourcedata( "ENERGY_ASSUMPTIONS", "A_elec_data", extension = ".R" )
 L223.StubTechEff_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTechEff_elec_USA", skip = 4, must.exist = F )
+A23.elec_tech_associations_coal_retire <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elec_tech_associations_coal_retire" )
 
 # -----------------------------------------------------------------------------
 # 2. Build tables for CSVs
@@ -41,6 +42,17 @@ L223.StubTechEff_elec_USA %>%
   select(region, supplysector, subsector, stub.technology)%>%
   mutate(initial.available.year = min(model_base_years), final.available.year = max( model_base_years )) ->
   L2231.StubTechAvail_elec_USA
+
+A23.elec_tech_associations_coal_retire %>%
+  filter(Electric.sector == "electricity") %>%
+  select(Electric.sector, subsector, Electric.sector.technology) %>%
+  rename(supplysector = Electric.sector, stub.technology = Electric.sector.technology) %>%
+  repeat_and_add_vector('region', gcamusa_regions) %>%
+  select(region, supplysector, subsector, stub.technology)%>%
+  mutate(initial.available.year = min(model_base_years), final.available.year = max( model_base_years )) ->  L2231.StubTechAvail_coal_retire_elec_USA
+
+L2231.StubTechAvail_elec_USA %>%
+  bind_rows(L2231.StubTechAvail_coal_retire_elec_USA) -> L2231.StubTechAvail_elec_USA
 
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
