@@ -1,4 +1,3 @@
-# NOTE:  This file has been moved to energy-data\level0 and is no longer being called from this location.  This copy of the file should be deleted from the master branch.,,,,,,,
 # These costs are the additional cost in $/MW (2013 USD) for interconnecting to the grid on top of the capital and OM costs.,,,,,,,
 #  Note that we need to apply an FCR to these interconnection costs. ,,,,,,,
 Wind Resource Region,Wind Class,Wind Type,wsc1,wsc2,wsc3,wsc4,wsc5
