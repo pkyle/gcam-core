@@ -25,6 +25,10 @@ sourcedata( "MODELTIME_ASSUMPTIONS", "A_modeltime_data", extension = ".R" )
 sourcedata( "ENERGY_ASSUMPTIONS", "A_energy_data", extension = ".R" )
 sourcedata( "ENERGY_ASSUMPTIONS", "A_elec_data", extension = ".R" )
 sourcedata( "GCAMUSA_ASSUMPTIONS", "A_GCAMUSA_data", extension = ".R" )
+
+#NOTE: this code file only builds the electric sector model input if use_mult_load_segments <- TRUE
+if( use_mult_load_segments ){	
+
 states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
 
 A23.elec_delete <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elec_delete" )
@@ -47,6 +51,7 @@ A23.elecS_subsector_shrwt_state_adj <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.ele
 A23.elecS_subsector_shrwt_interpto_state_adj <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_subsector_shrwt_interpto_state_adj" )
 
 NREL_us_re_technical_potential <- readdata( "GCAMUSA_LEVEL0_DATA", "NREL_us_re_technical_potential" ) 
+elecS_time_fraction <- readdata( "GCAMUSA_LEVEL0_DATA", "elecS_time_fraction" )
 
 L1239_state_elec_supply <- readdata( "GCAMUSA_LEVEL1_DATA", "L1239.state_elec_supply" )
 
@@ -77,6 +82,63 @@ L223.GlobalIntTechBackup_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalInt
 L223.StubTechCost_offshore_wind_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTechCost_offshore_wind_USA", skip = 4 )
 
 # -----------------------------------------------------------------------------
+# There are several segment / technology combinations that we think do not make sense.  These combinations are 
+# outlined in A23.elecS_tech_availability.  To avoid creating these technologies and then deleting them (which
+# eats up memory and causes a lot of error messages), we remove them from the relevant association files here.
+
+L2234.load_segments <- unique(A23.elecS_inttech_associations$Electric.sector)
+
+A23.elecS_tech_associations %>% 
+  anti_join(A23.elecS_tech_availability, 
+            by = c("Electric.sector.technology" = "stub.technology")) %>%
+  mutate(Electric.sector = factor(Electric.sector, levels = L2234.load_segments)) %>%
+  arrange(subsector, Electric.sector) %>%
+  mutate(Electric.sector = as.character(Electric.sector)) -> A23.elecS_tech_associations
+
+A23.elecS_inttech_associations %>% 
+  anti_join(A23.elecS_tech_availability, 
+            by = c("Electric.sector.intermittent.technology" = "stub.technology")) %>%
+  mutate(Electric.sector = factor(Electric.sector, levels = L2234.load_segments)) %>%
+  arrange(subsector, Electric.sector) %>%
+  mutate(Electric.sector = as.character(Electric.sector)) -> A23.elecS_inttech_associations
+
+A23.elecS_globaltech_shrwt %>% 
+  anti_join(A23.elecS_tech_availability, 
+            by = c("technology" = "stub.technology")) -> A23.elecS_globaltech_shrwt
+
+A23.elecS_globalinttech_shrwt %>% 
+  anti_join(A23.elecS_tech_availability, 
+            by = c("technology" = "stub.technology")) -> A23.elecS_globalinttech_shrwt
+
+# Binding tech_shrwt files together to create master list of available technologies, then
+# reducing to sector / subsector combinations to deal with A23.elecS_subsector assumption files
+
+A23.elecS_globaltech_shrwt %>%
+  bind_rows(A23.elecS_globalinttech_shrwt) %>%
+  select(supplysector, subsector, technology) -> L2234.avail_techs
+
+L2234.avail_techs %>% 
+  distinct(supplysector, subsector) -> L2234.avail_seg_subsector
+
+A23.elecS_subsector_logit %>%
+  semi_join(L2234.avail_seg_subsector, by =c("supplysector", "subsector")) -> A23.elecS_subsector_logit
+
+A23.elecS_subsector_shrwt %>%
+  semi_join(L2234.avail_seg_subsector, by =c("supplysector", "subsector")) -> A23.elecS_subsector_shrwt
+
+A23.elecS_subsector_shrwt_interp %>%
+  semi_join(L2234.avail_seg_subsector, by =c("supplysector", "subsector")) -> A23.elecS_subsector_shrwt_interp
+
+A23.elecS_subsector_shrwt_interpto %>%
+  semi_join(L2234.avail_seg_subsector, by =c("supplysector", "subsector")) -> A23.elecS_subsector_shrwt_interpto
+
+A23.elecS_subsector_shrwt_state_adj %>%
+  semi_join(L2234.avail_seg_subsector, by =c("supplysector", "subsector")) -> A23.elecS_subsector_shrwt_state_adj
+  
+A23.elecS_subsector_shrwt_interpto_state_adj  %>%
+  semi_join(L2234.avail_seg_subsector, by =c("supplysector", "subsector")) -> A23.elecS_subsector_shrwt_interpto_state_adj
+
+# -----------------------------------------------------------------------------
 # Function to write to all grid regions similar to the "write_to_all_states" function. Might want to move this to 
 # the header script.
 
@@ -93,9 +155,6 @@ write_to_all_grid_regions <- function( data, names ){
 # 2. Build state-level tables for CSVs
 # 2a. Supplysector information
 printlog( "L2234.elecS_supplysector_USA and L2234.elecS_reserve_USA: Supply sector information for detailed electric sectors" )
-
-# Delete old electricity sector in the states 
-L2234.elec_delete <- write_to_all_states(A23.elec_delete, c("region","supplysector"))
 
 # Create horizontal generation supplysectors
 L2234.Supplysector_elecS_USA <- write_to_all_states( A23.elecS_sector, c( names_Supplysector, "logit.type" ) )
@@ -172,13 +231,22 @@ A23.elecS_tech_associations %>%
   select(-supplysector, -subsector.1, -technology, -sector.name ) %>%
   rename (supplysector = Electric.sector, technology = Electric.sector.technology) -> L2234.GlobalTechCapital_elecS
 
-# Read in lower capacity factors for non-baseload technologies. The fracctions are rather arbitrary and based on assumptions
-# made in previous versions of the multiple load segment model (GCAM 3.2).
+# Read in lower capacity factors for non-baseload technologies. The fractions are based on the elecS_time_fraction data on 
+# the fraction of demand supplied by vertical segment (gcam-usa-data/level0)
+
+L2234.int_CF_adj <- round(sum(mean(elecS_time_fraction$intermediate.electricity.time) + 
+                          mean(elecS_time_fraction$subpeak.electricity.time) + 
+                          mean(elecS_time_fraction$peak.electricity.time)), 3)
+
+L2234.subpeak_CF_adj <- round(sum(mean(elecS_time_fraction$subpeak.electricity.time) + 
+                          mean(elecS_time_fraction$peak.electricity.time)), 3)
+
+L2234.peak_CF_adj <- round(mean(elecS_time_fraction$peak.electricity.time), 3)
 
 L2234.GlobalTechCapital_elecS %>%
-  mutate(capacity.factor = if_else(supplysector == "intermediate generation", 0.627 * capacity.factor, capacity.factor )) %>%
-  mutate(capacity.factor = if_else(supplysector == "subpeak generation", 0.301 * capacity.factor, capacity.factor )) %>%
-  mutate(capacity.factor = if_else(supplysector == "peak generation", 0.072 * capacity.factor, capacity.factor )) -> L2234.GlobalTechCapital_elecS
+  mutate(capacity.factor = if_else(supplysector == "intermediate generation", L2234.int_CF_adj * capacity.factor, capacity.factor )) %>%
+  mutate(capacity.factor = if_else(supplysector == "subpeak generation", L2234.subpeak_CF_adj * capacity.factor, capacity.factor )) %>%
+  mutate(capacity.factor = if_else(supplysector == "peak generation", L2234.peak_CF_adj * capacity.factor, capacity.factor )) -> L2234.GlobalTechCapital_elecS
 
 printlog( "L2234.GlobalIntTechCapital_elecS: Capital costs of intermittent electricity generation technologies" )
 
@@ -202,9 +270,9 @@ A23.elecS_tech_associations %>%
 # made in previous versions of the multiple load segment model (GCAM 3.2).
 
 L2234.GlobalTechOMfixed_elecS %>%
-  mutate(capacity.factor = if_else(supplysector == "intermediate generation", 0.627 * capacity.factor, capacity.factor )) %>%
-  mutate(capacity.factor = if_else(supplysector == "subpeak generation", 0.301 * capacity.factor, capacity.factor )) %>%
-  mutate(capacity.factor = if_else(supplysector == "peak generation", 0.072 * capacity.factor, capacity.factor )) -> L2234.GlobalTechOMfixed_elecS
+  mutate(capacity.factor = if_else(supplysector == "intermediate generation", L2234.int_CF_adj * capacity.factor, capacity.factor )) %>%
+  mutate(capacity.factor = if_else(supplysector == "subpeak generation", L2234.subpeak_CF_adj * capacity.factor, capacity.factor )) %>%
+  mutate(capacity.factor = if_else(supplysector == "peak generation", L2234.peak_CF_adj * capacity.factor, capacity.factor )) -> L2234.GlobalTechOMfixed_elecS
 
 
 printlog( "L2234.GlobalIntTechOMfixed_elecS: Fixed OM costs of intermittent electricity generation technologies" )
@@ -313,7 +381,7 @@ A23.elecS_inttech_associations %>%
 
 L223.StubTechMarket_elec_USA %>%
   left_join(L2234.StubTechMarket_elecS_USA_temp, by= c("supplysector","subsector", "stub.technology" = "technology")) %>%
-  filter(is.na (minicam.energy.input) == FALSE) %>%
+  filter(!is.na(minicam.energy.input), !is.na(Electric.sector.technology)) %>%
   select(-supplysector, -subsector.1, -stub.technology) %>%
   select(region, Electric.sector, subsector, Electric.sector.technology, year, minicam.energy.input, market.name) %>%
   rename (supplysector = Electric.sector, stub.technology = Electric.sector.technology)-> L2234.StubTechMarket_elecS_USA
@@ -438,8 +506,9 @@ L2234.StubTechProd_elecS_USA %>%
       # that have nuclear. 
       # 3. For biomass, solar, wind, geothermal, rooftop_PV and storage - interpolate to a fixed value in a future year
       # The fixed value in the above formulations are read in separately in L2234.SubsectorShrwt_elecS_USA
-      # Note that we read in a final available year for investments in technologies in particular segments that we think are
-      # do not make sense in L2234.StubTechAvail_elecS_USA
+      # Note that we avoid particular segment / technology combinations that we think do not make sense by either
+      # (1) removing them from association files so they are never created (using A23.elecS_tech_availability, 
+      # near top of script) or (2) zeroing out their shareweights in future model periods.
 
 L2234.StubTechProd_elecS_USA %>%
   filter (year == as.numeric(set_years("final-calibration-year"))) -> L2234.StubTechProd_elecS_USA_final_cal_year
@@ -581,12 +650,6 @@ A23.elecS_tech_associations %>%
 L2234.StubTechCapFactor_elecS_solar_USA %>%
   bind_rows(L2234.StubTechCapFactor_elecS_solar_storage_USA) -> L2234.StubTechCapFactor_elecS_solar_USA
 
-# Final availble year for technologies (this is to make sure that, for example, no new coal comes in in the peak segment)
-
-printlog( "L2234.StubTechAvail_elecS_USA: Final available year for technologies" )
-
-L2234.StubTechAvail_elecS_USA <- write_to_all_states(A23.elecS_tech_availability, c("region","supplysector", "subsector", "stub.technology","initial.available.year","final.available.year"))
-
 # Remove geothermal in states with no geothermal resource
 
   #Indicate states where geothermal subsector and technologies will not be created
@@ -607,7 +670,6 @@ L2234.geo.tables <- list(L2234.SubsectorLogit_elecS_USA = L2234.SubsectorLogit_e
                                L2234.SubsectorShrwtInterp_elecS_USA = L2234.SubsectorShrwtInterp_elecS_USA,
                                L2234.SubsectorShrwtInterpTo_elecS_USA = L2234.SubsectorShrwtInterpTo_elecS_USA,
                                L2234.StubTechEff_elecS_USA = L2234.StubTechEff_elecS_USA,
-                               L2234.StubTechAvail_elecS_USA = L2234.StubTechAvail_elecS_USA,
                                L2234.StubTechProd_elecS_USA = L2234.StubTechProd_elecS_USA)
 
 for (i in 1:length (L2234.geo.tables)) {
@@ -626,8 +688,7 @@ L2234.SubsectorShrwt_elecS_USA <- L2234.geo.tables[[2]]
 L2234.SubsectorShrwtInterp_elecS_USA <- L2234.geo.tables[[3]]
 L2234.SubsectorShrwtInterpTo_elecS_USA <- L2234.geo.tables[[4]]
 L2234.StubTechEff_elecS_USA <- L2234.geo.tables[[5]]
-L2234.StubTechAvail_elecS_USA <- L2234.geo.tables[[6]]
-L2234.StubTechProd_elecS_USA <- L2234.geo.tables[[7]]
+L2234.StubTechProd_elecS_USA <- L2234.geo.tables[[6]]
 
 # Create tables for non-energy and energy inputs for any new technologies such as battery 
 # and append them with corresponding tables
@@ -689,11 +750,6 @@ L2234.StubTechEff_elecS_USA %>%
 
 
 # 3. Build csvs for grid region sectors and append them to state-level tables where possible.
-
-# Delete old electriicty sector in grid regions
-L2234.elec_delete_grid <- write_to_all_grid_regions (A23.elec_delete, c("region","supplysector"))
-L2234.elec_delete %>%
-  bind_rows(L2234.elec_delete_grid) -> L2234.elec_delete
 
 # Create horizontal and vertical supplysectors in grid regions
 L2234.Supplysector_elecS_grid <- write_to_all_grid_regions(A23.elecS_sector, c( names_Supplysector, "logit.type" ))
@@ -866,8 +922,6 @@ L2234.StubTechMarket_elecS_USA %>%
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
 
-write_mi_data( L2234.elec_delete, "DeleteSupplysector", "GCAMUSA_LEVEL2_DATA", "L2234.elec_delete", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
-
 #Writing Passthrough Sector files first. Equivalent tag names specified earlier should take care of consistency across xml files
 #as long as the L223.SectorNodeEquiv and L223TechNodeEquiv files are read in first in the xml batch file (batch_electricity_USA.xml)
 
@@ -974,7 +1028,6 @@ write_mi_data( L2234.StubTechCapFactor_elecS_solar_USA, "StubTechCapFactor", "GC
 write_mi_data( L2234.StubTechFixOut_elecS_USA, "StubTechFixOut", "GCAMUSA_LEVEL2_DATA", "L2234.StubTechFixOut_elecS_USA", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 write_mi_data( L2234.StubTechEff_elecS_USA, "StubTechEff", "GCAMUSA_LEVEL2_DATA", "L2234.StubTechEff_elecS_USA", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 write_mi_data( L2234.StubTechFixOut_hydro_elecS_USA, "StubTechFixOut", "GCAMUSA_LEVEL2_DATA", "L2234.StubTechFixOut_hydro_elecS_USA", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
-write_mi_data( L2234.StubTechAvail_elecS_USA, "StubTechAvail", "GCAMUSA_LEVEL2_DATA", "L2234.StubTechAvail_elecS_USA", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 write_mi_data( L2234.StubTechCost_offshore_wind_elecS_USA, "StubTechCost", "GCAMUSA_LEVEL2_DATA", "L2234.StubTechCost_offshore_wind_elecS_USA", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 
 write_mi_data( L2234.TechShrwt_elecS_grid, "TechShrwt", "GCAMUSA_LEVEL2_DATA", "L2234.TechShrwt_elecS_grid", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
@@ -985,6 +1038,8 @@ write_mi_data( L2234.TechProd_elecS_grid, "Production", "GCAMUSA_LEVEL2_DATA", "
 write_mi_data( L2234.SubsectorShrwtFllt_elecS_grid, "SubsectorShrwtFllt", "GCAMUSA_LEVEL2_DATA", "L2234.SubsectorShrwtFllt_elecS_grid", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 write_mi_data( L2234.SubsectorShrwtInterp_elecS_grid, "SubsectorInterp", "GCAMUSA_LEVEL2_DATA", "L2234.SubsectorShrwtInterp_elecS_grid", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 
-insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml", "GCAMUSA_XML_FINAL", "elec_segments_USA.xml", "", xml_tag="outFile" )
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml", "GCAMUSA_XML_FINAL", "electricity_USA.xml", "", xml_tag="outFile" )
+
+} #close out from use_mult_load_segments
 
 logstop()

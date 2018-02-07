@@ -23,6 +23,11 @@ sourcedata( "ENERGY_ASSUMPTIONS", "A_energy_data", extension = ".R" )
 sourcedata( "GCAMUSA_ASSUMPTIONS", "A_GCAMUSA_data", extension = ".R" )
 sourcedata( "ENERGY_ASSUMPTIONS", "A_elec_data", extension = ".R" )
 
+#NOTE: this code file only builds the electric sector model input if use_mult_load_segments <- FALSE
+if(use_mult_load_segments == "TRUE") {
+  
+  } else{
+
 #NOTE: this code file only builds the electric sector model input if the demand is being resolved at the level of the grid regions
 if( use_regional_elec_markets ){	
 states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
@@ -300,5 +305,7 @@ write_mi_data( L2232.StubTechElecMarket_backup_USA, "StubTechElecMarket", "GCAMU
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_USA.xml", "GCAMUSA_XML_FINAL", "electricity_USA.xml", "", xml_tag="outFile" )
 
 } #close out from use_regional_elec_markets
+
+} #close out from use_mult_load_segments
 
 logstop()

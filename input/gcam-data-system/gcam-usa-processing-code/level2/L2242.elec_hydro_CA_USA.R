@@ -10,7 +10,7 @@ if( !exists( "GCAMUSAPROC_DIR" ) ){
 # Universal header file - provides logging, file support, etc.
 source(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAM_header.R",sep=""))
 source(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAMUSA_header.R",sep=""))
-logstart( "L2241.reg_gas_input.R" )
+logstart( "L2242.elec_hydro_CA_USA.R" )
 adddep(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAM_header.R",sep=""))
 adddep(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAMUSA_header.R",sep=""))
 printlog( "Model input for USA regional natural gas to demand USA natural gas prouction" )
@@ -28,9 +28,13 @@ states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
 
 A23.elecS_tech_associations <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_tech_associations" )
 EIA_CA_hydro_elec_gen <- readdata( "GCAMUSA_LEVEL0_DATA","EIA_CA_hydro_elec_gen" , skip = 4 )
-L223.StubTechFixOut_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L223.StubTechFixOut_elec_USA" , skip = 4 )
-L2234.StubTechFixOut_elecS_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2234.StubTechFixOut_elecS_USA" , skip = 4 )
 
+if(use_mult_load_segments == "TRUE") {
+  L2234.StubTechFixOut_elecS_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2234.StubTechFixOut_elecS_USA" , skip = 4 )
+} else{
+  L223.StubTechFixOut_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L223.StubTechFixOut_elec_USA" , skip = 4 )
+}
+ 
 # -----------------------------------------------------------------------------
 # 2. Perform computations
 

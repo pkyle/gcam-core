@@ -145,7 +145,10 @@ L2238.PV_curve %>%
   mutate(available = available/maxSubResource) %>%
 # Adjusting the curves so that we have a supply of 0 at a Pvar of 0. The available resource potential is accounted
 # for in the subsequent grade because of the cumulative calculation above. 
-  mutate(available= if_else(grade == "grade 1", 0, available)) -> L2238.PV_curve
+  mutate(available= if_else(grade == "grade 1", 0, available)) %>%
+# Removing duplicate grades within states.  This only impacts WA grade 5, 
+# which has just 0.00012 EJ of resource and thus the same available fraction (1) as grade 4.
+  distinct(State, available, .keep_all = TRUE) -> L2238.PV_curve
   
 # Technological change in the supply curve is related to assumed improvements in capital cost.
 # If capital cost changes from CC to a.CC, then every price point of the curve will scale by a factor a' given as follows:

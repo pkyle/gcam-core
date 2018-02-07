@@ -26,6 +26,8 @@ sourcedata( "ENERGY_ASSUMPTIONS", "A_elec_data", extension = ".R" )
 states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
 calibrated_techs <- readdata( "ENERGY_MAPPINGS", "calibrated_techs" )
 
+if(use_mult_load_segments == "TRUE") {
+
 # Added elec water coefficient in here
 L1233.wdraw_coef_R_elec_F_tech_Yh_ref <- readdata( "GCAMUSA_LEVEL1_DATA", "L1233.wdraw_coef_R_elec_F_tech_Yh_ref" )
 L1233.wcons_coef_R_elec_F_tech_Yh_ref <- readdata( "GCAMUSA_LEVEL1_DATA", "L1233.wcons_coef_R_elec_F_tech_Yh_ref" )
@@ -38,9 +40,30 @@ NREL_us_re_technical_potential <- readdata( "GCAMUSA_LEVEL0_DATA", "NREL_us_re_t
 L223.StubTechMarket_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTechMarket_elec_USA", skip = 4 )
 A23.elec_tech_associations_coal_retire <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elec_tech_associations_coal_retire" ) %>%
   filter(grepl("generation", Electric.sector))
+A23.elecS_tech_availability <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_tech_availability" ) 
 
 # -----------------------------------------------------------------------------
 # 2. Perform computations
+# There are several segment / technology combinations that we think do not make sense.  These combinations are 
+# outlined in A23.elecS_tech_availability.  To avoid creating these technologies and then deleting them (which
+# eats up memory and causes a lot of error messages), we remove them from the relevant association files here.
+
+L2233.load_segments <- unique(A23.elecS_inttech_associations$Electric.sector)
+
+A23.elecS_tech_associations %>% 
+  anti_join(A23.elecS_tech_availability, 
+            by = c("Electric.sector.technology" = "stub.technology")) %>%
+  mutate(Electric.sector = factor(Electric.sector, levels = L2233.load_segments)) %>%
+  arrange(subsector, Electric.sector) %>%
+  mutate(Electric.sector = as.character(Electric.sector)) -> A23.elecS_tech_associations
+
+A23.elecS_inttech_associations %>% 
+  anti_join(A23.elecS_tech_availability, 
+            by = c("Electric.sector.intermittent.technology" = "stub.technology")) %>%
+  mutate(Electric.sector = factor(Electric.sector, levels = L2233.load_segments)) %>%
+  arrange(subsector, Electric.sector) %>%
+  mutate(Electric.sector = as.character(Electric.sector)) -> A23.elecS_inttech_associations
+
 # Created a mapping file
 names(A23.elecS_inttech_associations)[3] <- "Electric.sector.technology"
 names(A23.elecS_inttech_associations)[6] <- "technology"
@@ -167,9 +190,11 @@ L2233.StubTech_WaterCoef_frozen <- L2233.StubTech_WaterCoef_frozen[order(L2233.S
 comments.L2233.StubTech_WaterCoef_ref <- c("Weighted water coefficient for reference scenario and load segment classification")
 comments.L2233.StubTech_WaterCoef_frozen <- c("Weighted water coefficient for frozen scenario and load segment classification")
 
-write_mi_data( L2233.StubTech_WaterCoef_ref, domain = "GCAMUSA_LEVEL2_DATA", fn = "LA2233.StubTech_WaterCoef_ref", comments=comments.L2233.StubTech_WaterCoef_ref, "StubTechCoef","GCAMUSA_XML_BATCH", "batch_electricity_water_USA_ref_segment.xml")
-insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_water_USA_ref_segment.xml", "GCAMUSA_XML_FINAL", "water_elec_USA_ref_segment.xml", "", xml_tag="outFile" )
-write_mi_data( L2233.StubTech_WaterCoef_frozen, domain = "GCAMUSA_LEVEL2_DATA", fn = "LA2233.StubTech_WaterCoef_frozen", comments=comments.L2233.StubTech_WaterCoef_frozen, "StubTechCoef","GCAMUSA_XML_BATCH", "batch_electricity_water_USA_frozen_segment.xml")
-insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_water_USA_frozen_segment.xml", "GCAMUSA_XML_FINAL", "water_elec_USA_frozen_segment.xml", "", xml_tag="outFile" )
+write_mi_data( L2233.StubTech_WaterCoef_ref, domain = "GCAMUSA_LEVEL2_DATA", fn = "LA2233.StubTech_WaterCoef_ref", comments=comments.L2233.StubTech_WaterCoef_ref, "StubTechCoef","GCAMUSA_XML_BATCH", "batch_electricity_water_USA_ref.xml")
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_water_USA_ref.xml", "GCAMUSA_XML_FINAL", "water_elec_USA_ref.xml", "", xml_tag="outFile" )
+write_mi_data( L2233.StubTech_WaterCoef_frozen, domain = "GCAMUSA_LEVEL2_DATA", fn = "LA2233.StubTech_WaterCoef_frozen", comments=comments.L2233.StubTech_WaterCoef_frozen, "StubTechCoef","GCAMUSA_XML_BATCH", "batch_electricity_water_USA_frozen.xml")
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_water_USA_frozen.xml", "GCAMUSA_XML_FINAL", "water_elec_USA_frozen.xml", "", xml_tag="outFile" )
+
+} else{ } #close out from use_mult_load_segments
 
 logstop()

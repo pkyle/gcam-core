@@ -27,6 +27,9 @@ sourcedata( "ENERGY_ASSUMPTIONS", "A_energy_data", extension = ".R" )
 sourcedata( "GCAMUSA_ASSUMPTIONS", "A_GCAMUSA_data", extension = ".R" )
 sourcedata( "ENERGY_ASSUMPTIONS", "A_elec_data", extension = ".R" )
 
+#NOTE: this code file only builds the electric sector model input if use_mult_load_segments <- TRUE
+if( use_mult_load_segments ){
+
 #NOTE: this code file only builds the electric sector model input if the demand is being resolved at the level of the grid regions
 if( use_regional_elec_markets ){	
 states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
@@ -67,7 +70,7 @@ printlog( "PART 1: THE USA REGION" )
 # Remove the USA electricity sector, and replace with electricity trade
 printlog( "L2235.DeleteSupplysector_USAelec: Removing the electricity sectors of the USA region (incl. net_ownuse)" )
 L2235.DeleteSupplysector_USAelec <- data.frame( region = "USA", supplysector = c( "electricity", "electricity_net_ownuse" ) )
-write_mi_data( L2235.DeleteSupplysector_USAelec, "DeleteSupplysector", "GCAMUSA_LEVEL2_DATA", "L2235.DeleteSupplysector_USAelec", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
+write_mi_data( L2235.DeleteSupplysector_USAelec, "DeleteSupplysector", "GCAMUSA_LEVEL2_DATA", "L2235.DeleteSupplysector_USAelec", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 
 printlog( "Create vertical segment supplysectors in grid regions" )
 # Creating vertical segments in grid regions
@@ -389,62 +392,64 @@ L2235.Production_elec_gen_FERC$tech.share.weight <- ifelse( L2235.Production_ele
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
 
-write_mi_data( L2235.InterestRate_FERC, "InterestRate", "GCAMUSA_LEVEL2_DATA", "L2235.InterestRate_FERC", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.Pop_FERC, "Pop", "GCAMUSA_LEVEL2_DATA", "L2235.Pop_FERC", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.BaseGDP_FERC, "BaseGDP", "GCAMUSA_LEVEL2_DATA", "L2235.BaseGDP_FERC", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.LaborForceFillout_FERC, "LaborForceFillout", "GCAMUSA_LEVEL2_DATA", "L2235.LaborForceFillout_FERC", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
+write_mi_data( L2235.InterestRate_FERC, "InterestRate", "GCAMUSA_LEVEL2_DATA", "L2235.InterestRate_FERC", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.Pop_FERC, "Pop", "GCAMUSA_LEVEL2_DATA", "L2235.Pop_FERC", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.BaseGDP_FERC, "BaseGDP", "GCAMUSA_LEVEL2_DATA", "L2235.BaseGDP_FERC", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.LaborForceFillout_FERC, "LaborForceFillout", "GCAMUSA_LEVEL2_DATA", "L2235.LaborForceFillout_FERC", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 
 for( curr_table in names ( L2235.SectorLogitTables_USAelec ) ) {
 write_mi_data( L2235.SectorLogitTables_USAelec[[ curr_table ]]$data, L2235.SectorLogitTables_USAelec[[ curr_table ]]$header,
     "GCAMUSA_LEVEL2_DATA", paste0("L2235.", L2235.SectorLogitTables_USAelec[[ curr_table ]]$header, "_USA" ), "GCAMUSA_XML_BATCH",
-    "batch_electricity_FERC_USA.xml" )
+    "batch_elec_segments_USA.xml" )
 }
-write_mi_data( L2235.Supplysector_USAelec, "Supplysector", "GCAMUSA_LEVEL2_DATA", "L2235.Supplysector_USAelec", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.ElecReserve_elecS_grid_vertical, "ElecReserve", "GCAMUSA_LEVEL2_DATA", "L2235.ElecReserve_elecS_grid_vertical", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
+write_mi_data( L2235.Supplysector_USAelec, "Supplysector", "GCAMUSA_LEVEL2_DATA", "L2235.Supplysector_USAelec", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.ElecReserve_elecS_grid_vertical, "ElecReserve", "GCAMUSA_LEVEL2_DATA", "L2235.ElecReserve_elecS_grid_vertical", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 
 
 for( curr_table in names ( L2235.SubsectorLogitTables_USAelec ) ) {
 write_mi_data( L2235.SubsectorLogitTables_USAelec[[ curr_table ]]$data, L2235.SubsectorLogitTables_USAelec[[ curr_table ]]$header,
     "GCAMUSA_LEVEL2_DATA", paste0("L2235.", L2235.SubsectorLogitTables_USAelec[[ curr_table ]]$header, "_USA" ), "GCAMUSA_XML_BATCH",
-    "batch_electricity_FERC_USA.xml" )
+    "batch_elec_segments_USA.xml" )
 }
-write_mi_data( L2235.SubsectorLogit_USAelec, "SubsectorLogit", "GCAMUSA_LEVEL2_DATA", "L2235.SubsectorLogit_USAelec", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.SubsectorShrwtFllt_USAelec, "SubsectorShrwtFllt", "GCAMUSA_LEVEL2_DATA", "L2235.SubsectorShrwtFllt_USAelec", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.SubsectorInterp_USAelec, "SubsectorInterp", "GCAMUSA_LEVEL2_DATA", "L2235.SubsectorInterp_USAelec", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.SubsectorShrwtFllt_elecS_grid_vertical, "SubsectorShrwtFllt", "GCAMUSA_LEVEL2_DATA", "L2235.SubsectorShrwtFllt_elecS_grid_vertical", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.SubsectorShrwtInterp_elecS_grid_vertical, "SubsectorInterp", "GCAMUSA_LEVEL2_DATA", "L2235.SubsectorShrwtInterp_elecS_grid_vertical", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
+write_mi_data( L2235.SubsectorLogit_USAelec, "SubsectorLogit", "GCAMUSA_LEVEL2_DATA", "L2235.SubsectorLogit_USAelec", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.SubsectorShrwtFllt_USAelec, "SubsectorShrwtFllt", "GCAMUSA_LEVEL2_DATA", "L2235.SubsectorShrwtFllt_USAelec", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.SubsectorInterp_USAelec, "SubsectorInterp", "GCAMUSA_LEVEL2_DATA", "L2235.SubsectorInterp_USAelec", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.SubsectorShrwtFllt_elecS_grid_vertical, "SubsectorShrwtFllt", "GCAMUSA_LEVEL2_DATA", "L2235.SubsectorShrwtFllt_elecS_grid_vertical", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.SubsectorShrwtInterp_elecS_grid_vertical, "SubsectorInterp", "GCAMUSA_LEVEL2_DATA", "L2235.SubsectorShrwtInterp_elecS_grid_vertical", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 
-write_mi_data( L2235.TechShrwt_USAelec, "TechShrwt", "GCAMUSA_LEVEL2_DATA", "L2235.TechShrwt_USAelec", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.TechCoef_USAelec, "TechCoef", "GCAMUSA_LEVEL2_DATA", "L2235.TechCoef_USAelec", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.Production_exports_USAelec, "Production", "GCAMUSA_LEVEL2_DATA", "L2235.Production_exports_USAelec", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.TechShrwt_elecS_grid_vertical, "TechShrwt", "GCAMUSA_LEVEL2_DATA", "L2235.TechShrwt_elecS_grid_vertical", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.TechCoef_elecS_grid_vertical, "TechCoef", "GCAMUSA_LEVEL2_DATA", "L2235.TechCoef_elecS_grid_vertical", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
+write_mi_data( L2235.TechShrwt_USAelec, "TechShrwt", "GCAMUSA_LEVEL2_DATA", "L2235.TechShrwt_USAelec", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.TechCoef_USAelec, "TechCoef", "GCAMUSA_LEVEL2_DATA", "L2235.TechCoef_USAelec", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.Production_exports_USAelec, "Production", "GCAMUSA_LEVEL2_DATA", "L2235.Production_exports_USAelec", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.TechShrwt_elecS_grid_vertical, "TechShrwt", "GCAMUSA_LEVEL2_DATA", "L2235.TechShrwt_elecS_grid_vertical", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.TechCoef_elecS_grid_vertical, "TechCoef", "GCAMUSA_LEVEL2_DATA", "L2235.TechCoef_elecS_grid_vertical", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 
 for( curr_table in names ( L2235.SectorLogitTables_elec_FERC ) ) {
 write_mi_data( L2235.SectorLogitTables_elec_FERC[[ curr_table ]]$data, L2235.SectorLogitTables_elec_FERC[[ curr_table ]]$header,
     "GCAMUSA_LEVEL2_DATA", paste0("L2235.", L2235.SectorLogitTables_elec_FERC[[ curr_table ]]$header, "_FERC" ), "GCAMUSA_XML_BATCH",
-    "batch_electricity_FERC_USA.xml" )
+    "batch_elec_segments_USA.xml" )
 }
-write_mi_data( L2235.Supplysector_elec_FERC, "Supplysector", "GCAMUSA_LEVEL2_DATA", "L2235.Supplysector_elec_FERC", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
+write_mi_data( L2235.Supplysector_elec_FERC, "Supplysector", "GCAMUSA_LEVEL2_DATA", "L2235.Supplysector_elec_FERC", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 
 for( curr_table in names ( L2235.SubsectorLogitTables_elec_FERC ) ) {
 write_mi_data( L2235.SubsectorLogitTables_elec_FERC[[ curr_table ]]$data, L2235.SubsectorLogitTables_elec_FERC[[ curr_table ]]$header,
     "GCAMUSA_LEVEL2_DATA", paste0("L2235.", L2235.SubsectorLogitTables_elec_FERC[[ curr_table ]]$header, "_FERC" ), "GCAMUSA_XML_BATCH",
-    "batch_electricity_FERC_USA.xml" )
+    "batch_elec_segments_USA.xml" )
 }
-write_mi_data( L2235.SubsectorLogit_elec_FERC, "SubsectorLogit", "GCAMUSA_LEVEL2_DATA", "L2235.SubsectorLogit_elec_FERC", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.SubsectorShrwtFllt_elec_FERC, "SubsectorShrwtFllt", "GCAMUSA_LEVEL2_DATA", "L2235.SubsectorShrwtFllt_elec_FERC", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.SubsectorInterp_elec_FERC, "SubsectorInterp", "GCAMUSA_LEVEL2_DATA", "L2235.SubsectorInterp_elec_FERC", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
+write_mi_data( L2235.SubsectorLogit_elec_FERC, "SubsectorLogit", "GCAMUSA_LEVEL2_DATA", "L2235.SubsectorLogit_elec_FERC", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.SubsectorShrwtFllt_elec_FERC, "SubsectorShrwtFllt", "GCAMUSA_LEVEL2_DATA", "L2235.SubsectorShrwtFllt_elec_FERC", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.SubsectorInterp_elec_FERC, "SubsectorInterp", "GCAMUSA_LEVEL2_DATA", "L2235.SubsectorInterp_elec_FERC", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 
-write_mi_data( L2235.TechShrwt_elec_FERC, "TechShrwt", "GCAMUSA_LEVEL2_DATA", "L2235.TechShrwt_elec_FERC", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.TechCoef_elec_FERC, "TechCoef", "GCAMUSA_LEVEL2_DATA", "L2235.TechCoef_elec_FERC", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.TechCoef_elecownuse_FERC, "TechCoef", "GCAMUSA_LEVEL2_DATA", "L2235.TechCoef_elecownuse_FERC", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
+write_mi_data( L2235.TechShrwt_elec_FERC, "TechShrwt", "GCAMUSA_LEVEL2_DATA", "L2235.TechShrwt_elec_FERC", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.TechCoef_elec_FERC, "TechCoef", "GCAMUSA_LEVEL2_DATA", "L2235.TechCoef_elec_FERC", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.TechCoef_elecownuse_FERC, "TechCoef", "GCAMUSA_LEVEL2_DATA", "L2235.TechCoef_elecownuse_FERC", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 
-write_mi_data( L2235.Production_imports_FERC, "Production", "GCAMUSA_LEVEL2_DATA", "L2235.Production_imports_FERC", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
-write_mi_data( L2235.Production_elec_gen_FERC, "Production", "GCAMUSA_LEVEL2_DATA", "L2235.Production_elec_gen_FERC", "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml" )
+write_mi_data( L2235.Production_imports_FERC, "Production", "GCAMUSA_LEVEL2_DATA", "L2235.Production_imports_FERC", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2235.Production_elec_gen_FERC, "Production", "GCAMUSA_LEVEL2_DATA", "L2235.Production_elec_gen_FERC", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 
-insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_FERC_USA.xml", "GCAMUSA_XML_FINAL", "electricity_FERC_USA.xml", "", xml_tag="outFile" )
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml", "GCAMUSA_XML_FINAL", "electricity_USA.xml", "", xml_tag="outFile" )
 
 } #close out from use_regional_elec_markets
+
+} #close out from use_mult_load_segments
 
 logstop()

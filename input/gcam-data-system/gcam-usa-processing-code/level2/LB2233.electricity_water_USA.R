@@ -26,6 +26,10 @@ sourcedata( "ENERGY_ASSUMPTIONS", "A_elec_data", extension = ".R" )
 states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
 calibrated_techs <- readdata( "ENERGY_MAPPINGS", "calibrated_techs" )
 
+if(use_mult_load_segments == "TRUE") {
+  
+} else{ 
+
 # Added elec water coefficient in here
 L1233.wdraw_coef_R_elec_F_tech_Yh_ref <- readdata( "GCAMUSA_LEVEL1_DATA", "L1233.wdraw_coef_R_elec_F_tech_Yh_ref" )
 L1233.wcons_coef_R_elec_F_tech_Yh_ref <- readdata( "GCAMUSA_LEVEL1_DATA", "L1233.wcons_coef_R_elec_F_tech_Yh_ref" )
@@ -163,9 +167,11 @@ L2233.StubTech_WaterCoef_frozen <- L2233.StubTech_WaterCoef_frozen[paste(L2233.S
 comments.L2233.StubTech_WaterCoef_ref <- c("Weighted water coefficient for reference scenario and no load segment classification")
 comments.L2233.StubTech_WaterCoef_frozen <- c("Weighted water coefficient for frozen scenario and no load segment classification")
 
-write_mi_data( L2233.StubTech_WaterCoef_ref, "StubTechCoef", "GCAMUSA_LEVEL2_DATA", "LB2233.StubTech_WaterCoef_ref", comments=comments.L2233.StubTech_WaterCoef_ref, "GCAMUSA_XML_BATCH", "batch_electricity_water_USA_ref_no_segment.xml")
-insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_water_USA_ref_no_segment.xml", "GCAMUSA_XML_FINAL", "water_elec_USA_ref_no_segment.xml", "", xml_tag="outFile" )
-write_mi_data( L2233.StubTech_WaterCoef_frozen, "StubTechCoef", "GCAMUSA_LEVEL2_DATA", "LB2233.StubTech_WaterCoef_frozen", comments=comments.L2233.StubTech_WaterCoef_frozen, "GCAMUSA_XML_BATCH", "batch_electricity_water_USA_frozen_no_segment.xml")
-insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_water_USA_frozen_no_segment.xml", "GCAMUSA_XML_FINAL", "water_elec_USA_frozen_no_segment.xml", "", xml_tag="outFile" )
+write_mi_data( L2233.StubTech_WaterCoef_ref, "StubTechCoef", "GCAMUSA_LEVEL2_DATA", "LB2233.StubTech_WaterCoef_ref", comments=comments.L2233.StubTech_WaterCoef_ref, "GCAMUSA_XML_BATCH", "batch_electricity_water_USA_ref.xml")
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_water_USA_ref.xml", "GCAMUSA_XML_FINAL", "water_elec_USA_ref.xml", "", xml_tag="outFile" )
+write_mi_data( L2233.StubTech_WaterCoef_frozen, "StubTechCoef", "GCAMUSA_LEVEL2_DATA", "LB2233.StubTech_WaterCoef_frozen", comments=comments.L2233.StubTech_WaterCoef_frozen, "GCAMUSA_XML_BATCH", "batch_electricity_water_USA_frozen.xml")
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_water_USA_frozen.xml", "GCAMUSA_XML_FINAL", "water_elec_USA_frozen.xml", "", xml_tag="outFile" )
+
+} #close out from use_mult_load_segments
 
 logstop()

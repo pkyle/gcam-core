@@ -16,10 +16,6 @@ base load generation,biomass,-3,relative-cost-logit
 intermediate generation,biomass,-3,relative-cost-logit
 subpeak generation,biomass,-3,relative-cost-logit
 peak generation,biomass,-3,relative-cost-logit
-base load generation,biomass,-3,relative-cost-logit
-intermediate generation,biomass,-3,relative-cost-logit
-subpeak generation,biomass,-3,relative-cost-logit
-peak generation,biomass,-3,relative-cost-logit
 base load generation,nuclear,-3,relative-cost-logit
 intermediate generation,nuclear,-3,relative-cost-logit
 subpeak generation,nuclear,-3,relative-cost-logit

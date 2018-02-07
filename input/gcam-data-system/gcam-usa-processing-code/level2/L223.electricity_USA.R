@@ -23,6 +23,7 @@ sourcedata( "ENERGY_ASSUMPTIONS", "A_energy_data", extension = ".R" )
 sourcedata( "SOCIO_ASSUMPTIONS", "A_socioeconomics_data", extension = ".R" )
 sourcedata( "GCAMUSA_ASSUMPTIONS", "A_GCAMUSA_data", extension = ".R" )
 sourcedata( "ENERGY_ASSUMPTIONS", "A_elec_data", extension = ".R" )
+
 states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
 calibrated_techs <- readdata( "ENERGY_MAPPINGS", "calibrated_techs" )
 NREL_us_re_technical_potential <- readdata( "GCAMUSA_LEVEL0_DATA", "NREL_us_re_technical_potential" )
@@ -689,6 +690,13 @@ write_mi_data( L223.StubTechCapFactor_elec_wind_USA, "StubTechCapFactor", "GCAMU
 write_mi_data( L223.StubTechCapFactor_elec_solar_USA, "StubTechCapFactor", "GCAMUSA_LEVEL2_DATA", "L223.StubTechCapFactor_elec_solar_USA", "GCAMUSA_XML_BATCH", "batch_electricity_USA.xml" )
 write_mi_data( L223.StubTechCost_offshore_wind_USA, "StubTechCost", "GCAMUSA_LEVEL2_DATA", "L223.StubTechCost_offshore_wind_USA", "GCAMUSA_XML_BATCH", "batch_electricity_USA.xml" )
 
-insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_USA.xml", "GCAMUSA_XML_FINAL", "electricity_USA.xml", "", xml_tag="outFile" )
+#NOTE: this code file only builds the electric sector model input if use_mult_load_segments <- FALSE
+if(use_mult_load_segments == "TRUE") {
+  
+} else{
+  
+  insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_USA.xml", "GCAMUSA_XML_FINAL", "electricity_USA.xml", "", xml_tag="outFile" )
+
+} #close out from use_mult_load_segments
 
 logstop()
