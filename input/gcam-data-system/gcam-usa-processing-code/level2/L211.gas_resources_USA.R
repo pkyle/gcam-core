@@ -34,6 +34,10 @@ A10.subsector_interp <- readdata( "GCAMUSA_ASSUMPTIONS", "A10.subsector_interp" 
 A10.subsector_shrwt <- readdata( "GCAMUSA_ASSUMPTIONS", "A10.subsector_shrwt" )
 L111.unconv_gas_supply_state_EJ<- readdata( "GCAMUSA_LEVEL1_DATA", "L111.unconv_gas_supply_state_EJ" )
 
+L201.ghg_res <- readdata( "EMISSIONS_LEVEL2_DATA", "L201.ghg_res", skip = 4 )
+L201.nonghg_res <- readdata( "EMISSIONS_LEVEL2_DATA", "L201.nonghg_res", skip = 4 )
+L252.ResMAC_fos <- readdata( "EMISSIONS_LEVEL2_DATA", "L252.ResMAC_fos", skip = 4 )
+
 # NOTE: FUNCTION STILL NEEDS TO BE RE-WRITTEN IN DPLYR
 compute_offshore_costs <- function( supply, costs ) {
     ret.costs <- data.frame()
@@ -386,6 +390,36 @@ L211.TechCal %>%
   rename(cal.production = calibrated.value) %>%
   select(region, depresource, subresource, year, cal.production) -> L211.DepresourceCal
 
+printlog( "L211.ghg_NG: GHG emissions from natural gas production for all states / resource types" )
+L211.NG_resources <- unique(L211.Depresource$resource)
+L211.gas_regions <- unique(L211.gas_regions$state)
+
+L201.ghg_res %>%
+  filter(region == "USA", depresource =="natural gas") %>%
+  repeat_and_add_vector('state', L211.gas_regions) %>%
+  repeat_and_add_vector('resource', L211.NG_resources) %>%
+  semi_join(L211.Depresource, by = c("state", "resource")) %>%
+  select(state, resource, Non.CO2, emiss.coef) %>%
+  rename(region = state, depresource = resource)-> L211.ghg_NG
+
+printlog( "L211.nonghg_NG: Pollutant emissions from natural gas production for all states / resource types" )
+L201.nonghg_res %>%
+  filter(region == "USA", depresource =="natural gas") %>%
+  repeat_and_add_vector('state', L211.gas_regions) %>%
+  repeat_and_add_vector('resource', L211.NG_resources) %>%
+  semi_join(L211.Depresource, by = c("state", "resource")) %>%
+  select(state, resource, Non.CO2, emiss.coef) %>%
+  rename(region = state, depresource = resource)-> L211.nonghg_NG
+
+printlog( "L211.ResMAC_NG: Fossil resource MAC curves" )
+L252.ResMAC_fos %>%
+  filter(region == "USA", depresource =="natural gas") %>%
+  repeat_and_add_vector('state', L211.gas_regions) %>%
+  repeat_and_add_vector('resource', L211.NG_resources) %>%
+  semi_join(L211.Depresource, by = c("state", "resource")) %>%
+  select(state, resource, Non.CO2, mac.control, tax, mac.reduction, EPA_region, market.name) %>%
+  rename(region = state, depresource = resource)-> L211.ResMAC_NG
+
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
 
@@ -431,6 +465,10 @@ write_mi_data( L211.InterestRate_Offshore, "InterestRate", "GCAMUSA_LEVEL2_DATA"
 write_mi_data( L211.Pop_Offshore, "Pop", "GCAMUSA_LEVEL2_DATA", "L211.Pop_Offshore", "GCAMUSA_XML_BATCH", "batch_gas_resources_USA.xml" )
 write_mi_data( L211.BaseGDP_Offshore, "BaseGDP", "GCAMUSA_LEVEL2_DATA", "L211.BaseGDP_Offshore", "GCAMUSA_XML_BATCH", "batch_gas_resources_USA.xml" )
 write_mi_data( L211.LaborForceFillout_Offshore, "LaborForceFillout", "GCAMUSA_LEVEL2_DATA", "L211.LaborForceFillout_Offshore", "GCAMUSA_XML_BATCH", "batch_gas_resources_USA.xml" )
+
+write_mi_data( L211.ghg_NG, "ResEmissCoef", "GCAMUSA_LEVEL2_DATA", "L211.ghg_NG", "GCAMUSA_XML_BATCH", "batch_gas_resources_USA.xml" ) 
+write_mi_data( L211.nonghg_NG, "ResEmissCoef", "GCAMUSA_LEVEL2_DATA", "L211.nonghg_NG", "GCAMUSA_XML_BATCH", "batch_gas_resources_USA.xml" ) 
+write_mi_data( L211.ResMAC_NG, "ResMAC", "GCAMUSA_LEVEL2_DATA", "L211.ResMAC_NG", "GCAMUSA_XML_BATCH", "batch_gas_resources_USA.xml" ) 
 
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_gas_resources_USA.xml", "GCAMUSA_XML_FINAL", "gas_resources_USA.xml", "", xml_tag="outFile" )
 
