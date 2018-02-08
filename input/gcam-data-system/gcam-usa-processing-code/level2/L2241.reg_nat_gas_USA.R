@@ -34,6 +34,7 @@ A23.gas_tech_associations <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.gas_tech_asso
 L111.gas_prod_state_T_Yh_EJ <- readdata( "GCAMUSA_LEVEL1_DATA", "L111.gas_prod_state_T_Yh_EJ" )
 L222.StubTechProd_gasproc <- readdata( "ENERGY_LEVEL2_DATA", "L222.StubTechProd_gasproc", skip = 4 )
 L221.GlobalTechCoef_en <- readdata( "ENERGY_LEVEL2_DATA", "L221.GlobalTechCoef_en", skip = 4 )
+L221.PrimaryConsKeyword_en <- readdata( "ENERGY_LEVEL2_DATA", "L221.PrimaryConsKeyword_en", skip = 4 )
 
 # -----------------------------------------------------------------------------
 # 2. Perform computations
@@ -44,7 +45,8 @@ L2241.DeleteSubRsrc_NG_USA <- data.frame(region = "USA", depresource = "natural 
 
 # Delete "regional natural gas" subsector
 printlog( "L2241.Delete_regNG_subsector: delete USA regional natural gas subsector" )
-A23.gas_sector_vertical %>% filter(supplysector == "regional natural gas") %>% 
+A23.gas_sector_vertical %>% 
+  filter(supplysector == "regional natural gas") %>% 
   mutate(region = "USA") %>% 
   mutate(subsector = "regional natural gas") %>%
   select(region, supplysector, subsector) -> L2241.Delete_regNG_subsector
@@ -52,7 +54,8 @@ A23.gas_sector_vertical %>% filter(supplysector == "regional natural gas") %>%
 # Modify regional natural gas sector to aggregate domestic and imported resources
 # Logit for USA regional natural gas
 printlog( "L2241.Supplysector_regNG_USA: regional natural gas logit competition" )
-A23.gas_sector_vertical %>% filter(supplysector == "regional natural gas") %>%
+A23.gas_sector_vertical %>% 
+  filter(supplysector == "regional natural gas") %>%
   mutate(region = "USA") %>% 
   mutate(logit.year.fillout = model_base_years[1]) %>%
   mutate(logit.type=NA) %>%
@@ -66,7 +69,8 @@ L2241.Supplysector_regNG_USA <- L2241.Supplysector_regNG_USA[, names_Supplysecto
 # Logits for USA domestic natural gas and imported natural gas
 # Note these logit assumptions do not matter as there is no competition at this nest
 printlog( "L2241.Supplysector_regNG_USA: regional natural gas subsector to aggregate gas types" )
-A23.gas_tech_associations %>% mutate(region = "USA") %>% 
+A23.gas_tech_associations %>% 
+  mutate(region = "USA") %>% 
   left_join(A23.gas_sector_vertical, by = c("supplysector")) %>%
   mutate(logit.year.fillout = model_base_years[1]) %>%
   mutate(logit.type=NA) %>%
@@ -83,7 +87,8 @@ L2241.SubsectorShrwtInterpTo_regNG_USA <- set_years(A23.gas_subsector_shrwt_inte
 
 # Provide calOutputValue for "regional natural gas" market
 printlog( "L2241.StubTechProd_regNG_USA: regional natural gas calibration values" )
-L111.gas_prod_state_T_Yh_EJ %>% select(state, X_model_base_years) %>%
+L111.gas_prod_state_T_Yh_EJ %>% 
+  select(state, X_model_base_years) %>%
   gather(year, value, -state) %>%
   mutate(region = "USA") %>%
   group_by(region, year) %>% 
@@ -93,7 +98,8 @@ L111.gas_prod_state_T_Yh_EJ %>% select(state, X_model_base_years) %>%
               mutate(region = "USA"), by = c("region")) %>%
     select(region, supplysector, subsector, stub.technology, year, calOutputValue) -> L2241.CalOutput_domNG
 
-L222.StubTechProd_gasproc %>% filter(region == "USA", subsector == "natural gas") %>%
+L222.StubTechProd_gasproc %>% 
+  filter(region == "USA", subsector == "natural gas") %>%
   rename(share.weight.year = year.share.weight) %>% 
   left_join(L2241.CalOutput_domNG %>% rename(domNG = calOutputValue) %>% 
                                      select(region, year, domNG), 
@@ -101,12 +107,14 @@ L222.StubTechProd_gasproc %>% filter(region == "USA", subsector == "natural gas"
   mutate(calOutputValue = calOutputValue - domNG) %>%
   select(-domNG) -> L2241.Demand_impNG
 
-A23.gas_tech_associations %>% select(supplysector, subsector, stub.technology) %>%
+A23.gas_tech_associations %>% 
+  select(supplysector, subsector, stub.technology) %>%
   filter(subsector == "imported natural gas") %>%
   repeat_and_add_vector('year', model_base_years) %>% 
   left_join(L2241.Demand_impNG %>% select(region, year, calOutputValue), by = c("year")) -> L2241.CalOutput_impNG
 
-L2241.CalOutput_domNG %>% bind_rows(L2241.CalOutput_impNG) %>%
+L2241.CalOutput_domNG %>% 
+  bind_rows(L2241.CalOutput_impNG) %>%
   mutate(share.weight.year = year) %>%
   mutate(subs.share.weight = 1) %>%
   mutate(share.weight = 1) %>%
@@ -114,13 +122,22 @@ L2241.CalOutput_domNG %>% bind_rows(L2241.CalOutput_impNG) %>%
 
 # Global technology databases for USA domestic natural gas and imported natural gas
 printlog( "L2241.GlobalTechCoef_regNG_USA: Inputs & efficiencies for USA regional natural gas technologies" )
-A23.gas_tech_associations %>% repeat_and_add_vector('year', model_years) %>% 
+A23.gas_tech_associations %>% 
+  repeat_and_add_vector('year', model_years) %>% 
   rename(sector = supplysector) %>%
   rename(technology = stub.technology) %>%
   select(sector, subsector, technology, year, minicam.energy.input, coefficient) -> L2241.GlobalTechCoef_regNG_USA
 
+A23.gas_tech_associations %>% 
+  repeat_and_add_vector('year', model_years) %>% 
+  select(sector.name = supplysector, subsector.name = subsector, technology = stub.technology, year) %>%
+  left_join(L221.PrimaryConsKeyword_en %>%
+              select(sector.name, year, primary.consumption),
+            by = c("sector.name", "year")) -> L2241.PrimaryConsKeyword_regNG_USA
+
 printlog( "L2241.GlobalTechShrwt_regNG_USA: Share-weights for USA regional natural gas technologies" )
-A23.gas_tech_associations %>% repeat_and_add_vector('year', model_years) %>% 
+A23.gas_tech_associations %>% 
+  repeat_and_add_vector('year', model_years) %>% 
   rename(sector = supplysector) %>%
   rename(technology = stub.technology) %>%
   mutate(share.weight = 1) %>%
@@ -144,6 +161,7 @@ for( logit.table in names( L2241.SubsectorLogitTables ) ) {
                  "batch_reg_nat_gas_USA.xml" )
 }
 write_mi_data( L2241.Subsector_regNG_USA, "SubsectorLogit", "GCAMUSA_LEVEL2_DATA", "L2241.Subsector_regNG_USA", "GCAMUSA_XML_BATCH", "batch_reg_nat_gas_USA.xml" )
+write_mi_data( L2241.PrimaryConsKeyword_regNG_USA, "PrimaryConsKeyword", "GCAMUSA_LEVEL2_DATA", "L2241.PrimaryConsKeyword_regNG_USA", "GCAMUSA_XML_BATCH", "batch_reg_nat_gas_USA.xml" )
 
 write_mi_data( L2241.StubTechProd_regNG_USA, "StubTechProd, ", "GCAMUSA_LEVEL2_DATA", "L2241.StubTechProd_regNG_USA", "GCAMUSA_XML_BATCH", "batch_reg_nat_gas_USA.xml")
 write_mi_data( L2241.GlobalTechCoef_regNG_USA, "GlobalTechCoef", "GCAMUSA_LEVEL2_DATA", "L2241.GlobalTechCoef_regNG_USA", "GCAMUSA_XML_BATCH", "batch_reg_nat_gas_USA.xml" )

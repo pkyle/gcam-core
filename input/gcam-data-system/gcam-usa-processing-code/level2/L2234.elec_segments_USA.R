@@ -78,6 +78,9 @@ L223.GlobalTechSCurve_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalTechSC
 L223.GlobalTechProfitShutdown_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalTechProfitShutdown_elec", skip = 4 )
 L223.GlobalTechCapture_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalTechCapture_elec", skip = 4 )
 L223.GlobalIntTechBackup_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalIntTechBackup_elec", skip = 4 )
+L223.PrimaryRenewKeyword_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.PrimaryRenewKeyword_elec", skip = 4 )
+L223.PrimaryRenewKeywordInt_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.PrimaryRenewKeywordInt_elec", skip = 4 )
+L223.AvgFossilEffKeyword_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.AvgFossilEffKeyword_elec", skip = 4 )
 
 L223.StubTechCost_offshore_wind_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTechCost_offshore_wind_USA", skip = 4 )
 
@@ -220,6 +223,33 @@ L2234.GlobalIntTechShrwt_elecS %>%
 
 stopifnot(!any(is.na(L2234.GlobalTechShrwt_elecS)))
 
+#Primary energy keywords
+
+L223.PrimaryRenewKeyword_elec %>%
+  left_join(A23.elecS_tech_associations %>% 
+              select(-subsector.1), 
+            by = c("sector.name" = "supplysector", "subsector.name" = "subsector", "technology")) %>%
+  select(Electric.sector, subsector.name, Electric.sector.technology, year, primary.renewable) %>%
+  rename(sector.name = Electric.sector, technology = Electric.sector.technology) %>%
+  arrange(year, subsector.name, sector.name, technology) -> L2234.PrimaryRenewKeyword_elecS
+
+L223.PrimaryRenewKeywordInt_elec %>%
+  left_join(A23.elecS_inttech_associations %>% 
+              select(-subsector.1), 
+            by = c("sector.name" = "supplysector", "subsector.name" = "subsector", 
+                   "intermittent.technology" = "intermittent.technology")) %>%
+  select(Electric.sector, subsector.name, Electric.sector.intermittent.technology, year, primary.renewable) %>%
+  rename(sector.name = Electric.sector, intermittent.technology = Electric.sector.intermittent.technology) %>%
+  arrange(year, subsector.name, sector.name, intermittent.technology) -> L2234.PrimaryRenewKeywordInt_elecS
+
+L223.AvgFossilEffKeyword_elec %>%
+  left_join(A23.elecS_tech_associations %>% 
+              select(-subsector.1), 
+            by = c("sector.name" = "supplysector", "subsector.name" = "subsector", "technology")) %>%
+  select(Electric.sector, subsector.name, Electric.sector.technology, year, average.fossil.efficiency) %>%
+  rename(sector.name = Electric.sector, technology = Electric.sector.technology) %>%
+  filter(!is.na(technology)) %>%
+  arrange(year, subsector.name, sector.name, technology) -> L2234.AvgFossilEffKeyword_elecS
 
 #Capital Costs of detailed electric sector technologies
 
@@ -997,6 +1027,9 @@ for( curr_table in names ( L2234.SubsectorLogitTables_elecS_USA ) ) {
 
 write_mi_data( L2234.GlobalTechShrwt_elecS, "GlobalTechShrwt", "GCAMUSA_LEVEL2_DATA", "L2234.GlobalTechShrwt_elecS", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 write_mi_data( L2234.GlobalIntTechShrwt_elecS, "GlobalIntTechShrwt", "GCAMUSA_LEVEL2_DATA", "L2234.GlobalIntTechShrwt_elecS", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2234.PrimaryRenewKeyword_elecS, "PrimaryRenewKeyword", "GCAMUSA_LEVEL2_DATA", "L2234.PrimaryRenewKeyword_elecS", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2234.PrimaryRenewKeywordInt_elecS, "PrimaryRenewKeywordInt", "GCAMUSA_LEVEL2_DATA", "L2234.PrimaryRenewKeywordInt_elecS", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
+write_mi_data( L2234.AvgFossilEffKeyword_elecS, "AvgFossilEffKeyword", "GCAMUSA_LEVEL2_DATA", "L2234.AvgFossilEffKeyword_elecS", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 write_mi_data( L2234.GlobalTechCapital_elecS, "GlobalTechCapital", "GCAMUSA_LEVEL2_DATA", "L2234.GlobalTechCapital_elecS", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 write_mi_data( L2234.GlobalIntTechCapital_elecS, "GlobalIntTechCapital", "GCAMUSA_LEVEL2_DATA", "L2234.GlobalIntTechCapital_elecS", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 write_mi_data( L2234.GlobalTechOMfixed_elecS, "GlobalTechOMfixed", "GCAMUSA_LEVEL2_DATA", "L2234.GlobalTechOMfixed_elecS", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
