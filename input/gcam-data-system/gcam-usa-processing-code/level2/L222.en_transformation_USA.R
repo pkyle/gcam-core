@@ -44,6 +44,8 @@ L222.GlobalTechLifetime_en <- readdata( "ENERGY_LEVEL2_DATA", "L222.GlobalTechLi
 L122.out_EJ_state_refining_F <- readdata( "GCAMUSA_LEVEL1_DATA", "L122.out_EJ_state_refining_F" )
 L202.CarbonCoef <- readdata( "ENERGY_LEVEL2_DATA", "L202.CarbonCoef", skip = 4 )
 
+SEDS_refining_feedstock_prod <- readdata( "GCAMUSA_LEVEL0_DATA", "SEDS_refining_feedstock_prod", skip = 3  )
+
 # -----------------------------------------------------------------------------
 # 2. Perform computations
 # Define the sector(s) that will be used in this code file. Can be one or multiple sectors
@@ -72,19 +74,26 @@ L222.Tech_USAen <- L222.Tech_USAen[ names_Tech ]
 
 #Technology interpolation only applies to calibrated technologies
 printlog( "L222.TechInterp_USAen: technology shareweights, USA region")
+# Oil refining and biomass liquids shareweights are fixed at calibration values through 2100
 L222.TechInterp_USAen <- subset( L222.Tech_USAen, subsector %in% c( "oil refining", "biomass liquids" ) )
 L222.TechInterp_USAen$apply.to <- "share-weight"
 L222.TechInterp_USAen$from.year <- max( model_base_years )
-L222.TechInterp_USAen$to.year <- 2100
+L222.TechInterp_USAen$to.year <- max( model_future_years )
 L222.TechInterp_USAen$interpolation.function <- "fixed"
-#For biomass liquids, allow state shares to shift over time (future techs are different than present techs)
-L222.TechInterp_USAen$interpolation.function[ L222.TechInterp_USAen$subsector == "biomass liquids" ] <- "s-curve"
 
 printlog( "L222.TechShrwt_USAen: technology shareweights, USA region")
-L222.TechShrwt_USAen <- repeat_and_add_vector( L222.Tech_USAen, Y, model_years )
-#Default the base year shareweights to 0. This will be over-ridden in calibration
-L222.TechShrwt_USAen$share.weight[ L222.TechShrwt_USAen$year %in% model_base_years ] <- 0
-L222.TechShrwt_USAen$share.weight[ L222.TechShrwt_USAen$year %in% model_future_years ] <- 1
+L222.Tech_USAen %>%
+  repeat_and_add_vector('year', model_years) %>%
+  separate(technology, c("state"), sep = " ", remove = F) %>% 
+  left_join(SEDS_refining_feedstock_prod, by = c("state")) %>%
+  mutate(coal_fract = coal / max(coal), gas_fract = natural_gas / max(natural_gas)) %>%
+  mutate(share.weight = 1) %>%
+  # Scaling coal to liquids and gas to liquids shareweights to 2015 resource production levels
+  mutate(share.weight = if_else(grepl("coal", subsector), coal_fract, share.weight)) %>%
+  mutate(share.weight = if_else(grepl("gas", subsector), gas_fract, share.weight)) %>%
+  #Default the base year shareweights to 0. This will be over-ridden in calibration
+  mutate(share.weight = if_else(year %in% model_base_years, 0, round(share.weight, 3))) %>%
+  select(region, supplysector, subsector, technology, year, share.weight) -> L222.TechShrwt_USAen
 
 printlog( "L222.TechCoef_USAen: technology coefficients and market names, USA region")
 L222.TechCoef_USAen <- L222.TechShrwt_USAen[ names_TechYr ]
@@ -217,8 +226,12 @@ names( L222.StubTechMarket_en_USA )[ names( L222.StubTechMarket_en_USA ) %in% c(
 L222.StubTechMarket_en_USA$market.name <- "USA"
 #If designated, switch fuel market names to the regional markets
 if( use_regional_fuel_markets ){
-	L222.StubTechMarket_en_USA$market.name[ L222.StubTechMarket_en_USA[[input]] %in% regional_fuel_markets ] <- states_subregions$grid_region[
-	    match( L222.StubTechMarket_en_USA$region[ L222.StubTechMarket_en_USA[[input]] %in% regional_fuel_markets ], states_subregions$state ) ]
+  L222.StubTechMarket_en_USA %>%
+    left_join(states_subregions %>% 
+                select(state, grid_region),
+              by = c("region" = "state")) %>%
+    mutate(market.name = if_else(minicam.energy.input %in% regional_fuel_markets, grid_region, market.name)) %>%
+    select(-grid_region) -> L222.StubTechMarket_en_USA
 }
 
 #Set electricity to the state markets
@@ -248,7 +261,6 @@ write_mi_data( L222.TechEQUIV, "EQUIV_TABLE", "GCAMUSA_LEVEL2_DATA", "L222.TechE
 write_mi_data( L222.Tech_USAen, "PassThroughTech", "GCAMUSA_LEVEL2_DATA", "L222.Tech_USAen", "GCAMUSA_XML_BATCH", "batch_en_transformation_USA.xml" )
 write_mi_data( L222.TechShrwt_USAen, "TechShrwt", "GCAMUSA_LEVEL2_DATA", "L222.TechShrwt_USAen", "GCAMUSA_XML_BATCH", "batch_en_transformation_USA.xml" )
 write_mi_data( L222.TechInterp_USAen, "TechInterp", "GCAMUSA_LEVEL2_DATA", "L222.TechInterp_USAen", "GCAMUSA_XML_BATCH", "batch_en_transformation_USA.xml" )
-write_mi_data( L222.TechShrwt_USAen, "TechShrwt", "GCAMUSA_LEVEL2_DATA", "L222.TechShrwt_USAen", "GCAMUSA_XML_BATCH", "batch_en_transformation_USA.xml" )
 write_mi_data( L222.TechCoef_USAen, "TechCoef", "GCAMUSA_LEVEL2_DATA", "L222.TechCoef_USAen", "GCAMUSA_XML_BATCH", "batch_en_transformation_USA.xml" )
 write_mi_data( L222.Production_USArefining, "Production", "GCAMUSA_LEVEL2_DATA", "L222.Production_USArefining", "GCAMUSA_XML_BATCH", "batch_en_transformation_USA.xml" )
 
