@@ -95,7 +95,7 @@ conv_btu_EJ <- conv_btu_kJ*1e-15
 conv_MMcf_EJ <- 0.0000010550559
 
 #from billion barrels a day to EJ per year
-conv_bbld_EJyr <- 6.119 * 365.25 * 1e-3
+conv_bbld_EJyr <- 6.119 * 365.25
 
 conv_Tbtu_EJ <- 0.0010551         #trillion btu to EJ
 conv_kbtu_EJ <- 1.0551e-12        #thousand btu to EJ
