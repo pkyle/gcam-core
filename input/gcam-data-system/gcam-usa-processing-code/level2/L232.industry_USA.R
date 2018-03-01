@@ -24,6 +24,7 @@ sourcedata( "ENERGY_ASSUMPTIONS", "A_energy_data", extension = ".R" )
 sourcedata( "ENERGY_ASSUMPTIONS", "A_ind_data", extension = ".R" )
 sourcedata( "GCAMUSA_ASSUMPTIONS", "A_GCAMUSA_data", extension = ".R" )
 states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
+A28.sector <- readdata( "GCAMUSA_ASSUMPTIONS", "A28.sector", skip = 1 )
 A32.demand <- readdata( "ENERGY_ASSUMPTIONS", "A32.demand" )
 A32.fuelprefElasticity_USA <- readdata( "GCAMUSA_ASSUMPTIONS", "A32.fuelprefElasticity_USA" )
 A32.globaltech_coef <- readdata( "ENERGY_ASSUMPTIONS", "A32.globaltech_coef" )
@@ -199,6 +200,10 @@ if( use_regional_fuel_markets ){
 printlog( "NOTE: electricity is consumed from state markets" )
 L232.StubTechMarket_ind_USA$market.name[ L232.StubTechMarket_ind_USA[[input]] %in% elect_td_sectors ] <-
       L232.StubTechMarket_ind_USA$region[ L232.StubTechMarket_ind_USA[[input]] %in% elect_td_sectors ]
+printlog( "NOTE: biomass is consumed from state markets" )
+L232.bio_feedstocks <- unique(A28.sector$supplysector)
+L232.StubTechMarket_ind_USA %>%
+  mutate(market.name = if_else(minicam.energy.input %in% L232.bio_feedstocks, region, market.name)) -> L232.StubTechMarket_ind_USA
 
 printlog( "L232.StubTechSecMarket_ind_USA: Name the markets for the cogenerated electricity (secondary output)" )
 L232.chp_techs <- subset( A32.globaltech_eff, !is.na( secondary.output ) )
@@ -239,6 +244,9 @@ if( use_regional_fuel_markets ){
 printlog( "NOTE: electricity is consumed from state markets" )
 L232.StubTechEff_ind_USA_adv$market.name[ L232.StubTechEff_ind_USA_adv[[input]] %in% elect_td_sectors ] <-
   L232.StubTechEff_ind_USA_adv$region[ L232.StubTechEff_ind_USA_adv[[input]] %in% elect_td_sectors ]
+printlog( "NOTE: biomass is consumed from state markets" )
+L232.StubTechEff_ind_USA_adv %>%
+  mutate(market.name = if_else(minicam.energy.input == "delivered biomass", region, market.name)) -> L232.StubTechEff_ind_USA_adv
 
 printlog( "Fuel preference elasticity for hielec scenario" )
 L232.FuelPrefElast_indenergy_USA_hielec <- write_to_all_states( A32.fuelprefElasticity_USA, names_FuelPrefElasticity )

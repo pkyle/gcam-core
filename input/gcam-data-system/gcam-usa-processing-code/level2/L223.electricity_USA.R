@@ -28,6 +28,7 @@ states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
 calibrated_techs <- readdata( "ENERGY_MAPPINGS", "calibrated_techs" )
 NREL_us_re_technical_potential <- readdata( "GCAMUSA_LEVEL0_DATA", "NREL_us_re_technical_potential" )
 A23.globaltech_eff <- readdata( "ENERGY_ASSUMPTIONS", "A23.globaltech_eff" )
+A28.sector <- readdata( "GCAMUSA_ASSUMPTIONS", "A28.sector", skip = 1 )
 L114.CapacityFactor_wind_state <- readdata( "GCAMUSA_LEVEL1_DATA", "L114.CapacityFactor_wind_state" )
 L119.CapFacScaler_PV_state <- readdata( "GCAMUSA_LEVEL1_DATA", "L119.CapFacScaler_PV_state" )
 L119.CapFacScaler_CSP_state <- readdata( "GCAMUSA_LEVEL1_DATA", "L119.CapFacScaler_CSP_state" )
@@ -549,6 +550,10 @@ L223.StubTechMarket_elec_USA %>%
   bind_rows(L223.StubTechMarket_elec_USA %>%
               filter(stub.technology == "wind_offshore", 
                      region %in% offshore_wind_states)) -> L223.StubTechMarket_elec_USA
+# Changing regional biomass inputs to state-level regional biomass markets
+L223.bio_feedstocks <- unique(A28.sector$supplysector)
+L223.StubTechMarket_elec_USA %>%
+  mutate(market.name = if_else(minicam.energy.input %in% L223.bio_feedstocks, region, market.name)) -> L223.StubTechMarket_elec_USA
 
 printlog( "L223.StubTechMarket_backup_USA: market names of backup inputs to state electricity sectors" )
 L223.GlobalIntTechBackup_elec[ c( supp, subs ) ] <- L223.GlobalIntTechBackup_elec[ c( "sector.name", "subsector.name" ) ]

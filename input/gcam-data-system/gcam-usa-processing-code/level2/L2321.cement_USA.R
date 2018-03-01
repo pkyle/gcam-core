@@ -24,6 +24,7 @@ sourcedata( "ENERGY_ASSUMPTIONS", "A_energy_data", extension = ".R" )
 sourcedata( "GCAMUSA_ASSUMPTIONS", "A_GCAMUSA_data", extension = ".R" )
 states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
 calibrated_techs <- readdata( "ENERGY_MAPPINGS", "calibrated_techs" )
+A28.sector <- readdata( "GCAMUSA_ASSUMPTIONS", "A28.sector", skip = 1 )
 A321.demand <- readdata( "ENERGY_ASSUMPTIONS", "A321.demand" )
 A321.globaltech_coef <- readdata( "ENERGY_ASSUMPTIONS", "A321.globaltech_coef" )
 L2321.Supplysector_cement <- readdata( "ENERGY_LEVEL2_DATA", "L2321.Supplysector_cement", skip = 4 )
@@ -175,6 +176,10 @@ if( use_regional_fuel_markets ){
 	      match( L2321.StubTechMarket_cement_USA$region[ L2321.StubTechMarket_cement_USA[[input]] %in% regional_fuel_markets ],
 	             states_subregions$state ) ]
 }
+# Changing biomass fuel inputs to state-level delivered biomass markets
+L2321.bio_feedstocks <- unique(A28.sector$supplysector)
+L2321.StubTechMarket_cement_USA %>%
+  mutate(market.name = if_else(minicam.energy.input %in% L2321.bio_feedstocks, region, market.name)) -> L2321.StubTechMarket_cement_USA
 
 printlog( "L2321.BaseService_cement_USA: base-year service output of cement final demand" )
 #Base service is equal to the output of the cement supplysector

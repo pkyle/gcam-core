@@ -21,6 +21,7 @@ sourcedata( "MODELTIME_ASSUMPTIONS", "A_modeltime_data", extension = ".R" )
 sourcedata( "GCAMUSA_ASSUMPTIONS", "A_GCAMUSA_data", extension = ".R" )
 sourcedata( "ENERGY_ASSUMPTIONS", "A_bld_data", extension = ".R" )
 sourcedata( "ENERGY_ASSUMPTIONS", "A_energy_data", extension = ".R" )
+A28.sector <- readdata( "GCAMUSA_ASSUMPTIONS", "A28.sector", skip = 1 )
 A44.gcam_consumer_usa <- readdata( "ENERGY_ASSUMPTIONS", "A44.gcam_consumer" )
 A44.sector_usa <- readdata( "ENERGY_ASSUMPTIONS", "A44.sector" )
 calibrated_techs_bld_usa <- readdata( "GCAMUSA_MAPPINGS", "calibrated_techs_bld_usa" )
@@ -272,6 +273,10 @@ if( use_regional_fuel_markets ){
 printlog( "NOTE: electricity is consumed from state markets" )
 L244.StubTechMarket_bld$market.name[ L244.StubTechMarket_bld[[input]] %in% elect_td_sectors ] <-
       L244.StubTechMarket_bld$region[ L244.StubTechMarket_bld[[input]] %in% elect_td_sectors ]
+printlog( "NOTE: biomass is consumed from state markets" )
+L244.bio_feedstocks <- unique(A28.sector$supplysector)
+L244.StubTechMarket_bld %>%
+  mutate(market.name = if_else(minicam.energy.input %in% L244.bio_feedstocks, region, market.name)) -> L244.StubTechMarket_bld
 
 #calibration 
 printlog( "L244.StubTechCalInput_bld: Calibrated energy consumption by buildings technologies" )

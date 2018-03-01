@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario name="bio-ceiling">
+   <output-meta-data>
+      <summary>Bio Constraint</summary>
+   </output-meta-data>
+   <world>
+      <region name="USA">
+         <policy-portfolio-standard name="bio-ceiling">
+            <market>USA</market>
+            <policyType>tax</policyType>
+            <constraint year="2015">4.7</constraint>
+            <constraint year="2020">5.8</constraint>
+            <constraint year="2025">7.3</constraint>
+            <constraint year="2030">8.8</constraint>
+            <constraint year="2035">10.5</constraint>
+            <constraint year="2040">12.3</constraint>
+            <constraint year="2045">14.8</constraint>
+            <constraint year="2050">17.4</constraint>
+            <constraint year="2055">21</constraint>
+            <constraint year="2060">24.5</constraint>
+            <constraint year="2065">24.5</constraint>
+            <constraint year="2070">24.5</constraint>
+            <constraint year="2075">24.5</constraint>
+            <constraint year="2080">24.5</constraint>
+            <constraint year="2085">24.5</constraint>
+            <constraint year="2090">24.5</constraint>
+            <constraint year="2095">24.5</constraint>
+            <constraint year="2100">24.5</constraint>
+         </policy-portfolio-standard>
+      </region>
+   </world>
+</scenario>

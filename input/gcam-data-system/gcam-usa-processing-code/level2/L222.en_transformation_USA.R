@@ -24,6 +24,7 @@ sourcedata( "GCAMUSA_ASSUMPTIONS", "A_GCAMUSA_data", extension = ".R" )
 sourcedata( "EMISSIONS_ASSUMPTIONS", "A_emissions_data", extension = ".R" )
 states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
 calibrated_techs <- readdata( "ENERGY_MAPPINGS", "calibrated_techs" )
+A28.sector <- readdata( "GCAMUSA_ASSUMPTIONS", "A28.sector", skip = 1 )
 L222.Supplysector_en <- readdata( "ENERGY_LEVEL2_DATA", "L222.Supplysector_en", skip = 4 )
 L222.SubsectorLogit_en <- readdata( "ENERGY_LEVEL2_DATA", "L222.SubsectorLogit_en", skip = 4 )
 L222.StubTech_en <- readdata( "ENERGY_LEVEL2_DATA", "L222.StubTech_en", skip = 4 )
@@ -233,6 +234,10 @@ if( use_regional_fuel_markets ){
     mutate(market.name = if_else(minicam.energy.input %in% regional_fuel_markets, grid_region, market.name)) %>%
     select(-grid_region) -> L222.StubTechMarket_en_USA
 }
+# Changing regional biomass inputs to state-level regional biomass markets
+L222.bio_feedstocks <- unique(A28.sector$supplysector)
+L222.StubTechMarket_en_USA %>%
+  mutate(market.name = if_else(minicam.energy.input %in% L222.bio_feedstocks, region, market.name)) -> L222.StubTechMarket_en_USA
 
 #Set electricity to the state markets
 printlog( "NOTE: electricity is consumed from local markets")
