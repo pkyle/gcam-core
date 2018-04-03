@@ -25,6 +25,9 @@ sourcedata( "GCAMUSA_ASSUMPTIONS", "A_GCAMUSA_data", extension = ".R" )
 sourcedata( "ENERGY_ASSUMPTIONS", "A_elec_data", extension = ".R" )
 
 A23.elec_tech_associations_coal_retire <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elec_tech_associations_coal_retire" )
+L222.StubTechMarket_en_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L222.StubTechMarket_en_USA", skip = 4 )
+L222.StubTech_en <- readdata( "ENERGY_LEVEL2_DATA", "L222.StubTech_en", skip = 4 )
+L225.StubTech_h2 <- readdata( "ENERGY_LEVEL2_DATA", "L225.StubTech_h2", skip = 4 )
 
 if(use_mult_load_segments == "TRUE") {
   A23.elecS_tech_associations <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_tech_associations" )
@@ -88,12 +91,33 @@ if(use_mult_load_segments == "TRUE") {
   
 }
 
+L222.StubTechMarket_en_USA %>%
+  filter(year %in% future_years, 
+         subsector == "coal to liquids", 
+         !grepl("CCS",stub.technology)) %>%
+  distinct(region, supplysector, subsector, stub.technology, year) %>%
+  mutate(share.weight = 0) -> L2231.StubTechShrwt_refining_USA
+
+L222.StubTech_en %>%
+  filter(region == "USA",
+         subsector == "coal gasification", 
+         !grepl("CCS",stub.technology)) %>%
+  bind_rows(L225.StubTech_h2 %>%
+              filter(region == "USA",
+                     subsector == "coal", 
+                     !grepl("CCS",stub.technology))) %>% 
+  repeat_and_add_vector('year', future_years) %>%
+  mutate(share.weight = 0) %>% 
+  select(names_StubTechYr, share.weight) -> L2231.StubTechShrwt_en_USA
+
 L2231.StubTechShrwt_elec_USA %>%
-  bind_rows(L2231.StubTechShrwt_coal_retire_elec_USA) -> L2231.StubTechShrwt_elec_USA
+  bind_rows(L2231.StubTechShrwt_coal_retire_elec_USA, 
+            L2231.StubTechShrwt_refining_USA, 
+            L2231.StubTechShrwt_en_USA) -> L2231.StubTechShrwt_coal_USA
 
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
-write_mi_data( L2231.StubTechShrwt_elec_USA, "StubTechShrwt", "GCAMUSA_LEVEL2_DATA", "L2231.StubTechShrwt_elec_USA", "GCAMUSA_XML_BATCH", "batch_nonewcoal_USA.xml" )
+write_mi_data( L2231.StubTechShrwt_coal_USA, "StubTechShrwt", "GCAMUSA_LEVEL2_DATA", "L2231.StubTechShrwt_coal_USA", "GCAMUSA_XML_BATCH", "batch_nonewcoal_USA.xml" )
 
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_nonewcoal_USA.xml", "GCAMUSA_XML_FINAL", "nonewcoal_USA.xml", "", xml_tag="outFile" )
 

@@ -226,13 +226,14 @@ L211.SectorLogitTables <- get_logit_fn_tables( L211.Sector, names_SupplysectorLo
 
 L211.Sector %>% select(names_Supplysector) -> L211.Sector
 
-# Add USA & state natural gas production sectors to CO2 Coefs
+# Add USA & state natural gas production sectors to CO2 Coefs, format for output
 L211.PrimaryCO2Coef %>% 
   bind_rows(L211.Sector %>% 
               select(region) %>% 
               rename(state = region) %>%
               mutate(resource = L211.gas_prod_sector_name, 
-                     co2.coef = 14.2)) -> L211.PrimaryCO2Coef
+                     co2.coef = 14.2)) %>%
+  rename(region = state, PrimaryFuelCO2Coef.name = resource, PrimaryFuelCO2Coef = co2.coef )-> L211.PrimaryCO2Coef
 
 printlog( "L211.Subsector: Regional natural gas subsector to aggregate gas types." )
 # NOTE: these logit assumptions do not matter as there is no competition at this nest
