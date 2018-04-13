@@ -617,7 +617,7 @@ local:generate-sector-input-coefs(remove($outputNameQueue, 1), $currTree, $coefs
       <supplyDemandQuery title="Electricity generation by technology (inc solar roofs)">
          <axis1 name="technology">technology</axis1>
          <axis2 name="Year">physical-output[@vintage]</axis2>
-         <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type = 'sector' and (@name='electricity' or @name='base load generation' or @name='intermediate generation' or @name='subpeak generation' or @name='peak generation' or @name='elect_td_bld')]/*[@type ='subsector']/*[@type = 'technology' and not (@name='elect_td_bld')]/*[@type='output' (:collapse:)]/physical-output/node()</xPath>
+         <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type = 'sector' and (@name='electricity' or @name='base load generation' or @name='intermediate generation' or @name='subpeak generation' or @name='peak generation' or @name='elect_td_bld')]/*[@type = 'subsector']/*[@type = 'technology' and not (@name='elect_td_bld')]/output-primary[@type='output'(:collapse:)]/physical-output/node()</xPath>
          <comments/>
       </supplyDemandQuery>
       <supplyDemandQuery title="Electricity Fuel Consumption">
@@ -677,7 +677,7 @@ local:generate-sector-input-coefs(remove($outputNameQueue, 1), $currTree, $coefs
       <supplyDemandQuery title="Electricity production by technology by vintage">
          <axis1 name="technology">technology</axis1>
          <axis2 name="Year">physical-output[@vintage]</axis2>
-         <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type = 'sector' and (@name='electricity' or @name='base load generation' or @name='intermediate generation' or @name='subpeak generation' or @name='peak generation' or @name='elect_td_bld')]/*[@type = 'subsector']/*[@type = 'technology']/output-primary[@type='output'(:collapse:)]/physical-output/node()</xPath>
+         <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type = 'sector' and (@name='electricity' or @name='base load generation' or @name='intermediate generation' or @name='subpeak generation' or @name='peak generation' or @name='elect_td_bld')]/*[@type = 'subsector']/*[@type = 'technology' and not (@name='elect_td_bld')]/output-primary[@type='output'(:collapse:)]/physical-output/node()</xPath>
          <comments/>
          <showAttribute attribute-name="year" level="technology"/>
       </supplyDemandQuery>
@@ -808,6 +808,18 @@ local:generate-sector-input-coefs(remove($outputNameQueue, 1), $currTree, $coefs
          <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type = 'sector' (:collapse:) and @name='regional oil']//*[@type = 'technology']/*[@type='output' (:collapse:)]/physical-output/node()</xPath>
          <comments/>
       </supplyDemandQuery>
+      <supplyDemandQuery title="Refined liquids production by region (state-level)">
+         <axis1 name="region">region</axis1>
+         <axis2 name="Year">physical-output[@vintage]</axis2>
+         <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type = 'sector' (:collapse:) and (@name='refining' or @name='oil refining' or @name='biomass liquids' or @name='gas to liquids' or @name='coal to liquids')]//*[@type='output' (:collapse:)]/physical-output/node()</xPath>
+         <comments/>
+      </supplyDemandQuery>
+      <supplyDemandQuery title="Refined liquids production by technology (state-level)">
+         <axis1 name="technology">technology</axis1>
+         <axis2 name="Year">physical-output[@vintage]</axis2>
+         <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type = 'sector' (:collapse:) and (@name='refining' or @name='oil refining' or @name='biomass liquids' or @name='gas to liquids' or @name='coal to liquids')]//*[@type = 'technology']/*[@type='output' (:collapse:)]/physical-output/node()</xPath>
+         <comments/>
+      </supplyDemandQuery>
    </queryGroup>
    <queryGroup name="Other Energy Transformation">
       <supplyDemandQuery title="Hydrogen production by technology">
@@ -832,6 +844,7 @@ local:generate-sector-input-coefs(remove($outputNameQueue, 1), $currTree, $coefs
          <axis1 name="subsector">subsector</axis1>
          <axis2 name="Year">cost</axis2>
          <xPath buildList="true" dataName="Price" group="false" sumAll="false">*[@type = 'sector' and (@name='H2 central production' or @name='H2 forecourt production')]/*[@type = 'subsector']/cost/text()</xPath>
+         <comments/>
       </supplyDemandQuery>
       <supplyDemandQuery title="Hydrogen costs by technology">
          <axis1 name="technology">technology</axis1>
@@ -867,6 +880,12 @@ local:generate-sector-input-coefs(remove($outputNameQueue, 1), $currTree, $coefs
          <axis1 name="technology">technology</axis1>
          <axis2 name="Year">cost</axis2>
          <xPath buildList="true" dataName="cost" group="false" sumAll="false">*[@type = 'sector' and ((@name='gas processing'))]//*[@type = 'technology']/cost/text()</xPath>
+         <comments/>
+      </supplyDemandQuery>
+      <supplyDemandQuery title="Gas processing share-weights by subsector">
+         <axis1 name="subsector">subsector</axis1>
+         <axis2 name="Year">share-weight</axis2>
+         <xPath buildList="true" dataName="Price" group="false" sumAll="false">*[@type = 'sector' and (@name='gas processing')]/*[@type = 'subsector']/share-weight/text()</xPath>
          <comments/>
       </supplyDemandQuery>
    </queryGroup>
