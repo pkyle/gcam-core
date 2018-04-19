@@ -9,6 +9,7 @@ R_F_Xyr <- c( "GCAM_region_ID", "fuel", "Xyear" )
 R_Y <- c( "GCAM_region_ID", "year" )
 R_Xyr <- c( "GCAM_region_ID", "Xyear" )
 S_F <- c( "sector", "fuel" )
+S_F_tech <- c( "sector", "fuel", "technology" )
 RG3_subrsrc_grd <- c( "region_GCAM3", "subresource", "grade" )
 RG3_F <- c( "region_GCAM3", "fuel" )
 s_s_t <- c( "supplysector", "subsector", "technology" )
@@ -22,3 +23,7 @@ digits_shrwt <- 4
 
 #Range of PMultipliers to use for secondary output feedcrops from biodiesel and corn ethanol
 max_bioliquid_Pmult <- 0.80
+
+#Fraction of liquids for feedstocks and oil electricity that must come from oil
+oilFract_Elec <- 1
+oilFract_Feedstocks <- 0.8

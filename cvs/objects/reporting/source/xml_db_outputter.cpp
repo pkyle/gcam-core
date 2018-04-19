@@ -57,6 +57,7 @@
 #include "sectors/include/subsector.h"
 #include "technologies/include/technology.h"
 #include "emissions/include/aghg.h"
+#include "technologies/include/icapture_component.h"
 #include "util/base/include/model_time.h"
 #include "containers/include/output_meta_data.h"
 #include "marketplace/include/marketplace.h"
@@ -64,6 +65,8 @@
 #include "climate/include/iclimate_model.h"
 #include "climate/include/magicc_model.h"
 #include "resources/include/subresource.h"
+#include "resources/include/renewable_subresource.h"
+#include "resources/include/smooth_renewable_subresource.h"
 #include "resources/include/grade.h"
 #include "demographics/include/demographic.h"
 #include "demographics/include/population.h"
@@ -210,6 +213,29 @@ XMLDBOutputter::~XMLDBOutputter(){
 }
 
 /*!
+ * \brief A utility method which can be used as a preliminary check to make sure
+ *        all of the various compononents and libraries required to write to the
+ *        database are found.
+ * \details This method would be used early in the model run rather than wait until
+ *          the entire scenario has run only to find out we were unable to write the
+ *          results.  Note it may still be possible some error occurs when we go
+ *          to actually write to the database since we will not make any attempt
+ *          at writing to it during this check.
+ * \return True if it appears writing to the datbase would have been successful.
+ */
+bool XMLDBOutputter::checkJavaWorking() {
+#if( __HAVE_JAVA__ )
+    auto_ptr<JNIContainer> testContainer = createContainer( true );
+    // if we get back a null container then some error occured
+    // createContainer would have already print any error messages.
+    return testContainer.get();
+#else
+    // we can skip this check if we have disabled Java
+    return true;
+#endif
+}
+
+/*!
  * \brief Write the output to the database.
  * \details In order to keep the memory usage down data has been writing to the
  *          database as XML was being generated.  We will signal that no more data
@@ -241,15 +267,45 @@ void XMLDBOutputter::finish() const {
 #endif
 }
 
+/*!
+ * \brief A method to inform us that no more data will be appended to the open database so we can
+ *        now run any addtional processing necessary and close the database.
+ * \details We will simply call the finalizeAndClose method on the XMLDBDriver to do the work.
+ *          It may potentially run queries if configured then close the database.
+ */
+void XMLDBOutputter::finalizeAndClose() {
+#if( __HAVE_JAVA__ )
+    // Call finalizeAndClose on the XMLDBDriver if it was successfully opened in the first place.
+    if( mJNIContainer.get() ) {
+        // First we need to look up the appropriate "finalizeAndClose" Java method with no
+        // arguments and void return: "()V" then call it.
+        jmethodID finalizeMID = mJNIContainer->mJavaEnv->GetMethodID( mJNIContainer->mWriteDBClass,
+                "finalizeAndClose", "()V" );
+        if( !finalizeMID ) {
+            ILogger& mainLog = ILogger::getLogger( "main_log" );
+            mainLog.setLevel( ILogger::SEVERE );
+            mainLog << "Failed to find JNI method: finalizeAndClose" << endl;
+            return;
+        }
+
+        // The java method will (potentially) run queries then close the database
+        // before returning.
+        mJNIContainer->mJavaEnv->CallVoidMethod( mJNIContainer->mWriteDBInstance, finalizeMID );
+    }
+#endif
+}
+
 #if( __HAVE_JAVA__ )
 /*!
  * \brief Create an initialized Java environment.
- * \param aAppendOnly If we are only looking to append data and not add a new file.
+ * \param aTestingOnly A flag if set indicates we don't want to actually start the
+ *                     process for writing, instead are only interested if all of
+ *                     the Java machinery is in place to successfully write to the DB.
  * \return An initialized Java environment with the Write DB class loaded and
  *         ready to accept data to write/alter to the database.  If an error occurs
  *         a null container will be returned.
  */
-auto_ptr<XMLDBOutputter::JNIContainer> XMLDBOutputter::createContainer( const bool aAppendOnly ) {
+auto_ptr<XMLDBOutputter::JNIContainer> XMLDBOutputter::createContainer( const bool aTestingOnly ) {
     // Create a Java instance.
     auto_ptr<JNIContainer> jniContainer( new JNIContainer );
 
@@ -262,11 +318,17 @@ auto_ptr<XMLDBOutputter::JNIContainer> XMLDBOutputter::createContainer( const bo
 
     // Start the Java VM with the following settings
     JavaVMInitArgs vmArgs;
-    JavaVMOption* options = new JavaVMOption[ 1 ];
-    const string classpath = "-Djava.class.path=." + string( PATH_SEPARATOR ) + string( BASEX_LIB );
+    JavaVMOption* options = new JavaVMOption[ 2 ];
+    // Note that JNI will not expand the wildcards in the classpath as it would
+    // in every other means of setting the classpath.  To work aroudnd this we
+    // will need to use a custom class loader that will do the expansion prior to
+    // loading any classes.
+    const string classpath = "-Djava.class.path=XMLDBDriver.jar" + string( PATH_SEPARATOR ) + string( JARS_LIB )
+        + string( PATH_SEPARATOR ) + "../input/gcam-data-system/_common/ModelInterface/src/ModelInterface.jar";
     options[ 0 ].optionString = const_cast<char*>( classpath.c_str() );
+    options[ 1 ].optionString = const_cast<char*>( "-Djava.system.class.loader=WildcardExpandingClassLoader" );
     vmArgs.version = JNI_VERSION_1_6;
-    vmArgs.nOptions = 1;
+    vmArgs.nOptions = 2;
     vmArgs.options = options;
     vmArgs.ignoreUnrecognized = false;
     if( !jniContainer->mJavaVM ) {
@@ -275,7 +337,7 @@ auto_ptr<XMLDBOutputter::JNIContainer> XMLDBOutputter::createContainer( const bo
     else {
         jniContainer->mJavaVM->AttachCurrentThread( (void**)&jniContainer->mJavaEnv, &vmArgs );
     }
-    delete options;
+    delete[] options;
 
     // Ensure that the Java VM opened successfully.
     if( !jniContainer->mJavaVM || !jniContainer->mJavaEnv ) {
@@ -290,7 +352,7 @@ auto_ptr<XMLDBOutputter::JNIContainer> XMLDBOutputter::createContainer( const bo
     // the database.
     // Note that we need to make this class reference "global" so that we can use
     // it again in later.
-    const string writeDBClassName = "WriteLocalBaseXDB";
+    const string writeDBClassName = "XMLDBDriver";
     jniContainer->mWriteDBClass = reinterpret_cast<jclass>( jniContainer->mJavaEnv->NewGlobalRef(
         jniContainer->mJavaEnv->FindClass( writeDBClassName.c_str() ) ) );
     if( !jniContainer->mWriteDBClass ) {
@@ -301,17 +363,23 @@ auto_ptr<XMLDBOutputter::JNIContainer> XMLDBOutputter::createContainer( const bo
         return jniContainer;
     }
 
-    // Find the constructor: "<init>" for the class which takes two string and a boolean argument:
-    // "(Ljava/lang/String;Ljava/lang/String;Z)V".  The arguments are the database, and
-    // a unique name to call the document that we will put into the database and a flag
-    // if we are opening the database only to append data to an existing document.
+    // Find the constructor: "<init>" for the class which takes two string:
+    // "(Ljava/lang/String;Ljava/lang/String)V".  The arguments are the database, and
+    // a unique name to call the document that we will put into the database.
     jmethodID writeDBCtorMID = jniContainer->mJavaEnv->GetMethodID( jniContainer->mWriteDBClass,
-        "<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V" );
+        "<init>", "(Ljava/lang/String;Ljava/lang/String;)V" );
     if( !writeDBCtorMID ) {
         ILogger& mainLog = ILogger::getLogger( "main_log" );
         mainLog.setLevel( ILogger::SEVERE );
         mainLog << "Failed to find the appropriate constructor of Java class " << writeDBClassName << "." << endl;
         jniContainer.reset( 0 );
+        return jniContainer;
+    }
+
+    // If we are only testing if Java works we need to exit now as calling the constructor
+    // will initiate the database write
+    if( aTestingOnly ) {
+        jniContainer->mWriteDBInstance = 0;
         return jniContainer;
     }
 
@@ -331,7 +399,7 @@ auto_ptr<XMLDBOutputter::JNIContainer> XMLDBOutputter::createContainer( const bo
 
     // Call the constructor to get an instance of writeDBClassName.
     jniContainer->mWriteDBInstance = jniContainer->mJavaEnv->NewGlobalRef(
-        jniContainer->mJavaEnv->NewObject( jniContainer->mWriteDBClass, writeDBCtorMID, jXMLDBContainerName, jDocName, aAppendOnly ) );
+        jniContainer->mJavaEnv->NewObject( jniContainer->mWriteDBClass, writeDBCtorMID, jXMLDBContainerName, jDocName ) );
     if( !jniContainer->mWriteDBInstance ) {
         ILogger& mainLog = ILogger::getLogger( "main_log" );
         mainLog.setLevel( ILogger::SEVERE );
@@ -380,12 +448,8 @@ bool XMLDBOutputter::appendData( const string& aData, const string& aLocation ) 
     }
 
 #if( __HAVE_JAVA__ )
-    // Create a Java container to use for the update indicating that we intend
-    // open to append data.
-    auto_ptr<JNIContainer> jniContainer( createContainer( true ) );
-
     // Check if creating the container failed.
-    if( !jniContainer.get() ){
+    if( !mJNIContainer.get() ){
         // An error message will have been printed by create container.
         return false;
     }
@@ -394,7 +458,7 @@ bool XMLDBOutputter::appendData( const string& aData, const string& aLocation ) 
     // "(Ljava/lang/String;Ljava/lang/String;)Z".  The arguments are the data, and
     // an XPath which gives the location after which to insert the data.  It will
     // return a bool "Z" if it successfully appended the data or not.
-    jmethodID appendDataMID = jniContainer->mJavaEnv->GetMethodID( jniContainer->mWriteDBClass,
+    jmethodID appendDataMID = mJNIContainer->mJavaEnv->GetMethodID( mJNIContainer->mWriteDBClass,
         "appendData", "(Ljava/lang/String;Ljava/lang/String;)Z" );
     if( !appendDataMID ) {
         ILogger& mainLog = ILogger::getLogger( "main_log" );
@@ -404,11 +468,11 @@ bool XMLDBOutputter::appendData( const string& aData, const string& aLocation ) 
     }
 
     // Convert the C++ string to a Java String so that they can be passed to the Java method.
-    jstring jData = jniContainer->mJavaEnv->NewStringUTF( aData.c_str() );
-    jstring jLocation = jniContainer->mJavaEnv->NewStringUTF( aLocation.c_str() );
+    jstring jData = mJNIContainer->mJavaEnv->NewStringUTF( aData.c_str() );
+    jstring jLocation = mJNIContainer->mJavaEnv->NewStringUTF( aLocation.c_str() );
 
     // Call the appendData method
-    return jniContainer->mJavaEnv->CallBooleanMethod( jniContainer->mWriteDBInstance, appendDataMID, jData, jLocation );
+    return mJNIContainer->mJavaEnv->CallBooleanMethod( mJNIContainer->mWriteDBInstance, appendDataMID, jData, jLocation );
 #else
     return false;
 #endif
@@ -483,7 +547,7 @@ void XMLDBOutputter::endVisitRegion( const Region* aRegion,
 void XMLDBOutputter::startVisitRegionMiniCAM( const RegionMiniCAM* aRegionMiniCAM, const int aPeriod ) {
     // Store the region's GDP object.
     assert( !mGDP );
-    mGDP = aRegionMiniCAM->gdp.get();
+    mGDP = aRegionMiniCAM->mGDP;
 
     // Write the opening region tag and the type of the base class.
     XMLWriteOpeningTag( aRegionMiniCAM->getXMLName(), mBuffer, mTabs.get(),
@@ -590,6 +654,29 @@ void XMLDBOutputter::endVisitSubResource( const SubResource* aSubResource,
     XMLWriteClosingTag( aSubResource->getXMLName(), mBuffer, mTabs.get() );
 }
 
+void XMLDBOutputter::startVisitSubRenewableResource( const SubRenewableResource* aSubResource,
+                                                     const int aPeriod )
+{
+    // Write the opening subresource tag and the type of the base class.
+    XMLWriteOpeningTag( aSubResource->getXMLNameStatic(), mBuffer, mTabs.get(),
+                       aSubResource->getName(), 0, "subresource" );
+    
+    // Write out annual production and maximum available renewable resource.
+    const Modeltime* modeltime = scenario->getModeltime();
+    for( int per = 0; per < modeltime->getmaxper(); ++per ){
+        writeItem( "max-annual-subresource", mCurrentOutputUnit, aSubResource->getMaxAnnualSubResource(per), per );
+        writeItem( "production", mCurrentOutputUnit, aSubResource->getAnnualProd( per ), per );
+        writeItem( "cumulative-production", mCurrentOutputUnit, aSubResource->getCumulProd( per ), per );
+    }
+}
+
+void XMLDBOutputter::endVisitSubRenewableResource( const SubRenewableResource* aSubResource,
+                                                        const int aPeriod )
+{
+    // Write the closing subresource tag.
+    XMLWriteClosingTag( aSubResource->getXMLNameStatic(), mBuffer, mTabs.get() );
+}
+
 /*! \brief Write the output for a grade.
 * \param aGrade Grade for which to write output.
 * \param aPeriod Period which is ignored because all periods are output together.
@@ -688,7 +775,7 @@ void XMLDBOutputter::endVisitSubsector( const Subsector* aSubsector,
 void XMLDBOutputter::startVisitTranSubsector( const TranSubsector* aTranSubsector, const int aPeriod ) {
     const Modeltime* modeltime = scenario->getModeltime();
     for( int i = 0; i < modeltime->getmaxper(); ++i ){
-        double currValue = aTranSubsector->speed[ i ];
+        double currValue = aTranSubsector->mSpeed[ i ];
         if( !objects::isEqual<double>( currValue, 0.0 ) ) {
             writeItem( "speed", "km/hr", currValue, i );
         }
@@ -758,7 +845,7 @@ void XMLDBOutputter::startVisitTechnology( const Technology* aTechnology, const 
     // TODO: Inconsistent use of year attribute.  Technology vintage written out
     // with "year" attribute.
     XMLWriteOpeningTag( aTechnology->getXMLName(), *parentBuffer, mTabs.get(),
-        aTechnology->getName(), aTechnology->year,
+        aTechnology->getName(), aTechnology->mYear,
         DefaultTechnology::getXMLNameStatic() );
         
     // put the buffers on a stack so that we have the correct ordering
@@ -768,6 +855,9 @@ void XMLDBOutputter::startVisitTechnology( const Technology* aTechnology, const 
     if( !objects::isEqual<double>( aTechnology->getShareWeight(), 0.0 ) ) {
         XMLWriteElement( aTechnology->getShareWeight(), "share-weight", *childBuffer, mTabs.get() );
     }
+
+    // Do not write out default capacity factor of 1
+    XMLWriteElementCheckDefault( aTechnology->getCapacityFactor(), "capacity-factor", *childBuffer, mTabs.get() , 1.0 );
 
     // children of technology go in the child buffer
     for( int curr = 0; curr <= aPeriod; ++curr ){
@@ -822,9 +912,7 @@ void XMLDBOutputter::startVisitTranTechnology( const TranTechnology* aTranTechno
     // tran startVisitTranTechnology gets visited after startVisitTechnology which implies
     // mBufferStack.top() is the child buffer for technology
     writeItemToBuffer( aTranTechnology->mLoadFactor, "load-factor", 
-        *mBufferStack.top(), mTabs.get(), -1, "load/veh" );
-    writeItemToBuffer( aTranTechnology->mServiceOutput, "service-output",
-        *mBufferStack.top(), mTabs.get(), -1, mCurrentOutputUnit );    
+        *mBufferStack.top(), mTabs.get(), -1, "load/veh" ); 
 }
 
 void XMLDBOutputter::endVisitTranTechnology( const TranTechnology* aTranTechnology, const int aPeriod ) {
@@ -1089,8 +1177,12 @@ void XMLDBOutputter::startVisitGHG( const AGHG* aGHG, const int aPeriod ){
                 *childBuffer, mTabs.get(), attrs );
         }
 
-        // Write sequestered amount of GHG emissions .
-        currEmission = aGHG->getEmissionsSequestered( i );
+        // Write sequestered amount of GHG emissions.
+        // TODO: Note replicating old behavior of including geologic and feedstock
+        // sequestration but is that what we really wanted in the first place?
+        currEmission = mCurrentTechnology && mCurrentTechnology->mCaptureComponent ?
+            mCurrentTechnology->mCaptureComponent->getSequesteredAmount( aGHG->getName(), true, i ) +
+            mCurrentTechnology->mCaptureComponent->getSequesteredAmount( aGHG->getName(), false, i ) : 0.0;
         if( !objects::isEqual<double>( currEmission, 0.0 ) ) {
             XMLWriteElementWithAttributes( currEmission, "emissions-sequestered",
                 *childBuffer, mTabs.get(), attrs );
@@ -1146,14 +1238,12 @@ void XMLDBOutputter::endVisitMarketplace( const Marketplace* aMarketplace,
 void XMLDBOutputter::startVisitMarket( const Market* aMarket,
                                        const int aPeriod )
 {
-    // TODO: What should happen if period != -1 or the period of the market?
     // Write the opening market tag.
-    const int year = scenario->getModeltime()->getper_to_yr( aMarket->period );
     XMLWriteOpeningTag( Market::getXMLNameStatic(), mBuffer, mTabs.get(),
-                        aMarket->getName(), year );
+                        aMarket->getName(), aMarket->getYear() );
 
-    XMLWriteElement( aMarket->good, "MarketGoodOrFuel",mBuffer, mTabs.get() );
-    XMLWriteElement( aMarket->region, "MarketRegion", mBuffer, mTabs.get() );
+    XMLWriteElement( aMarket->getGoodName(), "MarketGoodOrFuel",mBuffer, mTabs.get() );
+    XMLWriteElement( aMarket->getRegionName(), "MarketRegion", mBuffer, mTabs.get() );
 
     // if next market clear out units to be updated
     if( mCurrentMarket != aMarket->getName() ){
@@ -1163,7 +1253,7 @@ void XMLDBOutputter::startVisitMarket( const Market* aMarket,
         mCurrentOutputUnit.clear();
     }
     // Store unit information from base period
-    if( aMarket->period == 0 ) {
+    if( aMarket->getYear() == scenario->getModeltime()->getStartYear() ) {
         if( mCurrentPriceUnit.empty() ){
             mCurrentPriceUnit = aMarket->getMarketInfo()->getString( "price-unit", false );
         }
@@ -1511,8 +1601,18 @@ void XMLDBOutputter::endVisitLandNode( const LandNode* aLandNode,
 void XMLDBOutputter::startVisitLandLeaf( const LandLeaf* aLandLeaf,
                                          const int aPeriod )
 {
-    // Write the opening gdp tag.
-    XMLWriteOpeningTag( "LandLeaf", mBuffer, mTabs.get(), aLandLeaf->getName() );
+    // Write the opening LandLeaf tag except we need to decompose the name and write
+    // each out as an attribute.
+    // TODO: just put this in as a utility such as XMLWriteOpeningTagWithAttributes?
+    map<string, string> decomposedNames = decomposeLandName( aLandLeaf->getName() );
+    mTabs->writeTabs( mBuffer );
+    mBuffer << "<" << LandLeaf::getXMLNameStatic();
+    typedef typename map<string, string>::const_iterator MapIterator;
+    for( MapIterator entry = decomposedNames.begin(); entry != decomposedNames.end(); ++entry ){
+        mBuffer << " " << entry->first <<"=\"" << entry->second << "\"";
+    }
+    mBuffer << ">" << std::endl;
+    mTabs->increaseIndent();
 
     // Loop over the periods to output LandLeaf information.
     // The loops are separated so the types are grouped together to make it easier to
@@ -1531,7 +1631,7 @@ void XMLDBOutputter::startVisitLandLeaf( const LandLeaf* aLandLeaf,
         writeItem( "profit-rate", "$/thous km2", aLandLeaf->mProfitRate[ i ], i );
     }
     for( int i = 0; i < modeltime->getmaxper(); ++i ){
-        writeItem( "profit-scaler", "", aLandLeaf->mProfitScaler[ i ], i );
+        writeItem( "share-weight", "", aLandLeaf->mShareWeight[ i ], i );
     }
 }
 
@@ -2042,6 +2142,48 @@ bool XMLDBOutputter::isTechnologyOperating( const int aPeriod ){
  iostream* XMLDBOutputter::popBufferStack(){
     iostream* ret = mBufferStack.top();
     mBufferStack.pop();
+    return ret;
+}
+
+/**
+ * \brief The name of LandLeaf / AgProductionTechnology actually compose of potentially
+ *        several identifiers.  This method decomposes that name into it's component
+ *        identifiers so each can be written as it's own attribute.
+ * \details This method will attempt to parse out identifiers by spliting on underscore
+ *          characters from right to left first checking to see if it finds:
+ *          "mgmt-tech"=(hi|lo)
+ *          "water"=(IRR|RFD)
+ *          The next token will be assumed to be the "land-region" and the rest will
+ *          be assumed to be "crop".  Note the full name will also be included in the
+ *          results under "name".
+ * \return A map of identifiers to their corresponding values as detailed above.
+ */
+map<string, string> XMLDBOutputter::decomposeLandName( string aLandName ) {
+    bool foundLandRegion = false;
+    size_t pos;
+    map<string, string> ret;
+    // Include the full unparsed name in the results.
+    ret[ "name " ] = aLandName;
+    
+    // Split the name on underscores from right to left.  Once we have found the
+    // land-region we will assume the rest of the name is just the crop (some of
+    // which include underscores in their names).
+    while( !foundLandRegion && ( pos = aLandName.rfind( '_' ) ) != string::npos ) {
+        string currName = aLandName.substr( pos + 1, aLandName.length() - pos );
+        aLandName.erase( pos, aLandName.length() );
+        if( currName == "hi" || currName == "lo" ) {
+            ret[ "mgmt-tech" ] = currName;
+        }
+        else if( currName == "IRR" || currName == "RFD" ) {
+            ret[ "water" ] = currName;
+        }
+        else {
+            ret[ "land-region" ] = currName;
+            foundLandRegion = true;
+        }
+    }
+    ret[ "crop" ] = aLandName;
+    
     return ret;
 }
 

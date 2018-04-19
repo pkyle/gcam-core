@@ -85,7 +85,8 @@ L222.TechInterp_USAen$interpolation.function <- "fixed"
 printlog( "L222.TechShrwt_USAen: technology shareweights, USA region")
 L222.Tech_USAen %>%
   repeat_and_add_vector('year', model_years) %>%
-  separate(technology, c("state"), sep = " ", remove = F) %>% 
+  # split the state names out and because the refining tech names have spaces drop the extra
+  separate(technology, c("state"), sep = " ", remove = F, extra = "drop") %>% 
   left_join(SEDS_refining_feedstock_prod, by = c("state")) %>%
   mutate(coal_fract = coal / max(coal), gas_fract = natural_gas / max(natural_gas)) %>%
   mutate(share.weight = 1) %>%
@@ -128,6 +129,12 @@ names( L222.PassThroughSector_USAen ) <- names_PassThroughSector
 # before the other sector tables so that the node names are properly set
 write_mi_data( L222.SectorEQUIV, "EQUIV_TABLE", "GCAMUSA_LEVEL2_DATA", "L222.SectorEQUIV", "GCAMUSA_XML_BATCH", "batch_en_transformation_USA.xml" )
 write_mi_data( L222.PassThroughSector_USAen, "PassThroughSector", "GCAMUSA_LEVEL2_DATA", "L222.PassThroughSector_USAen", "GCAMUSA_XML_BATCH", "batch_en_transformation_USA.xml" )
+
+# TODO: figure out a better strategy.  We need to have at least one technology be available in the final
+# calibration year so we can get a base cost for the absolute cost logit.  Having a share weight of zero
+# at the subsector is sufficient then to ensure we get no production in the calibration years
+L222.GlobalTechShrwt_en[L222.GlobalTechShrwt_en$technology == "coal to liquids" & L222.GlobalTechShrwt_en$year == 2010, "share.weight"] <- 1.0
+L222.GlobalTechShrwt_en[L222.GlobalTechShrwt_en$technology == "gas to liquids" & L222.GlobalTechShrwt_en$year == 2010, "share.weight"] <- 1.0
 
 printlog( "All tables for which processing is identical are done in a for loop")
 printlog( "NOTE: writing out the tables in this step as well")

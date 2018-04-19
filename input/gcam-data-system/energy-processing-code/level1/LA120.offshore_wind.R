@@ -220,7 +220,7 @@ A23.globaltech_capital %>%
   interpolate_and_melt(c( model_base_years, model_future_years ), value.name="capital.overnight", 
                        digits = digits_capital, rule=3 ) %>%
   select(sector.name = supplysector, subsector.name = subsector, intermittent.technology = technology, year, 
-         input.capital, capital.overnight, fixed.charge.rate, capacity.factor) -> L120.offshore_wind_cap_cost
+         input.capital, capital.overnight, fixed.charge.rate) -> L120.offshore_wind_cap_cost
 
 # Second, calculate technological change
 L120.offshore_wind_cap_cost %>%

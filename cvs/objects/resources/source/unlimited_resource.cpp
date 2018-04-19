@@ -112,9 +112,6 @@ void UnlimitedResource::XMLParse( const DOMNode* node ){
             XMLHelper<Value>::insertValueIntoVector( curr, mFixedPrices,
                                                      scenario->getModeltime() );
         }
-        else if( nodeName == "capacity-factor" ){
-            mCapacityFactor = XMLHelper<double>::getValue( curr );
-        }
         else if( nodeName == "variance" ){
             mVariance = XMLHelper<double>::getValue( curr );
         }
@@ -140,10 +137,7 @@ void UnlimitedResource::toInputXML( ostream& aOut, Tabs* aTabs ) const {
     XMLWriteElement( mPriceUnit, "price-unit", aOut, aTabs );
     XMLWriteElement( mMarket, "market", aOut, aTabs );
     
-    const Value VALUE_DEFAULT = 0.0;
-    XMLWriteElementCheckDefault( mCapacityFactor, "capacity-factor", aOut,
-                                 aTabs, VALUE_DEFAULT );
-
+    const Value VALUE_DEFAULT;
     XMLWriteElementCheckDefault( mVariance, "variance", aOut,
                                  aTabs, VALUE_DEFAULT );
     
@@ -165,7 +159,6 @@ void UnlimitedResource::toDebugXML( const int aPeriod,
     XMLWriteElement( mOutputUnit, "output-unit", aOut, aTabs );
     XMLWriteElement( mPriceUnit, "price-unit", aOut, aTabs );
     XMLWriteElement( mMarket, "market", aOut, aTabs );
-    XMLWriteElement( mCapacityFactor, "capacity-factor", aOut, aTabs );
     XMLWriteElement( mVariance, "variance", aOut, aTabs );
 
     // Write out resource prices for debugging period.
@@ -207,15 +200,12 @@ void UnlimitedResource::initCalc( const string& aRegionName,
     IInfo* marketInfo = marketplace->getMarketInfo( mName, aRegionName, aPeriod, true );
     assert( marketInfo );
 
-    if( mCapacityFactor.isInited() ){
-        marketInfo->setDouble( "resourceCapacityFactor", mCapacityFactor );
-    }
     if( mVariance.isInited() ){
         marketInfo->setDouble( "resourceVariance", mVariance );
     }
     
     // Set the fixed price if a valid one was read in.
-    if( mFixedPrices[ aPeriod ] > 0 ) {
+    if( mFixedPrices[ aPeriod ].isInited() ) {
         marketplace->setPrice( mName, aRegionName, mFixedPrices[ aPeriod ], aPeriod );
     }
 }
@@ -240,8 +230,8 @@ void UnlimitedResource::calcSupply( const string& aRegionName,
     // demand to the market.
     double currDemand = marketplace->getDemand( mName, aRegionName, aPeriod );
     double currSupply = marketplace->getSupply( mName, aRegionName, aPeriod );
-    marketplace->addToSupply( mName, aRegionName, currDemand - currSupply, currDemand - currSupply,
-                              aPeriod );
+    mSupplyWedge = currDemand - currSupply;
+    marketplace->addToSupply( mName, aRegionName, mSupplyWedge, aPeriod );
 }
 
 double UnlimitedResource::getAnnualProd( const string& aRegionName,
@@ -249,6 +239,11 @@ double UnlimitedResource::getAnnualProd( const string& aRegionName,
 {
     // Return the market supply.
     return scenario->getMarketplace()->getSupply( mName, aRegionName, aPeriod );
+}
+
+//! Return price of resources.
+double UnlimitedResource::getPrice( const int aPeriod ) const {
+    return mFixedPrices[ aPeriod ];
 }
 
 void UnlimitedResource::csvOutputFile( const string& aRegionName )

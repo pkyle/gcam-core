@@ -216,7 +216,8 @@ L2239.CSP_curve %>%
 # Table to read in maximum resource
 L2239.maxSubResource_CSP %>%
   mutate(renewresource = "CSP_resource", sub.renewable.resource = "CSP_resource") %>%
-  select(region = State,renewresource,sub.renewable.resource, maxSubResource ) %>%
+  mutate(year.fillout = min(model_years)) %>%
+  select(region = State,renewresource,sub.renewable.resource, year.fillout, maxSubResource ) %>%
   filter(region %in% states_list_curve)-> L2239.GrdRenewRsrcMax_CSP_USA_reeds
 
 # Table to delete global solar resource minicam-energy-input
@@ -243,7 +244,9 @@ if(use_mult_load_segments == "TRUE") {
     filter(region %in% states_list_curve) %>%
     filter(grepl("CSP",stub.technology )) %>%
     mutate(minicam.energy.input = "CSP_resource", market.name = region, efficiency = 1) %>%
-    select(region, supplysector, subsector, stub.technology, year, minicam.energy.input, efficiency, market.name)-> L2239.StubTechEff_CSP_USA_reeds
+    #Hard code in type "Resource" for intermittent technology resource input only
+    mutate(flag = "Resource") %>%
+    select(region, supplysector, subsector, stub.technology, year, minicam.energy.input, efficiency, market.name, flag)-> L2239.StubTechEffFlag_CSP_USA_reeds
   
 } else {
 
@@ -251,7 +254,9 @@ if(use_mult_load_segments == "TRUE") {
     filter(region %in% states_list_curve) %>%
     filter(grepl("CSP",stub.technology )) %>%
     mutate(minicam.energy.input = "CSP_resource", market.name = region, efficiency = 1) %>%
-    select(region, supplysector, subsector, stub.technology, year, minicam.energy.input, efficiency, market.name)-> L2239.StubTechEff_CSP_USA_reeds
+    #Hard code in type "Resource" for intermittent technology resource input only
+    mutate(flag = "Resource") %>%
+    select(region, supplysector, subsector, stub.technology, year, minicam.energy.input, efficiency, market.name, flag)-> L2239.StubTechEffFlag_CSP_USA_reeds
   
  }
 
@@ -263,9 +268,9 @@ if(use_mult_load_segments == "TRUE") {
     filter(grepl("storage",stub.technology) == FALSE) %>%
     left_join(L2239.CSP_curve, by= c("region" = "State")) %>%
     filter(is.na(CFmax) == "FALSE") %>%
-    mutate(capacity.factor.capital = round(CFmax,5), capacity.factor.OM = round(CFmax,5)) %>%
+    mutate(capacity.factor = round(CFmax,5)) %>%
     select(region, supplysector, subsector, stub.technology, year, 
-           input.capital, capacity.factor.capital, input.OM.fixed, capacity.factor.OM) -> L2239.StubTechCapFactor_CSP_nostorage_USA_reeds
+           capacity.factor) -> L2239.StubTechCapFactor_CSP_nostorage_USA_reeds
   
   # We read in higher CFmax for CSP technologies with dedicated thermal storage. This is in contrast to our approach 
   # for wind and PV because CSP w/ thermal storage is argued to achieve better capacity factors compared to CSP systems without
@@ -283,9 +288,9 @@ if(use_mult_load_segments == "TRUE") {
     filter(grepl("storage",stub.technology) == TRUE) %>%
     left_join(L2239.CSP_curve, by= c("region" = "State")) %>%
     filter(is.na(CFmax) == "FALSE") %>%
-    mutate(capacity.factor.capital = round(CFmax+0.2,5), capacity.factor.OM = round(CFmax+0.2,5)) %>%
+    mutate(capacity.factor = round(CFmax+0.2,5)) %>%
     select(region, supplysector, subsector, stub.technology, year, 
-           input.capital, capacity.factor.capital, input.OM.fixed, capacity.factor.OM) -> L2239.StubTechCapFactor_CSP_storage_USA_reeds
+           capacity.factor) -> L2239.StubTechCapFactor_CSP_storage_USA_reeds
   
   L2239.StubTechCapFactor_CSP_nostorage_USA_reeds %>%
     bind_rows(L2239.StubTechCapFactor_CSP_storage_USA_reeds) -> L2239.StubTechCapFactor_CSP_USA_reeds
@@ -296,9 +301,9 @@ if(use_mult_load_segments == "TRUE") {
     filter(stub.technology == "CSP") %>%
     left_join(L2239.CSP_curve, by= c("region" = "State")) %>%
     filter(is.na(CFmax) == "FALSE") %>%
-    mutate(capacity.factor.capital = round(CFmax,5), capacity.factor.OM = round(CFmax,5)) %>%
+    mutate(capacity.factor = round(CFmax,5)) %>%
     select(region, supplysector, subsector, stub.technology, year, 
-           input.capital, capacity.factor.capital, input.OM.fixed, capacity.factor.OM) -> L2239.StubTechCapFactor_CSP_nostorage_USA_reeds
+           capacity.factor) -> L2239.StubTechCapFactor_CSP_nostorage_USA_reeds
  
   # We read in higher CFmax for CSP technologies with dedicated thermal storage. This is in contrast to our approach 
   # for wind and PV because CSP w/ thermal storage is argued to achieve better capacity factors compared to CSP systems without
@@ -315,9 +320,9 @@ if(use_mult_load_segments == "TRUE") {
     filter(stub.technology == "CSP_storage") %>%
     left_join(L2239.CSP_curve, by= c("region" = "State")) %>%
     filter(is.na(CFmax) == "FALSE") %>%
-    mutate(capacity.factor.capital = round(CFmax + 0.2,5), capacity.factor.OM = round(CFmax + 0.2,5)) %>%
+    mutate(capacity.factor = round(CFmax + 0.2,5)) %>%
     select(region, supplysector, subsector, stub.technology, year, 
-           input.capital, capacity.factor.capital, input.OM.fixed, capacity.factor.OM) -> L2239.StubTechCapFactor_CSP_storage_USA_reeds
+           capacity.factor) -> L2239.StubTechCapFactor_CSP_storage_USA_reeds
   
   L2239.StubTechCapFactor_CSP_nostorage_USA_reeds %>%
     bind_rows(L2239.StubTechCapFactor_CSP_storage_USA_reeds) -> L2239.StubTechCapFactor_CSP_USA_reeds
@@ -362,7 +367,7 @@ write_mi_data( L2239.DeleteStubTechMinicamEnergyInput_CSP_USA_reeds, "DeleteStub
 write_mi_data( L2239.RenewRsrc_CSP_USA_reeds, "RenewRsrc", "GCAMUSA_LEVEL2_DATA", "L2239.RenewRsrc_CSP_USA_reeds", "GCAMUSA_XML_BATCH", "batch_solar_USA_reeds.xml" )
 write_mi_data( L2239.GrdRenewRsrcCurves_CSP_USA_reeds, "GrdRenewRsrcCurves", "GCAMUSA_LEVEL2_DATA", "L2239.GrdRenewRsrcCurves_CSP_USA_reeds", "GCAMUSA_XML_BATCH", "batch_solar_USA_reeds.xml" )
 write_mi_data( L2239.GrdRenewRsrcMax_CSP_USA_reeds, "GrdRenewRsrcMax", "GCAMUSA_LEVEL2_DATA", "L2239.GrdRenewRsrcMax_CSP_USA_reeds", "GCAMUSA_XML_BATCH", "batch_solar_USA_reeds.xml" )
-write_mi_data( L2239.StubTechEff_CSP_USA_reeds, "StubTechEff", "GCAMUSA_LEVEL2_DATA", "L2239.StubTechEff_CSP_USA_reedss", "GCAMUSA_XML_BATCH", "batch_solar_USA_reeds.xml" )
+write_mi_data( L2239.StubTechEffFlag_CSP_USA_reeds, "StubTechEffFlag", "GCAMUSA_LEVEL2_DATA", "L2239.StubTechEffFlag_CSP_USA_reeds", "GCAMUSA_XML_BATCH", "batch_solar_USA_reeds.xml" )
 write_mi_data( L2239.StubTechCapFactor_CSP_USA_reeds, "StubTechCapFactor", "GCAMUSA_LEVEL2_DATA", "L2239.StubTechCapFactor_CSP_USA_reeds", "GCAMUSA_XML_BATCH", "batch_solar_USA_reeds.xml" )
 write_mi_data( L2239.RenewRsrcTechChange_CSP_USA_reeds, "RenewRsrcTechChange", "GCAMUSA_LEVEL2_DATA", "L2239.RenewRsrcTechChange_CSP_USA_reeds", "GCAMUSA_XML_BATCH", "batch_solar_USA_reeds.xml" )
 write_mi_data( L2239.StubTechCost_CSP_USA_reeds, "StubTechCost", "GCAMUSA_LEVEL2_DATA", "L2239.StubTechCost_CSP_USA_reeds", "GCAMUSA_XML_BATCH", "batch_solar_USA_reeds.xml" )

@@ -34,7 +34,7 @@
 /*! 
  * \file mac_control.cpp
  * \ingroup Objects
- * \brief MACControl class source file.
+ * \brief LinearControl class source file.
  * \author Steve Smith
  */
 
@@ -44,13 +44,12 @@
 #include <xercesc/dom/DOMNodeList.hpp>
 
 #include "emissions/include/linear_control.h"
+#include "emissions/include/nonco2_emissions.h"
 #include "containers/include/scenario.h"
 #include "util/base/include/xml_helper.h"
 #include "util/logger/include/ilogger.h"
 #include "util/base/include/model_time.h"
 #include "containers/include/iinfo.h"
-//#include "technologies/include/ioutput.h"
-//#include "functions/include/function_utils.h"
 
 using namespace std;
 using namespace xercesc;
@@ -61,10 +60,10 @@ extern Scenario* scenario;
 LinearControl::LinearControl():
 AEmissionsControl(),
 mTargetYear( 0 ),
-mStartYear( 0 ),
-mAllowIncrease( false ),
-mBaseEmissionsCoef( -1 )
+mAllowIncrease( false )
 {
+    const Modeltime* modeltime = scenario->getModeltime();
+    mStartYear = modeltime->getper_to_yr( modeltime->getFinalCalibrationPeriod() );
 }
 
 //! Default destructor.
@@ -99,7 +98,6 @@ void LinearControl::copy( const LinearControl& aOther ){
     mStartYear = aOther.mStartYear;
     mFinalEmCoefficient = aOther.mFinalEmCoefficient;
     mAllowIncrease = aOther.mAllowIncrease;
-    mBaseEmissionsCoef = aOther.mBaseEmissionsCoef;
 }
 
 /*!
@@ -122,16 +120,16 @@ const string& LinearControl::getXMLNameStatic(){
 bool LinearControl::XMLDerivedClassParse( const string& aNodeName, const DOMNode* aCurrNode ){
     
     if ( aNodeName == "end-year" ){
-        mTargetYear = XMLHelper<Value>::getValue( aCurrNode );
+        mTargetYear = XMLHelper<int>::getValue( aCurrNode );
     }
     else if ( aNodeName == "start-year" ){
-        mStartYear = XMLHelper<Value>::getValue( aCurrNode );
+        mStartYear = XMLHelper<int>::getValue( aCurrNode );
     }
     else if ( aNodeName == "final-emissions-coefficient" ){
         mFinalEmCoefficient = XMLHelper<Value>::getValue( aCurrNode );
     }
     else if ( aNodeName == "allow-ef-increase" ){
-        mAllowIncrease = true;
+        mAllowIncrease = XMLHelper<bool>::getValue( aCurrNode );
     }
     else{
         return false;
@@ -142,15 +140,16 @@ bool LinearControl::XMLDerivedClassParse( const string& aNodeName, const DOMNode
 
 void LinearControl::toInputXMLDerived( ostream& aOut, Tabs* aTabs ) const {
     
+    const Modeltime* modeltime = scenario->getModeltime();
     XMLWriteElement( mFinalEmCoefficient, "final-emissions-coefficient", aOut, aTabs);
     XMLWriteElement( mTargetYear, "end-year", aOut, aTabs);
-    XMLWriteElementCheckDefault( mStartYear, "start-year", aOut, aTabs, 0 );
+    XMLWriteElementCheckDefault( mStartYear, "start-year", aOut, aTabs,
+            modeltime->getper_to_yr( modeltime->getFinalCalibrationPeriod() ) );
     XMLWriteElementCheckDefault( mAllowIncrease, "allow-ef-increase", aOut, aTabs, false );
 }
 
 void LinearControl::toDebugXMLDerived( const int aPeriod, ostream& aOut, Tabs* aTabs ) const {
     toInputXMLDerived( aOut, aTabs );
-    XMLWriteElement( mBaseEmissionsCoef, "base-emissions-coefficient", aOut, aTabs);
 }
 
 
@@ -158,50 +157,47 @@ void LinearControl::completeInit( const string& aRegionName, const string& aSect
                                const IInfo* aTechInfo )
 {
 
-}
-
-void LinearControl::initCalc( const string& aRegionName,
-                           const IInfo* aLocalInfo,
-                           const NonCO2Emissions* parentGHG,
-                           const int aPeriod )
-{
-    // TODO: Figure out what gas this is & print more meaningful information
     if ( ( mTargetYear == 0 ) || !mFinalEmCoefficient.isInited() ) {
         ILogger& mainLog = ILogger::getLogger( "main_log" );
         mainLog.setLevel( ILogger::ERROR );
-        mainLog << "Linear control function has not been parameterized. " << endl;
+        mainLog << "Linear control function " << getName() << " has not been parameterized. " << endl;
+        abort();
     }
     
-    int finalCalibPer = scenario->getModeltime()->getFinalCalibrationPeriod();
-    double baseYear = scenario->getModeltime()->getper_to_yr( finalCalibPer );
+}
 
-    if ( mTargetYear <= baseYear ) {
+void LinearControl::initCalc( const string& aRegionName,
+                           const IInfo* aTechInfo,
+                           const NonCO2Emissions* aParentGHG,
+                           const int aPeriod )
+{
+    int finalCalibPer = scenario->getModeltime()->getFinalCalibrationPeriod();
+    int finalCalibYr = scenario->getModeltime()->getper_to_yr( finalCalibPer );
+
+    if ( mTargetYear <= finalCalibYr) {
         ILogger& mainLog = ILogger::getLogger( "main_log" );
         mainLog.setLevel( ILogger::ERROR );
         mainLog << "Linear control function improperly parameterized. Target year <= last calibration year." << endl;
-    }
-    
-    // Reset start year if needed
-    // Note that this will be reset to the calibration year, if default value is used.
-    int finalCalibYr  = scenario->getModeltime()->getper_to_yr( finalCalibPer );
-    if ( mStartYear == 0 ) {
-        mStartYear = finalCalibYr;
+        abort();
     }
     
     // Make sure start year is not before final calibration year
     if ( mStartYear < finalCalibYr ) {
+        ILogger& mainLog = ILogger::getLogger( "main_log" );
+        mainLog.setLevel( ILogger::WARNING );
+        mainLog << getXMLName() << ", " << getName() << " has start year " << mStartYear
+                << " before final calibration year, resetting to " << finalCalibYr << endl;
         mStartYear = finalCalibYr;
     }
     
-    // Need to save the emissions coefficient from previous period as starting point for linear decline.
-    // Note that this should only be used within initCalc (so that this always is a stable, previous value.
-    // TODO: This is not robust if periods are re-run. mSavedEmissionsCoef should be changed to a vector.
+    // Need to get the emissions coefficient from start period to serve as starting point 
+    // for linear decline.
     int startPeriod = scenario->getModeltime()->getyr_to_per( mStartYear );
-    int firstControlPeriod = startPeriod + 1;
-
-    if ( aPeriod ==  firstControlPeriod ) {
-    	// This will be the emissions coefficient at the end of mStartYear
-        mBaseEmissionsCoef = parentGHG->mSavedEmissionsCoef;
+    if ( aPeriod >=  ( startPeriod + 1 ) ) {
+        double baseEmissionsCoef = aParentGHG->getAdjustedEmissCoef( startPeriod );
+        // we calculate the emissions reduction now in initCalc because it will not be
+        // changing with each iteration so we can use this optimization.
+        calcEmissionsReductionInternal( baseEmissionsCoef, aPeriod );
     }
     
     // Note, the emissions driver in NonCO2Emissions::calcEmission for input driver is 
@@ -214,28 +210,45 @@ void LinearControl::initCalc( const string& aRegionName,
 }
 
 void LinearControl::calcEmissionsReduction( const std::string& aRegionName, const int aPeriod,
-                                            const GDP* aGDP ) {
+                                            const GDP* aGDP )
+{
+    // The actual work of calculating the reduction is done by the call to calcEmissionsReductionInternal
+    // which is called during initCalc since the reduction will not be changing during World.calc.
+}
+
+/*!
+ * \brief Calculate a linear reduction in the emissions factor and save it to mReduction.
+ * \details The reduction is calculated from the given aBaseEmissionsCoef and the 
+ *          parsed parameters that define the start/end year and final value.  We
+ *          only allow the emissions factor to increase if the mAllowIncrease flag
+ *          was explicitly set.
+ *          Note if the current period is outside the bounds of start/end years
+ *          then no reductions take place.
+ * \param aBaseEmissionsCoef The base emissions coefficient to linearly reduce from.
+ * \param aPeriod The current model period.
+ */
+void LinearControl::calcEmissionsReductionInternal( const double aBaseEmissionsCoef,
+                                                    const int aPeriod )
+{
     double reduction = 0.0;
-    
-    // Derivation of emission reduction
-    // newEF = baseEF - (baseEF - targetEF) * ( year - baseYear ) / ( targetYear - baseYear )
-    // newEF = baseEF * ( 1 - reduction )  therefore reduction = 1 - newEF / baseEF
-    // reduction = ( 1 - targetEF / baseEF ) * ( year - baseYear ) / ( targetYear - baseYear )
-    
-    if ( mStartYear >= scenario->getModeltime()->getEndYear() ) {
-        return;
-    }
     
     double thisYear = scenario->getModeltime()->getper_to_yr( aPeriod );
     
     // Don't bother if no emissions or haven't passed starting point yet
-    if ( mBaseEmissionsCoef > 0 && thisYear > mStartYear && mFinalEmCoefficient.isInited() ) {
-        // This is the final reduction 
-        reduction = ( 1 - mFinalEmCoefficient / mBaseEmissionsCoef );
+    if ( aBaseEmissionsCoef > 0 && thisYear > mStartYear && mFinalEmCoefficient.isInited() ) {
+        
+        // Derivation of emission reduction formula below
+        // newEF = baseEF - (baseEF - targetEF) * ( year - baseYear ) / ( targetYear - baseYear )
+        // newEF = baseEF * ( 1 - reduction )  therefore reduction = 1 - newEF / baseEF
+        // reduction = ( 1 - targetEF / baseEF ) * ( year - baseYear ) / ( targetYear - baseYear )
+        
+        // This is the final reduction
+        reduction = ( 1 - mFinalEmCoefficient / aBaseEmissionsCoef );
         
         // If not at final year yet, phase this in linearly
         if ( thisYear < mTargetYear ) {
-            reduction *= ( thisYear -  mStartYear ) * 1.0 / ( ( mTargetYear - mStartYear ) * 1.0 );
+            reduction *= static_cast<double>( thisYear -  mStartYear ) /
+                         static_cast<double>( mTargetYear - mStartYear );
         }
         
         // Ensure that reduction is not negative unless user specifically requires this

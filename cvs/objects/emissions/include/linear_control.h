@@ -38,7 +38,7 @@
 
 
 /*! 
- * \file gdp_control.h
+ * \file linear_control.h
  * \ingroup Objects
  * \brief LinearControl class header file.
  * \author Steve Smith
@@ -67,8 +67,8 @@ public:
                                const IInfo* aTechIInfo );
 
     virtual void initCalc( const std::string& aRegionName,
-                           const IInfo* aLocalInfo,
-                           const NonCO2Emissions* parentGHG,
+                           const IInfo* aTechInfo,
+                           const NonCO2Emissions* aParentGHG,
                            const int aPeriod );
 
 protected: 
@@ -82,23 +82,29 @@ protected:
 
     virtual void calcEmissionsReduction( const std::string& aRegionName, const int aPeriod, const GDP* aGDP );
 
+    // Define data such that introspection utilities can process the data from this
+    // subclass together with the data members of the parent classes.
+    DEFINE_DATA_WITH_PARENT(
+        AEmissionsControl,
+        
+        //! Target year for final emissions factor. Does not have to be a model period.
+        DEFINE_VARIABLE( SIMPLE, "end-year", mTargetYear, int ),
+        
+        //! Year to start emission factor decline. Must be a model year.
+        //! The default is the final calibration year.
+        DEFINE_VARIABLE( SIMPLE, "start-year", mStartYear, int ),
+        
+        //! Final emissions coefficient
+        DEFINE_VARIABLE( SIMPLE, "final-emissions-coefficient", mFinalEmCoefficient, Value ),
+        
+        //! Flag if wish to allow emissions factor increase
+        DEFINE_VARIABLE( SIMPLE, "allow-ef-increase", mAllowIncrease, bool )
+    )
+
 private:
-    //! Target year for final emissions factor
-    int mTargetYear;
-    
-    //! Year to start emission factor decline. Must be a model period.
-    int mStartYear;
-    
-    //! Final emissions coefficient
-    Value mFinalEmCoefficient;
-  
-    //! Emissions coefficient passed in from parent ghg object
-    double mBaseEmissionsCoef;
-    
-    //! Flag if wish to allow emissions factor increase
-    bool mAllowIncrease;
-    
     void copy( const LinearControl& aOther );
+
+    virtual void calcEmissionsReductionInternal( const double aBaseEmissionsCoef, const int aPeriod );
 };
 
 #endif // _LINEAR_CONTROL_H_

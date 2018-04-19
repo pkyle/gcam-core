@@ -47,6 +47,11 @@
 #include <string>
 #include <xercesc/dom/DOMNode.hpp>
 #include <iosfwd> // remove when csv output is removed.
+#include <boost/core/noncopyable.hpp>
+
+#include "util/base/include/inamed.h"
+#include "util/base/include/ivisitable.h"
+#include "util/base/include/data_definition_util.h"
 
 class Tabs;
 class ICaptureComponent;
@@ -57,7 +62,8 @@ class ICaptureComponent;
 class NationalAccount;
 class Expenditure;
 
-// Until copyParam is fixed.
+// Need to forward declare the subclasses as well.
+class MiniCAMInput;
 class DemandInput;
 class ProductionInput;
 class NodeInput;
@@ -70,8 +76,7 @@ class InputTax;
 class InputOMVar;
 class InputOMFixed;
 class InputCapital;
-
-#include "util/base/include/ivisitable.h"
+class CTaxInput;
 
 /*! 
  * \ingroup Objects
@@ -79,7 +84,7 @@ class InputCapital;
  * \details
  * \author Josh Lurz
  */
-class IInput: public IVisitable { 
+class IInput: public INamed, public IVisitable, private boost::noncopyable {
 public:
     /*!
      * \brief Define different type attributes of inputs. These are not mutually
@@ -133,12 +138,18 @@ public:
         //! Traded Good.
         TRADED = 1 << 12,
 		
-		//! O&M Input
+		//! O&M Variable Input
         OM_VAR = 1 << 13,
 		
-		//! O&M Input
-        OM_FIXED = 1 << 14
+		//! O&M Fixed Input
+        OM_FIXED = 1 << 14,
 
+        //! Resource Energy Input
+        RESOURCE = 1 << 15,
+        
+        //! Backup Energy Input
+        BACKUP_ENERGY = 1 << 16
+        
     };
 
     /*!
@@ -500,6 +511,17 @@ public:
     // IVisitable interface.
     virtual void accept( IVisitor* aVisitor,
                         const int aPeriod ) const = 0;
+    
+protected:
+    
+    DEFINE_DATA(
+        /* Declare all subclasses of IInput to allow automatic traversal of the
+         * hierarchy under introspection.
+         */
+        DEFINE_SUBCLASS_FAMILY( IInput, MiniCAMInput, EnergyInput, NonEnergyInput,
+                                RenewableInput, InputSubsidy, InputTax, InputOMVar,
+                                InputOMFixed, InputCapital, CTaxInput )
+    )
 };
 
 // Inline function definitions.

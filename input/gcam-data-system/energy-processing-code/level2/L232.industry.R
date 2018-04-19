@@ -46,7 +46,7 @@ L1322.in_EJ_R_indfeed_F_Yh <- readdata( "ENERGY_LEVEL1_DATA", "L1322.in_EJ_R_ind
 A32.inc_elas_output <- readdata( "SOCIO_ASSUMPTIONS", "A32.inc_elas_output" )
 L101.Pop_thous_GCAM3_R_Y <- readdata( "SOCIO_LEVEL1_DATA", "L101.Pop_thous_GCAM3_R_Y" )
 L102.pcgdp_thous90USD_GCAM3_R_Y <- readdata( "SOCIO_LEVEL1_DATA", "L102.pcgdp_thous90USD_GCAM3_R_Y" )
-L102.pcgdp_thous90USD_SSP_R_Y <- readdata( "SOCIO_LEVEL1_DATA", "L102.pcgdp_thous90USD_SSP_R_Y" )
+L102.pcgdp_thous90USD_Scen_R_Y <- readdata( "SOCIO_LEVEL1_DATA", "L102.pcgdp_thous90USD_Scen_R_Y" )
 
 # -----------------------------------------------------------------------------
 # 2. Perform computations
@@ -309,7 +309,7 @@ printlog( "L232.IncomeElasticity_ind_scen: income elasticity of industry (scenar
 #Combine GCAM 3.0 with the SSPs, and subset only the relevant years
 L102.pcgdp_thous90USD_GCAM3_R_Y[[Scen]] <- "GCAM3"
 L232.pcgdp_thous90USD_ALL_R_Y <- rbind(
-      L102.pcgdp_thous90USD_SSP_R_Y,
+      L102.pcgdp_thous90USD_Scen_R_Y,
       L102.pcgdp_thous90USD_GCAM3_R_Y )[ c( Scen_R, X_final_model_base_year, X_model_future_years ) ]
 
 # Per-capita GDP ratios, which are used in the equation for demand growth
@@ -354,6 +354,14 @@ L232.IncomeElasticity_ind <- interpolate_and_melt(
 L232.IncomeElasticity_ind <- add_region_name( L232.IncomeElasticity_ind )
 L232.IncomeElasticity_ind$energy.final.demand <- A32.demand$energy.final.demand
 #These will be written out as separate tables using a for loop
+
+#KVC: SSP1 needs lower income elasticities. Storyline has limited growth in energy-related industries 
+#because of warm fuzzy feelings about environment. We are hard-coding this for a while.
+L232.IncomeElasticity_ind_SSP1 <- subset( L232.IncomeElasticity_ind, L232.IncomeElasticity_ind$scenario == "SSP1" )
+L232.IncomeElasticity_ind_SSPother <- subset( L232.IncomeElasticity_ind, L232.IncomeElasticity_ind$scenario != "SSP1" )
+L232.IncomeElasticity_ind_SSP1$income.elasticity <- L232.IncomeElasticity_ind_SSP1$income.elasticity * 0.75
+
+L232.IncomeElasticity_ind <- rbind( L232.IncomeElasticity_ind_SSP1, L232.IncomeElasticity_ind_SSPother )
 
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file

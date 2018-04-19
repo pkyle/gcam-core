@@ -251,7 +251,8 @@ reeds_wind_curve_grid_cost %>%
 
 L2237.wind_curve %>%
   mutate (renewresource = "onshore wind resource", smooth.renewable.subresource = "onshore wind resource") %>%
-  select(region = State, renewresource, smooth.renewable.subresource, maxSubResource, mid.price, curve.exponent) %>%
+  mutate(year.fillout = min(model_years)) %>%
+  select(region = State, renewresource, smooth.renewable.subresource, year.fillout, maxSubResource, mid.price, curve.exponent) %>%
   group_by(region) %>%
   filter(row_number() == 1) %>%
   ungroup()-> L2237.SmthRenewRsrcCurves_wind_USA_reeds
@@ -263,9 +264,9 @@ if(use_mult_load_segments == "TRUE") {
                 distinct(State, CFmax), 
               by= c("region" = "State")) %>%
     filter(is.na(CFmax) == "FALSE") %>%
-    mutate(capacity.factor.capital = round(CFmax,5), capacity.factor.OM = round(CFmax,5)) %>%
+    mutate(capacity.factor = round(CFmax,5)) %>%
     select(region, supplysector, subsector, stub.technology, year, 
-           input.capital, capacity.factor.capital, input.OM.fixed, capacity.factor.OM) -> L2237.StubTechCapFactor_wind_USA_reeds
+           capacity.factor) -> L2237.StubTechCapFactor_wind_USA_reeds
 } else{
   L223.StubTechCapFactor_elec_wind_USA %>%
     filter(!grepl("_offshore", stub.technology)) %>%
@@ -273,9 +274,9 @@ if(use_mult_load_segments == "TRUE") {
                 distinct(State, CFmax), 
               by= c("region" = "State")) %>%
     filter(is.na(CFmax) == "FALSE") %>%
-    mutate(capacity.factor.capital = round(CFmax,5), capacity.factor.OM = round(CFmax,5)) %>%
+    mutate(capacity.factor = round(CFmax,5)) %>%
     select(region, supplysector, subsector, stub.technology, year, 
-           input.capital, capacity.factor.capital, input.OM.fixed, capacity.factor.OM) -> L2237.StubTechCapFactor_wind_USA_reeds
+           capacity.factor) -> L2237.StubTechCapFactor_wind_USA_reeds
 }
   
 

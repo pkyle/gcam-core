@@ -9,9 +9,11 @@ if( !exists( "GCAMUSAPROC_DIR" ) ){
 # Universal header file - provides logging, file support, etc.
 source(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAM_header.R",sep=""))
 source(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAMUSA_header.R",sep=""))
-logstart( "L223.electricity_USA.R" )
+source(paste(GCAMUSAPROC_DIR,"/../_common/headers/WATER_header.R",sep=""))
+logstart( "LB2233.electricity_water_USA.R" )
 adddep(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAM_header.R",sep=""))
 adddep(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAMUSA_header.R",sep=""))
+adddep(paste(GCAMUSAPROC_DIR,"/../_common/headers/WATER_header.R",sep=""))
 printlog( "Model input for GCAM USA electricity sectors with demand resolved nationally (1 region)" )
 
 # -----------------------------------------------------------------------------
@@ -23,8 +25,10 @@ sourcedata( "ENERGY_ASSUMPTIONS", "A_energy_data", extension = ".R" )
 sourcedata( "SOCIO_ASSUMPTIONS", "A_socioeconomics_data", extension = ".R" )
 sourcedata( "GCAMUSA_ASSUMPTIONS", "A_GCAMUSA_data", extension = ".R" )
 sourcedata( "ENERGY_ASSUMPTIONS", "A_elec_data", extension = ".R" )
+sourcedata( "WATER_ASSUMPTIONS", "A_water_data", extension = ".R" )
 states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
 calibrated_techs <- readdata( "ENERGY_MAPPINGS", "calibrated_techs" )
+A03.sector <- readdata( "WATER_ASSUMPTIONS", "A03.sector" )
 
 if(use_mult_load_segments == "TRUE") {
   
@@ -60,9 +64,13 @@ L1233.wcons_coef_R_elec_F_tech_Yh_ref$fuel <- gsub("solar CSP", "solar", L1233.w
 L1233.wcons_coef_R_elec_F_tech_Yh_ref$fuel <- gsub("solar PV", "solar", L1233.wcons_coef_R_elec_F_tech_Yh_ref$fuel)
 
 L2233.StubTech_WaterCoef_ref.wdraw <- L1233.wdraw_coef_R_elec_F_tech_Yh_ref
-L2233.StubTech_WaterCoef_ref.wdraw$minicam.energy.input <- "water withdrawals"
+L2233.StubTech_WaterCoef_ref.wdraw[[water_sector]] <- "Electricity"
+L2233.StubTech_WaterCoef_ref.wdraw[[water_type]] <- water_W
+L2233.StubTech_WaterCoef_ref.wdraw$minicam.energy.input <- get_water_inputs_for_mapping( L2233.StubTech_WaterCoef_ref.wdraw, A03.sector )
 L2233.StubTech_WaterCoef_ref.wcons <- L1233.wcons_coef_R_elec_F_tech_Yh_ref
-L2233.StubTech_WaterCoef_ref.wcons$minicam.energy.input <- "water consumption"
+L2233.StubTech_WaterCoef_ref.wcons[[water_sector]] <- "Electricity"
+L2233.StubTech_WaterCoef_ref.wcons[[water_type]] <- water_C
+L2233.StubTech_WaterCoef_ref.wcons$minicam.energy.input <- get_water_inputs_for_mapping( L2233.StubTech_WaterCoef_ref.wcons, A03.sector )
 
 
 L2233.StubTech_WaterCoef_ref <- rbind( L2233.StubTech_WaterCoef_ref.wdraw, L2233.StubTech_WaterCoef_ref.wcons )
@@ -75,12 +83,15 @@ L2233.StubTech_WaterCoef_ref <- interpolate_and_melt( L2233.StubTech_WaterCoef_r
 
 
 L2233.StubTech_WaterCoef_ref <- merge( L2233.StubTech_WaterCoef_ref, unique( elec_tech_water_map[ c( S_F_tech, grep( 'Electric.', names( elec_tech_water_map ), value=T ) ) ] ) )
-names(L2233.StubTech_WaterCoef_ref)[3] <- "region"
-names( L2233.StubTech_WaterCoef_ref ) <- sub( 'Electric.', '', names( L2233.StubTech_WaterCoef_ref ) )
-names(L2233.StubTech_WaterCoef_ref)[8] <- "supplysector"
-names(L2233.StubTech_WaterCoef_ref)[1] <- "subsector"
+L2233.StubTech_WaterCoef_ref %>%
+    rename(region = state) %>%
+    rename(subsector = fuel) %>%
+    rename(supplysector = Electric.sector) %>%
+    select(-technology) %>%
+    rename(technology = Electric.sector.technology) %>%
+    mutate(market.name = "USA") ->
+    L2233.StubTech_WaterCoef_ref
 
-L2233.StubTech_WaterCoef_ref$market.name <- L2233.StubTech_WaterCoef_ref$region
 L2233.StubTech_WaterCoef_ref <- L2233.StubTech_WaterCoef_ref[, names_TechCoef ]
 
 L2233.StubTech_WaterCoef_ref <- L2233.StubTech_WaterCoef_ref[order(L2233.StubTech_WaterCoef_ref$region, 
@@ -117,9 +128,13 @@ L1233.wcons_coef_R_elec_F_tech_Yh_frozen$fuel <- gsub("solar CSP", "solar", L123
 L1233.wcons_coef_R_elec_F_tech_Yh_frozen$fuel <- gsub("solar PV", "solar", L1233.wcons_coef_R_elec_F_tech_Yh_frozen$fuel)
 
 L2233.StubTech_WaterCoef_frozen.wdraw <- L1233.wdraw_coef_R_elec_F_tech_Yh_frozen
-L2233.StubTech_WaterCoef_frozen.wdraw$minicam.energy.input <- "water withdrawals"
+L2233.StubTech_WaterCoef_frozen.wdraw[[water_sector]] <- "Electricity"
+L2233.StubTech_WaterCoef_frozen.wdraw[[water_type]] <- water_W
+L2233.StubTech_WaterCoef_frozen.wdraw$minicam.energy.input <- get_water_inputs_for_mapping( L2233.StubTech_WaterCoef_frozen.wdraw, A03.sector )
 L2233.StubTech_WaterCoef_frozen.wcons <- L1233.wcons_coef_R_elec_F_tech_Yh_frozen
-L2233.StubTech_WaterCoef_frozen.wcons$minicam.energy.input <- "water consumption"
+L2233.StubTech_WaterCoef_frozen.wcons[[water_sector]] <- "Electricity"
+L2233.StubTech_WaterCoef_frozen.wcons[[water_type]] <- water_C
+L2233.StubTech_WaterCoef_frozen.wcons$minicam.energy.input <- get_water_inputs_for_mapping( L2233.StubTech_WaterCoef_frozen.wcons, A03.sector )
 
 
 L2233.StubTech_WaterCoef_frozen <- rbind( L2233.StubTech_WaterCoef_frozen.wdraw, L2233.StubTech_WaterCoef_frozen.wcons )
@@ -132,12 +147,15 @@ L2233.StubTech_WaterCoef_frozen <- interpolate_and_melt( L2233.StubTech_WaterCoe
 
 
 L2233.StubTech_WaterCoef_frozen <- merge( L2233.StubTech_WaterCoef_frozen, unique( elec_tech_water_map[ c( S_F_tech, grep( 'Electric.', names( elec_tech_water_map ), value=T ) ) ] ) )
-names(L2233.StubTech_WaterCoef_frozen)[3] <- "region"
-names( L2233.StubTech_WaterCoef_frozen ) <- sub( 'Electric.', '', names( L2233.StubTech_WaterCoef_frozen ) )
-names(L2233.StubTech_WaterCoef_frozen)[8] <- "supplysector"
-names(L2233.StubTech_WaterCoef_frozen)[1] <- "subsector"
+L2233.StubTech_WaterCoef_frozen %>%
+    rename(region = state) %>%
+    rename(subsector = fuel) %>%
+    rename(supplysector = Electric.sector) %>%
+    select(-technology) %>%
+    rename(technology = Electric.sector.technology) %>%
+    mutate(market.name = "USA") ->
+    L2233.StubTech_WaterCoef_frozen
 
-L2233.StubTech_WaterCoef_frozen$market.name <- L2233.StubTech_WaterCoef_frozen$region
 L2233.StubTech_WaterCoef_frozen <- L2233.StubTech_WaterCoef_frozen[, names_TechCoef ]
 
 # Split conv_coal_pul into slow retire and fast retire conv_coal_pul

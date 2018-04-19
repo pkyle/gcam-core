@@ -18,10 +18,11 @@ X_model_years <- paste0( "X", model_years )
 #Climate model assumptions
 Magicc_last_historical_year <- 2005
 Magicc_bc_unit_forcing <- 0
+Magicc_default_emiss_file <- "../input/magicc/Historical Emissions/Default Emissions Module/Hist_to_2008_Annual.csv"
 Magicc_C_start_year <- 1705
 
 #------------------------------------------------------------------------------------
 # Hector model assumptions
-hector.end.year <- 2100
+hector.end.year <- 2300
 hector.emissions.year <- 2005
 hector.ini.file <- "../input/climate/hector-gcam.ini"

@@ -76,11 +76,11 @@ typedef vector<AGHG*>::iterator GHGIterator;
 //!< Default Constructor
 BaseTechnology::BaseTechnology():
   mShareWeight( 1.0 ),
-  mNestedInputRoot( 0 ),
   mIsInitialYear( false ),
   mSequestrationDevice( 0 ),
   doCalibration( false )
 {
+    mNestedInputRoot = 0 ;
     const int maxper = scenario->getModeltime()->getmaxper();
     expenditures.resize( maxper );
 }
@@ -88,20 +88,6 @@ BaseTechnology::BaseTechnology():
 //!< Destructor
 BaseTechnology::~BaseTechnology() {
     clear();
-}
-
-BaseTechnology::BaseTechnology( const BaseTechnology& baseTechIn ) {
-    const int maxper = scenario->getModeltime()->getmaxper();
-    expenditures.resize( maxper );
-    copy( baseTechIn );
-}
-
-BaseTechnology& BaseTechnology::operator =( const BaseTechnology& baseTechIn ) {
-    if ( this != &baseTechIn ) {
-        clear();
-        copy( baseTechIn );
-    }
-    return *this;
 }
 
 void BaseTechnology::copy( const BaseTechnology& baseTechIn ) {
@@ -340,7 +326,7 @@ void BaseTechnology::initCalc( const MoreSectorInfo* aMoreSectorInfo, const stri
     */
 
     for( unsigned int i = 0; i < mOutputs.size(); ++i ){
-        mOutputs[ i ]->initCalc( aRegionName, aSectorName, 0, aPeriod );
+        mOutputs[ i ]->initCalc( aRegionName, aSectorName, aPeriod );
     }
     mPricePaidCached = false;
 }

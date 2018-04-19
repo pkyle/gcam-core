@@ -34,7 +34,7 @@ L210.UnlimitRsrc <- readdata( "ENERGY_LEVEL2_DATA", "L210.UnlimitRsrc", skip = 4
 L210.UnlimitRsrcPrice <- readdata( "ENERGY_LEVEL2_DATA", "L210.UnlimitRsrcPrice", skip = 4 )
 L210.SmthRenewRsrcTechChange <- readdata( "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcTechChange", skip = 4 )
 L210.SmthRenewRsrcCurves_wind <- readdata( "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcCurves_wind", skip = 4 )
-L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV <- readdata( "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV", skip = 4 )
+L210.SmthRenewRsrcCurvesGdpElast_roofPV <- readdata( "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcCurvesGdpElast_roofPV", skip = 4 )
 L210.GrdRenewRsrcCurves_geo <- readdata( "ENERGY_LEVEL2_DATA", "L210.GrdRenewRsrcCurves_geo", skip = 4 )
 L210.GrdRenewRsrcMax_geo <- readdata( "ENERGY_LEVEL2_DATA", "L210.GrdRenewRsrcMax_geo", skip = 4 )
 L210.SmthRenewRsrcTechChange_offshore_wind <- readdata( "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcTechChange_offshore_wind", skip = 4 )
@@ -112,6 +112,8 @@ L210.SmthRenewRsrcCurves_wind_USA[ c( "maxSubResource", "mid.price", "curve.expo
 
 printlog( "L210.SmthRenewRsrcCurves_offshore_wind: supply curves of offshore wind resources in the states")
 L210.SmthRenewRsrcCurves_offshore_wind_USA <- L120.RsrcCurves_EJ_R_offshore_wind_USA
+L210.SmthRenewRsrcCurves_offshore_wind_USA$year.fillout <- min( model_years )
+L210.SmthRenewRsrcCurves_offshore_wind_USA <- L210.SmthRenewRsrcCurves_offshore_wind_USA[, names_SmthRenewRsrcCurves]
 
 printlog( "L210.GrdRenewRsrcCurves_geo_USA: geothermal resource curves in the states" )
 L210.GrdRenewRsrcCurves_geo_USA <- subset( L210.GrdRenewRsrcCurves_geo, region == "USA" )
@@ -154,11 +156,11 @@ L210.GrdRenewRsrcCurves_geo_USA <- L210.GrdRenewRsrcCurves_geo_USA[ names_RenewR
 printlog( "L210.GrdRenewRsrcMax_geo_USA: max sub resource for geothermal (placeholder)")
 L210.GrdRenewRsrcMax_geo_USA <- repeat_and_add_vector( subset( L210.GrdRenewRsrcMax_geo, region == "USA" ), reg, geo_states )
 
-printlog( "L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV_USA: rooftop PV resource curves in the states" )
-L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV_USA <- repeat_and_add_vector( subset(
-      L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV, region == "USA" ), reg, states )
-L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV_USA[ c( "maxSubResource", "mid.price", "curve.exponent" ) ] <- L115.rsrc_state_rooftopPV[
-      match( L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV_USA$region, L115.rsrc_state_rooftopPV$state ),
+printlog( "L210.SmthRenewRsrcCurvesGdpElast_roofPV_USA: rooftop PV resource curves in the states" )
+L210.SmthRenewRsrcCurvesGdpElast_roofPV_USA <- repeat_and_add_vector( subset(
+      L210.SmthRenewRsrcCurvesGdpElast_roofPV, region == "USA" ), reg, states )
+L210.SmthRenewRsrcCurvesGdpElast_roofPV_USA[ c( "maxSubResource", "mid.price", "curve.exponent" ) ] <- L115.rsrc_state_rooftopPV[
+      match( L210.SmthRenewRsrcCurvesGdpElast_roofPV_USA$region, L115.rsrc_state_rooftopPV$state ),
       c( "generation", "mid_p", "b_exp" ) ]
 
 # -----------------------------------------------------------------------------
@@ -174,7 +176,8 @@ write_mi_data( L210.SmthRenewRsrcCurves_wind_USA, "SmthRenewRsrcCurves", "GCAMUS
 write_mi_data( L210.SmthRenewRsrcCurves_offshore_wind_USA, "SmthRenewRsrcCurves", "GCAMUSA_LEVEL2_DATA", "L210.SmthRenewRsrcCurves_offshore_wind_USA", "GCAMUSA_XML_BATCH", "batch_resources_USA.xml" )
 write_mi_data( L210.GrdRenewRsrcCurves_geo_USA, "GrdRenewRsrcCurves", "GCAMUSA_LEVEL2_DATA", "L210.GrdRenewRsrcCurves_geo_USA", "GCAMUSA_XML_BATCH", "batch_resources_USA.xml" )
 write_mi_data( L210.GrdRenewRsrcMax_geo_USA, "GrdRenewRsrcMax", "GCAMUSA_LEVEL2_DATA", "L210.GrdRenewRsrcMax_geo_USA", "GCAMUSA_XML_BATCH", "batch_resources_USA.xml" )
-write_mi_data( L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV_USA, "SmthRenewRsrcCurvesGdpElast", "GCAMUSA_LEVEL2_DATA", "L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV_USA", "GCAMUSA_XML_BATCH", "batch_resources_USA.xml" )
+write_mi_data( L210.SmthRenewRsrcCurvesGdpElast_roofPV_USA, "SmthRenewRsrcCurvesGdpElast", "GCAMUSA_LEVEL2_DATA",
+              "L210.SmthRenewRsrcCurvesGdpElast_roofPV_USA", "GCAMUSA_XML_BATCH", "batch_resources_USA.xml" )
 
 write_mi_data( L210.DeleteUnlimitRsrc_USAlimestone, "DeleteUnlimitRsrc", "GCAMUSA_LEVEL2_DATA", "L210.DeleteUnlimitRsrc_USAlimestone", "GCAMUSA_XML_BATCH", "batch_cement_USA.xml" )
 write_mi_data( L210.UnlimitRsrc_limestone_USA, "UnlimitRsrc", "GCAMUSA_LEVEL2_DATA", "L210.UnlimitRsrc_limestone_USA", "GCAMUSA_XML_BATCH", "batch_cement_USA.xml" )

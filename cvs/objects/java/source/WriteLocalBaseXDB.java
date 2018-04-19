@@ -41,16 +41,13 @@ import org.basex.core.cmd.Check;
 import org.basex.core.cmd.Add;
 import org.basex.core.cmd.Close;
 import org.basex.query.QueryProcessor;
+import org.basex.io.IO;
 
 /**
  * A helper class which gives GCAM a simple interface for adding or appending
- * XML to a local BaseX database.  GCAM can create an instance of this class
- * giving the database location and the name of the document to add/update.  It
- * can then receive the data and stream it into the database by reading a buffer
- * via the receiveDataFromGCAM method.  When all data has been sent the finish
- * method is called which will wait until the BaseX has finished adding all of
- * the data.  A user can then also call the appendData method giving additional
- * XML to append to an existing document.
+ * XML to a local BaseX database.  The XMLDBDriver will set up the interactions
+ * and notify when to close as results may be filtered before reaching the database
+ * and run queries after GCAM has cleaned up the Scenario.
  * @author Pralit Patel
  */
 public class WriteLocalBaseXDB implements Runnable {
@@ -72,16 +69,9 @@ public class WriteLocalBaseXDB implements Runnable {
     private Add mAddCommand = null;
 
     /**
-     * The stream that will read XML from GCAM to write to the DB.
-     */
-    private final PipedOutputStream mReadFromGCAMStream = new PipedOutputStream();
-
-    /**
      * The stream that will transfer the XML read from GCAM and write it to the DB.
-     * We use a buffer size of 1 MB which seems large enough to keep the DB continuously
-     * fed with data to write.
      */
-    private final PipedInputStream mWriteToDBStream = new PipedInputStream( 1024 * 1024 );
+    private final PipedInputStream mWriteToDBStream = new PipedInputStream( XMLDBDriver.BUFFER_SIZE );
 
     /**
      * The location of the database to write the XML to.
@@ -98,71 +88,75 @@ public class WriteLocalBaseXDB implements Runnable {
      * into the DB.
      * @param aDBLocation The location of the database to open.
      * @param aDocName A unique document name to use to store the XML in the DB.
-     * @param aAppendOnly If the database is being opened only to append to an
-     *                    existing document and not adding a new one.
+     * @param aInMemoryDB If the database is to be stored in memory only and never
+     *                    written to disk.  This would only be useful if the users
+     *                    were going to run queries on it after since as soon as the
+     *                    database is closed the data is lost.
+     * @param aOpenDBWait A timeout in seconds to wait for user intervention before
+     *                    attempting to write to a DB which appears to be open. A
+     *                    negative value indicates to wait indefinately.
      */
-    public WriteLocalBaseXDB( final String aDBLocation, final String aDocName, final boolean aAppendOnly ) {
+    public WriteLocalBaseXDB( final String aDBLocation, final String aDocName,
+                              final boolean aInMemoryDB, final int aOpenDBWait ) throws Exception
+    {
         // Set the DB location and doc name.
-        mDBLocation = aDBLocation;
+        // Opening a DB in memory while having a DB location pointing to an actual on
+        // disk DB does not appear to be well defined.  We will override the DB location
+        // to (hopefully) an unused container name.
+        final String IN_MEM_DB_NAME = "./__IN_MEMORY_DB_CONTAINER__";
+        mDBLocation = aInMemoryDB ? IN_MEM_DB_NAME : aDBLocation;
         mDocName = aDocName;
-        try {
-            // Open the database
-            openDB();
 
-            if( !aAppendOnly ) {
-                // Only need to connect one end of the pipe and the other will
-                // automatically be connected as well.
-                mReadFromGCAMStream.connect( mWriteToDBStream );
+        if ( aInMemoryDB ) {
+            System.out.println("Opening in-memory database");
+        }
+	
+        // Open the database
+        openDB( aInMemoryDB, aOpenDBWait );
+    }
 
-                // Start the add on a new thread which will add the XML as GCAM
-                // produces it.
-                mWorkerThread.start();
-            }
-        }
-        catch( Exception error ) {
-            error.printStackTrace();
-            try {
-                mReadFromGCAMStream.close();
-            }
-            catch( IOException ioError ) {
-                // ignore
-            }
-            cancelWrite();
-            mContext = null;
-        }
+    /**
+     * Get the file location for this database.
+     * @return The DB location this database was opened with.
+     */
+    public String getDBLocation() {
+        return mDBLocation;
+    }
+
+    /**
+     * Get the database context of this DB.  This context could be used to
+     * run queries on.
+     * @return The database context.
+     */
+    public Context getContext() {
+        return mContext;
     }
 
     /**
      * Opens the database.  We will "Check" the database which will open it
      * if it already exists or create a new one otherwise.
+     * @param aInMemoryDB If the databse is to be stored in memory only.
+     * @param aOpenDBWait A timeout in seconds to wait for user intervention before
+     *                    attempting to write to a DB which appears to be open. A
+     *                    negative value indicates to wait indefinately.
      */
-    private void openDB() throws Exception {
-        // Figure out the path to the database
-        // First try the unix file separator
-        int indexOfFileSep = mDBLocation.lastIndexOf( '/' );
-        String path = null;
-        String containerName = null;
-        if( indexOfFileSep == -1 ) {
-            // that wasn't found so try the windows
-            indexOfFileSep = mDBLocation.lastIndexOf( '\\' );
-            if( indexOfFileSep == -1 ) {
-                // still not found, maybe there was no path so just assume current directory
-                path = ".";
-                containerName = mDBLocation;
-            }
-        }
-
-        // Parse out the path and the container name from the DB location.
-        if( indexOfFileSep != -1 ) {
-            path = mDBLocation.substring( 0, indexOfFileSep );
-            // TODO: worry about invalid characters in the DB name?
-            containerName = mDBLocation.substring( indexOfFileSep + 1 );
+    private void openDB( final boolean aInMemoryDB, final int aOpenDBWait ) throws Exception {
+        // We need to seperate the path to the DB and the container name (last name in the path)
+        File dbLocationFile = new File( mDBLocation ).getAbsoluteFile();
+        // The path may be a relative path so we must convert it to absolute here.
+        String path = dbLocationFile.getParentFile().getCanonicalPath();
+        // BaseX is particular about valid container names and will change them without warning
+        // so we check explicitly.
+        String containerNameUnmodified = dbLocationFile.getName();
+        String containerName = IO.get( containerNameUnmodified ).dbName();
+        if( !containerNameUnmodified.equals( containerName ) ) {
+            System.out.println( "WARNING: container name '"+containerNameUnmodified+
+                    "' contains invalid characters, it has been changed to: '"+containerName+"'" );
         }
 
         // The db Context will check the org.basex.DBPATH property when it is created
         // and use it as the base path for finding all collections/containers
-        // The path may be a relative path so we must convert it to absolute here.
-        System.setProperty( "org.basex.DBPATH", new File( path ).getAbsolutePath() );
+        System.setProperty( "org.basex.DBPATH", path );
         mContext = new Context();
 
         // Set some default behaviors
@@ -179,6 +173,31 @@ public class WriteLocalBaseXDB implements Runnable {
         mContext.options.set( MainOptions.ADDCACHE, true );
         // Use the internal BaseX XML parser which is faster than the Java default.
         mContext.options.set( MainOptions.INTPARSE, true );
+        // Open the database in memory if requested.
+        mContext.options.set( MainOptions.MAINMEM, aInMemoryDB );
+
+        // Check if the database is "pinned" or open already in which case
+        // ask the user to close it before procceeding.
+        if( mContext.pinned( containerName ) ) {
+            // Rings bell on most terminals
+            System.out.print((char)7);
+            System.out.println( "The database "+containerName+" appears to be open.");
+            // If the timeout is less than 0 we will wait indefinately.
+            if( aOpenDBWait < 0 ) {
+                System.out.println( "Please close it and press return to continue.." );
+                System.in.read();
+            } else {
+                //BufferedReader in = new BufferedReader( new InputStreamReader( System.in ) );
+                final long startTime = System.currentTimeMillis();
+                System.out.println( "Please close it and press return to continue (waiting "+aOpenDBWait+" seconds).." );
+                while( ( System.currentTimeMillis() - startTime ) < aOpenDBWait * 1000
+                       && System.in.available() == 0 )
+                {
+                    // busy wait
+                }
+            }
+            System.out.println( "Attempting to write again." );
+        }
 
         // The Check command will open the database if it already exists or
         // create a new one otherwise.
@@ -186,10 +205,31 @@ public class WriteLocalBaseXDB implements Runnable {
     }
 
     /**
+     * Connect the PipedInputStream to the given PipedOutputStream to recieve the
+     * XML data through.  Note that the data may be filtered before arriving here.
+     * @param aOutputStream The PipedOutputStream to connect to.
+     */
+    public void setInputStream( PipedOutputStream aOutputStream ) throws IOException {
+        // Only need to connect one end of the pipe and the other will
+        // automatically be connected as well.
+        aOutputStream.connect( mWriteToDBStream );
+    }
+
+    /**
+     * Start the worker thread for adding the data as GCAM will start sending
+     * it soon.
+     */
+    public void start() {
+        // Start the add on a new thread which will add the XML as GCAM
+        // produces it.
+        mWorkerThread.start();
+    }
+
+    /**
      * Cancel writing the data to the DB presumably because there was
      * an error.
      */
-    private void cancelWrite() {
+    public void cancel() {
         // Set the flag that the thread should stop.
         mWorkerThread.interrupt();
 
@@ -207,13 +247,6 @@ public class WriteLocalBaseXDB implements Runnable {
      */
     public void finish() {
         try {
-            mReadFromGCAMStream.close();
-        }
-        catch( IOException ioError ) {
-            // ignore
-        }
-
-        try {
             // This will block until the database is done storing
             // the data sent from GCAM.
             mWorkerThread.join();
@@ -221,7 +254,13 @@ public class WriteLocalBaseXDB implements Runnable {
         catch( InterruptedException interruptError ) {
             interruptError.printStackTrace();
         }
+    }
 
+    /**
+     * GCAM is done potentially adding any more data and any potential queries
+     * have been run so we can go ahead and close the database.
+     */
+    public void close() {
         try {
             // close the database
             if( mContext != null ) {
@@ -231,28 +270,6 @@ public class WriteLocalBaseXDB implements Runnable {
         }
         catch( Exception error ) {
             error.printStackTrace();
-        }
-    }
-
-    /**
-     * Receives data from GCAM in a buffer intending to be sent from
-     * a stream.
-     * @param aBuffer The raw XML data from GCAM.
-     * @param aLength The amount of data that was sent in the buffer.
-     * @return An error flag set to true if an error occurred.
-     */
-    public boolean receiveDataFromGCAM( byte[] aBuffer, int aLength ) {
-        boolean hadError = false;
-        try {
-            mReadFromGCAMStream.write( aBuffer, 0, aLength );
-        }
-        catch ( IOException ioError ) {
-            ioError.printStackTrace();
-            cancelWrite();
-            hadError = true;
-        }
-        finally {
-            return hadError;
         }
     }
 
@@ -272,9 +289,8 @@ public class WriteLocalBaseXDB implements Runnable {
             error.printStackTrace();
         }
         finally {
-            // this call will close the input stream too
             try {
-                mReadFromGCAMStream.close();
+                mWriteToDBStream.close();
             }
             catch( IOException ioError ) {
                 // ignore
@@ -291,7 +307,7 @@ public class WriteLocalBaseXDB implements Runnable {
      */
     public boolean appendData( final String aData, final String aLocation ) {
         if( mContext == null ) {
-            // Failed to open the database.
+            // Failed to open the database, an error would have already been printed.
             return false;
         }
 
@@ -307,7 +323,7 @@ public class WriteLocalBaseXDB implements Runnable {
         QueryProcessor queryProc = new QueryProcessor( insertStatement, mContext );
         try {
             // not expecting anything to be in the results
-            queryProc.execute();
+            queryProc.value();
         }
         catch( Exception queryError ) {
             queryError.printStackTrace();
@@ -315,13 +331,6 @@ public class WriteLocalBaseXDB implements Runnable {
         }
         finally {
             queryProc.close();
-            try {
-                new Close().execute( mContext );
-            }
-            catch( Exception closeError ) {
-                // ignore
-            }
-            mContext = null;
         }
         return noError;
     }

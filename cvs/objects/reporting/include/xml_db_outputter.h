@@ -70,7 +70,10 @@ public:
 
     ~XMLDBOutputter();
 
+    static bool checkJavaWorking();
+
     void finish() const;
+    void finalizeAndClose();
 
     void startVisitScenario( const Scenario* aScenario, const int aPeriod );
     void endVisitScenario( const Scenario* aScenario, const int aPeriod );
@@ -95,6 +98,9 @@ public:
 
     void startVisitSubResource( const SubResource* aSubResource, const int aPeriod );
     void endVisitSubResource( const SubResource* aSubResource, const int aPeriod );
+    
+    void startVisitSubRenewableResource( const SubRenewableResource* aSubResource, const int aPeriod );
+    void endVisitSubRenewableResource( const SubRenewableResource* aSubResource, const int aPeriod );
 
     void startVisitGrade( const Grade* aGrade, const int aPeriod );
     void endVisitGrade( const Grade* aGrade, const int aPeriod );
@@ -221,7 +227,7 @@ public:
     virtual void startVisitBuildingServiceInput( const BuildingServiceInput* aBuildingServiceInput, const int aPeriod );
     virtual void endVisitBuildingServiceInput( const BuildingServiceInput* aBuildingServiceInput, const int aPeriod );
 
-    static bool appendData( const std::string& aData, const std::string& aLocation );
+    bool appendData( const std::string& aData, const std::string& aLocation );
 private:
     //! A boost iostream which will send output to the DB as it is printed.
     mutable boost::iostreams::filtering_ostream mBuffer;
@@ -293,7 +299,7 @@ private:
     //! the like of the XMLDBOutputter.
     const std::auto_ptr<JNIContainer> mJNIContainer;
 
-    static std::auto_ptr<JNIContainer> createContainer( const bool aAppendOnly );
+    static std::auto_ptr<JNIContainer> createContainer( const bool aTestingOnly );
 #endif
     static const std::string createContainerName( const std::string& aScenarioName );
 
@@ -317,6 +323,8 @@ private:
     bool isTechnologyOperating( const int aPeriod );
     
     std::iostream* popBufferStack();
+    
+    static std::map<std::string, std::string> decomposeLandName( std::string aLandName );
 
 #if( __HAVE_JAVA__ )
     /*!

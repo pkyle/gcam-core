@@ -40,7 +40,6 @@ A21.rsrc_info <- readdata( "ENERGY_ASSUMPTIONS", "A21.rsrc_info" )
 A21.tradedtech_coef <- readdata( "ENERGY_ASSUMPTIONS", "A21.tradedtech_coef" )
 A21.tradedtech_cost <- readdata( "ENERGY_ASSUMPTIONS", "A21.tradedtech_cost" )
 A21.tradedtech_shrwt <- readdata( "ENERGY_ASSUMPTIONS", "A21.tradedtech_shrwt" )
-A21.globaltech_secout <- readdata( "ENERGY_ASSUMPTIONS", "A21.globaltech_secout" )
 L111.Prod_EJ_R_F_Yh <- readdata( "ENERGY_LEVEL1_DATA", "L111.Prod_EJ_R_F_Yh" )
 L121.in_EJ_R_TPES_unoil_Yh <- readdata( "ENERGY_LEVEL1_DATA", "L121.in_EJ_R_TPES_unoil_Yh" )
 L121.in_EJ_R_TPES_crude_Yh <- readdata( "ENERGY_LEVEL1_DATA", "L121.in_EJ_R_TPES_crude_Yh" )
@@ -55,6 +54,12 @@ printlog( "L221.Supplysector_en: Supply sector information for upstream energy h
 L221.SectorLogitTables <- get_logit_fn_tables( A21.sector, names_SupplysectorLogitType, base.header="Supplysector_",
     include.equiv.table=T, write.all.regions=T, has.traded=T )
 L221.Supplysector_en <- write_to_all_regions( A21.sector, names_Supplysector, has.traded=T )
+
+printlog( "L221.SectorUseTrialMarket_en: Supplysector table that indicates to the model to create solved markets for them." )
+# The traded markets tend to be a good canidate to solve explicitly since they tie together
+# many solved markets.
+L221.SectorUseTrialMarket_en <- write_to_all_regions( subset( A21.sector, traded == T ), c( reg, supp ), has.traded=T )
+L221.SectorUseTrialMarket_en$use.trial.market <- 1
 
 # 2b. Subsector information
 printlog( "L221.SubsectorLogit_en: Subsector logit exponents of upstream energy handling sectors" )
@@ -135,7 +140,7 @@ L221.globaltech_secout_R <- subset( L221.globaltech_secout_R,
 #Store these regions in a separate object
 L221.ddgs_regions <- unique( L221.globaltech_secout_R[[R]] )
 L221.globaltech_secout_R <- add_region_name( L221.globaltech_secout_R )
-L221.StubTechFractSecOut_en <- interpolate_and_melt( L221.globaltech_secout_R, model_future_years, value.name="output.ratio" )
+L221.StubTechFractSecOut_en <- interpolate_and_melt( L221.globaltech_secout_R, model_future_years, value.name="output.ratio", rule = 2 )
 names( L221.StubTechFractSecOut_en )[ names( L221.StubTechFractSecOut_en ) == tech ] <- "stub.technology"
 L221.StubTechFractSecOut_en <- L221.StubTechFractSecOut_en[ names_StubTechFractSecOut ]
 
@@ -301,6 +306,7 @@ write_mi_data( L221.SectorLogitTables[[ curr_table ]]$data, L221.SectorLogitTabl
 }
 write_mi_data( L221.Supplysector_en, IDstring="Supplysector", domain="ENERGY_LEVEL2_DATA", fn="L221.Supplysector_en",
                batch_XML_domain="ENERGY_XML_BATCH", batch_XML_file="batch_en_supply.xml" ) 
+write_mi_data( L221.SectorUseTrialMarket_en, "SectorUseTrialMarket", "ENERGY_LEVEL2_DATA", "L221.SectorUseTrialMarket_en", "ENERGY_XML_BATCH", "batch_en_supply.xml" ) 
 for( curr_table in names ( L221.SubsectorLogitTables ) ) {
 write_mi_data( L221.SubsectorLogitTables[[ curr_table ]]$data, L221.SubsectorLogitTables[[ curr_table ]]$header,
     "ENERGY_LEVEL2_DATA", paste0("L221.", L221.SubsectorLogitTables[[ curr_table ]]$header ), "ENERGY_XML_BATCH",

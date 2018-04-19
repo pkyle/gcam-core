@@ -88,6 +88,7 @@ ofstream outFile;
 Scenario* scenario; // model scenario info
 
 void parseArgs( unsigned int argc, char* argv[], string& confArg, string& logFacArg );
+void printUsageMessage( unsigned int argc, char* argv[] );
 
 //! Main program. 
 int main( int argc, char *argv[] ) {
@@ -156,6 +157,7 @@ int main( int argc, char *argv[] ) {
 
     // Parse configuration file.
     mainLog.setLevel( ILogger::NOTICE );
+    mainLog << "Configuration file:  " << configurationFileName << endl;
     mainLog << "Parsing input files..." << endl;
     Configuration* conf = Configuration::getInstance();
     success = XMLHelper<void>::parseXML( configurationFileName, conf );
@@ -192,6 +194,7 @@ int main( int argc, char *argv[] ) {
     runner->printOutput( timer );
     mainLog.setLevel( ILogger::WARNING ); // Increase level so that user will know that model is done
     mainLog << "Model exiting successfully." << endl;
+    runner->cleanup();
     // Cleanup Xerces. This should be encapsulated with an initializer object to ensure against leakage.
     XMLHelper<void>::cleanupParser();
     
@@ -208,17 +211,60 @@ int main( int argc, char *argv[] ) {
 * \todo Allow a space between the flags and the file names.
 */
 void parseArgs( unsigned int argc, char* argv[], string& confArg, string& logFacArg ) {
-    for( unsigned int i = 1; i < argc; i++ ){
+    for( unsigned int i = 1; i < argc; ){
         string temp( argv[ i ] );
-        if( temp.compare(0,2,"-C" ) == 0 ){
+        if( temp == "-C" ) {
+            if( ( i + 1 ) == argc ) {
+                cout << "Not enough arguments" << endl;
+                printUsageMessage( argc, argv );
+                abort();
+            }
+            confArg = string( argv[ i + 1 ] );
+            i += 2;
+        }
+        else if( temp.compare(0,2,"-C" ) == 0 ){
             confArg = temp.substr( 2, temp.length() );
+            ++i;
         } 
+        else if( temp == "-L" ) {
+            if( ( i + 1 ) == argc ) {
+                cout << "Not enough arguments" << endl;
+                printUsageMessage( argc, argv );
+                abort();
+            }
+            logFacArg = string( argv[ i + 1 ] );
+            i += 2;
+        }
         else if( temp.compare(0,2,"-L" ) == 0 ){
             logFacArg = temp.substr( 2, temp.length() );
+            ++i;
+        }
+        else if( temp == "--version" ) {
+            cout << "GCAM version " << __ObjECTS_VER__ << " Revision: " << __REVISION_NUMBER__ << endl;
+            exit( 0 );
+        }
+        else if( temp == "--versionID" ) {
+            cout << __REVISION_NUMBER__ << endl;
+            exit( 0 );
         }
         else {
             cout << "Invalid argument: " << temp << endl;
-            cout << "Usage: " << argv[ 0 ] << " [-CconfigurationFileName ][ -LloggerFactoryFileName ]";
+            printUsageMessage( argc, argv );
+            abort();
         }
     }
 }
+
+/*!
+ * \brief Print the cmmand line usage message.
+ * \param argc Number of arguments.
+ * \param argv List of arguments.
+ */
+void printUsageMessage( unsigned int argc, char* argv[] ) {
+    cout << "Usage: " << argv[ 0 ] << " [-CconfigurationFileName ][ -LloggerFactoryFileName ]" << endl;
+    cout << "OR" << endl;
+    cout << "Usage: " << argv[ 0 ] << " --version" << endl;
+    cout << "OR" << endl;
+    cout << "Usage: " << argv[ 0 ] << " --versionID" << endl;
+}
+

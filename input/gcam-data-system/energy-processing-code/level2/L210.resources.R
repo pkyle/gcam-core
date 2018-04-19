@@ -22,6 +22,7 @@ printlog( "Resource supply information" )
 
 sourcedata( "COMMON_ASSUMPTIONS", "A_common_data", extension = ".R" )
 sourcedata( "COMMON_ASSUMPTIONS", "level2_data_names", extension = ".R" )
+sourcedata( "COMMON_ASSUMPTIONS", "unit_conversions", extension = ".R" )
 sourcedata( "MODELTIME_ASSUMPTIONS", "A_modeltime_data", extension = ".R" )
 sourcedata( "ENERGY_ASSUMPTIONS", "A_energy_data", extension = ".R" )
 sourcedata( "ENERGY_ASSUMPTIONS", "A_rsrc_data", extension = ".R" )
@@ -31,6 +32,7 @@ A10.rsrc_info <- readdata( "ENERGY_ASSUMPTIONS", "A10.rsrc_info")
 A10.subrsrc_info <- readdata( "ENERGY_ASSUMPTIONS", "A10.subrsrc_info")
 A10.TechChange <- readdata( "ENERGY_ASSUMPTIONS", "A10.TechChange")
 A10.TechChange_SSPs <- readdata( "ENERGY_ASSUMPTIONS", "A10.TechChange_SSPs")
+A10.EnvironCost_SSPs <- readdata( "ENERGY_ASSUMPTIONS", "A10.EnvironCost_SSPs")
 A15.roofPV_TechChange <- readdata( "ENERGY_ASSUMPTIONS", "A15.roofPV_TechChange" )
 L111.RsrcCurves_EJ_R_Ffos <- readdata( "ENERGY_LEVEL1_DATA", "L111.RsrcCurves_EJ_R_Ffos" )
 L111.Prod_EJ_R_F_Yh <- readdata( "ENERGY_LEVEL1_DATA", "L111.Prod_EJ_R_F_Yh" )
@@ -43,6 +45,7 @@ L116.RsrcCurves_EJ_R_EGS <- readdata( "ENERGY_LEVEL1_DATA", "L116.RsrcCurves_EJ_
 L117.RsrcCurves_EJ_R_tradbio <- readdata( "ENERGY_LEVEL1_DATA", "L117.RsrcCurves_EJ_R_tradbio" )
 L120.RsrcCurves_EJ_R_offshore_wind <- readdata( "ENERGY_LEVEL1_DATA", "L120.RsrcCurves_EJ_R_offshore_wind" )
 L120.TechChange_offshore_wind <- readdata( "ENERGY_LEVEL1_DATA", "L120.TechChange_offshore_wind" )
+L102.pcgdp_thous90USD_Scen_R_Y <- readdata( "SOCIO_LEVEL1_DATA", "L102.pcgdp_thous90USD_Scen_R_Y" )
 
 # -----------------------------------------------------------------------------
 # 2. Build tables for CSVs
@@ -88,8 +91,7 @@ L210.UnlimitRsrc <- data.frame(
       unlimited.resource = L210.unlim_rsrc_info$resource,
       output.unit = L210.unlim_rsrc_info$output.unit,
       price.unit = L210.unlim_rsrc_info$price.unit,
-      market = L210.unlim_rsrc_info$market,
-      capacity.factor = L210.unlim_rsrc_info$capacity.factor )
+      market = L210.unlim_rsrc_info$market)
 
 printlog( "L210.DepRsrcPrice: historical prices for depletable resources" )
 L210.dep_rsrc_price.melt <- interpolate_and_melt(
@@ -260,7 +262,7 @@ L210.SmthRenewRsrcCurves_offshore_wind <- convert_rsrc_to_L2( L210.RsrcCurves_EJ
 
 printlog( "L210.SmthRenewRsrcCurves_roofPV: supply curves of rooftop PV resources")
 L210.RsrcCurves_EJ_R_roofPV <- add_region_name( L115.RsrcCurves_EJ_R_roofPV )
-L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV <- convert_rsrc_to_L2( L210.RsrcCurves_EJ_R_roofPV, "renewresource", "smooth-renewable-subresource" )
+L210.SmthRenewRsrcCurvesGdpElast_roofPV <- convert_rsrc_to_L2( L210.RsrcCurves_EJ_R_roofPV, "renewresource", "smooth-renewable-subresource" )
 
 printlog( "L210.GrdRenewRsrcCurves_geo: graded supply curves of geothermal (hydrothermal) resources")
 L210.RsrcCurves_EJ_R_geo <- add_region_name( L116.RsrcCurves_EJ_R_geo )
@@ -268,6 +270,7 @@ L210.GrdRenewRsrcCurves_geo <- convert_rsrc_to_L2( L210.RsrcCurves_EJ_R_geo, "re
 
 printlog( "L210.GrdRenewRsrcMax_geo: default max sub resource of geothermal (hydrothermal) resources")
 L210.GrdRenewRsrcMax_geo <- subset( L210.GrdRenewRsrcCurves_geo, grade = unique( grade )[1] )
+L210.GrdRenewRsrcMax_geo$year.fillout <- min( model_base_years )
 L210.GrdRenewRsrcMax_geo$maxSubResource <- 1
 L210.GrdRenewRsrcMax_geo <- L210.GrdRenewRsrcMax_geo[ names_maxSubResource ]
 
@@ -277,6 +280,7 @@ L210.GrdRenewRsrcCurves_EGS <- convert_rsrc_to_L2( L210.RsrcCurves_EJ_R_EGS, "re
 
 printlog( "L210.GrdRenewRsrcMax_EGS: default max sub resource of EGS resources")
 L210.GrdRenewRsrcMax_EGS <- subset( L210.GrdRenewRsrcCurves_EGS, grade = unique( grade )[1] )
+L210.GrdRenewRsrcMax_EGS$year.fillout <- min( model_base_years )
 L210.GrdRenewRsrcMax_EGS$maxSubResource <- 1
 L210.GrdRenewRsrcMax_EGS <- L210.GrdRenewRsrcMax_EGS[ names_maxSubResource ]
 
@@ -286,8 +290,60 @@ L210.GrdRenewRsrcCurves_tradbio <- convert_rsrc_to_L2( L210.RsrcCurves_EJ_R_trad
 
 printlog( "L210.GrdRenewRsrcMax_tradbio: default max sub resource of tradbio resources")
 L210.GrdRenewRsrcMax_tradbio <- subset( L210.GrdRenewRsrcCurves_tradbio, grade == unique( grade )[1] )
+L210.GrdRenewRsrcMax_tradbio$year.fillout <- min( model_base_years )
 L210.GrdRenewRsrcMax_tradbio$maxSubResource <- 1
 L210.GrdRenewRsrcMax_tradbio <- L210.GrdRenewRsrcMax_tradbio[ names_maxSubResource ]
+
+printlog( "L210.DepRsrcEnvironCost_SSPs: environmental cost for depletable resources in SSPs" )
+# Repeat and add region vector to assumed techchange tables
+L210.rsrc_EnvironCost_SSPs <- repeat_and_add_vector( A10.EnvironCost_SSPs, "GCAM_region_ID", GCAM_region_names$GCAM_region_ID )
+L210.rsrc_EnvironCost_SSPs <- add_region_name( L210.rsrc_EnvironCost_SSPs )
+
+#Retrieve the techChange years from the table column names
+X_rsrc_EnvCostYears_SSPs <- names( A10.EnvironCost_SSPs )[ grep( "X[0-9]{4}", names( A10.EnvironCost_SSPs ) )]
+
+#Melt
+#NOTE: assuming no tech change for unlimited resources
+L210.rsrc_EnvironCost_SSPs.melt <- melt( L210.rsrc_EnvironCost_SSPs[ c( "SSP", "region", "resource", "subresource", X_rsrc_EnvCostYears_SSPs ) ],
+                                        id.vars = c( "SSP", "region", "resource", "subresource" ) )
+L210.rsrc_EnvironCost_SSPs.melt$subresource_type <- A10.subrsrc_info$subresource_type[ match( L210.rsrc_EnvironCost_SSPs.melt$subresource, A10.subrsrc_info$subresource ) ]
+
+L210.DepRsrcEnvironCost_SSPs <- data.frame(
+  SSP = L210.rsrc_EnvironCost_SSPs.melt$SSP,
+  region = L210.rsrc_EnvironCost_SSPs.melt$region,
+  depresource = L210.rsrc_EnvironCost_SSPs.melt$resource,
+  subresource = L210.rsrc_EnvironCost_SSPs.melt$subresource,
+  year.fillout = substr( L210.rsrc_EnvironCost_SSPs.melt$variable, 2, 5 ),
+  environCost = L210.rsrc_EnvironCost_SSPs.melt$value )
+
+#SSP1
+L210.DepRsrcEnvironCost_SSP1 <- subset( L210.DepRsrcEnvironCost_SSPs, L210.DepRsrcEnvironCost_SSPs$SSP == "SSP1" )
+L210.DepRsrcEnvironCost_SSP1 <- L210.DepRsrcEnvironCost_SSP1[ names( L210.DepRsrcEnvironCost_SSP1 ) != "SSP" ]
+
+#SSP2
+L210.DepRsrcEnvironCost_SSP2 <- subset( L210.DepRsrcEnvironCost_SSPs, L210.DepRsrcEnvironCost_SSPs$SSP == "SSP2" )
+L210.DepRsrcEnvironCost_SSP2 <- L210.DepRsrcEnvironCost_SSP2[ names( L210.DepRsrcEnvironCost_SSP2 ) != "SSP" ]
+
+#SSP3
+L210.DepRsrcEnvironCost_SSP3 <- subset( L210.DepRsrcEnvironCost_SSPs, L210.DepRsrcEnvironCost_SSPs$SSP == "SSP3" )
+L210.DepRsrcEnvironCost_SSP3 <- L210.DepRsrcEnvironCost_SSP3[ names( L210.DepRsrcEnvironCost_SSP3 ) != "SSP" ]
+
+#SSP4
+L210.pcgdp_2010 <- subset( L102.pcgdp_thous90USD_Scen_R_Y, L102.pcgdp_thous90USD_Scen_R_Y$scenario == "SSP4" )
+L210.pcgdp_2010 <- L210.pcgdp_2010[ names( L210.pcgdp_2010) %in% c( "GCAM_region_ID", "X2010" ) ]
+L210.pcgdp_2010 <- add_region_name( L210.pcgdp_2010 )
+L210.pcgdp_2010$X2010 <- L210.pcgdp_2010$X2010 * conv_1990_2010_USD
+L210.high_reg <- L210.pcgdp_2010$region[ L210.pcgdp_2010$X2010 > hi_growth_pcgdp ]
+L210.low_reg <- L210.pcgdp_2010$region[ L210.pcgdp_2010$X2010 < lo_growth_pcgdp ]
+
+L210.DepRsrcEnvironCost_SSP4 <- subset( L210.DepRsrcEnvironCost_SSPs, L210.DepRsrcEnvironCost_SSPs$SSP == "SSP4" )
+L210.DepRsrcEnvironCost_SSP4 <- L210.DepRsrcEnvironCost_SSP4[ names( L210.DepRsrcEnvironCost_SSP4 ) != "SSP" ]
+L210.DepRsrcEnvironCost_SSP4$environCost[ L210.DepRsrcEnvironCost_SSP4$depresource == "coal" & L210.DepRsrcEnvironCost_SSP4$region %in% L210.low_reg ] <- 0
+L210.DepRsrcEnvironCost_SSP4$environCost[ L210.DepRsrcEnvironCost_SSP4$depresource == "coal" & L210.DepRsrcEnvironCost_SSP4$region %in% L210.high_reg ] <- 10 * L210.DepRsrcEnvironCost_SSP4$environCost[ L210.DepRsrcEnvironCost_SSP4$depresource == "coal" & L210.DepRsrcEnvironCost_SSP4$region %in% L210.high_reg ]
+
+#SSP5
+L210.DepRsrcEnvironCost_SSP5 <- subset( L210.DepRsrcEnvironCost_SSPs, L210.DepRsrcEnvironCost_SSPs$SSP == "SSP5" )
+L210.DepRsrcEnvironCost_SSP5 <- L210.DepRsrcEnvironCost_SSP5[ names( L210.DepRsrcEnvironCost_SSP5 ) != "SSP" ]
 
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
@@ -307,7 +363,7 @@ write_mi_data( L210.DepRsrcCurves_U, "DepRsrcCurves", "ENERGY_LEVEL2_DATA", "L21
 write_mi_data( L210.SmthRenewRsrcCurvesGdpElast_MSW, "SmthRenewRsrcCurvesGdpElast", "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcCurves_MSW", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
 write_mi_data( L210.SmthRenewRsrcCurves_wind, "SmthRenewRsrcCurves", "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcCurves_wind", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
 write_mi_data( L210.SmthRenewRsrcCurves_offshore_wind, "SmthRenewRsrcCurves", "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcCurves_offshore_wind", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
-write_mi_data( L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV, "SmthRenewRsrcCurvesGdpElast", "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcCurvesGdpElastCapFac_roofPV", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
+write_mi_data( L210.SmthRenewRsrcCurvesGdpElast_roofPV, "SmthRenewRsrcCurvesGdpElast", "ENERGY_LEVEL2_DATA", "L210.SmthRenewRsrcCurvesGdpElast_roofPV", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
 write_mi_data( L210.GrdRenewRsrcCurves_geo, "GrdRenewRsrcCurves", "ENERGY_LEVEL2_DATA", "L210.GrdRenewRsrcCurves_geo", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
 write_mi_data( L210.GrdRenewRsrcMax_geo, "GrdRenewRsrcMax", "ENERGY_LEVEL2_DATA", "L210.GrdRenewRsrcMax_geo", "ENERGY_XML_BATCH", "batch_resources.xml" ) 
 write_mi_data( L210.GrdRenewRsrcCurves_EGS, "GrdRenewRsrcCurves", "ENERGY_LEVEL2_DATA", "L210.GrdRenewRsrcCurves_EGS", "ENERGY_XML_BATCH", "batch_geo_adv.xml" ) 
@@ -319,18 +375,23 @@ insert_file_into_batchxml( "ENERGY_XML_BATCH", "batch_resources.xml", "ENERGY_XM
 insert_file_into_batchxml( "ENERGY_XML_BATCH", "batch_geo_adv.xml", "ENERGY_XML_FINAL", "geo_adv.xml", "", xml_tag="outFile" )
 
 write_mi_data( L210.DepRsrcTechChange_SSP1, "DepRsrcTechChange", "ENERGY_LEVEL2_DATA", "L210.DepRsrcTechChange_SSP1", "ENERGY_XML_BATCH", "batch_resources_SSP1.xml" ) 
+write_mi_data( L210.DepRsrcEnvironCost_SSP1, "DepRsrcEnvironCost", "ENERGY_LEVEL2_DATA", "L210.DepRsrcEnvironCost_SSP1", "ENERGY_XML_BATCH", "batch_resources_SSP1.xml" ) 
 insert_file_into_batchxml( "ENERGY_XML_BATCH", "batch_resources_SSP1.xml", "ENERGY_XML_FINAL", "resources_SSP1.xml", "", xml_tag="outFile" )
 
 write_mi_data( L210.DepRsrcTechChange_SSP2, "DepRsrcTechChange", "ENERGY_LEVEL2_DATA", "L210.DepRsrcTechChange_SSP2", "ENERGY_XML_BATCH", "batch_resources_SSP2.xml" ) 
+write_mi_data( L210.DepRsrcEnvironCost_SSP2, "DepRsrcEnvironCost", "ENERGY_LEVEL2_DATA", "L210.DepRsrcEnvironCost_SSP2", "ENERGY_XML_BATCH", "batch_resources_SSP2.xml" ) 
 insert_file_into_batchxml( "ENERGY_XML_BATCH", "batch_resources_SSP2.xml", "ENERGY_XML_FINAL", "resources_SSP2.xml", "", xml_tag="outFile" )
 
 write_mi_data( L210.DepRsrcTechChange_SSP3, "DepRsrcTechChange", "ENERGY_LEVEL2_DATA", "L210.DepRsrcTechChange_SSP3", "ENERGY_XML_BATCH", "batch_resources_SSP3.xml" ) 
+write_mi_data( L210.DepRsrcEnvironCost_SSP3, "DepRsrcEnvironCost", "ENERGY_LEVEL2_DATA", "L210.DepRsrcEnvironCost_SSP3", "ENERGY_XML_BATCH", "batch_resources_SSP3.xml" ) 
 insert_file_into_batchxml( "ENERGY_XML_BATCH", "batch_resources_SSP3.xml", "ENERGY_XML_FINAL", "resources_SSP3.xml", "", xml_tag="outFile" )
 
 write_mi_data( L210.DepRsrcTechChange_SSP4, "DepRsrcTechChange", "ENERGY_LEVEL2_DATA", "L210.DepRsrcTechChange_SSP4", "ENERGY_XML_BATCH", "batch_resources_SSP4.xml" ) 
+write_mi_data( L210.DepRsrcEnvironCost_SSP4, "DepRsrcEnvironCost", "ENERGY_LEVEL2_DATA", "L210.DepRsrcEnvironCost_SSP4", "ENERGY_XML_BATCH", "batch_resources_SSP4.xml" ) 
 insert_file_into_batchxml( "ENERGY_XML_BATCH", "batch_resources_SSP4.xml", "ENERGY_XML_FINAL", "resources_SSP4.xml", "", xml_tag="outFile" )
 
 write_mi_data( L210.DepRsrcTechChange_SSP5, "DepRsrcTechChange", "ENERGY_LEVEL2_DATA", "L210.DepRsrcTechChange_SSP5", "ENERGY_XML_BATCH", "batch_resources_SSP5.xml" ) 
+write_mi_data( L210.DepRsrcEnvironCost_SSP5, "DepRsrcEnvironCost", "ENERGY_LEVEL2_DATA", "L210.DepRsrcEnvironCost_SSP5", "ENERGY_XML_BATCH", "batch_resources_SSP5.xml" ) 
 insert_file_into_batchxml( "ENERGY_XML_BATCH", "batch_resources_SSP5.xml", "ENERGY_XML_FINAL", "resources_SSP5.xml", "", xml_tag="outFile" )
 
 logstop()

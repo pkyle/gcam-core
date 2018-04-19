@@ -50,6 +50,7 @@
 #include "util/base/include/auto_file.h"
 #include "util/logger/include/ilogger.h"
 #include "util/logger/include/logger_factory.h"
+#include "reporting/include/xml_db_outputter.h"
 
 using namespace std;
 using namespace xercesc;
@@ -65,10 +66,15 @@ extern void createDBout();
 
 /*! \brief Constructor */
 SingleScenarioRunner::SingleScenarioRunner(){
+    mXMLDBOutputter = 0;
 }
 
 //! Destructor.
 SingleScenarioRunner::~SingleScenarioRunner(){
+    /*!
+     * \pre Memory clean up should have been done in the cleanup method.
+     */
+    assert( !mXMLDBOutputter );
 }
 
 const string& SingleScenarioRunner::getName() const {
@@ -85,6 +91,15 @@ bool SingleScenarioRunner::setupScenarios( Timer& timer,
                                            const string aName,
                                            const list<string> aScenComponents )
 {
+    const Configuration* conf = Configuration::getInstance();
+    // before we do anything make sure we will be able to write
+    // database results if we need to do so
+    if( conf->shouldWriteFile( "xmldb-location") && !XMLDBOutputter::checkJavaWorking() ) {
+        ILogger& mainLog = ILogger::getLogger( "main_log" );
+        mainLog.setLevel( ILogger::SEVERE );
+        mainLog << "Early warning Java checks failed and database output was requested" << endl;
+        abort();
+    }
     // Ensure that a new scenario is created for each run.
     mScenario.reset( new Scenario );
 
@@ -93,7 +108,6 @@ bool SingleScenarioRunner::setupScenarios( Timer& timer,
     scenario = mScenario.get();
 
     // Parse the input file.
-    const Configuration* conf = Configuration::getInstance();
     bool success =
         XMLHelper<void>::parseXML( conf->getFile( "xmlInputFileName" ),
                                    mScenario.get() );
@@ -143,7 +157,6 @@ bool SingleScenarioRunner::setupScenarios( Timer& timer,
     LoggerFactory::logNewScenarioStarting( overrideName );
 
     // Print data read in time.
-    timer.stop();
     mainLog.setLevel( ILogger::DEBUG );
     timer.print( mainLog, "XML Readin Time:" );
 
@@ -168,6 +181,8 @@ bool SingleScenarioRunner::runScenarios( const int aSinglePeriod,
         mainLog << "period " << aSinglePeriod;
     }
     mainLog << endl;
+
+    aTimer.start();             // ensure timer is running.
     
 	bool success = false;
 	if( mScenario.get() ){
@@ -175,10 +190,9 @@ bool SingleScenarioRunner::runScenarios( const int aSinglePeriod,
         success = mScenario->run( aSinglePeriod, aPrintDebugging,
                                   mScenario->getName() );
 
-		// Compute model run time.
-		aTimer.stop();
-		mainLog.setLevel( ILogger::DEBUG );
-		aTimer.print( mainLog, "Data Readin & Initial Model Run Time:" );
+        // Compute model run time.
+        mainLog.setLevel( ILogger::DEBUG );
+        aTimer.print( mainLog, "Data Readin & Initial Model Run Time:" );
 	}
 	else {
         ILogger& mainLog = ILogger::getLogger( "main_log" );
@@ -195,6 +209,9 @@ void SingleScenarioRunner::printOutput( Timer& aTimer, const bool aCloseDB ) con
     mainLog.setLevel( ILogger::NOTICE );
     mainLog << "Printing output" << endl;
 
+    Timer &writeTimer = TimerRegistry::getInstance().getTimer(TimerRegistry::WRITE_DATA);
+    writeTimer.start();
+    
     // Print output xml file.
     AutoOutputFile xmlOut( "xmlOutputFileName", "output.xml" );
     Tabs tabs;
@@ -227,13 +244,24 @@ void SingleScenarioRunner::printOutput( Timer& aTimer, const bool aCloseDB ) con
         mainLog.setLevel( ILogger::NOTICE );
         mainLog << "Starting output to XML Database." << endl;
         // Print the XML file for the XML database.
-        scenario->printOutputXML();
-    }
+        assert( !mXMLDBOutputter );
+        mXMLDBOutputter = new XMLDBOutputter();
 
+        // Update the output container with information from the model.
+        // -1 flags to update the output container for all periods at once.
+        mScenario->accept( mXMLDBOutputter, -1 );
+
+
+        // Print the output.
+        mXMLDBOutputter->finish();
+    }
+    writeTimer.stop();
+    
     // Print the timestamps.
     aTimer.stop();
     mainLog.setLevel( ILogger::DEBUG );
     aTimer.print( mainLog, "Data Readin, Model Run & Write Time:" );
+    writeTimer.print(mainLog, "Write time: ");
     mainLog.setLevel( ILogger::NOTICE );
     mainLog << "Model run completed." << endl;
 }
@@ -243,6 +271,15 @@ void SingleScenarioRunner::cleanup() {
     // created from scratch the next time a scenario is setup and run.
     mScenario.reset( 0 );
     scenario = 0;
+
+    // If the XML database was opened then we should close it.
+    if( mXMLDBOutputter ) {
+        // Now that the scenario memory is cleared out we can have the XML DB
+        // outputter finalize and close.
+        mXMLDBOutputter->finalizeAndClose();
+        delete mXMLDBOutputter;
+        mXMLDBOutputter = 0;
+    }
 }
 
 Scenario* SingleScenarioRunner::getInternalScenario(){
@@ -251,6 +288,14 @@ Scenario* SingleScenarioRunner::getInternalScenario(){
 
 const Scenario* SingleScenarioRunner::getInternalScenario() const {
 	return mScenario.get();
+}
+
+/*!
+ * \brief Get the refernce to the XMLDBOutputter.
+ * \return The XMLDBOutputter.
+ */
+XMLDBOutputter* SingleScenarioRunner::getXMLDBOutputter() const {
+    return mXMLDBOutputter;
 }
 
 /*!

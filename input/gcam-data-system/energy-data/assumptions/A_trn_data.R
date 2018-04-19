@@ -1,10 +1,11 @@
+trn_SSP <- "CORE"
 # UC Davis transportation sector objects
 #Currently the UCD database's base year is 2005 (there is no other base year).
 # This is used for energy disaggregation in all historical years.
 UCD_en_year <- 2005
 X_UCD_en_year <- paste0( "X", UCD_en_year )
 
-UCD_years <- c( seq( 2005, 2030, 5 ), seq( 2035, 2095, 15 ) )
+UCD_years <- seq( 2005, 2095, 15 )
 X_UCD_years <- paste0( "X", UCD_years )
 pre_UCD_years <- historical_years[ historical_years < min( UCD_years ) ]
 X_pre_UCD_years <- paste0( "X", pre_UCD_years )

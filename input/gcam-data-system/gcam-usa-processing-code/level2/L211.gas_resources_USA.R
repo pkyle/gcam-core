@@ -418,7 +418,7 @@ L252.ResMAC_fos %>%
   repeat_and_add_vector('state', L211.gas_regions) %>%
   repeat_and_add_vector('resource', L211.NG_resources) %>%
   semi_join(L211.Depresource, by = c("state", "resource")) %>%
-  select(state, resource, Non.CO2, mac.control, tax, mac.reduction, EPA_region, market.name) %>%
+  select(state, resource, Non.CO2, mac.control, tax, mac.reduction, market.name) %>%
   rename(region = state, depresource = resource)-> L211.ResMAC_NG
 
 # -----------------------------------------------------------------------------

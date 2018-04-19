@@ -69,6 +69,7 @@ BuildingNodeInput::BuildingNodeInput():
 mIsFixedBuildingSize( false ),
 mInternalGainsTrialSupply( 0.001 )
 {
+    mSatiationDemandFunction = 0;
 }
 
 //! Destructor
@@ -76,6 +77,7 @@ BuildingNodeInput::~BuildingNodeInput() {
     for( CNestedInputIterator it = mNestedInputs.begin(); it != mNestedInputs.end(); ++it ) {
         delete *it;
     }
+    delete mSatiationDemandFunction;
 }
 
 void BuildingNodeInput::XMLParse( const xercesc::DOMNode* node ) {
@@ -248,7 +250,8 @@ void BuildingNodeInput::copy( const BuildingNodeInput& aNodeInput ) {
     mInternalGainsMarketname = aNodeInput.mInternalGainsMarketname;
     mInternalGainsUnit = aNodeInput.mInternalGainsUnit;
 
-    mSatiationDemandFunction.reset( new SatiationDemandFunction( *aNodeInput.mSatiationDemandFunction.get() ) );
+    delete mSatiationDemandFunction;
+    mSatiationDemandFunction = aNodeInput.mSatiationDemandFunction->clone();
 
     // copy children
     for( CNestedInputIterator it = aNodeInput.mNestedInputs.begin(); it != aNodeInput.mNestedInputs.end(); ++it ) {
@@ -408,7 +411,7 @@ double BuildingNodeInput::getInternalGains( const int aPeriod ) const {
  * \return The satiation demand function.
  */
 SatiationDemandFunction* BuildingNodeInput::getSatiationDemandFunction() const {
-    return mSatiationDemandFunction.get();
+    return mSatiationDemandFunction;
 }
 
 void BuildingNodeInput::removeEmptyInputs() {
@@ -496,7 +499,11 @@ void BuildingNodeInput::setPhysicalDemand( const double aPhysicalDemand,
 {
     // Only reset the building size to a calculated value when not
     // running with a fixed path.
-    if( !mIsFixedBuildingSize[ aPeriod ] ) {
+    // We are storing the results in the same vector as the calibration data
+    // generally the calculated value should match however it may not if the
+    // solver throws us negative prices.  We must explictly gaurd against
+    // reseting these values in calibration years.
+    if( !mIsFixedBuildingSize[ aPeriod] && aPeriod > scenario->getModeltime()->getFinalCalibrationPeriod() ) {
         mBuildingSize[ aPeriod ].set( aPhysicalDemand );
     }
 }

@@ -31,6 +31,7 @@ sourcedata( "COMMON_ASSUMPTIONS", "unit_conversions", extension = ".R" )
 sourcedata( "MODELTIME_ASSUMPTIONS", "A_modeltime_data", extension = ".R" )
 GCAM_region_names <- readdata( "COMMON_MAPPINGS", "GCAM_region_names")
 
+L223.GlobalTechCapFac_elec <- readdata("ENERGY_LEVEL2_DATA", "L223.GlobalTechCapFac_elec", skip=4)
 L223.GlobalIntTechCapital_elec <- readdata("ENERGY_LEVEL2_DATA", "L223.GlobalIntTechCapital_elec", skip=4)
 L223.GlobalTechCapital_elec <- readdata("ENERGY_LEVEL2_DATA", "L223.GlobalTechCapital_elec", skip=4)
 L223.GlobalIntTechCapital_elec <- readdata("ENERGY_LEVEL2_DATA", "L223.GlobalIntTechCapital_elec", skip=4)

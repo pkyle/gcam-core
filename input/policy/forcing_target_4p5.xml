@@ -7,7 +7,7 @@
      -->
     <target-value>4.5</target-value>
     <!-- target-tolerance | default: 0.01 | The solution tolerance -->
-    <target-tolerance>0.005</target-tolerance> 
+    <target-tolerance>0.05</target-tolerance> 
     <!-- path-discount-rate | default: 0.05 | The hotelling rate -->
 	<path-discount-rate>0.05</path-discount-rate>
     <!-- max-iterations | default: 100 | The maximum  number of attempts to
@@ -23,13 +23,13 @@
                            configuration string: concentration-target-gas)
                            with disregards to what that concentration might be
             kyoto-forcing | Radiative forcing from Kyoto GHGs only
-            rcp-forcing | Radiative forcing using the RCP definition
+            rcp-forcing | Radiative forcing using the RCP definition (MAGICC only)
             temperature | Global mean temperature
             cumulative-emissions | Reach a cumulative emission goal for CO2
                                    emissions (or possibly other gasses via the
                                    configuration string: cumulative-target-gas)
      -->
-    <target-type>rcp-forcing</target-type>
+    <target-type>forcing</target-type>
     <!-- first-tax-year | default: 2020 | The first year to start a tax in -->
     <first-tax-year>2020</first-tax-year>
     <!-- forward-look | default: 0 | Allow forward looking behavior by skipping
@@ -53,5 +53,5 @@
                                    the max-tax.  If the actual solution price
                                    lies above max-tax the algorithm will fail.
      -->
-    <max-tax>4999</max-tax>
+    <max-tax>7999</max-tax>
 </policy-target-runner>

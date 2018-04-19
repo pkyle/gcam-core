@@ -139,14 +139,14 @@ void GDPControl::toDebugXMLDerived( const int aPeriod, ostream& aOut, Tabs* aTab
 }
 
 void GDPControl::completeInit( const string& aRegionName, const string& aSectorName,
-                               const IInfo* aLocalInfo )
+                               const IInfo* aTechIInfo )
 {
 
 }
 
 void GDPControl::initCalc( const string& aRegionName,
-                           const IInfo* aLocalInfo,
-                           const NonCO2Emissions* parentGHG,
+                           const IInfo* aTechInfo,
+                           const NonCO2Emissions* aParentGHG,
                            const int aPeriod )
 {
     // TODO: Figure out what gas this is & print more meaningful information

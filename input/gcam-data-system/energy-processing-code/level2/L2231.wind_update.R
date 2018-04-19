@@ -203,7 +203,7 @@ A23.globaltech_capital %>%
   interpolate_and_melt(c( model_base_years, model_future_years ), value.name="capital.overnight", 
                        digits = digits_capital, rule=3 ) %>%
   select(sector.name = supplysector, subsector.name = subsector, intermittent.technology = technology, year, 
-         input.capital, capital.overnight, fixed.charge.rate, capacity.factor) -> L2231.onshore_wind_cap_cost
+         input.capital, capital.overnight, fixed.charge.rate) -> L2231.onshore_wind_cap_cost
 
 # Second, calculate technological change
 L2231.onshore_wind_cap_cost %>%
@@ -250,7 +250,8 @@ region_order <- unique(GCAM_region_names$region)
 
 L2231.onshore_wind_curve %>%
   mutate(renewresource = "onshore wind resource", smooth.renewable.subresource = "onshore wind resource") %>%
-  select(region, renewresource, smooth.renewable.subresource, maxSubResource, mid.price, curve.exponent) %>%
+  mutate(year.fillout = min( model_base_years )) %>%
+  select(region, renewresource, smooth.renewable.subresource, year.fillout, maxSubResource, mid.price, curve.exponent) %>%
   group_by(region) %>%
   filter(row_number() == 1) %>%
   ungroup() %>%
@@ -265,9 +266,8 @@ L223.StubTechCapFactor_elec %>%
   left_join(L2231.onshore_wind_curve %>%
               distinct(region, CFmax), 
             by= c("region")) %>%
-  mutate(capacity.factor.capital = round(CFmax,5), capacity.factor.OM = round(CFmax,5)) %>%
-  select(region, supplysector, subsector, stub.technology, year, 
-         input.capital, capacity.factor.capital, input.OM.fixed, capacity.factor.OM) -> L2231.StubTechCapFactor_onshore_wind
+  mutate(capacity.factor = round(CFmax,5)) %>%
+  select(region, supplysector, subsector, stub.technology, year, capacity.factor) -> L2231.StubTechCapFactor_onshore_wind
 
 
 printlog( "L2231.SmthRenewRsrcTechChange_onshore_wind: technological change for onshore wind" )

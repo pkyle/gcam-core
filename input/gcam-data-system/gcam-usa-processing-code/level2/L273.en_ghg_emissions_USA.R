@@ -293,6 +293,11 @@ L273.out_ghg_emissions_bld_cool <- L244.output_bld_cool %>%
 L273.out_ghg_emissions_USA <- bind_rows(L273.out_ghg_emissions_elec_ownuse,L273.out_ghg_emissions_bld_cool) %>%
   arrange(Non.CO2,supplysector)
 
+# TODO: double check this, it seems we are missing PFCs in 2010
+L273.out_ghg_emissions_USA %>%
+    filter(!(is.na(output.emissions) & year == 2010 & Non.CO2 %in% unique(L241.pfc_all$Non.CO2))) ->
+    L273.out_ghg_emissions_USA
+
 # 2e. MAC curves
 printlog( "L273.ResMAC_fos_USA: fossil resource MAC curves for all U.S. states" )
 #The MAC curves will be identical to those for the USA

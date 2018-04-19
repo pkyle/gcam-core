@@ -46,32 +46,41 @@ using namespace std;
 using namespace boost::posix_time;
 
 //! Constructor
-Timer::Timer():mTotalTime( 0 )
+Timer::Timer():mTotalTime( 0 ),
+mRunning( 0 )
 {
 }
-        
-/*! \brief Start the timer. 
-* \details This function starts the timer. All times will be relative to this time.
+
+/*! \brief Start the timer.
+ * \details This function starts the timer. All times will be relative
+ *          to this time.  Starting a timer that is already running is
+ *          a no-op; however, no error is logged.
 */     
 void Timer::start(){
-    mStartTime = microsec_clock::universal_time();
+#if GCAM_PARALLEL_ENABLED
+    tbb::spin_mutex::scoped_lock lock( mMutex );
+#endif
+    if( ++mRunning == 1 ) {
+        mStartTime = microsec_clock::universal_time();
+    }
 }
 
 /*! \brief Stop the timer.
-* \details This functions stops the timer so that the amount of time that has passed
-* may be fetched or printed.
+* \details This functions stops the timer so that the amount of time
+*          that has passed may be fetched or printed.  Stopping a
+*          timer that is already stopped is a no-op; no error is
+*          logged.
 */
 void Timer::stop(){
-    mStopTime = microsec_clock::universal_time();
-    mTotalTime += getTimeDifference();
-}
-
-/*! \brief Get the differential between the start time and stop time.
-* \return The difference between the stop and start time.
-*/
-double Timer::getTimeDifference() const {
-    time_duration diff = mStopTime - mStartTime;
-    return diff.total_seconds() + pow( 10.0, -time_duration::num_fractional_digits() ) * diff.fractional_seconds();
+#if GCAM_PARALLEL_ENABLED
+    tbb::spin_mutex::scoped_lock lock( mMutex );
+#endif
+    if( --mRunning == 0 ) {
+        time_duration diff = microsec_clock::universal_time() - mStartTime;
+        mTotalTime += diff.total_seconds() + pow( 10.0, -time_duration::num_fractional_digits() ) * diff.fractional_seconds();
+    }
+    // guard against excessive stops
+    mRunning = std::max( mRunning, 0 );
 }
 
 /*!
@@ -82,15 +91,25 @@ double Timer::getTotalTimeDifference() const {
     return mTotalTime;
 }
 
-/*! \brief Print the stored time.
-* \details This function prints the time between the last call to stop() and the time
-* start() was called.
-* \param aOut The output stream to print to.
-* \param aTitle The label to print in front of the time. Defaults to 'Time: '
+/*! \brief Print the accumulated time.
+ * \details This function prints the accumulated time on the timer.
+ *          It *can* be called on a running timer to print a split.
+ *          Otherwise it will print the total saved at the last call
+ *          to stop().
+ * \param aOut The output stream to print to.
+ * \param aTitle The label to print in front of the time. Defaults to 'Time: '
 */
 void Timer::print( std::ostream& aOut, const string& aLabel ) const {
-    if( mTotalTime > 0 ) {
-        aOut << aLabel << " " << mTotalTime << " seconds. " << endl;
+    double tottime = mTotalTime;
+    if(mRunning) {
+        // Add the time currently on the clock to the accumulated total
+        time_duration dt = microsec_clock::universal_time() - mStartTime;
+        tottime += dt.total_seconds() +
+            pow(10.0, -time_duration::num_fractional_digits()) * dt.fractional_seconds();
+    }
+        
+    if( tottime > 0 ) {
+        aOut << aLabel << " " << tottime << " seconds. " << endl;
     }
 }
 

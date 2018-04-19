@@ -33,6 +33,7 @@ if( use_mult_load_segments ){
 #NOTE: this code file only builds the electric sector model input if the demand is being resolved at the level of the grid regions
 if( use_regional_elec_markets ){	
 states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
+elec_tech_water_map <- readdata( "WATER_MAPPINGS", "elec_tech_water_map" )
 
 A232.structure <- readdata( "GCAMUSA_ASSUMPTIONS", "A232.structure" )
 A23.elecS_sector_vertical <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_sector_vertical" )
@@ -69,7 +70,8 @@ grid_regions <- sort( unique( states_subregions$grid_region ) )
 printlog( "PART 1: THE USA REGION" )
 # Remove the USA electricity sector, and replace with electricity trade
 printlog( "L2235.DeleteSupplysector_USAelec: Removing the electricity sectors of the USA region (incl. net_ownuse)" )
-L2235.DeleteSupplysector_USAelec <- data.frame( region = "USA", supplysector = c( "electricity", "electricity_net_ownuse" ) )
+L2235.DeleteSupplysector_USAelec <- data.frame( region = "USA", supplysector = unique( c( "electricity", "electricity_net_ownuse",
+    elec_tech_water_map$to.supplysector ) ) )
 write_mi_data( L2235.DeleteSupplysector_USAelec, "DeleteSupplysector", "GCAMUSA_LEVEL2_DATA", "L2235.DeleteSupplysector_USAelec", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 
 printlog( "Create vertical segment supplysectors in grid regions" )
