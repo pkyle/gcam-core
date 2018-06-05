@@ -86,7 +86,7 @@
 		-->
 		<Value name = "solver">../input/solution/cal_broyden_config.xml</Value>
 
-		<Value name = "socio_usa">../input/gcam-data-system/xml/gcam-usa-xml/socioeconomics_USA_QER.xml</Value>
+		<Value name = "socio_usa">../input/gcam-data-system/xml/gcam-usa-xml/socioeconomics_USA.xml</Value>
 		<Value name = "socio_usa">../input/gcam-data-system/xml/gcam-usa-xml/socioeconomics_USA_update.xml</Value>
 		<Value name = "interest_usa">../input/gcam-data-system/xml/gcam-usa-xml/interest_rate_USA.xml</Value>
 		<Value name = "resource_usa">../input/gcam-data-system/xml/gcam-usa-xml/resources_USA.xml</Value>

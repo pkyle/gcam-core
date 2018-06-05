@@ -39,6 +39,7 @@ AEO_2016_pop_regional <- readdata( "GCAMUSA_LEVEL0_DATA", "AEO_2016_pop_regional
 state_census_region <- readdata( "GCAMUSA_MAPPINGS", "state_census_region" )
 L100.gdp_mil90usd_ctry_Yh <- readdata( "SOCIO_LEVEL1_DATA", "L100.gdp_mil90usd_ctry_Yh" )
 L201.LaborProductivity_SSP2 <- readdata( "SOCIO_LEVEL2_DATA", "L201.LaborProductivity_SSP2" , skip = 4)
+L201.Pop_GCAMUSA <- readdata( "GCAMUSA_LEVEL2_DATA", "L201.Pop_GCAMUSA" , skip = 4)
 
 # -----------------------------------------------------------------------------
 # 2. Perform computations
@@ -233,11 +234,95 @@ states_years %>%
                            by = c("state", "year")) %>%
   filter(laborproductivity != "NA") -> L2011.LaborProductivity_USA_updated
 
+
+# Add USA-region udpates
+# Updated USA-region population
+L201.Pop_GCAMUSA %>%
+  filter(year %in% model_base_years) %>%
+  bind_rows(L2011.Pop_USA_updated) %>% 
+  group_by(year) %>%
+  summarise(totalPop = sum(totalPop)) %>%
+  ungroup() %>%
+  mutate(region = "USA") %>%
+  select(region, year, totalPop) -> L2011.Pop_updated_USA_national
+
+# Updated USA-region base GDP
+L2011.BaseGDP_USA %>%
+  summarise(baseGDP = sum(baseGDP)) %>%
+  mutate(region = "USA") %>%
+  select(region, baseGDP) -> L2011.BaseGDP_updated_USA_national
+
+# Updated USA-region labor productivity (GDP)
+# First, calculate state GDP from parameters
+# Combine parameters into single table
+L201.Pop_GCAMUSA %>%
+  filter(year %in% model_base_years) %>%
+  bind_rows(L2011.Pop_USA_updated) %>% 
+  left_join(L2011.LaborProductivity_USA_updated %>%
+              rename(region = state), 
+            by = c("region", "year")) %>%
+  left_join(L2011.BaseGDP_USA %>%
+              mutate(year = 1975),
+            by = c("region", "year")) %>%
+  rename(GDP = baseGDP) -> L2011.GDP_USA
+
+L2011.GDP_USA %>%
+  distinct(year) %>%
+  filter(year != model_base_years[1]) -> L2011.GDP_USA_years
+years <- unique(L2011.GDP_USA_years$year)
+
+for (y in years) {
+  
+  # Calculate GDP
+  L2011.GDP_USA %>%
+    group_by(region) %>%
+    mutate(time = year - lag(year, n = 1L),
+           lag_pop = lag(totalPop, n = 1L),
+           lag_GDP = lag(GDP, n = 1L)) %>%
+    ungroup() %>%
+    filter(year == y) %>%
+    mutate(GDP = totalPop * ((1 + laborproductivity)^time) * (lag_GDP / lag_pop)) -> L2011.GDP_USA_temp
+  
+  # Add back into table
+  L2011.GDP_USA %>%
+    filter(year != y) %>%
+    bind_rows(L2011.GDP_USA_temp %>%
+                select(-time, -lag_pop, -lag_GDP)) %>% 
+    mutate(year = as.numeric(year)) %>%
+    arrange(region, year) -> L2011.GDP_USA
+
+}
+
+# Second, aggregate to USA-region
+L2011.GDP_USA %>%
+  group_by(year) %>%
+  summarise(totalPop = sum(totalPop), 
+            GDP = sum(GDP)) %>%
+  ungroup() %>%
+  mutate(region = "USA") %>%
+  select(region, year, totalPop, GDP) -> L2011.GDP_updated_USA_national
+
+# Third, calculate labor productivity growth
+L2011.GDP_updated_USA_national %>%
+  mutate(pcGDP = GDP / totalPop) %>%
+  group_by(region) %>%
+  mutate(lag_pcGDP = lag(pcGDP, n = 1L), 
+         pcGDPratio = pcGDP / lag_pcGDP, 
+         time = year - lag(year, n = 1L),
+         laborproductivity = (pcGDPratio ^ (1 / time)) - 1) %>%
+  ungroup() %>%
+  select(region, year, laborproductivity) %>% 
+  filter(year != model_base_years[1]) -> L2011.LaborProductivity_updated_USA_national
+
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
 write_mi_data( L2011.Pop_USA_updated, "Pop", "GCAMUSA_LEVEL2_DATA", "L2011.Pop_USA_updated", "GCAMUSA_XML_BATCH", "batch_socioeconomics_USA_update.xml" )
 write_mi_data( L2011.BaseGDP_USA, "BaseGDP", "GCAMUSA_LEVEL2_DATA", "L2011.BaseGDP_USA", "GCAMUSA_XML_BATCH", "batch_socioeconomics_USA_update.xml" ) 
 write_mi_data( L2011.LaborProductivity_USA_updated, "LaborProductivity", "GCAMUSA_LEVEL2_DATA", "L2011.LaborProductivity_USA_updated", "GCAMUSA_XML_BATCH", "batch_socioeconomics_USA_update.xml" ) 
+
+write_mi_data( L2011.Pop_updated_USA_national, "Pop", "GCAMUSA_LEVEL2_DATA", "L2011.Pop_updated_USA_national", "GCAMUSA_XML_BATCH", "batch_socioeconomics_USA_update.xml" )
+write_mi_data( L2011.BaseGDP_updated_USA_national, "BaseGDP", "GCAMUSA_LEVEL2_DATA", "L2011.BaseGDP_updated_USA_national", "GCAMUSA_XML_BATCH", "batch_socioeconomics_USA_update.xml" ) 
+write_mi_data( L2011.LaborProductivity_updated_USA_national, "LaborProductivity", "GCAMUSA_LEVEL2_DATA", "L2011.LaborProductivity_updated_USA_national", "GCAMUSA_XML_BATCH", "batch_socioeconomics_USA_update.xml" ) 
 
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_socioeconomics_USA_update.xml", "GCAMUSA_XML_FINAL", "socioeconomics_USA_update.xml", "", xml_tag="outFile" )
 
