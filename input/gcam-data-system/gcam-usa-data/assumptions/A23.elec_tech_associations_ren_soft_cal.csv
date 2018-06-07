@@ -1,0 +1,9 @@
+"# Renewable technologies in the power sector to be created to be able to read in fixed output. This list includes technologies to be created in both the single electricity sector version as well as the multiple load segments version. The ""technology"" column lists the corresponding technology in the single electricity sector version",,,
+supplysector,subsector,new.technology,technology
+base load generation,wind,wind_base2015,wind
+peak generation,solar,PV_peak2015,PV
+peak generation,solar,CSP_peak2015,CSP
+electricity,wind,wind2015,wind
+electricity,solar,PV2015,PV
+electricity,solar,CSP2015,CSP
+elect_td_bld,rooftop_pv,rooftop_pv2015,rooftop_pv

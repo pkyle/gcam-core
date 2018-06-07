@@ -1,0 +1,6 @@
+# A mapping of EIA electricity generation technologies to GCAM USA technologies,
+fuel,gcam_tech
+wind,wind
+utility-scale photovoltaic,PV
+utility-scale thermal,CSP
+small-scale solar photovoltaic,rooftop_pv
