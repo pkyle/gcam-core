@@ -35,6 +35,7 @@ L201.en_ghg_emissions <- readdata( "EMISSIONS_LEVEL2_DATA", "L201.en_ghg_emissio
 L241.nonco2_tech_coeff <- readdata( "EMISSIONS_LEVEL2_DATA", "L241.nonco2_tech_coeff", skip = 4)
 
 A23.elecS_tech_associations <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_tech_associations" )
+A23.elecS_tech_availability <-  readdata( "GCAMUSA_ASSUMPTIONS", "A23.elecS_tech_availability" )
 L2234.StubTechMarket_elecS_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L2234.StubTechMarket_elecS_USA", skip = 4 )
 L2234.StubTechProd_elecS_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L2234.StubTechProd_elecS_USA", skip = 4 )
 
@@ -44,6 +45,17 @@ L2234.StubTechProd_elecS_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L2234.StubTech
 # 2a. Emission coefficients
 
 # Write electricity emission coefficients to multiple load segments
+
+# Remove technologies in the electricity load segments that don't make sense
+L2234.load_segments <- unique(A23.elecS_tech_associations$Electric.sector)
+
+A23.elecS_tech_associations %>% 
+  anti_join(A23.elecS_tech_availability, 
+            by = c("Electric.sector.technology" = "stub.technology")) %>%
+  mutate(Electric.sector = factor(Electric.sector, levels = L2234.load_segments)) %>%
+  arrange(subsector, Electric.sector) %>%
+  mutate(Electric.sector = as.character(Electric.sector)) -> A23.elecS_tech_associations
+
 L241.nonco2_tech_coeff %>%
   filter(region == "USA", supplysector == "electricity", Non.CO2 %in% c("N2O","CH4") ) %>%
   left_join(A23.elecS_tech_associations %>%
