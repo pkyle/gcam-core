@@ -1,6 +1,3 @@
 # Subsector share-weights which need a to-value - adjusting values for particular states ,,,,,,,
 region,supplysector,subsector,apply.to,from.year,to.year,to.value,interpolation.function
-CA,base load generation,nuclear,share-weight,2015,end-year,0,fixed
-CA,intermediate generation,nuclear,share-weight,2015,end-year,0,fixed
-CA,subpeak generation,nuclear,share-weight,2015,end-year,0,fixed
-CA,peak generation,nuclear,share-weight,2015,end-year,0,fixed
+NA,NA,NA,0,0,0,0,NA

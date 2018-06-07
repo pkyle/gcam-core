@@ -16,14 +16,6 @@ USA,base load generation,geothermal,end-year,1
 USA,intermediate generation,geothermal,end-year,1
 USA,subpeak generation,geothermal,end-year,1
 USA,peak generation,geothermal,end-year,1
-USA,base load generation,nuclear,2020,0.2
-USA,intermediate generation,nuclear,2020,0.2
-USA,subpeak generation,nuclear,2020,0.2
-USA,peak generation,nuclear,2020,0.2
-USA,base load generation,nuclear,end-year,0.2
-USA,intermediate generation,nuclear,end-year,0.2
-USA,subpeak generation,nuclear,end-year,0.2
-USA,peak generation,nuclear,end-year,0.2
 USA,base load generation,wind,end-year,1
 USA,intermediate generation,wind,end-year,1
 USA,subpeak generation,wind,end-year,1

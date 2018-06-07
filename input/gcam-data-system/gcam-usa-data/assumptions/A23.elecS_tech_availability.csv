@@ -43,3 +43,5 @@ USA,intermediate generation,wind,wind_int_storage
 USA,subpeak generation,wind,wind_subpeak_storage
 USA,peak generation,wind,wind_peak_storage
 USA,peak generation,wind,wind_peak
+USA,base load generation,gas,gas_base_steam/CT
+USA,intermediate generation,gas,gas_int_steam/CT

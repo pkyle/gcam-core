@@ -8,3 +8,7 @@ USA,base load generation,refined liquids,share-weight,final-calibration-year,end
 USA,intermediate generation,refined liquids,share-weight,final-calibration-year,end-year,fixed
 USA,subpeak generation,refined liquids,share-weight,final-calibration-year,end-year,fixed
 USA,peak generation,refined liquids,share-weight,final-calibration-year,end-year,fixed
+USA,base load generation,nuclear,share-weight,final-calibration-year,end-year,fixed
+USA,intermediate generation,nuclear,share-weight,final-calibration-year,end-year,fixed
+USA,subpeak generation,nuclear,share-weight,final-calibration-year,end-year,fixed
+USA,peak generation,nuclear,share-weight,final-calibration-year,end-year,fixed

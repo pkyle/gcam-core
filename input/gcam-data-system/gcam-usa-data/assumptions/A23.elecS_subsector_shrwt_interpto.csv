@@ -12,14 +12,6 @@ USA,base load generation,geothermal,share-weight,final-calibration-year,end-year
 USA,intermediate generation,geothermal,share-weight,final-calibration-year,end-year,1,linear
 USA,subpeak generation,geothermal,share-weight,final-calibration-year,end-year,1,linear
 USA,peak generation,geothermal,share-weight,final-calibration-year,end-year,1,linear
-USA,base load generation,nuclear,share-weight,final-calibration-year,2020,0.2,linear
-USA,intermediate generation,nuclear,share-weight,final-calibration-year,2020,0.2,linear
-USA,subpeak generation,nuclear,share-weight,final-calibration-year,2020,0.2,linear
-USA,peak generation,nuclear,share-weight,final-calibration-year,2020,0.2,linear
-USA,base load generation,nuclear,share-weight,2020,end-year,0.2,fixed
-USA,intermediate generation,nuclear,share-weight,2020,end-year,0.2,fixed
-USA,subpeak generation,nuclear,share-weight,2020,end-year,0.2,fixed
-USA,peak generation,nuclear,share-weight,2020,end-year,0.2,fixed
 USA,base load generation,wind,share-weight,final-calibration-year,2050,1,linear
 USA,intermediate generation,wind,share-weight,final-calibration-year,2050,1,linear
 USA,subpeak generation,wind,share-weight,final-calibration-year,2050,1,linear
