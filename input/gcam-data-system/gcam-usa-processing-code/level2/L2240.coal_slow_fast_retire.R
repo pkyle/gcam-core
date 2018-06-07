@@ -231,6 +231,29 @@ L2240.ghg_emissions_coalret_USA %>%
   mutate(input.emissions = input.emissions * share) %>%
   select(names_StubTechYr, Non.CO2, input.emissions) -> L2240.ghg_emissions_coalret_USA
 
+# No new coal
+
+if(use_mult_load_segments == "TRUE") {
+  A23.elec_tech_associations_coal_retire %>%
+    select(Electric.sector, subsector, Electric.sector.technology) %>%
+    rename(supplysector = Electric.sector, stub.technology = Electric.sector.technology) %>%
+    filter(grepl("generation", supplysector)) %>%  
+    repeat_and_add_vector('region', states) %>%
+    repeat_and_add_vector('year', future_years)  %>%
+    mutate(share.weight = 0) %>%   
+    select(names_StubTechYr, share.weight) -> L2240.StubTechShrwt_coal_retire_elec_USA
+} else {
+  A23.elec_tech_associations_coal_retire %>%
+    select(Electric.sector, subsector, Electric.sector.technology) %>%
+    rename(supplysector = Electric.sector, stub.technology = Electric.sector.technology) %>%
+    filter(supplysector == "electricity") %>%
+    repeat_and_add_vector('region', states) %>%
+    repeat_and_add_vector('year', future_years)  %>%
+    mutate(share.weight = 0) %>% 
+    select(names_StubTechYr, share.weight) -> L2240.StubTechShrwt_coal_retire_elec_USA
+}
+
+
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
 write_mi_data( L2240.coal_conv_pul_delete, "DeleteStubTech", "GCAMUSA_LEVEL2_DATA", "L2240.coal_conv_pul_delete", "GCAMUSA_XML_BATCH", "batch_coal_retire_USA.xml" )
@@ -245,6 +268,7 @@ write_mi_data( L2240.GlobalTechOMvar_elec_coalret, "GlobalTechOMvar", "GCAMUSA_L
 write_mi_data( L2240.GlobalTechEff_elec_coalret, "GlobalTechEff", "GCAMUSA_LEVEL2_DATA", "L2240.GlobalTechEff_elec_coalret", "GCAMUSA_XML_BATCH", "batch_coal_retire_USA.xml")
 write_mi_data( L2240.GlobalTechProfitShutdown_elec_coalret, "GlobalTechProfitShutdown", "GCAMUSA_LEVEL2_DATA", "L2240.GlobalTechProfitShutdown_elec_coalret", "GCAMUSA_XML_BATCH", "batch_coal_retire_USA.xml")
 write_mi_data( L2240.ghg_emissions_coalret_USA, "InputEmissions", "GCAMUSA_LEVEL2_DATA", "L2240.ghg_emissions_coalret_USA", "GCAMUSA_XML_BATCH", "batch_coal_retire_USA.xml" )
+write_mi_data( L2240.StubTechShrwt_coal_retire_elec_USA, "StubTechShrwt", "GCAMUSA_LEVEL2_DATA", "L2240.StubTechShrwt_coal_retire_elec_USA", "GCAMUSA_XML_BATCH", "batch_coal_retire_USA.xml" )
 
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_coal_retire_USA.xml", "GCAMUSA_XML_FINAL", "coal_retire_USA.xml", "", xml_tag="outFile" )
 

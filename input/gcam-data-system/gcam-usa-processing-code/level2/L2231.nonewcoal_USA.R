@@ -24,7 +24,6 @@ sourcedata( "SOCIO_ASSUMPTIONS", "A_socioeconomics_data", extension = ".R" )
 sourcedata( "GCAMUSA_ASSUMPTIONS", "A_GCAMUSA_data", extension = ".R" )
 sourcedata( "ENERGY_ASSUMPTIONS", "A_elec_data", extension = ".R" )
 
-A23.elec_tech_associations_coal_retire <- readdata( "GCAMUSA_ASSUMPTIONS", "A23.elec_tech_associations_coal_retire" )
 L222.StubTechMarket_en_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L222.StubTechMarket_en_USA", skip = 4 )
 L222.StubTech_en <- readdata( "ENERGY_LEVEL2_DATA", "L222.StubTech_en", skip = 4 )
 L225.StubTech_h2 <- readdata( "ENERGY_LEVEL2_DATA", "L225.StubTech_h2", skip = 4 )
@@ -60,14 +59,6 @@ if(use_mult_load_segments == "TRUE") {
     mutate(share.weight = 0) %>% 
     select(names_StubTechYr, share.weight) -> L2231.StubTechShrwt_elec_USA
   
-  A23.elec_tech_associations_coal_retire %>%
-    select(Electric.sector, subsector, Electric.sector.technology) %>%
-    rename(supplysector = Electric.sector, stub.technology = Electric.sector.technology) %>%
-    filter(grepl("generation", supplysector)) %>%
-    repeat_and_add_vector('region', states) %>%
-    repeat_and_add_vector('year', future_years)  %>%
-    mutate(share.weight = 0) %>% 
-    select(names_StubTechYr, share.weight) -> L2231.StubTechShrwt_coal_retire_elec_USA
   
 } else{
   
@@ -79,16 +70,6 @@ if(use_mult_load_segments == "TRUE") {
     repeat_and_add_vector('year', future_years)  %>%
     mutate(share.weight = 0) %>% 
     select(names_StubTechYr, share.weight) -> L2231.StubTechShrwt_elec_USA
-  
-  A23.elec_tech_associations_coal_retire %>%
-    select(Electric.sector, subsector, Electric.sector.technology) %>%
-    rename(supplysector = Electric.sector, stub.technology = Electric.sector.technology) %>%
-    filter(supplysector == "electricity") %>%
-    repeat_and_add_vector('region', states) %>%
-    repeat_and_add_vector('year', future_years)  %>%
-    mutate(share.weight = 0) %>% 
-    select(names_StubTechYr, share.weight) -> L2231.StubTechShrwt_coal_retire_elec_USA
-  
 }
 
 L222.StubTechMarket_en_USA %>%
@@ -111,8 +92,7 @@ L222.StubTech_en %>%
   select(names_StubTechYr, share.weight) -> L2231.StubTechShrwt_en_USA
 
 L2231.StubTechShrwt_elec_USA %>%
-  bind_rows(L2231.StubTechShrwt_coal_retire_elec_USA, 
-            L2231.StubTechShrwt_refining_USA, 
+  bind_rows(L2231.StubTechShrwt_refining_USA, 
             L2231.StubTechShrwt_en_USA) -> L2231.StubTechShrwt_coal_USA
 
 # -----------------------------------------------------------------------------
