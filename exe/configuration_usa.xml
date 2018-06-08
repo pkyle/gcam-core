@@ -108,13 +108,25 @@
 		<Value name = "solar">../input/gcam-data-system/xml/gcam-usa-xml/solar_USA_reeds.xml</Value>
 		<Value name = "wind">../input/gcam-data-system/xml/gcam-usa-xml/wind_USA_reeds.xml</Value>
 
-		<Value name = "no_new_coal">../input/gcam-data-system/xml/gcam-usa-xml/nonewcoal_USA.xml</Value>
-		<Value name = "elec_coal">../input/gcam-data-system/xml/gcam-usa-xml/coal_retire_USA.xml</Value>
-
-		<!--
+      <!--State-level gas supplies-->	
 		<Value name = "gas_resources">../input/gcam-data-system/xml/gcam-usa-xml/gas_resources_USA.xml</Value>
 		<Value name = "gas_market_USA">../input/gcam-data-system/xml/gcam-usa-xml/reg_nat_gas_USA.xml</Value>
-		-->
+
+      <!--Renewables soft calibration-->
+        <Value name = "ren_soft_cal">../input/gcam-data-system/xml/gcam-usa-xml/ren_soft_cal_USA.xml</Value>
+
+     <!--Nuclear retirements-->
+        <Value name = "nuc_usa">../input/gcam-data-system/xml/gcam-usa-xml/nuclear_USA.xml</Value>
+
+    <!--No new coal and coal retirements-->
+		<Value name = "no_new_coal">../input/gcam-data-system/xml/gcam-usa-xml/nonewcoal_USA.xml</Value>
+		<Value name = "elec_coal">../input/gcam-data-system/xml/gcam-usa-xml/coal_retire_USA.xml</Value>
+        <Value name = "coal_vintage">../input/gcam-data-system/xml/gcam-usa-xml/coal_vintage_USA.xml</Value>
+
+    <!--Hydro-->
+       <Value name = "hydro">../input/gcam-data-system/xml/gcam-usa-xml/elec_hydro_USA.xml</Value>
+ 
+    <!-- Non-CO2s -->
 
 		<Value name = "elec_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/elecS_ghg_emissions_USA.xml</Value>
 		<Value name = "transport_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/transport_emissions_USA.xml</Value>
@@ -123,6 +135,7 @@
 		<Value name = "indenergy_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/indenergy_emissions_USA.xml</Value>
 		<Value name = "othertrn_emissions_usa">../input/gcam-data-system/xml/gcam-usa-xml/othertrn_emissions_USA.xml</Value>
 
+   <!-- Water-->
 		<Value name = "elec_usa_water">../input/gcam-data-system/xml/gcam-usa-xml/water_elec_USA_ref.xml</Value>
 
 	</ScenarioComponents>

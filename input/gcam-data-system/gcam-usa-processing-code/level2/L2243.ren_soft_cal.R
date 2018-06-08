@@ -37,8 +37,8 @@ StubTechProd_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L223.StubTechProd_elec_USA"
 
 L223.GlobalIntTechEff_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalIntTechEff_elec", skip = 4 )
 L223.StubTechMarket_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTechMarket_elec_USA", skip = 4 )
-L2238.StubTechEff_PV_USA_reeds <- readdata( "GCAMUSA_LEVEL2_DATA", "L2238.StubTechEff_PV_USA_reeds", skip = 4 )
-L2239.StubTechEff_CSP_USA_reeds <- readdata( "GCAMUSA_LEVEL2_DATA", "L2239.StubTechEff_CSP_USA_reeds", skip = 4 )
+L2238.StubTechEff_PV_USA_reeds <- readdata( "GCAMUSA_LEVEL2_DATA", "L2238.StubTechEffFlag_PV_USA_reeds", skip = 4 )
+L2239.StubTechEff_CSP_USA_reeds <- readdata( "GCAMUSA_LEVEL2_DATA", "L2239.StubTechEffFlag_CSP_USA_reeds", skip = 4 )
 
 L223.GlobalIntTechBackup_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalIntTechBackup_elec", skip = 4 )
 L223.StubTechMarket_backup_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTechMarket_backup_USA", skip = 4 )

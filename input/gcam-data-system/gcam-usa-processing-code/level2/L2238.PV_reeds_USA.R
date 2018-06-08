@@ -222,7 +222,8 @@ L2238.PV_curve %>%
 # Table to read in maximum resource
 L2238.maxSubResource_PV %>%
   mutate(renewresource = "PV_resource", sub.renewable.resource = "PV_resource") %>%
-  select(region = State,renewresource,sub.renewable.resource, maxSubResource ) %>%
+  mutate(year.fillout = min(model_years)) %>%
+  select(region = State,renewresource,sub.renewable.resource, year.fillout, maxSubResource ) %>%
   filter(region %in% states_list_curve)-> L2238.GrdRenewRsrcMax_PV_USA_reeds
 
 # Table to delete global solar resource minicam-energy-input
@@ -247,13 +248,17 @@ if(use_mult_load_segments == "TRUE") {
     filter(region %in% states_list_curve) %>%
     filter(grepl("PV",stub.technology )) %>%
     mutate(minicam.energy.input = "PV_resource", market.name = region, efficiency = 1) %>%
-    select(region, supplysector, subsector, stub.technology, year, minicam.energy.input, efficiency, market.name)-> L2238.StubTechEff_PV_USA_reeds
+    #Hard code in type "Resource" for intermittent technology resource input only
+    mutate(flag = "Resource") %>%
+    select(region, supplysector, subsector, stub.technology, year, minicam.energy.input, efficiency, market.name, flag)-> L2238.StubTechEffFlag_PV_USA_reeds
 } else {
   L223.StubTechMarket_elec_USA %>%
     filter(region %in% states_list_curve) %>%
     filter(grepl("PV",stub.technology )) %>%
     mutate(minicam.energy.input = "PV_resource", market.name = region, efficiency = 1) %>%
-    select(region, supplysector, subsector, stub.technology, year, minicam.energy.input, efficiency, market.name)-> L2238.StubTechEff_PV_USA_reeds 
+    #Hard code in type "Resource" for intermittent technology resource input only
+    mutate(flag = "Resource") %>%
+    select(region, supplysector, subsector, stub.technology, year, minicam.energy.input, efficiency, market.name, flag)-> L2238.StubTechEffFlag_PV_USA_reeds 
   
   }
 
@@ -263,18 +268,18 @@ if(use_mult_load_segments == "TRUE") {
     filter(grepl("PV",stub.technology )) %>%
     left_join(L2238.PV_curve, by= c("region" = "State")) %>%
     filter(is.na(CFmax) == "FALSE") %>%
-    mutate(capacity.factor.capital = round(CFmax,5), capacity.factor.OM = round(CFmax,5)) %>%
+    mutate(capacity.factor = round(CFmax,5)) %>%
     select(region, supplysector, subsector, stub.technology, year, 
-           input.capital, capacity.factor.capital, input.OM.fixed, capacity.factor.OM) -> L2238.StubTechCapFactor_PV_USA_reeds
+           capacity.factor) -> L2238.StubTechCapFactor_PV_USA_reeds
 } else{
   L223.StubTechCapFactor_elec_solar_USA %>%
     filter(region %in% states_list) %>%
     filter(grepl("PV",stub.technology )) %>%
     left_join(L2238.PV_curve, by= c("region" = "State")) %>%
     filter(is.na(CFmax) == "FALSE") %>%
-    mutate(capacity.factor.capital = round(CFmax,5), capacity.factor.OM = round(CFmax,5)) %>%
+    mutate(capacity.factor = round(CFmax,5)) %>%
     select(region, supplysector, subsector, stub.technology, year, 
-           input.capital, capacity.factor.capital, input.OM.fixed, capacity.factor.OM) -> L2238.StubTechCapFactor_PV_USA_reeds
+           capacity.factor) -> L2238.StubTechCapFactor_PV_USA_reeds
 }
   
 
@@ -313,7 +318,7 @@ write_mi_data( L2238.DeleteStubTechMinicamEnergyInput_PV_USA_reeds, "DeleteStubT
 write_mi_data( L2238.RenewRsrc_PV_USA_reeds, "RenewRsrc", "GCAMUSA_LEVEL2_DATA", "L2238.RenewRsrc_PV_USA_reeds", "GCAMUSA_XML_BATCH", "batch_solar_USA_reeds.xml" )
 write_mi_data( L2238.GrdRenewRsrcCurves_PV_USA_reeds, "GrdRenewRsrcCurves", "GCAMUSA_LEVEL2_DATA", "L2238.GrdRenewRsrcCurves_PV_USA_reeds", "GCAMUSA_XML_BATCH", "batch_solar_USA_reeds.xml" )
 write_mi_data( L2238.GrdRenewRsrcMax_PV_USA_reeds, "GrdRenewRsrcMax", "GCAMUSA_LEVEL2_DATA", "L2238.GrdRenewRsrcMax_PV_USA_reeds", "GCAMUSA_XML_BATCH", "batch_solar_USA_reeds.xml" )
-write_mi_data( L2238.StubTechEff_PV_USA_reeds, "StubTechEff", "GCAMUSA_LEVEL2_DATA", "L2238.StubTechEff_PV_USA_reeds", "GCAMUSA_XML_BATCH", "batch_solar_USA_reeds.xml" )
+write_mi_data( L2238.StubTechEffFlag_PV_USA_reeds, "StubTechEffFlag", "GCAMUSA_LEVEL2_DATA", "L2238.StubTechEffFlag_PV_USA_reeds", "GCAMUSA_XML_BATCH", "batch_solar_USA_reeds.xml" )
 write_mi_data( L2238.StubTechCapFactor_PV_USA_reeds, "StubTechCapFactor", "GCAMUSA_LEVEL2_DATA", "L2238.StubTechCapFactor_PV_USA_reeds", "GCAMUSA_XML_BATCH", "batch_solar_USA_reeds.xml" )
 write_mi_data( L2238.RenewRsrcTechChange_PV_USA_reeds, "RenewRsrcTechChange", "GCAMUSA_LEVEL2_DATA", "L2238.RenewRsrcTechChange_PV_USA_reeds", "GCAMUSA_XML_BATCH", "batch_solar_USA_reeds.xml" )
 write_mi_data( L2238.StubTechCost_PV_USA_reeds, "StubTechCost", "GCAMUSA_LEVEL2_DATA", "L2238.StubTechCost_PV_USA_reeds", "GCAMUSA_XML_BATCH", "batch_solar_USA_reeds.xml" )
