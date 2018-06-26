@@ -64,8 +64,8 @@ L223.StubTechMarket_backup_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTec
 L223.StubTechCapFactor_elec_wind_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTechCapFactor_elec_wind_USA", skip = 4 )
 L223.StubTechCapFactor_elec_solar_USA <- readdata( "GCAMUSA_LEVEL2_DATA", "L223.StubTechCapFactor_elec_solar_USA", skip = 4 )
 L223.GlobalTechCapFac_elec <- readdata("ENERGY_LEVEL2_DATA", "L223.GlobalTechCapFac_elec", skip=4)
-L2233.GlobalTechCapital_elec_itc <- readdata( "GCAMUSA_LEVEL2_DATA", "L2233.GlobalTechCapital_elec_itc", skip = 4 )
-L2233.GlobalIntTechCapital_elec_itc <- readdata( "GCAMUSA_LEVEL2_DATA", "L2233.GlobalIntTechCapital_elec_itc", skip = 4 )
+L223.GlobalTechCapital_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalTechCapital_elec", skip = 4 )
+L223.GlobalIntTechCapital_elec <- readdata( "ENERGY_LEVEL2_DATA", "L223.GlobalIntTechCapital_elec", skip = 4 )
 
 L123.eff_R_elec_F_Yh <- readdata( "ENERGY_LEVEL1_DATA", "L123.eff_R_elec_F_Yh", skip = 4 )
 
@@ -260,7 +260,7 @@ L223.AvgFossilEffKeyword_elec %>%
 printlog( "L2234.GlobalTechCapital_elecS: Capital costs of electricity generation technologies" )
 
 A23.elecS_tech_associations %>%
-  left_join(L2233.GlobalTechCapital_elec_itc, by = c("subsector" = "subsector.name", "technology")) %>%
+  left_join(L223.GlobalTechCapital_elec, by = c("subsector" = "subsector.name", "technology")) %>%
   filter(is.na (capital.overnight) == FALSE) %>%
   select(-supplysector, -subsector.1, -technology, -sector.name ) %>%
   rename (supplysector = Electric.sector, technology = Electric.sector.technology) -> L2234.GlobalTechCapital_elecS
@@ -289,7 +289,7 @@ A23.elecS_tech_associations %>%
 printlog( "L2234.GlobalIntTechCapital_elecS: Capital costs of intermittent electricity generation technologies" )
 
 A23.elecS_inttech_associations %>%
-  left_join(L2233.GlobalIntTechCapital_elec_itc, by= c("subsector"= "subsector.name" , "intermittent.technology")) %>%
+  left_join(L223.GlobalIntTechCapital_elec, by= c("subsector"= "subsector.name" , "intermittent.technology")) %>%
   filter(is.na (capital.overnight) == FALSE) %>%
   select(-supplysector, -subsector.1, -intermittent.technology, -sector.name) %>%
   rename (supplysector = Electric.sector, intermittent.technology = Electric.sector.intermittent.technology) -> L2234.GlobalIntTechCapital_elecS
@@ -760,8 +760,15 @@ L2234.StubTechProd_elecS_USA <- L2234.geo.tables[[6]]
  # Non-energy inputs for additional technologies such as battery
 
 A23.elecS_globaltech_non_energy_inputs %>%
+  select(supplysector, subsector, technology, period, capacity.factor) %>%
+  rename(year = period) -> L2234.GlobalTechCapFac_elecS_additonal
+
+L2234.GlobalTechCapFac_elecS %>%
+  bind_rows(L2234.GlobalTechCapFac_elecS_additonal) -> L2234.GlobalTechCapFac_elecS
+
+A23.elecS_globaltech_non_energy_inputs %>%
   mutate(input.capital = "capital") %>%
-  select(supplysector, subsector, technology, period, input.capital, capital.cost, fcr, capacity.factor) %>%
+  select(supplysector, subsector, technology, period, input.capital, capital.cost, fcr) %>%
   rename(capital.overnight = capital.cost, fixed.charge.rate = fcr, year = period) -> L2234.GlobalTechCapital_elecS_additonal
 
 L2234.GlobalTechCapital_elecS %>%
@@ -769,7 +776,7 @@ L2234.GlobalTechCapital_elecS %>%
   
 A23.elecS_globaltech_non_energy_inputs %>%
   mutate(input.OM.fixed = "OM-fixed") %>%
-  select(supplysector, subsector, technology, period, input.OM.fixed, fixed.om, capacity.factor) %>%
+  select(supplysector, subsector, technology, period, input.OM.fixed, fixed.om) %>%
   rename(OM.fixed = fixed.om, year = period ) -> L2234.GlobalTechOMfixed_elecS_additonal
 
 L2234.GlobalTechOMfixed_elecS %>%
