@@ -43,6 +43,7 @@ if(use_mult_load_segments == "TRUE") {
   StubTechEff_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2234.StubTechEff_elecS_USA" , skip = 4 )
   StubTechMarket_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2234.StubTechMarket_elecS_USA" , skip = 4 )
   GlobalTechShrwt_elec <- readdata( "GCAMUSA_LEVEL2_DATA","L2234.GlobalTechShrwt_elecS" , skip = 4 )
+  GlobalTechCapFac_elec <- readdata( "GCAMUSA_LEVEL2_DATA","L2234.GlobalTechCapFac_elecS" , skip = 4 )
   GlobalTechCapital_elec <- readdata( "GCAMUSA_LEVEL2_DATA","L2234.GlobalTechCapital_elecS" , skip = 4 )
   GlobalTechOMfixed_elec <- readdata( "GCAMUSA_LEVEL2_DATA","L2234.GlobalTechOMfixed_elecS" , skip = 4 )
   GlobalTechOMvar_elec <- readdata( "GCAMUSA_LEVEL2_DATA","L2234.GlobalTechOMvar_elecS" , skip = 4 )
@@ -63,6 +64,8 @@ if(use_mult_load_segments == "TRUE") {
   StubTechEff_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L223.StubTechEff_elec_USA" , skip = 4 )
   StubTechMarket_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L223.StubTechMarket_elec_USA" , skip = 4 )
   GlobalTechShrwt_elec <- readdata( "ENERGY_LEVEL2_DATA","L223.GlobalTechShrwt_elec" , skip = 4 )
+  GlobalTechCapFac_elec <- readdata( "GCAMUSA_LEVEL2_DATA","L223.GlobalTechCapFac_elec" , skip = 4 ) %>%
+    rename(supplysector = sector.name, subsector = subsector.name)
   GlobalTechCapital_elec <- readdata( "ENERGY_LEVEL2_DATA","L223.GlobalTechCapital_elec" , skip = 4 ) %>%
     rename(supplysector = sector.name, subsector = subsector.name)
   GlobalTechOMfixed_elec <- readdata( "ENERGY_LEVEL2_DATA","L223.GlobalTechOMfixed_elec" , skip = 4 ) %>%
@@ -159,6 +162,17 @@ L2240.GlobalTechShrwt_elec_coalret %>%
   left_join(GlobalTechShrwt_elec, by= c("technology","year")) %>% 
   select(sector.name, subsector.name, Electric.sector.technology, year, share.weight) %>%
   rename(technology = Electric.sector.technology) -> L2240.GlobalTechShrwt_elec_coalret
+
+# Capacity factor
+
+printlog( "L2240.GlobalTechCapFac_elec_coalret: Capacity factors for historic U.S. base load coal electricity plants" )
+
+L2240.GlobalTechCapFac_elec_coalret <- A23.elec_tech_associations_coal_retire
+L2240.GlobalTechCapFac_elec_coalret %>% 
+  repeat_and_add_vector('year', model_years) %>% 
+  left_join(GlobalTechCapFac_elec, by= c("Electric.sector" = "supplysector", "subsector", "technology", "year")) %>%
+  select(-technology) %>%
+  rename(supplysector = Electric.sector, technology = Electric.sector.technology) -> L2240.GlobalTechCapFac_elec_coalret
 
 # Capital costs
 
@@ -262,6 +276,7 @@ write_mi_data( L2240.StubTechEff_elec_USA_coalret, "StubTechEff", "GCAMUSA_LEVEL
 write_mi_data( L2240.StubTechSCurve_elec_coalret, "StubTechSCurve", "GCAMUSA_LEVEL2_DATA", "L2240.StubTechSCurve_elec_coalret", "GCAMUSA_XML_BATCH", "batch_coal_retire_USA.xml")
 write_mi_data( L2240.StubTechMarket_elec_coalret, "StubTechMarket", "GCAMUSA_LEVEL2_DATA", "L2240.StubTechMarket_elec_coalret", "GCAMUSA_XML_BATCH", "batch_coal_retire_USA.xml")
 write_mi_data( L2240.GlobalTechShrwt_elec_coalret, "GlobalTechShrwt", "GCAMUSA_LEVEL2_DATA", "L2240.GlobalTechShrwt_elec_coalret", "GCAMUSA_XML_BATCH", "batch_coal_retire_USA.xml")
+write_mi_data( L2240.GlobalTechCapFac_elec_coalret, "GlobalTechCapFac", "GCAMUSA_LEVEL2_DATA", "L2240.GlobalTechCapFac_elec_coalret", "GCAMUSA_XML_BATCH", "batch_coal_retire_USA.xml")
 write_mi_data( L2240.GlobalTechCapital_elec_coalret, "GlobalTechCapital", "GCAMUSA_LEVEL2_DATA", "L2240.GlobalTechCapital_elec_coalret", "GCAMUSA_XML_BATCH", "batch_coal_retire_USA.xml")
 write_mi_data( L2240.GlobalTechOMfixed_elec_coalret, "GlobalTechOMfixed", "GCAMUSA_LEVEL2_DATA", "L2240.GlobalTechOMfixed_elec_coalret", "GCAMUSA_XML_BATCH", "batch_coal_retire_USA.xml")
 write_mi_data( L2240.GlobalTechOMvar_elec_coalret, "GlobalTechOMvar", "GCAMUSA_LEVEL2_DATA", "L2240.GlobalTechOMvar_elec_coalret", "GCAMUSA_XML_BATCH", "batch_coal_retire_USA.xml")

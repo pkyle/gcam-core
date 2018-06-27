@@ -46,10 +46,11 @@ eia_860_retired_2016 <- readdata("GCAMUSA_LEVEL0_DATA","EIA_860_generators_retir
 StubTechProd_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2240.StubTechProd_elec_USA_coalret" , skip = 4 )
 StubTechEff_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2240.StubTechEff_elec_USA_coalret" , skip = 4 )
 GlobalTechEff_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2240.GlobalTechEff_elec_coalret" , skip = 4 )
+GlobalTechCapFac_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2240.GlobalTechCapFac_elec_coalret" , skip = 4 )
 GlobalTechCapital_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2240.GlobalTechCapital_elec_coalret" , skip = 4 )
 GlobalTechOMfixed_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2240.GlobalTechOMfixed_elec_coalret" , skip = 4 )
 GlobalTechOMvar_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2240.GlobalTechOMvar_elec_coalret" , skip = 4 )
-
+GlobalTechCapital_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2240.GlobalTechCapital_elec_coalret" , skip = 4 )
 
 # -----------------------------------------------------------------------------
 # 2. Perform computations
@@ -314,6 +315,15 @@ L2246.GlobalTechEff_coal_vintage_USA <-
 
 # Create table to read in non-energy inputs: capital costs, fixed and variable OM costs
 
+L2246.GlobalTechCapFac_coal_vintage_USA <-
+  L2246.StubTechProd_coal_vintage_USA %>%
+  group_by(supplysector, subsector, stub.technology, stub.technology.new, year) %>%
+  summarise() %>%
+  ungroup() %>%
+  repeat_and_add_vector("year", model_years) %>%
+  left_join(GlobalTechCapFac_elec_USA, by = c("supplysector", "subsector", "stub.technology" = "technology", "year")) %>%
+  select(supplysector, subsector, technology = stub.technology.new, year, capacity.factor)
+
 L2246.GlobalTechCapital_coal_vintage_USA <-
   L2246.StubTechProd_coal_vintage_USA %>%
   group_by(supplysector, subsector, stub.technology, stub.technology.new, year) %>%
@@ -321,7 +331,7 @@ L2246.GlobalTechCapital_coal_vintage_USA <-
   ungroup() %>%
   repeat_and_add_vector("year", model_years) %>%
   left_join(GlobalTechCapital_elec_USA, by = c("supplysector", "subsector", "stub.technology" = "technology", "year")) %>%
-  select(supplysector, subsector, technology = stub.technology.new, year, input.capital, capital.overnight, fixed.charge.rate, capacity.factor)
+  select(supplysector, subsector, technology = stub.technology.new, year, input.capital, capital.overnight, fixed.charge.rate)
 
 L2246.GlobalTechOMfixed_coal_vintage_USA <-
   L2246.StubTechProd_coal_vintage_USA %>%
@@ -330,7 +340,7 @@ L2246.GlobalTechOMfixed_coal_vintage_USA <-
   ungroup() %>%
   repeat_and_add_vector("year", model_years) %>%
   left_join(GlobalTechOMfixed_elec_USA, by = c("supplysector", "subsector", "stub.technology" = "technology", "year")) %>%
-  select(supplysector, subsector, technology = stub.technology.new, year, input.OM.fixed, OM.fixed, capacity.factor)
+  select(supplysector, subsector, technology = stub.technology.new, year, input.OM.fixed, OM.fixed)
 
 L2246.GlobalTechOMvar_coal_vintage_USA <-
   L2246.StubTechProd_coal_vintage_USA %>%
@@ -404,6 +414,7 @@ write_mi_data( L2246.StubTechProfitShutdown_coal_vintage_USA, "StubTechProfitShu
 write_mi_data( L2246.GlobalTechShrwt_coal_vintage_USA, "GlobalTechShrwt", "GCAMUSA_LEVEL2_DATA", "L2246.GlobalTechShrwt_coal_vintage_USA", "GCAMUSA_XML_BATCH", "batch_coal_vintage_USA.xml" ) 
 write_mi_data( L2246.GlobalTechEff_coal_vintage_USA, "GlobalTechEff", "GCAMUSA_LEVEL2_DATA", "L2246.GlobalTechEff_coal_vintage_USA", "GCAMUSA_XML_BATCH", "batch_coal_vintage_USA.xml" ) 
 write_mi_data( L2246.StubTechMarket_coal_vintage_USA, "StubTechMarket", "GCAMUSA_LEVEL2_DATA", "L2246.StubTechMarket_coal_vintage_USA", "GCAMUSA_XML_BATCH", "batch_coal_vintage_USA.xml" )
+write_mi_data( L2246.GlobalTechCapFac_coal_vintage_USA, "GlobalTechCapFac", "GCAMUSA_LEVEL2_DATA", "L2246.GlobalTechCapFac_coal_vintage_USA", "GCAMUSA_XML_BATCH", "batch_coal_vintage_USA.xml" )
 write_mi_data( L2246.GlobalTechCapital_coal_vintage_USA, "GlobalTechCapital", "GCAMUSA_LEVEL2_DATA", "L2246.GlobalTechCapital_coal_vintage_USA", "GCAMUSA_XML_BATCH", "batch_coal_vintage_USA.xml" )
 write_mi_data( L2246.GlobalTechOMfixed_coal_vintage_USA, "GlobalTechOMfixed", "GCAMUSA_LEVEL2_DATA", "L2246.GlobalTechOMfixed_coal_vintage_USA", "GCAMUSA_XML_BATCH", "batch_coal_vintage_USA.xml" )
 write_mi_data( L2246.GlobalTechOMvar_coal_vintage_USA, "GlobalTechOMvar", "GCAMUSA_LEVEL2_DATA", "L2246.GlobalTechOMvar_coal_vintage_USA", "GCAMUSA_XML_BATCH", "batch_coal_vintage_USA.xml" )
