@@ -16,22 +16,30 @@ USA,base load generation,geothermal,end-year,1
 USA,intermediate generation,geothermal,end-year,1
 USA,subpeak generation,geothermal,end-year,1
 USA,peak generation,geothermal,end-year,1
+USA,base load generation,nuclear,2020,1
+USA,intermediate generation,nuclear,2020,1
+USA,subpeak generation,nuclear,2020,1
+USA,peak generation,nuclear,2020,1
+USA,base load generation,nuclear,end-year,1
+USA,intermediate generation,nuclear,end-year,1
+USA,subpeak generation,nuclear,end-year,1
+USA,peak generation,nuclear,end-year,1
 USA,base load generation,wind,end-year,1
 USA,intermediate generation,wind,end-year,1
 USA,subpeak generation,wind,end-year,1
 USA,peak generation,wind,end-year,1
-USA,base load generation,wind,2050,1
-USA,intermediate generation,wind,2050,1
-USA,subpeak generation,wind,2050,1
-USA,peak generation,wind,2050,1
+USA,base load generation,wind,2030,1
+USA,intermediate generation,wind,2030,1
+USA,subpeak generation,wind,2030,1
+USA,peak generation,wind,2030,1
 USA,base load generation,solar,end-year,1
 USA,intermediate generation,solar,end-year,1
 USA,subpeak generation,solar,end-year,1
 USA,peak generation,solar,end-year,1
-USA,base load generation,solar,2050,1
-USA,intermediate generation,solar,2050,1
-USA,subpeak generation,solar,2050,1
-USA,peak generation,solar,2050,1
+USA,base load generation,solar,2030,1
+USA,intermediate generation,solar,2030,1
+USA,subpeak generation,solar,2030,1
+USA,peak generation,solar,2030,1
 USA,elect_td_bld,rooftop_pv,end-year,1
-USA,elect_td_bld,rooftop_pv,2050,1
+USA,elect_td_bld,rooftop_pv,2030,1
 USA,peak generation,grid_storage,end-year,1
