@@ -305,7 +305,17 @@ if (L1238_hydro_frac > 0.5) {
   } else if (L1238_oil_frac > 0.2) {
   # For oil heavy regions such as Hawaii, solve for oil fractions. This will allow for some oil in baseload and intermediate segments.
   
-  # Solve for oil fractions
+  # Solve for oil fractions after removing gas from baseload.
+    
+    L1238_grid_elec_supply %>%
+      mutate(fraction = replace(fraction, grid_region == L1238_region & fuel == "gas" 
+                                & segment == L1238_segment_list[1] & year == script_year, 0)) %>%
+      mutate(fraction = replace(fraction, grid_region == L1238_region & fuel == "gas" 
+                                & segment == L1238_segment_list[2] & year == script_year, 0.9)) %>%
+      mutate(fraction = replace(fraction, grid_region == L1238_region & fuel == "gas" 
+                                & segment == L1238_segment_list[3] & year == script_year, 0.1)) %>%
+      mutate(fraction = replace(fraction, grid_region == L1238_region & fuel == "gas" 
+                                & segment == L1238_segment_list[4] & year == script_year, 0)) -> L1238_grid_elec_supply
   
     L1238_solved_fraction <- uniroot(check_elec_segments, c(0,1), L1238_region, L1238_segment_list[1], "refined liquids")
     
@@ -426,14 +436,22 @@ if (L1238_hydro_frac > 0.5) {
       # Central Southwest grid, first move refined liquids to subpeak. Then solve for coal in 
       # base load and allocate remaining coal to intermediate. 
       
-      # Assigning some refined liquids into subpeak 
+      # Assigning some gas and refined liquids into intermediate and subpeak 
       L1238_grid_elec_supply %>%
+        mutate(fraction = replace(fraction, grid_region == L1238_region & fuel == "gas" 
+                                  & segment == L1238_segment_list[1] & year == script_year, 0)) %>%
+        mutate(fraction = replace(fraction, grid_region == L1238_region & fuel == "gas" 
+                                  & segment == L1238_segment_list[2] & year == script_year, 0.6)) %>%
+        mutate(fraction = replace(fraction, grid_region == L1238_region & fuel == "gas" 
+                                  & segment == L1238_segment_list[3] & year == script_year, 0.25)) %>%
+        mutate(fraction = replace(fraction, grid_region == L1238_region & fuel == "gas" 
+                                  & segment == L1238_segment_list[4] & year == script_year, 0.15)) %>%
         mutate(fraction = replace(fraction, grid_region == L1238_region & fuel == "refined liquids" 
-                                  & segment == L1238_segment_list[1] & year == script_year, 0.4)) %>%
+                                  & segment == L1238_segment_list[1] & year == script_year, 0.2)) %>%
         mutate(fraction = replace(fraction, grid_region == L1238_region & fuel == "refined liquids" 
-                                  & segment == L1238_segment_list[2] & year == script_year, 0.4)) %>%
+                                  & segment == L1238_segment_list[2] & year == script_year, 0.8)) %>%
         mutate(fraction = replace(fraction, grid_region == L1238_region & fuel == "refined liquids" 
-                                  & segment == L1238_segment_list[3] & year == script_year, 0.2)) %>%
+                                  & segment == L1238_segment_list[3] & year == script_year, 0.0)) %>%
         mutate(fraction = replace(fraction, grid_region == L1238_region & fuel == "refined liquids" 
                                   & segment == L1238_segment_list[4] & year == script_year, 0)) -> L1238_grid_elec_supply
       

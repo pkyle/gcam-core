@@ -312,13 +312,13 @@ for (j in 1:length(L1237_gridregion_list)){
   
   L1237_grid_elec_supply %>%
     mutate(fraction = replace(fraction, grid_region == L1237_region & fuel == "coal" 
-                              & segment == L1237_segment_list[1] & year == script_year, 0.95)) %>%
-    mutate(fraction = replace(fraction, grid_region == L1237_region & fuel == "coal" 
-                              & segment == L1237_segment_list[2] & year == script_year, 0.05)) %>%
-    mutate(fraction = replace(fraction, grid_region == L1237_region & fuel == "refined liquids" 
                               & segment == L1237_segment_list[1] & year == script_year, 0.8)) %>%
+    mutate(fraction = replace(fraction, grid_region == L1237_region & fuel == "coal" 
+                              & segment == L1237_segment_list[2] & year == script_year, 0.2)) %>%
     mutate(fraction = replace(fraction, grid_region == L1237_region & fuel == "refined liquids" 
-                              & segment == L1237_segment_list[2] & year == script_year, 0.1)) %>%
+                              & segment == L1237_segment_list[1] & year == script_year, 0.1)) %>%
+    mutate(fraction = replace(fraction, grid_region == L1237_region & fuel == "refined liquids" 
+                              & segment == L1237_segment_list[2] & year == script_year, 0.8)) %>%
     mutate(fraction = replace(fraction, grid_region == L1237_region & fuel == "refined liquids" 
                               & segment == L1237_segment_list[3] & year == script_year, 0.1)) %>%
     mutate(fraction = replace(fraction, grid_region == L1237_region & fuel == "refined liquids" 
@@ -376,7 +376,27 @@ for (j in 1:length(L1237_gridregion_list)){
   } else if (L1237_coal_frac > L1237_gas_frac & L1237_coal_frac < 0.55) {
 
       # For regions with moderate levels of coal such as Southeast grid, Northwest grid, Mid-Atlantic grid
-      # and Central Southwest grid, allocate some coal to intermediate. 
+      # and Central Southwest grid, allocate some gas and refined liquids to the intermediate.  
+    
+    L1237_grid_elec_supply %>%
+      mutate(fraction = replace(fraction, grid_region == L1237_region & fuel == "gas" 
+                                & segment == L1237_segment_list[1] & year == script_year, 0)) %>%
+      mutate(fraction = replace(fraction, grid_region == L1237_region & fuel == "gas" 
+                                & segment == L1237_segment_list[2] & year == script_year, 0.6)) %>%
+      mutate(fraction = replace(fraction, grid_region == L1237_region & fuel == "gas" 
+                                & segment == L1237_segment_list[3] & year == script_year, 0.3)) %>%
+      mutate(fraction = replace(fraction, grid_region == L1237_region & fuel == "gas" 
+                                & segment == L1237_segment_list[4] & year == script_year, 0.1)) %>%
+      mutate(fraction = replace(fraction, grid_region == L1237_region & fuel == "refined liquids" 
+                                & segment == L1237_segment_list[1] & year == script_year, 0)) %>%
+      mutate(fraction = replace(fraction, grid_region == L1237_region & fuel == "refined liquids" 
+                                & segment == L1237_segment_list[2] & year == script_year, 0.8)) %>%
+      mutate(fraction = replace(fraction, grid_region == L1237_region & fuel == "refined liquids" 
+                                & segment == L1237_segment_list[3] & year == script_year, 0.2)) %>%
+      mutate(fraction = replace(fraction, grid_region == L1237_region & fuel == "refined liquids" 
+                                & segment == L1237_segment_list[4] & year == script_year, 0)) -> L1237_grid_elec_supply
+    
+    
     
         # Solve for coal in baseload and assign the remaining to intermediate
     
