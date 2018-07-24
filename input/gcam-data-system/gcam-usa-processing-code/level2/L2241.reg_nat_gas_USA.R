@@ -10,7 +10,7 @@ if( !exists( "GCAMUSAPROC_DIR" ) ){
 # Universal header file - provides logging, file support, etc.
 source(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAM_header.R",sep=""))
 source(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAMUSA_header.R",sep=""))
-logstart( "L2241.reg_gas_input.R" )
+logstart( "L2241.reg_nat_gas_USA.R" )
 adddep(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAM_header.R",sep=""))
 adddep(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAMUSA_header.R",sep=""))
 printlog( "Model input for USA regional natural gas to demand USA natural gas prouction" )

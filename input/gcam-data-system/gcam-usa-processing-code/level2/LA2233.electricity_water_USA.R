@@ -200,10 +200,10 @@ L2233.StubTech_WaterCoef_frozen <- L2233.StubTech_WaterCoef_frozen[order(L2233.S
 comments.L2233.StubTech_WaterCoef_ref <- c("Weighted water coefficient for reference scenario and load segment classification")
 comments.L2233.StubTech_WaterCoef_frozen <- c("Weighted water coefficient for frozen scenario and load segment classification")
 
-write_mi_data( L2233.StubTech_WaterCoef_ref, domain = "GCAMUSA_LEVEL2_DATA", fn = "LA2233.StubTech_WaterCoef_ref", comments=comments.L2233.StubTech_WaterCoef_ref, "StubTechCoef","GCAMUSA_XML_BATCH", "batch_electricity_water_USA_ref.xml")
-insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_water_USA_ref.xml", "GCAMUSA_XML_FINAL", "water_elec_USA_ref.xml", "", xml_tag="outFile" )
-write_mi_data( L2233.StubTech_WaterCoef_frozen, domain = "GCAMUSA_LEVEL2_DATA", fn = "LA2233.StubTech_WaterCoef_frozen", comments=comments.L2233.StubTech_WaterCoef_frozen, "StubTechCoef","GCAMUSA_XML_BATCH", "batch_electricity_water_USA_frozen.xml")
-insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_water_USA_frozen.xml", "GCAMUSA_XML_FINAL", "water_elec_USA_frozen.xml", "", xml_tag="outFile" )
+write_mi_data( L2233.StubTech_WaterCoef_ref, domain = "GCAMUSA_LEVEL2_DATA", fn = "LA2233.StubTech_WaterCoef_ref", comments=comments.L2233.StubTech_WaterCoef_ref, "StubTechCoef","GCAMUSA_XML_BATCH", "batch_water_elec_USA_ref.xml")
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_water_elec_USA_ref.xml", "GCAMUSA_XML_FINAL", "water_elec_USA_ref.xml", "", xml_tag="outFile" )
+write_mi_data( L2233.StubTech_WaterCoef_frozen, domain = "GCAMUSA_LEVEL2_DATA", fn = "LA2233.StubTech_WaterCoef_frozen", comments=comments.L2233.StubTech_WaterCoef_frozen, "StubTechCoef","GCAMUSA_XML_BATCH", "batch_water_elec_USA_frozen.xml")
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_water_elec_USA_frozen.xml", "GCAMUSA_XML_FINAL", "water_elec_USA_frozen.xml", "", xml_tag="outFile" )
 
 } else{ } #close out from use_mult_load_segments
 

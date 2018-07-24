@@ -13,7 +13,7 @@ if( !exists( "GCAMUSAPROC_DIR" ) ){
 source(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAM_header.R",sep=""))
 source(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAMUSA_header.R",sep=""))
 
-logstart( "L2236.en_ghg_emissions_USA.R" )
+logstart( "L2236.elecS_ghg_emissions_USA.R" )
 adddep(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAM_header.R",sep=""))
 adddep(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAMUSA_header.R",sep=""))
 

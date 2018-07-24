@@ -26,7 +26,7 @@ mgsub <- function(pattern, replacement, x, ...) {
 # 1. Read files
 source(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAM_header.R",sep=""))
 source(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAMUSA_header.R",sep=""))
-logstart( "LA.Process_UCS_data_ref.R" )
+logstart( "LA1233.Process_UCS_data_ref.R" )
 adddep(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAM_header.R",sep=""))
 adddep(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAMUSA_header.R",sep=""))
 
