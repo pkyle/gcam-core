@@ -94,7 +94,7 @@
 		<Value name = "prices_usa">../input/gcam-data-system/xml/gcam-usa-xml/en_prices_USA.xml</Value>
 		<Value name = "regional_biomass">../input/gcam-data-system/xml/gcam-usa-xml/regional_biomass_USA.xml</Value>
 		<Value name = "en_transform_usa">../input/gcam-data-system/xml/gcam-usa-xml/en_transformation_USA.xml</Value>
-		<Value name = "elec_usa">../input/gcam-data-system/xml/gcam-usa-xml/electricity_USA.xml</Value>
+		<Value name = "elec_usa">../input/gcam-data-system/xml/gcam-usa-xml/elec_segments_USA.xml</Value>
 		<Value name = "h2_usa">../input/gcam-data-system/xml/gcam-usa-xml/hydrogen_USA.xml</Value>
 		<Value name = "elect_td_usa">../input/gcam-data-system/xml/gcam-usa-xml/electd_USA.xml</Value>
 		<Value name = "trn_usa">../input/gcam-data-system/xml/gcam-usa-xml/transportation_USA.xml</Value>

@@ -691,13 +691,6 @@ write_mi_data( L223.StubTechCapFactor_elec_wind_USA, "StubTechCapFactor", "GCAMU
 write_mi_data( L223.StubTechCapFactor_elec_solar_USA, "StubTechCapFactor", "GCAMUSA_LEVEL2_DATA", "L223.StubTechCapFactor_elec_solar_USA", "GCAMUSA_XML_BATCH", "batch_electricity_USA.xml" )
 write_mi_data( L223.StubTechCost_offshore_wind_USA, "StubTechCost", "GCAMUSA_LEVEL2_DATA", "L223.StubTechCost_offshore_wind_USA", "GCAMUSA_XML_BATCH", "batch_electricity_USA.xml" )
 
-#NOTE: this code file only builds the electric sector model input if use_mult_load_segments <- FALSE
-if(use_mult_load_segments == "TRUE") {
-  
-} else{
-  
-  insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_USA.xml", "GCAMUSA_XML_FINAL", "electricity_USA.xml", "", xml_tag="outFile" )
-
-} #close out from use_mult_load_segments
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_electricity_USA.xml", "GCAMUSA_XML_FINAL", "electricity_USA.xml", "", xml_tag="outFile" )
 
 logstop()

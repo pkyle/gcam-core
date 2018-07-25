@@ -994,7 +994,7 @@ L2234.StubTechMarket_elecS_USA %>%
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
 
 #Writing Passthrough Sector files first. Equivalent tag names specified earlier should take care of consistency across xml files
-#as long as the L223.SectorNodeEquiv and L223TechNodeEquiv files are read in first in the xml batch file (batch_electricity_USA.xml)
+#as long as the L223.SectorNodeEquiv and L223TechNodeEquiv files are read in first in the xml batch file (batch_elec_segments_USA.xml)
 
 write_mi_data( L2234.SectorNodeEquiv, "EQUIV_TABLE", "GCAMUSA_LEVEL2_DATA", "L2234.SectorNodeEquiv", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 write_mi_data( L2234.TechNodeEquiv, "EQUIV_TABLE", "GCAMUSA_LEVEL2_DATA", "L2234.TechNodeEquiv", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
@@ -1113,7 +1113,7 @@ write_mi_data( L2234.TechProd_elecS_grid, "Production", "GCAMUSA_LEVEL2_DATA", "
 write_mi_data( L2234.SubsectorShrwtFllt_elecS_grid, "SubsectorShrwtFllt", "GCAMUSA_LEVEL2_DATA", "L2234.SubsectorShrwtFllt_elecS_grid", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 write_mi_data( L2234.SubsectorShrwtInterp_elecS_grid, "SubsectorInterp", "GCAMUSA_LEVEL2_DATA", "L2234.SubsectorShrwtInterp_elecS_grid", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 
-insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml", "GCAMUSA_XML_FINAL", "electricity_USA.xml", "", xml_tag="outFile" )
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml", "GCAMUSA_XML_FINAL", "elec_segments_USA.xml", "", xml_tag="outFile" )
 
 } #close out from use_mult_load_segments
 

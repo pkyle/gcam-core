@@ -448,7 +448,7 @@ write_mi_data( L2235.TechCoef_elecownuse_FERC, "TechCoef", "GCAMUSA_LEVEL2_DATA"
 write_mi_data( L2235.Production_imports_FERC, "Production", "GCAMUSA_LEVEL2_DATA", "L2235.Production_imports_FERC", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 write_mi_data( L2235.Production_elec_gen_FERC, "Production", "GCAMUSA_LEVEL2_DATA", "L2235.Production_elec_gen_FERC", "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml" )
 
-insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml", "GCAMUSA_XML_FINAL", "electricity_USA.xml", "", xml_tag="outFile" )
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_elec_segments_USA.xml", "GCAMUSA_XML_FINAL", "elec_segments_USA.xml", "", xml_tag="outFile" )
 
 } #close out from use_regional_elec_markets
 
