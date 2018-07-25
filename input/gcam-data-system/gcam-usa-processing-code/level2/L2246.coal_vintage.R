@@ -51,6 +51,7 @@ GlobalTechCapital_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2240.GlobalTechC
 GlobalTechOMfixed_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2240.GlobalTechOMfixed_elec_coalret" , skip = 4 )
 GlobalTechOMvar_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2240.GlobalTechOMvar_elec_coalret" , skip = 4 )
 GlobalTechCapital_elec_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2240.GlobalTechCapital_elec_coalret" , skip = 4 )
+elecS_ghg_emissions_USA <- readdata( "GCAMUSA_LEVEL2_DATA","L2240.ghg_emissions_coalret_USA" , skip = 4 )
 
 # -----------------------------------------------------------------------------
 # 2. Perform computations
@@ -281,6 +282,12 @@ L2246.StubTechProd_coal_vintage_USA <-
   # Select variables. For now, include lifetime and vintage.bin as well. We'll remove it later
   select(region, supplysector, subsector, stub.technology.new, stub.technology, vintage.bin, year, calOutputValue, share.weight.year, subs.share.weight, share.weight, lifetime)
 
+
+# Storing this mapped file for help with allocating input emissions later
+L2246.StubTechProd_coal_vintage_USA_mapped <- L2246.StubTechProd_coal_vintage_USA %>%
+  distinct(region, supplysector, subsector, stub.technology.new, stub.technology, year, calOutputValue)
+
+
 # Creating a new varibale that has stubtechprod by vintage and lifetime to simulate model output later
 L2246.StubTechProd_coal_vintage_USA_lifetime <- L2246.StubTechProd_coal_vintage_USA
 
@@ -401,8 +408,56 @@ L2246.StubTechMarket_coal_vintage_USA <-
   L2246.StubTechEff_coal_vintage_USA %>%
   select(-efficiency) %>%
   filter(year == 2010) %>%
-  repeat_and_add_vector("year",model_future_years) 
+  repeat_and_add_vector("year",model_future_years)
 
+# Read in input emissions for 2010
+# NOTE:  2005 is last period in which input emissions are read in for other elecS technologies, 
+#        but coal vintage technologies do not have output until 2010.  Thus, we calculate an 
+#        emissions coefficient for coal "slow retire" technologies in 2005 by state | load segment
+#        and apply this to each coal vintage technology's 2010 production to calculate its 
+#        input emissions for 2010.  Results will be validated
+
+StubTechProd_elec_USA %>%
+  filter(grepl("slow_retire", stub.technology)) %>%
+  group_by(region, supplysector, subsector, stub.technology) %>%
+  # calculating fraction of generation 2010/2005
+  mutate(gen_frac_curr_prev = calOutputValue / lag(calOutputValue)) %>%
+  ungroup() %>%
+  filter(year == final_historical_year) %>%
+  mutate(gen_frac_curr_prev = if_else(is.nan(gen_frac_curr_prev), 0, gen_frac_curr_prev)) %>%
+  select(names_StubTechYr, gen_frac_2010_2005 = gen_frac_curr_prev) -> L2246.gen_frac_2010_2005
+
+elecS_ghg_emissions_USA %>%
+  filter(grepl("slow_retire", stub.technology)) %>%
+  # filtering for 2005
+  filter(year == 2005) %>%
+  left_join(L2246.gen_frac_2010_2005, by = c("region", "supplysector", "subsector", "stub.technology")) %>%
+  mutate(input.emissions = input.emissions * gen_frac_2010_2005,
+         year = 2010) %>%
+  select(-gen_frac_2010_2005) -> L2246.ghg_emissions_coal_slow_retire_2010
+
+L2246.StubTechProd_coal_vintage_USA_mapped %>%
+  group_by(region, supplysector, subsector, stub.technology, year) %>%
+  mutate(gen_share = calOutputValue / sum(calOutputValue)) %>%
+  ungroup() %>%
+  left_join(L2246.ghg_emissions_coal_slow_retire_2010, 
+            by = c("region", "supplysector", "subsector", "stub.technology", "year")) %>%
+  mutate(input.emissions_rev = input.emissions * gen_share) %>%
+  select(-stub.technology, -input.emissions) %>%
+  rename(stub.technology = stub.technology.new,
+         input.emissions = input.emissions_rev) %>%
+  select(names_StubTechYr, Non.CO2, input.emissions) -> L2246.ghg_emissions_coal_vintage_USA_2010
+
+non_CO2s <- unique(L2246.ghg_emissions_coal_vintage_USA_2010$Non.CO2)
+
+L2246.StubTechProd_coal_vintage_USA_mapped %>%
+  distinct(region, supplysector, subsector, stub.technology.new) %>%
+  rename(stub.technology = stub.technology.new) %>%
+  repeat_and_add_vector("year", model_base_years) %>%
+  repeat_and_add_vector("Non.CO2", non_CO2s) %>%
+  left_join(L2246.ghg_emissions_coal_vintage_USA_2010, 
+            by = c("region", "supplysector", "subsector", "stub.technology", "year", "Non.CO2")) %>%
+  mutate(input.emissions = if_else(is.na(input.emissions), 0, input.emissions)) -> L2246.ghg_emissions_coal_vintage_USA
 
 # -----------------------------------------------------------------------------
  # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
@@ -418,10 +473,9 @@ write_mi_data( L2246.GlobalTechCapFac_coal_vintage_USA, "GlobalTechCapFac", "GCA
 write_mi_data( L2246.GlobalTechCapital_coal_vintage_USA, "GlobalTechCapital", "GCAMUSA_LEVEL2_DATA", "L2246.GlobalTechCapital_coal_vintage_USA", "GCAMUSA_XML_BATCH", "batch_coal_vintage_USA.xml" )
 write_mi_data( L2246.GlobalTechOMfixed_coal_vintage_USA, "GlobalTechOMfixed", "GCAMUSA_LEVEL2_DATA", "L2246.GlobalTechOMfixed_coal_vintage_USA", "GCAMUSA_XML_BATCH", "batch_coal_vintage_USA.xml" )
 write_mi_data( L2246.GlobalTechOMvar_coal_vintage_USA, "GlobalTechOMvar", "GCAMUSA_LEVEL2_DATA", "L2246.GlobalTechOMvar_coal_vintage_USA", "GCAMUSA_XML_BATCH", "batch_coal_vintage_USA.xml" )
-
+write_mi_data( L2246.ghg_emissions_coal_vintage_USA, "InputEmissions", "GCAMUSA_LEVEL2_DATA", "L2246.ghg_emissions_coal_vintage_USA", "GCAMUSA_XML_BATCH", "batch_coal_vintage_USA.xml" )
 
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_coal_vintage_USA.xml", "GCAMUSA_XML_FINAL", "coal_vintage_USA.xml", "", xml_tag="outFile" )
 
 logstop()
- 
 

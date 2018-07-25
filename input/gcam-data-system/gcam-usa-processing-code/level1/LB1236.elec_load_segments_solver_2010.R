@@ -94,6 +94,7 @@ check_elec_segments <- function (gen_fraction, L1236_region, L1236_segment, L123
   L1236_grid_elec_supply %>%
     mutate(fraction = replace(fraction, grid_region == L1236_region & fuel == L1236_fuel 
                               & segment == L1236_segment_list[4] & year == script_year, 1-L1236_nonpeak)) -> L1236_grid_elec_supply
+  
   }
 
   # If fuel = coal, adjust intermediate fraction to make sure sum of fractions is 1
@@ -120,7 +121,7 @@ check_elec_segments <- function (gen_fraction, L1236_region, L1236_segment, L123
     summarise_at("generation", sum) %>% 
     ungroup() -> L1236_grid_check
 
-  #Calculate demand for each horizontal segment by vertical segments in each grid region 
+  #Calculate demand for each horizontal segment in each grid region 
 
   L1236_grid_elec_supply %>%
     group_by(grid_region, year) %>%
@@ -296,8 +297,26 @@ if (L1236_oil_frac > 0.5) {
   
   } else if (L1236_gas_frac > 0.2 ) {
   
-  # If gridregion has 20% or more gas, solve for gas fractions. 
+  # If gridregion has 20% or more gas, first assign refined liquids to baseload and then solve for gas fractions. 
   
+    L1236_grid_elec_supply %>%
+      mutate(fraction = replace(fraction, grid_region == L1236_region & fuel == "refined liquids" 
+                                & segment == L1236_segment_list[1] & year == script_year, 
+                                1)) %>%
+      mutate(fraction = replace(fraction, grid_region == L1236_region & fuel == "refined liquids" 
+                                & segment == L1236_segment_list[2] & year == script_year, 
+                                0))%>%
+      mutate(fraction = replace(fraction, grid_region == L1236_region & fuel == "refined liquids" 
+                                & segment == L1236_segment_list[3] & year == script_year, 
+                                0)) %>%
+      mutate(fraction = replace(fraction, grid_region == L1236_region & fuel == "refined liquids" 
+                                & segment == L1236_segment_list[4] & year == script_year, 
+                                0)) -> L1236_grid_elec_supply
+    
+   L1236_grid_elec_supply %>%
+      mutate(generation = tot_generation * fraction) -> L1236_grid_elec_supply
+    
+    
    # Solve for gas fractions
   
   L1236_solved_fraction <- uniroot(check_elec_segments, c(0,1), L1236_region, L1236_segment_list[1])
@@ -416,6 +435,7 @@ if (L1236_oil_frac > 0.5) {
         mutate(fraction = replace(fraction, grid_region == L1236_region & fuel == "wind" 
                                   & segment == L1236_segment_list[3] & year == script_year, 
                                   0.15))-> L1236_grid_elec_supply
+     
       
     # Solve for coal in baseload and assign the remaining to intermediate
   
