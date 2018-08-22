@@ -27,6 +27,7 @@ BEA_pcGDP_97USD_state <- readdata( "GCAMUSA_LEVEL0_DATA", "BEA_pcGDP_97USD_state
 Census_pop_hist <- readdata( "GCAMUSA_LEVEL0_DATA", "Census_pop_hist" )
 PRIMA_pop <- readdata( "GCAMUSA_LEVEL0_DATA", "PRIMA_pop" )
 L100.gdp_mil90usd_ctry_Yh <- readdata( "SOCIO_LEVEL1_DATA", "L100.gdp_mil90usd_ctry_Yh" )
+SSP_pop <- readdata( "GCAMUSA_LEVEL0_DATA", "SSP_pop" )
 
 # -----------------------------------------------------------------------------
 
@@ -73,17 +74,32 @@ L100.Pop_thous_state[ X_future_years ] <- L100.Pop_thous_state[[ X_final_histori
       L100.Pop_ratio_state[ match( L100.Pop_thous_state$state, L100.Pop_ratio_state$state ),
       X_future_years ]
 
+printlog( "Population by state in the 5 SSPs")
+L100.SSP_pop_ratio <- SSP_pop %>%
+  left_join(states_subregions[c("state", "state_name")], by = c(State = "state_name")) %>%
+  gcam_interp(future_years, rule = 1) %>%
+  select_(.dots = c("Scenario", state, X_final_historical_year, X_future_years))
+L100.SSP_pop_ratio[X_future_years] <- L100.SSP_pop_ratio[X_future_years] / L100.SSP_pop_ratio[[X_final_historical_year]]
+L100.SSP_pop_ratio[[X_final_historical_year]] <- NULL
+L100.Pop_thous_state_SSP <- L100.Pop_thous_state[ c(state, X_historical_years)] %>%
+  left_join(L100.SSP_pop_ratio, by = state)
+L100.Pop_thous_state_SSP[ X_future_years ] <- L100.Pop_thous_state_SSP[ X_future_years ] *
+  L100.Pop_thous_state_SSP[[X_final_historical_year]]
+L100.Pop_thous_state_SSP <- L100.Pop_thous_state_SSP[c("Scenario", state, X_historical_years, X_future_years)]
+
 # -----------------------------------------------------------------------------
 # 3. Output
 #Add comments for each table
 comments.L100.pcGDP_thous90usd_state <- c( "Per-capita GDP by state","Unit = thousand 1990 USD per capita" )
 comments.L100.GDP_mil90usd_state <- c( "GDP by state","Unit = million 1990 USD" )
 comments.L100.Pop_thous_state <- c( "Population by state","Unit = thousand persons" )
+comments.L100.Pop_thous_state_SSP <- c( "Population by state and SSP","Unit = thousand persons" )
 
 #write tables as CSV files
 writedata( L100.pcGDP_thous90usd_state, domain="GCAMUSA_LEVEL1_DATA", fn="L100.pcGDP_thous90usd_state", comments=comments.L100.pcGDP_thous90usd_state )
 writedata( L100.GDP_mil90usd_state, domain="GCAMUSA_LEVEL1_DATA", fn="L100.GDP_mil90usd_state", comments=comments.L100.GDP_mil90usd_state )
 writedata( L100.Pop_thous_state, domain="GCAMUSA_LEVEL1_DATA", fn="L100.Pop_thous_state", comments=comments.L100.Pop_thous_state )
+writedata( L100.Pop_thous_state_SSP, domain="GCAMUSA_LEVEL1_DATA", fn="L100.Pop_thous_state_SSP", comments=comments.L100.Pop_thous_state_SSP )
 
 # Every script should finish with this line
 logstop()
