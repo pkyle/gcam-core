@@ -31,7 +31,7 @@ L201.Pop_GCAMUSA_SSP <- interpolate_and_melt(L100.Pop_thous_state_SSP, model_yea
   rename(region = state)
 for(i in unique(L201.Pop_GCAMUSA_SSP$Scenario)){
   object <- subset(L201.Pop_GCAMUSA_SSP, Scenario == i)[names_Pop]
-  objectname <- paste0("L201.Pop_USA_", i)
+  objectname <- paste0("L2012.Pop_USA_", i)
   batchXMLstring <- paste0( "batch_population_USA_", i, ".xml" )
   write_mi_data( object, "Pop", "GCAMUSA_LEVEL2_DATA", objectname, "GCAMUSA_XML_BATCH", batchXMLstring )
   XMLstring <- sub( "batch_", "", batchXMLstring )
