@@ -33,9 +33,24 @@ DD_scenario_files.list <- list()
 for( i in DD_scenario_files){
   index <- which( DD_scenario_files == i )
   DD_scenario_files.list[[index]] <- readdata( "GCAMUSA_GIS_DATA", i )
+  if("State" %in% names(DD_scenario_files.list[[index]])){
+    DD_scenario_files.list[[index]] <- left_join(DD_scenario_files.list[[index]],
+                                                 states_subregions[c("state", "state_name")],
+                                                 by = c(State = "state_name"))
+    DD_scenario_files.list[[index]]$State <- NULL
+    # Some of the scenarios don't have Washington DC. Copy the HDD and CDD from Maryland in that case.
+    if(!"DC" %in% DD_scenario_files.list[[index]]$state){
+      DC_data <- subset(DD_scenario_files.list[[index]], state == "MD")
+      DC_data$state <- "DC"
+      DD_scenario_files.list[[index]] <- rbind(DD_scenario_files.list[[index]], DC_data)
+    }
+  }
 }
 names(DD_scenario_files.list) <- DD_scenario_files
-HDDCDD_data <- do.call( rbind, DD_scenario_files.list )
+for(i in names(DD_scenario_files.list)){
+  DD_scenario_files.list[[i]]$ID <- i
+}
+HDDCDD_data <- do.call( bind_rows, DD_scenario_files.list )
 
 # -----------------------------------------------------------------------------
 # 2. Perform computations
@@ -93,8 +108,7 @@ L143.share_state_Pop_HDD_sR13 <- data.frame( L143.Pop_HDD_state[ c( state, "subr
 
 # 2b. Processing of future scenarios
 L143.HDDCDD_scen_state <- gcam_interp( HDDCDD_data, c( final_historical_year, future_years ), rule = 2 )
-L143.HDDCDD_scen_state[ c( "variable", "GCM", "Scen" ) ] <- str_split_fixed( row.names( L143.HDDCDD_scen_state ), "_", 3 )
-L143.HDDCDD_scen_state$Scen <- substr( L143.HDDCDD_scen_state$Scen, 1, regexpr( ".", L143.HDDCDD_scen_state$Scen, fixed = T ) - 1 )
+L143.HDDCDD_scen_state[ c( "variable", "GCM", "Scen" ) ] <- str_split_fixed( L143.HDDCDD_scen_state$ID, "_", 3 )
 row.names( L143.HDDCDD_scen_state ) <- 1:nrow( L143.HDDCDD_scen_state )
 #Set aside the scenario's final historical year because this will be used in DD normalization later
 L143.HDDCDD_scen_state$Scen_final_historical_year <- L143.HDDCDD_scen_state[[ X_final_historical_year ]]
