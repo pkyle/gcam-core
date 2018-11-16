@@ -9,7 +9,7 @@ if( !exists( "GCAMUSAPROC_DIR" ) ){
 # Universal header file - provides logging, file support, etc.
 source(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAM_header.R",sep=""))
 source(paste(GCAMUSAPROC_DIR,"/../_common/headers/GCAMUSA_header.R",sep=""))
-logstart( "L2012.socioeconomics_SSPs_USA.R" )
+logstart( "LB2012.socioeconomics_SSPs_USA.R" )
 printlog( "GCAM-USA population and GDP in the SSPs" )
 
 # -----------------------------------------------------------------------------
