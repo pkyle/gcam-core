@@ -1,0 +1,16 @@
+﻿region,supplysector,subsector,technology,minicam.non.energy.input,2015,2100
+Alaska grid,electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,electricity price adder,1.9,1.9
+California grid,electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,electricity price adder,1.9,1.9
+Central East grid,electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,electricity price adder,2.5,2.5
+Central Northeast grid,electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,electricity price adder,2.6,2.6
+Central Northwest grid,electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,electricity price adder,2.3,2.3
+Central Southwest grid,electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,electricity price adder,1.1,1.1
+Florida grid,electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,electricity price adder,1.9,1.9
+Hawaii grid,electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,electricity price adder,1.5,1.5
+Mid-Atlantic grid,electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,electricity price adder,2.5,2.5
+New England grid,electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,electricity price adder,1.9,1.9
+New York grid,electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,electricity price adder,1.9,1.9
+Northwest grid,electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,electricity price adder,1.8,1.8
+Southeast grid,electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,electricity price adder,3.3,3.3
+Southwest grid,electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,electricity price adder,1.8,1.8
+Texas grid,electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,electricity price adder,1.7,1.7

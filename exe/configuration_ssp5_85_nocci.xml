@@ -133,6 +133,7 @@
 <!-- Final modifications for BEND scenario -->
 		<Value name = "socio_usa">../input/gcam-data-system/xml/gcam-usa-xml/population_USA_SSP5.xml</Value>
 		<Value name = "socio_usa">../input/gcam-data-system/xml/gcam-usa-xml/GDP_elas_USA_SSP5.xml</Value>
+		<Value name = "elec_prices">../input/gcam-data-system/xml/gcam-usa-xml/elec_cost_adders_USA.xml</Value>
 
 	</ScenarioComponents>
 	<Strings>
