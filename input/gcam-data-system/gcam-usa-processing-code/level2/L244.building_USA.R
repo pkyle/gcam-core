@@ -502,6 +502,10 @@ L244.Floorspace_QER_qyrs$base.building.size <- with( L244.Floorspace_QER_qyrs, r
 L244.Floorspace_QER_qyrs$flsp.growth <- NULL
 L244.Floorspace_QER <- rbind( L244.Floorspace, L244.Floorspace_QER_qyrs )
 
+# 8/14/2019 - frozen shell efficiency add-on
+L244.ShellConductance_bld_frz <- L244.ShellConductance_bld
+L244.ShellConductance_bld_frz$shell.conductance <- 1
+
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
 write_mi_data( L244.DeleteConsumer_USAbld, "DeleteConsumer", "GCAMUSA_LEVEL2_DATA", "L244.DeleteConsumer_USAbld", "GCAMUSA_XML_BATCH", "batch_building_USA.xml" ) 
@@ -575,5 +579,8 @@ insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_building_USA.xml", "GCAMU
 
 write_mi_data( L244.Floorspace_QER, "Floorspace", "GCAMUSA_LEVEL2_DATA", "L244.Floorspace_QER", "GCAMUSA_XML_BATCH", "batch_building_flsp_USA_QER.xml" ) 
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_building_flsp_USA_QER.xml", "GCAMUSA_XML_FINAL", "building_flsp_USA_QER.xml", "", xml_tag="outFile" )
+
+write_mi_data( L244.ShellConductance_bld_frz, "ShellConductance", "GCAMUSA_LEVEL2_DATA", "L244.ShellConductance_bld_frz", "GCAMUSA_XML_BATCH", "batch_building_shell_frz_USA.xml" ) 
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_building_shell_frz_USA.xml", "GCAMUSA_XML_FINAL", "building_shell_frz_USA.xml", "", xml_tag="outFile" )
 
 logstop()
