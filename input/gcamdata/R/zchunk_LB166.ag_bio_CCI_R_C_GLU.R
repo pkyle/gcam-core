@@ -42,6 +42,27 @@ module_aglu_LB166.ag_bio_CCI_R_C_GLU <- function(command, ...) {
     L112.bio_YieldRate_R_Y_GLU <- get_data(all_data, "L112.bio_YieldRate_R_Y_GLU")
 
     # Processing code goes here
+    # Load AgMIP climate-yield impact files
+    ISI_MIP_2030_pdssat_rcp2p6_ir <- get_data(all_data,
+"aglu/ISI-MIP/ISI-MIP_growth_rates_30-year_average_2030s_vs_2000s_pDSSAT_MIROC-ESM-CHEM_rcp2p6_co2_ir_for_agclim50iii_national_all_crops")
+    ISI_MIP_2030_pdssat_rcp2p6_rf <- get_data(all_data,
+"aglu/ISI-MIP/ISI-MIP_growth_rates_30-year_average_2030s_vs_2000s_pDSSAT_MIROC-ESM-CHEM_rcp2p6_co2_rf_for_agclim50iii_national_all_crops")
+    ISI_MIP_2030_pdssat_rcp8p5_ir <- get_data(all_data,
+"aglu/ISI-MIP/ISI-MIP_growth_rates_30-year_average_2030s_vs_2000s_pDSSAT_MIROC-ESM-CHEM_rcp8p5_co2_ir_for_agclim50iii_national_all_crops")
+    ISI_MIP_2030_pdssat_rcp8p5_rf <- get_data(all_data,
+"aglu/ISI-MIP/ISI-MIP_growth_rates_30-year_average_2030s_vs_2000s_pDSSAT_MIROC-ESM-CHEM_rcp8p5_co2_rf_for_agclim50iii_national_all_crops")
+    ISI_MIP_2085_pdssat_rcp2p6_ir <- get_data(all_data,
+"aglu/ISI-MIP/ISI-MIP_growth_rates_30-year_average_2085s_vs_2000s_pDSSAT_MIROC-ESM-CHEM_rcp2p6_co2_ir_for_agclim50iii_national_all_crops")
+    ISI_MIP_2085_pdssat_rcp2p6_rf <- get_data(all_data,
+"aglu/ISI-MIP/ISI-MIP_growth_rates_30-year_average_2085s_vs_2000s_pDSSAT_MIROC-ESM-CHEM_rcp2p6_co2_rf_for_agclim50iii_national_all_crops")
+    ISI_MIP_2085_pdssat_rcp8p5_ir <- get_data(all_data,
+"aglu/ISI-MIP/ISI-MIP_growth_rates_30-year_average_2085s_vs_2000s_pDSSAT_MIROC-ESM-CHEM_rcp8p5_co2_ir_for_agclim50iii_national_all_crops")
+    ISI_MIP_2085_pdssat_rcp8p5_rf <- get_data(all_data,
+"aglu/ISI-MIP/ISI-MIP_growth_rates_30-year_average_2085s_vs_2000s_pDSSAT_MIROC-ESM-CHEM_rcp8p5_co2_rf_for_agclim50iii_national_all_crops")
+
+
+
+
 
 
     # Produce outputs
