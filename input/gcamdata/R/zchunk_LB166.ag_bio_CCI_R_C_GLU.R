@@ -24,7 +24,16 @@ module_aglu_LB166.ag_bio_CCI_R_C_GLU <- function(command, ...) {
              "L151.ag_irrProd_t_ctry_crop",
              "L151.ag_rfdProd_t_ctry_crop",
              "L112.ag_YieldRate_R_C_Y_GLU",
-             "L112.bio_YieldRate_R_Y_GLU"))
+             "L112.bio_YieldRate_R_Y_GLU",
+             FILE = "aglu/ISI-MIP/ISI_MIP_2030_pdssat_rcp2p6_ir",
+             FILE = "aglu/ISI-MIP/ISI_MIP_2030_pdssat_rcp2p6_rf",
+             FILE = "aglu/ISI-MIP/ISI_MIP_2030_pdssat_rcp8p5_ir",
+             FILE = "aglu/ISI-MIP/ISI_MIP_2030_pdssat_rcp8p5_rf",
+             FILE = "aglu/ISI-MIP/ISI_MIP_2085_pdssat_rcp2p6_ir",
+             FILE = "aglu/ISI-MIP/ISI_MIP_2085_pdssat_rcp2p6_rf",
+             FILE = "aglu/ISI-MIP/ISI_MIP_2085_pdssat_rcp8p5_ir",
+             FILE = "aglu/ISI-MIP/ISI_MIP_2085_pdssat_rcp8p5_rf"
+             ))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L166.YieldRatio_R_C_Y_GLU_irr_CCIscen"))
   } else if(command == driver.MAKE) {
@@ -43,26 +52,40 @@ module_aglu_LB166.ag_bio_CCI_R_C_GLU <- function(command, ...) {
 
     # Processing code goes here
     # Load AgMIP climate-yield impact files
-    ISI_MIP_2030_pdssat_rcp2p6_ir <- get_data(all_data,
-"aglu/ISI-MIP/ISI-MIP_growth_rates_30-year_average_2030s_vs_2000s_pDSSAT_MIROC-ESM-CHEM_rcp2p6_co2_ir_for_agclim50iii_national_all_crops")
-    ISI_MIP_2030_pdssat_rcp2p6_rf <- get_data(all_data,
-"aglu/ISI-MIP/ISI-MIP_growth_rates_30-year_average_2030s_vs_2000s_pDSSAT_MIROC-ESM-CHEM_rcp2p6_co2_rf_for_agclim50iii_national_all_crops")
-    ISI_MIP_2030_pdssat_rcp8p5_ir <- get_data(all_data,
-"aglu/ISI-MIP/ISI-MIP_growth_rates_30-year_average_2030s_vs_2000s_pDSSAT_MIROC-ESM-CHEM_rcp8p5_co2_ir_for_agclim50iii_national_all_crops")
-    ISI_MIP_2030_pdssat_rcp8p5_rf <- get_data(all_data,
-"aglu/ISI-MIP/ISI-MIP_growth_rates_30-year_average_2030s_vs_2000s_pDSSAT_MIROC-ESM-CHEM_rcp8p5_co2_rf_for_agclim50iii_national_all_crops")
-    ISI_MIP_2085_pdssat_rcp2p6_ir <- get_data(all_data,
-"aglu/ISI-MIP/ISI-MIP_growth_rates_30-year_average_2085s_vs_2000s_pDSSAT_MIROC-ESM-CHEM_rcp2p6_co2_ir_for_agclim50iii_national_all_crops")
-    ISI_MIP_2085_pdssat_rcp2p6_rf <- get_data(all_data,
-"aglu/ISI-MIP/ISI-MIP_growth_rates_30-year_average_2085s_vs_2000s_pDSSAT_MIROC-ESM-CHEM_rcp2p6_co2_rf_for_agclim50iii_national_all_crops")
-    ISI_MIP_2085_pdssat_rcp8p5_ir <- get_data(all_data,
-"aglu/ISI-MIP/ISI-MIP_growth_rates_30-year_average_2085s_vs_2000s_pDSSAT_MIROC-ESM-CHEM_rcp8p5_co2_ir_for_agclim50iii_national_all_crops")
-    ISI_MIP_2085_pdssat_rcp8p5_rf <- get_data(all_data,
-"aglu/ISI-MIP/ISI-MIP_growth_rates_30-year_average_2085s_vs_2000s_pDSSAT_MIROC-ESM-CHEM_rcp8p5_co2_rf_for_agclim50iii_national_all_crops")
+    ISI_MIP_2030_pdssat_rcp2p6_ir <- get_data(all_data,"aglu/ISI-MIP/ISI_MIP_2030_pdssat_rcp2p6_ir")
+    ISI_MIP_2030_pdssat_rcp2p6_rf <- get_data(all_data,"aglu/ISI-MIP/ISI_MIP_2030_pdssat_rcp2p6_rf")
+    ISI_MIP_2030_pdssat_rcp8p5_ir <- get_data(all_data,"aglu/ISI-MIP/ISI_MIP_2030_pdssat_rcp8p5_ir")
+    ISI_MIP_2030_pdssat_rcp8p5_rf <- get_data(all_data,"aglu/ISI-MIP/ISI_MIP_2030_pdssat_rcp8p5_rf")
+    ISI_MIP_2085_pdssat_rcp2p6_ir <- get_data(all_data,"aglu/ISI-MIP/ISI_MIP_2085_pdssat_rcp2p6_ir")
+    ISI_MIP_2085_pdssat_rcp2p6_rf <- get_data(all_data,"aglu/ISI-MIP/ISI_MIP_2085_pdssat_rcp2p6_rf")
+    ISI_MIP_2085_pdssat_rcp8p5_ir <- get_data(all_data,"aglu/ISI-MIP/ISI_MIP_2085_pdssat_rcp8p5_ir")
+    ISI_MIP_2085_pdssat_rcp8p5_rf <- get_data(all_data,"aglu/ISI-MIP/ISI_MIP_2085_pdssat_rcp8p5_rf")
+
+    ISI_MIP_2030_pdssat_rcp2p6_ir$other = "2030_ir"
+    ISI_MIP_2030_pdssat_rcp2p6_rf$other = "2030_rf"
+    ISI_MIP_2030_pdssat_rcp8p5_ir$other = "2030_ir"
+    ISI_MIP_2030_pdssat_rcp8p5_rf$other = "2030_rf"
+    ISI_MIP_2085_pdssat_rcp2p6_ir$other = "2085_ir"
+    ISI_MIP_2085_pdssat_rcp2p6_rf$other = "2085_rf"
+    ISI_MIP_2085_pdssat_rcp8p5_ir$other = "2085_ir"
+    ISI_MIP_2085_pdssat_rcp8p5_rf$other = "2085_rf"
 
 
+    ISI_MIP_2030_pdssat_rcp2p6_ir<-ISI_MIP_2030_pdssat_rcp2p6_ir %>% select(other,everything())
+    ISI_MIP_2030_pdssat_rcp2p6_rf<-ISI_MIP_2030_pdssat_rcp2p6_rf %>% select(other,everything())
+    ISI_MIP_2030_pdssat_rcp8p5_ir<-ISI_MIP_2030_pdssat_rcp8p5_ir %>% select(other,everything())
+    ISI_MIP_2030_pdssat_rcp8p5_rf<-ISI_MIP_2030_pdssat_rcp8p5_rf %>% select(other,everything())
+    ISI_MIP_2085_pdssat_rcp2p6_ir<-ISI_MIP_2085_pdssat_rcp2p6_ir %>% select(other,everything())
+    ISI_MIP_2085_pdssat_rcp2p6_rf<-ISI_MIP_2085_pdssat_rcp2p6_rf %>% select(other,everything())
+    ISI_MIP_2085_pdssat_rcp8p5_ir<-ISI_MIP_2085_pdssat_rcp8p5_ir %>% select(other,everything())
+    ISI_MIP_2085_pdssat_rcp8p5_rf<-ISI_MIP_2085_pdssat_rcp8p5_rf %>% select(other,everything())
 
+    ISI_MIP_df <- bind_rows(ISI_MIP_2030_pdssat_rcp2p6_ir,ISI_MIP_2030_pdssat_rcp2p6_rf,ISI_MIP_2030_pdssat_rcp8p5_ir,
+                            ISI_MIP_2030_pdssat_rcp8p5_rf,ISI_MIP_2085_pdssat_rcp2p6_ir,ISI_MIP_2085_pdssat_rcp2p6_rf,
+                            ISI_MIP_2085_pdssat_rcp8p5_ir,ISI_MIP_2085_pdssat_rcp8p5_rf)
 
+    ISI_MIP_df<-separate(ISI_MIP_df,crop, c("crop_model", "climate_model","rcp","co2_fertilization","crop_name"),sep = "_")
+    ISI_MIP_df<-separate(ISI_MIP_df,other, c("year", "irr_level"),sep = "_")
 
 
     # Produce outputs
