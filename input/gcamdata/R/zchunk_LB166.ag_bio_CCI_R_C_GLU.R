@@ -87,6 +87,38 @@ module_aglu_LB166.ag_bio_CCI_R_C_GLU <- function(command, ...) {
     ISI_MIP_df<-separate(ISI_MIP_df,crop, c("crop_model", "climate_model","rcp","co2_fertilization","crop_name"),sep = "_")
     ISI_MIP_df<-separate(ISI_MIP_df,other, c("year", "irr_level"),sep = "_")
 
+    GrowthRate2030<-ISI_MIP_df %>% filter(year==2030)
+    selNum<-unlist(lapply(GrowthRate2030,is.numeric))
+    GrowthRate2030<-GrowthRate2030[,selNum]
+    YieldRatio2030<-(1+GrowthRate2030)^(2030-2010)
+
+    GrowthRate2085<-ISI_MIP_df %>% filter(year==2085)
+    selNum<-unlist(lapply(GrowthRate2085,is.numeric))
+    GrowthRate2085<-GrowthRate2085[,selNum]
+    YieldRatio2085<-(1+GrowthRate2085)^(2085-2010)
+
+    YieldRatio <-ISI_MIP_df %>% select(-crop_model,-climate_model,-co2_fertilization)
+    selNum<-unlist(lapply(YieldRatio,is.numeric))
+
+    YieldRatio[which(YieldRatio$year=='2030'),selNum]<-YieldRatio2030
+    YieldRatio[which(YieldRatio$year=='2085'),selNum]<-YieldRatio2085
+
+    long_YieldRatio <- YieldRatio %>% gather(region,yield_ratio,-year,-irr_level,-rcp,-crop_name)
+    Wide_YieldRatio <- long_YieldRatio %>% spread(year,yield_ratio)
+
+    library(tibble)
+    final_yieldRatio <- Wide_YieldRatio
+    addCol <- setdiff(seq(2010,2100,5),c(2030,2085))
+    addCol <- as.character(addCol)
+    final_yieldRatio[addCol]<-NA
+    final_yieldRatio<-final_yieldRatio[,c(1:4,7:10,5,11:20,6,21:23)]
+    yearseq <-seq(2010,2100,5)
+
+    for(i in 1:nrow(final_yieldRatio)){
+      temp <- final_yieldRatio[i,5:23]
+      tempIntp <- approx_fun(yearseq, as.numeric(temp), rule = 2)
+      final_yieldRatio[i,5:23] <- tempIntp
+    }
 
     # Produce outputs
     L166.YieldRatio_R_C_Y_GLU_irr_CCIscen %>%
