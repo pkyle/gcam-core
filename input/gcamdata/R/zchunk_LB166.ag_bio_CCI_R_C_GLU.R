@@ -61,14 +61,14 @@ module_aglu_LB166.ag_bio_CCI_R_C_GLU <- function(command, ...) {
     ISI_MIP_2085_pdssat_rcp8p5_ir <- get_data(all_data,"aglu/ISI-MIP/ISI_MIP_2085_pdssat_rcp8p5_ir")
     ISI_MIP_2085_pdssat_rcp8p5_rf <- get_data(all_data,"aglu/ISI-MIP/ISI_MIP_2085_pdssat_rcp8p5_rf")
 
-    ISI_MIP_2030_pdssat_rcp2p6_ir$other = "2030_ir"
-    ISI_MIP_2030_pdssat_rcp2p6_rf$other = "2030_rf"
-    ISI_MIP_2030_pdssat_rcp8p5_ir$other = "2030_ir"
-    ISI_MIP_2030_pdssat_rcp8p5_rf$other = "2030_rf"
-    ISI_MIP_2085_pdssat_rcp2p6_ir$other = "2085_ir"
-    ISI_MIP_2085_pdssat_rcp2p6_rf$other = "2085_rf"
-    ISI_MIP_2085_pdssat_rcp8p5_ir$other = "2085_ir"
-    ISI_MIP_2085_pdssat_rcp8p5_rf$other = "2085_rf"
+    ISI_MIP_2030_pdssat_rcp2p6_ir$other = "2030_irr"
+    ISI_MIP_2030_pdssat_rcp2p6_rf$other = "2030_rfd"
+    ISI_MIP_2030_pdssat_rcp8p5_ir$other = "2030_irr"
+    ISI_MIP_2030_pdssat_rcp8p5_rf$other = "2030_rfd"
+    ISI_MIP_2085_pdssat_rcp2p6_ir$other = "2085_irr"
+    ISI_MIP_2085_pdssat_rcp2p6_rf$other = "2085_rfd"
+    ISI_MIP_2085_pdssat_rcp8p5_ir$other = "2085_irr"
+    ISI_MIP_2085_pdssat_rcp8p5_rf$other = "2085_rfd"
 
 
     ISI_MIP_2030_pdssat_rcp2p6_ir<-ISI_MIP_2030_pdssat_rcp2p6_ir %>% select(other,everything())
@@ -103,12 +103,14 @@ module_aglu_LB166.ag_bio_CCI_R_C_GLU <- function(command, ...) {
     YieldRatio[which(YieldRatio$year=='2030'),selNum]<-YieldRatio2030
     YieldRatio[which(YieldRatio$year=='2085'),selNum]<-YieldRatio2085
 
-    long_YieldRatio <- YieldRatio %>% gather(region,yield_ratio,-year,-irr_level,-rcp,-crop_name)
+    long_YieldRatio <- YieldRatio %>%
+      gather(iso,yield_ratio,-year,-irr_level,-rcp,-crop_name) %>%
+      mutate(iso = tolower(iso))
     Wide_YieldRatio <- long_YieldRatio %>% spread(year,yield_ratio)
 
-    library(tibble)
     final_yieldRatio <- Wide_YieldRatio
-    addCol <- setdiff(seq(2010,2100,5),c(2030,2085))
+    final_yieldRatio$`2010` <- 1
+    addCol <- setdiff(seq(2010,2100,5),c(2010,2030,2085))
     addCol <- as.character(addCol)
     final_yieldRatio[addCol]<-NA
     final_yieldRatio<-final_yieldRatio[,c(1:4,7:10,5,11:20,6,21:23)]
@@ -119,6 +121,25 @@ module_aglu_LB166.ag_bio_CCI_R_C_GLU <- function(command, ...) {
       tempIntp <- approx_fun(yearseq, as.numeric(temp), rule = 2)
       final_yieldRatio[i,5:23] <- tempIntp
     }
+
+# At this point we apply the yield ratios in each year to the irrigated and rainfed production volumes from the base year
+# This sequence first merges in the irrigated and rainfed production by country, crop, and basin, adding the necessary
+    # identifier column. PDSSAT impacts crop is joined in from the main crop mapping file, and then the join can be performed
+    L166.ag_Prod_t_ctry_crop_irr <- mutate(L151.ag_irrProd_t_ctry_crop, irr_level = "irr") %>%
+      rename(Prod = irrProd) %>%
+      bind_rows(mutate(L151.ag_rfdProd_t_ctry_crop, irr_level = "rfd") %>%
+                  rename(Prod = rfdProd)) %>%
+      inner_join(select(FAO_ag_items_PRODSTAT, GTAP_crop, pdssat_crop),
+                               by = "GTAP_crop") %>%
+      drop_na(pdssat_crop)
+
+    # Note - using left_join so that the data table can expand by the number of RCP emissions scenarios
+    L166.ag_Prod_t_ctry_crop_irr_Y <- L166.ag_Prod_t_ctry_crop_irr %>%
+      left_join(final_yieldRatio,
+                by = c("iso", pdssat_crop = "crop_name", "irr_level"))
+
+
+
 
     # Produce outputs
     L166.YieldRatio_R_C_Y_GLU_irr_CCIscen %>%
