@@ -136,10 +136,28 @@ module_aglu_LB166.ag_bio_CCI_R_C_GLU <- function(command, ...) {
     # Note - using left_join so that the data table can expand by the number of RCP emissions scenarios
     L166.ag_Prod_t_ctry_crop_irr_Y <- L166.ag_Prod_t_ctry_crop_irr %>%
       left_join(final_yieldRatio,
-                by = c("iso", pdssat_crop = "crop_name", "irr_level"))
+                by = c("iso", pdssat_crop = "crop_name", "irr_level")) %>%
+      gather(year,yield_ratio,as.character(seq(2010,2100,5))) %>%
+      mutate(prod_x_yield_ratio=NA)
+
+    L166.ag_Prod_t_ctry_crop_irr_Y$prod_x_yield_ratio<-L166.ag_Prod_t_ctry_crop_irr_Y$Prod*L166.ag_Prod_t_ctry_crop_irr_Y$yield_ratio
+
+    # making it into smaller steps so that R has enough memeory to process it (Error: cannot allocate vector of size 2.6 Gb)
+    L166.ag_Prod_t_ctry_crop_irr_Y<-L166.ag_Prod_t_ctry_crop_irr_Y %>%
+      left_join(select(iso_GCAM_regID,iso,GCAM_region_ID),by="iso")
+    L166.ag_Prod_t_ctry_crop_irr_Y<-select(L166.ag_Prod_t_ctry_crop_irr_Y,-iso,-Prod,-GTAP_crop)
+    L166.ag_Prod_t_ctry_crop_irr_Y<-left_join(L166.ag_Prod_t_ctry_crop_irr_Y,select(FAO_ag_items_PRODSTAT,GCAM_commodity,pdssat_crop),by="pdssat_crop")
+    L166.ag_Prod_t_ctry_crop_irr_Y<-group_by(L166.ag_Prod_t_ctry_crop_irr_Y,GCAM_region_ID, GCAM_commodity, GLU, rcp, year) %>%
+      summarise(value = sum(prod_x_yield_ratio)) %>% ungroup()
 
 
+    L166.YieldRatio_R_C_Y_GLU_irr_CCIscen<-L166.ag_Prod_t_ctry_crop_irr_Y %>% spread(year,value)
 
+    for(i in 1:nrow(L166.YieldRatio_R_C_Y_GLU_irr_CCIscen)){
+      temp <- L166.YieldRatio_R_C_Y_GLU_irr_CCIscen[i,5:23]
+      tempCalc <- temp/temp[1]
+      L166.YieldRatio_R_C_Y_GLU_irr_CCIscen[i,5:23] <- tempCalc
+    }
 
     # Produce outputs
     L166.YieldRatio_R_C_Y_GLU_irr_CCIscen %>%
