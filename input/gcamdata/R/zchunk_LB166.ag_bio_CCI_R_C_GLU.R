@@ -10,9 +10,6 @@
 #' @details Calculate global average yields for each FAO crop in the base year;
 #' calculate each region / zone / crop's comparative yield; compute bioenergy yields as
 #' this region/zone-specific index multiplied by a base yield.
-#' @references Wullschleger, S.D., E.B. Davis, M.E. Borsuk, C.A. Gunderson, and L.R. Lynd. 2010.
-#' Biomass production in switchgrass across the United States: database description and determinants
-#' of yield. Agronomy Journal 102: 1158-1168. doi:10.2134/agronj2010.0087.
 #' @importFrom assertthat assert_that
 #' @importFrom dplyr filter mutate select
 #' @importFrom tidyr gather spread
@@ -137,19 +134,26 @@ module_aglu_LB166.ag_bio_CCI_R_C_GLU <- function(command, ...) {
     L166.ag_Prod_t_ctry_crop_irr_Y <- L166.ag_Prod_t_ctry_crop_irr %>%
       left_join(final_yieldRatio,
                 by = c("iso", pdssat_crop = "crop_name", "irr_level")) %>%
+      drop_na() %>%
       gather(year,yield_ratio,as.character(seq(2010,2100,5))) %>%
-      mutate(prod_x_yield_ratio=NA)
-
-    L166.ag_Prod_t_ctry_crop_irr_Y$prod_x_yield_ratio<-L166.ag_Prod_t_ctry_crop_irr_Y$Prod*L166.ag_Prod_t_ctry_crop_irr_Y$yield_ratio
+      mutate(prod_x_yield_ratio = Prod * yield_ratio)
 
     # making it into smaller steps so that R has enough memeory to process it (Error: cannot allocate vector of size 2.6 Gb)
-    L166.ag_Prod_t_ctry_crop_irr_Y<-L166.ag_Prod_t_ctry_crop_irr_Y %>%
-      left_join(select(iso_GCAM_regID,iso,GCAM_region_ID),by="iso")
-    L166.ag_Prod_t_ctry_crop_irr_Y<-select(L166.ag_Prod_t_ctry_crop_irr_Y,-iso,-Prod,-GTAP_crop)
-    L166.ag_Prod_t_ctry_crop_irr_Y<-left_join(L166.ag_Prod_t_ctry_crop_irr_Y,select(FAO_ag_items_PRODSTAT,GCAM_commodity,pdssat_crop),by="pdssat_crop")
-    L166.ag_Prod_t_ctry_crop_irr_Y<-group_by(L166.ag_Prod_t_ctry_crop_irr_Y,GCAM_region_ID, GCAM_commodity, GLU, rcp, year) %>%
-      summarise(value = sum(prod_x_yield_ratio)) %>% ungroup()
+    L166.ag_YieldRatio_R_C_GLU_irr_Y<-L166.ag_Prod_t_ctry_crop_irr_Y %>%
+      left_join_error_no_match(select(iso_GCAM_regID,iso,GCAM_region_ID),by="iso") %>%
+      select(-iso,-yield_ratio) %>%
+      left_join_error_no_match(select(FAO_ag_items_PRODSTAT,GTAP_crop,GCAM_commodity),by="GTAP_crop",
+                               ignore_columns = "GCAM_commodity") %>%
+      drop_na(GCAM_commodity) %>%
+      group_by(GCAM_region_ID, GCAM_commodity, GLU, rcp, year) %>%
+      summarise(prod_x_yield_ratio = sum(prod_x_yield_ratio),
+                Prod = sum(Prod)) %>%
+      ungroup() %>%
+      mutate(YieldRatio = prod_x_yield_ratio / Prod)
 
+
+    ### STOPPED HERE - need to select the relevant columns and return this as a final table. Should have probably
+    ### named this table "L166.YieldRatio_R_C_Y_GLU_irr_CCIscen"
 
     L166.YieldRatio_R_C_Y_GLU_irr_CCIscen<-L166.ag_Prod_t_ctry_crop_irr_Y %>% spread(year,value)
 
