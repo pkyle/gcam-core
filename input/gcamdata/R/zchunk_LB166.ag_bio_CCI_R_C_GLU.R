@@ -156,13 +156,13 @@ module_aglu_LB166.ag_bio_CCI_R_C_GLU <- function(command, ...) {
       left_join_error_no_match(select(FAO_ag_items_PRODSTAT,GTAP_crop,GCAM_commodity),by="GTAP_crop",
                                ignore_columns = "GCAM_commodity") %>%
       drop_na(GCAM_commodity) %>%
-      group_by(GCAM_region_ID, GCAM_commodity, GLU, irr_level, rcp, year) %>%
+      group_by(GCAM_region_ID, GCAM_commodity, GLU, rcp, year) %>%
       summarise(prod_x_yield_ratio = sum(prod_x_yield_ratio),
                 Prod = sum(Prod)) %>%
       ungroup() %>%
       mutate(YieldRatio = prod_x_yield_ratio / Prod)
 
-    L166.YieldRatio_R_C_Y_GLU_irr_CCIscen<-select(L166.ag_YieldRatio_R_C_GLU_irr_Y,GCAM_region_ID,GCAM_commodity,year,GLU,irr_level,rcp,YieldRatio)
+    L166.YieldRatio_R_C_Y_GLU_irr_CCIscen<-select(L166.ag_YieldRatio_R_C_GLU_irr_Y,GCAM_region_ID,GCAM_commodity,year,GLU,rcp,YieldRatio)
 
     # Produce outputs
     L166.YieldRatio_R_C_Y_GLU_irr_CCIscen %>%
