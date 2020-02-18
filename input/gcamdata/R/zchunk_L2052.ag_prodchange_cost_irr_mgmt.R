@@ -38,8 +38,8 @@ module_aglu_L2052.ag_prodchange_cost_irr_mgmt <- function(command, ...) {
              "L2052.AgProdChange_irr_high",
              "L2052.AgProdChange_irr_low",
              "L2052.AgProdChange_irr_ssp4",
-             "L2052.AgProdChange_irr_AgMIP_rcp2p6",
-             "L2052.AgProdChange_irr_AgMIP_rcp8p5"))
+             "L2052.AgProdChange_SSP2_rcp2p6",
+             "L2052.AgProdChange_SSP2_rcp8p5"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -172,40 +172,6 @@ module_aglu_L2052.ag_prodchange_cost_irr_mgmt <- function(command, ...) {
       select(names_AgProdChange) ->
       L2052.AgProdChange_ag_irr_ref
 
-    # 2/17/2020 add AgMIP Scenario AgProdChange (YZ)
-    tmp<-L166.YieldRatio_R_C_Y_GLU_irr_CCIscen %>%
-      mutate(irr_level=toupper(irr_level)) %>%
-      group_by(GCAM_region_ID,GCAM_commodity,GLU,irr_level,rcp) %>%
-      mutate(YieldRatio_bfr = c(1,YieldRatio[year== seq(2010,2095,5)])) %>%
-      mutate(YieldRatioMultiplier = (YieldRatio / YieldRatio_bfr)^(1/5) ) %>%
-      mutate(YieldRatioMultiplier = replace(YieldRatioMultiplier, is.na(YieldRatioMultiplier), 1)) %>%
-      ungroup() %>%
-      filter(year %in% MODEL_FUTURE_YEARS) %>%
-      # Copy costs to high and low management levels
-      repeat_add_columns(tibble(MGMT = c("hi", "lo"))) %>%
-      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
-      left_join_error_no_match(basin_to_country_mapping[c("GLU_code", "GLU_name")], by = c("GLU" = "GLU_code")) %>%
-      # Add sector, subsector, technology names
-      mutate(AgSupplySector = GCAM_commodity,
-             AgSupplySubsector = paste(GCAM_commodity, GLU_name, sep = "_"),
-             AgProductionTechnology = paste(GCAM_commodity, GLU_name, irr_level, MGMT, sep = "_")) %>%
-      select(setdiff(names_AgProdChange,"AgProdChange"),rcp,YieldRatioMultiplier) %>%
-      left_join_error_no_match(L2052.AgProdChange_ag_irr_ref,by=c("region","AgSupplySector","AgSupplySubsector","AgProductionTechnology","year"),ignore_columns = "AgProdChange") %>%
-      mutate(AgProdChange0 = AgProdChange) %>%
-      mutate(AgProdChange=(1+AgProdChange0)*YieldRatioMultiplier-1) %>%
-      select(names_AgProdChange,rcp) ->
-      L2052.AgProdChange_irr_AgMIP
-
-    L2052.AgProdChange_irr_AgMIP_rcp2p6 <- L2052.AgProdChange_irr_AgMIP %>%
-      filter(rcp=="rcp2p6") %>%
-      select(-rcp) %>%
-      drop_na()
-
-    L2052.AgProdChange_irr_AgMIP_rcp8p5 <- L2052.AgProdChange_irr_AgMIP %>%
-      filter(rcp=="rcp8p5") %>%
-      select(-rcp) %>%
-      drop_na()
-
     # Specify reference scenario agricultural productivity change for biomass
     L162.bio_YieldRate_R_Y_GLU_irr %>%
       filter(year %in% MODEL_FUTURE_YEARS) %>%
@@ -283,6 +249,45 @@ module_aglu_L2052.ag_prodchange_cost_irr_mgmt <- function(command, ...) {
       bind_rows(filter(L2052.AgProdChange_irr_high, region %in% high_reg),
                 filter(L2052.AgProdChange_irr_low, region %in% low_reg)) ->
       L2052.AgProdChange_irr_ssp4
+
+    # 2/17/2020 add AgMIP Scenario AgProdChange (YZ)
+    L166.YieldRatio_R_C_Y_GLU_irr_CCIscen %>%
+      mutate(irr_level=toupper(irr_level)) %>%
+      group_by(GCAM_region_ID,GCAM_commodity,GLU,irr_level,rcp) %>%
+      mutate(YieldRatio_bfr = lag(YieldRatio)) %>%
+      replace_na(list(YieldRatio = 1, YieldRatio_bfr = 1)) %>%
+      mutate(YieldRatioMultiplier = (YieldRatio / YieldRatio_bfr)^(1/5)) %>%
+      ungroup() %>%
+      filter(year %in% MODEL_FUTURE_YEARS) %>%
+      # Copy to high and low management levels
+      repeat_add_columns(tibble(MGMT = c("hi", "lo"))) %>%
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+      left_join_error_no_match(basin_to_country_mapping[c("GLU_code", "GLU_name")], by = c("GLU" = "GLU_code")) %>%
+      # Add sector, subsector, technology names
+      mutate(AgSupplySector = GCAM_commodity,
+             AgSupplySubsector = paste(GCAM_commodity, GLU_name, sep = "_"),
+             AgProductionTechnology = paste(GCAM_commodity, GLU_name, irr_level, MGMT, sep = "_")) %>%
+      select(setdiff(names_AgProdChange,"AgProdChange"),rcp,YieldRatioMultiplier) ->
+      L2052.AgProdChange_CCIonly
+
+    L2052.AgProdChange_CCIonly %>%
+      inner_join(L2052.AgProdChange_ag_irr_ref,by=c("region","AgSupplySector","AgSupplySubsector","AgProductionTechnology","year")) %>%
+      mutate(AgProdChange0 = AgProdChange) %>%
+      mutate(AgProdChange=(1+AgProdChange0)*YieldRatioMultiplier-1) %>%
+      select(names_AgProdChange,rcp) ->
+      L2052.AgProdChange_irr_AgMIP
+
+    L2052.AgProdChange_SSP2_rcp2p6 <- L2052.AgProdChange_irr_AgMIP %>%
+      filter(rcp=="rcp2p6") %>%
+      select(-rcp)
+
+    L2052.AgProdChange_SSP2_rcp8p5 <- L2052.AgProdChange_irr_AgMIP %>%
+      filter(rcp=="rcp8p5") %>%
+      select(-rcp)
+
+    ## STOPPED HERE - TO DO: follow the sequence in lines 273-286, replacing L2052.AgProdChange_ag_irr_ref with
+    #  1) L2052.AgProdChange_ag_irr_high, and name the outputs L2052.AgProdChange_SSP1_rcp2p6 and L2052.AgProdChange_SSP1_rcp8p5
+    #  2) L2052.AgProdChange_ag_irr_low, and name the outputs L2052.AgProdChange_SSP3_rcp2p6 and L2052.AgProdChange_SSP3_rcp8p5
 
     # Produce outputs
     L2052.AgCost_ag_irr_mgmt %>%
@@ -368,36 +373,36 @@ module_aglu_L2052.ag_prodchange_cost_irr_mgmt <- function(command, ...) {
       add_precursors("L102.pcgdp_thous90USD_Scen_R_Y") ->
       L2052.AgProdChange_irr_ssp4
 
-    L2052.AgProdChange_irr_AgMIP_rcp2p6 %>%
+    L2052.AgProdChange_SSP2_rcp2p6 %>%
       add_title("AgMIP rcp2.6 agricultural productivity change of crops by region / crop / GLU / technology") %>%
       add_units("Unitless") %>%
       add_comments("Assign reference productivity change to median income regions") %>%
       add_comments("Assign high productivity change to high income regions") %>%
       add_comments("Assign low productivity change to low income regions") %>%
       add_comments("Region groups by income level are based on the 2010 GDP per capita") %>%
-      add_legacy_name("L2052.AgProdChange_irr_AgMIP_rcp2p6") %>%
+      add_legacy_name("L2052.AgProdChange_SSP2_rcp2p6") %>%
       same_precursors_as("L2052.AgProdChange_ag_irr_ref") %>%
       add_precursors("L102.pcgdp_thous90USD_Scen_R_Y") ->
-      L2052.AgProdChange_irr_AgMIP_rcp2p6
+      L2052.AgProdChange_SSP2_rcp2p6
 
-    L2052.AgProdChange_irr_AgMIP_rcp8p5 %>%
+    L2052.AgProdChange_SSP2_rcp8p5 %>%
       add_title("AgMIP rcp8.5 agricultural productivity change of crops by region / crop / GLU / technology") %>%
       add_units("Unitless") %>%
       add_comments("Assign reference productivity change to median income regions") %>%
       add_comments("Assign high productivity change to high income regions") %>%
       add_comments("Assign low productivity change to low income regions") %>%
       add_comments("Region groups by income level are based on the 2010 GDP per capita") %>%
-      add_legacy_name("L2052.AgProdChange_irr_AgMIP_rcp8p5") %>%
+      add_legacy_name("L2052.AgProdChange_SSP2_rcp8p5") %>%
       same_precursors_as("L2052.AgProdChange_ag_irr_ref") %>%
       add_precursors("L102.pcgdp_thous90USD_Scen_R_Y") ->
-      L2052.AgProdChange_irr_AgMIP_rcp8p5
+      L2052.AgProdChange_SSP2_rcp8p5
 
     return_data(L2052.AgCost_ag_irr_mgmt, L2052.AgCost_bio_irr_mgmt,
                 L2052.AgCost_For,
                 L2052.AgProdChange_ag_irr_ref, L2052.AgProdChange_bio_irr_ref,
                 L2052.AgProdChange_irr_high, L2052.AgProdChange_irr_low,
                 L2052.AgProdChange_irr_ssp4,
-                L2052.AgProdChange_irr_AgMIP_rcp2p6,L2052.AgProdChange_irr_AgMIP_rcp8p5)
+                L2052.AgProdChange_SSP2_rcp2p6,L2052.AgProdChange_SSP2_rcp8p5)
   } else {
     stop("Unknown command")
   }
