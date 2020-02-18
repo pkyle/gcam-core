@@ -163,7 +163,7 @@ module_aglu_LB166.ag_bio_CCI_R_C_GLU <- function(command, ...) {
       mutate(YieldRatio = prod_x_yield_ratio / Prod)
 
     L166.YieldRatio_R_C_Y_GLU_irr_CCIscen<-select(L166.ag_YieldRatio_R_C_GLU_irr_Y,GCAM_region_ID,GCAM_commodity,year,GLU,irr_level,rcp,YieldRatio)
-
+    L166.YieldRatio_R_C_Y_GLU_irr_CCIscen$year<-as.numeric(L166.YieldRatio_R_C_Y_GLU_irr_CCIscen$year)
     # Produce outputs
     L166.YieldRatio_R_C_Y_GLU_irr_CCIscen %>%
       add_title("Area-weighted climate change impacts on yields by region / crop / year/ basin / irr_level / impact scenario") %>%
@@ -174,7 +174,15 @@ module_aglu_LB166.ag_bio_CCI_R_C_GLU <- function(command, ...) {
                      "L151.ag_irrProd_t_ctry_crop",
                      "L151.ag_rfdProd_t_ctry_crop",
                      "L112.ag_YieldRate_R_C_Y_GLU",
-                     "L112.bio_YieldRate_R_Y_GLU") ->
+                     "L112.bio_YieldRate_R_Y_GLU",
+                     "aglu/ISI-MIP/ISI_MIP_2030_pdssat_rcp2p6_ir",
+                     "aglu/ISI-MIP/ISI_MIP_2030_pdssat_rcp2p6_rf",
+                     "aglu/ISI-MIP/ISI_MIP_2030_pdssat_rcp8p5_ir",
+                     "aglu/ISI-MIP/ISI_MIP_2030_pdssat_rcp8p5_rf",
+                     "aglu/ISI-MIP/ISI_MIP_2085_pdssat_rcp2p6_ir",
+                     "aglu/ISI-MIP/ISI_MIP_2085_pdssat_rcp2p6_rf",
+                     "aglu/ISI-MIP/ISI_MIP_2085_pdssat_rcp8p5_ir",
+                     "aglu/ISI-MIP/ISI_MIP_2085_pdssat_rcp8p5_rf") ->
       L166.YieldRatio_R_C_Y_GLU_irr_CCIscen
 
     return_data(L166.YieldRatio_R_C_Y_GLU_irr_CCIscen)
