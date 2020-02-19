@@ -91,11 +91,13 @@ module_aglu_LB166.ag_bio_CCI_R_C_GLU <- function(command, ...) {
     GrowthRate2030<-ISI_MIP_df %>% filter(year==2030)
     selNum<-unlist(lapply(GrowthRate2030,is.numeric))
     GrowthRate2030<-GrowthRate2030[,selNum]
+    GrowthRate2030<-replace(GrowthRate2030,GrowthRate2030>0.05,0.05)
     YieldRatio2030<-(1+GrowthRate2030)^(2030-2010)
 
     GrowthRate2085<-ISI_MIP_df %>% filter(year==2085)
     selNum<-unlist(lapply(GrowthRate2085,is.numeric))
     GrowthRate2085<-GrowthRate2085[,selNum]
+    GrowthRate2085<-replace(GrowthRate2085,GrowthRate2085>0.02,0.02)
     YieldRatio2085<-(1+GrowthRate2085)^(2085-2010)
 
     # Select numeric values (Growth rate) in the table and subsitute with new YieldRatio values
