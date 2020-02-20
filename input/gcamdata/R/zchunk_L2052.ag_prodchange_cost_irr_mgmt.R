@@ -38,8 +38,12 @@ module_aglu_L2052.ag_prodchange_cost_irr_mgmt <- function(command, ...) {
              "L2052.AgProdChange_irr_high",
              "L2052.AgProdChange_irr_low",
              "L2052.AgProdChange_irr_ssp4",
+             "L2052.AgProdChange_SSP1_rcp2p6",
+             "L2052.AgProdChange_SSP1_rcp8p5",
              "L2052.AgProdChange_SSP2_rcp2p6",
-             "L2052.AgProdChange_SSP2_rcp8p5"))
+             "L2052.AgProdChange_SSP2_rcp8p5",
+             "L2052.AgProdChange_SSP3_rcp2p6",
+             "L2052.AgProdChange_SSP3_rcp8p5"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]

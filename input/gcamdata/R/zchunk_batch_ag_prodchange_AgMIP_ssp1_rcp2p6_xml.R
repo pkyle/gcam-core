@@ -25,7 +25,7 @@ module_aglu_batch_ag_prodchange_AgMIP_ssp1_rcp2p6_xml <- function(command, ...) 
     # Produce outputs
     create_xml("ag_prodchange_AgMIP_ssp1_rcp2p6.xml") %>%
       add_xml_data(L2052.AgProdChange_SSP1_rcp2p6, "AgProdChange") %>%
-      add_precursors("L2052.AgProdChange_SSP1_rcp2p6", "L2052.AgProdChange_bio_irr_ref") ->
+      add_precursors("L2052.AgProdChange_SSP1_rcp2p6") ->
       ag_prodchange_AgMIP_ssp1_rcp2p6.xml
 
     return_data(ag_prodchange_AgMIP_ssp1_rcp2p6.xml)
