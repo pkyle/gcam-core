@@ -160,7 +160,7 @@ Sesame seed,289,SesameSeed,OilCrop,SESA,26,Sesame,OtherOilSeeds,Others (annual),
 Sisal,789,Sisal,FiberCrop,,,Sisal,Other,Others (annual),Crop26,Sisal,,,,pfb,total
 Sorghum,83,Sorghum,OtherGrain,SORG,6,Sorghum,OtherCoarseGrains,Sorghum,Crop7,,Sorghum,Sorghum,,gro,mai
 Sorghum for forage and silage,637,Srgm4FrgSlg,FodderHerb,SORG,6,,Other,Sorghum,Crop7,,,Sorghum,Sorghum,ocr,total
-Soybeans,236,Soybeans,OilCrop,SOYB,23,Soybean,Soybean,Soybeans,Crop8,,Soybean,Soybean,,osd,soy
+Soybeans,236,Soybeans,Soybean,SOYB,23,Soybean,Soybean,Soybeans,Crop8,,Soybean,Soybean,,osd,soy
 "Spices, nes",723,spicesnes,MiscCrop,,,,Other,Others (annual),Crop26,Spices_nes,,,,ocr,total
 Spinach,373,Spinach,MiscCrop,VEGE,16,Spinach,FruitsAndVeg,Others (annual),Crop26,Spinach,,Vegetables other,,v_f,total
 Strawberries,544,Strawberries,MiscCrop,FRUI,19,Strawberry,FruitsAndVeg,Others (perennial) ,Crop24,Strawberries,,Fruits other,,v_f,total

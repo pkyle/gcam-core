@@ -82,9 +82,9 @@ Sesameseed Oil,OilCrop,OIL OF SESAME SEED,8840
 Sisal,FiberCrop,,0
 "Soft-Fibres, Other",FiberCrop,,0
 Sorghum and products,OtherGrain,SORGHUM,3430
-Soyabean Cake,OilCrop,,0
-Soyabean Oil,OilCrop,OIL OF SOYABEANS,8840
-Soyabeans,OilCrop,SOYBEANS,3350
+Soyabean Cake,Soybean,,0
+Soyabean Oil,Soybean,OIL OF SOYABEANS,8840
+Soyabeans,Soybean,SOYBEANS,3350
 "Spices, Other",MiscCrop,SPICES NES,3370
 Sugar (Raw Equivalent),SugarCrop,"SUGAR, CENTRIFUGAL RAW",3730
 Sugar beet,SugarCrop,SUGAR BEETS,700

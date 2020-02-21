@@ -25,6 +25,7 @@ OtherGrain,Cropland
 PalmFruit,Cropland
 Rice,Cropland
 RootTuber,Cropland
+Soybean,Cropland
 SugarCrop,Cropland
 Wheat,Cropland
 biomassGrass,Pasture
