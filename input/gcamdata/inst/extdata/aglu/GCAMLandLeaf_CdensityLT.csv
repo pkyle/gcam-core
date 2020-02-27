@@ -19,7 +19,10 @@ Corn,Cropland
 FiberCrop,Cropland
 FodderGrass,Cropland
 FodderHerb,Cropland
+Fruits,Cropland
+Legumes,Cropland
 MiscCrop,Cropland
+NutsSeeds,Cropland
 OilCrop,Cropland
 OtherGrain,Cropland
 PalmFruit,Cropland
@@ -27,6 +30,7 @@ Rice,Cropland
 RootTuber,Cropland
 Soybean,Cropland
 SugarCrop,Cropland
+Vegetables,Cropland
 Wheat,Cropland
 biomassGrass,Pasture
 biomassTree,Pasture

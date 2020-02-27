@@ -187,6 +187,7 @@ Freight,Truck_Truck (6-30t),gas,trn_freight_road,Truck (6-30t),NG,trn_road,gas,g
 Freight,Truck_Truck (6-30t),refined liquids,trn_freight_road,Truck (6-30t),Liquids,trn_road,refined liquids,refined liquids,trn_road,tra,trn_road,refined liquids,,trn_oil
 Freight,Truck_Truck (9-16t),gas,trn_freight_road,Truck (9-16t),NG,trn_road,gas,gas,trn_road,tra,trn_road,gas,,trn_gas
 Freight,Truck_Truck (9-16t),refined liquids,trn_freight_road,Truck (9-16t),Liquids,trn_road,refined liquids,refined liquids,trn_road,tra,trn_road,refined liquids,,trn_oil
+Fruits,,,Fruits,,,,,,,,,,Cropland Management,
 heat,biomass,biomass,district heat,biomass,biomass,elec_heat,biomass,biomass,elec_heat,ene,heat,biomass,,
 heat,coal,coal,district heat,coal,coal,elec_heat,coal,coal,elec_heat,ene,heat,coal,,
 heat,gas,gas,district heat,gas,gas,elec_heat,gas,gas,elec_heat,ene,heat,gas,,
@@ -203,6 +204,7 @@ industry_energy,biomass,biomass,industrial energy use,biomass,biomass,industry_e
 industry_energy,coal,coal,industrial energy use,coal,coal,industry_energy,coal,coal,industry_energy,ind,industry_energy,coal,,ind_coal
 industry_energy,gas,gas,industrial energy use,gas,gas,industry_energy,gas,gas,industry_energy,ind,industry_energy,gas,,ind_gas
 industry_energy,refined liquids,refined liquids,industrial energy use,refined liquids,refined liquids,industry_energy,refined liquids,refined liquids,industry_energy,ind,industry_energy,refined liquids,,ind_oil
+Legumes,,,Legumes,,,,,,,,,,Cropland Management,
 MiscCrop,MiscCropAEZ01,MiscCropAEZ01,MiscCrop,MiscCropAEZ01,MiscCropAEZ01,,,,,,,,Cropland Management,
 MiscCrop,MiscCropAEZ02,MiscCropAEZ02,MiscCrop,MiscCropAEZ02,MiscCropAEZ02,,,,,,,,Cropland Management,
 MiscCrop,MiscCropAEZ03,MiscCropAEZ03,MiscCrop,MiscCropAEZ03,MiscCropAEZ03,,,,,,,,Cropland Management,
@@ -224,6 +226,7 @@ MiscCrop,MiscCropAEZ18,MiscCropAEZ18,MiscCrop,MiscCropAEZ18,MiscCropAEZ18,,,,,,,
 N fertilizer,coal,coal,N fertilizer,coal,coal,industry_energy,coal,coal,industry_energy,ind,industry_energy,coal,,
 N fertilizer,gas,gas,N fertilizer,gas,gas,industry_energy,gas,gas,industry_energy,ind,industry_energy,gas,,
 N fertilizer,refined liquids,refined liquids,N fertilizer,refined liquids,refined liquids,industry_energy,refined liquids,refined liquids,industry_energy,ind,industry_energy,refined liquids,,
+NutsSeeds,,,NutsSeeds,,,,,,,,,,Cropland Management,
 OilCrop,OilCropAEZ01,OilCropAEZ01,OilCrop,OilCropAEZ01,OilCropAEZ01,,,,,,,,Cropland Management,
 OilCrop,OilCropAEZ02,OilCropAEZ02,OilCrop,OilCropAEZ02,OilCropAEZ02,,,,,,,,Cropland Management,
 OilCrop,OilCropAEZ03,OilCropAEZ03,OilCrop,OilCropAEZ03,OilCropAEZ03,,,,,,,,Cropland Management,
@@ -447,6 +450,7 @@ urban processes,aerosols,aerosols,urban processes,aerosols,aerosols,aerosols,all
 urban processes,fire_exting,fire_exting,urban processes,fire_exting,fire_exting,fire exting,all,all,fire exting,,,,Fire Protection,
 urban processes,landfills,landfills,urban processes,landfills,landfills,landfills,all,all,landfills,,,,Landfilling of Solid Waste,
 urban processes,wastewater treatment,wastewater treatment,urban processes,wastewater treatment,wastewater treatment,wastewater,all,all,wastewater,,,,Wastewater,
+Vegetables,,,Vegetables,,,,,,,,,,Cropland Management,
 Wheat,WheatAEZ01,WheatAEZ01,Wheat,WheatAEZ01,WheatAEZ01,,,,,,,,Cropland Management,
 Wheat,WheatAEZ02,WheatAEZ02,Wheat,WheatAEZ02,WheatAEZ02,,,,,,,,Cropland Management,
 Wheat,WheatAEZ03,WheatAEZ03,Wheat,WheatAEZ03,WheatAEZ03,,,,,,,,Cropland Management,

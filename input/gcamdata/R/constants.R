@@ -154,7 +154,8 @@ aglu.SSP_DEMAND_YEARS       <- seq(2010, 2100, 5) # food demand in the SSPs is c
 aglu.TRADE_CAL_YEARS        <- 2008:2012 # Years used for calculating base year gross trade. Should ideally include the final base year, but note that the trade data starts in 1986.
 aglu.TRADE_FINAL_BASE_YEAR  <- max(MODEL_BASE_YEARS) # The base year to which gross trade volumes are assigned. Should be within the aglu.TRADE_CAL_YEARS and equal to the final model calibration year
 aglu.FALLOW_YEARS           <- 2008:2012 # Years used for calculating the % of fallow land
-aglu.TRADED_CROPS           <- c("Corn", "FiberCrop", "MiscCrop", "OilCrop", "OtherGrain", "PalmFruit", "Rice", "RootTuber", "Soybean", "SugarCrop", "Wheat")
+aglu.TRADED_CROPS           <- c("Corn", "FiberCrop", "Fruits", "Legumes", "MiscCrop", "NutsSeeds", "OilCrop",
+                                 "OtherGrain", "PalmFruit", "Rice", "RootTuber", "Soybean", "SugarCrop", "Vegetables", "Wheat")
 aglu.LAND_TOLERANCE    <- 0.005
 aglu.MIN_PROFIT_MARGIN <- 0.15  # Unitless and is used to ensure that Agricultural Costs (units 1975USD/kg) don't lead to profits below a minimum profit margin.
 
@@ -311,6 +312,13 @@ aglu.LN1_PROTUNMGD_LOGIT_TYPE <- NA
 # default logit exponent and type for LN5, the competition betweein high and lo management
 aglu.MGMT_LOGIT_EXP  <- 0.5
 aglu.MGMT_LOGIT_TYPE <- "absolute-cost-logit"
+
+# Statistical differences reconciliation: China's Vegetable production estimates are inconsistent between the PRODSTAT
+# ("Production") and SUA ("Commodity Balances"). Because the latter dataset is used for estimating food consumption in
+# GCAM, and because these SUA food consumption estimates are derived from production data that is about 20% higher than
+# PRODSTAT, this discrepancy causes very high negative "non-food" demands in this nation, which are large enough to
+# result in negative non-food demands globally.
+aglu.CHN_Veg_Food_Mult <- 0.8
 
 # XML-related constants
 aglu.CROP_GLU_DELIMITER   <- "_"  # delimiter between the crop name and GLU name

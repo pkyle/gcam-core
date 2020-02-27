@@ -10,7 +10,10 @@ Corn,Corn,-6,start-year,1
 FiberCrop,FiberCrop,-6,start-year,1
 FodderGrass,FodderGrass,-6,start-year,1
 FodderHerb,FodderHerb,-6,start-year,1
+Fruits,Fruits,-6,start-year,1
+Legumes,Legumes,-6,start-year,1
 MiscCrop,MiscCrop,-6,start-year,1
+NutsSeeds,NutsSeeds,-6,start-year,1
 OilCrop,OilCrop,-6,start-year,1
 OtherGrain,OtherGrain,-6,start-year,1
 PalmFruit,PalmFruit,-6,start-year,1
@@ -18,6 +21,7 @@ Rice,Rice,-6,start-year,1
 RootTuber,RootTuber,-6,start-year,1
 Soybean,Soybean,-6,start-year,1
 SugarCrop,SugarCrop,-6,start-year,1
+Vegetables,Vegetables,-6,start-year,1
 Wheat,Wheat,-6,start-year,1
 Forest,Forest,-6,start-year,1
 biomass,biomassGrass,-6,start-year,1
