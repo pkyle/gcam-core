@@ -396,6 +396,9 @@ energy.MIN_IN_EJ_IND <- 1e-3
 # Sets maximum for electricity IO coefficient used in cement sector
 energy.MAX_IOELEC <- 4
 
+# Indicate the factor by which South Africa fertilizer prices exceed those elsewhere due to use of coal gasification
+energy.ZAF_Fert_Price_adj <- 1.5
+
 # PV related constants
 energy.HOURS_PER_YEAR          <- 24 * 365
 energy.PV_COMM_INSTALLED_COST  <- 7290     # 2005USD per kw

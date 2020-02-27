@@ -111,7 +111,12 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
 
       # Calculate fertilizer cost using a fixed value (specified in constants.R in current $ per ton of NH3)
       # and the fertilizer coefficient calculated above. Subtract from original nonLandVariableCost.
+
+      # 2/27/2020 modification - South Africa has very high prices of fertilizer, due to its use of coal gasification to
+      # produce gaseous fuels, which have a price that is significantly higher than gas prices elsewhere.
+
       mutate(FertCost = coefficient * aglu.FERT_PRICE * gdp_deflator(1975, aglu.FERT_PRICE_YEAR) * CONV_KG_T / CONV_NH3_N,
+             FertCost = if_else(region == "South Africa", FertCost * energy.ZAF_Fert_Price_adj, FertCost),
              nonLandVariableCost = round(nonLandVariableCost - FertCost, aglu.DIGITS_CALPRICE)) %>%
       select(-minicam.energy.input, -coefficient, -FertCost) ->
       L2062.AgCost_ag_irr_mgmt_adj
