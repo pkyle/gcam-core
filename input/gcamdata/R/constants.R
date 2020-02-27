@@ -156,6 +156,7 @@ aglu.TRADE_FINAL_BASE_YEAR  <- max(MODEL_BASE_YEARS) # The base year to which gr
 aglu.FALLOW_YEARS           <- 2008:2012 # Years used for calculating the % of fallow land
 aglu.TRADED_CROPS           <- c("Corn", "FiberCrop", "Fruits", "Legumes", "MiscCrop", "NutsSeeds", "OilCrop",
                                  "OtherGrain", "PalmFruit", "Rice", "RootTuber", "Soybean", "SugarCrop", "Vegetables", "Wheat")
+aglu.RESBIO_CROPS           <- c("Corn", "OilCrop", "OtherGrain", "PalmFruit", "Rice", "RootTuber", "Soybean", "SugarCrop", "Wheat")  # keep file sizes and memory requirements manageable
 aglu.LAND_TOLERANCE    <- 0.005
 aglu.MIN_PROFIT_MARGIN <- 0.15  # Unitless and is used to ensure that Agricultural Costs (units 1975USD/kg) don't lead to profits below a minimum profit margin.
 

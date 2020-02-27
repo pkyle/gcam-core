@@ -197,6 +197,7 @@ module_aglu_L2042.resbio_input_irr_mgmt <- function(command, ...) {
     # 4. Form a table of Agricultural Residue Biomass Paramters by region-glu-year
     L101.ag_Prod_Mt_R_C_Y_GLU %>%
       select(GCAM_region_ID, GCAM_commodity, GLU) %>%
+      filter(GCAM_commodity %in% aglu.RESBIO_CROPS) %>%
       distinct %>%
       left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
       # have to use left_join + na.omit to match  m e r g e  behavior in old DS
