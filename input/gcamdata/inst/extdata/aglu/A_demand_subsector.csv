@@ -19,6 +19,7 @@ FoodDemand_Crops,Rice,-6,start-year,1,share-weight,final-calibration-year,end-ye
 FoodDemand_Crops,RootTuber,-6,start-year,1,share-weight,final-calibration-year,end-year,fixed,
 FoodDemand_Crops,Soybean,-6,start-year,1,share-weight,final-calibration-year,end-year,fixed,
 FoodDemand_Crops,SugarCrop,-6,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_Crops,Vegetables,-6,start-year,1,share-weight,final-calibration-year,end-year,fixed,
 FoodDemand_Crops,Wheat,-6,start-year,1,share-weight,final-calibration-year,end-year,fixed,
 FoodDemand_Meat,Beef,-6,start-year,1,share-weight,final-calibration-year,end-year,fixed,
 FoodDemand_Meat,Dairy,-6,start-year,1,share-weight,final-calibration-year,end-year,fixed,
