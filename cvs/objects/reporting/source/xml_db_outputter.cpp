@@ -122,7 +122,7 @@
 #include <boost/iostreams/device/file.hpp>
 #endif
 
-#if( !HAVE_JAVA )
+#if( !_HAVE_JAVA_ )
 #include <boost/iostreams/device/null.hpp>
 #endif
 
@@ -144,7 +144,7 @@ using namespace std;
 using namespace boost::iostreams;
 
 
-#if( HAVE_JAVA )
+#if( _HAVE_JAVA_ )
 // Static initialize the JavaVM to be null
 JavaVM* XMLDBOutputter::JNIContainer::mJavaVM = 0;
 
@@ -181,7 +181,7 @@ XMLDBOutputter::JNIContainer::~JNIContainer() {
 XMLDBOutputter::XMLDBOutputter():
 mTabs( new Tabs ),
 mGDP( 0 )
-#if( HAVE_JAVA )
+#if( _HAVE_JAVA_ )
 ,mJNIContainer( createContainer( false ) )
 #endif
 {
@@ -194,7 +194,7 @@ mGDP( 0 )
     mBuffer.push( teeDebugFilter );
 #endif
 
-#if( HAVE_JAVA )
+#if( _HAVE_JAVA_ )
     // Set Java as the sink of data for mBuffer.
     SendToJavaIOSink sendToJavaSink( mJNIContainer.get() );
     mBuffer.push( sendToJavaSink );
@@ -223,7 +223,7 @@ XMLDBOutputter::~XMLDBOutputter(){
  * \return True if it appears writing to the datbase would have been successful.
  */
 bool XMLDBOutputter::checkJavaWorking() {
-#if( HAVE_JAVA )
+#if( _HAVE_JAVA_ )
     auto_ptr<JNIContainer> testContainer = createContainer( true );
     // if we get back a null container then some error occured
     // createContainer would have already print any error messages.
@@ -244,7 +244,7 @@ void XMLDBOutputter::finish() const {
     // Close mBuffer so that no more data can be written.
     close( mBuffer, ios_base::out );
 
-#if( HAVE_JAVA )
+#if( _HAVE_JAVA_ )
     if( !mJNIContainer.get() ) {
         // Failed to start Java, just return as an appropriate error message would
         // have already been given.
@@ -273,7 +273,7 @@ void XMLDBOutputter::finish() const {
  *          It may potentially run queries if configured then close the database.
  */
 void XMLDBOutputter::finalizeAndClose() {
-#if( HAVE_JAVA )
+#if( _HAVE_JAVA_ )
     // Call finalizeAndClose on the XMLDBDriver if it was successfully opened in the first place.
     if( mJNIContainer.get() ) {
         // First we need to look up the appropriate "finalizeAndClose" Java method with no
@@ -294,7 +294,7 @@ void XMLDBOutputter::finalizeAndClose() {
 #endif
 }
 
-#if( HAVE_JAVA )
+#if( _HAVE_JAVA_ )
 /*!
  * \brief Create an initialized Java environment.
  * \param aTestingOnly A flag if set indicates we don't want to actually start the
@@ -446,7 +446,7 @@ bool XMLDBOutputter::appendData( const string& aData, const string& aLocation ) 
         return false;
     }
 
-#if( HAVE_JAVA )
+#if( _HAVE_JAVA_ )
     // Check if creating the container failed.
     if( !mJNIContainer.get() ){
         // An error message will have been printed by create container.
@@ -2147,7 +2147,7 @@ map<string, string> XMLDBOutputter::decomposeLandName( string aLandName ) {
     return ret;
 }
 
-#if( HAVE_JAVA )
+#if( _HAVE_JAVA_ )
 /*!
  * \brief Constructs a boost IO sink that sends data to Java.
  * \details The constructor will need to initialize JNI boiler plate and set up
