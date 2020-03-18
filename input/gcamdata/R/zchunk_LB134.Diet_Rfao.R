@@ -26,8 +26,11 @@ module_aglu_LB134.Diet_Rfao <- function(command, ...) {
              FILE = "aglu/AGLU_ctry",
              FILE = "aglu/FAO/FAO2050_items_cal",
              FILE = "aglu/FAO/FAO2050_Diet",
+             FILE = "aglu/Springmann_FLX_diet",
+             FILE = "aglu/Springmann_food_groups",
              "L100.FAO_ag_Food_t",
              "L100.FAO_an_Food_t",
+             "L100.Pop_thous_ctry_Yh",
              "L101.ag_Food_Pcal_R_C_Y",
              "L105.an_Food_Pcal_R_C_Y",
              "L101.Pop_thous_R_Yh",
@@ -38,7 +41,9 @@ module_aglu_LB134.Diet_Rfao <- function(command, ...) {
              "L134.pcFood_kcald_R_Dmnd_Y_ssp2",
              "L134.pcFood_kcald_R_Dmnd_Y_ssp3",
              "L134.pcFood_kcald_R_Dmnd_Y_ssp4",
-             "L134.pcFood_kcald_R_Dmnd_Y_ssp5"))
+             "L134.pcFood_kcald_R_Dmnd_Y_ssp5",
+             "L134.pcFood_kcald_R_C_Y_FLX",
+             "L134.pcFoodShare_R_C_2050_FLX"))
   } else if(command == driver.MAKE) {
 
     year <- value <- FAO2050_reg <- FAO2050_item <- GCAM_region_ID <-
@@ -54,11 +59,14 @@ module_aglu_LB134.Diet_Rfao <- function(command, ...) {
     iso_GCAM_regID <- get_data(all_data, "common/iso_GCAM_regID")
     AGLU_ctry <- get_data(all_data, "aglu/AGLU_ctry")
     FAO2050_items_cal <- get_data(all_data, "aglu/FAO/FAO2050_items_cal")
+    Springmann_food_groups <- get_data(all_data, "aglu/Springmann_food_groups")
+    Springmann_FLX_diet <- get_data(all_data, "aglu/Springmann_FLX_diet")
     get_data(all_data, "aglu/FAO/FAO2050_Diet") %>%
       gather_years ->
       FAO2050_Diet
     L100.FAO_ag_Food_t <- get_data(all_data, "L100.FAO_ag_Food_t")
     L100.FAO_an_Food_t <- get_data(all_data, "L100.FAO_an_Food_t")
+    L100.Pop_thous_ctry_Yh <- get_data(all_data, "L100.Pop_thous_ctry_Yh")
     L101.ag_Food_Pcal_R_C_Y <- get_data(all_data, "L101.ag_Food_Pcal_R_C_Y")
     L105.an_Food_Pcal_R_C_Y <- get_data(all_data, "L105.an_Food_Pcal_R_C_Y")
     L101.Pop_thous_R_Yh <- get_data(all_data, "L101.Pop_thous_R_Yh")
@@ -305,6 +313,62 @@ module_aglu_LB134.Diet_Rfao <- function(command, ...) {
     L134.pcFood_est_R_Dmnd_Y_ssp5_crops <- create_ssp_demand(L102.pcgdp_thous90USD_Scen_R_Y, "SSP5", "crops", L134.pcFood_kcald_R_Dmnd_Y, A_FoodDemand_SSPs)
     L134.pcFood_est_R_Dmnd_Y_ssp5_meat <- create_ssp_demand(L102.pcgdp_thous90USD_Scen_R_Y, "SSP5", "meat", L134.pcFood_kcald_R_Dmnd_Y, A_FoodDemand_SSPs)
 
+    # Springmann diet scenario - first, calculate the totals by crops and animal products in 2050 in FLX versus benchmark (BMK) diets
+    L134.pcFood_R_C_Y_FLX <- Springmann_FLX_diet %>%
+      replace_na(list(BMK = 0, FLX = 0)) %>%
+      mutate(iso = if_else(iso == "CHM", "CHN", iso)) %>%     # CHM appears to be a misspelling of CHN (China)
+      inner_join(Springmann_food_groups, by = "food_group") %>%
+      drop_na(GCAM_commodity) %>%
+      mutate(iso = tolower(iso),
+             iso = if_else(iso == "rou", "rom", iso)) %>%
+      inner_join(select(iso_GCAM_regID, iso, GCAM_region_ID),
+                 by = "iso") %>%
+      left_join_error_no_match(filter(L100.Pop_thous_ctry_Yh, year == max(HISTORICAL_YEARS)), by = "iso") %>%
+      mutate(weighted_BMK = BMK * value,
+             weighted_FLX = if_else(is.na(FLX), BMK * value, FLX * value)) %>%
+      group_by(GCAM_region_ID, GCAM_commodity) %>%
+      summarise(weighted_BMK = sum(weighted_BMK),
+                weighted_FLX = sum(weighted_FLX),
+                weight = sum(value)) %>%
+      ungroup() %>%
+      mutate(BMK = weighted_BMK / weight,
+             FLX = weighted_FLX / weight)
+
+    L134.pcFoodMult_R_C_Y_FLX <- L134.pcFood_R_C_Y_FLX %>%
+      mutate(GCAM_demand = if_else(GCAM_commodity %in% L101.ag_Food_Pcal_R_C_Y$GCAM_commodity, "crops", "meat")) %>%
+      group_by(GCAM_region_ID, GCAM_demand) %>%
+      summarise(BMK = sum(BMK), FLX = sum(FLX)) %>%
+      ungroup() %>%
+      mutate(DemandMult2050 = FLX / BMK) %>%
+      select(GCAM_region_ID, GCAM_demand, DemandMult2050) %>%
+      repeat_add_columns(tibble(year = c(HISTORICAL_YEARS, FUTURE_YEARS))) %>%
+      mutate(DemandMult = if_else(year < 2020, 1, NA_real_),
+             DemandMult = if_else(year == 2050, DemandMult2050, DemandMult)) %>%
+      group_by(GCAM_region_ID, GCAM_demand) %>%
+      mutate(DemandMult = approx_fun(year, DemandMult, rule = 2)) %>%
+      select(GCAM_region_ID, GCAM_demand, year, DemandMult)
+
+
+    L134.pcFood_est_R_C_Y_FLX_crops <- L134.pcFood_est_R_Dmnd_Y_ssp2_crops %>%
+      filter(GCAM_region_ID %in% L134.pcFoodMult_R_C_Y_FLX$GCAM_region_ID) %>%
+      left_join_error_no_match(L134.pcFoodMult_R_C_Y_FLX, by = c("GCAM_region_ID", "GCAM_demand", "year")) %>%
+      mutate(demand_kcal = demand_kcal * DemandMult) %>%
+      select(names(L134.pcFood_est_R_Dmnd_Y_ssp2_crops))
+
+    L134.pcFood_est_R_C_Y_FLX_meat <- L134.pcFood_est_R_Dmnd_Y_ssp2_meat %>%
+      filter(GCAM_region_ID %in% L134.pcFoodMult_R_C_Y_FLX$GCAM_region_ID) %>%
+      left_join_error_no_match(L134.pcFoodMult_R_C_Y_FLX, by = c("GCAM_region_ID", "GCAM_demand", "year")) %>%
+      mutate(demand_kcal = demand_kcal * DemandMult) %>%
+      select(names(L134.pcFood_est_R_Dmnd_Y_ssp2_meat))
+
+    # Also write out the shares of the different commodities within crops and meat in the 2050 FLEX diet
+    L134.pcFoodShare_R_C_2050_FLX <- select(L134.pcFood_R_C_Y_FLX, GCAM_region_ID, GCAM_commodity, FLX) %>%
+      mutate(GCAM_demand = if_else(GCAM_commodity %in% L101.ag_Food_Pcal_R_C_Y$GCAM_commodity, "crops", "meat")) %>%
+      group_by(GCAM_region_ID, GCAM_demand) %>%
+      mutate(FoodShare = FLX / sum(FLX)) %>%
+      ungroup() %>%
+      select(GCAM_region_ID, GCAM_demand, GCAM_commodity, FoodShare)
+
     # Produce outputs
     L134.pcFood_kcald_R_Dmnd_Y %>%
       rename(value = demand_kcal) %>%
@@ -374,7 +438,25 @@ module_aglu_LB134.Diet_Rfao <- function(command, ...) {
       add_precursors("aglu/A_FoodDemand_SSPs", "L102.pcgdp_thous90USD_Scen_R_Y") ->
       L134.pcFood_kcald_R_Dmnd_Y_ssp5
 
-    return_data(L134.pcFood_kcald_R_Dmnd_Y, L134.pcFood_kcald_R_Dmnd_Y_ssp1, L134.pcFood_kcald_R_Dmnd_Y_ssp2, L134.pcFood_kcald_R_Dmnd_Y_ssp3, L134.pcFood_kcald_R_Dmnd_Y_ssp4, L134.pcFood_kcald_R_Dmnd_Y_ssp5)
+    bind_rows(L134.pcFood_est_R_C_Y_FLX_crops,
+              L134.pcFood_est_R_C_Y_FLX_meat) %>%
+      rename(value = demand_kcal) %>%
+      add_title("FLX Per-capita food demands by region / demand type / year (historical and future)") %>%
+      add_units("kcal / person / day") %>%
+      add_comments("Calculated from data provided by Marco Springmann for FLEX diet shift by 2050") %>%
+      same_precursors_as(L134.pcFood_kcald_R_Dmnd_Y_ssp2) %>%
+      add_precursors("aglu/Springmann_FLX_diet", "aglu/Springmann_food_groups", "L100.Pop_thous_ctry_Yh") ->
+      L134.pcFood_kcald_R_C_Y_FLX
+
+    L134.pcFoodShare_R_C_2050_FLX %>%
+      add_title("FLX 2050 Per-capita food demand shares (commodity within demand type) by region") %>%
+      add_units("unitless") %>%
+      add_comments("Calculated from data provided by Marco Springmann for FLEX diet shift by 2050") %>%
+      same_precursors_as(L134.pcFood_kcald_R_C_Y_FLX) ->
+      L134.pcFoodShare_R_C_2050_FLX
+
+    return_data(L134.pcFood_kcald_R_Dmnd_Y, L134.pcFood_kcald_R_Dmnd_Y_ssp1, L134.pcFood_kcald_R_Dmnd_Y_ssp2, L134.pcFood_kcald_R_Dmnd_Y_ssp3, L134.pcFood_kcald_R_Dmnd_Y_ssp4, L134.pcFood_kcald_R_Dmnd_Y_ssp5,
+                L134.pcFood_kcald_R_C_Y_FLX, L134.pcFoodShare_R_C_2050_FLX)
   } else {
     stop("Unknown command")
   }

@@ -1,0 +1,657 @@
+# File: A_FLX_FuelPrefElast.csv
+# Title: Fuel preference elasticities used in the FLX scenario
+# Description: Fuel pref elasticities are adjusted to hit target shares of caloric consumption in 2050
+# Source: none
+# Units: unitless
+# Column types: cccn
+# ----------
+region,supplysector,subsector,fuelprefElasticity
+Africa_Eastern,FoodDemand_Crops,Corn,0.029708434
+Africa_Eastern,FoodDemand_Crops,FiberCrop,0
+Africa_Eastern,FoodDemand_Crops,Fruits,0.123184163
+Africa_Eastern,FoodDemand_Crops,Legumes,0.18926041
+Africa_Eastern,FoodDemand_Crops,MiscCrop,0
+Africa_Eastern,FoodDemand_Crops,NutsSeeds,0.989628528
+Africa_Eastern,FoodDemand_Crops,OilCrop,1.109804296
+Africa_Eastern,FoodDemand_Crops,OtherGrain,0.044359702
+Africa_Eastern,FoodDemand_Crops,PalmFruit,0.049292813
+Africa_Eastern,FoodDemand_Crops,Rice,0.049213407
+Africa_Eastern,FoodDemand_Crops,RootTuber,0.040685726
+Africa_Eastern,FoodDemand_Crops,Soybean,1.222425134
+Africa_Eastern,FoodDemand_Crops,SugarCrop,0.069898786
+Africa_Eastern,FoodDemand_Crops,Vegetables,0.807920491
+Africa_Eastern,FoodDemand_Crops,Wheat,0.032199368
+Africa_Eastern,FoodDemand_Meat,Beef,0.923918297
+Africa_Eastern,FoodDemand_Meat,Dairy,1.100131796
+Africa_Eastern,FoodDemand_Meat,OtherMeat_Fish,1.131414599
+Africa_Eastern,FoodDemand_Meat,Pork,1.086110563
+Africa_Eastern,FoodDemand_Meat,Poultry,1.172055439
+Africa_Eastern,FoodDemand_Meat,SheepGoat,0.48514294
+Africa_Northern,FoodDemand_Crops,Corn,0.050103355
+Africa_Northern,FoodDemand_Crops,FiberCrop,0
+Africa_Northern,FoodDemand_Crops,Fruits,0.157021945
+Africa_Northern,FoodDemand_Crops,Legumes,0.81589279
+Africa_Northern,FoodDemand_Crops,MiscCrop,0
+Africa_Northern,FoodDemand_Crops,NutsSeeds,0.902785049
+Africa_Northern,FoodDemand_Crops,OilCrop,0.882231082
+Africa_Northern,FoodDemand_Crops,OtherGrain,0.024754679
+Africa_Northern,FoodDemand_Crops,PalmFruit,0.309089364
+Africa_Northern,FoodDemand_Crops,Rice,0.077709009
+Africa_Northern,FoodDemand_Crops,RootTuber,0.096923461
+Africa_Northern,FoodDemand_Crops,Soybean,0.124382837
+Africa_Northern,FoodDemand_Crops,SugarCrop,0.050353253
+Africa_Northern,FoodDemand_Crops,Vegetables,0.204364439
+Africa_Northern,FoodDemand_Crops,Wheat,0.048356496
+Africa_Northern,FoodDemand_Meat,Beef,0.651499433
+Africa_Northern,FoodDemand_Meat,Dairy,0.910876222
+Africa_Northern,FoodDemand_Meat,OtherMeat_Fish,1.04485879
+Africa_Northern,FoodDemand_Meat,Pork,0.248923939
+Africa_Northern,FoodDemand_Meat,Poultry,0.709853298
+Africa_Northern,FoodDemand_Meat,SheepGoat,0.372216622
+Africa_Southern,FoodDemand_Crops,Corn,0.03802678
+Africa_Southern,FoodDemand_Crops,FiberCrop,0
+Africa_Southern,FoodDemand_Crops,Fruits,0.169785704
+Africa_Southern,FoodDemand_Crops,Legumes,0.253822377
+Africa_Southern,FoodDemand_Crops,MiscCrop,0
+Africa_Southern,FoodDemand_Crops,NutsSeeds,0.564585897
+Africa_Southern,FoodDemand_Crops,OilCrop,1.31792221
+Africa_Southern,FoodDemand_Crops,OtherGrain,0.061155741
+Africa_Southern,FoodDemand_Crops,PalmFruit,0.074091553
+Africa_Southern,FoodDemand_Crops,Rice,0.058349974
+Africa_Southern,FoodDemand_Crops,RootTuber,0.040129582
+Africa_Southern,FoodDemand_Crops,Soybean,0.380759579
+Africa_Southern,FoodDemand_Crops,SugarCrop,0.093698353
+Africa_Southern,FoodDemand_Crops,Vegetables,0.876290398
+Africa_Southern,FoodDemand_Crops,Wheat,0.047637566
+Africa_Southern,FoodDemand_Meat,Beef,0.773645346
+Africa_Southern,FoodDemand_Meat,Dairy,1.253029804
+Africa_Southern,FoodDemand_Meat,OtherMeat_Fish,1.053299479
+Africa_Southern,FoodDemand_Meat,Pork,0.61429065
+Africa_Southern,FoodDemand_Meat,Poultry,0.811117711
+Africa_Southern,FoodDemand_Meat,SheepGoat,0.360593545
+Africa_Western,FoodDemand_Crops,Corn,0.031496921
+Africa_Western,FoodDemand_Crops,FiberCrop,0
+Africa_Western,FoodDemand_Crops,Fruits,0.209341245
+Africa_Western,FoodDemand_Crops,Legumes,0.337676925
+Africa_Western,FoodDemand_Crops,MiscCrop,0
+Africa_Western,FoodDemand_Crops,NutsSeeds,0.253405749
+Africa_Western,FoodDemand_Crops,OilCrop,1.668671194
+Africa_Western,FoodDemand_Crops,OtherGrain,0.038839835
+Africa_Western,FoodDemand_Crops,PalmFruit,0.036465381
+Africa_Western,FoodDemand_Crops,Rice,0.044277254
+Africa_Western,FoodDemand_Crops,RootTuber,0.05334117
+Africa_Western,FoodDemand_Crops,Soybean,1.10553455
+Africa_Western,FoodDemand_Crops,SugarCrop,0.15199295
+Africa_Western,FoodDemand_Crops,Vegetables,0.646803937
+Africa_Western,FoodDemand_Crops,Wheat,0.042150323
+Africa_Western,FoodDemand_Meat,Beef,0.654817025
+Africa_Western,FoodDemand_Meat,Dairy,1.14357921
+Africa_Western,FoodDemand_Meat,OtherMeat_Fish,0.678344264
+Africa_Western,FoodDemand_Meat,Pork,0.805929358
+Africa_Western,FoodDemand_Meat,Poultry,0.618575326
+Africa_Western,FoodDemand_Meat,SheepGoat,0.270130582
+Argentina,FoodDemand_Crops,Corn,0.352111589
+Argentina,FoodDemand_Crops,FiberCrop,0
+Argentina,FoodDemand_Crops,Fruits,0.542684243
+Argentina,FoodDemand_Crops,Legumes,3
+Argentina,FoodDemand_Crops,MiscCrop,0
+Argentina,FoodDemand_Crops,NutsSeeds,2.879133053
+Argentina,FoodDemand_Crops,OilCrop,0.865833097
+Argentina,FoodDemand_Crops,OtherGrain,0.204102086
+Argentina,FoodDemand_Crops,PalmFruit,0.046686362
+Argentina,FoodDemand_Crops,Rice,0.45155644
+Argentina,FoodDemand_Crops,RootTuber,0.549981969
+Argentina,FoodDemand_Crops,Soybean,0.607670894
+Argentina,FoodDemand_Crops,SugarCrop,0.113665878
+Argentina,FoodDemand_Crops,Vegetables,1.168558853
+Argentina,FoodDemand_Crops,Wheat,0.397462746
+Argentina,FoodDemand_Meat,Beef,0.457748885
+Argentina,FoodDemand_Meat,Dairy,1.494793404
+Argentina,FoodDemand_Meat,OtherMeat_Fish,1.350419434
+Argentina,FoodDemand_Meat,Pork,0.1435609
+Argentina,FoodDemand_Meat,Poultry,0.762944854
+Argentina,FoodDemand_Meat,SheepGoat,0.16687155
+Australia_NZ,FoodDemand_Crops,Corn,0.318090225
+Australia_NZ,FoodDemand_Crops,FiberCrop,0
+Australia_NZ,FoodDemand_Crops,Fruits,0.351472626
+Australia_NZ,FoodDemand_Crops,Legumes,3
+Australia_NZ,FoodDemand_Crops,MiscCrop,0
+Australia_NZ,FoodDemand_Crops,NutsSeeds,0.887895147
+Australia_NZ,FoodDemand_Crops,OilCrop,0.658969968
+Australia_NZ,FoodDemand_Crops,OtherGrain,0.525254392
+Australia_NZ,FoodDemand_Crops,PalmFruit,0.156679262
+Australia_NZ,FoodDemand_Crops,Rice,0.465155553
+Australia_NZ,FoodDemand_Crops,RootTuber,0.353399759
+Australia_NZ,FoodDemand_Crops,Soybean,1.37011299
+Australia_NZ,FoodDemand_Crops,SugarCrop,0.096843611
+Australia_NZ,FoodDemand_Crops,Vegetables,0.722952839
+Australia_NZ,FoodDemand_Crops,Wheat,0.35660338
+Australia_NZ,FoodDemand_Meat,Beef,0.316022444
+Australia_NZ,FoodDemand_Meat,Dairy,1.738378677
+Australia_NZ,FoodDemand_Meat,OtherMeat_Fish,1.086665741
+Australia_NZ,FoodDemand_Meat,Pork,0.190297811
+Australia_NZ,FoodDemand_Meat,Poultry,1.177932775
+Australia_NZ,FoodDemand_Meat,SheepGoat,0.43350033
+Brazil,FoodDemand_Crops,Corn,0.148058674
+Brazil,FoodDemand_Crops,FiberCrop,0
+Brazil,FoodDemand_Crops,Fruits,0.204959043
+Brazil,FoodDemand_Crops,Legumes,0.405402325
+Brazil,FoodDemand_Crops,MiscCrop,0
+Brazil,FoodDemand_Crops,NutsSeeds,2.082079322
+Brazil,FoodDemand_Crops,OilCrop,3
+Brazil,FoodDemand_Crops,OtherGrain,0.130044074
+Brazil,FoodDemand_Crops,PalmFruit,0.058302978
+Brazil,FoodDemand_Crops,Rice,0.189267064
+Brazil,FoodDemand_Crops,RootTuber,0.119430224
+Brazil,FoodDemand_Crops,Soybean,0.035603601
+Brazil,FoodDemand_Crops,SugarCrop,0.05430886
+Brazil,FoodDemand_Crops,Vegetables,1.038726675
+Brazil,FoodDemand_Crops,Wheat,0.126428249
+Brazil,FoodDemand_Meat,Beef,0.175536369
+Brazil,FoodDemand_Meat,Dairy,1.57597513
+Brazil,FoodDemand_Meat,OtherMeat_Fish,0.878023799
+Brazil,FoodDemand_Meat,Pork,0.16091486
+Brazil,FoodDemand_Meat,Poultry,0.459911205
+Brazil,FoodDemand_Meat,SheepGoat,0.164174182
+Canada,FoodDemand_Crops,Corn,0.252867175
+Canada,FoodDemand_Crops,FiberCrop,0
+Canada,FoodDemand_Crops,Fruits,0.357024855
+Canada,FoodDemand_Crops,Legumes,1.516780434
+Canada,FoodDemand_Crops,MiscCrop,0
+Canada,FoodDemand_Crops,NutsSeeds,1.933040141
+Canada,FoodDemand_Crops,OilCrop,0.868280842
+Canada,FoodDemand_Crops,OtherGrain,0.236528777
+Canada,FoodDemand_Crops,PalmFruit,0.018483235
+Canada,FoodDemand_Crops,Rice,0.528225357
+Canada,FoodDemand_Crops,RootTuber,0.357142013
+Canada,FoodDemand_Crops,Soybean,0.365073684
+Canada,FoodDemand_Crops,SugarCrop,0.202438872
+Canada,FoodDemand_Crops,Vegetables,1.016772665
+Canada,FoodDemand_Crops,Wheat,0.376369231
+Canada,FoodDemand_Meat,Beef,0.435451791
+Canada,FoodDemand_Meat,Dairy,1.761750093
+Canada,FoodDemand_Meat,OtherMeat_Fish,0.856658105
+Canada,FoodDemand_Meat,Pork,0.199105306
+Canada,FoodDemand_Meat,Poultry,1.024721012
+Canada,FoodDemand_Meat,SheepGoat,0.472910331
+Central America and Caribbean,FoodDemand_Crops,Corn,0.068580434
+Central America and Caribbean,FoodDemand_Crops,FiberCrop,0
+Central America and Caribbean,FoodDemand_Crops,Fruits,0.084007222
+Central America and Caribbean,FoodDemand_Crops,Legumes,0.217927355
+Central America and Caribbean,FoodDemand_Crops,MiscCrop,0
+Central America and Caribbean,FoodDemand_Crops,NutsSeeds,1.493579038
+Central America and Caribbean,FoodDemand_Crops,OilCrop,1.85202245
+Central America and Caribbean,FoodDemand_Crops,OtherGrain,0.061193622
+Central America and Caribbean,FoodDemand_Crops,PalmFruit,0.044287103
+Central America and Caribbean,FoodDemand_Crops,Rice,0.084900243
+Central America and Caribbean,FoodDemand_Crops,RootTuber,0.059665577
+Central America and Caribbean,FoodDemand_Crops,Soybean,0.064096598
+Central America and Caribbean,FoodDemand_Crops,SugarCrop,0.022364803
+Central America and Caribbean,FoodDemand_Crops,Vegetables,0.461619885
+Central America and Caribbean,FoodDemand_Crops,Wheat,0.052722032
+Central America and Caribbean,FoodDemand_Meat,Beef,0.801886305
+Central America and Caribbean,FoodDemand_Meat,Dairy,1.402101433
+Central America and Caribbean,FoodDemand_Meat,OtherMeat_Fish,1.019878978
+Central America and Caribbean,FoodDemand_Meat,Pork,0.24349308
+Central America and Caribbean,FoodDemand_Meat,Poultry,0.470839204
+Central America and Caribbean,FoodDemand_Meat,SheepGoat,0.377775865
+Central Asia,FoodDemand_Crops,Corn,0.195084418
+Central Asia,FoodDemand_Crops,FiberCrop,0
+Central Asia,FoodDemand_Crops,Fruits,1.003822094
+Central Asia,FoodDemand_Crops,Legumes,2.908339444
+Central Asia,FoodDemand_Crops,MiscCrop,0
+Central Asia,FoodDemand_Crops,NutsSeeds,2.238054576
+Central Asia,FoodDemand_Crops,OilCrop,1.355011248
+Central Asia,FoodDemand_Crops,OtherGrain,0.169018992
+Central Asia,FoodDemand_Crops,PalmFruit,2.025682575
+Central Asia,FoodDemand_Crops,Rice,0.553453924
+Central Asia,FoodDemand_Crops,RootTuber,0.38422482
+Central Asia,FoodDemand_Crops,Soybean,1.695142744
+Central Asia,FoodDemand_Crops,SugarCrop,0.483740173
+Central Asia,FoodDemand_Crops,Vegetables,0.611513979
+Central Asia,FoodDemand_Crops,Wheat,0.342025329
+Central Asia,FoodDemand_Meat,Beef,0.473478524
+Central Asia,FoodDemand_Meat,Dairy,1.077392626
+Central Asia,FoodDemand_Meat,OtherMeat_Fish,1.108743916
+Central Asia,FoodDemand_Meat,Pork,0.163152161
+Central Asia,FoodDemand_Meat,Poultry,0.821457965
+Central Asia,FoodDemand_Meat,SheepGoat,0.286514983
+China,FoodDemand_Crops,Corn,0.062335278
+China,FoodDemand_Crops,FiberCrop,0
+China,FoodDemand_Crops,Fruits,0.394047726
+China,FoodDemand_Crops,Legumes,1.119667093
+China,FoodDemand_Crops,MiscCrop,0
+China,FoodDemand_Crops,NutsSeeds,0.652321517
+China,FoodDemand_Crops,OilCrop,0.769395636
+China,FoodDemand_Crops,OtherGrain,0.073313993
+China,FoodDemand_Crops,PalmFruit,0.467215317
+China,FoodDemand_Crops,Rice,0.088021311
+China,FoodDemand_Crops,RootTuber,0.150425622
+China,FoodDemand_Crops,Soybean,0.425499002
+China,FoodDemand_Crops,SugarCrop,0.602204118
+China,FoodDemand_Crops,Vegetables,0.449709254
+China,FoodDemand_Crops,Wheat,0.101454889
+China,FoodDemand_Meat,Beef,0.047970672
+China,FoodDemand_Meat,Dairy,0.633907668
+China,FoodDemand_Meat,OtherMeat_Fish,0.128196393
+China,FoodDemand_Meat,Pork,0.015909338
+China,FoodDemand_Meat,Poultry,0.056625276
+China,FoodDemand_Meat,SheepGoat,0.016549214
+Colombia,FoodDemand_Crops,Corn,0.356630934
+Colombia,FoodDemand_Crops,FiberCrop,0
+Colombia,FoodDemand_Crops,Fruits,0.310126389
+Colombia,FoodDemand_Crops,Legumes,1.179567681
+Colombia,FoodDemand_Crops,MiscCrop,0
+Colombia,FoodDemand_Crops,NutsSeeds,2.818163465
+Colombia,FoodDemand_Crops,OilCrop,2.715121645
+Colombia,FoodDemand_Crops,OtherGrain,0.292677096
+Colombia,FoodDemand_Crops,PalmFruit,0.121342627
+Colombia,FoodDemand_Crops,Rice,0.404537572
+Colombia,FoodDemand_Crops,RootTuber,0.227948594
+Colombia,FoodDemand_Crops,Soybean,0.276538542
+Colombia,FoodDemand_Crops,SugarCrop,0.124875504
+Colombia,FoodDemand_Crops,Vegetables,1.381180773
+Colombia,FoodDemand_Crops,Wheat,0.218669099
+Colombia,FoodDemand_Meat,Beef,0.332246016
+Colombia,FoodDemand_Meat,Dairy,0.878285661
+Colombia,FoodDemand_Meat,OtherMeat_Fish,0.680456111
+Colombia,FoodDemand_Meat,Pork,0.080188657
+Colombia,FoodDemand_Meat,Poultry,0.177435705
+Colombia,FoodDemand_Meat,SheepGoat,0.177768428
+EU-12,FoodDemand_Crops,Corn,0.110093395
+EU-12,FoodDemand_Crops,FiberCrop,0
+EU-12,FoodDemand_Crops,Fruits,0.206538257
+EU-12,FoodDemand_Crops,Legumes,1.504223754
+EU-12,FoodDemand_Crops,MiscCrop,0
+EU-12,FoodDemand_Crops,NutsSeeds,1.309182169
+EU-12,FoodDemand_Crops,OilCrop,0.241189513
+EU-12,FoodDemand_Crops,OtherGrain,0.038686575
+EU-12,FoodDemand_Crops,PalmFruit,0.120331905
+EU-12,FoodDemand_Crops,Rice,0.131486259
+EU-12,FoodDemand_Crops,RootTuber,0.067910631
+EU-12,FoodDemand_Crops,Soybean,0.34048165
+EU-12,FoodDemand_Crops,SugarCrop,0.031430091
+EU-12,FoodDemand_Crops,Vegetables,0.187498933
+EU-12,FoodDemand_Crops,Wheat,0.050729361
+EU-12,FoodDemand_Meat,Beef,0.49743124
+EU-12,FoodDemand_Meat,Dairy,1.219493616
+EU-12,FoodDemand_Meat,OtherMeat_Fish,0.751218306
+EU-12,FoodDemand_Meat,Pork,0.178809215
+EU-12,FoodDemand_Meat,Poultry,0.90202805
+EU-12,FoodDemand_Meat,SheepGoat,0.415033485
+EU-15,FoodDemand_Crops,Corn,0.16663583
+EU-15,FoodDemand_Crops,FiberCrop,0
+EU-15,FoodDemand_Crops,Fruits,0.212963586
+EU-15,FoodDemand_Crops,Legumes,2.196833122
+EU-15,FoodDemand_Crops,MiscCrop,0
+EU-15,FoodDemand_Crops,NutsSeeds,0.916154724
+EU-15,FoodDemand_Crops,OilCrop,0.333307229
+EU-15,FoodDemand_Crops,OtherGrain,0.283118887
+EU-15,FoodDemand_Crops,PalmFruit,0.252605086
+EU-15,FoodDemand_Crops,Rice,0.194374228
+EU-15,FoodDemand_Crops,RootTuber,0.224748292
+EU-15,FoodDemand_Crops,Soybean,0.179642352
+EU-15,FoodDemand_Crops,SugarCrop,0.062049904
+EU-15,FoodDemand_Crops,Vegetables,0.43048507
+EU-15,FoodDemand_Crops,Wheat,0.11779886
+EU-15,FoodDemand_Meat,Beef,0.380257055
+EU-15,FoodDemand_Meat,Dairy,1.593801369
+EU-15,FoodDemand_Meat,OtherMeat_Fish,1.17010851
+EU-15,FoodDemand_Meat,Pork,0.24199325
+EU-15,FoodDemand_Meat,Poultry,1.393565992
+EU-15,FoodDemand_Meat,SheepGoat,0.31510793
+Europe_Eastern,FoodDemand_Crops,Corn,0.034876217
+Europe_Eastern,FoodDemand_Crops,Fruits,0.498382771
+Europe_Eastern,FoodDemand_Crops,Legumes,2.053205901
+Europe_Eastern,FoodDemand_Crops,MiscCrop,0
+Europe_Eastern,FoodDemand_Crops,NutsSeeds,2.677085973
+Europe_Eastern,FoodDemand_Crops,OilCrop,0.346130643
+Europe_Eastern,FoodDemand_Crops,OtherGrain,0.061148351
+Europe_Eastern,FoodDemand_Crops,PalmFruit,0.545103339
+Europe_Eastern,FoodDemand_Crops,Rice,0.206455682
+Europe_Eastern,FoodDemand_Crops,RootTuber,0.135906935
+Europe_Eastern,FoodDemand_Crops,Soybean,1.105789117
+Europe_Eastern,FoodDemand_Crops,SugarCrop,0.052071978
+Europe_Eastern,FoodDemand_Crops,Vegetables,0.278810509
+Europe_Eastern,FoodDemand_Crops,Wheat,0.125357498
+Europe_Eastern,FoodDemand_Meat,Beef,0.909346024
+Europe_Eastern,FoodDemand_Meat,Dairy,1.301279694
+Europe_Eastern,FoodDemand_Meat,OtherMeat_Fish,0.969271353
+Europe_Eastern,FoodDemand_Meat,Pork,0.176971189
+Europe_Eastern,FoodDemand_Meat,Poultry,0.565865928
+Europe_Eastern,FoodDemand_Meat,SheepGoat,0.569490971
+Europe_Non_EU,FoodDemand_Crops,Corn,0.071189169
+Europe_Non_EU,FoodDemand_Crops,FiberCrop,0
+Europe_Non_EU,FoodDemand_Crops,Fruits,0.241079503
+Europe_Non_EU,FoodDemand_Crops,Legumes,0.771749207
+Europe_Non_EU,FoodDemand_Crops,MiscCrop,0
+Europe_Non_EU,FoodDemand_Crops,NutsSeeds,0.994972941
+Europe_Non_EU,FoodDemand_Crops,OilCrop,0.541709303
+Europe_Non_EU,FoodDemand_Crops,OtherGrain,0.161616169
+Europe_Non_EU,FoodDemand_Crops,PalmFruit,0.171985107
+Europe_Non_EU,FoodDemand_Crops,Rice,0.15844664
+Europe_Non_EU,FoodDemand_Crops,RootTuber,0.183279281
+Europe_Non_EU,FoodDemand_Crops,Soybean,0.532860661
+Europe_Non_EU,FoodDemand_Crops,SugarCrop,0.114800247
+Europe_Non_EU,FoodDemand_Crops,Vegetables,0.326019397
+Europe_Non_EU,FoodDemand_Crops,Wheat,0.115939698
+Europe_Non_EU,FoodDemand_Meat,Beef,0.139282853
+Europe_Non_EU,FoodDemand_Meat,Dairy,0.334736635
+Europe_Non_EU,FoodDemand_Meat,OtherMeat_Fish,0.954246393
+Europe_Non_EU,FoodDemand_Meat,Pork,0.00884625
+Europe_Non_EU,FoodDemand_Meat,Poultry,0.178748039
+Europe_Non_EU,FoodDemand_Meat,SheepGoat,0.312062498
+European Free Trade Association,FoodDemand_Crops,Corn,0
+European Free Trade Association,FoodDemand_Crops,FiberCrop,0
+European Free Trade Association,FoodDemand_Crops,Fruits,0.319471082
+European Free Trade Association,FoodDemand_Crops,Legumes,2.717698477
+European Free Trade Association,FoodDemand_Crops,MiscCrop,0
+European Free Trade Association,FoodDemand_Crops,NutsSeeds,1.25229376
+European Free Trade Association,FoodDemand_Crops,OilCrop,0.669958986
+European Free Trade Association,FoodDemand_Crops,OtherGrain,0.410033675
+European Free Trade Association,FoodDemand_Crops,PalmFruit,0.410352901
+European Free Trade Association,FoodDemand_Crops,Rice,0.385899459
+European Free Trade Association,FoodDemand_Crops,RootTuber,0.623469948
+European Free Trade Association,FoodDemand_Crops,Soybean,0.542416413
+European Free Trade Association,FoodDemand_Crops,SugarCrop,0.087992526
+European Free Trade Association,FoodDemand_Crops,Vegetables,0.950915922
+European Free Trade Association,FoodDemand_Crops,Wheat,0.315467363
+European Free Trade Association,FoodDemand_Meat,Beef,0.427879673
+European Free Trade Association,FoodDemand_Meat,Dairy,1.268258112
+European Free Trade Association,FoodDemand_Meat,OtherMeat_Fish,1.183365399
+European Free Trade Association,FoodDemand_Meat,Pork,0.393443562
+European Free Trade Association,FoodDemand_Meat,Poultry,1.404343378
+European Free Trade Association,FoodDemand_Meat,SheepGoat,0.891787728
+India,FoodDemand_Crops,Corn,0.033369491
+India,FoodDemand_Crops,FiberCrop,0
+India,FoodDemand_Crops,Fruits,0.217802369
+India,FoodDemand_Crops,Legumes,0.225152687
+India,FoodDemand_Crops,MiscCrop,0
+India,FoodDemand_Crops,NutsSeeds,0.506739685
+India,FoodDemand_Crops,OilCrop,0.749549766
+India,FoodDemand_Crops,OtherGrain,0.039069595
+India,FoodDemand_Crops,PalmFruit,0.107302035
+India,FoodDemand_Crops,Rice,0.045715904
+India,FoodDemand_Crops,RootTuber,0.062641926
+India,FoodDemand_Crops,Soybean,0.344052034
+India,FoodDemand_Crops,SugarCrop,0.059207429
+India,FoodDemand_Crops,Vegetables,0.561914616
+India,FoodDemand_Crops,Wheat,0.043570241
+India,FoodDemand_Meat,Beef,0.192981062
+India,FoodDemand_Meat,Dairy,0.070050789
+India,FoodDemand_Meat,OtherMeat_Fish,0.345150392
+India,FoodDemand_Meat,Pork,0.197114042
+India,FoodDemand_Meat,Poultry,0.214358674
+India,FoodDemand_Meat,SheepGoat,0.196309389
+Indonesia,FoodDemand_Crops,Corn,0.053835023
+Indonesia,FoodDemand_Crops,FiberCrop,0
+Indonesia,FoodDemand_Crops,Fruits,0.236049199
+Indonesia,FoodDemand_Crops,Legumes,0.5
+Indonesia,FoodDemand_Crops,MiscCrop,0
+Indonesia,FoodDemand_Crops,NutsSeeds,0.366961084
+Indonesia,FoodDemand_Crops,OilCrop,1.897972994
+Indonesia,FoodDemand_Crops,OtherGrain,0.00697449
+Indonesia,FoodDemand_Crops,PalmFruit,0.022440876
+Indonesia,FoodDemand_Crops,Rice,0.077211538
+Indonesia,FoodDemand_Crops,RootTuber,0.036480993
+Indonesia,FoodDemand_Crops,Soybean,0.345613982
+Indonesia,FoodDemand_Crops,SugarCrop,0.122109572
+Indonesia,FoodDemand_Crops,Vegetables,0.674350739
+Indonesia,FoodDemand_Crops,Wheat,0.072338253
+Indonesia,FoodDemand_Meat,Beef,0.529921446
+Indonesia,FoodDemand_Meat,Dairy,0.412612479
+Indonesia,FoodDemand_Meat,OtherMeat_Fish,0.287489172
+Indonesia,FoodDemand_Meat,Pork,0.198931596
+Indonesia,FoodDemand_Meat,Poultry,0.264324449
+Indonesia,FoodDemand_Meat,SheepGoat,0.491084132
+Japan,FoodDemand_Crops,Corn,0.083882473
+Japan,FoodDemand_Crops,FiberCrop,0
+Japan,FoodDemand_Crops,Fruits,0.307106655
+Japan,FoodDemand_Crops,Legumes,2.804418863
+Japan,FoodDemand_Crops,MiscCrop,0
+Japan,FoodDemand_Crops,NutsSeeds,2.723302433
+Japan,FoodDemand_Crops,OilCrop,0.446663267
+Japan,FoodDemand_Crops,OtherGrain,0.136826138
+Japan,FoodDemand_Crops,PalmFruit,0.089152397
+Japan,FoodDemand_Crops,Rice,0.085627356
+Japan,FoodDemand_Crops,RootTuber,0.13164197
+Japan,FoodDemand_Crops,Soybean,0.135338225
+Japan,FoodDemand_Crops,SugarCrop,0.138617107
+Japan,FoodDemand_Crops,Vegetables,0.350949139
+Japan,FoodDemand_Crops,Wheat,0.098422618
+Japan,FoodDemand_Meat,Beef,0.249052253
+Japan,FoodDemand_Meat,Dairy,1.870654872
+Japan,FoodDemand_Meat,OtherMeat_Fish,1.550678204
+Japan,FoodDemand_Meat,Pork,0.144651642
+Japan,FoodDemand_Meat,Poultry,0.379744465
+Japan,FoodDemand_Meat,SheepGoat,0.522486619
+Mexico,FoodDemand_Crops,Corn,0.153703843
+Mexico,FoodDemand_Crops,FiberCrop,0
+Mexico,FoodDemand_Crops,Fruits,0.351746781
+Mexico,FoodDemand_Crops,Legumes,0.858265985
+Mexico,FoodDemand_Crops,MiscCrop,0
+Mexico,FoodDemand_Crops,NutsSeeds,2.118360735
+Mexico,FoodDemand_Crops,OilCrop,2.298322759
+Mexico,FoodDemand_Crops,OtherGrain,0.304991656
+Mexico,FoodDemand_Crops,PalmFruit,0.280999841
+Mexico,FoodDemand_Crops,Rice,0.258786597
+Mexico,FoodDemand_Crops,RootTuber,0.270837565
+Mexico,FoodDemand_Crops,Soybean,0.245036595
+Mexico,FoodDemand_Crops,SugarCrop,0.084548913
+Mexico,FoodDemand_Crops,Vegetables,1.274622528
+Mexico,FoodDemand_Crops,Wheat,0.16196574
+Mexico,FoodDemand_Meat,Beef,0.376811187
+Mexico,FoodDemand_Meat,Dairy,1.793275948
+Mexico,FoodDemand_Meat,OtherMeat_Fish,0.849296498
+Mexico,FoodDemand_Meat,Pork,0.330284044
+Mexico,FoodDemand_Meat,Poultry,0.438531243
+Mexico,FoodDemand_Meat,SheepGoat,0.362939232
+Middle East,FoodDemand_Crops,Corn,0.066148704
+Middle East,FoodDemand_Crops,FiberCrop,0
+Middle East,FoodDemand_Crops,Fruits,0.244901663
+Middle East,FoodDemand_Crops,Legumes,1.194861419
+Middle East,FoodDemand_Crops,MiscCrop,0
+Middle East,FoodDemand_Crops,NutsSeeds,1.18011111
+Middle East,FoodDemand_Crops,OilCrop,1.432652837
+Middle East,FoodDemand_Crops,OtherGrain,0.147206904
+Middle East,FoodDemand_Crops,PalmFruit,0.072382854
+Middle East,FoodDemand_Crops,Rice,0.116444635
+Middle East,FoodDemand_Crops,RootTuber,0.19890611
+Middle East,FoodDemand_Crops,Soybean,0.20452236
+Middle East,FoodDemand_Crops,SugarCrop,0.090068986
+Middle East,FoodDemand_Crops,Vegetables,0.329953902
+Middle East,FoodDemand_Crops,Wheat,0.109299716
+Middle East,FoodDemand_Meat,Beef,0.961713308
+Middle East,FoodDemand_Meat,Dairy,1.500658611
+Middle East,FoodDemand_Meat,OtherMeat_Fish,1.746582923
+Middle East,FoodDemand_Meat,Pork,0.500795205
+Middle East,FoodDemand_Meat,Poultry,0.304723858
+Middle East,FoodDemand_Meat,SheepGoat,0.841086714
+Pakistan,FoodDemand_Crops,Corn,0.174945691
+Pakistan,FoodDemand_Crops,FiberCrop,0
+Pakistan,FoodDemand_Crops,Fruits,0.905138812
+Pakistan,FoodDemand_Crops,Legumes,1.11649322
+Pakistan,FoodDemand_Crops,MiscCrop,0
+Pakistan,FoodDemand_Crops,NutsSeeds,2.204915482
+Pakistan,FoodDemand_Crops,OilCrop,1.231555103
+Pakistan,FoodDemand_Crops,OtherGrain,0.236822251
+Pakistan,FoodDemand_Crops,PalmFruit,0.0964883
+Pakistan,FoodDemand_Crops,Rice,0.336434433
+Pakistan,FoodDemand_Crops,RootTuber,0.281958976
+Pakistan,FoodDemand_Crops,Soybean,1.789207092
+Pakistan,FoodDemand_Crops,SugarCrop,0.128020305
+Pakistan,FoodDemand_Crops,Vegetables,1.360628623
+Pakistan,FoodDemand_Crops,Wheat,0.185925392
+Pakistan,FoodDemand_Meat,Beef,0.445042421
+Pakistan,FoodDemand_Meat,Dairy,0.473212081
+Pakistan,FoodDemand_Meat,OtherMeat_Fish,0.766744373
+Pakistan,FoodDemand_Meat,Pork,0
+Pakistan,FoodDemand_Meat,Poultry,0.548002493
+Pakistan,FoodDemand_Meat,SheepGoat,0.427205417
+Russia,FoodDemand_Crops,Corn,0.039945352
+Russia,FoodDemand_Crops,Fruits,0.193978353
+Russia,FoodDemand_Crops,Legumes,2.209034609
+Russia,FoodDemand_Crops,MiscCrop,0
+Russia,FoodDemand_Crops,NutsSeeds,1.942452901
+Russia,FoodDemand_Crops,OilCrop,0.20379784
+Russia,FoodDemand_Crops,OtherGrain,0.032768471
+Russia,FoodDemand_Crops,PalmFruit,0
+Russia,FoodDemand_Crops,Rice,0.090853596
+Russia,FoodDemand_Crops,RootTuber,0.102713158
+Russia,FoodDemand_Crops,Soybean,1.071781094
+Russia,FoodDemand_Crops,SugarCrop,0.022724354
+Russia,FoodDemand_Crops,Vegetables,0.223090225
+Russia,FoodDemand_Crops,Wheat,0.055402371
+Russia,FoodDemand_Meat,Beef,0.588174457
+Russia,FoodDemand_Meat,Dairy,1.408774289
+Russia,FoodDemand_Meat,OtherMeat_Fish,0.84775742
+Russia,FoodDemand_Meat,Pork,0.143990333
+Russia,FoodDemand_Meat,Poultry,0.618622146
+Russia,FoodDemand_Meat,SheepGoat,0.392421176
+South Africa,FoodDemand_Crops,Corn,0.30825953
+South Africa,FoodDemand_Crops,FiberCrop,0
+South Africa,FoodDemand_Crops,Fruits,1.871833861
+South Africa,FoodDemand_Crops,Legumes,2.542204691
+South Africa,FoodDemand_Crops,MiscCrop,0
+South Africa,FoodDemand_Crops,NutsSeeds,3
+South Africa,FoodDemand_Crops,OilCrop,1.980540634
+South Africa,FoodDemand_Crops,OtherGrain,0.485417473
+South Africa,FoodDemand_Crops,PalmFruit,1.179390805
+South Africa,FoodDemand_Crops,Rice,0.663023691
+South Africa,FoodDemand_Crops,RootTuber,0.344496327
+South Africa,FoodDemand_Crops,Soybean,0.663384578
+South Africa,FoodDemand_Crops,SugarCrop,0.300628752
+South Africa,FoodDemand_Crops,Vegetables,2.138179099
+South Africa,FoodDemand_Crops,Wheat,0.465947406
+South Africa,FoodDemand_Meat,Beef,0.387605028
+South Africa,FoodDemand_Meat,Dairy,1.905361733
+South Africa,FoodDemand_Meat,OtherMeat_Fish,1.644369776
+South Africa,FoodDemand_Meat,Pork,0.499139045
+South Africa,FoodDemand_Meat,Poultry,0.312158701
+South Africa,FoodDemand_Meat,SheepGoat,0.252392548
+South America_Northern,FoodDemand_Crops,Corn,0.622725892
+South America_Northern,FoodDemand_Crops,FiberCrop,0
+South America_Northern,FoodDemand_Crops,Fruits,1.306032058
+South America_Northern,FoodDemand_Crops,Legumes,2.849454304
+South America_Northern,FoodDemand_Crops,MiscCrop,0
+South America_Northern,FoodDemand_Crops,NutsSeeds,3
+South America_Northern,FoodDemand_Crops,OilCrop,3
+South America_Northern,FoodDemand_Crops,OtherGrain,0.47182189
+South America_Northern,FoodDemand_Crops,PalmFruit,0.96396662
+South America_Northern,FoodDemand_Crops,Rice,0.663789996
+South America_Northern,FoodDemand_Crops,RootTuber,1.068233483
+South America_Northern,FoodDemand_Crops,Soybean,0.3068734
+South America_Northern,FoodDemand_Crops,SugarCrop,0.31385405
+South America_Northern,FoodDemand_Crops,Vegetables,2.573529453
+South America_Northern,FoodDemand_Crops,Wheat,0.661205369
+South America_Northern,FoodDemand_Meat,Beef,0.436400998
+South America_Northern,FoodDemand_Meat,Dairy,1.848698466
+South America_Northern,FoodDemand_Meat,OtherMeat_Fish,1.731188152
+South America_Northern,FoodDemand_Meat,Pork,0.183151908
+South America_Northern,FoodDemand_Meat,Poultry,0.464915675
+South America_Northern,FoodDemand_Meat,SheepGoat,0.276283123
+South America_Southern,FoodDemand_Crops,Corn,0.044001185
+South America_Southern,FoodDemand_Crops,FiberCrop,0
+South America_Southern,FoodDemand_Crops,Fruits,0.084074655
+South America_Southern,FoodDemand_Crops,Legumes,0.676298526
+South America_Southern,FoodDemand_Crops,MiscCrop,0
+South America_Southern,FoodDemand_Crops,NutsSeeds,1.472139433
+South America_Southern,FoodDemand_Crops,OilCrop,1.357589589
+South America_Southern,FoodDemand_Crops,OtherGrain,0.03575043
+South America_Southern,FoodDemand_Crops,PalmFruit,0.087739983
+South America_Southern,FoodDemand_Crops,Rice,0.060056666
+South America_Southern,FoodDemand_Crops,RootTuber,0.05833707
+South America_Southern,FoodDemand_Crops,Soybean,0.077399049
+South America_Southern,FoodDemand_Crops,SugarCrop,0.034711143
+South America_Southern,FoodDemand_Crops,Vegetables,0.605180729
+South America_Southern,FoodDemand_Crops,Wheat,0.044494435
+South America_Southern,FoodDemand_Meat,Beef,0.403442872
+South America_Southern,FoodDemand_Meat,Dairy,1.204717646
+South America_Southern,FoodDemand_Meat,OtherMeat_Fish,0.630783828
+South America_Southern,FoodDemand_Meat,Pork,0.143259219
+South America_Southern,FoodDemand_Meat,Poultry,0.541414575
+South America_Southern,FoodDemand_Meat,SheepGoat,0.310302615
+South Asia,FoodDemand_Crops,Corn,1.409655687
+South Asia,FoodDemand_Crops,FiberCrop,0
+South Asia,FoodDemand_Crops,Fruits,1.745262014
+South Asia,FoodDemand_Crops,Legumes,1.529966488
+South Asia,FoodDemand_Crops,MiscCrop,0
+South Asia,FoodDemand_Crops,NutsSeeds,2.45942402
+South Asia,FoodDemand_Crops,OilCrop,2.051761548
+South Asia,FoodDemand_Crops,OtherGrain,1.082523039
+South Asia,FoodDemand_Crops,PalmFruit,1.355472198
+South Asia,FoodDemand_Crops,Rice,1.041538804
+South Asia,FoodDemand_Crops,RootTuber,0.92248107
+South Asia,FoodDemand_Crops,Soybean,1.368103038
+South Asia,FoodDemand_Crops,SugarCrop,1.278366932
+South Asia,FoodDemand_Crops,Vegetables,1.625488996
+South Asia,FoodDemand_Crops,Wheat,1.090633541
+South Asia,FoodDemand_Meat,Beef,0.843401616
+South Asia,FoodDemand_Meat,Dairy,0.909457598
+South Asia,FoodDemand_Meat,OtherMeat_Fish,0.773363541
+South Asia,FoodDemand_Meat,Pork,0.629851669
+South Asia,FoodDemand_Meat,Poultry,0.765936711
+South Asia,FoodDemand_Meat,SheepGoat,0.604282667
+South Korea,FoodDemand_Crops,Corn,0.021323709
+South Korea,FoodDemand_Crops,FiberCrop,0
+South Korea,FoodDemand_Crops,Fruits,0.080079428
+South Korea,FoodDemand_Crops,Legumes,1.379567807
+South Korea,FoodDemand_Crops,MiscCrop,0
+South Korea,FoodDemand_Crops,NutsSeeds,0.492231515
+South Korea,FoodDemand_Crops,OilCrop,0.351809989
+South Korea,FoodDemand_Crops,OtherGrain,0.196302195
+South Korea,FoodDemand_Crops,PalmFruit,0.035492061
+South Korea,FoodDemand_Crops,Rice,0.0269788
+South Korea,FoodDemand_Crops,RootTuber,0.043360246
+South Korea,FoodDemand_Crops,Soybean,0.011047475
+South Korea,FoodDemand_Crops,SugarCrop,0.03140067
+South Korea,FoodDemand_Crops,Vegetables,0.070850276
+South Korea,FoodDemand_Crops,Wheat,0.033449186
+South Korea,FoodDemand_Meat,Beef,0.097947731
+South Korea,FoodDemand_Meat,Dairy,0.558112153
+South Korea,FoodDemand_Meat,OtherMeat_Fish,0.310135491
+South Korea,FoodDemand_Meat,Pork,0.048135413
+South Korea,FoodDemand_Meat,Poultry,0.349005334
+South Korea,FoodDemand_Meat,SheepGoat,0.142643366
+Southeast Asia,FoodDemand_Crops,Corn,0.02645952
+Southeast Asia,FoodDemand_Crops,FiberCrop,0
+Southeast Asia,FoodDemand_Crops,Fruits,0.184640577
+Southeast Asia,FoodDemand_Crops,Legumes,0.709664368
+Southeast Asia,FoodDemand_Crops,MiscCrop,0
+Southeast Asia,FoodDemand_Crops,NutsSeeds,0.457918569
+Southeast Asia,FoodDemand_Crops,OilCrop,1.379375438
+Southeast Asia,FoodDemand_Crops,OtherGrain,0.065039241
+Southeast Asia,FoodDemand_Crops,PalmFruit,0.045974832
+Southeast Asia,FoodDemand_Crops,Rice,0.043309175
+Southeast Asia,FoodDemand_Crops,RootTuber,0.053279953
+Southeast Asia,FoodDemand_Crops,Soybean,0.295657723
+Southeast Asia,FoodDemand_Crops,SugarCrop,0.047740122
+Southeast Asia,FoodDemand_Crops,Vegetables,0.399827243
+Southeast Asia,FoodDemand_Crops,Wheat,0.08612948
+Southeast Asia,FoodDemand_Meat,Beef,0.157114144
+Southeast Asia,FoodDemand_Meat,Dairy,0.712886682
+Southeast Asia,FoodDemand_Meat,OtherMeat_Fish,0.507552532
+Southeast Asia,FoodDemand_Meat,Pork,0.124678744
+Southeast Asia,FoodDemand_Meat,Poultry,0.264531977
+Southeast Asia,FoodDemand_Meat,SheepGoat,0.079052718
+USA,FoodDemand_Crops,Corn,0.166826218
+USA,FoodDemand_Crops,FiberCrop,0
+USA,FoodDemand_Crops,Fruits,0.383376168
+USA,FoodDemand_Crops,Legumes,2.214564367
+USA,FoodDemand_Crops,MiscCrop,0
+USA,FoodDemand_Crops,NutsSeeds,1.573614989
+USA,FoodDemand_Crops,OilCrop,2.45253927
+USA,FoodDemand_Crops,OtherGrain,0.210869433
+USA,FoodDemand_Crops,PalmFruit,0.025883484
+USA,FoodDemand_Crops,Rice,0.541371956
+USA,FoodDemand_Crops,RootTuber,0.334432393
+USA,FoodDemand_Crops,Soybean,0.042955678
+USA,FoodDemand_Crops,SugarCrop,0.176202836
+USA,FoodDemand_Crops,Vegetables,0.702137992
+USA,FoodDemand_Crops,Wheat,0.266659824
+USA,FoodDemand_Meat,Beef,0.374466021
+USA,FoodDemand_Meat,Dairy,1.794565852
+USA,FoodDemand_Meat,OtherMeat_Fish,1.524508069
+USA,FoodDemand_Meat,Pork,0.170427586
+USA,FoodDemand_Meat,Poultry,0.815403219
+USA,FoodDemand_Meat,SheepGoat,0.418829537

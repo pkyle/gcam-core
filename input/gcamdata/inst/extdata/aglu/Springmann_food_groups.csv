@@ -1,0 +1,30 @@
+# File: Springmann_food_groups.csv
+# Title: Mapping from Springmann food groups to GCAM commodities
+# Units: NA
+# Source: https://doi.org/10.1016/S2542-5196(18)30206-7
+# Column types: cc
+# ----------
+food_group,GCAM_commodity
+wheat,Wheat
+rice,Rice
+maize,Corn
+othr_grains,OtherGrain
+roots,RootTuber
+vegetables,Vegetables
+fruits,Fruits
+legumes,Legumes
+soybeans,Soybean
+nuts_seeds,NutsSeeds
+oil_palm,PalmFruit
+oil_veg,OilCrop
+sugar,SugarCrop
+beef,Beef
+lamb,SheepGoat
+pork,Pork
+poultry,Poultry
+milk,Dairy
+eggs,Poultry
+fish,OtherMeat_Fish
+othrcal,
+total,
+othrcrp,MiscCrop

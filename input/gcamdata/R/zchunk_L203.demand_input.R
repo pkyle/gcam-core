@@ -22,6 +22,7 @@ module_aglu_L203.demand_input <- function(command, ...) {
              FILE = "aglu/A_demand_subsector",
              FILE = "aglu/A_demand_technology",
              FILE = "aglu/A_fuelprefElasticity_ssp1",
+             FILE = "aglu/A_FLX_FuelPrefElast",
              "L101.ag_Food_Pcal_R_C_Y",
              "L101.ag_kcalg_R_C_Y",
              "L105.an_Food_Pcal_R_C_Y",
@@ -35,6 +36,8 @@ module_aglu_L203.demand_input <- function(command, ...) {
              "L134.pcFood_kcald_R_Dmnd_Y_ssp3",
              "L134.pcFood_kcald_R_Dmnd_Y_ssp4",
              "L134.pcFood_kcald_R_Dmnd_Y_ssp5",
+             "L134.pcFood_kcald_R_C_Y_FLX",
+             "L134.pcFoodShare_R_C_2050_FLX",
              "L101.Pop_thous_R_Yh",
              "L102.pcgdp_thous90USD_Scen_R_Y"))
   } else if(command == driver.DECLARE_OUTPUTS) {
@@ -56,11 +59,13 @@ module_aglu_L203.demand_input <- function(command, ...) {
              "L203.IncomeElasticity",
              "L203.PriceElasticity",
              "L203.FuelPrefElast_ssp1",
+             "L203.FuelPrefElast_FLX",
              "L203.IncomeElasticity_SSP1",
              "L203.IncomeElasticity_SSP2",
              "L203.IncomeElasticity_SSP3",
              "L203.IncomeElasticity_SSP4",
-             "L203.IncomeElasticity_SSP5"))
+             "L203.IncomeElasticity_SSP5",
+             "L203.IncomeElasticity_FLX"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -77,6 +82,7 @@ module_aglu_L203.demand_input <- function(command, ...) {
     A_demand_subsector <- get_data(all_data, "aglu/A_demand_subsector")
     A_demand_technology <- get_data(all_data, "aglu/A_demand_technology")
     A_fuelprefElasticity_ssp1 <- get_data(all_data, "aglu/A_fuelprefElasticity_ssp1")
+    A_FLX_FuelPrefElast <- get_data(all_data, "aglu/A_FLX_FuelPrefElast")
     L101.ag_Food_Pcal_R_C_Y <- get_data(all_data, "L101.ag_Food_Pcal_R_C_Y")
     L101.ag_kcalg_R_C_Y <- get_data(all_data, "L101.ag_kcalg_R_C_Y")
     L105.an_Food_Pcal_R_C_Y <- get_data(all_data, "L105.an_Food_Pcal_R_C_Y")
@@ -90,6 +96,8 @@ module_aglu_L203.demand_input <- function(command, ...) {
     L134.pcFood_kcald_R_Dmnd_Y_ssp3 <- get_data(all_data, "L134.pcFood_kcald_R_Dmnd_Y_ssp3")
     L134.pcFood_kcald_R_Dmnd_Y_ssp4 <- get_data(all_data, "L134.pcFood_kcald_R_Dmnd_Y_ssp4")
     L134.pcFood_kcald_R_Dmnd_Y_ssp5 <- get_data(all_data, "L134.pcFood_kcald_R_Dmnd_Y_ssp5")
+    L134.pcFood_kcald_R_C_Y_FLX <- get_data(all_data, "L134.pcFood_kcald_R_C_Y_FLX")
+    L134.pcFoodShare_R_C_2050_FLX <- get_data(all_data, "L134.pcFoodShare_R_C_2050_FLX")
     L101.Pop_thous_R_Yh <- get_data(all_data, "L101.Pop_thous_R_Yh")
     L102.pcgdp_thous90USD_Scen_R_Y <- get_data(all_data, "L102.pcgdp_thous90USD_Scen_R_Y")
 
@@ -315,12 +323,13 @@ module_aglu_L203.demand_input <- function(command, ...) {
     L134.pcFood_kcald_R_Dmnd_Y_ssp3$scenario <- "SSP3"
     L134.pcFood_kcald_R_Dmnd_Y_ssp4$scenario <- "SSP4"
     L134.pcFood_kcald_R_Dmnd_Y_ssp5$scenario <- "SSP5"
+    L134.pcFood_kcald_R_C_Y_FLX$scenario <- "FLX"
     L134.pcFood_kcald_R_Dmnd_Y %>%
       # Combine per capita food caloric demand of core and all SSP scenarios
       mutate(scenario = "core") %>%
       bind_rows(L134.pcFood_kcald_R_Dmnd_Y_ssp1, L134.pcFood_kcald_R_Dmnd_Y_ssp2,
                 L134.pcFood_kcald_R_Dmnd_Y_ssp3, L134.pcFood_kcald_R_Dmnd_Y_ssp4,
-                L134.pcFood_kcald_R_Dmnd_Y_ssp5) %>%
+                L134.pcFood_kcald_R_Dmnd_Y_ssp5, L134.pcFood_kcald_R_C_Y_FLX) %>%
       filter(year %in% aglu_demand_futureyears) %>%
       left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
       # Create category crop vs. meat
@@ -354,8 +363,10 @@ module_aglu_L203.demand_input <- function(command, ...) {
 
     # Step 5: Solve for the income elasticities in each time period
     L203.pcFoodRatio_R_Dmnd_Yfut %>%
+      # The FLX scenario is intended to be run with SSP2 socioeconomics; indicate this in a new column for the GDP scenario
+      mutate(GDP_scenario = if_else(scenario == "FLX", "SSP2", scenario)) %>%
       # Taiwan's pcap food demand are missing there are NAs, use left_join instead
-      left_join(L203.pcgdpRatio_R_Y, by = c("GCAM_region_ID", "region", "year", "scenario")) %>%
+      left_join(L203.pcgdpRatio_R_Y, by = c("GCAM_region_ID", "region", "year", GDP_scenario = "scenario")) %>%
       mutate(income.elasticity = round(log(ratio) / log(gdp.ratio), aglu.DIGITS_INCELAS)) %>%
       # NAs for Taiwan, replace with zero, but Taiwan is dropped later
       replace_na(list(income.elasticity = 0)) %>%
@@ -363,8 +374,8 @@ module_aglu_L203.demand_input <- function(command, ...) {
       filter(year %in% MODEL_FUTURE_YEARS) %>%
       select(scenario, region, energy.final.demand, year, income.elasticity) %>%
       # Adjust income elasticity values between [0,1] for all the SSP scenarios
-      mutate(income.elasticity = replace(income.elasticity, scenario != "core" & income.elasticity > 1, 1),
-             income.elasticity = replace(income.elasticity, scenario != "core" & income.elasticity < 0, 0)) %>%
+      mutate(income.elasticity = replace(income.elasticity, grepl("SSP", scenario) & income.elasticity > 1, 1),
+             income.elasticity = replace(income.elasticity, grepl("SSP", scenario) & income.elasticity < 0, 0)) %>%
       filter(!region %in% aglu.NO_AGLU_REGIONS) ->           # Remove any regions for which agriculture and land use are not modeled
       L203.IncomeElasticity_allScen
 
@@ -386,6 +397,13 @@ module_aglu_L203.demand_input <- function(command, ...) {
       write_to_all_regions(names_FuelPrefElasticity, GCAM_region_names = GCAM_region_names) %>%
       filter(!region %in% aglu.NO_AGLU_REGIONS) ->           # Remove any regions for which agriculture and land use are not modeled
       L203.FuelPrefElast_ssp1
+
+    # Fuel preference elasticity for changing dietary composition in the FLX scenario
+    # Reading this in exogenously
+    L203.FuelPrefElast_FLX <- A_FLX_FuelPrefElast %>%
+      mutate(year.fillout = min(MODEL_FUTURE_YEARS),
+             fuelprefElasticity = round(fuelprefElasticity, aglu.DIGITS_INCELAS)) %>%
+      select(names_FuelPrefElasticity)
 
     L203.Supplysector_demand %>%
       add_title("Generic information for agriculture demand sectors") %>%
@@ -590,6 +608,13 @@ module_aglu_L203.demand_input <- function(command, ...) {
       add_precursors("aglu/A_fuelprefElasticity_ssp1") ->
       L203.FuelPrefElast_ssp1
 
+    L203.FuelPrefElast_FLX %>%
+      add_title("Fuel preference elasticities for FLX scenario") %>%
+      add_units("Unitless") %>%
+      add_comments("Based on dietary shift for Springmann FLX scenario") %>%
+      add_precursors("L134.pcFoodShare_R_C_2050_FLX", "aglu/A_FLX_FuelPrefElast") ->
+      L203.FuelPrefElast_FLX
+
     L203.IncomeElasticity_allScen %>%
       filter(scenario == "SSP1") %>%
       select(-scenario) %>%
@@ -664,7 +689,20 @@ module_aglu_L203.demand_input <- function(command, ...) {
                      "L102.pcgdp_thous90USD_Scen_R_Y") ->
       L203.IncomeElasticity_SSP5
 
-    return_data(L203.Supplysector_demand, L203.SubsectorAll_demand, L203.StubTech_demand, L203.GlobalTechCoef_demand, L203.GlobalTechShrwt_demand, L203.StubTechProd_food_crop, L203.StubTechProd_food_meat, L203.StubTechProd_nonfood_crop, L203.StubTechProd_nonfood_meat, L203.StubTechProd_For, L203.StubTechFixOut_exp, L203.StubCalorieContent_crop, L203.StubCalorieContent_meat, L203.PerCapitaBased, L203.BaseService, L203.IncomeElasticity, L203.PriceElasticity, L203.FuelPrefElast_ssp1, L203.IncomeElasticity_SSP1, L203.IncomeElasticity_SSP2, L203.IncomeElasticity_SSP3, L203.IncomeElasticity_SSP4, L203.IncomeElasticity_SSP5)
+    L203.IncomeElasticity_allScen %>%
+      filter(scenario == "FLX") %>%
+      select(-scenario) %>%
+      add_title("FLX future income elasticity of crop and meat food demand by region") %>%
+      add_units("Unitless") %>%
+      add_comments("Calculated from Springmann FLEX diet") %>%
+      add_precursors("common/GCAM_region_names",
+                     "L134.pcFood_kcald_R_C_Y_FLX",
+                     "L101.Pop_thous_R_Yh",
+                     "L102.pcgdp_thous90USD_Scen_R_Y") ->
+      L203.IncomeElasticity_FLX
+
+    return_data(L203.Supplysector_demand, L203.SubsectorAll_demand, L203.StubTech_demand, L203.GlobalTechCoef_demand, L203.GlobalTechShrwt_demand, L203.StubTechProd_food_crop, L203.StubTechProd_food_meat, L203.StubTechProd_nonfood_crop, L203.StubTechProd_nonfood_meat, L203.StubTechProd_For, L203.StubTechFixOut_exp, L203.StubCalorieContent_crop, L203.StubCalorieContent_meat, L203.PerCapitaBased, L203.BaseService, L203.IncomeElasticity, L203.PriceElasticity, L203.FuelPrefElast_ssp1, L203.IncomeElasticity_SSP1, L203.IncomeElasticity_SSP2, L203.IncomeElasticity_SSP3, L203.IncomeElasticity_SSP4, L203.IncomeElasticity_SSP5,
+                L203.IncomeElasticity_FLX, L203.FuelPrefElast_FLX)
   } else {
     stop("Unknown command")
   }
