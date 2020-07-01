@@ -118,7 +118,7 @@ module_aglu_LB166.ag_bio_CCI_R_C_GLU <- function(command, ...) {
     final_yieldRatio$`2010` <- 1 # yield ratio at base year should be 1
     addCol <- setdiff(seq(2010,2100,5),c(2010,2030,2085))
     addCol <- as.character(addCol)
-    final_yieldRatio[addCol]<-NA
+    final_yieldRatio[addCol]<-NA_real_
     final_yieldRatio<-final_yieldRatio[,c(1:4,7:10,5,11:20,6,21:23)]
     yearseq <-seq(2010,2100,5)
 
@@ -126,7 +126,7 @@ module_aglu_LB166.ag_bio_CCI_R_C_GLU <- function(command, ...) {
     for(i in 1:nrow(final_yieldRatio)){
       temp <- final_yieldRatio[i,5:23]
       tempIntp <- approx_fun(yearseq, as.numeric(temp), rule = 2)
-      final_yieldRatio[i,5:23] <- tempIntp
+      final_yieldRatio[i,5:23] <- as.list(tempIntp)
     }
 
     # At this point we apply the yield ratios in each year to the irrigated and rainfed production volumes from the base year
