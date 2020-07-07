@@ -57,6 +57,7 @@
 using namespace std;
 
 extern Scenario* scenario;
+extern int restartPeriod;
 
 // Note we must static initialize static class member variables in a cpp file and
 // since Value is header only and these particular fields are just as related to
@@ -209,7 +210,8 @@ void ManageStateVariables::collectState() {
     }
     
     // if configured, reset initial state data from a restart file
-    const int restartPeriod = Configuration::getInstance()->getInt( "restart-period", -1, false );
+    // Note in the GCAM-E3SM coupling, the restart period is set in the wrapper.
+    // The value in the configuration file is ignored.
     if(  restartPeriod != -1 && mPeriodToCollect < restartPeriod ) {
         loadRestartFile();
     }
