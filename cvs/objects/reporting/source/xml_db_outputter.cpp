@@ -1103,6 +1103,8 @@ void XMLDBOutputter::startVisitAgProductionTechnology( const AgProductionTechnol
         *mBufferStack.top(), mTabs.get(), -1, "" );
     writeItemToBuffer( aAgProductionTechnology->mYield, "yield", 
         *mBufferStack.top(), mTabs.get(), -1, "" );
+    writeItemToBuffer( aAgProductionTechnology->mYieldScaler, "yield-scaler",
+        *mBufferStack.top(), mTabs.get(), -1, "" );
     writeItemToBuffer( aAgProductionTechnology->mHarvestsPerYear, "harvestsPerYear", 
         *mBufferStack.top(), mTabs.get(), -1, "" );
 }
