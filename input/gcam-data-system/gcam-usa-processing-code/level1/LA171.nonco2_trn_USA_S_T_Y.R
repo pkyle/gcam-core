@@ -152,7 +152,7 @@ L171.LDV_USA_emiss_degrates <- MARKAL_LDV_EFs_gpm.melt %>%
 
 #Clean up and subset base year vintages
 MARKAL_LDV_EFs_gpm_Yb <- MARKAL_LDV_EFs_gpm.melt %>%
-  filter(year %in% model_base_years & Vintage <= year) %>%
+  filter(year %in% historical_years & Vintage <= year) %>%
   filter(!(Vintage == 1990 & year ==2010)) %>%
   ###MISSING VALUES: emission factors pollutants with no data for ELC vehicles, and 2010 EFs for 1990 vintages
   na.omit()
@@ -263,7 +263,7 @@ L171.HDV_USA_emiss_degrates <- MARKAL_HDV_EFs_gpm.melt %>%
 
 #Clean up and subset base year vintages
 MARKAL_HDV_EFs_gpm_Yb <- MARKAL_HDV_EFs_gpm.melt %>%
-  filter(year %in% model_base_years & Vintage <= year) %>%
+  filter(year %in% historical_years & Vintage <= year) %>%
   filter(!(year == 2010 & Vintage == 1990)) %>%
   na.omit()
 

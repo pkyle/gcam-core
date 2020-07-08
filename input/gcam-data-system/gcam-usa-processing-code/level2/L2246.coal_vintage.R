@@ -270,7 +270,7 @@ coal_vintage_gen_2015 <-
 L2246.StubTechProd_coal_vintage_USA <-
   coal_vintage_gen_2015 %>%
   left_join(StubTechProd_elec_USA %>% 
-              filter(subsector =="coal", year == "2010", calOutputValue != 0) %>%
+              filter(subsector =="coal", year == max(year), calOutputValue != 0) %>%
               filter(grepl("slow_retire",stub.technology)) %>%
               select(region, supplysector, subsector, stub.technology, calOutputValue), by = c("State" = "region")) %>%
   filter(!is.na(calOutputValue)) %>%
@@ -278,7 +278,10 @@ L2246.StubTechProd_coal_vintage_USA <-
   rename(region = State) %>%
   # Creating new technologies. Naming the variable as stub.technology.new so that we can use stub.technology as reference later 
   mutate(stub.technology.new = paste(stub.technology, vintage.bin, sep = " ")) %>%
-  mutate(year = 2010, share.weight.year = 2010, subs.share.weight = 1, share.weight = 1) %>%
+  mutate(year = max(StubTechProd_elec_USA$year),
+         share.weight.year = year,
+         subs.share.weight = 1,
+         share.weight = 1) %>%
   # Select variables. For now, include lifetime and vintage.bin as well. We'll remove it later
   select(region, supplysector, subsector, stub.technology.new, stub.technology, vintage.bin, year, calOutputValue, share.weight.year, subs.share.weight, share.weight, lifetime)
 
@@ -295,7 +298,7 @@ L2246.StubTechProd_coal_vintage_USA_lifetime <- L2246.StubTechProd_coal_vintage_
 # Create table to read lifetimes for vintage bin techs by state
 L2246.StubTechLifetime_coal_vintage_USA <-
   L2246.StubTechProd_coal_vintage_USA %>%
-  filter(year == 2010)  %>%
+  filter(year == max(year))  %>%
   select(region, supplysector, subsector, stub.technology = stub.technology.new, year, lifetime)
 
 # Create a table to read in energy inputs and efficiencies for the new technologies in calibration years. Assuming
@@ -388,7 +391,7 @@ coal_vintage_gen_2015_states <- unique(coal_vintage_gen_2015$State)
 L2246.StubTechProd_coal_vintage_USA <- 
   L2246.StubTechProd_coal_vintage_USA %>%
   bind_rows(StubTechProd_elec_USA %>% 
-              filter(subsector =="coal", year == "2010", calOutputValue != 0)%>%
+              filter(subsector =="coal", year == max(year), calOutputValue != 0)%>%
               filter(grepl("slow_retire", stub.technology)) %>%
               filter(region %in% coal_vintage_gen_2015_states) %>%
               mutate(calOutputValue = 0, share.weight = 0)) %>%
@@ -407,7 +410,7 @@ L2246.StubTechProfitShutdown_coal_vintage_USA <-
 L2246.StubTechMarket_coal_vintage_USA <-
   L2246.StubTechEff_coal_vintage_USA %>%
   select(-efficiency) %>%
-  filter(year == 2010) %>%
+  filter(year == max(year)) %>%
   repeat_and_add_vector("year",model_future_years)
 
 # Read in input emissions for 2010
@@ -430,10 +433,10 @@ StubTechProd_elec_USA %>%
 elecS_ghg_emissions_USA %>%
   filter(grepl("slow_retire", stub.technology)) %>%
   # filtering for 2005
-  filter(year == 2005) %>%
+  filter(year == max(year)) %>%
   left_join(L2246.gen_frac_2010_2005, by = c("region", "supplysector", "subsector", "stub.technology")) %>%
-  mutate(input.emissions = input.emissions * gen_frac_2010_2005,
-         year = 2010) %>%
+  mutate(input.emissions = if_else(!is.na(gen_frac_2010_2005), input.emissions * gen_frac_2010_2005, input.emissions),
+         year = if_else(!is.na(year.y), year.y, year.x)) %>%
   select(-gen_frac_2010_2005) -> L2246.ghg_emissions_coal_slow_retire_2010
 
 L2246.StubTechProd_coal_vintage_USA_mapped %>%

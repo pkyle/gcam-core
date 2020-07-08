@@ -52,7 +52,8 @@ L1235_elecS_horizontal_vertical <- readdata( "GCAMUSA_LEVEL1_DATA","L1235.elecS_
 # 2. Perform computations
 #Initialize Variables
 model_base_year_time_step <- 20 # Need to calculate this programmatically 
-script_year = max(model_base_years) - model_base_year_time_step
+script_year = max(historical_years) - model_base_year_time_step
+historical_model_years <- intersect(model_years, historical_years)
 L1238_elecS_demand_fraction <- L1235_elecS_demand_fraction
 L1238_elecS_horizontal_vertical <- L1235_elecS_horizontal_vertical
 
@@ -62,7 +63,7 @@ L1238_grid_elec_supply %>%
   filter(year == script_year) -> L1238_grid_elec_supply_script_year 
 
 L1238_grid_elec_supply %>%
-  filter(year == model_base_years[match(script_year, model_base_years) + 1 ]) -> L1238_grid_elec_supply_next_year
+  filter(year == historical_model_years[match(script_year, historical_model_years) + 1 ]) -> L1238_grid_elec_supply_next_year
 
 L1238_grid_elec_supply %>%
   filter(year != script_year) -> L1238_grid_elec_supply_non_script_year
@@ -80,7 +81,7 @@ L1234_out_EJ_grid_elec_F %>%
   group_by(grid_region, sector, year, fuel) %>%
   summarise_at("generation", sum) %>%
   ungroup() %>%
-  filter(year %in% model_base_years) %>%
+  filter(year %in% historical_model_years) %>%
   rename(tot_generation = generation) -> L1238_out_EJ_grid_elec_F
 
 L1238_segment_list <- unique(elecS_horizontal_to_vertical_map$horizontal_segment)

@@ -16,7 +16,7 @@ use_regional_elec_markets <- TRUE
 use_coal_gas_dispatcher <- FALSE
 
 #use_mult_segments: indicate whether to turn on the multiple load segments feature
-use_mult_load_segments <- TRUE
+use_mult_load_segments <- FALSE
 
 #Identifier columns
 state <- "state"

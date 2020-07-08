@@ -68,7 +68,7 @@ L274.bld_nonghg_emissions_USA <- L244.StubTech_bld %>%
   mutate(S_F_tech_share = bld_fuel_input_tech_shares$S_F_tech_share[match(paste(region,supplysector,subsector,stub.technology),
          vecpaste(bld_fuel_input_tech_shares[c(R_sup_sub_stubtech)]))]) %>%
   #Match on the NEI input emissions
-  mutate(input.emissions = S_F_tech_share * L174.nonghg_tg_state_bld_F_Yb[[X_final_model_base_year]][
+  mutate(input.emissions = S_F_tech_share * L174.nonghg_tg_state_bld_F_Yb[[X_final_historical_year]][
          match(paste(region,sector,subsector,Non.CO2),vecpaste(L174.nonghg_tg_state_bld_F_Yb[c(state_S_F,"Non.CO2")]))]) %>%
   ###MISSING VALUES: there are no emissions in some state permutations that have fuel use in the base year. Leave them in
   select(-sector,-S_F_tech_share) %>%

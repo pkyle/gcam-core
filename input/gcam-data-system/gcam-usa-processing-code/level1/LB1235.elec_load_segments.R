@@ -210,7 +210,7 @@ L1234_out_EJ_grid_elec_F %>%
   summarise_at("generation", sum) %>% 
   ungroup() %>%
   mutate(year = as.numeric(year)) %>%
-  filter(year %in% model_base_years) -> L1235_grid_elec_supply
+  filter(year %in% historical_years) -> L1235_grid_elec_supply
 
 L1235_grid_elec_supply %>%
   left_join(elecS_fuel_fraction, by = c("fuel","year")) %>%

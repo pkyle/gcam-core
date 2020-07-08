@@ -51,7 +51,7 @@ L1235_elecS_horizontal_vertical <- readdata( "GCAMUSA_LEVEL1_DATA","L1235.elecS_
 # -----------------------------------------------------------------------------
 # 2. Perform computations
 #Initialize Variables
-script_year = max(model_base_years)
+script_year = max(historical_years)
 L1236_grid_elec_supply <- L1235_grid_elec_supply
 L1236_elecS_demand_fraction <- L1235_elecS_demand_fraction
 L1236_elecS_horizontal_vertical <- L1235_elecS_horizontal_vertical
@@ -62,7 +62,7 @@ L1234_out_EJ_grid_elec_F %>%
   group_by(grid_region, sector, year, fuel) %>%
   summarise_at("generation", sum) %>%
   ungroup() %>%
-  filter(year %in% model_base_years) %>%
+  filter(year %in% historical_years) %>%
   rename(tot_generation = generation) -> L1236_out_EJ_grid_elec_F
 
 L1236_grid_elec_supply %>%

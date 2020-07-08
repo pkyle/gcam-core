@@ -50,6 +50,7 @@ L144.flsp_bm2_state_comm <- readdata( "GCAMUSA_LEVEL1_DATA", "L144.flsp_bm2_stat
 L144.in_EJ_state_comm_F_U_Y <- readdata("GCAMUSA_LEVEL1_DATA","L144.in_EJ_state_comm_F_U_Y")
 L144.in_EJ_state_res_F_U_Y <- readdata("GCAMUSA_LEVEL1_DATA","L144.in_EJ_state_res_F_U_Y")
 L143.HDDCDD_scen_state <- readdata( "GCAMUSA_LEVEL1_DATA", "L143.HDDCDD_scen_state" )
+L143.HDDCDD_reanalysis_state <- readdata( "GCAMUSA_LEVEL1_DATA", "L143.HDDCDD_reanalysis_state")
 L100.Pop_thous_state <- readdata( "GCAMUSA_LEVEL1_DATA" , "L100.Pop_thous_state" )
 L100.pcGDP_thous90usd_state <- readdata( "GCAMUSA_LEVEL1_DATA", "L100.pcGDP_thous90usd_state" )
 
@@ -506,6 +507,20 @@ L244.Floorspace_QER <- rbind( L244.Floorspace, L244.Floorspace_QER_qyrs )
 L244.ShellConductance_bld_frz <- L244.ShellConductance_bld
 L244.ShellConductance_bld_frz$shell.conductance <- 1
 
+# Re-analysis HDD and CDD - processed separately from the actual scenarios
+re_analysis_years <- names(L143.HDDCDD_reanalysis_state)[grepl("X[0-9]{4}", names(L143.HDDCDD_reanalysis_state))]
+re_analysis_years <- as.numeric(substr(re_analysis_years, 2, 5))
+re_analysis_model_years <- re_analysis_years[re_analysis_years %in% model_years]
+names(L143.HDDCDD_reanalysis_state)[names(L143.HDDCDD_reanalysis_state) == "variable"] <- "hddcdd_variable"
+L244.HDDCDD_reanalysis_state <- interpolate_and_melt(L143.HDDCDD_reanalysis_state, years = re_analysis_model_years,
+                                                     digits = digits_hddcdd, value.name = "degree.days")
+L244.HDDCDD_reanalysis <- subset(L244.HDDCDD, scenID == 1 & year %in% re_analysis_model_years)
+L244.HDDCDD_reanalysis$degree.days <- L244.HDDCDD_reanalysis_state$degree.days[
+  match(vecpaste(L244.HDDCDD_reanalysis[c("region", "year", "variable")]),
+        vecpaste(L244.HDDCDD_reanalysis_state[c("state", "year", "hddcdd_variable")]))]
+L244.HDDCDD_reanalysis <- na.omit(L244.HDDCDD_reanalysis)
+L244.HDDCDD_reanalysis <- L244.HDDCDD_reanalysis[names_HDDCDD]
+
 # -----------------------------------------------------------------------------
 # 3. Write all csvs as tables, and paste csv filenames into a single batch XML file
 write_mi_data( L244.DeleteConsumer_USAbld, "DeleteConsumer", "GCAMUSA_LEVEL2_DATA", "L244.DeleteConsumer_USAbld", "GCAMUSA_XML_BATCH", "batch_building_USA.xml" ) 
@@ -582,5 +597,8 @@ insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_building_flsp_USA_QER.xml
 
 write_mi_data( L244.ShellConductance_bld_frz, "ShellConductance", "GCAMUSA_LEVEL2_DATA", "L244.ShellConductance_bld_frz", "GCAMUSA_XML_BATCH", "batch_building_shell_frz_USA.xml" ) 
 insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_building_shell_frz_USA.xml", "GCAMUSA_XML_FINAL", "building_shell_frz_USA.xml", "", xml_tag="outFile" )
+
+write_mi_data( L244.HDDCDD_reanalysis, "HDDCDD", "GCAMUSA_LEVEL2_DATA", "L244.HDDCDD_reanalysis", "GCAMUSA_XML_BATCH", "batch_HDDCDD_reanalysis.xml" ) 
+insert_file_into_batchxml( "GCAMUSA_XML_BATCH", "batch_HDDCDD_reanalysis.xml", "GCAMUSA_XML_FINAL", "HDDCDD_reanalysis.xml", "", xml_tag="outFile" )
 
 logstop()

@@ -39,12 +39,15 @@ if(use_mult_load_segments == "TRUE") {
  
 # -----------------------------------------------------------------------------
 # 2. Perform computations
+# NONE OF THESE METHODS WORK FOR ANY BASE YEAR OTHER THAN 2010
+# copying the 2015 data backwards to 2010
+# wtf
 
 printlog( "L2242.CA_hydro_2010_EIAratio: Ratio of 2010 GCAM hydro fixedOutput to 2010 EIA net generation for hydro" )
 # Isolate 2010 hydro fixedOutput
 if(use_mult_load_segments == "TRUE") {
   L2234.StubTechFixOut_elecS_USA %>%
-    filter(subsector == "hydro", year == 2010) %>%
+    filter(subsector == "hydro", year == max(year)) %>%
     filter(fixedOutput!=0) -> L2242.hydro_2010_fixedOutput
 } else{
   L223.StubTechFixOut_elec_USA %>%
@@ -123,7 +126,8 @@ L2242.StubTechFixOut_hydro_USA_2050 %>%
   select(-share.weight.year) %>%
   complete(year = model_future_years, nesting(region, supplysector, subsector, stub.technology)) %>%
   group_by(region, supplysector, subsector, stub.technology) %>%
-  mutate(fixedOutput = replace(fixedOutput, year > 2050, fixedOutput[year == 2050])) %>%
+  mutate(fixedOutput = replace(fixedOutput, year > 2050, fixedOutput[year == 2050]),
+         fixedOutput = if_else(is.na(fixedOutput), lead(fixedOutput), fixedOutput)) %>%
   mutate(subs.share.weight =0, tech.share.weight =0) %>%
   mutate(share.weight.year = year) %>%
   select(region, supplysector, subsector, stub.technology, year, fixedOutput, share.weight.year, subs.share.weight, tech.share.weight ) %>%

@@ -49,7 +49,7 @@ agg_fuel_input_indenergy_Ybf <- L232.StubTechCalInput_indenergy_USA %>%
 
 #Take the table containing the emissions, match on the fuel inputs, and compute the emission coefficients
 agg_nonghg_indenergy_emiss_coeffs_F_Ybf <- L175.nonghg_tg_state_indenergy_F_Yb %>%
-  rename_("input.emissions" = X_final_model_base_year) %>%
+  rename_("input.emissions" = X_final_historical_year) %>%
   mutate(fuel_input = agg_fuel_input_indenergy_Ybf$fuel_input[match(
     paste(state,fuel),vecpaste(agg_fuel_input_indenergy_Ybf[c("region","subsector")]))]) %>%
   mutate(emiss.coeff = input.emissions / fuel_input) 

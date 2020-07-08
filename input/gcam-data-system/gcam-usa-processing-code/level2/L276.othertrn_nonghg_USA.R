@@ -71,7 +71,7 @@ L276.rail_nonghg_emissions_USA <- L254.StubTranTech_USA %>%
          vecpaste(rail_fuel_input_tech_shares[c("region","tranSubsector","stub.technology")]))]) %>%
   mutate(sector = "trn_rail") %>%
   #Match on the NEI input emissions
-  mutate(input.emissions = tech_share * L176.nonghg_tg_state_othertrn_F_Yb[[X_final_model_base_year]][
+  mutate(input.emissions = tech_share * L176.nonghg_tg_state_othertrn_F_Yb[[X_final_historical_year]][
          match(paste(region,sector,stub.technology,Non.CO2),
                vecpaste(L176.nonghg_tg_state_othertrn_F_Yb[c("state","sector","stub.technology","Non.CO2")]))]) %>%
   ###MISSING VALUES: No emissions from rail in Hawaii. Leave them in for now
@@ -88,7 +88,7 @@ L276.air_ship_nonghg_emissions_USA <- L254.StubTranTech_USA %>%
   repeat_and_add_vector("Non.CO2",unique(L176.nonghg_tg_state_othertrn_F_Yb$Non.CO2)) %>%
   mutate(sector = ifelse(tranSubsector == "Domestic Ship","trn_domestic ship","trn_domestic air")) %>%
   #Match on the emissions
-  mutate(input.emissions = L176.nonghg_tg_state_othertrn_F_Yb[[X_final_model_base_year]][
+  mutate(input.emissions = L176.nonghg_tg_state_othertrn_F_Yb[[X_final_historical_year]][
     match(paste(region,sector,stub.technology,Non.CO2),
           vecpaste(L176.nonghg_tg_state_othertrn_F_Yb[c("state","sector","stub.technology","Non.CO2")]))]) %>%
   ###MISSING VALUES: many permutations. Leave them in for now

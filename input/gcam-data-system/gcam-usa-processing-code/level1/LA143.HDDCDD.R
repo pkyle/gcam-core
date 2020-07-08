@@ -22,7 +22,9 @@ sourcedata( "GCAMUSA_ASSUMPTIONS", "A_GCAMUSA_data", extension = ".R" )
 states_subregions <- readdata( "GCAMUSA_MAPPINGS", "states_subregions" )
 Census_pop_hist <- readdata( "GCAMUSA_LEVEL0_DATA", "Census_pop_hist" )
 CDD_His <- readdata( "GCAMUSA_GIS_DATA", "CDD_His" )
+CDD_His_Reanalysis <- readdata( "GCAMUSA_GIS_DATA", "CDD_His_Reanalysis" )
 HDD_His <- readdata( "GCAMUSA_GIS_DATA", "HDD_His" )
+HDD_His_Reanalysis <- readdata( "GCAMUSA_GIS_DATA", "HDD_His_Reanalysis" )
 QER_HDDCDD <- readdata( "GCAMUSA_LEVEL0_DATA", "QER_HDDCDD" )
 
 # 1b. reading HDDCDD files in a loop as we do not know their names or how many there are
@@ -160,6 +162,15 @@ L143.HDDCDD_QER[ c( "Scen", "GCM" ) ] <- "QER"
 L143.HDDCDD_QER <- L143.HDDCDD_QER[ c( "state", "Scen", "GCM", "variable", X_historical_years, X_future_years ) ]
 L143.HDDCDD_scen_state <- rbind( L143.HDDCDD_scen_state, L143.HDDCDD_QER )
 
+# Process the re-analysis data for historical validation run
+CDD_His_Reanalysis$variable <- "CDD"
+HDD_His_Reanalysis$variable <- "HDD"
+L143.HDDCDD_reanalysis_state <- bind_rows(CDD_His_Reanalysis, HDD_His_Reanalysis)
+# Filter out all of the states that aren't available (AK, DC, HI)
+L143.HDDCDD_reanalysis_state <- subset(L143.HDDCDD_reanalysis_state, X2000 > 0)
+L143.HDDCDD_reanalysis_state <- L143.HDDCDD_reanalysis_state[names(L143.HDDCDD_reanalysis_state) %in%
+                                                               c("state", "variable", X_historical_years, X_future_years)]
+
 # -----------------------------------------------------------------------------
 # 3. Output
 
@@ -169,6 +180,7 @@ comments.L143.share_state_Pop_CDD_sR13 <- c( "State-level share of person coolin
 comments.L143.share_state_Pop_HDD_sR9 <- c( "State-level share of person heating degree days within census division (subregion9)","Unitless" )
 comments.L143.share_state_Pop_HDD_sR13 <- c( "State-level share of person heating degree days within subregion13","Unitless" )
 comments.L143.HDDCDD_scen_state <- c( "Heating and cooling degree days by state and scenario","Degree F days" )
+comments.L143.HDDCDD_reanalysis_state <- c( "Heating and cooling degree days by state (reanalysis years)","Degree F days" )
 
 #write tables as CSV files
 writedata( L143.share_state_Pop_CDD_sR9, domain="GCAMUSA_LEVEL1_DATA", fn="L143.share_state_Pop_CDD_sR9", comments=comments.L143.share_state_Pop_CDD_sR9 )
@@ -176,6 +188,7 @@ writedata( L143.share_state_Pop_CDD_sR13, domain="GCAMUSA_LEVEL1_DATA", fn="L143
 writedata( L143.share_state_Pop_HDD_sR9, domain="GCAMUSA_LEVEL1_DATA", fn="L143.share_state_Pop_HDD_sR9", comments=comments.L143.share_state_Pop_HDD_sR9 )
 writedata( L143.share_state_Pop_HDD_sR13, domain="GCAMUSA_LEVEL1_DATA", fn="L143.share_state_Pop_HDD_sR13", comments=comments.L143.share_state_Pop_HDD_sR13 )
 writedata( L143.HDDCDD_scen_state, domain="GCAMUSA_LEVEL1_DATA", fn="L143.HDDCDD_scen_state", comments=comments.L143.HDDCDD_scen_state )
+writedata( L143.HDDCDD_reanalysis_state, domain="GCAMUSA_LEVEL1_DATA", fn="L143.HDDCDD_reanalysis_state", comments=comments.L143.HDDCDD_reanalysis_state )
 
 # Every script should finish with this line
 logstop()

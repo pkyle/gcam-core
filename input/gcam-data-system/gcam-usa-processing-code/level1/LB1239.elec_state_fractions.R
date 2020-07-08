@@ -45,6 +45,7 @@ L123_out_EJ_state_elec_F <- readdata( "GCAMUSA_LEVEL1_DATA", "L123.out_EJ_state_
 L1238_grid_elec_supply <- readdata( "GCAMUSA_LEVEL1_DATA", "L1238.grid_elec_supply" )
 # -----------------------------------------------------------------------------
 # Perform Computations
+historical_model_years <- intersect(model_years, historical_years)
 
 # Initialize varables
 L1239_grid_elec_supply <- L1238_grid_elec_supply
@@ -59,7 +60,7 @@ L123_out_EJ_state_elec_F %>%
   gather(year, generation, -state, -fuel, -sector) %>%
   mutate(year = gsub("X","",year)) %>%
   mutate(year = as.numeric(year)) %>%
-  filter(year %in% model_base_years) %>%
+  filter(year %in% historical_model_years) %>%
   rename(tot_generation = generation) -> L1239_out_EJ_state_elec_F
 
 L1239_out_EJ_state_elec_F %>%

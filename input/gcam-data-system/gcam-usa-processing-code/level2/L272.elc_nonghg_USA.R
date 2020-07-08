@@ -49,7 +49,7 @@ agg_fuel_input_elec_Ybf <- L123.in_EJ_state_elec_F %>%
 
 #Take the table containing the emissions, match on the fuel inputs, and compute the emission coefficients
 agg_nonghg_elec_emiss_coeffs_F_Ybf <- L172.nonghg_tg_state_elec_F_Yb %>%
-  rename_("input.emissions" = X_final_model_base_year) %>%
+  rename_("input.emissions" = X_final_historical_year) %>%
   mutate(fuel_input = agg_fuel_input_elec_Ybf$fuel_input[match(
     paste(state,fuel),vecpaste(agg_fuel_input_elec_Ybf[c("state","fuel")]))]) %>%
   mutate(emiss.coeff = input.emissions / fuel_input) 
