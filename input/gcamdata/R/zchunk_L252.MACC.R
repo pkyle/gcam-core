@@ -300,7 +300,7 @@ module_emissions_L252.MACC <- function(command, ...) {
           add_units("tax: 1990 USD; mac.reduction: % reduction; tech_change: Unitless") %>%
           add_comments("Category data from L211.AnEmissions given tax and mac.reduction data from L152.MAC_pct_R_S_Proc_EPA") %>%
           add_comments("Technology change data added in from A_MACC_TechChange") %>%
-          add_precursors("emissions/A_regions", "emissions/mappings/GCAM_sector_tech"
+          add_precursors("emissions/A_regions", "emissions/mappings/GCAM_sector_tech",
                          "L152.MAC_pct_R_S_Proc_EPA", "L211.AnEmissions", "emissions/A_MACC_TechChange",
                          "emissions/A_MACC_TechChange_SSP_Mult") %>%
           select(-scenario)
