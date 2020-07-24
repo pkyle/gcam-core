@@ -84,6 +84,8 @@
 			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP1.xml</Value>
             <Value name="bio_neg_emiss_budget">../input/gcamdata/xml/negative_emissions_budget_SSP1.xml</Value>
             <Value name="ctax">../input/policy/agmip_ctax_ssp1_26.xml</Value>
+            <Value name="ghg_link">../input/policy/linked_ghg_policy.xml</Value>
+            <Value name="uct">../input/policy/global_uct_spa1.xml</Value>
 		</FileSet>
 		<FileSet name="SSP2_2p6_NoCC">
 			<Value name="socioeconomics">../input/gcamdata/xml/socioeconomics_SSP2.xml</Value>
@@ -100,6 +102,8 @@
 			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP2.xml</Value>
             <Value name="bio_neg_emiss_budget">../input/gcamdata/xml/negative_emissions_budget_SSP2.xml</Value>
             <Value name="ctax">../input/policy/agmip_ctax_ssp2_26.xml</Value>
+            <Value name="ghg_link">../input/policy/linked_ghg_policy.xml</Value>
+            <Value name="uct">../input/policy/global_uct_spa2.xml</Value>
 		</FileSet>
 		<FileSet name="SSP3_2p6_NoCC">
 			<Value name="socioeconomics">../input/gcamdata/xml/socioeconomics_SSP3.xml</Value>
@@ -124,6 +128,8 @@
 			<Value name="nonco2">../input/gcamdata/xml/ssp34_emissions_factors.xml</Value>
             <Value name="bio_neg_emiss_budget">../input/gcamdata/xml/negative_emissions_budget_SSP3.xml</Value>
             <Value name="ctax">../input/policy/agmip_ctax_ssp3_26.xml</Value>
+            <Value name="ghg_link">../input/policy/linked_ghg_policy.xml</Value>
+            <Value name="uct">../input/policy/global_uct_spa5.xml</Value>
 		</FileSet>		
 		<FileSet name="SSP1_2p6_CC26">
 			<Value name="socioeconomics">../input/gcamdata/xml/socioeconomics_SSP1.xml</Value>
@@ -147,6 +153,8 @@
 			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP1.xml</Value>
             <Value name="bio_neg_emiss_budget">../input/gcamdata/xml/negative_emissions_budget_SSP1.xml</Value>
             <Value name="ctax">../input/policy/agmip_ctax_ssp1_26.xml</Value>
+            <Value name="ghg_link">../input/policy/linked_ghg_policy.xml</Value>
+            <Value name="uct">../input/policy/global_uct_spa1.xml</Value>
 		</FileSet>
 		<FileSet name="SSP2_2p6_CC26">
 			<Value name="socioeconomics">../input/gcamdata/xml/socioeconomics_SSP2.xml</Value>
@@ -163,6 +171,8 @@
 			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP2.xml</Value>
             <Value name="bio_neg_emiss_budget">../input/gcamdata/xml/negative_emissions_budget_SSP2.xml</Value>
             <Value name="ctax">../input/policy/agmip_ctax_ssp2_26.xml</Value>
+            <Value name="ghg_link">../input/policy/linked_ghg_policy.xml</Value>
+            <Value name="uct">../input/policy/global_uct_spa2.xml</Value>
 		</FileSet>
 		<FileSet name="SSP3_2p6_CC26">
 			<Value name="socioeconomics">../input/gcamdata/xml/socioeconomics_SSP3.xml</Value>
@@ -187,6 +197,8 @@
 			<Value name="nonco2">../input/gcamdata/xml/ssp34_emissions_factors.xml</Value>
             <Value name="bio_neg_emiss_budget">../input/gcamdata/xml/negative_emissions_budget_SSP3.xml</Value>
             <Value name="ctax">../input/policy/agmip_ctax_ssp3_26.xml</Value>
+            <Value name="ghg_link">../input/policy/linked_ghg_policy.xml</Value>
+            <Value name="uct">../input/policy/global_uct_spa5.xml</Value>
 		</FileSet>		
 	</ComponentSet>
 	
