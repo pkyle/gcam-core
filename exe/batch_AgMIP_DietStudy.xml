@@ -74,7 +74,7 @@
 			<Value name="resource_extraction">../input/gcamdata/xml/resources_SSP2.xml</Value>
 			<Value name="nonco2">../input/gcamdata/xml/delete_gdp_control.xml</Value>
 			<Value name="nonco2">../input/gcamdata/xml/ssp2_emissions_factors.xml</Value>
-			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP2_IRR_MGMT.xml</Value>
+			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP2.xml</Value>
             <Value name="bio_neg_emiss_budget">../input/gcamdata/xml/negative_emissions_budget_SSP2.xml</Value>
 		</FileSet>
 		<FileSet name="SSP2_NoMt_NoCC_Diet_FlexA_WLD">
@@ -89,7 +89,7 @@
 			<Value name="resource_extraction">../input/gcamdata/xml/resources_SSP2.xml</Value>
 			<Value name="nonco2">../input/gcamdata/xml/delete_gdp_control.xml</Value>
 			<Value name="nonco2">../input/gcamdata/xml/ssp2_emissions_factors.xml</Value>
-			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP2_IRR_MGMT.xml</Value>
+			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP2.xml</Value>
             <Value name="bio_neg_emiss_budget">../input/gcamdata/xml/negative_emissions_budget_SSP2.xml</Value>
 		</FileSet>
 		<FileSet name="SSP2_NoMt_NoCC_Diet_FlexA_CHN">
@@ -104,7 +104,7 @@
 			<Value name="resource_extraction">../input/gcamdata/xml/resources_SSP2.xml</Value>
 			<Value name="nonco2">../input/gcamdata/xml/delete_gdp_control.xml</Value>
 			<Value name="nonco2">../input/gcamdata/xml/ssp2_emissions_factors.xml</Value>
-			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP2_IRR_MGMT.xml</Value>
+			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP2.xml</Value>
             <Value name="bio_neg_emiss_budget">../input/gcamdata/xml/negative_emissions_budget_SSP2.xml</Value>
 		</FileSet>
 		<FileSet name="SSP2_NoMt_NoCC_Diet_FlexA_EUR">
@@ -119,7 +119,7 @@
 			<Value name="resource_extraction">../input/gcamdata/xml/resources_SSP2.xml</Value>
 			<Value name="nonco2">../input/gcamdata/xml/delete_gdp_control.xml</Value>
 			<Value name="nonco2">../input/gcamdata/xml/ssp2_emissions_factors.xml</Value>
-			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP2_IRR_MGMT.xml</Value>
+			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP2.xml</Value>
             <Value name="bio_neg_emiss_budget">../input/gcamdata/xml/negative_emissions_budget_SSP2.xml</Value>
 		</FileSet>
 		<FileSet name="SSP2_NoMt_NoCC_Diet_FlexA_LAM">
@@ -134,7 +134,7 @@
 			<Value name="resource_extraction">../input/gcamdata/xml/resources_SSP2.xml</Value>
 			<Value name="nonco2">../input/gcamdata/xml/delete_gdp_control.xml</Value>
 			<Value name="nonco2">../input/gcamdata/xml/ssp2_emissions_factors.xml</Value>
-			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP2_IRR_MGMT.xml</Value>
+			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP2.xml</Value>
             <Value name="bio_neg_emiss_budget">../input/gcamdata/xml/negative_emissions_budget_SSP2.xml</Value>
 		</FileSet>
 		<FileSet name="SSP2_NoMt_NoCC_Diet_FlexA_USA">
@@ -149,7 +149,7 @@
 			<Value name="resource_extraction">../input/gcamdata/xml/resources_SSP2.xml</Value>
 			<Value name="nonco2">../input/gcamdata/xml/delete_gdp_control.xml</Value>
 			<Value name="nonco2">../input/gcamdata/xml/ssp2_emissions_factors.xml</Value>
-			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP2_IRR_MGMT.xml</Value>
+			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP2.xml</Value>
             <Value name="bio_neg_emiss_budget">../input/gcamdata/xml/negative_emissions_budget_SSP2.xml</Value>
 		</FileSet>
 	</ComponentSet>
