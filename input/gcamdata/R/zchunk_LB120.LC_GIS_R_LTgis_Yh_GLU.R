@@ -48,6 +48,36 @@ module_aglu_LB120.LC_GIS_R_LTgis_Yh_GLU <- function(command, ...) {
 
     # Perform computations
 
+    # 12/22/2020 modification - gpk. To have Saudi Arabia broken out as a region, we can't have its forest land blinking
+    # in and out. FAOSTAT has non-zero roundwood production in all years, so at least one of its land use regions needs
+    # to have non-zero forest. Estimates vary by inventory, with as much as 1000 kha
+    # (https://rainforests.mongabay.com/deforestation/2000/Saudi_Arabia.htm citing FAOSTAT) and as little as 2 (MODIS on
+    # FAOSTAT).
+    SAU_Forest_Land_ha <- 20000
+    SAU_Forest_GLU <- "GLU093"
+    SAU_Forest_years <- sort(unique(L100.Land_type_area_ha$year[L100.Land_type_area_ha$year >= 1950]))
+    SAU_Forest_Land_code <- 102 # TropicalEvergreenForest/Woodland, Unmanaged, Non-protected
+    SAU_Remap_Land_code <- 1222 # Open Shrubland, Pasture, Non-protected
+    L100.sau_forest <- filter(L100.Land_type_area_ha,
+                              iso == "sau",
+                              GLU == SAU_Forest_GLU,
+                              year %in% SAU_Forest_years,
+                              land_code == 1222) %>%
+      mutate(land_code =102,
+             value = SAU_Forest_Land_ha)
+
+    L100.Land_type_area_ha$value[L100.Land_type_area_ha$iso == "sau" &
+                                   L100.Land_type_area_ha$GLU == SAU_Forest_GLU &
+                                   L100.Land_type_area_ha$year %in% SAU_Forest_years &
+                                   L100.Land_type_area_ha$land_code == 1222] <-
+      L100.Land_type_area_ha$value[L100.Land_type_area_ha$iso == "sau" &
+                                     L100.Land_type_area_ha$GLU == SAU_Forest_GLU &
+                                     L100.Land_type_area_ha$year %in% SAU_Forest_years &
+                                     L100.Land_type_area_ha$land_code == 1222] -
+      SAU_Forest_Land_ha
+
+    L100.Land_type_area_ha <- bind_rows(L100.Land_type_area_ha, L100.sau_forest)
+
     land.type <-
         L100.Land_type_area_ha %>%
           ## Add data for GCAM region ID and GLU
