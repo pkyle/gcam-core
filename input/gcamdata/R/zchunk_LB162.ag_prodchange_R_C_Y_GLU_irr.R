@@ -18,6 +18,7 @@
 #' region-commodity-glu-irrigation level for all model years.
 #' @importFrom assertthat assert_that
 #' @importFrom dplyr arrange bind_rows distinct filter first group_by left_join mutate select semi_join summarise
+#' @importFrom stringr str_pad
 #' @importFrom tidyr complete nesting
 #' @importFrom tibble tibble
 #' @author ACS June 2017

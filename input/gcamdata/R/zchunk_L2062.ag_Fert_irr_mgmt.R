@@ -24,6 +24,8 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
               FILE = "water/basin_to_country_mapping",
               FILE = "aglu/A_Fodderbio_chars",
               "L142.ag_Fert_IO_R_C_Y_GLU",
+              "L143.AgFertIO_Ratio_R_C_GLU",
+              "L2012.AgProduction_ag_irr_mgmt",
               "L2052.AgCost_ag_irr_mgmt",
               "L2052.AgCost_bio_irr_mgmt"))
   } else if(command == driver.DECLARE_OUTPUTS) {
@@ -45,29 +47,49 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
     basin_to_country_mapping <- get_data(all_data, "water/basin_to_country_mapping")
     A_Fodderbio_chars <- get_data(all_data, "aglu/A_Fodderbio_chars")
     L142.ag_Fert_IO_R_C_Y_GLU <- get_data(all_data, "L142.ag_Fert_IO_R_C_Y_GLU", strip_attributes = TRUE)
+    L143.AgFertIO_Ratio_R_C_GLU <- get_data(all_data, "L143.AgFertIO_Ratio_R_C_GLU")
+    L2012.AgProduction_ag_irr_mgmt <- get_data(all_data, "L2012.AgProduction_ag_irr_mgmt")
     L2052.AgCost_ag_irr_mgmt <- get_data(all_data, "L2052.AgCost_ag_irr_mgmt", strip_attributes = TRUE)
     L2052.AgCost_bio_irr_mgmt <- get_data(all_data, "L2052.AgCost_bio_irr_mgmt", strip_attributes = TRUE)
 
-    # Process Fertilizer Coefficients: Copy coefficients to all four technologies (irr/rfd + hi/lo)
+    # Prepare the production weights for being used to differentiate fertilizer IO coefs between hi and lo
+    # technologies while conserving total fertilizer consumption quantities of regions/crops/basins/irrigation levels
+    L2062.AgProduction_ag_irr_mgmt <- L2012.AgProduction_ag_irr_mgmt %>%
+      mutate(level = paste0("output_",
+                            substr(AgProductionTechnology, nchar(AgProductionTechnology) - 1, nchar(AgProductionTechnology))),
+             AgProductionTechnology = substr(AgProductionTechnology, 1, nchar(AgProductionTechnology) - 3)) %>%
+      select(LEVEL2_DATA_NAMES[["AgTechYr"]], level, calOutputValue) %>%
+      spread(key = level, value = calOutputValue)
+
+    # Process Fertilizer Coefficients: Copy coefficients to the two irrigation levels (irr/rfd),
+    # and modify the fertilizer IO coefficients according to the exogenous ratio between hi and lo coefs
     L142.ag_Fert_IO_R_C_Y_GLU %>%
       filter(year %in% MODEL_BASE_YEARS) %>%
       left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
       left_join_error_no_match(basin_to_country_mapping[ c("GLU_code", "GLU_name")], by = c("GLU" = "GLU_code")) %>%
 
-      # Copy coefficients to all four technologies
-      repeat_add_columns(tibble(IRR_RFD = c("IRR", "RFD"))) %>%
-      repeat_add_columns(tibble(MGMT = c("hi", "lo"))) %>%
-
-      # Add sector, subsector, technology names
+      # Copy coefficients to the two irrigation technologies
+      repeat_add_columns(tibble::tibble(IRR_RFD = c("IRR", "RFD"))) %>%
+      # Add sector, subsector, technology names.
+      # At this stage, the technology doesn't include the management level, for joining in the production volumes
       mutate(AgSupplySector = GCAM_commodity,
              AgSupplySubsector = paste(GCAM_subsector, GLU_name, sep = aglu.CROP_GLU_DELIMITER),
-             AgProductionTechnology = paste(paste(AgSupplySubsector, IRR_RFD, sep = aglu.IRR_DELIMITER),
-                                            MGMT, sep = aglu.MGMT_DELIMITER)) %>%
+             AgProductionTechnology = paste(paste(AgSupplySubsector, IRR_RFD, sep = aglu.IRR_DELIMITER))) %>%
 
-      # Add name of minicam.energy.input
+      left_join(select(L143.AgFertIO_Ratio_R_C_GLU, GCAM_region_ID, GCAM_commodity, GCAM_subsector, GLU, FERT_IO_RATIO_HI_LO),
+                by=c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector", "GLU")) %>%
+      replace_na(list(FERT_IO_RATIO_HI_LO = aglu.FERT_IO_RATIO_HI_LO)) %>%
       mutate(minicam.energy.input = "N fertilizer") %>%
-      rename(coefficient = value) %>%
-      select(region, AgSupplySector, AgSupplySubsector, AgProductionTechnology, minicam.energy.input, year, coefficient) ->
+      select(region, AgSupplySector, AgSupplySubsector, AgProductionTechnology, minicam.energy.input, year, coefficient = value, FERT_IO_RATIO_HI_LO) %>%
+      left_join_error_no_match(L2062.AgProduction_ag_irr_mgmt, by = LEVEL2_DATA_NAMES[["AgTechYr"]]) %>%
+      mutate(output_tot = output_hi + output_lo,
+             coef_lo = (coefficient * output_tot) / (FERT_IO_RATIO_HI_LO * output_hi + output_lo),
+             coef_hi = coef_lo * FERT_IO_RATIO_HI_LO) %>%
+      replace_na(list(coef_lo = 1, coef_hi = 1)) %>%
+      repeat_add_columns(tibble(level = c("hi", "lo"))) %>%
+      mutate(coefficient = round(if_else(level == "hi", coef_hi, coef_lo), aglu.DIGITS_CALOUTPUT + 1),
+             AgProductionTechnology = paste(AgProductionTechnology, level, sep = aglu.MGMT_DELIMITER)) %>%
+      select(LEVEL2_DATA_NAMES[["AgCoef"]]) ->
       L2062.AgCoef_Fert_ag_irr_mgmt
 
     # Copy final base year coefficients to all future years, bind with historic coefficients, then remove zeroes
@@ -75,9 +97,8 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
     L2062.AgCoef_Fert_ag_irr_mgmt %>%
       filter(year == max(MODEL_BASE_YEARS)) %>%
       select(-year) %>%
-      repeat_add_columns(tibble(year = MODEL_FUTURE_YEARS)) %>%
-      bind_rows(L2062.AgCoef_Fert_ag_irr_mgmt) %>%
-      filter(coefficient > 0) ->
+      repeat_add_columns(tibble::tibble(year = MODEL_FUTURE_YEARS)) %>%
+      bind_rows(L2062.AgCoef_Fert_ag_irr_mgmt) ->
       L2062.AgCoef_Fert_ag_irr_mgmt
 
     # Calculate fertilizer coefficients for grassy bioenergy crops
@@ -96,12 +117,33 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
              / (aglu.BIO_ENERGY_CONTENT_GJT * CONV_KG_T)) ->                         # Convert from biomass to energy
       bio_tree_coef
 
+    # Replace GLU names and Add region names and estimating median IO coef for region and basin
+    L143.AgFertIO_Ratio_R_GLU <- L143.AgFertIO_Ratio_R_C_GLU %>%
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+      replace_GLU(map = basin_to_country_mapping) %>%
+      group_by(region, GLU) %>%
+      summarise(FERT_IO_RATIO_HI_LO = median(FERT_IO_RATIO_HI_LO)) %>%
+      ungroup()
+
     # Map fertilizer coefficients to all bioenergy technologies
+    # Differentiate the bioenergy crop fertilizer IO coefs according to mgmt level
+    # For bioenergy crops, there isn't any need to worry about "output"
+    # The equation for coef_lo simplifies to coef_avg * 2 / (Ratio + 1). coef_hi is twice this (4 / (Ratio + 1))
+
     L2052.AgCost_bio_irr_mgmt %>%
       select(-nonLandVariableCost) %>%                  # We are just using this data.frame to get the region/sector/tech names
+      separate(AgSupplySubsector, c("Crop", "GLU"), sep="_", remove=FALSE) %>%
+      select(-Crop) %>%
+      left_join(L143.AgFertIO_Ratio_R_GLU, by=c("region", "GLU")) %>%
+      replace_na(list(FERT_IO_RATIO_HI_LO = aglu.FERT_IO_RATIO_HI_LO)) %>%
       mutate(minicam.energy.input = "N fertilizer",
-             coefficient = if_else(grepl("^biomassGrass", AgSupplySubsector),
-                                   bio_grass_coef$coefficient, bio_tree_coef$coefficient)) ->
+             coefficient = if_else(grepl("^biomass_grass", AgSupplySubsector),
+                                   bio_grass_coef$coefficient, bio_tree_coef$coefficient),
+             coefficient = round(if_else(grepl("_lo", AgProductionTechnology),
+                                         coefficient * 2 / (FERT_IO_RATIO_HI_LO + 1),
+                                         coefficient * 2 * FERT_IO_RATIO_HI_LO / (FERT_IO_RATIO_HI_LO + 1)),
+                                 aglu.DIGITS_CALOUTPUT)) %>%
+      select(LEVEL2_DATA_NAMES[["AgCoef"]]) ->
       L2062.AgCoef_Fert_bio_irr_mgmt
 
     # Adjust nonLandVariableCost to separate fertilizer cost (which is accounted for specifically)
@@ -145,7 +187,9 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
       add_legacy_name("L2062.AgCoef_Fert_ag_irr_mgmt") %>%
       add_precursors("common/GCAM_region_names",
                      "water/basin_to_country_mapping",
-                     "L142.ag_Fert_IO_R_C_Y_GLU") ->
+                     "L142.ag_Fert_IO_R_C_Y_GLU",
+                     "L143.AgFertIO_Ratio_R_C_GLU",
+                     "L2012.AgProduction_ag_irr_mgmt") ->
       L2062.AgCoef_Fert_ag_irr_mgmt
     L2062.AgCoef_Fert_bio_irr_mgmt %>%
       add_title("Fertilizer coefficients for bioenergy technologies") %>%

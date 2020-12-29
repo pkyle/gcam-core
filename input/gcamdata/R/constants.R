@@ -407,6 +407,13 @@ aglu.LN1_PROTUNMGD_LOGIT_TYPE <- NA
 aglu.MGMT_LOGIT_EXP  <- 2.5
 aglu.MGMT_LOGIT_TYPE <- "absolute-cost-logit"
 
+# Maximum allowable ratio of the fertilizer IO coef of the "hi" technology to the IO coef of the "lo" technology
+aglu.MAX_FERT_IO_RATIO_HI_LO <- 3
+
+# ratio of fertilizer input-output coefficient of "hi" technology compared with corresponding "lo" technology
+aglu.FERT_IO_RATIO_HI_LO <- 1.5
+aglu.MAX_Ihi_I_RATIO <- 2.5 # Maximum ratio of fertilizer intensity (hi / baseline) required to achieve 10% yield increase
+
 # Statistical differences reconciliation: China's Vegetable production estimates are inconsistent between the PRODSTAT
 # ("Production") and SUA ("Commodity Balances"). Because the latter dataset is used for estimating food consumption in
 # GCAM, and because these SUA food consumption estimates are derived from production data that is about 20% higher than
