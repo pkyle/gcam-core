@@ -94,7 +94,17 @@ module_water_L171.desalination <- function(command, ...) {
       select(iso, year, value)
 
     # Part 1: Desalinated water (secondary) output from the power sector
-    L171.out_km3_R_desalfromelec_Yh <- subset( L171.out_km3_ctry_desal_Yh, iso %in% efw.COUNTRIES_ELEC_DESAL ) %>%
+    # 3/31/2021 GPK hack - In the original method here, none of the efw.COUNTRIES_ELEC_DESAL can exist as stand-alone regions,
+    # as all of the desalinated water production would be assigned to secondary output from the power sector. This method instead
+    # assigns 80% of the desalinated water to the secondary output, keeping 20% for the desalinated water production sector, of which
+    # 100% will be assigned later on to reverse osmosis. The fractions are just from a quick assessment of the situation in SAU, from
+    # Wikipedia: "12 plants use multi-stage flash distillation (MSF) and 7 plants use multi-effect distillation (MED). Both MSF and MED
+    # plants are integrated with power plants (dual-purpose plants), using steam from the power plants as a source of energy. 8 plants
+    # are single-purpose plants that use reverse osmosis (RO) technology and power from the grid."
+    efw.SAU_DesalFromElecFrac <- 0.8
+    efw.SAU_DesalOnlyROFrac <- 1
+    L171.out_km3_R_desalfromelec_Yh <- subset(L171.out_km3_ctry_desal_Yh, iso %in% efw.COUNTRIES_ELEC_DESAL ) %>%
+      mutate(value = if_else(iso == "sau", value * efw.SAU_DesalFromElecFrac, value)) %>%
       left_join_error_no_match(iso_GCAM_regID[c("iso", "GCAM_region_ID")], by = "iso") %>%
       group_by(GCAM_region_ID, year) %>%
       summarise(value = sum(value)) %>%
@@ -105,7 +115,10 @@ module_water_L171.desalination <- function(command, ...) {
 
     # However, total (by all modeled technologies) desalinated water production does not include the output of
     # desalinated water from combined electric and desal plants. Drop this here.
-    L171.out_km3_ctry_desal_Yh$value[L171.out_km3_ctry_desal_Yh$iso %in% efw.COUNTRIES_ELEC_DESAL] <- 0
+    # (more hack - can't just drop Saudi Arabia; need to multiply by 1 minus the efw.SAU_DesalFromElecFrac)
+    L171.out_km3_ctry_desal_Yh <- L171.out_km3_ctry_desal_Yh %>%
+      mutate(value = if_else(iso == "sau", value * (1 - efw.SAU_DesalFromElecFrac), value),
+             value = if_else(iso %in% efw.COUNTRIES_ELEC_DESAL & iso != "sau", 0, value))
 
     # Part 2: Downscaling country-level desal production to technology
     # First aggregate AusNWC (Australia National Water Commission) estimates of desalinated water production by
@@ -120,7 +133,10 @@ module_water_L171.desalination <- function(command, ...) {
       left_join_error_no_match(unique(select(aquastat_ctry, iso, AusNWC_reg)),
                                by = "iso") %>%
       left_join_error_no_match(L171.AusNWC_desal_techs, by = c("AusNWC_reg", "technology")) %>%
-      mutate(value = value * share) %>%
+      # more hack - re-set the shares in SAU
+      mutate(share = if_else(iso == "sau" & technology == "distillation", 1 - efw.SAU_DesalOnlyROFrac, share),
+             share = if_else(iso == "sau" & technology == "reverse osmosis", efw.SAU_DesalOnlyROFrac, share),
+             value = value * share) %>%
       select(iso, technology, year, value)
 
     # Aggregate to region. Complete() makes sure that all GCAM regions are printed out
