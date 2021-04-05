@@ -101,7 +101,7 @@ module_water_L171.desalination <- function(command, ...) {
     # Wikipedia: "12 plants use multi-stage flash distillation (MSF) and 7 plants use multi-effect distillation (MED). Both MSF and MED
     # plants are integrated with power plants (dual-purpose plants), using steam from the power plants as a source of energy. 8 plants
     # are single-purpose plants that use reverse osmosis (RO) technology and power from the grid."
-    efw.SAU_DesalFromElecFrac <- 0.8
+    efw.SAU_DesalFromElecFrac <- 0.75
     efw.SAU_DesalOnlyROFrac <- 1
     L171.out_km3_R_desalfromelec_Yh <- subset(L171.out_km3_ctry_desal_Yh, iso %in% efw.COUNTRIES_ELEC_DESAL ) %>%
       mutate(value = if_else(iso == "sau", value * efw.SAU_DesalFromElecFrac, value)) %>%
