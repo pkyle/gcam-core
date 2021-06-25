@@ -31,6 +31,7 @@ module_energy_LA154.transportation_UCD <- function(command, ...) {
              FILE = "energy/mappings/UCD_techs",
              #kbn 2019-10-09 Added size class divisions file here.
              FILE=  "energy/mappings/UCD_size_class_revisions",
+             FILE = "energy/OTAQ_trn_data_EMF37",
              # This file is currently using a constant to select the correct SSP database
              # All SSP databases will be included in the input files
              UCD_trn_data_name,"UCD_trn_data_SSP1",
@@ -72,6 +73,7 @@ module_energy_LA154.transportation_UCD <- function(command, ...) {
     enduse_fuel_aggregation <- get_data(all_data, "energy/mappings/enduse_fuel_aggregation")
     UCD_ctry <- get_data(all_data, "energy/mappings/UCD_ctry")
     UCD_techs <- get_data(all_data, "energy/mappings/UCD_techs")
+    OTAQ_trn_data_EMF37 <- get_data(all_data, "energy/OTAQ_trn_data_EMF37")
     UCD_trn_data <- get_data(all_data, UCD_trn_data_name) %>%
       gather_years %>% mutate(sce=paste0("CORE"))
     # kbn 2020-06-02 get data for all SSPs. No data for SSP2.
@@ -90,6 +92,37 @@ module_energy_LA154.transportation_UCD <- function(command, ...) {
     #kbn 2019-10-07: Read new size class assignments
     Size_class_New<- get_data(all_data, "energy/mappings/UCD_size_class_revisions")
     # ===================================================
+    # Prepare EMF37 data for merging: first, repeat by the full set of scenarios
+    OTAQ_trn_data_EMF37 %>%
+      gather_years() %>%
+      repeat_add_columns(tibble(sce = unique(UCD_trn_data$sce))) ->
+      OTAQ_trn_data_EMF37_to_bind
+
+    OTAQ_data_years <- sort(unique(OTAQ_trn_data_EMF37_to_bind$year))
+
+    OTAQ_trn_data_EMF37_to_bind_noenergy <- filter(OTAQ_trn_data_EMF37_to_bind, variable != "energy")
+
+    UCD_trn_data_nocalibration <- UCD_trn_data %>%
+      filter(!variable %in% c("energy", "service output")) %>%
+      complete(nesting(sce, UCD_region, UCD_sector, mode, size.class, UCD_technology, UCD_fuel, variable, unit),
+               year = OTAQ_data_years) %>%
+      group_by(sce, UCD_region, UCD_sector, mode, size.class, UCD_technology, UCD_fuel, variable, unit) %>%
+      mutate(value = approx_fun(year, value, rule = 2)) %>%
+      ungroup() %>%
+      anti_join(OTAQ_trn_data_EMF37_to_bind_noenergy, by = c("sce", "UCD_region", "UCD_sector", "mode","size.class",
+                                                    "UCD_technology", "UCD_fuel", "variable", "unit", "year")) %>%
+      bind_rows(OTAQ_trn_data_EMF37_to_bind_noenergy) %>%
+      arrange(sce, UCD_region, UCD_sector, mode, size.class, UCD_technology, UCD_fuel, variable, unit, year)
+
+      UCD_trn_data_calibrated <- filter(UCD_trn_data, variable %in% c("energy", "service output")
+                                    & year == min(year)) %>%
+        anti_join(filter(OTAQ_trn_data_EMF37_to_bind, variable == "energy" & year == min(year)),
+                  by = c("sce", "UCD_region", "UCD_sector", "mode","size.class",
+                         "UCD_technology", "UCD_fuel", "variable", "unit", "year")) %>%
+        bind_rows(filter(OTAQ_trn_data_EMF37_to_bind, variable == "energy" & year == min(year)))
+
+      UCD_trn_data <- bind_rows(UCD_trn_data_calibrated, UCD_trn_data_nocalibration)
+
     # Part 1: downscaling country-level transportation energy data to UCD transportation technologies, then scaling to transportation
     # enduse data.
 
