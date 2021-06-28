@@ -732,7 +732,34 @@ module_energy_LA154.transportation_UCD <- function(command, ...) {
       select(-fuel) %>%
       select(region, sector = UCD_sector, mode, size.class, technology = UCD_technology, fuel = UCD_fuel, year, variable, unit, value)
 
-    EMF37_transport_data %>%
+    # Estimate the capital (not levelized) costs of light duty vehicles
+    EMF37_vehicle_output <- filter(UCD_trn_data, sce == "CORE" & UCD_region == "USA" & mode == "LDV_4W" & variable == "energy" & year == 2005) %>%
+      mutate(join_variable = "intensity", join_unit = "MJ/vkm") %>%
+      left_join(UCD_trn_data, by = c("UCD_region", "UCD_sector", "mode", "size.class",
+                                     "UCD_technology", "UCD_fuel", join_variable = "variable",
+                                     join_unit = "unit", "year", "sce", "rev.mode", "rev_size.class")) %>%
+      group_by(UCD_region, UCD_sector, mode, size.class) %>%
+      mutate(size.class.energy = max(value.x)) %>%
+      ungroup() %>%
+      mutate(weight = size.class.energy / value.y) %>%
+      select(UCD_sector, mode, size.class, UCD_technology, UCD_fuel, weight)
+
+    EMF37_vehicle_cost_data <- filter(UCD_trn_data, sce == "CORE" & UCD_region == "USA" & mode == "LDV_4W" & variable == "Capital costs (purchase)") %>%
+      left_join_error_no_match(EMF37_vehicle_output,
+                               by = c("UCD_sector", "mode", "size.class", "UCD_technology", "UCD_fuel")) %>%
+      mutate(weighted_cost = value * weight) %>%
+      group_by(UCD_sector, rev.mode, rev_size.class, UCD_fuel, UCD_technology, year) %>%
+      summarise(weight = sum(weight),
+                weighted_cost = sum(weighted_cost)) %>%
+      ungroup() %>%
+      mutate(value = weighted_cost / weight * gdp_deflator(2019, 2005),
+             region = "USA",
+             variable = "Purchase price",
+             unit = "$/vehicle (2019$)") %>%
+      select(region, sector = UCD_sector, mode = rev.mode, size.class = rev_size.class,
+             technology = UCD_technology, fuel = UCD_fuel, year, variable, unit, value)
+
+    EMF37_transport_data <- bind_rows(EMF37_transport_data, EMF37_vehicle_cost_data) %>%
       add_title("Transportation database for EMF37 inter-comparison exercise") %>%
       add_units("Indicated within table") %>%
       add_comments("All variables required for transportation models") %>%
