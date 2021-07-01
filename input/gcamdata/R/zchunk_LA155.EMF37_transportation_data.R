@@ -76,30 +76,44 @@ module_energy_LA155.EMF37_transportation_data <- function(command, ...) {
       select(region, sector = UCD_sector, mode, size.class, technology = UCD_technology, fuel = UCD_fuel, year, variable, unit, value)
 
     # Estimate the capital (not levelized) costs of light duty vehicles
-    EMF37_vehicle_output <- filter(UCD_trn_data, sce == "CORE" & UCD_region == "USA" & mode == "LDV_4W" & variable == "energy" & year == 2005) %>%
+    EMF37_USA_LDV4W <- filter(UCD_trn_data, sce == "CORE" & UCD_region == "USA" & mode == "LDV_4W")
+
+    EMF37_vehicle_output <- filter(EMF37_USA_LDV4W, variable == "energy" & year == 2005) %>%
       mutate(join_variable = "intensity", join_unit = "MJ/vkm") %>%
       left_join(UCD_trn_data, by = c("UCD_region", "UCD_sector", "mode", "size.class",
                                      "UCD_technology", "UCD_fuel", join_variable = "variable",
                                      join_unit = "unit", "year", "sce", "rev.mode", "rev_size.class")) %>%
       group_by(UCD_region, UCD_sector, mode, size.class) %>%
-      mutate(size.class.energy = max(value.x)) %>%
+      mutate(output = value.x / value.y,
+             weight = max(output)) %>%
       ungroup() %>%
-      mutate(weight = size.class.energy / value.y) %>%
       select(UCD_sector, mode, size.class, UCD_technology, UCD_fuel, weight)
 
-    EMF37_vehicle_cost_data <- filter(UCD_trn_data, sce == "CORE" & UCD_region == "USA" & mode == "LDV_4W" & variable == "Capital costs (purchase)") %>%
-      left_join_error_no_match(EMF37_vehicle_output,
-                               by = c("UCD_sector", "mode", "size.class", "UCD_technology", "UCD_fuel")) %>%
-      mutate(weighted_cost = value * weight) %>%
-      group_by(UCD_sector, rev.mode, rev_size.class, UCD_fuel, UCD_technology, year) %>%
+    # Annual vehicle travel: need to expand to all technologies/fuels (currently just indicated as "all")
+    EMF37_annualvehicletravel <- filter(EMF37_USA_LDV4W, variable == "annual travel per vehicle") %>%
+      select(-UCD_technology, -UCD_fuel) %>%
+      right_join(distinct(EMF37_USA_LDV4W, UCD_sector, mode, size.class, UCD_technology, UCD_fuel),
+                 by = c("UCD_sector", "mode", "size.class")) %>%
+      filter(UCD_technology != "All")
+
+    EMF37_vehicle_cost_data <- filter(EMF37_USA_LDV4W,
+                                      variable %in% c("Capital costs (purchase)", "Operating costs (maintenance)",
+                                                        "Operating costs (registration and insurance)")) %>%
+      bind_rows(EMF37_annualvehicletravel) %>%
+      left_join(EMF37_vehicle_output,
+                by = c("UCD_sector", "mode", "size.class", "UCD_technology", "UCD_fuel")) %>%
+      mutate(weighted_value = value * weight,
+             variable = if_else(grepl("purchase", variable), "purchase price", variable),
+             variable = if_else(grepl("Operating costs", variable), "annual operations and maintenance cost", variable)) %>%
+      group_by(UCD_region, UCD_sector, rev.mode, rev_size.class, UCD_fuel, UCD_technology, variable, unit, year) %>%
       summarise(weight = sum(weight),
-                weighted_cost = sum(weighted_cost)) %>%
+                weighted_value = sum(weighted_value)) %>%
       ungroup() %>%
-      mutate(value = round(weighted_cost / weight * gdp_deflator(2019, 2005), 0),
-             region = "USA",
-             variable = "Purchase price",
-             unit = "$/vehicle (2019$)") %>%
-      select(region, sector = UCD_sector, mode = rev.mode, size.class = rev_size.class,
+      mutate(value = if_else(grepl("\\$", unit),
+                             round(weighted_value / weight * gdp_deflator(2019, 2005), 2),
+                             round(weighted_value / weight, 0)),
+             unit = sub("2005", "2019", unit)) %>%
+      select(region = UCD_region, sector = UCD_sector, mode = rev.mode, size.class = rev_size.class,
              technology = UCD_technology, fuel = UCD_fuel, year, variable, unit, value)
 
     EMF37_transport_data <- bind_rows(EMF37_transport_data, EMF37_vehicle_cost_data) %>%
