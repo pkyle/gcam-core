@@ -161,6 +161,7 @@ Freight,Truck,Truck (16-32t),BEV,Electricity,trn_road and rail,electricity,trn_f
 Freight,Truck,Truck (3.5-16t),BEV,Electricity,trn_road and rail,electricity,trn_freight_road,Truck (3.5-16t),BEV,elect_td_trn
 Freight,Truck,Truck (>32t),BEV,Electricity,trn_road and rail,electricity,trn_freight_road,Truck (>32t),BEV,elect_td_trn
 Freight,Truck,Truck,BEV,Electricity,trn_road and rail,electricity,trn_freight_road,Truck,BEV,elect_td_trn
+Freight,Truck,3W Rural,BEV,Electricity,trn_road and rail,electricity,trn_freight_road,Light truck,BEV,elect_td_trn
 Passenger,Bus,All,FCEV,Hydrogen,trn_road and rail,hydrogen,trn_pass_road,Bus,FCEV,H2 enduse
 Passenger,Bus,Heavy Bus,FCEV,Hydrogen,trn_road and rail,hydrogen,trn_pass_road_bus,Heavy Bus,FCEV,H2 enduse
 Passenger,Bus,Light Bus,FCEV,Hydrogen,trn_road and rail,hydrogen,trn_pass_road_bus,Light Bus,FCEV,H2 enduse
