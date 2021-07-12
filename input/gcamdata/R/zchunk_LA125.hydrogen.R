@@ -18,7 +18,9 @@ module_energy_LA125.hydrogen <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "energy/A22.globaltech_coef",
              FILE = "energy/A23.globaltech_capital",
-             FILE = "energy/A23.globaltech_eff"))
+             FILE = "energy/A23.globaltech_eff",
+             FILE = "energy/H2A_NE_cost_data",
+             FILE = "energy/H2A_IO_coef_data"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L125.globaltech_coef",
              "L125.globaltech_cost"))
@@ -32,6 +34,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
     A22.globaltech_coef <- get_data(all_data, "energy/A22.globaltech_coef")
     A23.globaltech_capital <- get_data(all_data, "energy/A23.globaltech_capital", strip_attributes = TRUE)
     A23.globaltech_eff <- get_data(all_data, "energy/A23.globaltech_eff", strip_attributes = TRUE)
+    H2A_NE_cost_data <- get_data(all_data, "energy/H2A_NE_cost_data", strip_attributes = TRUE)
+    H2A_IO_coef_data <- get_data(all_data, "energy/H2A_IO_coef_data", strip_attributes = TRUE)
 
     # ===================================================
 
