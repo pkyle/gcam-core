@@ -147,6 +147,8 @@ CONV_KBTU_EJ <- 1.0551e-12 # KiloBTU to EJ
 CONV_TBTU_EJ <- 0.0010551 # TeraBTU to EJ
 CONV_MJ_BTU <- 947.777
 CONV_BTU_KJ <- 1.0551
+CONV_MMBTU_KGH2 <- 0.113939965425114 # MMBTU/kg H2 - LHV Source: H2 CCTP Workbook.xls (Used for older GCAM assumptions)
+CONV_GJ_KGH2 <- 0.12021 #GJ/kg H2 - LHV
 
 # Distance
 CONV_MILE_KM <- 1.60934 # Mile to km
