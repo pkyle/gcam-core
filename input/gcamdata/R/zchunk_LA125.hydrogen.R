@@ -110,7 +110,6 @@ module_energy_LA125.hydrogen <- function(command, ...) {
                                                                   NA_character_ ) ) ) %>%
       select( sector.name, subsector.name, technology, max_improvement ) -> elec_IGCC_CCS_cost_improvement
 
-    write.csv(elec_IGCC_CCS_cost_improvement,'elec_IGCC_CCS_cost_improvement.csv')
 
     #     Efficiency:
     L223.GlobalTechEff_elec %>%
@@ -169,52 +168,48 @@ module_energy_LA125.hydrogen <- function(command, ...) {
      existing_coal_bio %>%
        filter( technology == "biomass to H2" ) -> bio_no_CCS
 
-     bio_no_CCS_impro_2040 <- bio_no_CCS$improvement_to_2040
+     bio_no_CCS_impro_2040 <- bio_no_CCS$improvement_to_2040[1]
 
-     bio_no_CCS_max_improv <- bio_no_CCS$max_improvement
+     bio_no_CCS_max_improv <- bio_no_CCS$max_improvement[1]
 
 
      existing_coal_bio %>%
-       select( sector.name, subsector.name, technology, minicam.non.energy.input,
-                      units, year, value ) %>%
-       mutate( technology = if_else( technology == "coal chemical CCS", #switch tech names
-                                            "coal chemical",
-                                            if_else( technology == "biomass to H2",
-                                                            "biomass to H2 CCS", NA_character_ ) ) ) -> switch_coal_chem_and_bio_CCS
-      write.csv(existing_coal_bio,'existing_coal_bio.csv')
-     switch_coal_chem_and_bio_CCS %>%
-       filter(year == 2015) %>%  #filter to 2015
-       mutate( value = if_else(technology == "biomass to H2 CCS",
+       mutate( value = if_else(subsector.name == "biomass",
                                value*elec_IGCC_2015_cost_ratio$IGCC_CCS_no_CCS_2015_ratio, #inflate bio to bioCCS cost...
-                               if_else(technology == "coal chemical", #and deflate coal chemical CCS to coal chemical cost, using ratio of CCS to no CCS costs for IGCC elec
-                                       value / elec_IGCC_2015_cost_ratio$IGCC_CCS_no_CCS_2015_ratio,NA_real_) ) ) -> coal_chem_and_bio_CCS_2015_scaled
-
-
-     coal_chem_and_bio_CCS_2015_scaled %>%
-       filter(technology == 'coal chemical') -> coal_chem_2015
-
-     coal_chem_and_bio_CCS_2015_scaled %>% #Set coal w/o CCS improvements equal to bio w/o CCS
-       mutate(year=2040)%>%
+                               if_else(subsector.name == "coal", #and deflate coal chemical CCS to coal chemical cost, using ratio of CCS to no CCS costs for IGCC elec
+                                       value / elec_IGCC_2015_cost_ratio$IGCC_CCS_no_CCS_2015_ratio,NA_real_) ) ) %>%
+       mutate( technology = if_else(subsector.name == "coal",
+                                    "coal chemical",
+                                    if_else( subsector.name == "biomass",
+                                                "biomass to H2 CCS", NA_character_ ))) %>%
+       #                     Set coal w/o CCS improvements equal to bio w/o CCS
        mutate(improvement_to_2040 = if_else( technology == "coal chemical",
-                                                    bio_no_CCS_impro_2040, NA_real_ ),
+                                             bio_no_CCS_impro_2040, NA_real_ ),
               max_improvement = if_else( technology == "coal chemical",
-                                                bio_no_CCS_max_improv, NA_real_ )) -> coal_chem_and_bio_CCS_2040_scaled
-
-     coal_chem_and_bio_CCS_2040_scaled %>%
-       mutate(value = if_else(technology == "coal chemical",
-                              coal_chem_2015$value*(1-improvement_to_2040),value)) %>%
+                                         bio_no_CCS_max_improv, NA_real_ ))%>%
        select(sector.name, subsector.name, technology, minicam.non.energy.input,
-              units, year, value) -> coal_chem_and_bio_CCS_2040_scaled
+              units, year, value,improvement_to_2040,max_improvement) %>%
+       mutate(improvement_to_2040 = approx_fun(year,improvement_to_2040, rule = 2)) %>%
+       ungroup()-> add_coal_and_bio
 
-     coal_chem_and_bio_CCS_scaled <- bind_rows(coal_chem_and_bio_CCS_2015_scaled,coal_chem_and_bio_CCS_2040_scaled)
 
-     coal_chem_and_bio_CCS_scaled %>%
+
+     add_coal_and_bio %>%
        filter(technology=='coal chemical') -> coal_chem_costs_scaled
 
-     write.csv(coal_chem_costs_scaled,'coal_chem_scaled.csv')
+     coal_chem_costs_scaled %>%
+       complete(nesting(sector.name, subsector.name, technology,minicam.non.energy.input), year = sort(unique(c(year, MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)))) %>%
+       arrange(sector.name, subsector.name, technology, minicam.non.energy.input,year) %>%
+       group_by(sector.name, subsector.name, technology, minicam.non.energy.input) %>%
+       mutate(improvement_rate = (1-improvement_to_2040[year==2015])^(1/(2040-2015))-1) %>%
+       mutate(min_cost=value[year==2015]*(1-max_improvement[year==2015])) %>%
+       mutate(cost = if_else(year <= 2015,value[year==2015],value[year==2015]*(1+improvement_rate)^(year-2015))) %>%
+       mutate(cost = if_else(cost>=min_cost,cost,min_cost))%>%
+       fill(units,.direction='downup') -> coal_chem_costs_GCAM_years
+
 
      H2A_prod_cost_conv %>%
-       filter(!( technology %in% c( "coal chemical", "biomass to H2 CCS", "coal chemical CCS" ) ) ) -> H2A_NE_cost_add_2015_techs
+       filter(!( technology %in% c( "coal chemical", "biomass to H2 CCS" , "coal chemical CCS") ) ) -> H2A_NE_cost_add_2015_techs
 
 
      H2A_NE_cost_add_2015_techs %>%
@@ -234,59 +229,75 @@ module_energy_LA125.hydrogen <- function(command, ...) {
        mutate(cost = if_else(year <= 2015,value[year==2015],value[year==2015]*(1+improvement_rate)^(year-2015))) %>% #apply calculated CAGR from above to calculate cost declination pathway
        mutate(cost = if_else(cost>=min_cost,cost,min_cost))%>%
        fill(units,.direction='downup') %>% #fillout strings
+       bind_rows(coal_chem_costs_GCAM_years) %>% #add back coal chem
        ungroup() -> H2A_NE_cost_GCAM_years
 
 
-
-    write.csv(H2A_NE_cost_GCAM_years,"H2A_NE_cost_GCAM_years.csv")
     # E. Create bio + CCS and extend coal w/CCS
 
     # First, set bio's CCS tech to the same improvement rate as coal's, otherwise bio + CCS gets cheaper than coal + CCS
     elec_IGCC_CCS_cost_improvement %>%
-      select( subsector.name, max_improvement ) %>%
-      filter( subsector.name == "coal" ) %>%
-      mutate( subsector.name = "biomass" ) -> bio_elec_IGCC_CCS_cost_improvement
+      filter(subsector.name == 'coal') -> coal_elec_IGCC_CCS_cost_improvement
 
-    elec_IGCC_CCS_cost_improvement %>%
-      select( subsector.name, max_improvement ) %>%
-      filter( subsector.name == "coal" ) -> coal_elec_IGCC_CCS_cost_improvement
-
-    elec_IGCC_CCS_cost_improvement <- bind_rows(bio_elec_IGCC_CCS_cost_improvement,coal_elec_IGCC_CCS_cost_improvement)
+    max_CCS_cost_improvement <- coal_elec_IGCC_CCS_cost_improvement$max_improvement
 
 
-    existing_coal_bio %>%
+    add_coal_and_bio %>% # calculate the incremental cost of CCS
       select(-improvement_to_2040,-max_improvement) %>%
-      bind_rows(coal_chem_and_bio_CCS_scaled) %>%
-      left_join_error_no_match(elec_IGCC_CCS_cost_improvement,by='subsector.name') %>%
-      filter(technology %in% c( "biomass to H2 CCS", "coal chemical CCS" ))-> ccs_costs
-
-    write.csv(ccs_costs,'ccs_costs.csv')
-
-    ccs_costs %>%
+      bind_rows(existing_coal_bio %>% select(-improvement_to_2040,-max_improvement)) %>%
+      filter(year==2015) %>%
+      mutate(value = if_else(subsector.name=='biomass',value[technology=='biomass to H2 CCS']-value[technology=='biomass to H2'],#calculate difference between CCS, no CCS techs to get an incremental cost of CCS
+                                if_else(subsector.name=='coal',value[technology=='coal chemical CCS']-value[technology=='coal chemical'],NA_real_))) %>%
+      filter(technology %in% c("biomass to H2 CCS" , "coal chemical CCS"))%>%
       complete(nesting(sector.name, subsector.name, technology,minicam.non.energy.input), year = sort(unique(c(year, MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)))) %>%
+      mutate(max_improvement = max_CCS_cost_improvement) %>%
       arrange(sector.name, subsector.name, technology, minicam.non.energy.input,year) %>%
       group_by(sector.name, subsector.name, technology, minicam.non.energy.input) %>%
-      mutate(max_improvement = approx_fun(year,max_improvement, rule = 2)) %>%
-      mutate(improvement_rate = (1-max_improvement)^(1/(2100-2015))-1)%>%
+      mutate(improvement_rate = (1-max_improvement)^(1/(2100-2015))-1) %>%
       mutate(min_cost = value[year==2015]*(1-max_improvement)) %>%
       mutate(cost = if_else(year <= 2015,value[year==2015],value[year==2015]*(1+improvement_rate)^(year-2015))) %>% #apply calculated CAGR from above to calculate cost declination pathway
-      mutate(cost = if_else(cost>=min_cost,cost,min_cost))%>%
+      mutate(ccs_incr_cost = if_else(cost>=min_cost,cost,min_cost))%>%
       fill(units,.direction='downup') %>%
-      ungroup() -> coal_CCS_bio_CCS_costs_GCAM_years
+      ungroup() %>%
+      select(subsector.name,year,ccs_incr_cost)-> ccs_incr_cost
 
-    write.csv(coal_CCS_bio_CCS_costs_GCAM_years,'coal_CCS_bio_CCS_costs_GCAM_years.csv')
 
-    coal_chem_costs_scaled %>%
-      complete(nesting(sector.name, subsector.name, technology,minicam.non.energy.input), year = sort(unique(c(year, MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)))) %>%
+
+    H2A_NE_cost_GCAM_years %>%
+      filter(subsector.name %in% c('biomass','coal'))%>%
+      select( sector.name, subsector.name, technology, minicam.non.energy.input,
+                     units,cost,year) %>%
       arrange(sector.name, subsector.name, technology, minicam.non.energy.input,year) %>%
-      group_by(sector.name, subsector.name, technology, minicam.non.energy.input) -> coal_chem_costs_GCAM_years
+      group_by(sector.name, subsector.name, technology, minicam.non.energy.input) %>%
+      left_join_error_no_match(ccs_incr_cost,by=c('subsector.name','year')) %>%
+      mutate(cost = cost + ccs_incr_cost) %>%
+      mutate(technology = if_else(subsector.name == 'biomass','biomass to H2 CCS',
+                                  if_else(subsector.name == 'coal','coal chemical CCS',NA_character_))) %>%
+      select(-ccs_incr_cost)-> coal_and_bio_w_ccs
 
-    write.csv(coal_chem_costs_GCAM_years,'coal_chem_costs_GCAM_years.csv')
+
+
+    H2A_NE_cost_GCAM_years %>% # join missing CCS technologies with the rest of the data
+      select( sector.name, subsector.name, technology, minicam.non.energy.input,
+              units,cost,year) %>%
+      bind_rows(coal_and_bio_w_ccs) -> L125.globaltech_cost
+
+
+    write.csv(L125.globaltech_cost,'L125.globaltech_cost.csv')
+
+
+
+
+
+
+
+
+
 
 
     # Temporarily create the "return" data objects out of thin air
     L125.globaltech_coef <- H2A_prod_coef
-    L125.globaltech_cost <- H2A_prod_cost
+    #L125.globaltech_cost <- H2A_prod_cost
 
     # ===================================================
     # Produce outputs
@@ -299,7 +310,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       L125.globaltech_coef
 
     L125.globaltech_cost %>%
-      #add_title("Costs of global technologies for hydrogen") %>%
+      add_title("Costs of global technologies for hydrogen") %>%
       add_units("Unitless") %>%
       add_comments("Interpolated orginal data into all model years") %>%
       add_legacy_name("L225.GlobalTechCost_h2") %>%
