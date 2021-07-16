@@ -19,8 +19,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
     return(c(FILE = "energy/A22.globaltech_coef",
              FILE = "energy/A25.globaltech_eff",
              FILE = "energy/A25.globaltech_cost",
-             FILE = "energy/H2A_2018_prod_data_coef",
-             FILE = "energy/H2A_2018_prod_data_cost",
+             FILE = "energy/H2A_IO_coef_data",
+             FILE = "energy/H2A_NE_cost_data",
              "L223.GlobalTechCapital_elec",
              "L223.GlobalTechEff_elec"))
   } else if(command == driver.DECLARE_OUTPUTS) {
@@ -37,8 +37,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
     A25.globaltech_coef <- get_data(all_data, "energy/A25.globaltech_eff")
     A25.globaltech_cost <- get_data(all_data, "energy/A25.globaltech_cost")
 
-    H2A_prod_coef <- get_data(all_data, "energy/H2A_2018_prod_data_coef")
-    H2A_prod_cost <- get_data(all_data, "energy/H2A_2018_prod_data_cost")
+    H2A_prod_coef <- get_data(all_data, "energy/H2A_IO_coef_data")
+    H2A_prod_cost <- get_data(all_data, "energy/H2A_NE_cost_data")
 
     L223.GlobalTechCapital_elec <- get_data(all_data, "L223.GlobalTechCapital_elec")
     L223.GlobalTechEff_elec <- get_data(all_data, "L223.GlobalTechEff_elec")
@@ -306,7 +306,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       #add_title("Input-output coefficients of global technologies for hydrogen") %>%
       add_units("Unitless") %>%
       add_comments("Interpolated original data into all model years") %>%
-      add_precursors("energy/A22.globaltech_coef", "energy/H2A_2018_prod_data_coef")  ->
+      add_precursors("energy/A22.globaltech_coef", "energy/H2A_IO_coef_data")  ->
       L125.globaltech_coef
 
     L125.globaltech_cost %>%
@@ -314,7 +314,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       add_units("Unitless") %>%
       add_comments("Interpolated orginal data into all model years") %>%
       add_legacy_name("L225.GlobalTechCost_h2") %>%
-      add_precursors("energy/H2A_2018_prod_data_cost")  ->
+      add_precursors("energy/H2A_NE_cost_data")  ->
       L125.globaltech_cost
 
     return_data(L125.globaltech_coef, L125.globaltech_cost)
