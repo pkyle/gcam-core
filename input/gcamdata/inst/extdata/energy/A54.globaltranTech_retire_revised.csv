@@ -1,12 +1,12 @@
-# File: A54.globaltranTech_retire_revised.csv
-# Title: Transportation technology retirement parameters. Only applies to vintaged technologies
-# Units: Years for lifetime and half.life; Unitless for steepness
-# Source: Documented in JIRA issue https://jira.pnnl.gov/jira/browse/JGCRI-358?src=confmacro.
-# Comments: maximum lifetime of cohort. If no retirement function is used; the entire cohort is retired in this number of years.
-# half.life: number of years at which 50% of the cohort is retired; using the s-curve-shutdown-decider retirement function.
-# steepness: shape parameter used by the s-curve-shutdown-decider retirement function.
-# Column types: cccciin 
-# ----------
+# File: A54.globaltranTech_retire_revised.csv,,,,,,
+# Title: Transportation technology retirement parameters. Only applies to vintaged technologies,,,,,,
+# Units: Years for lifetime and half.life; Unitless for steepness,,,,,,
+# Source: Documented in JIRA issue https://jira.pnnl.gov/jira/browse/JGCRI-358?src=confmacro.,,,,,,
+# Comments: maximum lifetime of cohort. If no retirement function is used; the entire cohort is retired in this number of years.,,,,,,
+# half.life: number of years at which 50% of the cohort is retired; using the s-curve-shutdown-decider retirement function.,,,,,,
+# steepness: shape parameter used by the s-curve-shutdown-decider retirement function.,,,,,,
+# Column types: cccciin ,,,,,,
+# ----------,,,,,,
 supplysector,tranSubsector,tranTechnology,year,lifetime,half.life,steepness
 trn_freight_road,Medium truck,Liquids,final-calibration-year,20,10,0.193
 trn_freight_road,Medium truck,NG,final-calibration-year,20,10,0.193
@@ -73,3 +73,45 @@ trn_pass_road,Bus,BEV,final-calibration-year,15,8,0.124
 trn_pass_road,Bus,Liquids,initial-future-year,15,8,0.122
 trn_pass_road,Bus,NG,initial-future-year,15,8,0.122
 trn_pass_road,Bus,BEV,initial-future-year,15,8,0.122
+trn_aviation_intl,International Aviation,BEV,initial-future-year,,,
+trn_aviation_intl,International Aviation,Hydrogen,initial-future-year,,,
+trn_freight,Domestic Ship,BEV,initial-future-year,,,
+trn_freight,Domestic Ship,FCEV,initial-future-year,,,
+trn_freight,Domestic Ship,Hybrid Liquids,initial-future-year,,,
+trn_freight,Freight Rail,BEV,initial-future-year,,,
+trn_freight,Freight Rail,FCEV,initial-future-year,,,
+trn_freight,Freight Rail,Hybrid Liquids,initial-future-year,,,
+trn_freight_road,Light truck,FCEV,initial-future-year,20,10,0.193
+trn_freight_road,Light truck,Hybrid Liquids,initial-future-year,20,10,0.193
+trn_freight_road,Medium truck,FCEV,initial-future-year,20,10,0.193
+trn_freight_road,Medium truck,Hybrid Liquids,initial-future-year,20,10,0.193
+trn_freight_road,Heavy truck,FCEV,initial-future-year,20,10,0.193
+trn_freight_road,Heavy truck,Hybrid Liquids,initial-future-year,20,10,0.193
+trn_pass,Domestic Aviation,BEV,initial-future-year,,,
+trn_pass,Domestic Aviation,Hydrogen,initial-future-year,,,
+trn_pass_road,Bus,FCEV,initial-future-year,15,8,0.124
+trn_pass_road,Bus,Hybrid Liquids,initial-future-year,15,8,0.124
+trn_shipping_intl,International Ship,BEV,initial-future-year,,,
+trn_shipping_intl,International Ship,FCEV,initial-future-year,,,
+trn_shipping_intl,International Ship,Hybrid Liquids,initial-future-year,,,
+trn_aviation_intl,International Aviation,BEV,final-calibration-year,,,
+trn_aviation_intl,International Aviation,Hydrogen,final-calibration-year,,,
+trn_freight,Domestic Ship,BEV,final-calibration-year,,,
+trn_freight,Domestic Ship,FCEV,final-calibration-year,,,
+trn_freight,Domestic Ship,Hybrid Liquids,final-calibration-year,,,
+trn_freight,Freight Rail,BEV,final-calibration-year,,,
+trn_freight,Freight Rail,FCEV,final-calibration-year,,,
+trn_freight,Freight Rail,Hybrid Liquids,final-calibration-year,,,
+trn_freight_road,Light truck,FCEV,final-calibration-year,20,10,0.193
+trn_freight_road,Light truck,Hybrid Liquids,final-calibration-year,20,10,0.193
+trn_freight_road,Medium truck,FCEV,final-calibration-year,20,10,0.193
+trn_freight_road,Medium truck,Hybrid Liquids,final-calibration-year,20,10,0.193
+trn_freight_road,Heavy truck,FCEV,final-calibration-year,20,10,0.193
+trn_freight_road,Heavy truck,Hybrid Liquids,final-calibration-year,20,10,0.193
+trn_pass,Domestic Aviation,BEV,final-calibration-year,,,
+trn_pass,Domestic Aviation,Hydrogen,final-calibration-year,,,
+trn_pass_road,Bus,FCEV,final-calibration-year,15,8,0.124
+trn_pass_road,Bus,Hybrid Liquids,final-calibration-year,15,8,0.124
+trn_shipping_intl,International Ship,BEV,final-calibration-year,,,
+trn_shipping_intl,International Ship,FCEV,final-calibration-year,,,
+trn_shipping_intl,International Ship,Hybrid Liquids,final-calibration-year,,,
