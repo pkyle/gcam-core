@@ -17,8 +17,8 @@
 module_energy_LA125.hydrogen <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "energy/A22.globaltech_coef",
-             FILE = "energy/A25.globaltech_eff",
-             FILE = "energy/A25.globaltech_cost",
+             #FILE = "energy/A25.globaltech_eff",
+             #FILE = "energy/A25.globaltech_cost",
              FILE = "energy/H2A_IO_coef_data",
              FILE = "energy/H2A_NE_cost_data",
              "L223.GlobalTechCapital_elec",
@@ -34,8 +34,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
 
     # Load required inputs
     A22.globaltech_coef <- get_data(all_data, "energy/A22.globaltech_coef")
-    A25.globaltech_coef <- get_data(all_data, "energy/A25.globaltech_eff")
-    A25.globaltech_cost <- get_data(all_data, "energy/A25.globaltech_cost")
+    #A25.globaltech_coef <- get_data(all_data, "energy/A25.globaltech_eff")
+    #A25.globaltech_cost <- get_data(all_data, "energy/A25.globaltech_cost")
 
     H2A_prod_coef <- get_data(all_data, "energy/H2A_IO_coef_data")
     H2A_prod_cost <- get_data(all_data, "energy/H2A_NE_cost_data")
@@ -104,7 +104,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       mutate( CCS_add_cost = with_CCS - without_CCS ) %>%
       select( sector.name, subsector.name, year, CCS_add_cost ) %>%
       spread( year, CCS_add_cost ) %>%
-      mutate( max_improvement = ( 1 - ( !!rlang::sym( "2100" ) / !!rlang::sym( "2015" )  ) ),
+      mutate( max_improvement = ( 1 - (`2100`  / `2015` )  ),
                      technology = if_else( subsector.name == "coal", "coal (IGCC CCS)",
                                                   if_else( subsector.name == "biomass", "biomass (IGCC CCS)",
                                                                   NA_character_ ) ) ) %>%
@@ -124,7 +124,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       mutate( CCS_sub_eff = with_CCS - without_CCS ) %>%
       select( sector.name, subsector.name, year, CCS_sub_eff ) %>%
       spread( year, CCS_sub_eff ) %>%
-      mutate( max_improvement = ( 1 - ( !!rlang::sym( "2100" ) / !!rlang::sym( "2015" )  ) ),
+      mutate( max_improvement = ( 1 -  (`2100`  /  `2015`)) ,
                      technology = if_else( subsector.name == "coal", "coal (IGCC CCS)",
                                                   if_else( subsector.name == "biomass", "biomass (IGCC CCS)",
                                                                   NA_character_ ) ) ) %>%
@@ -136,7 +136,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       filter( technology == "Gen_III" ,
                      year %in% c( 2015, 2100 ) ) %>%
       spread( year, capital.overnight ) %>%
-      mutate( max_improvement = ( 1 - ( !!rlang::sym( "2100" ) / !!rlang::sym( "2015" )  ) ) ) %>%
+      mutate( max_improvement = ( 1 - ( `2100`  / `2015`  ) ) ) %>%
       select( sector.name, subsector.name, technology, max_improvement ) -> elec_nuclear_cost_improvement
 
 
@@ -301,8 +301,6 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       mutate(improvement_rate = (1+improvement_to_2040)^(1/(2040-2015))-1) %>%
       ungroup() -> H2A_eff_improvement
 
-    #mutate(value = case_when(technology == 'natural gas steam reforming' & year==2040 ~value[year==2015],
-    #                         TRUE ~ value)) %>% #
 
 
     # Add 2015 value for coal w/o CCS and bio w/CCS
@@ -449,15 +447,17 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       mutate(value = 1/value) %>%
       mutate(units = 'GJ input / GJ H2')-> L125.globaltech_coef
 
+    write.csv(L125.globaltech_coef,'L125.globaltech_coef.csv')
+
 
     # ===================================================
     # Produce outputs
 
     L125.globaltech_coef %>%
-      #add_title("Input-output coefficients of global technologies for hydrogen") %>%
+      add_title("Input-output coefficients of global technologies for hydrogen") %>%
       add_units("Unitless") %>%
       add_comments("Interpolated original data into all model years") %>%
-      add_precursors("energy/A22.globaltech_coef", "energy/H2A_IO_coef_data")  ->
+      add_precursors("energy/A22.globaltech_coef", "energy/H2A_IO_coef_data","L223.GlobalTechEff_elec")  ->
       L125.globaltech_coef
 
     L125.globaltech_cost %>%
@@ -465,7 +465,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       add_units("Unitless") %>%
       add_comments("Interpolated orginal data into all model years") %>%
       add_legacy_name("L225.GlobalTechCost_h2") %>%
-      add_precursors("energy/H2A_NE_cost_data")  ->
+      add_precursors("energy/H2A_NE_cost_data","L223.GlobalTechCapital_elec")  ->
       L125.globaltech_cost
 
     return_data(L125.globaltech_coef, L125.globaltech_cost)
