@@ -1,9 +1,9 @@
-# File: A54.globaltranTech_shrwt_revised.csv,,,,,,,,,,,
-# Title: Transportation technology default shareweights,,,,,,,,,,,
-# Source: Documented in JIRA issue https://jira.pnnl.gov/jira/browse/JGCRI-358?src=confmacro.,,,,,,,,,,,
-# Units: Unitless,,,,,,,,,,,
-# Column types: cccnnnnnnnnc,,,,,,,,,,,
-# ----------,,,,,,,,,,,
+# File: A54.globaltranTech_shrwt_revised.csv
+# Title: Transportation technology default shareweights
+# Source: Documented in JIRA issue https://jira.pnnl.gov/jira/browse/JGCRI-358?src=confmacro.
+# Units: Unitless
+# Column types: cccnnnnnnnnc
+# ----------
 supplysector,tranSubsector,tranTechnology,1971,2010,2015,2020,2025,2030,2050,2100,sce
 trn_aviation_intl,International Aviation,Liquids,1,1,1,1,1,1,1,1,CORE
 trn_freight,Domestic Ship,Liquids,1,1,1,1,1,1,1,1,CORE
