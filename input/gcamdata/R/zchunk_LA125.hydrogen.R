@@ -411,18 +411,6 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       mutate(value = 1 / value,
              units = 'GJ input / GJ H2')-> L125.globaltech_coef
 
-    #Final processing to spread data back into wide format for better compatibility downstream processing
-
-    L125.globaltech_coef %>%
-      group_by(sector.name, subsector.name, technology, minicam.energy.input) %>%
-      spread(year,value) %>%
-      ungroup() -> L125.globaltech_coef
-
-    L125.globaltech_cost %>%
-      group_by(sector.name, subsector.name, technology, minicam.non.energy.input) %>%
-      spread(year,cost) %>%
-      ungroup() -> L125.globaltech_cost
-
 
     # ===================================================
     # Produce outputs

@@ -8,7 +8,7 @@
 #' @param ... other optional parameters, depending on command
 #' @return Depends on \code{command}: either a vector of required inputs,
 #' a vector of output names, or (if \code{command} is "MAKE") all
-#' the generated outputs: \code{L225.Supplysector_h2}, \code{L225.SubsectorLogit_h2}, \code{L225.SubsectorShrwtFllt_h2}, \code{L225.StubTech_h2}, \code{L225.GlobalTechEff_h2}, \code{L225.GlobalTechCost_h2}, \code{L225.GlobalTechShrwt_h2}, \code{L225.PrimaryRenewKeyword_h2}, \code{L225.GlobalTechCapture_h2}. The corresponding file in the
+#' the generated outputs: \code{L225.Supplysector_h2}, \code{L225.SubsectorLogit_h2}, \code{L225.SubsectorShrwtFllt_h2}, \code{L225.StubTech_h2}, \code{L225.GlobalTechCoef_h2}, \code{L225.GlobalTechCost_h2}, \code{L225.GlobalTechShrwt_h2}, \code{L225.PrimaryRenewKeyword_h2}, \code{L225.GlobalTechCapture_h2}. The corresponding file in the
 #' original data system was \code{L225.hydrogen.R} (energy level2).
 #' @details Provides supply sector information, subsector information, technology information for hydrogen sectors.
 #' @importFrom assertthat assert_that
@@ -21,11 +21,15 @@ module_energy_L225.hydrogen <- function(command, ...) {
              FILE = "energy/A25.sector",
              FILE = "energy/A25.subsector_logit",
              FILE = "energy/A25.subsector_shrwt",
-             FILE = "energy/A25.globaltech_eff",
-             FILE = "energy/A25.globaltech_cost",
+             FILE = "energy/H2A_NE_cost_data",
+             FILE = "energy/H2A_IO_coef_data",
              FILE = "energy/A25.globaltech_shrwt",
              FILE = "energy/A25.globaltech_keyword",
-             FILE = "energy/A25.globaltech_co2capture"))
+             FILE = "energy/A25.globaltech_co2capture",
+             "L125.globaltech_coef",
+             "L125.globaltech_cost",
+             "L223.GlobalTechEff_elec",
+             "L223.GlobalTechCapital_elec"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L225.Supplysector_h2",
              "L225.SubsectorLogit_h2",
@@ -34,7 +38,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
              "L225.SubsectorInterpTo_h2",
              "L225.SubsectorShrwtFllt_h2",
              "L225.StubTech_h2",
-             "L225.GlobalTechEff_h2",
+             "L225.GlobalTechCoef_h2",
              "L225.GlobalTechCost_h2",
              "L225.GlobalTechShrwt_h2",
              "L225.PrimaryRenewKeyword_h2",
@@ -54,11 +58,14 @@ module_energy_L225.hydrogen <- function(command, ...) {
     A25.sector <- get_data(all_data, "energy/A25.sector", strip_attributes = TRUE)
     A25.subsector_logit <- get_data(all_data, "energy/A25.subsector_logit", strip_attributes = TRUE)
     A25.subsector_shrwt <- get_data(all_data, "energy/A25.subsector_shrwt", strip_attributes = TRUE)
-    A25.globaltech_eff <- get_data(all_data, "energy/A25.globaltech_eff", strip_attributes = TRUE)
-    A25.globaltech_cost <- get_data(all_data, "energy/A25.globaltech_cost", strip_attributes = TRUE)
+    #A25.globaltech_eff <- get_data(all_data, "energy/A25.globaltech_eff", strip_attributes = TRUE)
+    #A25.globaltech_cost <- get_data(all_data, "energy/A25.globaltech_cost", strip_attributes = TRUE)
     A25.globaltech_shrwt <- get_data(all_data, "energy/A25.globaltech_shrwt", strip_attributes = TRUE)
     A25.globaltech_keyword <- get_data(all_data, "energy/A25.globaltech_keyword", strip_attributes = TRUE)
     A25.globaltech_co2capture <- get_data(all_data, "energy/A25.globaltech_co2capture", strip_attributes = TRUE)
+
+    L125.globaltech_coef <- get_data(all_data, "L125.globaltech_coef")
+    L125.globaltech_cost <- get_data(all_data, "L125.globaltech_cost")
 
     # ===================================================
 
@@ -100,39 +107,20 @@ module_energy_L225.hydrogen <- function(command, ...) {
       rename(stub.technology = technology) ->
       L225.StubTech_h2
 
-    # L225.GlobalTechEff_h2: Energy inputs and efficiencies of global technologies for hydrogen
-    # Efficiencies of global technologies
-    A25.globaltech_eff %>%
-      gather_years %>%
-      complete(nesting(supplysector, subsector, technology, minicam.energy.input), year = c(year, MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
-      arrange(supplysector, subsector, technology, minicam.energy.input, year) %>%
-      group_by(supplysector, subsector, technology, minicam.energy.input) %>%
-      mutate(efficiency = approx_fun(year, value, rule = 1),
-             efficiency = round(efficiency,energy.DIGITS_EFFICIENCY)) %>%
-      ungroup %>%
-      filter(year %in% c(MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
-      # Assign the columns "sector.name" and "subsector.name", consistent with the location info of a global technology
-      rename(sector.name = supplysector,
-             subsector.name = subsector) %>%
-      select(-value) ->
-      L225.GlobalTechEff_h2
+    # L225.GlobalTechCoef_h2: Energy inputs coefficients of global technologies for hydrogen
+    L125.globaltech_coef %>%
+           # Assign the columns "sector.name" and "subsector.name", consistent with the location info of a global technology
+           rename(sector.name = supplysector,
+                  subsector.name = subsector,
+                  coefficient = value) -> L225.GlobalTechCoef_h2
 
     # L225.GlobalTechCost_h2: Costs of global technologies for hydrogen
     # Costs of global technologies
-    A25.globaltech_cost %>%
-      gather_years %>%
-      complete(nesting(supplysector, subsector, technology, minicam.non.energy.input), year = c(year, MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
-      arrange(supplysector, subsector, technology, minicam.non.energy.input, year) %>%
-      group_by(supplysector, subsector, technology, minicam.non.energy.input) %>%
-      mutate(input.cost = approx_fun(year, value, rule = 1),
-             input.cost = round(input.cost,energy.DIGITS_COST)) %>%
-      ungroup %>%
-      filter(year %in% c(MODEL_BASE_YEARS,MODEL_FUTURE_YEARS)) %>%
+    L125.globaltech_cost %>%
       # Assign the columns "sector.name" and "subsector.name", consistent with the location info of a global technology
       rename(sector.name = supplysector,
-             subsector.name = subsector) %>%
-      select(-value) ->
-      L225.GlobalTechCost_h2
+             subsector.name = subsector,
+             input.cost = cost) -> L225.GlobalTechCost_h2
 
     # L225.GlobalTechShrwt_h2: Shareweights of global technologies for hydrogen
     # Shareweights of global technologies
@@ -268,21 +256,21 @@ module_energy_L225.hydrogen <- function(command, ...) {
       add_precursors("common/GCAM_region_names", "energy/A25.globaltech_shrwt") ->
       L225.StubTech_h2
 
-    L225.GlobalTechEff_h2 %>%
-      add_title("Energy inputs and efficiencies of global technologies for hydrogen") %>%
+    L225.GlobalTechCoef_h2 %>%
+      #add_title("Energy inputs and efficiencies of global technologies for hydrogen") %>%
       add_units("Unitless") %>%
       add_comments("Interpolated orginal data into all model years") %>%
-      add_legacy_name("L225.GlobalTechEff_h2") %>%
-      add_precursors("energy/A25.globaltech_eff") ->
-      L225.GlobalTechEff_h2
+      #add_legacy_name("L225.GlobalTechCoef_h2") %>%
+      add_precursors("L125.globaltech_coef") -> L225.GlobalTechCoef_h2
+
 
     L225.GlobalTechCost_h2 %>%
-      add_title("Costs of global technologies for hydrogen") %>%
-      add_units("Unitless") %>%
+      #add_title("Costs of global technologies for hydrogen") %>%
+      add_units("$1975 / GJ H2") %>%
       add_comments("Interpolated orginal data into all model years") %>%
-      add_legacy_name("L225.GlobalTechCost_h2") %>%
-      add_precursors("energy/A25.globaltech_cost")  ->
-      L225.GlobalTechCost_h2
+      #add_legacy_name("L225.GlobalTechCost_h2") %>%
+      add_precursors("L125.globaltech_cost")  -> L225.GlobalTechCost_h2
+
 
     L225.GlobalTechShrwt_h2 %>%
       add_title("Shareweights of global technologies for hydrogen") %>%
@@ -318,7 +306,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
       L225.GlobalTechCapture_h2
 
     return_data(L225.Supplysector_h2, L225.SubsectorLogit_h2, L225.StubTech_h2,
-                L225.GlobalTechEff_h2, L225.GlobalTechCost_h2, L225.GlobalTechShrwt_h2,
+                L225.GlobalTechCoef_h2, L225.GlobalTechCost_h2, L225.GlobalTechShrwt_h2,
                 L225.PrimaryRenewKeyword_h2, L225.AvgFossilEffKeyword_h2,
                 L225.GlobalTechCapture_h2, L225.SubsectorShrwt_h2, L225.SubsectorShrwtFllt_h2,
                 L225.SubsectorInterp_h2, L225.SubsectorInterpTo_h2)
