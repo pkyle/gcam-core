@@ -112,7 +112,8 @@ module_energy_L225.hydrogen <- function(command, ...) {
            # Assign the columns "sector.name" and "subsector.name", consistent with the location info of a global technology
            rename(sector.name = supplysector,
                   subsector.name = subsector,
-                  coefficient = value) -> L225.GlobalTechCoef_h2
+                  coefficient = value) %>%
+      mutate(coefficient = round(coefficient,energy.DIGITS_COEFFICIENT))-> L225.GlobalTechCoef_h2
 
     # L225.GlobalTechCost_h2: Costs of global technologies for hydrogen
     # Costs of global technologies
@@ -120,7 +121,8 @@ module_energy_L225.hydrogen <- function(command, ...) {
       # Assign the columns "sector.name" and "subsector.name", consistent with the location info of a global technology
       rename(sector.name = supplysector,
              subsector.name = subsector,
-             input.cost = cost) -> L225.GlobalTechCost_h2
+             input.cost = cost) %>%
+      mutate(input.cost = round(input.cost,energy.DIGITS_COST))-> L225.GlobalTechCost_h2
 
     # L225.GlobalTechShrwt_h2: Shareweights of global technologies for hydrogen
     # Shareweights of global technologies
