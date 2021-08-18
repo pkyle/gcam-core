@@ -101,17 +101,18 @@ module_energy_LA154.transportation_UCD <- function(command, ...) {
       repeat_add_columns(tibble(sce = unique(UCD_trn_data$sce))) ->
       OTAQ_trn_data_EMF37_to_bind
 
-    OTAQ_data_years <- sort(unique(OTAQ_trn_data_EMF37_to_bind$year))
+    # Expand the OTAQ trn data to all of the required years in the UCD transportation database
+    UCD_data_years <- sort(unique(UCD_trn_data$year))
 
-    OTAQ_trn_data_EMF37_to_bind_noenergy <- filter(OTAQ_trn_data_EMF37_to_bind, variable != "energy")
+    OTAQ_trn_data_EMF37_to_bind_noenergy <- filter(OTAQ_trn_data_EMF37_to_bind, variable != "energy") %>%
+      complete(nesting(sce, UCD_region, UCD_sector, mode, size.class, UCD_technology, UCD_fuel, variable, unit),
+               year = UCD_data_years) %>%
+      group_by(sce, UCD_region, UCD_sector, mode, size.class, UCD_technology, UCD_fuel, variable, unit) %>%
+      mutate(value = approx_fun(year, value, rule = 2)) %>%
+      ungroup()
 
     UCD_trn_data_nocalibration <- UCD_trn_data %>%
       filter(!variable %in% c("energy", "service output")) %>%
-      complete(nesting(sce, UCD_region, UCD_sector, mode, size.class, UCD_technology, UCD_fuel, variable, unit),
-               year = OTAQ_data_years) %>%
-      group_by(sce, UCD_region, UCD_sector, mode, size.class, UCD_technology, UCD_fuel, variable, unit) %>%
-      mutate(value = approx_fun(year, value, rule = 2)) %>%
-      ungroup() %>%
       anti_join(OTAQ_trn_data_EMF37_to_bind_noenergy, by = c("sce", "UCD_region", "UCD_sector", "mode","size.class",
                                                     "UCD_technology", "UCD_fuel", "variable", "unit", "year")) %>%
       bind_rows(OTAQ_trn_data_EMF37_to_bind_noenergy) %>%
