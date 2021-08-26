@@ -23,15 +23,11 @@ module_energy_L225.hydrogen <- function(command, ...) {
              FILE = "energy/A25.subsector_shrwt",
              FILE = "energy/A25.globaltech_cost",
              FILE = "energy/A25.globaltech_eff",
-             FILE = "energy/H2A_NE_cost_data",
-             FILE = "energy/H2A_IO_coef_data",
              FILE = "energy/A25.globaltech_shrwt",
              FILE = "energy/A25.globaltech_keyword",
              FILE = "energy/A25.globaltech_co2capture",
              "L125.globaltech_coef",
-             "L125.globaltech_cost",
-             "L223.GlobalTechEff_elec",
-             "L223.GlobalTechCapital_elec"))
+             "L125.globaltech_cost"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L225.Supplysector_h2",
              "L225.SubsectorLogit_h2",
@@ -66,8 +62,8 @@ module_energy_L225.hydrogen <- function(command, ...) {
     A25.globaltech_keyword <- get_data(all_data, "energy/A25.globaltech_keyword", strip_attributes = TRUE)
     A25.globaltech_co2capture <- get_data(all_data, "energy/A25.globaltech_co2capture", strip_attributes = TRUE)
 
-    L125.globaltech_coef <- get_data(all_data, "L125.globaltech_coef")
-    L125.globaltech_cost <- get_data(all_data, "L125.globaltech_cost")
+    L125.globaltech_coef <- get_data(all_data, "L125.globaltech_coef", strip_attributes = TRUE)
+    L125.globaltech_cost <- get_data(all_data, "L125.globaltech_cost", strip_attributes = TRUE)
 
     # ===================================================
 
@@ -300,14 +296,14 @@ module_energy_L225.hydrogen <- function(command, ...) {
       L225.StubTech_h2
 
     L225.GlobalTechCoef_h2 %>%
-      #add_title("Energy inputs and efficiencies of global technologies for hydrogen") %>%
+      add_title("Energy inputs and efficiencies of global technologies for hydrogen") %>%
       add_units("Unitless") %>%
       add_comments("Interpolated orginal data into all model years") %>%
       add_precursors("L125.globaltech_coef",'energy/A25.globaltech_eff') -> L225.GlobalTechCoef_h2
 
 
     L225.GlobalTechCost_h2 %>%
-      #add_title("Costs of global technologies for hydrogen") %>%
+      add_title("Costs of global technologies for hydrogen") %>%
       add_units("$1975 / GJ H2") %>%
       add_comments("Interpolated orginal data into all model years") %>%
       add_precursors("L125.globaltech_cost",'energy/A25.globaltech_cost')  -> L225.GlobalTechCost_h2
