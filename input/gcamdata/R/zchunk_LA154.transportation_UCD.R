@@ -21,8 +21,6 @@
 #' @author RH May 2017
 module_energy_LA154.transportation_UCD <- function(command, ...) {
 
-  UCD_trn_data_name <- paste0("UCD_trn_data_", "CORE")
-
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "common/iso_GCAM_regID",
              FILE = "energy/mappings/calibrated_techs_trn_agg",
@@ -598,7 +596,7 @@ module_energy_LA154.transportation_UCD <- function(command, ...) {
                      "L1011.in_EJ_ctry_intlship_TOT_Yh", "L131.in_EJ_R_Senduse_F_Yh",
                      "energy/mappings/calibrated_techs_trn_agg", "energy/mappings/enduse_fuel_aggregation",
                      "energy/mappings/UCD_ctry", "energy/mappings/UCD_techs",
-                     "energy/UCD_trn_data_SSP1","energy/UCD_trn_data_SSP3","energy/UCD_trn_data_SSP5","energy/UCD_trn_data_CORE_highEV","energy/UCD_trn_data_CORE",
+                     "energy/UCD_trn_data_SSP1","energy/UCD_trn_data_SSP3","energy/UCD_trn_data_SSP5","energy/UCD_trn_data_CORE","energy/UCD_trn_data_CORE_highEV",
                      "energy/mappings/UCD_size_class_revisions") ->
       L154.in_EJ_R_trn_m_sz_tech_F_Yh
 
@@ -613,7 +611,7 @@ module_energy_LA154.transportation_UCD <- function(command, ...) {
                      "L1011.in_EJ_ctry_intlship_TOT_Yh", "L131.in_EJ_R_Senduse_F_Yh",
                      "energy/mappings/calibrated_techs_trn_agg", "energy/mappings/enduse_fuel_aggregation",
                      "energy/mappings/UCD_ctry", "energy/mappings/UCD_techs",
-                     "energy/UCD_trn_data_SSP1","energy/UCD_trn_data_SSP3","energy/UCD_trn_data_SSP5","energy/UCD_trn_data_CORE_highEV","energy/UCD_trn_data_CORE",
+                     "energy/UCD_trn_data_SSP1","energy/UCD_trn_data_SSP3","energy/UCD_trn_data_SSP5","energy/UCD_trn_data_CORE","energy/UCD_trn_data_CORE_highEV",
                      "energy/mappings/UCD_size_class_revisions") ->L154.IEA_histfut_data_times_UCD_shares
 
 
@@ -635,7 +633,7 @@ module_energy_LA154.transportation_UCD <- function(command, ...) {
       add_units("MJ/vkm") %>%
       add_comments("UCD transportation database data aggregated to GCAM region") %>%
       add_legacy_name("L154.intensity_MJvkm_R_trn_m_sz_tech_F_Y") %>%
-      add_precursors("energy/UCD_trn_data_SSP1","energy/UCD_trn_data_SSP3","energy/UCD_trn_data_SSP5","energy/UCD_trn_data_CORE_highEV","energy/UCD_trn_data_CORE",
+      add_precursors("energy/UCD_trn_data_SSP1","energy/UCD_trn_data_SSP3","energy/UCD_trn_data_SSP5","energy/UCD_trn_data_CORE","energy/UCD_trn_data_CORE_highEV",
                      "energy/mappings/UCD_size_class_revisions", "energy/mappings/UCD_ctry",
                      "common/iso_GCAM_regID", "energy/mappings/calibrated_techs_trn_agg", "energy/mappings/enduse_fuel_aggregation",
                      "energy/mappings/UCD_techs",
