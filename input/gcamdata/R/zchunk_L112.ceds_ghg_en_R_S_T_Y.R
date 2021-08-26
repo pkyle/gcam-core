@@ -387,7 +387,7 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
       # prepare detailed industry energy use for matching and filter out feedstocks
       L1323.in_EJ_R_iron_steel_F_Y %>%
         mutate(sector = "iron and steel") %>%
-        filter(fuel %notin% c("scrap")) ->
+        filter(!fuel %in% c("scrap")) ->
         L1323.in_EJ_R_iron_steel_F_Y
 
       L1324.in_EJ_R_Off_road_F_Y %>%
@@ -480,7 +480,8 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
       L112.in_EJ_R_en_S_F_Yh_calib_all %>%
         #We will drop all electricity sectors here
 
-        filter(stub.technology %notin% c(emissions.ZERO_EM_TECH), subsector %notin% c(emissions.ZERO_EM_TECH, "heat")) %>%
+        filter(!stub.technology %in% c(emissions.ZERO_EM_TECH),
+               !subsector %in% c(emissions.ZERO_EM_TECH, "heat")) %>%
         left_join_error_no_match(CEDS_sector_tech, by = c("supplysector", "subsector", "stub.technology")) ->
         L112.in_EJ_R_en_S_F_Yh_calib_all_baseenergy
 
