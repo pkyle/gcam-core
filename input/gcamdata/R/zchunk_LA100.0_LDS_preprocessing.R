@@ -53,6 +53,37 @@ module_aglu_LA100.0_LDS_preprocessing <- function(command, ...) {
       LDSfiles[[nm]] <- get_data(all_data, paste0(dirname, nm))
     }
 
+    # Saudi Arabia has a large and unrealistic shift from desert to pasture in the
+    # 1980-2000 timeframe that causes significant carbon sequestration in the model.
+    # Set the pasture-on-desert (1421, 1422) land quantity from 1980 onwards to
+    # the 1980 level, re-calculating unmanaged desert lands (1402, 1401) to balance
+    # the land totals
+
+    sau_pasture_years_to_change <- unique(LDSfiles[["Land_type_area_ha"]]$year[
+      LDSfiles[["Land_type_area_ha"]]$year >= 1980])
+    sau_pasture_quantities_to_use <- LDSfiles[["Land_type_area_ha"]] %>%
+      filter(iso == "sau",
+             land_type %in% c(1421, 1422),
+             year == 1980) %>%
+      select(-year) %>%
+      repeat_add_columns(tibble(year = sau_pasture_years_to_change)) %>%
+      rename(revised_pasture = value)
+
+    sau_desert_land_revisions <- LDSfiles[["Land_type_area_ha"]] %>%
+      inner_join(sau_pasture_quantities_to_use,
+                by = c("iso", "glu_code", "land_type", "year")) %>%
+      mutate(desert_to_add = value - revised_pasture) %>%
+      select(-value, -revised_pasture) %>%
+      mutate(land_type = as.integer(sub("142", "140", land_type)))
+
+    # Join these tables in and replace the values
+    LDSfiles[["Land_type_area_ha"]] <- LDSfiles[["Land_type_area_ha"]] %>%
+      left_join(sau_pasture_quantities_to_use, by = c("iso", "glu_code", "land_type", "year")) %>%
+      left_join(sau_desert_land_revisions, by = c("iso", "glu_code", "land_type", "year")) %>%
+      mutate(value = if_else(!is.na(revised_pasture), revised_pasture, value),
+             value = if_else(!is.na(desert_to_add), value + desert_to_add, value)) %>%
+      select(-revised_pasture, -desert_to_add)
+
     # Go through all data frames and...
     for(nm in namelist) {
 
