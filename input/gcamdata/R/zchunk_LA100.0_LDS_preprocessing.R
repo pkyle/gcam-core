@@ -61,9 +61,13 @@ module_aglu_LA100.0_LDS_preprocessing <- function(command, ...) {
 
     sau_pasture_years_to_change <- unique(LDSfiles[["Land_type_area_ha"]]$year[
       LDSfiles[["Land_type_area_ha"]]$year >= 1980])
+
+    # NOTE: glu_code 98 doesn't have a corresponding category of unmanaged desert (e.g., 1401) to re-assign the pasture-on-desert (1421)
+    # It's a comparatively small land use region; not going to re-assign any of its land
     sau_pasture_quantities_to_use <- LDSfiles[["Land_type_area_ha"]] %>%
       filter(iso == "sau",
              land_type %in% c(1421, 1422),
+             glu_code != 98,
              year == 1980) %>%
       select(-year) %>%
       repeat_add_columns(tibble(year = sau_pasture_years_to_change)) %>%
