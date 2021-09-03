@@ -6,9 +6,9 @@
 supplysector,subsector,technology,minicam.energy.input,1971,2010,2050,2100
 N fertilizer,coal,coal,delivered coal,0.054,0.054,0.0442,0.039
 N fertilizer,coal,coal CCS,delivered coal,0.06,0.06,0.0491,0.0433
-N fertilizer,gas,gas,wholesale gas,0.04,0.035,0.0286,0.0253
+N fertilizer,gas,gas,wholesale gas,0.04,0.035,0.0286,0.0286
 N fertilizer,gas,gas CCS,wholesale gas,0.045,0.04,0.0327,0.0289
-N fertilizer,hydrogen,hydrogen,H2 enduse,0.024,0.021,0.01716,0.01518
-N fertilizer,hydrogen,hydrogen,wholesale gas,0.007032,0.006153,0.00506506,0.00448063
+N fertilizer,hydrogen,hydrogen,H2 enduse,0.025714286,0.025714286,0.025714286,0.025714286
+N fertilizer,hydrogen,hydrogen,wholesale gas,0.004774951,0.004774951,0.004774951,0.004774951
 N fertilizer,refined liquids,refined liquids,refined liquids industrial,0.05,0.045,0.0368,0.0325
 Exports_fertilizer,N fertilizer,N fertilizer,N fertilizer,1,1,1,1
