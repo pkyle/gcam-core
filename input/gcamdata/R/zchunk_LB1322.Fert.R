@@ -379,7 +379,7 @@ module_energy_LB1322.Fert <- function(command, ...) {
     # To minimize price distortions from this phase-out, and to ensure no negative profit rates in the ag sector,
     # set the NE cost to generally balance the total net costs with natural gas steam reforming
 
-    L1322.Fert_NEcost_75USDkgN_oil <- 2
+    L1322.Fert_NEcost_75USDkgN_oil <- -0.05
 
     # Build final output table with NE costs by technology.  Non-energy costs for direct hydrogen production were set equal to those of vented gas.
     L1322.Fert_NEcost_75USDkgN_F <- tibble(fuel = c("gas", "gas CCS", "coal", "coal CCS", "refined liquids","hydrogen"),
