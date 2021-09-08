@@ -369,6 +369,9 @@ module_energy_LB1322.Fert <- function(command, ...) {
 
     L1322.Fert_NEcost_75USDkgN_coalCCS <- L1322.Fert_NEcost_75USDkgN_technologies[["coalCCS"]]
 
+    #For H2, subtract out natural gas SMR non-energy cost to avoid double counting
+    L1322.Fert_NEcost_75USDkgN_H2 <- L1322.Fert_NEcost_75USDkgN_gas-L1322.Fert_NEcost_75USDkgN_technologies[["Central_Natural_Gas"]]
+
     # Oil
     # For oil, the lack of differentiation in oil-derived products means that the fuel costs are too high
     # Fertilizer is made from relatively low-cost by-products of oil refining
@@ -385,7 +388,7 @@ module_energy_LB1322.Fert <- function(command, ...) {
                                                                L1322.Fert_NEcost_75USDkgN_coal,
                                                                L1322.Fert_NEcost_75USDkgN_coalCCS,
                                                                L1322.Fert_NEcost_75USDkgN_oil,
-                                                               L1322.Fert_NEcost_75USDkgN_gas))
+                                                               L1322.Fert_NEcost_75USDkgN_H2))
 
     # ===================================================
 
