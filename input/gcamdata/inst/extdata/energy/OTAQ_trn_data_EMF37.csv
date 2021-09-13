@@ -1594,21 +1594,21 @@ Southeast Asia,Freight,Ship International,All,Hybrid Liquids,Liquids,intensity,M
 USA,Freight,Ship International,All,Hybrid Liquids,Liquids,intensity,MJ/vkm,1665.848187,1665.848187,1665.848187,1665.848187,1665.848187,1657.535733,1649.22328,1641.03464,1632.846,1624.65736,1624.65736,1624.65736,1624.65736
 Western Europe,Freight,Ship International,All,Hybrid Liquids,Liquids,intensity,MJ/vkm,1665.848187,1665.848187,1665.848187,1665.848187,1665.848187,1657.535733,1649.22328,1641.03464,1632.846,1624.65736,1624.65736,1624.65736,1624.65736
 Brazil,Freight,Ship International,All,Hybrid Liquids,Liquids,intensity,MJ/vkm,1665.848187,1665.848187,1665.848187,1665.848187,1665.848187,1657.535733,1649.22328,1641.03464,1632.846,1624.65736,1624.65736,1624.65736,1624.65736
-Africa,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Australia_NZ,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Canada,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-China,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Eastern Europe,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Former Soviet Union,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-India,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Japan,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Korea,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Latin America,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Middle East,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Southeast Asia,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-USA,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Western Europe,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Brazil,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
+Africa,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Australia_NZ,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Canada,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+China,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Eastern Europe,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Former Soviet Union,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+India,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Japan,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Korea,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Latin America,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Middle East,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Southeast Asia,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+USA,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Western Europe,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Brazil,Freight,Ship International,All,Hybrid Liquids,Liquids,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
 Africa,Freight,Ship International,All,BEV,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,274.0572,274.0572,274.0572,274.0572,274.0572,190.3175,98.37950769,96.62273077,94.86595385,93.10917692,93.10917692,93.10917692,93.10917692
 Australia_NZ,Freight,Ship International,All,BEV,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,10.9644,10.9644,10.9644,10.9644,274.0572,190.3175,98.37950769,96.62273077,94.86595385,93.10917692,93.10917692,93.10917692,93.10917692
 Canada,Freight,Ship International,All,BEV,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,10.9644,10.9644,10.9644,10.9644,274.0572,190.3175,98.37950769,96.62273077,94.86595385,93.10917692,93.10917692,93.10917692,93.10917692
@@ -1654,21 +1654,21 @@ Southeast Asia,Freight,Ship International,All,BEV,Electricity,intensity,MJ/vkm,1
 USA,Freight,Ship International,All,BEV,Electricity,intensity,MJ/vkm,1041.155117,1041.155117,1041.155117,1041.155117,1041.155117,1035.959833,1030.76455,1025.64665,1020.52875,1015.41085,1015.41085,1015.41085,1015.41085
 Western Europe,Freight,Ship International,All,BEV,Electricity,intensity,MJ/vkm,1041.155117,1041.155117,1041.155117,1041.155117,1041.155117,1035.959833,1030.76455,1025.64665,1020.52875,1015.41085,1015.41085,1015.41085,1015.41085
 Brazil,Freight,Ship International,All,BEV,Electricity,intensity,MJ/vkm,1041.155117,1041.155117,1041.155117,1041.155117,1041.155117,1035.959833,1030.76455,1025.64665,1020.52875,1015.41085,1015.41085,1015.41085,1015.41085
-Africa,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Australia_NZ,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Canada,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-China,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Eastern Europe,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Former Soviet Union,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-India,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Japan,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Korea,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Latin America,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Middle East,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Southeast Asia,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-USA,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Western Europe,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Brazil,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
+Africa,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Australia_NZ,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Canada,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+China,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Eastern Europe,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Former Soviet Union,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+India,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Japan,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Korea,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Latin America,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Middle East,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Southeast Asia,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+USA,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Western Europe,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Brazil,Freight,Ship International,All,BEV,Electricity,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
 Africa,Freight,Ship International,All,FCEV,Hydrogen,CAPEX and non-fuel OPEX,2005$/vkt,60.9016,60.9016,60.9016,60.9016,60.9016,60.9016,52.00059692,47.78433231,43.56806769,39.35180308,39.35180308,39.35180308,39.35180308
 Australia_NZ,Freight,Ship International,All,FCEV,Hydrogen,CAPEX and non-fuel OPEX,2005$/vkt,60.9016,60.9016,60.9016,60.9016,60.9016,60.9016,52.00059692,47.78433231,43.56806769,39.35180308,39.35180308,39.35180308,39.35180308
 Canada,Freight,Ship International,All,FCEV,Hydrogen,CAPEX and non-fuel OPEX,2005$/vkt,60.9016,60.9016,60.9016,60.9016,60.9016,60.9016,52.00059692,47.78433231,43.56806769,39.35180308,39.35180308,39.35180308,39.35180308
@@ -1714,21 +1714,21 @@ Southeast Asia,Freight,Ship International,All,FCEV,Hydrogen,intensity,MJ/vkm,138
 USA,Freight,Ship International,All,FCEV,Hydrogen,intensity,MJ/vkm,1388.206822,1388.206822,1388.206822,1388.206822,1388.206822,1381.279778,1374.352733,1367.528867,1360.705,1353.881133,1353.881133,1353.881133,1353.881133
 Western Europe,Freight,Ship International,All,FCEV,Hydrogen,intensity,MJ/vkm,1388.206822,1388.206822,1388.206822,1388.206822,1388.206822,1381.279778,1374.352733,1367.528867,1360.705,1353.881133,1353.881133,1353.881133,1353.881133
 Brazil,Freight,Ship International,All,FCEV,Hydrogen,intensity,MJ/vkm,1388.206822,1388.206822,1388.206822,1388.206822,1388.206822,1381.279778,1374.352733,1367.528867,1360.705,1353.881133,1353.881133,1353.881133,1353.881133
-Africa,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Australia_NZ,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Canada,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-China,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Eastern Europe,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Former Soviet Union,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-India,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Japan,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Korea,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Latin America,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Middle East,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Southeast Asia,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-USA,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Western Europe,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
-Brazil,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
+Africa,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Australia_NZ,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Canada,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+China,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Eastern Europe,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Former Soviet Union,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+India,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Japan,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Korea,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Latin America,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Middle East,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Southeast Asia,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+USA,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Western Europe,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
+Brazil,Freight,Ship International,All,FCEV,Hydrogen,load factor,tonnes/veh,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000,20000
 USA,Freight,Truck,Truck (0-2.7t),Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,0.638861118,0.638861118,0.638861118,0.638861118,0.638861118,0.638861118,0.638861118,0.638861118,0.638861118,0.638861118,0.638861118,0.638861118,0.638861118
 USA,Freight,Truck,Truck (2.7-4.5t),Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,1.133,1.133,1.133,1.133,1.133,1.133,1.133,1.133,1.133,1.133,1.133,1.133,1.133
 USA,Freight,Truck,Truck (4.5-12t),Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,1.2307,1.2307,1.2307,1.2307,1.2307,1.2307,1.2307,1.2307,1.2307,1.2307,1.2307,1.2307,1.2307
