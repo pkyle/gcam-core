@@ -67,7 +67,7 @@ trn_aviation_intl,International Aviation,BEV,share-weight,final-calibration-year
 trn_aviation_intl,International Aviation,Hydrogen,share-weight,final-calibration-year,2050,s-curve,CORE
 trn_freight,Domestic Ship,BEV,share-weight,final-calibration-year,2050,s-curve,CORE
 trn_freight,Domestic Ship,FCEV,share-weight,final-calibration-year,2050,s-curve,CORE
-trn_freight,Domestic Ship,Hybrid Liquids,share-weight,final-calibration-year,end-year,fixed,CORE
+trn_freight,Domestic Ship,Hybrid Liquids,share-weight,final-calibration-year,2050,s-curve,CORE
 trn_freight,Freight Rail,BEV,share-weight,final-calibration-year,2050,s-curve,CORE
 trn_freight,Freight Rail,FCEV,share-weight,final-calibration-year,2050,s-curve,CORE
 trn_freight,Freight Rail,Hybrid Liquids,share-weight,final-calibration-year,end-year,fixed,CORE
@@ -83,12 +83,12 @@ trn_pass_road,Bus,FCEV,share-weight,final-calibration-year,2050,s-curve,CORE
 trn_pass_road,Bus,Hybrid Liquids,share-weight,final-calibration-year,end-year,fixed,CORE
 trn_shipping_intl,International Ship,BEV,share-weight,final-calibration-year,2050,s-curve,CORE
 trn_shipping_intl,International Ship,FCEV,share-weight,final-calibration-year,2050,s-curve,CORE
-trn_shipping_intl,International Ship,Hybrid Liquids,share-weight,final-calibration-year,end-year,fixed,CORE
+trn_shipping_intl,International Ship,Hybrid Liquids,share-weight,final-calibration-year,2050,s-curve,CORE
 trn_aviation_intl,International Aviation,BEV,share-weight,final-calibration-year,2050,s-curve,highEV
 trn_aviation_intl,International Aviation,Hydrogen,share-weight,final-calibration-year,2050,s-curve,highEV
 trn_freight,Domestic Ship,BEV,share-weight,final-calibration-year,2050,s-curve,highEV
 trn_freight,Domestic Ship,FCEV,share-weight,final-calibration-year,2050,s-curve,highEV
-trn_freight,Domestic Ship,Hybrid Liquids,share-weight,final-calibration-year,end-year,fixed,highEV
+trn_freight,Domestic Ship,Hybrid Liquids,share-weight,final-calibration-year,2050,s-curve,highEV
 trn_freight,Freight Rail,BEV,share-weight,final-calibration-year,2050,s-curve,highEV
 trn_freight,Freight Rail,FCEV,share-weight,final-calibration-year,2050,s-curve,highEV
 trn_freight,Freight Rail,Hybrid Liquids,share-weight,final-calibration-year,end-year,fixed,highEV
@@ -104,4 +104,4 @@ trn_pass_road,Bus,FCEV,share-weight,final-calibration-year,2050,s-curve,highEV
 trn_pass_road,Bus,Hybrid Liquids,share-weight,final-calibration-year,end-year,fixed,highEV
 trn_shipping_intl,International Ship,BEV,share-weight,final-calibration-year,2050,s-curve,highEV
 trn_shipping_intl,International Ship,FCEV,share-weight,final-calibration-year,2050,s-curve,highEV
-trn_shipping_intl,International Ship,Hybrid Liquids,share-weight,final-calibration-year,end-year,fixed,highEV
+trn_shipping_intl,International Ship,Hybrid Liquids,share-weight,final-calibration-year,2050,s-curve,highEV
