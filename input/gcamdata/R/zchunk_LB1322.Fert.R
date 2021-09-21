@@ -344,7 +344,7 @@ module_energy_LB1322.Fert <- function(command, ...) {
 
     # First, calculate costs in 1975 USD per kg N
     H2A_Prod_Tech %>%
-      mutate(NEcost_75USDkgN = NEcost * gdp_deflator(1975, aglu.FERT_PRICE_YEAR) * NH3_H_frac / CONV_NH3_N) ->
+      mutate(NEcost_75USDkgN = NEcost * gdp_deflator(1975, 2016) * NH3_H_frac / CONV_NH3_N) ->
       H2A_Prod_Tech_1975
 
     # Derive costs as the cost of NGSR plus the specified cost adder
