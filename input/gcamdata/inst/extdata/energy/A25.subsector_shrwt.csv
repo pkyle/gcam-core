@@ -16,15 +16,15 @@ H2 forecourt production,electricity,start-year,,0
 H2 distribution,H2 distribution,start-year,,0
 H2 enduse,H2 distribution,start-year,,0
 H2 enduse,H2 forecourt production,start-year,,0
-H2 central production,coal,2025,,1
-H2 central production,gas,2025,,1
-H2 central production,biomass,2025,,1
-H2 central production,nuclear,2025,,1
-H2 central production,electricity,2025,,1
-H2 central production,wind,2025,,1
-H2 central production,solar,2025,,1
-H2 forecourt production,gas,2025,,1
-H2 forecourt production,electricity,2025,,1
-H2 distribution,H2 distribution,2025,,1
-H2 enduse,H2 distribution,2025,,1
-H2 enduse,H2 forecourt production,2025,,1
+H2 central production,coal,2020,,1
+H2 central production,gas,2020,,1
+H2 central production,biomass,2020,,1
+H2 central production,nuclear,2020,,1
+H2 central production,electricity,2020,,1
+H2 central production,wind,2020,,1
+H2 central production,solar,2020,,1
+H2 forecourt production,gas,2020,,1
+H2 forecourt production,electricity,2020,,1
+H2 distribution,H2 distribution,2020,,1
+H2 enduse,H2 distribution,2020,,1
+H2 enduse,H2 forecourt production,2020,,1
