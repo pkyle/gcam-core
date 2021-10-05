@@ -1,7 +1,7 @@
 # File: A322.globaltech_shrwt.csv
 # Title: Fertilizer default shareweights
 # Units: Unitless
-# Column types: ccciiiiii
+# Column types: ccciiiiiii
 # ----------
 supplysector,subsector,technology,1971,2010,2015,2019,2020,2050,2100
 N fertilizer,coal,coal,1,1,1,1,1,1,1
