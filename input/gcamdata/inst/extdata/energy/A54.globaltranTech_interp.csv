@@ -4,8 +4,6 @@
 # Column types: cccccccc
 # ----------
 supplysector,tranSubsector,tranTechnology,apply.to,from.year,to.year,interpolation.function,sce
-trn_freight,Freight Rail,Adv-Electric,share-weight,final-calibration-year,end-year,fixed,CORE
-trn_freight,Freight Rail,Adv-Liquid,share-weight,final-calibration-year,end-year,fixed,CORE
 trn_freight,Freight Rail,Coal,share-weight,final-calibration-year,2020,linear,CORE
 trn_freight,Freight Rail,Electric,share-weight,final-calibration-year,end-year,fixed,CORE
 trn_freight,Freight Rail,Liquids,share-weight,final-calibration-year,end-year,fixed,CORE
@@ -59,8 +57,6 @@ trn_freight_road,Truck (9-16t),Liquids,share-weight,final-calibration-year,end-y
 trn_freight_road,Truck (9-16t),NG,share-weight,final-calibration-year,end-year,fixed,CORE
 trn_pass,Passenger Rail,Electric,share-weight,final-calibration-year,end-year,fixed,CORE
 trn_pass,Passenger Rail,Liquids,share-weight,final-calibration-year,end-year,fixed,CORE
-trn_pass,Passenger Rail,Tech-Adv-Electric,share-weight,final-calibration-year,end-year,fixed,CORE
-trn_pass,Passenger Rail,Tech-Adv-Liquid,share-weight,final-calibration-year,end-year,fixed,CORE
 trn_pass_road,Bus,Liquids,share-weight,final-calibration-year,2020,linear,CORE
 trn_pass_road,Bus,NG,share-weight,final-calibration-year,end-year,fixed,CORE
 trn_pass_road_bus,Heavy Bus,Liquids,share-weight,final-calibration-year,2020,linear,CORE
@@ -101,8 +97,6 @@ trn_pass_road_LDV_4W,Subcompact Car,NG,share-weight,final-calibration-year,end-y
 trn_pass_road_LDV_4W,Van,Hybrid Liquids,share-weight,final-calibration-year,2030,linear,CORE
 trn_pass_road_LDV_4W,Van,Liquids,share-weight,final-calibration-year,end-year,linear,CORE
 trn_pass_road_LDV_4W,Van,NG,share-weight,final-calibration-year,end-year,fixed,CORE
-trn_freight,Freight Rail,Adv-Electric,share-weight,final-calibration-year,end-year,fixed,highEV
-trn_freight,Freight Rail,Adv-Liquid,share-weight,final-calibration-year,end-year,fixed,highEV
 trn_freight,Freight Rail,Coal,share-weight,final-calibration-year,2020,linear,highEV
 trn_freight,Freight Rail,Electric,share-weight,final-calibration-year,end-year,fixed,highEV
 trn_freight,Freight Rail,Liquids,share-weight,final-calibration-year,end-year,fixed,highEV
@@ -156,8 +150,6 @@ trn_freight_road,Truck (9-16t),Liquids,share-weight,final-calibration-year,end-y
 trn_freight_road,Truck (9-16t),NG,share-weight,final-calibration-year,end-year,fixed,highEV
 trn_pass,Passenger Rail,Electric,share-weight,final-calibration-year,end-year,fixed,highEV
 trn_pass,Passenger Rail,Liquids,share-weight,final-calibration-year,end-year,fixed,highEV
-trn_pass,Passenger Rail,Tech-Adv-Electric,share-weight,final-calibration-year,end-year,fixed,highEV
-trn_pass,Passenger Rail,Tech-Adv-Liquid,share-weight,final-calibration-year,end-year,fixed,highEV
 trn_pass_road,Bus,Liquids,share-weight,final-calibration-year,2020,linear,highEV
 trn_pass_road,Bus,NG,share-weight,final-calibration-year,end-year,fixed,highEV
 trn_pass_road_bus,Heavy Bus,Liquids,share-weight,final-calibration-year,2020,linear,highEV

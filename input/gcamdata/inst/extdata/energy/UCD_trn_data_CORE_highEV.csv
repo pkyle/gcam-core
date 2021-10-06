@@ -17,14 +17,6 @@ Africa,Freight,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,21.382
 Africa,Freight,Rail,All,Liquids,Liquids,energy,PJ/yr,12.1825,,,,,,,,,,,,,,,,,,,
 Africa,Freight,Rail,All,Liquids,Liquids,intensity,MJ/vkm,558.2517,557.5551,556.8585,556.1619,555.4679333,554.7739667,554.08,553.3886,552.6972,552.0058,551.317,550.6282,549.9394,549.2531667,548.5669333,547.8807,547.1970667,546.5134333,545.8298,545.8298
 Africa,Freight,Rail,All,Liquids,Liquids,load factor,tonnes/veh,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082
-Africa,Freight,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,14.1777,14.17813333,14.17856667,14.179,14.1794,14.1798,14.1802,14.18063333,14.18106667,14.1815,14.1819,14.1823,14.1827,14.1831,14.1835,14.1839,14.1839
-Africa,Freight,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Africa,Freight,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,83.3435,83.2395,83.1355,83.0315,82.9279,82.8243,82.7207,82.61746667,82.51423333,82.411,82.30816667,82.20533333,82.1025,82.1025
-Africa,Freight,Rail,All,Tech-Adv-Electric,Electricity,load factor,tonnes/veh,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082
-Africa,Freight,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,20.2233,20.22983333,20.23636667,20.2429,20.2494,20.2559,20.2624,20.26886667,20.27533333,20.2818,20.28823333,20.29466667,20.3011,20.30753333,20.31396667,20.3204,20.3204
-Africa,Freight,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Africa,Freight,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,273.2449,272.9039333,272.5629667,272.222,271.8823333,271.5426667,271.203,270.8646,270.5262,270.1878,269.8506333,269.5134667,269.1763,269.1763
-Africa,Freight,Rail,All,Tech-Adv-Liquid,Liquids,load factor,tonnes/veh,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082
 Africa,Freight,Ship Domestic,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137
 Africa,Freight,Ship Domestic,All,Liquids,Liquids,energy,PJ/yr,36.2289,,,,,,,,,,,,,,,,,,,
 Africa,Freight,Ship Domestic,All,Liquids,Liquids,intensity,MJ/vkm,341.6403,339.944,338.2477,336.5514,334.8803667,333.2093333,331.5383,329.8921667,328.2460333,326.5999,324.9783,323.3567,321.7351,320.1376333,318.5401667,316.9427,315.3690333,313.7953667,312.2217,312.2217
@@ -321,14 +313,6 @@ Africa,Passenger,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,15.6
 Africa,Passenger,Rail,All,Liquids,Liquids,energy,PJ/yr,1.3536,,,,,,,,,,,,,,,,,,,
 Africa,Passenger,Rail,All,Liquids,Liquids,intensity,MJ/vkm,561.8241,561.1230667,560.4220333,559.721,559.0225667,558.3241333,557.6257,556.9298667,556.2340333,555.5382,554.845,554.1518,553.4586,552.768,552.0774,551.3868,550.6987667,550.0107333,549.3227,549.3227
 Africa,Passenger,Rail,All,Liquids,Liquids,load factor,pers/veh,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097
-Africa,Passenger,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,12.6851,12.68556667,12.68603333,12.6865,12.68696667,12.68743333,12.6879,12.68836667,12.68883333,12.6893,12.68976667,12.69023333,12.6907,12.6907
-Africa,Passenger,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Africa,Passenger,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,136.0063,135.8365667,135.6668333,135.4971,135.3280333,135.1589667,134.9899,134.8214667,134.6530333,134.4846,134.3167667,134.1489333,133.9811,133.9811
-Africa,Passenger,Rail,All,Tech-Adv-Electric,Electricity,load factor,pers/veh,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097
-Africa,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,12.1263,12.13166667,12.13703333,12.1424,12.14773333,12.15306667,12.1584,12.16373333,12.16906667,12.1744,12.1797,12.185,12.1903,12.1903
-Africa,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Africa,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,316.2425,315.8479,315.4533,315.0587,314.6655667,314.2724333,313.8793,313.4876333,313.0959667,312.7043,312.3141,311.9239,311.5337,311.5337
-Africa,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,load factor,pers/veh,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097
 Africa,Passenger,Walk,All,All,All,service output,billion pkm,749.284,,,,,,,,,,,,,,,,,,,
 Africa,Passenger,Walk,All,All,All,speed,km/hr,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
 Australia_NZ,Freight,Rail,All,Coal,Coal,energy,PJ/yr,1,,,,,,,,,,,,,,,,,,,
@@ -342,14 +326,6 @@ Australia_NZ,Freight,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,
 Australia_NZ,Freight,Rail,All,Liquids,Liquids,energy,PJ/yr,26.9254,,,,,,,,,,,,,,,,,,,
 Australia_NZ,Freight,Rail,All,Liquids,Liquids,intensity,MJ/vkm,485.9183,485.3119667,484.7056333,484.0993,483.4952333,482.8911667,482.2871,481.6853,481.0835,480.4817,479.8821333,479.2825667,478.683,478.0857,477.4884,476.8911,476.2960333,475.7009667,475.1059,475.1059
 Australia_NZ,Freight,Rail,All,Liquids,Liquids,load factor,tonnes/veh,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877
-Australia_NZ,Freight,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,42.7693,42.6743,42.5793,42.4843,42.48536667,42.48643333,42.4875,42.48856667,42.48963333,42.4907,42.49176667,42.49283333,42.4939,42.49496667,42.49603333,42.4971,42.4971
-Australia_NZ,Freight,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Australia_NZ,Freight,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,72.5446,72.45406667,72.36353333,72.273,72.18283333,72.09266667,72.0025,71.91263333,71.82276667,71.7329,71.6434,71.5539,71.4644,71.4644
-Australia_NZ,Freight,Rail,All,Tech-Adv-Electric,Electricity,load factor,tonnes/veh,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877
-Australia_NZ,Freight,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,75.7106,75.6586,75.6066,75.5546,75.55516667,75.55573333,75.5563,75.55686667,75.55743333,75.558,75.55856667,75.55913333,75.5597,75.56026667,75.56083333,75.5614,75.5614
-Australia_NZ,Freight,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Australia_NZ,Freight,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,237.8402,237.5434333,237.2466667,236.9499,236.6542333,236.3585667,236.0629,235.7683333,235.4737667,235.1792,234.8857333,234.5922667,234.2988,234.2988
-Australia_NZ,Freight,Rail,All,Tech-Adv-Liquid,Liquids,load factor,tonnes/veh,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877
 Australia_NZ,Freight,Ship Domestic,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137
 Australia_NZ,Freight,Ship Domestic,All,Liquids,Liquids,energy,PJ/yr,10.5154,,,,,,,,,,,,,,,,,,,
 Australia_NZ,Freight,Ship Domestic,All,Liquids,Liquids,intensity,MJ/vkm,341.6403,339.944,338.2477,336.5514,334.8803667,333.2093333,331.5383,329.8921667,328.2460333,326.5999,324.9783,323.3567,321.7351,320.1376333,318.5401667,316.9427,315.3690333,313.7953667,312.2217,312.2217
@@ -618,14 +594,6 @@ Australia_NZ,Passenger,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vk
 Australia_NZ,Passenger,Rail,All,Liquids,Liquids,energy,PJ/yr,2.2093,,,,,,,,,,,,,,,,,,,
 Australia_NZ,Passenger,Rail,All,Liquids,Liquids,intensity,MJ/vkm,27.5611,27.5267,27.4923,27.4579,27.42363333,27.38936667,27.3551,27.32096667,27.28683333,27.2527,27.2187,27.1847,27.1507,27.11683333,27.08296667,27.0491,27.01533333,26.98156667,26.9478,26.9478
 Australia_NZ,Passenger,Rail,All,Liquids,Liquids,load factor,pers/veh,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579
-Australia_NZ,Passenger,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,5.5322,5.532266667,5.532333333,5.5324,5.532433333,5.532466667,5.5325,5.532533333,5.532566667,5.5326,5.532666667,5.532733333,5.5328,5.5328
-Australia_NZ,Passenger,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Australia_NZ,Passenger,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,6.672,6.663666667,6.655333333,6.647,6.6387,6.6304,6.6221,6.613833333,6.605566667,6.5973,6.589066667,6.580833333,6.5726,6.5726
-Australia_NZ,Passenger,Rail,All,Tech-Adv-Electric,Electricity,load factor,pers/veh,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579
-Australia_NZ,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,6.9882,6.988233333,6.988266667,6.9883,6.9883,6.9883,6.9883,6.988333333,6.988366667,6.9884,6.9884,6.9884,6.9884,6.9884
-Australia_NZ,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Australia_NZ,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,15.5137,15.49433333,15.47496667,15.4556,15.43633333,15.41706667,15.3978,15.37856667,15.35933333,15.3401,15.32096667,15.30183333,15.2827,15.2827
-Australia_NZ,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,load factor,pers/veh,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579
 Australia_NZ,Passenger,Walk,All,All,All,service output,billion pkm,10.286,,,,,,,,,,,,,,,,,,,
 Australia_NZ,Passenger,Walk,All,All,All,speed,km/hr,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
 Brazil,Freight,Rail,All,Coal,Coal,energy,PJ/yr,1,,,,,,,,,,,,,,,,,,,
@@ -639,14 +607,6 @@ Brazil,Freight,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,27.472
 Brazil,Freight,Rail,All,Liquids,Liquids,energy,PJ/yr,23.14046461,,,,,,,,,,,,,,,,,,,
 Brazil,Freight,Rail,All,Liquids,Liquids,intensity,MJ/vkm,202.4422897,202.1896792,201.9370687,201.6844582,201.4327933,201.1811285,200.9294636,200.6787408,200.4280181,200.1772953,199.9275111,199.6777269,199.4279427,199.1790935,198.9302444,198.6813952,198.4334776,198.1855601,197.9376425,197.9376425
 Brazil,Freight,Rail,All,Liquids,Liquids,load factor,tonnes/veh,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000
-Brazil,Freight,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,15.47286749,15.47286749,15.47286749,15.47286749,15.47286749,15.47286749,15.47286749,15.47286749,15.47286749,15.47286749,15.47286749,15.47286749,15.47286749,15.47286749,15.47286749,15.47286749,15.47286749
-Brazil,Freight,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Brazil,Freight,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,51.40939587,51.34524646,51.28109705,51.21694764,51.15303837,51.0891291,51.02521983,50.9615498,50.89787978,50.83420975,50.77077807,50.70734638,50.6439147,50.6439147
-Brazil,Freight,Rail,All,Tech-Adv-Electric,Electricity,load factor,tonnes/veh,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000
-Brazil,Freight,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,25.96294512,25.96440846,25.9658718,25.96733514,25.968793,25.97025086,25.97170872,25.97316112,25.97461353,25.97606593,25.9775129,25.97895986,25.98040683,25.98184838,25.98328992,25.98473147,25.98473147
-Brazil,Freight,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Brazil,Freight,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,99.08850262,98.96485851,98.84121441,98.7175703,98.59438905,98.47120779,98.34802654,98.22530641,98.10258628,97.97986615,97.85760542,97.73534468,97.61308395,97.61308395
-Brazil,Freight,Rail,All,Tech-Adv-Liquid,Liquids,load factor,tonnes/veh,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000
 Brazil,Freight,Ship Domestic,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,0.913738199,0.913738199,0.913738199,0.913738199,0.913738199,0.913738199,0.913738199,0.913738199,0.913738199,0.913738199,0.913738199,0.913738199,0.913738199,0.913738199,0.913738199,0.913738199,0.913738199,0.913738199,0.913738199,0.913738199
 Brazil,Freight,Ship Domestic,All,Liquids,Liquids,energy,PJ/yr,47.46924,,,,,,,,,,,,,,,,,,,
 Brazil,Freight,Ship Domestic,All,Liquids,Liquids,intensity,MJ/vkm,341.6402915,339.9439958,338.2477,336.5514043,334.8803757,333.2093471,331.5383185,329.8921806,328.2460427,326.5999048,324.9782869,323.356669,321.7350511,320.1375879,318.5401248,316.9426616,315.3689933,313.7953251,312.2216568,312.2216568
@@ -951,14 +911,6 @@ Brazil,Passenger,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,157.
 Brazil,Passenger,Rail,All,Liquids,Liquids,energy,PJ/yr,1.21791919,,,,,,,,,,,,,,,,,,,
 Brazil,Passenger,Rail,All,Liquids,Liquids,intensity,MJ/vkm,59.0367,58.96303313,58.88936625,58.81569938,58.74230828,58.66891717,58.59552607,58.5224097,58.44929334,58.37617697,58.30333431,58.23049164,58.15764898,58.085079,58.01250902,57.93993904,57.86764072,57.79534241,57.72304409,57.72304409
 Brazil,Passenger,Rail,All,Liquids,Liquids,load factor,pers/veh,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250
-Brazil,Passenger,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,96.6456454,96.64630789,96.64697039,96.64763288,96.6482929,96.64895291,96.64961293,96.65027047,96.65092802,96.65158556,96.65224064,96.65289572,96.6535508,96.6535508
-Brazil,Passenger,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Brazil,Passenger,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,118.8938801,118.7455225,118.597165,118.4488074,118.3010052,118.1532031,118.0054009,117.858152,117.7109031,117.5636542,117.4169565,117.2702589,117.1235612,117.1235612
-Brazil,Passenger,Rail,All,Tech-Adv-Electric,Electricity,load factor,pers/veh,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250
-Brazil,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,121.9128651,121.9132138,121.9135625,121.9139112,121.9142586,121.914606,121.9149534,121.9152995,121.9156456,121.9159917,121.9163365,121.9166813,121.9170261,121.9170261
-Brazil,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Brazil,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,33.23088739,33.18942139,33.1479554,33.1064894,33.06517863,33.02386786,32.98255709,32.94140097,32.90024484,32.85908872,32.81808666,32.7770846,32.73608254,32.73608254
-Brazil,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,load factor,pers/veh,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250
 Brazil,Passenger,Walk,All,All,All,service output,billion pkm,23.6,,,,,,,,,,,,,,,,,,,
 Brazil,Passenger,Walk,All,All,All,speed,km/hr,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
 Canada,Freight,Rail,All,Coal,Coal,energy,PJ/yr,1,,,,,,,,,,,,,,,,,,,
@@ -972,14 +924,6 @@ Canada,Freight,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,71.22,
 Canada,Freight,Rail,All,Liquids,Liquids,energy,PJ/yr,72.5718,,,,,,,,,,,,,,,,,,,
 Canada,Freight,Rail,All,Liquids,Liquids,intensity,MJ/vkm,664.5415,663.7122667,662.8830333,662.0538,661.2276667,660.4015333,659.5754,658.7523667,657.9293333,657.1063,656.2863667,655.4664333,654.6465,653.8296333,653.0127667,652.1959,651.3820667,650.5682333,649.7544,649.7544
 Canada,Freight,Rail,All,Liquids,Liquids,load factor,tonnes/veh,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877
-Canada,Freight,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,39.8868,39.8222,39.7576,39.693,39.69373333,39.69446667,39.6952,39.69593333,39.69666667,39.6974,39.69813333,39.69886667,39.6996,39.7003,39.701,39.7017,39.7017
-Canada,Freight,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Canada,Freight,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,99.2119,99.0881,98.9643,98.8405,98.71716667,98.59383333,98.4705,98.34763333,98.22476667,98.1019,97.97946667,97.85703333,97.7346,97.7346
-Canada,Freight,Rail,All,Tech-Adv-Electric,Electricity,load factor,tonnes/veh,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877
-Canada,Freight,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,67.307,66.73423333,66.16146667,65.5887,65.595,65.6013,65.6076,65.61386667,65.62013333,65.6264,65.63266667,65.63893333,65.6452,65.6514,65.6576,65.6638,65.6638
-Canada,Freight,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Canada,Freight,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,325.2701,324.8642,324.4583,324.0524,323.6480667,323.2437333,322.8394,322.4365333,322.0336667,321.6308,321.2294667,320.8281333,320.4268,320.4268
-Canada,Freight,Rail,All,Tech-Adv-Liquid,Liquids,load factor,tonnes/veh,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877
 Canada,Freight,Ship Domestic,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137
 Canada,Freight,Ship Domestic,All,Liquids,Liquids,energy,PJ/yr,79.3357,,,,,,,,,,,,,,,,,,,
 Canada,Freight,Ship Domestic,All,Liquids,Liquids,intensity,MJ/vkm,341.6403,339.944,338.2477,336.5514,334.8803667,333.2093333,331.5383,329.8921667,328.2460333,326.5999,324.9783,323.3567,321.7351,320.1376333,318.5401667,316.9427,315.3690333,313.7953667,312.2217,312.2217
@@ -1207,14 +1151,6 @@ Canada,Passenger,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,7.13
 Canada,Passenger,Rail,All,Liquids,Liquids,energy,PJ/yr,3.4353,,,,,,,,,,,,,,,,,,,
 Canada,Passenger,Rail,All,Liquids,Liquids,intensity,MJ/vkm,30.0052,29.96776667,29.93033333,29.8929,29.8556,29.8183,29.781,29.74383333,29.70666667,29.6695,29.6325,29.5955,29.5585,29.5216,29.4847,29.4478,29.41106667,29.37433333,29.3376,29.3376
 Canada,Passenger,Rail,All,Liquids,Liquids,load factor,pers/veh,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579
-Canada,Passenger,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,4.4744,4.4744,4.4744,4.4744,4.474433333,4.474466667,4.4745,4.474533333,4.474566667,4.4746,4.474633333,4.474666667,4.4747,4.4747
-Canada,Passenger,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Canada,Passenger,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,7.2637,7.254633333,7.245566667,7.2365,7.227466667,7.218433333,7.2094,7.2004,7.1914,7.1824,7.173433333,7.164466667,7.1555,7.1555
-Canada,Passenger,Rail,All,Tech-Adv-Electric,Electricity,load factor,pers/veh,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579
-Canada,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,5.5282,5.528366667,5.528533333,5.5287,5.528833333,5.528966667,5.5291,5.529266667,5.529433333,5.5296,5.529733333,5.529866667,5.53,5.53
-Canada,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Canada,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,16.8895,16.86843333,16.84736667,16.8263,16.8053,16.7843,16.7633,16.74236667,16.72143333,16.7005,16.67966667,16.65883333,16.638,16.638
-Canada,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,load factor,pers/veh,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579
 Canada,Passenger,Walk,All,All,All,service output,billion pkm,5.206,,,,,,,,,,,,,,,,,,,
 Canada,Passenger,Walk,All,All,All,speed,km/hr,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
 China,Freight,Rail,All,Coal,Coal,energy,PJ/yr,177,,,,,,,,,,,,,,,,,,,
@@ -1228,14 +1164,6 @@ China,Freight,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,9.3659,
 China,Freight,Rail,All,Liquids,Liquids,energy,PJ/yr,316.0585,,,,,,,,,,,,,,,,,,,
 China,Freight,Rail,All,Liquids,Liquids,intensity,MJ/vkm,505.6085,504.9776,504.3467,503.7158,503.0872333,502.4586667,501.8301,501.2039333,500.5777667,499.9516,499.3277333,498.7038667,498.08,497.4585,496.837,496.2155,495.5963,494.9771,494.3579,494.3579
 China,Freight,Rail,All,Liquids,Liquids,load factor,tonnes/veh,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95
-China,Freight,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,8.2523,8.252633333,8.252966667,8.2533,8.253666667,8.254033333,8.2544,8.254733333,8.255066667,8.2554,8.255733333,8.256066667,8.2564,8.256733333,8.257066667,8.2574,8.2574
-China,Freight,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-China,Freight,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,69.1045,69.01826667,68.93203333,68.8458,68.7599,68.674,68.5881,68.5025,68.4169,68.3313,68.24606667,68.16083333,68.0756,68.0756
-China,Freight,Rail,All,Tech-Adv-Electric,Electricity,load factor,tonnes/veh,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95
-China,Freight,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,8.8725,8.8801,8.8877,8.8953,8.902866667,8.910433333,8.918,8.925533333,8.933066667,8.9406,8.9481,8.9556,8.9631,8.9706,8.9781,8.9856,8.9856
-China,Freight,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-China,Freight,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,247.4779,247.1691,246.8603,246.5515,246.2438333,245.9361667,245.6285,245.322,245.0155,244.709,244.4036333,244.0982667,243.7929,243.7929
-China,Freight,Rail,All,Tech-Adv-Liquid,Liquids,load factor,tonnes/veh,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95,2108.95
 China,Freight,Ship Domestic,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137
 China,Freight,Ship Domestic,All,Liquids,Liquids,energy,PJ/yr,388.2762,,,,,,,,,,,,,,,,,,,
 China,Freight,Ship Domestic,All,Liquids,Liquids,intensity,MJ/vkm,341.6403,339.944,338.2477,336.5514,334.8803667,333.2093333,331.5383,329.8921667,328.2460333,326.5999,324.9783,323.3567,321.7351,320.1376333,318.5401667,316.9427,315.3690333,313.7953667,312.2217,312.2217
@@ -1543,14 +1471,6 @@ China,Passenger,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,23.00
 China,Passenger,Rail,All,Liquids,Liquids,energy,PJ/yr,69.8146,,,,,,,,,,,,,,,,,,,
 China,Passenger,Rail,All,Liquids,Liquids,intensity,MJ/vkm,150.324,150.1364333,149.9488667,149.7613,149.5744333,149.3875667,149.2007,149.0145,148.8283,148.6421,148.4566333,148.2711667,148.0857,147.9009333,147.7161667,147.5314,147.3473,147.1632,146.9791,146.9791
 China,Passenger,Rail,All,Liquids,Liquids,load factor,pers/veh,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89
-China,Passenger,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,15.2773,15.2774,15.2775,15.2776,15.2777,15.2778,15.2779,15.278,15.2781,15.2782,15.2783,15.2784,15.2785,15.2785
-China,Passenger,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-China,Passenger,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,31.1791,31.1402,31.1013,31.0624,31.02363333,30.98486667,30.9461,30.9075,30.8689,30.8303,30.79183333,30.75336667,30.7149,30.7149
-China,Passenger,Rail,All,Tech-Adv-Electric,Electricity,load factor,pers/veh,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89
-China,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,17.8402,17.84206667,17.84393333,17.8458,17.84763333,17.84946667,17.8513,17.85313333,17.85496667,17.8568,17.8586,17.8604,17.8622,17.8622
-China,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-China,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,84.6152,84.5096,84.404,84.2984,84.19323333,84.08806667,83.9829,83.8781,83.7733,83.6685,83.5641,83.4597,83.3553,83.3553
-China,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,load factor,pers/veh,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89,944.89
 China,Passenger,Walk,All,All,All,service output,billion pkm,251.599,,,,,,,,,,,,,,,,,,,
 China,Passenger,Walk,All,All,All,speed,km/hr,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
 Eastern Europe,Freight,Rail,All,Coal,Coal,energy,PJ/yr,1,,,,,,,,,,,,,,,,,,,
@@ -1564,14 +1484,6 @@ Eastern Europe,Freight,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vk
 Eastern Europe,Freight,Rail,All,Liquids,Liquids,energy,PJ/yr,9.7776,,,,,,,,,,,,,,,,,,,
 Eastern Europe,Freight,Rail,All,Liquids,Liquids,intensity,MJ/vkm,168.9378,168.727,168.5162,168.3054,168.0954,167.8854,167.6754,167.4661667,167.2569333,167.0477,166.8392667,166.6308333,166.4224,166.2147333,166.0070667,165.7994,165.5925,165.3856,165.1787,165.1787
 Eastern Europe,Freight,Rail,All,Liquids,Liquids,load factor,tonnes/veh,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917
-Eastern Europe,Freight,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,26.4708,26.37186667,26.27293333,26.174,26.1751,26.1762,26.1773,26.17843333,26.17956667,26.1807,26.1818,26.1829,26.184,26.1851,26.1862,26.1873,26.1873
-Eastern Europe,Freight,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Eastern Europe,Freight,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,40.6424,40.59166667,40.54093333,40.4902,40.43966667,40.38913333,40.3386,40.28826667,40.23793333,40.1876,40.13746667,40.08733333,40.0372,40.0372
-Eastern Europe,Freight,Rail,All,Tech-Adv-Electric,Electricity,load factor,tonnes/veh,620.391,620.391,620.391,620.391,620.391,620.391,620.391,620.391,620.391,620.391,620.391,620.391,620.391,620.391,620.391,620.391,620.391,620.391,620.391,620.391
-Eastern Europe,Freight,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,24.7982,24.37903333,23.95986667,23.5407,23.54533333,23.54996667,23.5546,23.55916667,23.56373333,23.5683,23.5729,23.5775,23.5821,23.58663333,23.59116667,23.5957,23.5957
-Eastern Europe,Freight,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Eastern Europe,Freight,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,82.6892,82.58603333,82.48286667,82.3797,82.2769,82.1741,82.0713,81.9689,81.8665,81.7641,81.66206667,81.56003333,81.458,81.458
-Eastern Europe,Freight,Rail,All,Tech-Adv-Liquid,Liquids,load factor,tonnes/veh,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917,355.917
 Eastern Europe,Freight,Ship Domestic,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137
 Eastern Europe,Freight,Ship Domestic,All,Liquids,Liquids,energy,PJ/yr,5.309,,,,,,,,,,,,,,,,,,,
 Eastern Europe,Freight,Ship Domestic,All,Liquids,Liquids,intensity,MJ/vkm,341.6403,339.944,338.2477,336.5514,334.8803667,333.2093333,331.5383,329.8921667,328.2460333,326.5999,324.9783,323.3567,321.7351,320.1376333,318.5401667,316.9427,315.3690333,313.7953667,312.2217,312.2217
@@ -1888,14 +1800,6 @@ Eastern Europe,Passenger,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/
 Eastern Europe,Passenger,Rail,All,Liquids,Liquids,energy,PJ/yr,10.935,,,,,,,,,,,,,,,,,,,
 Eastern Europe,Passenger,Rail,All,Liquids,Liquids,intensity,MJ/vkm,53.4537,53.387,53.3203,53.2536,53.18713333,53.12066667,53.0542,52.988,52.9218,52.8556,52.78963333,52.72366667,52.6577,52.592,52.5263,52.4606,52.39513333,52.32966667,52.2642,52.2642
 Eastern Europe,Passenger,Rail,All,Liquids,Liquids,load factor,pers/veh,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821
-Eastern Europe,Passenger,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,7.614,7.6143,7.6146,7.6149,7.6152,7.6155,7.6158,7.6161,7.6164,7.6167,7.617,7.6173,7.6176,7.6176
-Eastern Europe,Passenger,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Eastern Europe,Passenger,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,23.2371,23.2081,23.1791,23.1501,23.1212,23.0923,23.0634,23.03463333,23.00586667,22.9771,22.94843333,22.91976667,22.8911,22.8911
-Eastern Europe,Passenger,Rail,All,Tech-Adv-Electric,Electricity,load factor,pers/veh,133.3086,133.3086,133.3086,133.3086,133.3086,133.3086,133.3086,133.3086,133.3086,133.3086,133.3086,133.3086,133.3086,133.3086,133.3086,133.3086,133.3086,133.3086,133.3086,133.3086
-Eastern Europe,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,3.7451,3.745866667,3.746633333,3.7474,3.7482,3.749,3.7498,3.750566667,3.751333333,3.7521,3.7529,3.7537,3.7545,3.7545
-Eastern Europe,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Eastern Europe,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,30.0883,30.05073333,30.01316667,29.9756,29.9382,29.9008,29.8634,29.82613333,29.78886667,29.7516,29.7145,29.6774,29.6403,29.6403
-Eastern Europe,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,load factor,pers/veh,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821,59.0821
 Eastern Europe,Passenger,Walk,All,All,All,service output,billion pkm,51.709,,,,,,,,,,,,,,,,,,,
 Eastern Europe,Passenger,Walk,All,All,All,speed,km/hr,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
 Former Soviet Union,Freight,Rail,All,Coal,Coal,energy,PJ/yr,1,,,,,,,,,,,,,,,,,,,
@@ -1909,14 +1813,6 @@ Former Soviet Union,Freight,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,200
 Former Soviet Union,Freight,Rail,All,Liquids,Liquids,energy,PJ/yr,104.6943,,,,,,,,,,,,,,,,,,,
 Former Soviet Union,Freight,Rail,All,Liquids,Liquids,intensity,MJ/vkm,888.5608,887.4520333,886.3432667,885.2345,884.1299,883.0253,881.9207,880.8202333,879.7197667,878.6193,877.5229333,876.4265667,875.3302,874.2379667,873.1457333,872.0535,870.9653333,869.8771667,868.789,868.789
 Former Soviet Union,Freight,Rail,All,Liquids,Liquids,load factor,tonnes/veh,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716
-Former Soviet Union,Freight,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,8.745,8.7455,8.746,8.7465,8.747,8.7475,8.748,8.7485,8.749,8.7495,8.75,8.7505,8.751,8.751466667,8.751933333,8.7524,8.7524
-Former Soviet Union,Freight,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Former Soviet Union,Freight,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,132.6566,132.4910667,132.3255333,132.16,131.9951,131.8302,131.6653,131.501,131.3367,131.1724,131.0087,130.845,130.6813,130.6813
-Former Soviet Union,Freight,Rail,All,Tech-Adv-Electric,Electricity,load factor,tonnes/veh,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716
-Former Soviet Union,Freight,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,10.0536,10.06106667,10.06853333,10.076,10.08343333,10.09086667,10.0983,10.10573333,10.11316667,10.1206,10.12796667,10.13533333,10.1427,10.15006667,10.15743333,10.1648,10.1648
-Former Soviet Union,Freight,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Former Soviet Union,Freight,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,434.9198,434.3771,433.8344,433.2917,432.7510333,432.2103667,431.6697,431.1310667,430.5924333,430.0538,429.5171667,428.9805333,428.4439,428.4439
-Former Soviet Union,Freight,Rail,All,Tech-Adv-Liquid,Liquids,load factor,tonnes/veh,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716,3716
 Former Soviet Union,Freight,Ship Domestic,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137
 Former Soviet Union,Freight,Ship Domestic,All,Liquids,Liquids,energy,PJ/yr,58.9835,,,,,,,,,,,,,,,,,,,
 Former Soviet Union,Freight,Ship Domestic,All,Liquids,Liquids,intensity,MJ/vkm,341.6403,339.944,338.2477,336.5514,334.8803667,333.2093333,331.5383,329.8921667,328.2460333,326.5999,324.9783,323.3567,321.7351,320.1376333,318.5401667,316.9427,315.3690333,313.7953667,312.2217,312.2217
@@ -2233,14 +2129,6 @@ Former Soviet Union,Passenger,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2
 Former Soviet Union,Passenger,Rail,All,Liquids,Liquids,energy,PJ/yr,34.8981,,,,,,,,,,,,,,,,,,,
 Former Soviet Union,Passenger,Rail,All,Liquids,Liquids,intensity,MJ/vkm,283.8206,283.4664333,283.1122667,282.7581,282.4052667,282.0524333,281.6996,281.3481,280.9966,280.6451,280.2949,279.9447,279.5945,279.2456,278.8967,278.5478,278.2002333,277.8526667,277.5051,277.5051
 Former Soviet Union,Passenger,Rail,All,Liquids,Liquids,load factor,pers/veh,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263
-Former Soviet Union,Passenger,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,23.8572,23.8574,23.8576,23.8578,23.85796667,23.85813333,23.8583,23.85846667,23.85863333,23.8588,23.859,23.8592,23.8594,23.8594
-Former Soviet Union,Passenger,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Former Soviet Union,Passenger,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,68.7072,68.62146667,68.53573333,68.45,68.3646,68.2792,68.1938,68.1087,68.0236,67.9385,67.85373333,67.76896667,67.6842,67.6842
-Former Soviet Union,Passenger,Rail,All,Tech-Adv-Electric,Electricity,load factor,pers/veh,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263
-Former Soviet Union,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,28.6169,28.61883333,28.62076667,28.6227,28.62463333,28.62656667,28.6285,28.63043333,28.63236667,28.6343,28.63623333,28.63816667,28.6401,28.6401
-Former Soviet Union,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Former Soviet Union,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,159.7584,159.5590667,159.3597333,159.1604,158.9617667,158.7631333,158.5645,158.3666667,158.1688333,157.971,157.7738667,157.5767333,157.3796,157.3796
-Former Soviet Union,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,load factor,pers/veh,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263,263
 Former Soviet Union,Passenger,Walk,All,All,All,service output,billion pkm,229.119,,,,,,,,,,,,,,,,,,,
 Former Soviet Union,Passenger,Walk,All,All,All,speed,km/hr,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
 India,Freight,Rail,All,Coal,Coal,energy,PJ/yr,1,,,,,,,,,,,,,,,,,,,
@@ -2254,14 +2142,6 @@ India,Freight,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,23.5121
 India,Freight,Rail,All,Liquids,Liquids,energy,PJ/yr,30.6026,,,,,,,,,,,,,,,,,,,
 India,Freight,Rail,All,Liquids,Liquids,intensity,MJ/vkm,284.6484,284.2932,283.938,283.5828,283.2289333,282.8750667,282.5212,282.1686667,281.8161333,281.4636,281.1124,280.7612,280.41,280.0601,279.7102,279.3603,279.0117,278.6631,278.3145,278.3145
 India,Freight,Rail,All,Liquids,Liquids,load factor,tonnes/veh,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082
-India,Freight,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,13.5263,13.52646667,13.52663333,13.5268,13.527,13.5272,13.5274,13.5276,13.5278,13.528,13.5282,13.5284,13.5286,13.52876667,13.52893333,13.5291,13.5291
-India,Freight,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-India,Freight,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,38.9046,38.85603333,38.80746667,38.7589,38.71056667,38.66223333,38.6139,38.5657,38.5175,38.4693,38.4213,38.3733,38.3253,38.3253
-India,Freight,Rail,All,Tech-Adv-Electric,Electricity,load factor,tonnes/veh,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082
-India,Freight,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,22.2228,22.225,22.2272,22.2294,22.2316,22.2338,22.236,22.2382,22.2404,22.2426,22.2448,22.247,22.2492,22.25136667,22.25353333,22.2557,22.2557
-India,Freight,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-India,Freight,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,139.3255,139.1516667,138.9778333,138.804,138.6308,138.4576,138.2844,138.1118333,137.9392667,137.7667,137.5948,137.4229,137.251,137.251
-India,Freight,Rail,All,Tech-Adv-Liquid,Liquids,load factor,tonnes/veh,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082
 India,Freight,Ship Domestic,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137
 India,Freight,Ship Domestic,All,Liquids,Liquids,energy,PJ/yr,20.1594,,,,,,,,,,,,,,,,,,,
 India,Freight,Ship Domestic,All,Liquids,Liquids,intensity,MJ/vkm,341.6403,339.944,338.2477,336.5514,334.8803667,333.2093333,331.5383,329.8921667,328.2460333,326.5999,324.9783,323.3567,321.7351,320.1376333,318.5401667,316.9427,315.3690333,313.7953667,312.2217,312.2217
@@ -2596,14 +2476,6 @@ India,Passenger,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,19.04
 India,Passenger,Rail,All,Liquids,Liquids,energy,PJ/yr,36.5663,,,,,,,,,,,,,,,,,,,
 India,Passenger,Rail,All,Liquids,Liquids,intensity,MJ/vkm,143.3404,143.1615333,142.9826667,142.8038,142.6256,142.4474,142.2692,142.0916667,141.9141333,141.7366,141.5597667,141.3829333,141.2061,141.0299,140.8537,140.6775,140.5019333,140.3263667,140.1508,140.1508
 India,Passenger,Rail,All,Liquids,Liquids,load factor,pers/veh,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097
-India,Passenger,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,12.2393,12.2394,12.2395,12.2396,12.2397,12.2398,12.2399,12.24,12.2401,12.2402,12.2403,12.2404,12.2405,12.2405
-India,Passenger,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-India,Passenger,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,29.7306,29.6935,29.6564,29.6193,29.58236667,29.54543333,29.5085,29.47166667,29.43483333,29.398,29.3613,29.3246,29.2879,29.2879
-India,Passenger,Rail,All,Tech-Adv-Electric,Electricity,load factor,pers/veh,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097
-India,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,14.7643,14.7652,14.7661,14.767,14.7679,14.7688,14.7697,14.7706,14.7715,14.7724,14.7733,14.7742,14.7751,14.7751
-India,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-India,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,80.6842,80.58353333,80.48286667,80.3822,80.28186667,80.18153333,80.0812,79.9813,79.8814,79.7815,79.68193333,79.58236667,79.4828,79.4828
-India,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,load factor,pers/veh,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097
 India,Passenger,Walk,All,All,All,service output,billion pkm,732.335,,,,,,,,,,,,,,,,,,,
 India,Passenger,Walk,All,All,All,speed,km/hr,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
 Japan,Freight,Rail,All,Coal,Coal,energy,PJ/yr,1,,,,,,,,,,,,,,,,,,,
@@ -2617,14 +2489,6 @@ Japan,Freight,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,13.9859
 Japan,Freight,Rail,All,Liquids,Liquids,energy,PJ/yr,4.9035,,,,,,,,,,,,,,,,,,,
 Japan,Freight,Rail,All,Liquids,Liquids,intensity,MJ/vkm,214.302,214.0346,213.7672,213.4998,213.2334,212.967,212.7006,212.4351667,212.1697333,211.9043,211.6399,211.3755,211.1111,210.8476667,210.5842333,210.3208,210.0583667,209.7959333,209.5335,209.5335
 Japan,Freight,Rail,All,Liquids,Liquids,load factor,tonnes/veh,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746
-Japan,Freight,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,6.2206,6.216066667,6.211533333,6.207,6.207033333,6.207066667,6.2071,6.207166667,6.207233333,6.2073,6.207333333,6.207366667,6.2074,6.207466667,6.207533333,6.2076,6.2076
-Japan,Freight,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Japan,Freight,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,3.7585,3.7538,3.7491,3.7444,3.739733333,3.735066667,3.7304,3.725766667,3.721133333,3.7165,3.711833333,3.707166667,3.7025,3.7025
-Japan,Freight,Rail,All,Tech-Adv-Electric,Electricity,load factor,tonnes/veh,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746
-Japan,Freight,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,13.227,12.679,12.131,11.583,11.589,11.595,11.601,11.607,11.613,11.619,11.625,11.631,11.637,11.64296667,11.64893333,11.6549,11.6549
-Japan,Freight,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Japan,Freight,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,104.8934,104.7625333,104.6316667,104.5008,104.3704,104.24,104.1096,103.9796667,103.8497333,103.7198,103.5904,103.461,103.3316,103.3316
-Japan,Freight,Rail,All,Tech-Adv-Liquid,Liquids,load factor,tonnes/veh,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746
 Japan,Freight,Ship Domestic,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137
 Japan,Freight,Ship Domestic,All,Liquids,Liquids,energy,PJ/yr,163.7081,,,,,,,,,,,,,,,,,,,
 Japan,Freight,Ship Domestic,All,Liquids,Liquids,intensity,MJ/vkm,341.6403,339.944,338.2477,336.5514,334.8803667,333.2093333,331.5383,329.8921667,328.2460333,326.5999,324.9783,323.3567,321.7351,320.1376333,318.5401667,316.9427,315.3690333,313.7953667,312.2217,312.2217
@@ -2920,14 +2784,6 @@ Japan,Passenger,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,43.14
 Japan,Passenger,Rail,All,Liquids,Liquids,energy,PJ/yr,4.2405,,,,,,,,,,,,,,,,,,,
 Japan,Passenger,Rail,All,Liquids,Liquids,intensity,MJ/vkm,147.5261,147.342,147.1579,146.9738,146.7904333,146.6070667,146.4237,146.2409667,146.0582333,145.8755,145.6935,145.5115,145.3295,145.1481333,144.9667667,144.7854,144.6047333,144.4240667,144.2434,144.2434
 Japan,Passenger,Rail,All,Liquids,Liquids,load factor,pers/veh,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089
-Japan,Passenger,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,27.8493,27.84953333,27.84976667,27.85,27.8502,27.8504,27.8506,27.85083333,27.85106667,27.8513,27.85153333,27.85176667,27.852,27.852
-Japan,Passenger,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Japan,Passenger,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,35.7131,35.66853333,35.62396667,35.5794,35.535,35.4906,35.4462,35.40196667,35.35773333,35.3135,35.26943333,35.22536667,35.1813,35.1813
-Japan,Passenger,Rail,All,Tech-Adv-Electric,Electricity,load factor,pers/veh,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089
-Japan,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,33.4525,33.45473333,33.45696667,33.4592,33.46143333,33.46366667,33.4659,33.46813333,33.47036667,33.4726,33.4748,33.477,33.4792,33.4792
-Japan,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Japan,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,83.0403,82.93666667,82.83303333,82.7294,82.62616667,82.52293333,82.4197,82.31686667,82.21403333,82.1112,82.00873333,81.90626667,81.8038,81.8038
-Japan,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,load factor,pers/veh,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089
 Japan,Passenger,Walk,All,All,All,service output,billion pkm,44.152,,,,,,,,,,,,,,,,,,,
 Japan,Passenger,Walk,All,All,All,speed,km/hr,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
 Korea,Freight,Rail,All,Coal,Coal,energy,PJ/yr,1,,,,,,,,,,,,,,,,,,,
@@ -2941,14 +2797,6 @@ Korea,Freight,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,4.5653,
 Korea,Freight,Rail,All,Liquids,Liquids,energy,PJ/yr,3.75,,,,,,,,,,,,,,,,,,,
 Korea,Freight,Rail,All,Liquids,Liquids,intensity,MJ/vkm,247.5,247.1911667,246.8823333,246.5735,246.2658333,245.9581667,245.6505,245.3439667,245.0374333,244.7309,244.4255,244.1201,243.8147,243.5104667,243.2062333,242.902,242.5989333,242.2958667,241.9928,241.9928
 Korea,Freight,Rail,All,Liquids,Liquids,load factor,tonnes/veh,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746
-Korea,Freight,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,4.0987,4.074233333,4.049766667,4.0253,4.0256,4.0259,4.0262,4.026466667,4.026733333,4.027,4.027266667,4.027533333,4.0278,4.028066667,4.028333333,4.0286,4.0286
-Korea,Freight,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Korea,Freight,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,36.9502,36.9041,36.858,36.8119,36.76596667,36.72003333,36.6741,36.62833333,36.58256667,36.5368,36.4912,36.4456,36.4,36.4
-Korea,Freight,Rail,All,Tech-Adv-Electric,Electricity,load factor,tonnes/veh,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746
-Korea,Freight,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,4.329,3.625866667,2.922733333,2.2196,2.227333333,2.235066667,2.2428,2.2505,2.2582,2.2659,2.273566667,2.281233333,2.2889,2.296533333,2.304166667,2.3118,2.3118
-Korea,Freight,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Korea,Freight,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,121.1427,120.9915333,120.8403667,120.6892,120.5386,120.388,120.2374,120.0873667,119.9373333,119.7873,119.6378333,119.4883667,119.3389,119.3389
-Korea,Freight,Rail,All,Tech-Adv-Liquid,Liquids,load factor,tonnes/veh,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746,274.746
 Korea,Freight,Ship Domestic,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137
 Korea,Freight,Ship Domestic,All,Liquids,Liquids,energy,PJ/yr,35.13,,,,,,,,,,,,,,,,,,,
 Korea,Freight,Ship Domestic,All,Liquids,Liquids,intensity,MJ/vkm,341.6403,339.944,338.2477,336.5514,334.8803667,333.2093333,331.5383,329.8921667,328.2460333,326.5999,324.9783,323.3567,321.7351,320.1376333,318.5401667,316.9427,315.3690333,313.7953667,312.2217,312.2217
@@ -3193,14 +3041,6 @@ Korea,Passenger,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,30.62
 Korea,Passenger,Rail,All,Liquids,Liquids,energy,PJ/yr,7.4277,,,,,,,,,,,,,,,,,,,
 Korea,Passenger,Rail,All,Liquids,Liquids,intensity,MJ/vkm,102.6269,102.4988333,102.3707667,102.2427,102.1151,101.9875,101.8599,101.7328,101.6057,101.4786,101.352,101.2254,101.0988,100.9726333,100.8464667,100.7203,100.5946333,100.4689667,100.3433,100.3433
 Korea,Passenger,Rail,All,Liquids,Liquids,load factor,pers/veh,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089
-Korea,Passenger,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,19.9144,19.9145,19.9146,19.9147,19.91476667,19.91483333,19.9149,19.915,19.9151,19.9152,19.9153,19.9154,19.9155,19.9155
-Korea,Passenger,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Korea,Passenger,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,24.8439,24.8129,24.7819,24.7509,24.72,24.6891,24.6582,24.62743333,24.59666667,24.5659,24.53526667,24.50463333,24.474,24.474
-Korea,Passenger,Rail,All,Tech-Adv-Electric,Electricity,load factor,pers/veh,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089
-Korea,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,23.7427,23.74443333,23.74616667,23.7479,23.7496,23.7513,23.753,23.75473333,23.75646667,23.7582,23.7599,23.7616,23.7633,23.7633
-Korea,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Korea,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,57.7671,57.69503333,57.62296667,57.5509,57.4791,57.4073,57.3355,57.26393333,57.19236667,57.1208,57.04953333,56.97826667,56.907,56.907
-Korea,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,load factor,pers/veh,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089,320.7089
 Korea,Passenger,Walk,All,All,All,service output,billion pkm,13.552,,,,,,,,,,,,,,,,,,,
 Korea,Passenger,Walk,All,All,All,speed,km/hr,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
 Latin America,Freight,Rail,All,Coal,Coal,energy,PJ/yr,1,,,,,,,,,,,,,,,,,,,
@@ -3214,14 +3054,6 @@ Latin America,Freight,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt
 Latin America,Freight,Rail,All,Liquids,Liquids,energy,PJ/yr,27.2391,,,,,,,,,,,,,,,,,,,
 Latin America,Freight,Rail,All,Liquids,Liquids,intensity,MJ/vkm,344.3506,343.9209,343.4912,343.0615,342.6334333,342.2053667,341.7773,341.3508333,340.9243667,340.4979,340.073,339.6481,339.2232,338.7999333,338.3766667,337.9534,337.5316667,337.1099333,336.6882,336.6882
 Latin America,Freight,Rail,All,Liquids,Liquids,load factor,tonnes/veh,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000
-Latin America,Freight,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,15.4409,15.44133333,15.44176667,15.4422,15.4426,15.443,15.4434,15.4438,15.4442,15.4446,15.44503333,15.44546667,15.4459,15.4463,15.4467,15.4471,15.4471
-Latin America,Freight,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Latin America,Freight,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,51.4094,51.34523333,51.28106667,51.2169,51.153,51.0891,51.0252,50.96153333,50.89786667,50.8342,50.77076667,50.70733333,50.6439,50.6439
-Latin America,Freight,Rail,All,Tech-Adv-Electric,Electricity,load factor,tonnes/veh,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000
-Latin America,Freight,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,25.667,25.66946667,25.67193333,25.6744,25.6769,25.6794,25.6819,25.68436667,25.68683333,25.6893,25.69176667,25.69423333,25.6967,25.69913333,25.70156667,25.704,25.704
-Latin America,Freight,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Latin America,Freight,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,168.5477,168.3374,168.1271,167.9168,167.7072667,167.4977333,167.2882,167.0794333,166.8706667,166.6619,166.4539333,166.2459667,166.038,166.038
-Latin America,Freight,Rail,All,Tech-Adv-Liquid,Liquids,load factor,tonnes/veh,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000,2000
 Latin America,Freight,Ship Domestic,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137
 Latin America,Freight,Ship Domestic,All,Liquids,Liquids,energy,PJ/yr,78.3539,,,,,,,,,,,,,,,,,,,
 Latin America,Freight,Ship Domestic,All,Liquids,Liquids,intensity,MJ/vkm,341.6403,339.944,338.2477,336.5514,334.8803667,333.2093333,331.5383,329.8921667,328.2460333,326.5999,324.9783,323.3567,321.7351,320.1376333,318.5401667,316.9427,315.3690333,313.7953667,312.2217,312.2217
@@ -3526,14 +3358,6 @@ Latin America,Passenger,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/v
 Latin America,Passenger,Rail,All,Liquids,Liquids,energy,PJ/yr,1.4336,,,,,,,,,,,,,,,,,,,
 Latin America,Passenger,Rail,All,Liquids,Liquids,intensity,MJ/vkm,567.8276,567.1190333,566.4104667,565.7019,564.9960333,564.2901667,563.5843,562.8810333,562.1777667,561.4745,560.7739,560.0733,559.3727,558.6747,557.9767,557.2787,556.5833,555.8879,555.1925,555.1925
 Latin America,Passenger,Rail,All,Liquids,Liquids,load factor,pers/veh,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250
-Latin America,Passenger,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,96.7524,96.75316667,96.75393333,96.7547,96.75546667,96.75623333,96.757,96.75776667,96.75853333,96.7593,96.76003333,96.76076667,96.7615,96.7615
-Latin America,Passenger,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Latin America,Passenger,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,137.4596,137.2880667,137.1165333,136.945,136.7741333,136.6032667,136.4324,136.2621333,136.0918667,135.9216,135.752,135.5824,135.4128,135.4128
-Latin America,Passenger,Rail,All,Tech-Adv-Electric,Electricity,load factor,pers/veh,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250
-Latin America,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,119.7429,119.7462667,119.7496333,119.753,119.7563333,119.7596667,119.763,119.7663333,119.7696667,119.773,119.7763333,119.7796667,119.783,119.783
-Latin America,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Latin America,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,319.6218,319.2229667,318.8241333,318.4253,318.0279667,317.6306333,317.2333,316.8374333,316.4415667,316.0457,315.6513333,315.2569667,314.8626,314.8626
-Latin America,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,load factor,pers/veh,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250
 Latin America,Passenger,Walk,All,All,All,service output,billion pkm,359.446,,,,,,,,,,,,,,,,,,,
 Latin America,Passenger,Walk,All,All,All,speed,km/hr,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
 Middle East,Freight,Rail,All,Coal,Coal,energy,PJ/yr,1,,,,,,,,,,,,,,,,,,,
@@ -3547,14 +3371,6 @@ Middle East,Freight,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,2
 Middle East,Freight,Rail,All,Liquids,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
 Middle East,Freight,Rail,All,Liquids,Liquids,intensity,MJ/vkm,284.6484,284.2932,283.938,283.5828,283.2289333,282.8750667,282.5212,282.1686667,281.8161333,281.4636,281.1124,280.7612,280.41,280.0601,279.7102,279.3603,279.0117,278.6631,278.3145,278.3145
 Middle East,Freight,Rail,All,Liquids,Liquids,load factor,tonnes/veh,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082
-Middle East,Freight,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,13.8371,13.8369,13.8367,13.8365,13.8363,13.8361,13.8359,13.83573333,13.83556667,13.8354,13.8352,13.835,13.8348,13.8346,13.8344,13.8342,13.8342
-Middle East,Freight,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Middle East,Freight,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,38.9046,38.85603333,38.80746667,38.7589,38.71056667,38.66223333,38.6139,38.5657,38.5175,38.4693,38.4213,38.3733,38.3253,38.3253
-Middle East,Freight,Rail,All,Tech-Adv-Electric,Electricity,load factor,tonnes/veh,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082
-Middle East,Freight,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,26.6437,26.6404,26.6371,26.6338,26.6305,26.6272,26.6239,26.62063333,26.61736667,26.6141,26.61083333,26.60756667,26.6043,26.60103333,26.59776667,26.5945,26.5945
-Middle East,Freight,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Middle East,Freight,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,139.3255,139.1516667,138.9778333,138.804,138.6308,138.4576,138.2844,138.1118333,137.9392667,137.7667,137.5948,137.4229,137.251,137.251
-Middle East,Freight,Rail,All,Tech-Adv-Liquid,Liquids,load factor,tonnes/veh,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082
 Middle East,Freight,Ship Domestic,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137
 Middle East,Freight,Ship Domestic,All,Liquids,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
 Middle East,Freight,Ship Domestic,All,Liquids,Liquids,intensity,MJ/vkm,341.6403,339.944,338.2477,336.5514,334.8803667,333.2093333,331.5383,329.8921667,328.2460333,326.5999,324.9783,323.3567,321.7351,320.1376333,318.5401667,316.9427,315.3690333,313.7953667,312.2217,312.2217
@@ -3835,14 +3651,6 @@ Middle East,Passenger,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt
 Middle East,Passenger,Rail,All,Liquids,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
 Middle East,Passenger,Rail,All,Liquids,Liquids,intensity,MJ/vkm,143.3404,143.1615333,142.9826667,142.8038,142.6256,142.4474,142.2692,142.0916667,141.9141333,141.7366,141.5597667,141.3829333,141.2061,141.0299,140.8537,140.6775,140.5019333,140.3263667,140.1508,140.1508
 Middle East,Passenger,Rail,All,Liquids,Liquids,load factor,pers/veh,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097
-Middle East,Passenger,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,12.4035,12.4034,12.4033,12.4032,12.4031,12.403,12.4029,12.4028,12.4027,12.4026,12.4025,12.4024,12.4023,12.4023
-Middle East,Passenger,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Middle East,Passenger,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,29.7306,29.6935,29.6564,29.6193,29.58236667,29.54543333,29.5085,29.47166667,29.43483333,29.398,29.3613,29.3246,29.2879,29.2879
-Middle East,Passenger,Rail,All,Tech-Adv-Electric,Electricity,load factor,pers/veh,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097
-Middle East,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,16.5834,16.58203333,16.58066667,16.5793,16.57796667,16.57663333,16.5753,16.57393333,16.57256667,16.5712,16.56986667,16.56853333,16.5672,16.5672
-Middle East,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Middle East,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,80.6842,80.58353333,80.48286667,80.3822,80.28186667,80.18153333,80.0812,79.9813,79.8814,79.7815,79.68193333,79.58236667,79.4828,79.4828
-Middle East,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,load factor,pers/veh,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097
 Middle East,Passenger,Walk,All,All,All,service output,billion pkm,68.985,,,,,,,,,,,,,,,,,,,
 Middle East,Passenger,Walk,All,All,All,speed,km/hr,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
 Southeast Asia,Freight,Rail,All,Coal,Coal,energy,PJ/yr,1,,,,,,,,,,,,,,,,,,,
@@ -3856,14 +3664,6 @@ Southeast Asia,Freight,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vk
 Southeast Asia,Freight,Rail,All,Liquids,Liquids,energy,PJ/yr,19.476,,,,,,,,,,,,,,,,,,,
 Southeast Asia,Freight,Rail,All,Liquids,Liquids,intensity,MJ/vkm,2134.8629,2132.199,2129.5351,2126.8712,2124.217233,2121.563267,2118.9093,2116.2653,2113.6213,2110.9773,2108.3432,2105.7091,2103.075,2100.450733,2097.826467,2095.2022,2092.5878,2089.9734,2087.359,2087.359
 Southeast Asia,Freight,Rail,All,Liquids,Liquids,load factor,tonnes/veh,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082
-Southeast Asia,Freight,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,12.5204,12.52186667,12.52333333,12.5248,12.52623333,12.52766667,12.5291,12.53053333,12.53196667,12.5334,12.53483333,12.53626667,12.5377,12.5377
-Southeast Asia,Freight,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Southeast Asia,Freight,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,291.7844,291.4203,291.0562,290.6921,290.3293667,289.9666333,289.6039,289.2425333,288.8811667,288.5198,288.1598,287.7998,287.4398,287.4398
-Southeast Asia,Freight,Rail,All,Tech-Adv-Electric,Electricity,load factor,tonnes/veh,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082
-Southeast Asia,Freight,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,12.1757,12.19046667,12.20523333,12.22,12.23466667,12.24933333,12.264,12.27863333,12.29326667,12.3079,12.3225,12.3371,12.3517,12.3517
-Southeast Asia,Freight,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Southeast Asia,Freight,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,1044.9416,1043.6377,1042.3338,1041.0299,1039.7309,1038.4319,1037.1329,1035.838733,1034.544567,1033.2504,1031.9611,1030.6718,1029.3825,1029.3825
-Southeast Asia,Freight,Rail,All,Tech-Adv-Liquid,Liquids,load factor,tonnes/veh,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082,1518.082
 Southeast Asia,Freight,Ship Domestic,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137
 Southeast Asia,Freight,Ship Domestic,All,Liquids,Liquids,energy,PJ/yr,133.6023,,,,,,,,,,,,,,,,,,,
 Southeast Asia,Freight,Ship Domestic,All,Liquids,Liquids,intensity,MJ/vkm,341.6403,339.944,338.2477,336.5514,334.8803667,333.2093333,331.5383,329.8921667,328.2460333,326.5999,324.9783,323.3567,321.7351,320.1376333,318.5401667,316.9427,315.3690333,313.7953667,312.2217,312.2217
@@ -4198,14 +3998,6 @@ Southeast Asia,Passenger,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/
 Southeast Asia,Passenger,Rail,All,Liquids,Liquids,energy,PJ/yr,23.2714,,,,,,,,,,,,,,,,,,,
 Southeast Asia,Passenger,Rail,All,Liquids,Liquids,intensity,MJ/vkm,430.0212,429.4846,428.948,428.4114,427.8768333,427.3422667,426.8077,426.2751,425.7425,425.2099,424.6793333,424.1487667,423.6182,423.0896,422.561,422.0324,421.5057667,420.9791333,420.4525,420.4525
 Southeast Asia,Passenger,Rail,All,Liquids,Liquids,load factor,pers/veh,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097
-Southeast Asia,Passenger,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,12.075,12.0753,12.0756,12.0759,12.0762,12.0765,12.0768,12.0771,12.0774,12.0777,12.078,12.0783,12.0786,12.0786
-Southeast Asia,Passenger,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Southeast Asia,Passenger,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,89.1919,89.0806,88.9693,88.858,88.74713333,88.63626667,88.5254,88.41493333,88.30446667,88.194,88.08393333,87.97386667,87.8638,87.8638
-Southeast Asia,Passenger,Rail,All,Tech-Adv-Electric,Electricity,load factor,pers/veh,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097
-Southeast Asia,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,13.5407,13.54313333,13.54556667,13.548,13.5504,13.5528,13.5552,13.55763333,13.56006667,13.5625,13.5649,13.5673,13.5697,13.5697
-Southeast Asia,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Southeast Asia,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,242.0526,241.7505667,241.4485333,241.1465,240.8455667,240.5446333,240.2437,239.9439333,239.6441667,239.3444,239.0457333,238.7470667,238.4484,238.4484
-Southeast Asia,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,load factor,pers/veh,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097,1152.0097
 Southeast Asia,Passenger,Walk,All,All,All,service output,billion pkm,310.183,,,,,,,,,,,,,,,,,,,
 Southeast Asia,Passenger,Walk,All,All,All,speed,km/hr,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
 USA,Freight,Rail,All,Coal,Coal,energy,PJ/yr,1,,,,,,,,,,,,,,,,,,,
@@ -4219,14 +4011,6 @@ USA,Freight,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,37.0834,3
 USA,Freight,Rail,All,Liquids,Liquids,energy,PJ/yr,493.5451,,,,,,,,,,,,,,,,,,,
 USA,Freight,Rail,All,Liquids,Liquids,intensity,MJ/vkm,723.6962,722.7931667,721.8901333,720.9871,720.0874333,719.1877667,718.2881,717.3918,716.4955,715.5992,714.7062667,713.8133333,712.9204,712.0308333,711.1412667,710.2517,709.3654333,708.4791667,707.5929,707.5929
 USA,Freight,Rail,All,Liquids,Liquids,load factor,tonnes/veh,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877
-USA,Freight,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,19.9182,19.7767,19.6352,19.4937,19.4953,19.4969,19.4985,19.50006667,19.50163333,19.5032,19.5048,19.5064,19.508,19.50956667,19.51113333,19.5127,19.5127
-USA,Freight,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-USA,Freight,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,108.0433,107.9085,107.7737,107.6389,107.5045667,107.3702333,107.2359,107.1021,106.9683,106.8345,106.7012,106.5679,106.4346,106.4346
-USA,Freight,Rail,All,Tech-Adv-Electric,Electricity,load factor,tonnes/veh,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877
-USA,Freight,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,35.0446,34.80626667,34.56793333,34.3296,34.3322,34.3348,34.3374,34.34003333,34.34266667,34.3453,34.3479,34.3505,34.3531,34.35566667,34.35823333,34.3608,34.3608
-USA,Freight,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-USA,Freight,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,354.2243,353.7823,353.3403,352.8983,352.4579333,352.0175667,351.5772,351.1385,350.6998,350.2611,349.8240333,349.3869667,348.9499,348.9499
-USA,Freight,Rail,All,Tech-Adv-Liquid,Liquids,load factor,tonnes/veh,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877,3216.877
 USA,Freight,Ship Domestic,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137
 USA,Freight,Ship Domestic,All,Liquids,Liquids,energy,PJ/yr,166.2229,,,,,,,,,,,,,,,,,,,
 USA,Freight,Ship Domestic,All,Liquids,Liquids,intensity,MJ/vkm,341.6403,339.944,338.2477,336.5514,334.8803667,333.2093333,331.5383,329.8921667,328.2460333,326.5999,324.9783,323.3567,321.7351,320.1376333,318.5401667,316.9427,315.3690333,313.7953667,312.2217,312.2217
@@ -4507,14 +4291,6 @@ USA,Passenger,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,8.6138,
 USA,Passenger,Rail,All,Liquids,Liquids,energy,PJ/yr,21.0552,,,,,,,,,,,,,,,,,,,
 USA,Passenger,Rail,All,Liquids,Liquids,intensity,MJ/vkm,117.3366,117.1901667,117.0437333,116.8973,116.7514333,116.6055667,116.4597,116.3144,116.1691,116.0238,115.8790333,115.7342667,115.5895,115.4452667,115.3010333,115.1568,115.0131,114.8694,114.7257,114.7257
 USA,Passenger,Rail,All,Liquids,Liquids,load factor,pers/veh,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579
-USA,Passenger,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,5.2954,5.2956,5.2958,5.296,5.2962,5.2964,5.2966,5.2968,5.297,5.2972,5.2974,5.2976,5.2978,5.2978
-USA,Passenger,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-USA,Passenger,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,29.383,29.34633333,29.30966667,29.273,29.23646667,29.19993333,29.1634,29.127,29.0906,29.0542,29.01796667,28.98173333,28.9455,28.9455
-USA,Passenger,Rail,All,Tech-Adv-Electric,Electricity,load factor,pers/veh,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579
-USA,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,6.6771,6.677333333,6.677566667,6.6778,6.678033333,6.678266667,6.6785,6.678733333,6.678966667,6.6792,6.6794,6.6796,6.6798,6.6798
-USA,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-USA,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,66.047,65.9646,65.8822,65.7998,65.7177,65.6356,65.5535,65.4717,65.3899,65.3081,65.2266,65.1451,65.0636,65.0636
-USA,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,load factor,pers/veh,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579,29.8579
 USA,Passenger,Walk,All,All,All,service output,billion pkm,44.84,,,,,,,,,,,,,,,,,,,
 USA,Passenger,Walk,All,All,All,speed,km/hr,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
 Western Europe,Freight,Rail,All,Coal,Coal,energy,PJ/yr,1,,,,,,,,,,,,,,,,,,,
@@ -4528,14 +4304,6 @@ Western Europe,Freight,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vk
 Western Europe,Freight,Rail,All,Liquids,Liquids,energy,PJ/yr,45.0856,,,,,,,,,,,,,,,,,,,
 Western Europe,Freight,Rail,All,Liquids,Liquids,intensity,MJ/vkm,157.5257,157.3291667,157.1326333,156.9361,156.7402667,156.5444333,156.3486,156.1535,155.9584,155.7633,155.5689333,155.3745667,155.1802,154.9865667,154.7929333,154.5993,154.4064,154.2135,154.0206,154.0206
 Western Europe,Freight,Rail,All,Liquids,Liquids,load factor,tonnes/veh,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838
-Western Europe,Freight,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,13.1174,13.0617,13.006,12.9503,12.95093333,12.95156667,12.9522,12.9528,12.9534,12.954,12.95463333,12.95526667,12.9559,12.95653333,12.95716667,12.9578,12.9578
-Western Europe,Freight,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Western Europe,Freight,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,38.2443,38.19656667,38.14883333,38.1011,38.05356667,38.00603333,37.9585,37.91113333,37.86376667,37.8164,37.7692,37.722,37.6748,37.6748
-Western Europe,Freight,Rail,All,Tech-Adv-Electric,Electricity,load factor,tonnes/veh,422.292,422.292,422.292,422.292,422.292,422.292,422.292,422.292,422.292,422.292,422.292,422.292,422.292,422.292,422.292,422.292,422.292,422.292,422.292,422.292
-Western Europe,Freight,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,14.9947,14.5496,14.1045,13.6594,13.6643,13.6692,13.6741,13.67896667,13.68383333,13.6887,13.69356667,13.69843333,13.7033,13.70813333,13.71296667,13.7178,13.7178
-Western Europe,Freight,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Western Europe,Freight,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,77.1034,77.0072,76.911,76.8148,76.71893333,76.62306667,76.5272,76.4317,76.3362,76.2407,76.14556667,76.05043333,75.9553,75.9553
-Western Europe,Freight,Rail,All,Tech-Adv-Liquid,Liquids,load factor,tonnes/veh,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838,373.838
 Western Europe,Freight,Ship Domestic,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137,0.9137
 Western Europe,Freight,Ship Domestic,All,Liquids,Liquids,energy,PJ/yr,278.2752,,,,,,,,,,,,,,,,,,,
 Western Europe,Freight,Ship Domestic,All,Liquids,Liquids,intensity,MJ/vkm,341.6403,339.944,338.2477,336.5514,334.8803667,333.2093333,331.5383,329.8921667,328.2460333,326.5999,324.9783,323.3567,321.7351,320.1376333,318.5401667,316.9427,315.3690333,313.7953667,312.2217,312.2217
@@ -4852,13 +4620,5 @@ Western Europe,Passenger,Rail,All,Liquids,Liquids,CAPEX and non-fuel OPEX,2005$/
 Western Europe,Passenger,Rail,All,Liquids,Liquids,energy,PJ/yr,78.079,,,,,,,,,,,,,,,,,,,
 Western Europe,Passenger,Rail,All,Liquids,Liquids,intensity,MJ/vkm,75.8221,75.72746667,75.63283333,75.5382,75.44396667,75.34973333,75.2555,75.16156667,75.06763333,74.9737,74.88016667,74.78663333,74.6931,74.5999,74.5067,74.4135,74.32063333,74.22776667,74.1349,74.1349
 Western Europe,Passenger,Rail,All,Liquids,Liquids,load factor,pers/veh,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535
-Western Europe,Passenger,Rail,All,Tech-Adv-Electric,Electricity,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,29.7981,29.79833333,29.79856667,29.7988,29.79906667,29.79933333,29.7996,29.79983333,29.80006667,29.8003,29.80056667,29.80083333,29.8011,29.8011
-Western Europe,Passenger,Rail,All,Tech-Adv-Electric,Electricity,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Western Europe,Passenger,Rail,All,Tech-Adv-Electric,Electricity,intensity,MJ/vkm,,,,,,,33.3951,33.35343333,33.31176667,33.2701,33.22856667,33.18703333,33.1455,33.10413333,33.06276667,33.0214,32.9802,32.939,32.8978,32.8978
-Western Europe,Passenger,Rail,All,Tech-Adv-Electric,Electricity,load factor,pers/veh,152.8307,152.8307,152.8307,152.8307,152.8307,152.8307,152.8307,152.8307,152.8307,152.8307,152.8307,152.8307,152.8307,152.8307,152.8307,152.8307,152.8307,152.8307,152.8307,152.8307
-Western Europe,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,CAPEX and non-fuel OPEX,2005$/vkt,,,,,,,17.1878,17.18906667,17.19033333,17.1916,17.19286667,17.19413333,17.1954,17.19666667,17.19793333,17.1992,17.20043333,17.20166667,17.2029,17.2029
-Western Europe,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,energy,PJ/yr,0,,,,,,,,,,,,,,,,,,,
-Western Europe,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,intensity,MJ/vkm,,,,,,,42.6791,42.62586667,42.57263333,42.5194,42.46633333,42.41326667,42.3602,42.30733333,42.25446667,42.2016,42.14893333,42.09626667,42.0436,42.0436
-Western Europe,Passenger,Rail,All,Tech-Adv-Liquid,Liquids,load factor,pers/veh,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535,73.7535
 Western Europe,Passenger,Walk,All,All,All,service output,billion pkm,159.806,,,,,,,,,,,,,,,,,,,
 Western Europe,Passenger,Walk,All,All,All,speed,km/hr,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4

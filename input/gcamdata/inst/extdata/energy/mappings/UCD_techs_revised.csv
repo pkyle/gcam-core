@@ -37,12 +37,8 @@ Passenger,LDV_4W,Multipurpose Vehicle,BEV,Electricity,trn_road and rail,electric
 Passenger,LDV_4W,Multipurpose Vehicle,FCEV,Hydrogen,trn_road and rail,hydrogen,trn_pass_road_LDV_4W,Large Car and Truck,FCEV,H2 enduse
 Freight,Rail,All,Liquids,Liquids,trn_road and rail,refined liquids,trn_freight,Freight Rail,Liquids,refined liquids enduse
 Freight,Rail,All,Electric,Electricity,trn_road and rail,electricity,trn_freight,Freight Rail,Electric,elect_td_trn
-Freight,Rail,All,Tech-Adv-Liquid,Liquids,trn_road and rail,refined liquids,trn_freight,Freight Rail,Adv-Liquid,refined liquids enduse
-Freight,Rail,All,Tech-Adv-Electric,Electricity,trn_road and rail,electricity,trn_freight,Freight Rail,Adv-Electric,elect_td_trn
 Passenger,Rail,All,Liquids,Liquids,trn_road and rail,refined liquids,trn_pass,Passenger Rail,Liquids,refined liquids enduse
 Passenger,Rail,All,Electric,Electricity,trn_road and rail,electricity,trn_pass,Passenger Rail,Electric,elect_td_trn
-Passenger,Rail,All,Tech-Adv-Liquid,Liquids,trn_road and rail,refined liquids,trn_pass,Passenger Rail,Tech-Adv-Liquid,refined liquids enduse
-Passenger,Rail,All,Tech-Adv-Electric,Electricity,trn_road and rail,electricity,trn_pass,Passenger Rail,Tech-Adv-Electric,elect_td_trn
 Freight,Ship Domestic,All,Liquids,Liquids,trn_domestic ship,refined liquids,trn_freight,Domestic Ship,Liquids,refined liquids enduse
 Freight,Ship International,All,Liquids,Liquids,trn_international ship,refined liquids,trn_shipping_intl,International Ship,Liquids,refined liquids enduse
 Freight,Truck,Truck (0-2t),Liquids,Liquids,trn_road and rail,refined liquids,trn_freight_road,Light truck,Liquids,refined liquids enduse

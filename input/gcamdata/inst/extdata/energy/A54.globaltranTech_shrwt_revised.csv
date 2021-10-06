@@ -7,8 +7,6 @@
 supplysector,tranSubsector,tranTechnology,1971,2010,2015,2020,2025,2030,2050,2100,sce
 trn_aviation_intl,International Aviation,Liquids,1,1,1,1,1,1,1,1,CORE
 trn_freight,Domestic Ship,Liquids,1,1,1,1,1,1,1,1,CORE
-trn_freight,Freight Rail,Adv-Electric,0,0,0,0,0,0,0,0,CORE
-trn_freight,Freight Rail,Adv-Liquid,0,0,0,0,0,0,0,0,CORE
 trn_freight,Freight Rail,Coal,1,1,0,0,0,0,0,0,CORE
 trn_freight,Freight Rail,Electric,1,1,1,1,1,1,1,1,CORE
 trn_freight,Freight Rail,Liquids,1,1,1,1,1,1,1,1,CORE
@@ -23,8 +21,6 @@ trn_pass,Domestic Aviation,Liquids,1,1,1,1,1,1,1,1,CORE
 trn_pass,HSR,Electric,0,0,1,1,1,1,1,1,CORE
 trn_pass,Passenger Rail,Electric,1,1,1,1,1,1,1,1,CORE
 trn_pass,Passenger Rail,Liquids,1,1,1,1,1,1,1,1,CORE
-trn_pass,Passenger Rail,Tech-Adv-Electric,0,0,0,0,0,0,1,1,CORE
-trn_pass,Passenger Rail,Tech-Adv-Liquid,0,0,0,0,0,0,1,1,CORE
 trn_pass,Walk,Walk,1,1,1,1,1,1,1,1,CORE
 trn_pass_road,Bus,Liquids,1,1,1,1,1,1,1,1,CORE
 trn_pass_road,Bus,NG,0,0,1,1,1,1,1,1,CORE
@@ -54,8 +50,6 @@ trn_freight_road,Medium truck,BEV,0,0,0,0.1429,0.2857,0.409516667,0.533333334,0.
 trn_freight_road,Heavy truck,BEV,0,0,0,0.1429,0.2857,0.4286,1,1,CORE
 trn_aviation_intl,International Aviation,Liquids,1,1,1,1,1,1,1,1,highEV
 trn_freight,Domestic Ship,Liquids,1,1,1,1,1,1,1,1,highEV
-trn_freight,Freight Rail,Adv-Electric,0,0,0,0,0,0,1,1,highEV
-trn_freight,Freight Rail,Adv-Liquid,0,0,0,0,0,0,1,1,highEV
 trn_freight,Freight Rail,Coal,1,1,0,0,0,0,0,0,highEV
 trn_freight,Freight Rail,Electric,1,1,1,1,1,1,1,1,highEV
 trn_freight,Freight Rail,Liquids,1,1,1,1,1,1,1,1,highEV
@@ -70,8 +64,6 @@ trn_pass,Domestic Aviation,Liquids,1,1,1,1,1,1,1,1,highEV
 trn_pass,HSR,Electric,0,0,1,1,1,1,1,1,highEV
 trn_pass,Passenger Rail,Electric,1,1,1,1,1,1,1,1,highEV
 trn_pass,Passenger Rail,Liquids,1,1,1,1,1,1,1,1,highEV
-trn_pass,Passenger Rail,Tech-Adv-Electric,0,0,0,0,0,0,1,1,highEV
-trn_pass,Passenger Rail,Tech-Adv-Liquid,0,0,0,0,0,0,1,1,highEV
 trn_pass,Walk,Walk,1,1,1,1,1,1,1,1,highEV
 trn_pass_road,Bus,Liquids,1,1,1,1,1,1,1,1,highEV
 trn_pass_road,Bus,NG,0,0,1,1,1,1,1,1,highEV
