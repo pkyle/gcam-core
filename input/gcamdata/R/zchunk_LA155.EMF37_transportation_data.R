@@ -22,14 +22,16 @@
 module_energy_LA155.EMF37_transportation_data <- function(command, ...) {
 
   if(command == driver.DECLARE_INPUTS) {
-    return(c("UCD_trn_data",
+    return(c(FILE = "common/GCAM_region_names",
+             "UCD_trn_data",
              "L154.in_EJ_R_trn_m_sz_tech_F_Yh",
              "L154.intensity_MJvkm_R_trn_m_sz_tech_F_Y",
              "L154.loadfactor_R_trn_m_sz_tech_F_Y",
              "L154.cost_usdvkm_R_trn_m_sz_tech_F_Y",
              "L154.speed_kmhr_R_trn_m_sz_tech_F_Y"))
   } else if(command == driver.DECLARE_OUTPUTS) {
-    return(c("EMF37_transport_data"))
+    return(c("EMF37_transport_data_USA",
+             "EMF37_transport_data_global"))
   } else if(command == driver.MAKE) {
 
     ## silence package check.
@@ -38,6 +40,7 @@ module_energy_LA155.EMF37_transportation_data <- function(command, ...) {
     all_data <- list(...)[[1]]
 
     # Load required inputs
+    GCAM_region_names <- get_data(all_data, "common/GCAM_region_names")
     UCD_trn_data <- get_data(all_data, "UCD_trn_data")
     L154.in_EJ_R_trn_m_sz_tech_F_Yh <- get_data(all_data, "L154.in_EJ_R_trn_m_sz_tech_F_Yh")
     L154.intensity_MJvkm_R_trn_m_sz_tech_F_Y <- get_data(all_data, "L154.intensity_MJvkm_R_trn_m_sz_tech_F_Y")
@@ -48,7 +51,7 @@ module_energy_LA155.EMF37_transportation_data <- function(command, ...) {
     ### Compile and write out USA-specific transportation data for the 2015 base year, for the EMF37 project
     ### TODO - remove this at core model PR stage
     EMF37_data_years <- seq(2015, 2100, 5)
-    EMF37_transport_data <- bind_rows(
+    EMF37_transport_data_USA <- bind_rows(
       filter(L154.in_EJ_R_trn_m_sz_tech_F_Yh, GCAM_region_ID == 1 & year %in% EMF37_data_years) %>%
         mutate(variable = "energy",
                unit = "EJ/yr"),
@@ -116,7 +119,7 @@ module_energy_LA155.EMF37_transportation_data <- function(command, ...) {
       select(region = UCD_region, sector = UCD_sector, mode = rev.mode, size.class = rev_size.class,
              technology = UCD_technology, fuel = UCD_fuel, year, variable, unit, value)
 
-    EMF37_transport_data <- bind_rows(EMF37_transport_data, EMF37_vehicle_cost_data) %>%
+    EMF37_transport_data_USA <- bind_rows(EMF37_transport_data_USA, EMF37_vehicle_cost_data) %>%
       filter(year >= 2015 & year <= 2050) %>%
       spread(key = year, value = value) %>%
       add_title("Transportation database for EMF37 inter-comparison exercise") %>%
@@ -128,9 +131,45 @@ module_energy_LA155.EMF37_transportation_data <- function(command, ...) {
                      "L154.loadfactor_R_trn_m_sz_tech_F_Y",
                      "L154.cost_usdvkm_R_trn_m_sz_tech_F_Y",
                      "L154.speed_kmhr_R_trn_m_sz_tech_F_Y") ->
-      EMF37_transport_data
+      EMF37_transport_data_USA
 
-    return_data(EMF37_transport_data)
+    EMF37_transport_data_global <- bind_rows(
+      filter(L154.in_EJ_R_trn_m_sz_tech_F_Yh, year %in% EMF37_data_years) %>%
+        mutate(variable = "energy",
+               unit = "EJ/yr"),
+      filter(L154.intensity_MJvkm_R_trn_m_sz_tech_F_Y,
+             year  %in% EMF37_data_years & sce == "CORE") %>%
+        mutate(variable = "intensity",
+               unit = "MJ/vkm"),
+      filter(L154.loadfactor_R_trn_m_sz_tech_F_Y,
+             year  %in% EMF37_data_years & sce == "CORE") %>%
+        mutate(variable = "load factor",
+               unit = if_else(UCD_sector == "Passenger", "persons per vehicle", "tonnes per vehicle")),
+      filter(L154.cost_usdvkm_R_trn_m_sz_tech_F_Y,
+             year  %in% EMF37_data_years & sce == "CORE") %>%
+        mutate(variable = "levelized non-fuel cost",
+               unit = "$/vkm (2019$)",
+               value = value * gdp_deflator(2019, 2005)),
+      filter(L154.speed_kmhr_R_trn_m_sz_tech_F_Y,
+             year  %in% EMF37_data_years & sce == "CORE" & UCD_sector == "Passenger") %>%
+        mutate(variable = "speed",
+               unit = "km/hr")
+    ) %>%
+      mutate(value = round(value, 5)) %>%
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+      select(-fuel) %>%
+      select(region, sector = UCD_sector, mode, size.class, technology = UCD_technology, fuel = UCD_fuel, year, variable, unit, value)
+
+    EMF37_transport_data_global %>%
+      spread(key = year, value = value) %>%
+      add_title("Transportation database for EMF37 inter-comparison exercise") %>%
+      add_units("Indicated within table") %>%
+      add_comments("All variables required for transportation models") %>%
+      same_precursors_as(EMF37_transport_data_USA) %>%
+      add_precursors("common/GCAM_region_names") ->
+      EMF37_transport_data_global
+
+    return_data(EMF37_transport_data_USA, EMF37_transport_data_global)
   } else {
     stop("Unknown command")
   }
