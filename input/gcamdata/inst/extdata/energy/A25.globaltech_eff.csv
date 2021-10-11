@@ -20,3 +20,4 @@ H2 forecourt production,electricity,electrolysis,elect_td_trn,0.611577321,0.6115
 H2 distribution,H2 distribution,H2 distribution,H2 central production,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 H2 enduse,H2 distribution,H2 distribution,H2 distribution,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 H2 enduse,H2 forecourt production,H2 forecourt production,H2 forecourt production,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+H2 road transport,H2 enduse,H2 enduse,H2 enduse,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
