@@ -323,6 +323,36 @@ module_energy_L2324.Off_road <- function(command, ...) {
       L2324.in_EJ_R_Off_road_F_Y_tmp # intermediate tibble
 
     L2324.in_EJ_R_Off_road_F_Y_tmp %>%
+      filter(sector == "construction feedstocks") -> L2324.in_EJ_R_Off_road_F_Y_tmp_feedstocks
+
+    L2324.in_EJ_R_Off_road_F_Y_tmp %>%
+      filter(sector != "construction feedstocks") -> L2324.in_EJ_R_Off_road_F_Y_tmp
+
+    #Filter non liquid fuel energy consumption and assign to stationary equipment
+    L2324.in_EJ_R_Off_road_F_Y_tmp %>%
+      filter(stub.technology != 'refined liquids') %>%
+      mutate(subsector = 'stationary') -> L2324.in_EJ_R_Off_road_F_Y_tmp_stationary_no_liquids
+
+    #filter liquid fuel consumption and assign fraction (~80%) to mobile equipment
+    L2324.in_EJ_R_Off_road_F_Y_tmp %>%
+      filter(stub.technology == "refined liquids") %>%
+      mutate(subsector = 'mobile',
+             value = value * energy.LIQUID_FUEL_MOBILE_FRAC) -> L2324.in_EJ_R_Off_road_F_Y_tmp_mobile_liquids
+
+    #assign remainder of liquid fuel consumption to stationary equipment
+    L2324.in_EJ_R_Off_road_F_Y_tmp %>%
+      filter(stub.technology == "refined liquids") %>%
+      mutate(subsector = 'stationary',
+             value = value * (1 - energy.LIQUID_FUEL_MOBILE_FRAC)) -> L2324.in_EJ_R_Off_road_F_Y_tmp_stationary_liquids
+
+    #recombine the frames with new subsector names
+    L2324.in_EJ_R_Off_road_F_Y_tmp <- bind_rows(L2324.in_EJ_R_Off_road_F_Y_tmp_stationary_no_liquids,
+                                                L2324.in_EJ_R_Off_road_F_Y_tmp_mobile_liquids,
+                                                L2324.in_EJ_R_Off_road_F_Y_tmp_stationary_liquids,
+                                                L2324.in_EJ_R_Off_road_F_Y_tmp_feedstocks)
+
+
+    L2324.in_EJ_R_Off_road_F_Y_tmp %>%
       left_join_error_no_match(distinct(select(A324.globaltech_eff, subsector, technology, minicam.energy.input)),
                                by = c("subsector", "stub.technology" = "technology")) %>%
       mutate(calibrated.value = round(value, energy.DIGITS_CALOUTPUT),

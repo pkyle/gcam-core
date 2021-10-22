@@ -466,6 +466,11 @@ energy.DIGITS_SHRWT            <- 4
 energy.DIGITS_SPEED            <- 1
 energy.DIGITS_TECHCHANGE       <- 4
 
+#jf 2021-10-21
+#defines fraction of liquid fuel consumption used for off-road vehicles in agriculture, mining, and construction energy use.
+#the remainder is allocated to stationary equipment (e.g., generators)
+energy.LIQUID_FUEL_MOBILE_FRAC <- 0.8
+
 # Policy assumptions for module_energy_L270.limits
 energy.NEG_EMISS_POLICY_NAME    <- "negative_emiss_budget"
 energy.NEG_EMISS_TARGET_GAS     <- "CO2_LTG" # the name of the gas to target in the negative emiss budget

@@ -4,26 +4,47 @@
 # Column types: ccccnnnn
 # ---------
 supplysector,subsector,technology,minicam.non.energy.input,1971,2010,2030,2100
-agricultural energy use,refined liquids,refined liquids,non-energy,3,3,3,3
-agricultural energy use,gas,gas,non-energy,3,3,3,3
-agricultural energy use,biomass,biomass,non-energy,4,4,4,4
-agricultural energy use,electricity,electricity,non-energy,3,3,3,3
-agricultural energy use,hydrogen,hydrogen,non-energy,6.5,6.5,6.5,6.5
-agricultural energy use,coal,coal,non-energy,3,3,3,3
-agricultural energy use,heat,heat,non-energy,3,3,3,3
-mining energy use,refined liquids,refined liquids,non-energy,3,3,3,3
-mining energy use,gas,gas,non-energy,3,3,3,3
-mining energy use,biomass,biomass,non-energy,4,4,4,4
-mining energy use,electricity,electricity,non-energy,3,3,3,3
-mining energy use,hydrogen,hydrogen,non-energy,6.5,6.5,6.5,6.5
-mining energy use,coal,coal,non-energy,3,3,3,3
-mining energy use,heat,heat,non-energy,3,3,3,3
-construction energy use,refined liquids,refined liquids,non-energy,3,3,3,3
-construction energy use,gas,gas,non-energy,3,3,3,3
-construction energy use,biomass,biomass,non-energy,4,4,4,4
-construction energy use,electricity,electricity,non-energy,3,3,3,3
-construction energy use,hydrogen,hydrogen,non-energy,6.5,6.5,6.5,6.5
-construction energy use,coal,coal,non-energy,3,3,3,3
-construction energy use,heat,heat,non-energy,3,3,3,3
+agricultural energy use,mobile,refined liquids,non-energy,3,3,3,3
+agricultural energy use,mobile,gas,non-energy,3,3,3,3
+agricultural energy use,mobile,biomass,non-energy,4,4,4,4
+agricultural energy use,mobile,electricity,non-energy,3,3,3,3
+agricultural energy use,mobile,hydrogen,non-energy,6.5,6.5,6.5,6.5
+agricultural energy use,mobile,coal,non-energy,3,3,3,3
+agricultural energy use,mobile,heat,non-energy,3,3,3,3
+mining energy use,mobile,refined liquids,non-energy,3,3,3,3
+mining energy use,mobile,gas,non-energy,3,3,3,3
+mining energy use,mobile,biomass,non-energy,4,4,4,4
+mining energy use,mobile,electricity,non-energy,3,3,3,3
+mining energy use,mobile,hydrogen,non-energy,6.5,6.5,6.5,6.5
+mining energy use,mobile,coal,non-energy,3,3,3,3
+mining energy use,mobile,heat,non-energy,3,3,3,3
+construction energy use,mobile,refined liquids,non-energy,3,3,3,3
+construction energy use,mobile,gas,non-energy,3,3,3,3
+construction energy use,mobile,biomass,non-energy,4,4,4,4
+construction energy use,mobile,electricity,non-energy,3,3,3,3
+construction energy use,mobile,hydrogen,non-energy,6.5,6.5,6.5,6.5
+construction energy use,mobile,coal,non-energy,3,3,3,3
+construction energy use,mobile,heat,non-energy,3,3,3,3
 construction,construction,construction,non-energy,3,3,3,3
 construction feedstocks,refined liquids,refined liquids,non-energy,0,0,0,0
+agricultural energy use,stationary,refined liquids,non-energy,3,3,3,3
+agricultural energy use,stationary,gas,non-energy,3,3,3,3
+agricultural energy use,stationary,biomass,non-energy,4,4,4,4
+agricultural energy use,stationary,electricity,non-energy,3,3,3,3
+agricultural energy use,stationary,hydrogen,non-energy,6.5,6.5,6.5,6.5
+agricultural energy use,stationary,coal,non-energy,3,3,3,3
+agricultural energy use,stationary,heat,non-energy,3,3,3,3
+mining energy use,stationary,refined liquids,non-energy,3,3,3,3
+mining energy use,stationary,gas,non-energy,3,3,3,3
+mining energy use,stationary,biomass,non-energy,4,4,4,4
+mining energy use,stationary,electricity,non-energy,3,3,3,3
+mining energy use,stationary,hydrogen,non-energy,6.5,6.5,6.5,6.5
+mining energy use,stationary,coal,non-energy,3,3,3,3
+mining energy use,stationary,heat,non-energy,3,3,3,3
+construction energy use,stationary,refined liquids,non-energy,3,3,3,3
+construction energy use,stationary,gas,non-energy,3,3,3,3
+construction energy use,stationary,biomass,non-energy,4,4,4,4
+construction energy use,stationary,electricity,non-energy,3,3,3,3
+construction energy use,stationary,hydrogen,non-energy,6.5,6.5,6.5,6.5
+construction energy use,stationary,coal,non-energy,3,3,3,3
+construction energy use,stationary,heat,non-energy,3,3,3,3
