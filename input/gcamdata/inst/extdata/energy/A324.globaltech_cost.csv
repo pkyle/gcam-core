@@ -10,9 +10,9 @@ agricultural energy use,mobile,hydrogen,non-energy,24.17,24.17,24.17,24.17
 mining energy use,mobile,refined liquids,non-energy,37.05,37.05,37.05,37.05
 mining energy use,mobile,electricity,non-energy,48.71,48.71,48.71,48.71
 mining energy use,mobile,hydrogen,non-energy,42.88,42.88,42.88,42.88
-construction energy use,mobile,refined liquids,non-energy,17.96,17.96,17.96,17.96
-construction energy use,mobile,electricity,non-energy,21.56,21.56,21.56,21.56
-construction energy use,mobile,hydrogen,non-energy,20.25,20.25,20.25,20.25
+construction energy use,mobile,refined liquids,non-energy,47.92,47.92,47.92,47.92
+construction energy use,mobile,electricity,non-energy,62.15,62.15,62.15,62.15
+construction energy use,mobile,hydrogen,non-energy,55.04,55.04,55.04,55.04
 construction,construction,construction,non-energy,3,3,3,3
 construction feedstocks,refined liquids,refined liquids,non-energy,0,0,0,0
 agricultural energy use,stationary,refined liquids,non-energy,5,5,5,5
