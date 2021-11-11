@@ -5,14 +5,14 @@
 # ---------
 supplysector,subsector,technology,minicam.non.energy.input,1971,2010,2030,2100
 agricultural energy use,mobile,refined liquids,non-energy,18.84,18.84,18.84,18.84
-agricultural energy use,mobile,electricity,non-energy,28.74,28.74,28.74,28.74
-agricultural energy use,mobile,hydrogen,non-energy,24.17,24.17,24.17,24.17
+agricultural energy use,mobile,electricity,non-energy,65.01,65.01,65.01,65.01
+agricultural energy use,mobile,hydrogen,non-energy,37.12,37.12,37.12,37.12
 mining energy use,mobile,refined liquids,non-energy,37.05,37.05,37.05,37.05
-mining energy use,mobile,electricity,non-energy,48.71,48.71,48.71,48.71
-mining energy use,mobile,hydrogen,non-energy,42.88,42.88,42.88,42.88
-construction energy use,mobile,refined liquids,non-energy,47.92,47.92,47.92,47.92
-construction energy use,mobile,electricity,non-energy,62.15,62.15,62.15,62.15
-construction energy use,mobile,hydrogen,non-energy,55.04,55.04,55.04,55.04
+mining energy use,mobile,electricity,non-energy,94.91,94.91,94.91,94.91
+mining energy use,mobile,hydrogen,non-energy,59.38,59.38,59.38,59.38
+construction energy use,mobile,refined liquids,non-energy,55.56,55.56,55.56,55.56
+construction energy use,mobile,electricity,non-energy,137.41,137.41,137.41,137.41
+construction energy use,mobile,hydrogen,non-energy,87.15,87.15,87.15,87.15
 construction,construction,construction,non-energy,3,3,3,3
 construction feedstocks,refined liquids,refined liquids,non-energy,0,0,0,0
 agricultural energy use,stationary,refined liquids,non-energy,5,5,5,5
