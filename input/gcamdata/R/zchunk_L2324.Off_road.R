@@ -200,7 +200,7 @@ module_energy_L2324.Off_road <- function(command, ...) {
     # Note: assuming that technology list in the shareweight table includes the full set (any others would default to a 0 shareweight)
     A324.globaltech_shrwt %>%
       write_to_all_regions(LEVEL2_DATA_NAMES[["Tech"]], GCAM_region_names) %>%
-      anti_join(L2324.rm_heat_techs_R, by = c("region", "subsector")) %>% # Remove non-existent heat subsectors from each region
+      anti_join(L2324.rm_heat_techs_R, by = c("region", "technology")) %>% # Remove non-existent heat subsectors from each region
       rename(stub.technology = technology) ->
       L2324.StubTech_Off_road
 
@@ -365,8 +365,9 @@ module_energy_L2324.Off_road <- function(command, ...) {
                 by = c("region", "supplysector", "subsector", "stub.technology", "year", "minicam.energy.input")) %>%
       mutate(fuel = NULL,sector = NULL, value = NULL,GCAM_region_ID  = NULL,calibrated.value = replace_na(calibrated.value,0)) %>%
       mutate(share.weight.year = year,
-             subs.share.weight = if_else(calibrated.value > 0, 1, 0),
-             tech.share.weight = subs.share.weight) %>%
+             tech.share.weight = if_else(calibrated.value > 0, 1, 0)) %>%
+      set_subsector_shrwt(value_col = "calibrated.value") %>%
+      filter(!(region %in% L2324.rm_heat_techs_R$region & stub.technology == 'heat')) %>% #remove heat technology from regions that have no distict heat
       select(LEVEL2_DATA_NAMES[["StubTechCalInput"]]) ->
       L2324.StubTechCalInput_Off_road
 
