@@ -14,9 +14,13 @@ H2 central production,nuclear,thermal splitting,1,1,1,1,1,1,1
 H2 central production,electricity,electrolysis,1,1,1,1,1,1,1
 H2 central production,wind,electrolysis,1,1,1,1,1,1,1
 H2 central production,solar,electrolysis,1,1,1,1,1,1,1
-H2 forecourt production,gas,natural gas steam reforming,1,1,1,1,1,1,1
-H2 forecourt production,electricity,electrolysis,1,1,1,1,1,1,1
-H2 distribution,H2 distribution,H2 distribution,1,1,1,1,1,1,1
-H2 enduse,H2 distribution,H2 distribution,1,1,1,1,1,1,1
-H2 enduse,H2 forecourt production,H2 forecourt production,1,1,1,1,1,1,1
-H2 road transport,H2 enduse,H2 enduse,0,0,0,0,1,1,1
+H2 pipeline,H2 pipeline,H2 pipeline,1,1,1,1,1,1,1
+H2 liquid truck,H2 liquid truck,H2 liquid truck,1,1,1,1,1,1,1
+H2 wholesale delivery,H2 pipeline,H2 pipeline,1,1,1,1,1,1,1
+H2 wholesale delivery,H2 liquid truck,H2 liquid truck,1,1,1,1,1,1,1
+H2 retail delivery,H2 retail delivery,H2 retail delivery,1,1,1,1,1,1,1
+H2 wholesale dispensing,H2 delivery,H2 pipeline,1,1,1,1,1,1,1
+H2 wholesale dispensing,H2 delivery,H2 liquid truck,1,1,1,1,1,1,1
+H2 wholesale dispensing,forecourt production,natural gas steam reforming,1,1,1,1,1,1,1
+H2 wholesale dispensing,forecourt production,electrolysis,1,1,1,1,1,1,1
+H2 retail dispensing,H2 retail dispensing,H2 retail dispensing,1,1,1,1,1,1,1

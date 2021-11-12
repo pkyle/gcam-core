@@ -148,11 +148,11 @@ module_energy_L225.hydrogen <- function(command, ...) {
              units = 'unitless') %>% #this is currently unnecessary since all efficiencies for pass-through sectors are 1 by definition but want to maintain future flexibility to reflect losses, etc.
       fill(minicam.energy.input,.direction="downup") %>%
       ungroup %>%
-      filter(year %in% c(MODEL_BASE_YEARS, MODEL_FUTURE_YEARS),
-             supplysector %in% c('H2 distribution','H2 enduse')) %>%
+      filter(year %in% c(MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
       # Assign the columns "sector.name" and "subsector.name", consistent with the location info of a global technology
       rename(sector.name = supplysector,
              subsector.name = subsector) %>%
+      anti_join(L125.globaltech_coef, by = c("sector.name", "subsector.name", "technology")) %>%
       select(-value,-efficiency) ->
       L225.GlobalTechCoef_h2_noprod #filter and convert efficiencies to coefficients for only end use and distribution pass-through sectors and technologies
 
@@ -167,11 +167,11 @@ module_energy_L225.hydrogen <- function(command, ...) {
              units = '$1975/GJ H2') %>%
       fill(minicam.non.energy.input,.direction="downup") %>%
       ungroup %>%
-      filter(year %in% c(MODEL_BASE_YEARS, MODEL_FUTURE_YEARS),
-             supplysector %in% c('H2 distribution','H2 enduse')) %>%
+      filter(year %in% c(MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
       # Assign the columns "sector.name" and "subsector.name", consistent with the location info of a global technology
       rename(sector.name = supplysector,
              subsector.name = subsector) %>%
+      anti_join(L125.globaltech_cost, by = c("sector.name", "subsector.name", "technology")) %>%
       select(-value) ->
       L225.GlobalTechCost_h2_noprod #get costs for only end use and distribution pass-through sectors and technologies from A25
 
