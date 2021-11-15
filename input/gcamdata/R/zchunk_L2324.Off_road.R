@@ -120,15 +120,15 @@ module_energy_L2324.Off_road <- function(command, ...) {
     # 1b. Subsector information
     # L2324.SubsectorLogit_Off_road: Subsector logit exponents of Off_road sector
     A324.subsector_logit %>%
-      write_to_all_regions(c(LEVEL2_DATA_NAMES[["SubsectorLogit"]], LOGIT_TYPE_COLNAME), GCAM_region_names) %>%
-      anti_join(L2324.rm_heat_techs_R, by = c("region", "subsector")) -> # Remove non-existent heat subsectors from each region
+      write_to_all_regions(c(LEVEL2_DATA_NAMES[["SubsectorLogit"]], LOGIT_TYPE_COLNAME), GCAM_region_names) ->
+      #anti_join(L2324.rm_heat_techs_R, by = c("region", "subsector")) -> # Remove non-existent heat subsectors from each region
       L2324.SubsectorLogit_Off_road
 
     # and L2324.SubsectorShrwtFllt_Off_road: Subsector shareweights of Off_road sector
     A324.subsector_shrwt %>%
       filter(!is.na(year.fillout)) %>%
-      write_to_all_regions(LEVEL2_DATA_NAMES[["SubsectorShrwtFllt"]], GCAM_region_names) %>%
-      anti_join(L2324.rm_heat_techs_R, by = c("region", "subsector")) -> # Remove non-existent heat subsectors from each region
+      write_to_all_regions(LEVEL2_DATA_NAMES[["SubsectorShrwtFllt"]], GCAM_region_names) ->
+#      anti_join(L2324.rm_heat_techs_R, by = c("region", "subsector")) -> # Remove non-existent heat subsectors from each region
       L2324.SubsectorShrwtFllt_Off_road
 
     #change the share weight in regions where baseyear biomass share weight is 1
@@ -145,8 +145,8 @@ module_energy_L2324.Off_road <- function(command, ...) {
     # L2324.SubsectorInterp_Off_road: Subsector shareweight interpolation of Off_road sector
     A324.subsector_interp %>%
       filter(is.na(to.value)) %>%
-      write_to_all_regions(LEVEL2_DATA_NAMES[["SubsectorInterp"]], GCAM_region_names) %>%
-      anti_join(L2324.rm_heat_techs_R, by = c("region", "subsector")) -> # Remove non-existent heat subsectors from each region
+      write_to_all_regions(LEVEL2_DATA_NAMES[["SubsectorInterp"]], GCAM_region_names) ->
+      #anti_join(L2324.rm_heat_techs_R, by = c("region", "subsector")) -> # Remove non-existent heat subsectors from each region
       L2324.SubsectorInterp_Off_road
 
     #change interplate for the regions where baseyear biomass share weight is 1
@@ -306,8 +306,8 @@ module_energy_L2324.Off_road <- function(command, ...) {
       mutate(efficiency = NULL) %>%
       filter(year %in% MODEL_BASE_YEARS) %>%
       write_to_all_regions(c(LEVEL2_DATA_NAMES[["StubTechCoef"]]), GCAM_region_names) %>%
-      mutate(market.name =NULL,coefficient = NULL) %>%
-      anti_join(L2324.rm_heat_techs_R, by = c("region", "subsector")) -> # Remove non-existent heat subsectors from each region
+      mutate(market.name =NULL,coefficient = NULL) ->
+      #anti_join(L2324.rm_heat_techs_R, by = c("region", "subsector")) -> # Remove non-existent heat subsectors from each region
       L2324.Off_road_tmp
 
 
