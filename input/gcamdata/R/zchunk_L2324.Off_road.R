@@ -322,35 +322,10 @@ module_energy_L2324.Off_road <- function(command, ...) {
       rename(stub.technology = technology) ->
       L2324.in_EJ_R_Off_road_F_Y_tmp # intermediate tibble
 
-    L2324.in_EJ_R_Off_road_F_Y_tmp %>%
-      filter(sector == "construction feedstocks") -> L2324.in_EJ_R_Off_road_F_Y_tmp_feedstocks
 
     L2324.in_EJ_R_Off_road_F_Y_tmp %>%
-      filter(sector != "construction feedstocks") -> L2324.in_EJ_R_Off_road_F_Y_tmp
-
-    #Filter non liquid fuel energy consumption and assign to stationary equipment
-    L2324.in_EJ_R_Off_road_F_Y_tmp %>%
-      filter(stub.technology != 'refined liquids') %>%
-      mutate(subsector = 'stationary') -> L2324.in_EJ_R_Off_road_F_Y_tmp_stationary_no_liquids
-
-    #filter liquid fuel consumption and assign fraction (~80%) to mobile equipment
-    L2324.in_EJ_R_Off_road_F_Y_tmp %>%
-      filter(stub.technology == "refined liquids") %>%
-      mutate(subsector = 'mobile',
-             value = value * energy.LIQUID_FUEL_MOBILE_FRAC) -> L2324.in_EJ_R_Off_road_F_Y_tmp_mobile_liquids
-
-    #assign remainder of liquid fuel consumption to stationary equipment
-    L2324.in_EJ_R_Off_road_F_Y_tmp %>%
-      filter(stub.technology == "refined liquids") %>%
-      mutate(subsector = 'stationary',
-             value = value * (1 - energy.LIQUID_FUEL_MOBILE_FRAC)) -> L2324.in_EJ_R_Off_road_F_Y_tmp_stationary_liquids
-
-    #recombine the frames with new subsector names
-    L2324.in_EJ_R_Off_road_F_Y_tmp <- bind_rows(L2324.in_EJ_R_Off_road_F_Y_tmp_stationary_no_liquids,
-                                                L2324.in_EJ_R_Off_road_F_Y_tmp_mobile_liquids,
-                                                L2324.in_EJ_R_Off_road_F_Y_tmp_stationary_liquids,
-                                                L2324.in_EJ_R_Off_road_F_Y_tmp_feedstocks)
-
+      mutate(value = if_else(subsector ==  'mobile' & fuel == 'refined liquids', value * energy.LIQUID_FUEL_MOBILE_FRAC, #assign 80% of liquid fuels consumption to vehicles and the remainder to stationary equipment
+                            if_else(subsector == 'stationary' & fuel == 'refined liquids', value * (1 - energy.LIQUID_FUEL_MOBILE_FRAC), value))) -> L2324.in_EJ_R_Off_road_F_Y_tmp
 
     L2324.in_EJ_R_Off_road_F_Y_tmp %>%
       left_join_error_no_match(distinct(select(A324.globaltech_eff, subsector, technology, minicam.energy.input)),
@@ -358,7 +333,6 @@ module_energy_L2324.Off_road <- function(command, ...) {
       mutate(calibrated.value = round(value, energy.DIGITS_CALOUTPUT),
              share.weight.year = year) ->
       L2324.StubTechCalInput_Off_road_tmp
-
 
     L2324.Off_road_tmp %>%
       left_join(L2324.StubTechCalInput_Off_road_tmp,
