@@ -140,19 +140,19 @@ module_energy_L225.hydrogen <- function(command, ...) {
 
     A25.globaltech_eff %>%
       gather_years %>%
-      complete(nesting(supplysector, subsector, technology), year = c(year, MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
-      arrange(supplysector, subsector, technology, year) %>%
-      group_by(supplysector, subsector, technology) %>%
+      complete(nesting(supplysector, subsector, technology, minicam.energy.input),
+               year = c(year, MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
+      arrange(supplysector, subsector, technology, minicam.energy.input, year) %>%
+      group_by(supplysector, subsector, technology, minicam.energy.input) %>%
       mutate(efficiency = approx_fun(year, value, rule = 2),
              coefficient = efficiency^-1,
              units = 'unitless') %>% #this is currently unnecessary since all efficiencies for pass-through sectors are 1 by definition but want to maintain future flexibility to reflect losses, etc.
-      fill(minicam.energy.input,.direction="downup") %>%
       ungroup %>%
       filter(year %in% c(MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
       # Assign the columns "sector.name" and "subsector.name", consistent with the location info of a global technology
       rename(sector.name = supplysector,
              subsector.name = subsector) %>%
-      anti_join(L125.globaltech_coef, by = c("sector.name", "subsector.name", "technology")) %>%
+      anti_join(L125.globaltech_coef, by = c("sector.name", "subsector.name", "technology", "minicam.energy.input")) %>%
       select(-value,-efficiency) ->
       L225.GlobalTechCoef_h2_noprod #filter and convert efficiencies to coefficients for only end use and distribution pass-through sectors and technologies
 
