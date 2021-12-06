@@ -145,7 +145,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
       arrange(supplysector, subsector, technology, minicam.energy.input, year) %>%
       group_by(supplysector, subsector, technology, minicam.energy.input) %>%
       mutate(coefficient = approx_fun(year, value, rule = 2),
-             units = 'unitless') %>%
+             units = 'GJ input / GJ H2') %>%
       ungroup %>%
       filter(year %in% c(MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
       # Assign the columns "sector.name" and "subsector.name", consistent with the location info of a global technology
@@ -155,7 +155,11 @@ module_energy_L225.hydrogen <- function(command, ...) {
       select(-value,-efficiency) ->
       L225.GlobalTechCoef_h2_noprod #filter and convert efficiencies to coefficients for only end use and distribution pass-through sectors and technologies
 
-    L225.GlobalTechCoef_h2 <- bind_rows(L225.GlobalTechCoef_h2,L225.GlobalTechCoef_h2_noprod)
+    L225.GlobalTechCoef_h2 <- bind_rows(L225.GlobalTechCoef_h2,L225.GlobalTechCoef_h2_noprod) %>%
+      mutate(minicam.energy.input = if_else(minicam.energy.input == 'elect_td_trn (compression and refrigeration)','elect_td_trn',minicam.energy.input)) %>%
+      group_by(sector.name,subsector.name,technology,minicam.energy.input,units,year) %>%
+      summarize(coefficient = sum(coefficient)) %>%
+      ungroup()
 
     A25.globaltech_cost %>%
       gather_years %>%
