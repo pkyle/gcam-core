@@ -22,7 +22,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
              FILE = "energy/A25.subsector_logit",
              FILE = "energy/A25.subsector_shrwt",
              FILE = "energy/A25.globaltech_cost",
-             FILE = "energy/A25.globaltech_eff",
+             FILE = "energy/A25.globaltech_coef",
              FILE = "energy/A25.globaltech_shrwt",
              FILE = "energy/A25.globaltech_keyword",
              FILE = "energy/A25.globaltech_co2capture",
@@ -56,7 +56,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
     A25.sector <- get_data(all_data, "energy/A25.sector", strip_attributes = TRUE)
     A25.subsector_logit <- get_data(all_data, "energy/A25.subsector_logit", strip_attributes = TRUE)
     A25.subsector_shrwt <- get_data(all_data, "energy/A25.subsector_shrwt", strip_attributes = TRUE)
-    A25.globaltech_eff <- get_data(all_data, "energy/A25.globaltech_eff", strip_attributes = TRUE)
+    A25.globaltech_coef <- get_data(all_data, "energy/A25.globaltech_coef", strip_attributes = TRUE)
     A25.globaltech_cost <- get_data(all_data, "energy/A25.globaltech_cost", strip_attributes = TRUE)
     A25.globaltech_shrwt <- get_data(all_data, "energy/A25.globaltech_shrwt", strip_attributes = TRUE)
     A25.globaltech_keyword <- get_data(all_data, "energy/A25.globaltech_keyword", strip_attributes = TRUE)
@@ -138,15 +138,14 @@ module_energy_L225.hydrogen <- function(command, ...) {
       select(-value) ->
       L225.GlobalTechShrwt_h2
 
-    A25.globaltech_eff %>%
+    A25.globaltech_coef %>%
       gather_years %>%
       complete(nesting(supplysector, subsector, technology, minicam.energy.input),
                year = c(year, MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
       arrange(supplysector, subsector, technology, minicam.energy.input, year) %>%
       group_by(supplysector, subsector, technology, minicam.energy.input) %>%
-      mutate(efficiency = approx_fun(year, value, rule = 2),
-             coefficient = efficiency^-1,
-             units = 'unitless') %>% #this is currently unnecessary since all efficiencies for pass-through sectors are 1 by definition but want to maintain future flexibility to reflect losses, etc.
+      mutate(coefficient = approx_fun(year, value, rule = 2),
+             units = 'GJ input / GJ H2') %>%
       ungroup %>%
       filter(year %in% c(MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
       # Assign the columns "sector.name" and "subsector.name", consistent with the location info of a global technology
@@ -156,7 +155,11 @@ module_energy_L225.hydrogen <- function(command, ...) {
       select(-value,-efficiency) ->
       L225.GlobalTechCoef_h2_noprod #filter and convert efficiencies to coefficients for only end use and distribution pass-through sectors and technologies
 
-    L225.GlobalTechCoef_h2 <- bind_rows(L225.GlobalTechCoef_h2,L225.GlobalTechCoef_h2_noprod)
+    L225.GlobalTechCoef_h2 <- bind_rows(L225.GlobalTechCoef_h2,L225.GlobalTechCoef_h2_noprod) %>%
+      mutate(minicam.energy.input = if_else(minicam.energy.input == 'elect_td_trn (compression and refrigeration)','elect_td_trn',minicam.energy.input)) %>%
+      group_by(sector.name,subsector.name,technology,minicam.energy.input,units,year) %>%
+      summarize(coefficient = sum(coefficient)) %>%
+      ungroup()
 
     A25.globaltech_cost %>%
       gather_years %>%
@@ -298,7 +301,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
       add_title("Energy inputs and efficiencies of global technologies for hydrogen") %>%
       add_units("Unitless") %>%
       add_comments("Interpolated orginal data into all model years") %>%
-      add_precursors("L125.globaltech_coef",'energy/A25.globaltech_eff') -> L225.GlobalTechCoef_h2
+      add_precursors("L125.globaltech_coef",'energy/A25.globaltech_coef') -> L225.GlobalTechCoef_h2
 
 
     L225.GlobalTechCost_h2 %>%
