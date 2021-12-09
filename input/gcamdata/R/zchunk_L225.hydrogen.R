@@ -41,7 +41,8 @@ module_energy_L225.hydrogen <- function(command, ...) {
              "L225.GlobalTechShrwt_h2",
              "L225.PrimaryRenewKeyword_h2",
              "L225.AvgFossilEffKeyword_h2",
-             "L225.GlobalTechCapture_h2"))
+             "L225.GlobalTechCapture_h2",
+             "L225.GlobalTechInputPMult_h2"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -152,7 +153,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
       rename(sector.name = supplysector,
              subsector.name = subsector) %>%
       anti_join(L125.globaltech_coef, by = c("sector.name", "subsector.name", "technology", "minicam.energy.input")) %>%
-      select(-value,-efficiency) ->
+      select(-value,-efficiency,-price.unit.conversion) ->
       L225.GlobalTechCoef_h2_noprod #filter and convert efficiencies to coefficients for only end use and distribution pass-through sectors and technologies
 
     L225.GlobalTechCoef_h2 <- bind_rows(L225.GlobalTechCoef_h2,L225.GlobalTechCoef_h2_noprod) %>%
@@ -160,6 +161,16 @@ module_energy_L225.hydrogen <- function(command, ...) {
       group_by(sector.name,subsector.name,technology,minicam.energy.input,units,year) %>%
       summarize(coefficient = sum(coefficient)) %>%
       ungroup()
+
+    A25.globaltech_coef %>%
+      filter(!is.na(price.unit.conversion)) %>%
+      gather_years %>%
+      complete(nesting(supplysector, subsector, technology, minicam.energy.input),
+               year = c(year, MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
+      mutate(price.unit.conversion = approx_fun(year, price.unit.conversion, rule = 2)) %>%
+      rename(sector.name = supplysector, subsector.name = subsector) %>%
+      select(LEVEL2_DATA_NAMES[["GlobalTechInputPMult"]]) %>%
+      filter(year %in% c(MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) -> L225.GlobalTechInputPMult
 
     A25.globaltech_cost %>%
       gather_years %>%
@@ -344,11 +355,17 @@ module_energy_L225.hydrogen <- function(command, ...) {
       add_precursors("energy/A25.globaltech_co2capture")->
       L225.GlobalTechCapture_h2
 
+    L225.GlobalTechInputPMult %>%
+      add_title("Price conversion from transportation technologies") %>%
+      add_comments("converts from $1990/tkm to $1975$/EJ") %>%
+      add_units("Unitless") ->
+      L225.GlobalTechInputPMult_h2
+
     return_data(L225.Supplysector_h2, L225.SubsectorLogit_h2, L225.StubTech_h2,
                 L225.GlobalTechCoef_h2, L225.GlobalTechCost_h2, L225.GlobalTechShrwt_h2,
                 L225.PrimaryRenewKeyword_h2, L225.AvgFossilEffKeyword_h2,
                 L225.GlobalTechCapture_h2, L225.SubsectorShrwt_h2, L225.SubsectorShrwtFllt_h2,
-                L225.SubsectorInterp_h2, L225.SubsectorInterpTo_h2)
+                L225.SubsectorInterp_h2, L225.SubsectorInterpTo_h2,L225.GlobalTechInputPMult_h2)
   } else {
     stop("Unknown command")
   }
