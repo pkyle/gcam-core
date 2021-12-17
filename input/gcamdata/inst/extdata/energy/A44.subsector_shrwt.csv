@@ -39,6 +39,6 @@ resid others,hydrogen,start-year,,0
 comm heating,hydrogen,start-year,,0
 comm others,hydrogen,start-year,,0
 resid heating,hydrogen,2040,,1
-resid others,hydrogen,2040,,1
+resid others,hydrogen,2040,,0.05
 comm heating,hydrogen,2040,,1
-comm others,hydrogen,2040,,1
+comm others,hydrogen,2040,,0.05
