@@ -160,7 +160,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
        gather_years()%>%
        mutate(value = if_else(units == "GJ hydrogen output / GJ input", value ^ -1, #convert efficiency to coef
                               if_else(units == "GJ in /kg H2 out", value / CONV_GJ_KGH2, #convert to per GJ H2 basis
-                                      NA_real_)),
+                                      if_else(units == 'gal / kgH2 out', value / CONV_GJ_KGH2 * CONV_GAL_M3,
+                                      NA_real_))),
               units='GJ input / GJ H2')-> H2A_prod_coef_conv
 
 
@@ -331,9 +332,9 @@ module_energy_LA125.hydrogen <- function(command, ...) {
 
 
     existing_coal_bio_eff %>%
-      mutate(value = if_else(subsector.name == "biomass",value * elec_IGCC_2015_eff_ratio_bio$IGCC_CCS_no_CCS_2015_ratio, #use efficiency ratios from electricity to derive coefficients for bio CCS, coal w/o CCS
-                             if_else(subsector.name == "coal",value / elec_IGCC_2015_eff_ratio_coal$IGCC_CCS_no_CCS_2015_ratio,
-                                     NA_real_)),
+      mutate(value = if_else(subsector.name == "biomass" & !(minicam.energy.input %in% c('water_td_ind_C','water_td_ind_W')),value * elec_IGCC_2015_eff_ratio_bio$IGCC_CCS_no_CCS_2015_ratio, #use efficiency ratios from electricity to derive coefficients for bio CCS, coal w/o CCS
+                             if_else(subsector.name == "coal" & !(minicam.energy.input %in% c('water_td_ind_C','water_td_ind_W')),value / elec_IGCC_2015_eff_ratio_coal$IGCC_CCS_no_CCS_2015_ratio,
+                                     value)),
              technology = if_else(subsector.name == "coal", "coal chemical",
                                   if_else(subsector.name == "biomass", "biomass to H2 CCS",
                                           NA_character_)),

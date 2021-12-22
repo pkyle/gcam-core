@@ -165,6 +165,7 @@ CONV_HA_M2 <- 1e4 # ha to m2
 CONV_BM2_M2 <- 1e9
 CONV_MILFT2_M2 <- 92900 # Million square feet to square meters
 CONV_FT2_M2 <- 0.0929 # Square feet to square meters
+CONV_GAL_M3 <- 0.00378541 #gallons to m3
 
 # AgLU constants ======================================================================
 
