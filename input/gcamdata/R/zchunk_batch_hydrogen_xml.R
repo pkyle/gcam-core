@@ -13,6 +13,7 @@
 module_energy_batch_hydrogen_xml <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c("L225.Supplysector_h2",
+             "L225.SectorUseTrialMarket_h2",
               "L225.SubsectorLogit_h2",
               "L225.SubsectorShrwt_h2",
               "L225.SubsectorShrwtFllt_h2",
@@ -34,6 +35,7 @@ module_energy_batch_hydrogen_xml <- function(command, ...) {
 
     # Load required inputs
     L225.Supplysector_h2 <- get_data(all_data, "L225.Supplysector_h2")
+    L225.SectorUseTrialMarket_h2 <- get_data(all_data, "L225.SectorUseTrialMarket_h2")
     L225.SubsectorLogit_h2 <- get_data(all_data, "L225.SubsectorLogit_h2")
     L225.SubsectorShrwt_h2 <- get_data(all_data, "L225.SubsectorShrwt_h2")
     L225.SubsectorShrwtFllt_h2 <- get_data(all_data, "L225.SubsectorShrwtFllt_h2")
@@ -52,6 +54,7 @@ module_energy_batch_hydrogen_xml <- function(command, ...) {
     # Produce outputs
     create_xml("hydrogen.xml") %>%
       add_logit_tables_xml(L225.Supplysector_h2, "Supplysector") %>%
+      add_xml_data(L225.SectorUseTrialMarket_h2, "SectorUseTrialMarket") %>%
       add_logit_tables_xml(L225.SubsectorLogit_h2, "SubsectorLogit") -> hydrogen.xml
 
     if(!is.null(L225.SubsectorShrwt_h2)) {
@@ -85,6 +88,7 @@ module_energy_batch_hydrogen_xml <- function(command, ...) {
       add_xml_data(L225.GlobalTechCapture_h2, "GlobalTechCapture") %>%
       add_xml_data(L225.GlobalTechInputPMult_h2, "GlobalTechInputPMult") %>%
       add_precursors("L225.Supplysector_h2",
+                     "L225.SectorUseTrialMarket_h2",
                      "L225.SubsectorLogit_h2",
                      "L225.SubsectorShrwt_h2",
                      "L225.SubsectorShrwtFllt_h2",

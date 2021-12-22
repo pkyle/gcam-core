@@ -30,6 +30,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
              "L125.globaltech_cost"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L225.Supplysector_h2",
+             "L225.SectorUseTrialMarket_h2",
              "L225.SubsectorLogit_h2",
              "L225.SubsectorShrwt_h2",
              "L225.SubsectorInterp_h2",
@@ -75,6 +76,11 @@ module_energy_L225.hydrogen <- function(command, ...) {
     A25.sector %>%
       write_to_all_regions(c(LEVEL2_DATA_NAMES[["Supplysector"]], LOGIT_TYPE_COLNAME), GCAM_region_names) ->
       L225.Supplysector_h2
+
+    # H2 liquid truck has a simultaneity that may benefit from using a trial market here
+    L225.SectorUseTrialMarket_h2 <- filter(L225.Supplysector_h2, supplysector == "H2 liquid truck") %>%
+      select(region, supplysector) %>%
+      mutate(use.trial.market = 1)
 
     # 1b. Subsector information
 
@@ -235,6 +241,13 @@ module_energy_L225.hydrogen <- function(command, ...) {
       add_precursors("common/GCAM_region_names", "energy/A25.sector") ->
       L225.Supplysector_h2
 
+    L225.SectorUseTrialMarket_h2 %>%
+      add_title("Supply sector trial markets") %>%
+      add_units("Boolean") %>%
+      add_comments("Read in to help solver deal with simultaneities") %>%
+      add_precursors("common/GCAM_region_names", "energy/A25.sector") ->
+      L225.SectorUseTrialMarket_h2
+
     L225.SubsectorLogit_h2 %>%
       add_title("Subsector logit exponents of hydrogen sectors") %>%
       add_units("Unitless") %>%
@@ -361,7 +374,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
       add_units("Unitless") ->
       L225.GlobalTechInputPMult_h2
 
-    return_data(L225.Supplysector_h2, L225.SubsectorLogit_h2, L225.StubTech_h2,
+    return_data(L225.Supplysector_h2, L225.SectorUseTrialMarket_h2, L225.SubsectorLogit_h2, L225.StubTech_h2,
                 L225.GlobalTechCoef_h2, L225.GlobalTechCost_h2, L225.GlobalTechShrwt_h2,
                 L225.PrimaryRenewKeyword_h2, L225.AvgFossilEffKeyword_h2,
                 L225.GlobalTechCapture_h2, L225.SubsectorShrwt_h2, L225.SubsectorShrwtFllt_h2,
