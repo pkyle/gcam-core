@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><scenario name="CCSP450">
+    <world>
+        <region name="USA">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+                <fixedTax year="2025">61.591</fixedTax>
+                <fixedTax year="2030">78.607</fixedTax>
+                <fixedTax year="2035">100.325</fixedTax>
+                <fixedTax year="2040">128.043</fixedTax>
+                <fixedTax year="2045">163.419</fixedTax>
+                <fixedTax year="2050">208.568</fixedTax>
+                <fixedTax year="2055">266.192</fixedTax>
+                <fixedTax year="2060">339.736</fixedTax>
+                <fixedTax year="2065">433.598</fixedTax>
+                <fixedTax year="2070">553.394</fixedTax>
+                <fixedTax year="2075">706.286</fixedTax>
+                <fixedTax year="2080">901.715</fixedTax>
+                <fixedTax year="2085">1150.466</fixedTax>
+                <fixedTax year="2090">1468.318</fixedTax>
+                <fixedTax year="2095">1873.987</fixedTax>
+                <fixedTax year="2100">2391.736</fixedTax>
+            </ghgpolicy>
+        </region>
+        <region name="Canada">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="EU-15">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Europe_Non_EU">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="European Free Trade Association">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Japan">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Australia_NZ">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Central Asia">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Russia">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="China">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Middle East">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Africa_Eastern">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Africa_Northern">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Africa_Southern">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Africa_Western">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="South Africa">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Brazil">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Central America and Caribbean">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Mexico">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="South America_Northern">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="South America_Southern">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Argentina">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Colombia">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Indonesia">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Pakistan">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="South Asia">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Southeast Asia">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Taiwan">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="Europe_Eastern">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="EU-12">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="South Korea">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+        <region name="India">
+            <ghgpolicy name="CO2">
+                <market>global</market>
+            </ghgpolicy>
+        </region>
+    </world>
+</scenario>

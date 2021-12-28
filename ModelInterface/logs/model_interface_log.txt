@@ -1,0 +1,32 @@
+PROPERTY CHANGEtitle
+PROPERTY CHANGEdocument-replaced
+DOCUMENT REPLACED
+PROPERTY CHANGEdocument-replaced
+DOCUMENT REPLACED
+Going to change controls
+About to perform query: collection()/scenario
+About to perform query: distinct-values(collection()/scenario/world/*[@type = 'region']/@name)
+Didn't find builder for detailed land allocation query going to use defaults
+Didn't find builder for land allocation by crop query going to use defaults
+Didn't find builder for aggregated land allocation query going to use defaults
+Didn't find builder for land allocation in a specified land use region query going to use defaults
+Didn't find builder for land allocation by crop and water source query going to use defaults
+Didn't find builder for LUC emissions by region query going to use defaults
+Didn't find builder for LUC emissions by LUT query going to use defaults
+Didn't find builder for LUC emissions by LUT in a specified land use region query going to use defaults
+Didn't find builder for vegetative carbon stock by region query going to use defaults
+Didn't find builder for profit rate query going to use defaults
+Didn't find builder for profit rate in a specified land use region query going to use defaults
+Didn't find builder for land leaf shares query going to use defaults
+Didn't find builder for land leaf shares in a specified land use region query going to use defaults
+About to perform query: collection()/singleQueryListCache/cache[@id=-1209976151]/text()
+Time : 47
+Before Function: 1639690499106
+About to perform query: collection()/scenario[ (@name='Reference' and @date='2021-19-11T09:54:46-05:00') ]/world/region[ (@name='USA') ]/*[@type='sector' (:collapse:) and
+               (@name='electricity' or @name='elect_td_bld' or @name='industrial energy use')]/
+               *[@type='subsector']/*[@type='technology' and not (@name='electricity' or @name='elect_td_bld')]/
+               *[@type='output' and (@name='electricity' or @name='elect_td_bld')]/
+               physical-output/node()
+In Function: 1639690499137
+After build Tree: 1639690499439
+After Add table: 1639690499440
