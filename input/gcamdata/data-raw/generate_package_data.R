@@ -152,6 +152,7 @@ generate_level2_data_names <- function() {
   level2_data_names[["ResReserveTechCoef"]] <- c("region", "resource", "reserve.subresource", "resource.reserve.technology", "year", "minicam.energy.input", "coefficient")
 
   # Global technologies
+  level2_data_names[["GlobalTechInputPMult"]] <- c("sector.name", "subsector.name", "technology", "year","minicam.energy.input", "price.unit.conversion")
   level2_data_names[["GlobalTech"]] <- c("sector.name", "subsector.name", "technology")
   level2_data_names[["GlobalTechInterp"]] <- c("sector.name", "subsector.name", "technology", "apply.to", "from.year", "to.year", "interpolation.function")
   level2_data_names[["GlobalTechInterpTo"]] <- c("sector.name", "subsector.name", "technology", "apply.to", "from.year", "to.year", "to.value", "interpolation.function")
