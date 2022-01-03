@@ -22,7 +22,7 @@ REM Update the PATH to be able to find the Java dlls
 SET PATH=%JAVA_HOME%\bin;%JAVA_HOME%\bin\server
 
 REM Run GCAM
-gcam.exe -C configuration_usa.xml
+gcam.exe -C configuration_usa_EERE.xml
 
 )
 
