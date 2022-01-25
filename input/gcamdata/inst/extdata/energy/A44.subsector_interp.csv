@@ -34,7 +34,3 @@ comm others,electricity,share-weight,final-calibration-year,end-year,,fixed
 comm others,gas,share-weight,final-calibration-year,end-year,,fixed
 comm others,refined liquids,share-weight,final-calibration-year,end-year,,fixed
 comm others,district heat,share-weight,final-calibration-year,end-year,,fixed
-resid heating,hydrogen,share-weight,2020,2040,,s-curve
-resid others,hydrogen,share-weight,2020,2040,,s-curve
-comm heating,hydrogen,share-weight,2020,2040,,s-curve
-comm others,hydrogen,share-weight,2020,2040,,s-curve

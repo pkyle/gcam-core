@@ -34,7 +34,3 @@ comm others,electricity,0
 comm others,gas,0
 comm others,refined liquids,-1
 comm others,district heat,-0.5
-resid heating,hydrogen,0
-resid others,hydrogen,0
-comm heating,hydrogen,0
-comm others,hydrogen,0
