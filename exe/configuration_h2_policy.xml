@@ -101,6 +101,7 @@
 <!-- Hydrogen  same as for EMF-37 -->
 		<Value name = "co2_path">../input/policy/global_co2_constraint_2050_zero.xml</Value>
 	  	<Value name = "co2_link">../input/policy/global_uct_in_constraint.xml</Value>
+	  	<Value name = "dac">../input/gcamdata/xml/dac_ssp2.xml</Value>
 		
 	</ScenarioComponents>
 	<Strings>
