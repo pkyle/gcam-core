@@ -349,7 +349,9 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       bind_rows(add_coal_and_bio_eff) %>%
       mutate(max_improvement = round(improvement_to_2040 + 0.1, 2),
              max_improvement = if_else(subsector.name == "nuclear", 0, max_improvement),
-             max_improvement = if_else(technology == "coal chemical", 0.075, max_improvement))-> H2A_eff_add_2015_techs       #     Coal w/o CCS max improvement set to 7.5%
+             max_improvement = if_else(technology == "coal chemical", 0.075, max_improvement),                #     Coal w/o CCS max improvement set to 7.5%
+             max_improvement = if_else( minicam.energy.input %in% c( "water_td_ind_W", "water_td_ind_C" ),    #     Water coefs see no improvement past 2040 H2A assumptions
+                                        improvement_to_2040, max_improvement ) ) -> H2A_eff_add_2015_techs
 
 
     H2A_eff_add_2015_techs %>%
@@ -379,6 +381,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
                                year >= 2040 ~ value[year == 2040]*(1 + improvement_rate_post_2040)^(year - 2040)),
              value = case_when(technology == 'coal chemical' & year>2015~value[year == 2015]*(1 + improvement_rate) ^ (year - 2015),
                                TRUE~value))%>%
+      mutate( improve_max = case_when( ( year >= 1975 ) ~ ( value[ year == 2015] * ( 1 + max_improvement ) ) ) ) %>%
+      mutate( value = if_else( value > improve_max, improve_max, value ) ) %>%  # set to max improvement value if exceeded
       ungroup()-> H2A_eff_GCAM_years
 
     add_coal_and_bio_eff %>%
@@ -437,7 +441,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       select(sector.name, subsector.name, technology, minicam.energy.input,units,year,value) %>%
       bind_rows(coal_w_ccs_eff, bio_w_ccs_eff) %>%
       mutate(value = 1 / value,
-             units = 'GJ input / GJ H2')-> L125.globaltech_coef
+             units = if_else( minicam.energy.input %in% c( "water_td_ind_W", "water_td_ind_C" ),
+                              "M3 water / GJ H2", "GJ input / GJ H2" ) ) -> L125.globaltech_coef
 
 
     # ===================================================
