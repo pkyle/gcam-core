@@ -162,7 +162,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
                               if_else(units == "GJ in /kg H2 out", value / CONV_GJ_KGH2, #convert to per GJ H2 basis
                                       if_else(units == 'gal / kgH2 out', value / CONV_GJ_KGH2 * CONV_GAL_M3,
                                       NA_real_))),
-              units='GJ input / GJ H2')-> H2A_prod_coef_conv
+              units = if_else(minicam.energy.input %in% c('water_td_ind_C','water_td_ind_W'),"M3 water / GJ H2", "GJ input / GJ H2")) -> H2A_prod_coef_conv
 
 
      H2A_prod_cost_conv %>%
@@ -295,7 +295,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       arrange(sector.name, subsector.name, technology, minicam.energy.input, year) %>%
       group_by(sector.name, subsector.name, technology, minicam.energy.input) %>%
       mutate(value = 1 / value) %>%
-      mutate(units = 'GJ H2 / GJ input') %>%
+      mutate(units = if_else(minicam.energy.input %in% c( 'water_td_ind_C','water_td_ind_W' ),'GJ H2 / M3 H2O','GJ H2 / GJ input')) %>%
       fill(units,.direction='downup') %>%
       mutate(improvement_to_2040 = (value[year == 2040] - value[year == 2015]) / value[year == 2015],
              improvement_rate = (1 + improvement_to_2040) ^ (1 / (2040 - 2015)) - 1) %>%
@@ -362,7 +362,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
 
     H2A_eff_add_2015_techs %>%
       #      Forecourt electrolysis max improvement = central electrolysis max improvement - 1%
-      mutate(max_improvement = if_else(subsector.name == "forecourt production" & technology == "electrolysis", central_elec_eff_max_imrpov - 0.01,
+      mutate(max_improvement = if_else(subsector.name == "forecourt production" & technology == "electrolysis" & !(minicam.energy.input %in% c( "water_td_ind_W", "water_td_ind_C" )),
+                                       central_elec_eff_max_imrpov - 0.01,
                                        max_improvement),
       #      Set improvement rate post 2040 to pre-2040 improvement
             improvement_rate_post_2040 = improvement_rate,
@@ -382,7 +383,12 @@ module_energy_LA125.hydrogen <- function(command, ...) {
              value = case_when(technology == 'coal chemical' & year>2015~value[year == 2015]*(1 + improvement_rate) ^ (year - 2015),
                                TRUE~value))%>%
       mutate( improve_max = case_when( ( year >= 1975 ) ~ ( value[ year == 2015] * ( 1 + max_improvement ) ) ) ) %>%
-      mutate( value = if_else( value > improve_max, improve_max, value ) ) %>%  # set to max improvement value if exceeded
+      mutate( value = if_else( value > improve_max & improvement_rate > 0, improve_max, value ), # set to max improvement value if exceeded
+              #for techs with negative improvement rates (i.e., consuming more input like electricity per unit over time, but presumably less primary input like natural gas),
+              #make 2040 value the "least efficient" they can get
+              value = case_when( improvement_rate < 0 & year >= 2040 ~ value[year == 2040],
+                                 improvement_rate < 0 & year < 2040 ~ value,
+                                 improvement_rate >= 0 ~ value )) %>%
       ungroup()-> H2A_eff_GCAM_years
 
     add_coal_and_bio_eff %>%
