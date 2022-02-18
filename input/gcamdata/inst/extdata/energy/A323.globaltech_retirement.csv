@@ -13,6 +13,7 @@ supplysector,subsector,technology,year,lifetime,shutdown.rate,half.life,steepnes
 iron and steel,BLASTFUR,BLASTFUR,final-calibration-year,20,,10,0.3,-0.5,6
 iron and steel,BLASTFUR,BLASTFUR CCS,final-calibration-year,20,,10,0.3,-0.5,6
 iron and steel,BLASTFUR,Biomass-based,final-calibration-year,20,,10,0.3,-0.5,6
+iron and steel,BLASTFUR,BLASTFUR with hydrogen,final-calibration-year,20,,10,0.3,-0.5,6
 iron and steel,EAF with DRI,EAF with DRI,final-calibration-year,20,,10,0.3,-0.5,6
 iron and steel,EAF with DRI,EAF with DRI CCS,final-calibration-year,20,,10,0.3,-0.5,6
 iron and steel,EAF with DRI,Hydrogen-based DRI,final-calibration-year,20,,10,0.3,-0.5,6
@@ -21,10 +22,10 @@ iron and steel,EAF with scrap,EAF with scrap CCS,final-calibration-year,20,,10,0
 iron and steel,BLASTFUR,BLASTFUR,initial-future-year,20,,10,0.3,-0.5,6
 iron and steel,BLASTFUR,BLASTFUR CCS,initial-future-year,20,,10,0.3,-0.5,6
 iron and steel,BLASTFUR,Biomass-based,initial-future-year,20,,10,0.3,-0.5,6
+iron and steel,BLASTFUR,BLASTFUR with hydrogen,initial-future-year,20,,10,0.3,-0.5,6
 iron and steel,EAF with DRI,EAF with DRI,initial-future-year,20,,10,0.3,-0.5,6
 iron and steel,EAF with DRI,EAF with DRI CCS,initial-future-year,20,,10,0.3,-0.5,6
 iron and steel,EAF with DRI,Hydrogen-based DRI,initial-future-year,20,,10,0.3,-0.5,6
 iron and steel,EAF with scrap,EAF with scrap,initial-future-year,20,,10,0.3,-0.5,6
 iron and steel,EAF with scrap,EAF with scrap CCS,initial-future-year,20,,10,0.3,-0.5,6
-iron and steel,BLASTFUR,BLASTFUR with hydrogen,initial-future-year,20,,10,0.3,-0.5,6
 iron and steel,BLASTFUR,BLASTFUR CCS with hydrogen,initial-future-year,20,,10,0.3,-0.5,6
