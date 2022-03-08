@@ -16,9 +16,10 @@
 #' @author KD September 2017
 module_gcamusa_L225.hydrogen_USA <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
-    return(c("L225.SubsectorLogit_h2"))
+    return(c(FILE = "energy/A25.globaltech_shrwt"))
   } else if(command == driver.DECLARE_OUTPUTS) {
-    return(c("L225.DeleteSubsector_h2_USA"))
+    return(c("L225.DeleteStubTech_h2_USA",
+             "L225.DeleteSubsector_h2_USA"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -26,7 +27,7 @@ module_gcamusa_L225.hydrogen_USA <- function(command, ...) {
     region <- subsector <- supplysector <- NULL  # silence package check notes
 
     # Load required inputs
-    L225.SubsectorLogit_h2 <- get_data(all_data, "L225.SubsectorLogit_h2", strip_attributes = TRUE)
+    A25.globaltech_shrwt <- get_data(all_data, "energy/A25.globaltech_shrwt")
 
     # ===================================================
     # This chunk selects the subsectors to be removed from the
@@ -36,25 +37,46 @@ module_gcamusa_L225.hydrogen_USA <- function(command, ...) {
     # keep the logit exponents for hydrogen at the national level for GCAM USA.
     # Select the wind, solar, and electricity subsectors because these resources do
     # not exists in the national level in GCAM USA.
-    L225.SubsectorLogit_h2 %>%
-      # Copy the region column to remove the attributes from the data frame.
-      mutate(region = region) %>%
-      filter(region == gcam.USA_REGION, subsector %in% c("wind", "solar", "electricity")) %>%
-      select(region, supplysector, subsector) ->
+    A25.globaltech_shrwt %>%
+      filter(technology == "electrolysis") %>%
+      mutate(region = gcam.USA_REGION) %>%
+      select(region, supplysector, subsector, stub.technology = technology) ->
+      L225.DeleteStubTech_h2_USA
+
+    # Remove also any subsectors that had all of their technologies removed
+    A25.globaltech_shrwt %>%
+      select(supplysector, subsector, stub.technology = technology) ->
+      L225.full_tech_set
+
+    L225.full_tech_set %>%
+      anti_join(L225.DeleteStubTech_h2_USA, by = c("supplysector", "subsector", "stub.technology")) ->
+      L225.remaining_tech_set
+
+    A25.globaltech_shrwt %>%
+      select(supplysector, subsector) %>%
+      distinct() %>%
+      mutate(region = gcam.USA_REGION) %>%
+      anti_join(L225.remaining_tech_set, by = c("supplysector", "subsector")) ->
       L225.DeleteSubsector_h2_USA
 
     # ===================================================
 
     # Produce outputs
-    L225.DeleteSubsector_h2_USA %>%
-      add_title("Subsector logit exponents of hydrogen sectors in the U.S. to be removed") %>%
+    L225.DeleteStubTech_h2_USA %>%
+      add_title("Electrolysis-based technologies to be removed from USA region as there is no national market in GCAM-USA") %>%
       add_units("Unitless") %>%
-      add_comments("Select the national subsector logit exponents to be excluded from GCAM USA") %>%
-      add_legacy_name("L225.DeleteSubsector_h2_USA") %>%
-      add_precursors("L225.SubsectorLogit_h2") ->
+      add_comments("Temporary fix to allow GCAM-USA to be run with 2021 hydrogen module updates") %>%
+      add_precursors("energy/A25.globaltech_shrwt") ->
+      L225.DeleteStubTech_h2_USA
+
+    L225.DeleteSubsector_h2_USA %>%
+      add_title("Electrolysis-only subsectors to be removed from USA region as there is no national market in GCAM-USA") %>%
+      add_units("Unitless") %>%
+      add_comments("Temporary fix to allow GCAM-USA to be run with 2021 hydrogen module updates") %>%
+      add_precursors("energy/A25.globaltech_shrwt") ->
       L225.DeleteSubsector_h2_USA
 
-    return_data(L225.DeleteSubsector_h2_USA)
+    return_data(L225.DeleteStubTech_h2_USA, L225.DeleteSubsector_h2_USA)
   } else {
     stop("Unknown command")
   }
