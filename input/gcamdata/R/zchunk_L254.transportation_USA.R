@@ -190,11 +190,11 @@ module_gcamusa_L254.transportation_USA <- function(command, ...) {
           select(-grid_region)
       }
 
-      # Electricity is always consumed from state markets
+      # For fuels consumed from state markets, the market.name is the region
       if("market.name" %in% names(data_new)) {
         data_new <- data_new %>%
-          mutate(market.name = replace(market.name, minicam.energy.input %in% gcamusa.ELECT_TD_SECTORS,
-                                       region[minicam.energy.input %in% gcamusa.ELECT_TD_SECTORS]))
+          mutate(market.name = replace(market.name, minicam.energy.input %in% gcamusa.STATE_FUEL_MARKETS,
+                                       region[minicam.energy.input %in% gcamusa.STATE_FUEL_MARKETS]))
       }
 
       data_new
