@@ -90,6 +90,8 @@ module_gcamusa_L225.hydrogen_USA <- function(command, ...) {
              market.name = if_else(minicam.energy.input %in% gcamusa.STATE_FUEL_MARKETS,
                                    region, market.name),
              market.name = if_else(minicam.energy.input %in% L225.Supplysector_h2_USA$supplysector,
+                                   region, market.name),
+             market.name = if_else(minicam.energy.input %in% c("water_td_ind_C","water_td_ind_W"),
                                    region, market.name))
 
     # ===================================================
