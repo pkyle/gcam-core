@@ -8,7 +8,7 @@
 #' @param ... other optional parameters, depending on command
 #' @return Depends on \code{command}: either a vector of required inputs,
 #' a vector of output names, or (if \code{command} is "MAKE") all
-#' the generated outputs: \code{L225.Supplysector_h2}, \code{L225.SubsectorLogit_h2}, \code{L225.SubsectorShrwtFllt_h2}, \code{L225.StubTech_h2}, \code{L225.GlobalTechCoef_h2}, \code{L225.GlobalTechCost_h2}, \code{L225.GlobalTechShrwt_h2}, \code{L225.PrimaryRenewKeyword_h2}, \code{L225.GlobalTechCapture_h2}. The corresponding file in the
+#' the generated outputs: \code{L225.Supplysector_h2}, \code{L225.SubsectorLogit_h2}, \code{L225.SubsectorShrwtFllt_h2}, \code{L225.StubTech_h2}, \code{L225.GlobalTechCoef_h2}, \code{L225.GlobalTechCost_h2}, \code{L225.GlobalTechShrwt_h2}, \code{L225.PrimaryRenewKeyword_h2}, \code{L225.GlobalTechCapture_h2}, \code{L225.GlobalTechProfitShutdown_h2}, \code{L225.GlobalTechSCurve_h2}. The corresponding file in the
 #' original data system was \code{L225.hydrogen.R} (energy level2).
 #' @details Provides supply sector information, subsector information, technology information for hydrogen sectors.
 #' @importFrom assertthat assert_that
@@ -23,6 +23,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
              FILE = "energy/A25.subsector_shrwt",
              FILE = "energy/A25.globaltech_cost",
              FILE = "energy/A25.globaltech_coef",
+             FILE = "energy/A25.globaltech_retirement",
              FILE = "energy/A25.globaltech_shrwt",
              FILE = "energy/A25.globaltech_keyword",
              FILE = "energy/A25.globaltech_co2capture",
@@ -43,7 +44,9 @@ module_energy_L225.hydrogen <- function(command, ...) {
              "L225.PrimaryRenewKeyword_h2",
              "L225.AvgFossilEffKeyword_h2",
              "L225.GlobalTechCapture_h2",
-             "L225.GlobalTechInputPMult_h2"))
+             "L225.GlobalTechInputPMult_h2",
+             "L225.GlobalTechProfitShutdown_h2",
+             "L225.GlobalTechSCurve_h2"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -62,6 +65,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
     A25.globaltech_cost <- get_data(all_data, "energy/A25.globaltech_cost", strip_attributes = TRUE)
     A25.globaltech_shrwt <- get_data(all_data, "energy/A25.globaltech_shrwt", strip_attributes = TRUE)
     A25.globaltech_keyword <- get_data(all_data, "energy/A25.globaltech_keyword", strip_attributes = TRUE)
+    A25.globaltech_retirement <- get_data(all_data, "energy/A25.globaltech_retirement", strip_attributes = TRUE)
     A25.globaltech_co2capture <- get_data(all_data, "energy/A25.globaltech_co2capture", strip_attributes = TRUE)
 
     L125.globaltech_coef <- get_data(all_data, "L125.globaltech_coef", strip_attributes = TRUE)
@@ -230,6 +234,43 @@ module_energy_L225.hydrogen <- function(command, ...) {
       mutate(storage.market = energy.CO2.STORAGE.MARKET) ->
       L225.GlobalTechCapture_h2
 
+
+    # Set global technology retirement information for all hydrogen sector technologies
+    # ------------------------------------------------------------------------------------
+
+    # Retirement may consist of any of three types of retirement function (phased, s-curve, or none)
+    # This section checks L225.globaltech_retirement for each of these functions and creates a subset for each option then removes any subsets with 0 rows
+    # All of these options have different headers, and all are allowed.
+    # Also, technologies that have an additional shutdown rate as a function of their profitability are also defined.
+    # Replace years and prepare assumptions into correct format
+    A25.globaltech_retirement %>%
+      set_years() %>%
+      mutate(year = as.integer(year)) %>%
+      rename(sector.name = supplysector, subsector.name = subsector) ->
+      L225.globaltech_retirement_base
+
+    # Copies base year retirement information into all future years and appends back onto itself
+    L225.globaltech_retirement_base %>%
+      filter(year == min(MODEL_FUTURE_YEARS)) %>%
+      select(-year) %>%
+      repeat_add_columns(tibble(year = MODEL_FUTURE_YEARS)) %>%
+      bind_rows(filter(L225.globaltech_retirement_base, year == max(MODEL_BASE_YEARS))) ->
+      L225.globaltech_retirement
+
+    # S-CURVE RETIREMENT
+    # Subsets the S-Curve retirement function
+    L225.globaltech_retirement %>%
+      filter(!is.na(L225.globaltech_retirement$half.life)) %>%
+      select(LEVEL2_DATA_NAMES[["GlobalTechYr"]], "lifetime", "steepness", "half.life") ->
+      L225.GlobalTechSCurve_h2
+
+    # PROFIT-BASED SHUTDOWN PARAMETERS
+    # Subsets any technologies with a shutdown parameter based on profitability
+    L225.globaltech_retirement %>%
+      filter(!is.na(L225.globaltech_retirement$median.shutdown.point)) %>%
+      select(LEVEL2_DATA_NAMES[["GlobalTechYr"]], "median.shutdown.point", "profit.shutdown.steepness") ->
+      L225.GlobalTechProfitShutdown_h2
+
     # ===================================================
     # Produce outputs
 
@@ -327,13 +368,11 @@ module_energy_L225.hydrogen <- function(command, ...) {
       add_comments("Interpolated orginal data into all model years") %>%
       add_precursors("L125.globaltech_coef",'energy/A25.globaltech_coef') -> L225.GlobalTechCoef_h2
 
-
     L225.GlobalTechCost_h2 %>%
       add_title("Costs of global technologies for hydrogen") %>%
       add_units("$1975 / GJ H2") %>%
       add_comments("Interpolated orginal data into all model years") %>%
       add_precursors("L125.globaltech_cost",'energy/A25.globaltech_cost')  -> L225.GlobalTechCost_h2
-
 
     L225.GlobalTechShrwt_h2 %>%
       add_title("Shareweights of global technologies for hydrogen") %>%
@@ -374,11 +413,28 @@ module_energy_L225.hydrogen <- function(command, ...) {
       add_units("Unitless") ->
       L225.GlobalTechInputPMult_h2
 
+    L225.GlobalTechSCurve_h2 %>%
+      add_title("Global tech lifetime for techs with s-curve retirement function") %>%
+      add_units("Lifetime in years, half-life in years") %>%
+      add_comments("Filters for any technology that uses an S-curve retirement function") %>%
+      add_legacy_name("L225.GlobalTechSCurve_h2") %>%
+      add_precursors("energy/A25.globaltech_retirement") ->
+      L225.GlobalTechSCurve_h2
+
+    L225.GlobalTechProfitShutdown_h2 %>%
+      add_title("Global tech profit shutdown decider and parameters") %>%
+      add_units("Unitless, used to determine shape of the function defining the relationship between shutdown rate and profitability") %>%
+      add_comments("Filters for any technologies that use a profit-based shutdown parameter") %>%
+      add_legacy_name("L225.GlobalTechProfitShutdown_h2") %>%
+      add_precursors("energy/A25.globaltech_retirement") ->
+      L225.GlobalTechProfitShutdown_h2
+
     return_data(L225.Supplysector_h2, L225.SectorUseTrialMarket_h2, L225.SubsectorLogit_h2, L225.StubTech_h2,
                 L225.GlobalTechCoef_h2, L225.GlobalTechCost_h2, L225.GlobalTechShrwt_h2,
                 L225.PrimaryRenewKeyword_h2, L225.AvgFossilEffKeyword_h2,
                 L225.GlobalTechCapture_h2, L225.SubsectorShrwt_h2, L225.SubsectorShrwtFllt_h2,
-                L225.SubsectorInterp_h2, L225.SubsectorInterpTo_h2,L225.GlobalTechInputPMult_h2)
+                L225.SubsectorInterp_h2, L225.SubsectorInterpTo_h2,L225.GlobalTechInputPMult_h2,
+                L225.GlobalTechSCurve_h2, L225.GlobalTechProfitShutdown_h2)
   } else {
     stop("Unknown command")
   }
