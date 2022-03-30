@@ -91,8 +91,9 @@ module_gcamusa_L225.hydrogen_USA <- function(command, ...) {
                                    region, market.name),
              market.name = if_else(minicam.energy.input %in% L225.Supplysector_h2_USA$supplysector,
                                    region, market.name),
-             market.name = if_else(minicam.energy.input %in% c("water_td_ind_C","water_td_ind_W"),
-                                   region, market.name))
+             market.name = if_else(minicam.energy.input %in% c("water_td_ind_C","water_td_ind_W","trn_freight_road","onshore wind resource","global solar resource"),
+                                   region, market.name),
+             minicam.energy.input = if_else(minicam.energy.input == 'global solar resource','PV_resource',minicam.energy.input))
 
     # ===================================================
 
