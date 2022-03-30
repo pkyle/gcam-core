@@ -30,7 +30,8 @@ module_gcamusa_L225.hydrogen_USA <- function(command, ...) {
              "L225.SubsectorLogit_h2_USA",
              "L225.SubsectorShrwtFllt_h2_USA",
              "L225.StubTech_h2_USA",
-             "L225.StubTechMarket_h2_USA"))
+             "L225.StubTechMarket_h2_USA",
+             "L225.DeleteStubTechMinicamEnergyInput_H2_USA"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -63,15 +64,19 @@ module_gcamusa_L225.hydrogen_USA <- function(command, ...) {
 
     L225.SubsectorLogit_h2_USA <- L225.SubsectorLogit_h2 %>%
       filter(region == gcam.USA_REGION) %>%
-      write_to_all_states(c(LEVEL2_DATA_NAMES[["SubsectorLogit"]], LOGIT_TYPE_COLNAME))
+      write_to_all_states(c(LEVEL2_DATA_NAMES[["SubsectorLogit"]], LOGIT_TYPE_COLNAME)) %>%
+      filter(!(region == 'DC' & subsector %in% c('solar','wind')))
 
     L225.SubsectorShrwtFllt_h2_USA <- L225.SubsectorShrwtFllt_h2 %>%
       filter(region == gcam.USA_REGION) %>%
-      write_to_all_states(LEVEL2_DATA_NAMES[["SubsectorShrwtFllt"]])
+      write_to_all_states(LEVEL2_DATA_NAMES[["SubsectorShrwtFllt"]]) %>%
+      filter(!(region == 'DC' & subsector %in% c('solar','wind')))
 
     L225.StubTech_h2_USA <- L225.StubTech_h2 %>%
-      filter(region == gcam.USA_REGION) %>%
-      write_to_all_states(LEVEL2_DATA_NAMES[["StubTech"]])
+      filter(region == gcam.USA_REGION,
+             !(region == 'DC' & subsector %in% c('solar','wind'))) %>%
+      write_to_all_states(LEVEL2_DATA_NAMES[["StubTech"]]) %>%
+      filter(!(region == 'DC' & subsector %in% c('solar','wind')))
 
     # Assign the market names. Use the USA region as the default, then
     # - re-set grid-region fuel market
@@ -93,11 +98,31 @@ module_gcamusa_L225.hydrogen_USA <- function(command, ...) {
                                    region, market.name),
              market.name = if_else(minicam.energy.input %in% c("water_td_ind_C","water_td_ind_W","trn_freight_road","onshore wind resource","global solar resource"),
                                    region, market.name),
-             minicam.energy.input = if_else(minicam.energy.input == 'global solar resource','PV_resource',minicam.energy.input))
+             minicam.energy.input = if_else(minicam.energy.input == 'global solar resource','PV_resource',minicam.energy.input)) %>%
+      filter(!(region == 'DC' & subsector %in% c('solar','wind'))) #We should eventually do an anti-join for this but for now it's easier to just say DC
+
+    L225.StubTechMarket_h2_USA %>%
+      filter(minicam.energy.input == "PV_resource") %>%
+      mutate(minicam.energy.input = "global solar resource") %>%
+      select(region, supplysector, subsector, stub.technology, year, minicam.energy.input) ->
+      L225.DeleteStubTechMinicamEnergyInput_H2_USA
 
     # ===================================================
 
     # Produce outputs
+    L225.DeleteStubTechMinicamEnergyInput_H2_USA %>%
+      add_title("Delete global solar resource Energy Input for PV Technologies") %>%
+      add_units("NA") %>%
+      add_comments("global solar resource input deleted; will be replaced by PV_resource") %>%
+      add_comments("Applies to all states") %>%
+      add_legacy_name("L225.DeleteStubTechMinicamEnergyInput_H2_USA") %>%
+      add_precursors('L225.Supplysector_h2') ->
+      L225.DeleteStubTechMinicamEnergyInput_H2_USA
+
+
+
+
+
     L225.DeleteSupplysector_h2_USA %>%
       add_title("Remove hydrogen sectors of USA region for GCAM-USA") %>%
       add_units("Unitless") %>%
@@ -154,7 +179,8 @@ module_gcamusa_L225.hydrogen_USA <- function(command, ...) {
                 L225.SubsectorLogit_h2_USA,
                 L225.SubsectorShrwtFllt_h2_USA,
                 L225.StubTech_h2_USA,
-                L225.StubTechMarket_h2_USA)
+                L225.StubTechMarket_h2_USA,
+                L225.DeleteStubTechMinicamEnergyInput_H2_USA)
   } else {
     stop("Unknown command")
   }

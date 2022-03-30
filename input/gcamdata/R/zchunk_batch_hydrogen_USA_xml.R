@@ -18,7 +18,8 @@ module_gcamusa_batch_hydrogen_USA_xml <- function(command, ...) {
              "L225.SubsectorLogit_h2_USA",
              "L225.SubsectorShrwtFllt_h2_USA",
              "L225.StubTech_h2_USA",
-             "L225.StubTechMarket_h2_USA"))
+             "L225.StubTechMarket_h2_USA",
+             "L225.DeleteStubTechMinicamEnergyInput_H2_USA"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c(XML = "hydrogen_USA.xml"))
   } else if(command == driver.MAKE) {
@@ -26,6 +27,7 @@ module_gcamusa_batch_hydrogen_USA_xml <- function(command, ...) {
     all_data <- list(...)[[1]]
 
     # Load required inputs
+    L225.DeleteStubTechMinicamEnergyInput_H2_USA <- get_data(all_data, "L225.DeleteStubTechMinicamEnergyInput_H2_USA")
     L225.DeleteSupplysector_h2_USA <- get_data(all_data, "L225.DeleteSupplysector_h2_USA")
     L225.Supplysector_h2_USA <- get_data(all_data, "L225.Supplysector_h2_USA")
     L225.SectorUseTrialMarket_h2_USA <- get_data(all_data, "L225.SectorUseTrialMarket_h2_USA")
@@ -45,13 +47,15 @@ module_gcamusa_batch_hydrogen_USA_xml <- function(command, ...) {
       add_xml_data(L225.SubsectorShrwtFllt_h2_USA, "SubsectorShrwtFllt") %>%
       add_xml_data(L225.StubTech_h2_USA, "StubTech") %>%
       add_xml_data(L225.StubTechMarket_h2_USA, "StubTechMarket") %>%
+      add_xml_data(L225.DeleteStubTechMinicamEnergyInput_H2_USA,"DeleteStubTechMinicamEnergyInput") %>%
       add_precursors("L225.DeleteSupplysector_h2_USA",
                      "L225.Supplysector_h2_USA",
                      "L225.SectorUseTrialMarket_h2_USA",
                      "L225.SubsectorLogit_h2_USA",
                      "L225.SubsectorShrwtFllt_h2_USA",
                      "L225.StubTech_h2_USA",
-                     "L225.StubTechMarket_h2_USA") ->
+                     "L225.StubTechMarket_h2_USA",
+                     "L225.DeleteStubTechMinicamEnergyInput_H2_USA") ->
       hydrogen_USA.xml
 
     return_data(hydrogen_USA.xml)
