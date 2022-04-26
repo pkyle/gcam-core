@@ -459,25 +459,26 @@ module_energy_L254.transportation_UCD <- function(command, ...) {
       L254.GlobalTranTechShrwt_CORE # OUTPUT
 
 
-    A54.globaltranTech_shrwt %>%
-      filter(sce=="highEV") %>%
-      select(-sce) %>%
-      gather_years %>%
-      # Expand table to include all model years
-      complete(year = c(year, MODEL_YEARS), nesting(supplysector, tranSubsector, tranTechnology)) %>%
-      # Extrapolate to fill out values for all years
-      # Rule 2 is used so years that may be outside of min-max range are assigned values from closest data, as opposed to NAs
-      group_by(supplysector, tranSubsector, tranTechnology) %>%
-      mutate(share.weight = approx_fun(year, value, rule = 2),
-             share.weight = round(share.weight, energy.DIGITS_SHRWT)) %>%
-      ungroup() %>%
-      filter(year %in% MODEL_YEARS) %>%
-      mutate(sce= paste0("highEV")) %>%
-      rename(sector.name = supplysector, subsector.name = tranSubsector) %>%
-      select(LEVEL2_DATA_NAMES[["GlobalTranTechShrwt"]],sce) ->
-      L254.GlobalTranTechShrwt_highEV # OUTPUT
+    # A54.globaltranTech_shrwt %>%
+    #   filter(sce=="highEV") %>%
+    #   select(-sce) %>%
+    #   gather_years %>%
+    #   # Expand table to include all model years
+    #   complete(year = c(year, MODEL_YEARS), nesting(supplysector, tranSubsector, tranTechnology)) %>%
+    #   # Extrapolate to fill out values for all years
+    #   # Rule 2 is used so years that may be outside of min-max range are assigned values from closest data, as opposed to NAs
+    #   group_by(supplysector, tranSubsector, tranTechnology) %>%
+    #   mutate(share.weight = approx_fun(year, value, rule = 2),
+    #          share.weight = round(share.weight, energy.DIGITS_SHRWT)) %>%
+    #   ungroup() %>%
+    #   filter(year %in% MODEL_YEARS) %>%
+    #   mutate(sce= paste0("highEV")) %>%
+    #   rename(sector.name = supplysector, subsector.name = tranSubsector) %>%
+    #   select(LEVEL2_DATA_NAMES[["GlobalTranTechShrwt"]],sce) ->
+    #   L254.GlobalTranTechShrwt_highEV # OUTPUT
 
-    L254.GlobalTranTechShrwt <- bind_rows(L254.GlobalTranTechShrwt_highEV,L254.GlobalTranTechShrwt_CORE)
+    #L254.GlobalTranTechShrwt <- bind_rows(L254.GlobalTranTechShrwt_highEV,L254.GlobalTranTechShrwt_CORE)
+    L254.GlobalTranTechShrwt <- L254.GlobalTranTechShrwt_CORE
 
     # L254.GlobalTranTechSCurve and L254.GlobalTranTechProfitShutdown: Retirement of global tranTechnologies
     # A54.globaltranTech_retire reports transportation technology retirement parameters. Only applies to vintaged technologies
@@ -526,11 +527,15 @@ module_energy_L254.transportation_UCD <- function(command, ...) {
       L254.StubTranTechCalInput_basetable
 
     #kbn 2020-02-06 Energy intensity are not separated by SSPs. So, just copying information from CORE to all SSPs.
+    # L254.StubTranTechCalInput_basetable<- bind_rows(L254.StubTranTechCalInput_basetable %>% mutate(sce= paste0("CORE")),
+    #                                                 L254.StubTranTechCalInput_basetable %>% mutate(sce= paste0("SSP1")),
+    #                                                 L254.StubTranTechCalInput_basetable %>% mutate(sce= paste0("SSP3")),
+    #                                                 L254.StubTranTechCalInput_basetable %>% mutate(sce= paste0("SSP5")),
+    #                                                 L254.StubTranTechCalInput_basetable %>% mutate(sce= paste0("highEV")))
     L254.StubTranTechCalInput_basetable<- bind_rows(L254.StubTranTechCalInput_basetable %>% mutate(sce= paste0("CORE")),
                                                     L254.StubTranTechCalInput_basetable %>% mutate(sce= paste0("SSP1")),
                                                     L254.StubTranTechCalInput_basetable %>% mutate(sce= paste0("SSP3")),
-                                                    L254.StubTranTechCalInput_basetable %>% mutate(sce= paste0("SSP5")),
-                                                    L254.StubTranTechCalInput_basetable %>% mutate(sce= paste0("highEV")))
+                                                    L254.StubTranTechCalInput_basetable %>% mutate(sce= paste0("SSP5")))
 
     # Aggregate to set subsector share weights according to region, supplysector, tranSubsector, year combination
     # kbn 2020-02-06 Add sce below (See description of changes using search string kbn 2020-06-02 Making changes to generate xmls for SSPs flexibly)
