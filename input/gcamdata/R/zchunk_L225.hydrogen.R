@@ -8,7 +8,7 @@
 #' @param ... other optional parameters, depending on command
 #' @return Depends on \code{command}: either a vector of required inputs,
 #' a vector of output names, or (if \code{command} is "MAKE") all
-#' the generated outputs: \code{L225.Supplysector_h2}, \code{L225.SubsectorLogit_h2}, \code{L225.SubsectorShrwtFllt_h2}, \code{L225.StubTech_h2}, \code{L225.GlobalTechCoef_h2}, \code{L225.GlobalTechCost_h2}, \code{L225.GlobalTechShrwt_h2}, \code{L225.PrimaryRenewKeyword_h2}, \code{L225.GlobalTechCapture_h2}, \code{L225.GlobalTechProfitShutdown_h2}, \code{L225.GlobalTechSCurve_h2}. The corresponding file in the
+#' the generated outputs: \code{L225.Supplysector_h2}, \code{L225.SubsectorLogit_h2}, \code{L225.SubsectorShrwtFllt_h2}, \code{L225.StubTech_h2}, \code{L225.GlobalTechCoef_h2}, \code{L225.GlobalTechCost_h2}, \code{L225.GlobalTechShrwt_h2}, \code{L225.PrimaryRenewKeyword_h2}, \code{L225.GlobalTechCapture_h2}, \code{L225.StubTechCost_h2}, \code{L225.GlobalTechProfitShutdown_h2}, \code{L225.GlobalTechSCurve_h2}. The corresponding file in the
 #' original data system was \code{L225.hydrogen.R} (energy level2).
 #' @details Provides supply sector information, subsector information, technology information for hydrogen sectors.
 #' @importFrom assertthat assert_that
@@ -27,6 +27,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
              FILE = "energy/A25.globaltech_shrwt",
              FILE = "energy/A25.globaltech_keyword",
              FILE = "energy/A25.globaltech_co2capture",
+             FILE = "energy/A25.stubtech_cost",
              "L125.globaltech_coef",
              "L125.globaltech_cost"))
   } else if(command == driver.DECLARE_OUTPUTS) {
@@ -46,7 +47,8 @@ module_energy_L225.hydrogen <- function(command, ...) {
              "L225.GlobalTechCapture_h2",
              "L225.GlobalTechInputPMult_h2",
              "L225.GlobalTechProfitShutdown_h2",
-             "L225.GlobalTechSCurve_h2"))
+             "L225.GlobalTechSCurve_h2",
+             "L225.StubTechCost_h2"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -67,6 +69,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
     A25.globaltech_keyword <- get_data(all_data, "energy/A25.globaltech_keyword", strip_attributes = TRUE)
     A25.globaltech_retirement <- get_data(all_data, "energy/A25.globaltech_retirement", strip_attributes = TRUE)
     A25.globaltech_co2capture <- get_data(all_data, "energy/A25.globaltech_co2capture", strip_attributes = TRUE)
+    A25.stubtech_cost <- get_data(all_data, "energy/A25.stubtech_cost", strip_attributes = TRUE)
 
     L125.globaltech_coef <- get_data(all_data, "L125.globaltech_coef", strip_attributes = TRUE)
     L125.globaltech_cost <- get_data(all_data, "L125.globaltech_cost", strip_attributes = TRUE)
@@ -115,6 +118,14 @@ module_energy_L225.hydrogen <- function(command, ...) {
       write_to_all_regions(LEVEL2_DATA_NAMES[["Tech"]], GCAM_region_names) %>%
       rename(stub.technology = technology) ->
       L225.StubTech_h2
+
+    #L225.StubTechCost_h2: Stub technology costs for hydrogen production
+    A25.stubtech_cost %>%
+      gather( key = year, value = "input.cost", paste( MODEL_YEARS ) ) %>%
+      mutate( year = as.numeric( year ) ) %>%
+      select( "region", "supplysector", "subsector", "stub.technology", "year",
+              "minicam.non.energy.input", "input.cost" ) ->
+      L225.StubTechCost_h2
 
     # L225.GlobalTechCoef_h2: Energy inputs coefficients of global technologies for hydrogen
     L125.globaltech_coef %>%
@@ -429,12 +440,19 @@ module_energy_L225.hydrogen <- function(command, ...) {
       add_precursors("energy/A25.globaltech_retirement") ->
       L225.GlobalTechProfitShutdown_h2
 
+    L225.StubTechCost_h2 %>%
+      add_title("Regional hydrogen production costs") %>%
+      add_units("$1975/GJ") %>%
+      add_comments("Non-energy costs refer to the LCOH for the electrolyzer.") %>%
+      add_precursors("energy/A25.stubtech_cost") ->
+      L225.StubTechCost_h2
+
     return_data(L225.Supplysector_h2, L225.SectorUseTrialMarket_h2, L225.SubsectorLogit_h2, L225.StubTech_h2,
                 L225.GlobalTechCoef_h2, L225.GlobalTechCost_h2, L225.GlobalTechShrwt_h2,
                 L225.PrimaryRenewKeyword_h2, L225.AvgFossilEffKeyword_h2,
                 L225.GlobalTechCapture_h2, L225.SubsectorShrwt_h2, L225.SubsectorShrwtFllt_h2,
                 L225.SubsectorInterp_h2, L225.SubsectorInterpTo_h2,L225.GlobalTechInputPMult_h2,
-                L225.GlobalTechSCurve_h2, L225.GlobalTechProfitShutdown_h2)
+                L225.GlobalTechSCurve_h2, L225.GlobalTechProfitShutdown_h2, L225.StubTechCost_h2)
   } else {
     stop("Unknown command")
   }
