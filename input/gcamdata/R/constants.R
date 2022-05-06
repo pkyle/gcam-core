@@ -135,6 +135,7 @@ CONV_TST_TG         <- 0.000907       # thousand short tons to Tg
 # Time
 CONV_YEAR_HOURS <- 24 * 365.25
 CONV_DAYS_YEAR <- 1 / 365.25
+CONV_DAY_HOURS <- 24
 
 # Energy
 CONV_MWH_GJ <- 3.6 # Megawatt hours to Gigajoules
@@ -451,10 +452,12 @@ energy.PV_LIFETIME             <- 30       # years
 energy.PV_RESID_INSTALLED_COST <- 9500     # 2005USD per kw
 energy.PV_RESID_OM             <- 100      # 2005USD per kw per year
 energy.CSP_STORAGE_CF_DIFF     <- 0.25     # capacity factor difference between CSP_storage (0.5) and CSP (0.25)
+energy.SOLAR_ELECTROLYSIS_KGH2_D <- 50000    # kg of h2 produced per day at a solar-electrolysis plant
 
 # Wind related constants
 energy.WIND_CURVE_MIDPOINT <- 0.5
 energy.WIND_MIN_POTENTIAL <- 0.001
+energy.WIND_ELECTROLYSIS_KGH2_D <- 50000    # kg of h2 produced per day at a wind-electrolysis plant
 
 # Digits for rounding into XMLs
 energy.DIGITS_CALOUTPUT        <- 7

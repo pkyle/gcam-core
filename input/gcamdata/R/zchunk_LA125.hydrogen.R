@@ -45,11 +45,13 @@ module_energy_LA125.hydrogen <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "energy/H2A_IO_coef_data",
              FILE = "energy/H2A_NE_cost_data",
+             FILE = "energy/H2A_electrolyzer_NEcost_CF",
              "L223.GlobalTechCapital_elec",
              "L223.GlobalTechEff_elec"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L125.globaltech_coef",
-             "L125.globaltech_cost"))
+             "L125.globaltech_cost",
+             "L125.Electrolyzer_IdleRatio_Params"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -59,6 +61,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
 
     H2A_prod_coef <- get_data(all_data, "energy/H2A_IO_coef_data")
     H2A_prod_cost <- get_data(all_data, "energy/H2A_NE_cost_data")
+    H2A_electrolyzer_NEcost_CF <- get_data(all_data, "energy/H2A_electrolyzer_NEcost_CF")
 
     L223.GlobalTechCapital_elec <- get_data(all_data, "L223.GlobalTechCapital_elec")
     L223.GlobalTechEff_elec <- get_data(all_data, "L223.GlobalTechEff_elec")
@@ -450,6 +453,21 @@ module_energy_LA125.hydrogen <- function(command, ...) {
              units = if_else( minicam.energy.input %in% c( "water_td_ind_W", "water_td_ind_C" ),
                               "M3 water / GJ H2", "GJ input / GJ H2" ) ) -> L125.globaltech_coef
 
+    # Relationship between capacity factor and levelized cost of electrolyzers, for estimation of NE costs of direct
+    # renewable electrolysis on a region-specific basis
+    H2A_electrolyzer_NEcost_CF <- H2A_electrolyzer_NEcost_CF %>%
+      mutate(IdleRatio = 1 / capacity.factor)
+
+    IdleRatioIntercept_2015 <- lm(H2A_electrolyzer_NEcost_CF$`2015` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[1]
+    IdleRatioSlope_2015 <- lm(H2A_electrolyzer_NEcost_CF$`2015` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[2]
+    IdleRatioIntercept_2040 <- lm(H2A_electrolyzer_NEcost_CF$`2040` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[1]
+    IdleRatioSlope_2040 <- lm(H2A_electrolyzer_NEcost_CF$`2040` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[2]
+    L125.Electrolyzer_IdleRatio_Params <- tibble(
+      year = c(2015, 2040),
+      slope = c(IdleRatioSlope_2015, IdleRatioSlope_2040),
+      intercept = c(IdleRatioIntercept_2015, IdleRatioIntercept_2040)
+    )
+
 
     # ===================================================
     # Produce outputs
@@ -469,8 +487,14 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       add_precursors("energy/H2A_NE_cost_data","L223.GlobalTechCapital_elec")  ->
       L125.globaltech_cost
 
+    L125.Electrolyzer_IdleRatio_Params %>%
+      add_title("Parameters of linear relationship between idle ratio and NE cost of electrolyzers") %>%
+      add_units("2016$/kg H2") %>%
+      add_comments("IdleRatio = 1 / Capacity factor; linear model used to estimate levelized cost as fn of reciprocal of CF") %>%
+      add_precursors("energy/H2A_electrolyzer_NEcost_CF") ->
+      L125.Electrolyzer_IdleRatio_Params
 
-    return_data(L125.globaltech_coef, L125.globaltech_cost)
+    return_data(L125.globaltech_coef, L125.globaltech_cost, L125.Electrolyzer_IdleRatio_Params)
   } else {
     stop("Unknown command")
   }
