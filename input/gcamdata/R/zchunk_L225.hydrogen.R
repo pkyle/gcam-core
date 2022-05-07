@@ -206,7 +206,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
              subsector.name = subsector) %>%
       anti_join(L125.globaltech_cost, by = c("sector.name", "subsector.name", "technology", "minicam.non.energy.input")) %>%
       select(-value) ->
-      L225.GlobalTechCost_h2_noprod #get costs for only end use and distribution pass-through sectors and technologies from A25
+      L225.GlobalTechCost_h2_noprod #get costs for only end use, distribution pass-through sectors, (global) renewable portion of LCOH (e.g., solar panels), and technologies from A25
 
     L225.GlobalTechCost_h2 <- bind_rows(L225.GlobalTechCost_h2,L225.GlobalTechCost_h2_noprod)
 
@@ -221,7 +221,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
     # hydrogen electrolyzers. The available cost estimate years are 2015 and 2040. Cost reductions are extrapolated to
     # 2050 using the same improvement factor in all regions. The costs assigned to years between 2015 and 2050 are estimated
     # with linear interpolation, and outside this window we use fixed extrapolation.
-    # Electrolyzer non-energy costs should be named "non-energy" so as to replace rather than add to the global default
+    # Electrolyzer non-energy costs replace rather than add to the global default
     # values in L225.GlobalTechCost_h2. This is handled in the left_join.
     L223.StubTechCapFactor_elec %>%
       filter(year == max(MODEL_BASE_YEARS),
@@ -236,7 +236,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
       gather_years() %>%
       complete(nesting(region, subsector), year = MODEL_YEARS) %>%
       group_by(region, subsector) %>%
-      mutate(minicam.non.energy.input = "non-energy",
+      mutate(minicam.non.energy.input = "electrolyzer",
              input.cost = approx_fun(year, value, rule = 2),
              input.cost = input.cost * gdp_deflator(1975, 2016) / CONV_GJ_KGH2) %>%
       ungroup() %>%
@@ -512,7 +512,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
     L225.StubTechCost_h2 %>%
       add_title("Regional hydrogen production costs") %>%
       add_units("$1975/GJ") %>%
-      add_comments("Non-energy costs refer to the LCOH for the electrolyzer.") %>%
+      add_comments("LCOH for the electrolyzer and renewables providing electricity.") %>%
       add_precursors("L125.Electrolyzer_IdleRatio_Params",
                      "L223.StubTechCapFactor_elec",
                      "L223.GlobalIntTechCapital_elec",
