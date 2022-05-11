@@ -226,7 +226,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
     L223.StubTechCapFactor_elec %>%
       filter(year == max(MODEL_BASE_YEARS),
              stub.technology %in% c("wind", "PV")) %>%
-      mutate(IdleRatio = 1 / capacity.factor,
+      mutate(IdleRatio = pmax(1, 1 / (capacity.factor / energy.ELECTROLYZER_RENEWABLE_CAPACITY_RATIO)),
              `2015` = L125.Electrolyzer_IdleRatio_Params_2015$intercept +
                IdleRatio * L125.Electrolyzer_IdleRatio_Params_2015$slope,
              `2040` = L125.Electrolyzer_IdleRatio_Params_2040$intercept +
