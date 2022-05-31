@@ -14,7 +14,7 @@ module_energy_LA125.hydrogen(command, ...)
 \value{
 Depends on \code{command}: either a vector of required inputs,
 a vector of output names, or (if \code{command} is "MAKE") all
-the generated outputs: \code{asdf}.
+the generated outputs: \code{L125.globaltech_coef},  \code{L125.globaltech_cost},  \code{L125.Electrolyzer_IdleRatio_Params}.
 }
 \description{
 Provides supply sector information, subsector information, technology information for hydrogen sectors.
