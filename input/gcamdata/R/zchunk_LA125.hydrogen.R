@@ -16,29 +16,9 @@
 #' @author GPK/JF/PW July 2021
 #'
 #'
-#' # Notes: 1) NREL H2A v2018 did not include the following H2 production technologies:
+#' # Note:  NREL H2A v2018 did not include the following H2 production technologies:
 #           bio + CCS, coal w/o CCS, coal + CCS (future), nuclear H2 prod,
-#           solar electrolysis, and wind electrolysis.
-#
-#           A) Base year bio + CCS and coal w/o CCS assumptions were created by leveraging the ratio between
-#              comparable IGCC technologies in the power sector.
-#
-#              Coal w/o CCS was given the same improvement rate as the NREL H2A biomass w/o CCS technology.
-#
-#              The "difference" (cost adder or efficiency loss) between "CCS" and "no CCS" technology pairs for
-#              coal and biomass was then reduced overtime by leveraging the reduction in this difference for
-#              the comparable IGCC technologies in the power sector.
-#
-#              Coal w/CCS and biomass w/CCS were then extended by adding this "difference" (cost adder or efficiency
-#              loss) to the non-CCS version of the H2 production technology, for each period.
-#
-#           B) Wind and solar electrolysis were created by adding the cost of panels and turbines to the H2A electrolysis plant
-#              using NREL ATB 2019 data.
-#
-#           C) Nuclear thermal splitting utilized an earlier version of H2A data (2008). This data was updated by modyfing
-#              H2A reactor costs to be consistent with NREL ATB's 2019 data. Max improvement leverages nuclear reactor
-#              improvement from GCAM power sector for Gen_III reactors
-#
+#           solar electrolysis, and wind electrolysis. See in line comments below for further detail.
 # ------------------------------------------------------------------------------
 #'
 module_energy_LA125.hydrogen <- function(command, ...) {
@@ -151,9 +131,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
 
 
 
-     # D. Process H2A data, extrapolating all technologies in H2A to all GCAM model years using the cost and efficiency improvement factors calculated above
-     # Convert Units from H2A ($/kg, GJ/kg) to GCAM (1975$/GJ, GJ/GJ)
 
+     # D. Convert Units from H2A ($/kg, GJ/kg) to GCAM (1975$/GJ, GJ/GJ)
      H2A_prod_cost %>%
        select(-notes)%>%
        gather_years() %>%
@@ -171,6 +150,20 @@ module_energy_LA125.hydrogen <- function(command, ...) {
                                       if_else(units == 'gal / kgH2 out', value / CONV_GJ_KGH2 * CONV_GAL_M3,
                                       NA_real_))),
               units = if_else(minicam.energy.input %in% c('water_td_ind_C','water_td_ind_W'),"M3 water / GJ H2", "GJ input / GJ H2")) -> H2A_prod_coef_conv
+
+     # E. Process H2A data, extrapolating all technologies in H2A to all GCAM model years using the cost and efficiency improvement factors calculated above
+
+     # Base year bio + CCS and coal w/o CCS assumptions were created by applying the ratio between
+     # comparable IGCC technologies in the power sector.
+     #
+     # Coal w/o CCS was given the same improvement rate as the NREL H2A biomass w/o CCS technology.
+     #
+     # The "difference" (cost adder or efficiency loss) between "CCS" and "no CCS" technology pairs for
+     # coal and biomass was then reduced over time by leveraging the reduction in this difference for
+     # the comparable IGCC technologies in the power sector.
+     #
+     # Coal w/CCS and biomass w/CCS were then extended by adding this "difference" (cost adder or efficiency
+     # loss) to the non-CCS version of the H2 production technology, for each period.
 
      H2A_prod_cost_conv %>%
        filter(technology %in% c("biomass to H2", "coal chemical CCS")) -> existing_coal_bio
@@ -217,8 +210,11 @@ module_energy_LA125.hydrogen <- function(command, ...) {
      H2A_prod_cost_conv %>%
        filter(!(technology %in% c("coal chemical", "biomass to H2 CCS" , "coal chemical CCS"))) -> H2A_NE_cost_add_2015_techs
 
+     # F.Nuclear thermal splitting utilized an earlier version of H2A data (2008). This data was updated by modifying
+     #   H2A reactor costs to be consistent with NREL ATB's 2019 data. Max improvement leverages nuclear reactor
+     #   improvement from GCAM power sector for Gen_III reactors
 
-     H2A_NE_cost_add_2015_techs %>%
+    H2A_NE_cost_add_2015_techs %>%
        mutate(max_improvement = if_else(technology == "thermal splitting", elec_nuclear_cost_improvement$max_improvement,
                                         max_improvement)) -> H2A_NE_cost_add_nuclear
 
@@ -240,7 +236,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
        ungroup() -> H2A_NE_cost_GCAM_years
 
 
-    # E. Create bio + CCS and extend coal w/CCS
+    # G. Create bio + CCS and extend coal w/CCS
 
     # First, set bio's CCS tech to the same improvement rate as coal's, otherwise bio + CCS gets cheaper than coal + CCS
     elec_IGCC_CCS_cost_improvement %>%
@@ -310,7 +306,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
 
 
 
-    # Add 2015 value for coal w/o CCS and bio w/CCS
+    # Add 2015 value for coal w/o CCS and bio w/CCS, using same approach as for costs described above.
 
     H2A_eff_improvement %>%
       filter(technology %in% c("biomass to H2", "coal chemical CCS"))  -> existing_coal_bio_eff
@@ -457,6 +453,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
              units = if_else( minicam.energy.input %in% c( "water_td_ind_W", "water_td_ind_C" ),
                               "M3 water / GJ H2", "GJ input / GJ H2" ) ) -> L125.globaltech_coef
 
+    # H. Wind and solar electrolysis were created by adding the cost of panels and turbines to the H2A electrolysis plant
+    # using NREL ATB 2019 data.
     # Relationship between capacity factor and levelized cost of electrolyzers, for estimation of NE costs of direct
     # renewable electrolysis on a region-specific basis
     H2A_electrolyzer_NEcost_CF <- H2A_electrolyzer_NEcost_CF %>%
