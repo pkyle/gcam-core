@@ -94,7 +94,9 @@ module_energy_L2324.Off_road <- function(command, ...) {
       technology <- supplysector <- subsector <- minicam.energy.input <- coefficient <-
       remove.fraction <- minicam.non.energy.input <- input.cost  <- calibration <- calOutputValue <- subs.share.weight <- region <-
       calibrated.value <- . <- scenario <- temp_lag <- base.service <- energy.final.demand <-
-      value.x <- value.y <- parameter <- NULL
+      value.x <- value.y <- parameter <- to.year <- from.year <- efficiency <- year.x <- year.y <-
+      sector.name <- subsector.name <- stub.technology <- calOutputValue.x <- calOutputValue.y <- output_tot <-
+      market.name <- terminal_coef <- share.weight <- interpolation.function <- NULL
 
     # ===================================================
     # 1. Perform computations

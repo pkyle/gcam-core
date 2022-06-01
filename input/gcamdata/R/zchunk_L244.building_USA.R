@@ -108,7 +108,10 @@ module_gcamusa_L244.building_USA <- function(command, ...) {
       steepness_stock <- stockavg <- subsector <- subsector.name <- supplysector <-
       tech_type <- technology <- technology1 <- technology2 <-
       thermal.building.service.input <- to.value <- value <- year <- year.fillout <- . <-
-      pop_year <- Sector <- pop_share <- growth <- flsp_growth <- NULL
+      pop_year <- Sector <- pop_share <- growth <- flsp_growth <- area_gcam <- misc_land_usda <-
+      area_thouskm2 <- flsp <- pop_thous <- flsp_pc <- tot.dens <- unadjust.satiation <-
+      land.density.param <- b.param <- income.param <- gdp_pc <- flsp_est <- base_flsp <-
+      bias.adjust.param <- state_name <- NULL
 
     all_data <- list(...)[[1]]
 

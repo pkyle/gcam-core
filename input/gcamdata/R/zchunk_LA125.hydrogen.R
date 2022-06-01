@@ -56,7 +56,12 @@ module_energy_LA125.hydrogen <- function(command, ...) {
 
     all_data <- list(...)[[1]]
 
-    year <- value <- NULL  # silence package check notes
+    year <- value <- technology <- capital.overnight <- coal_IGCC_CCS <- coal_IGCC <-
+      sector.name <- subsector.name <- IGCC_CCS_no_CCS_2015_ratio <- efficiency <-
+      IGCC_CCS <- IGCC_no_CCS <- with_CCS <- without_CCS <- CCS_add_cost <- `2100` <-
+      `2015` <- max_improvement <- CCS_sub_eff <- notes <- minicam.energy.input <-
+      minicam.non.energy.input <- improvement_to_2040 <- improvement_rate <- cost <-
+      min_cost <- improvement_rate_post_2040 <- improve_max <- capacity.factor <- lm <- NULL  # silence package check notes
 
 
     H2A_prod_coef <- get_data(all_data, "energy/H2A_IO_coef_data")

@@ -45,6 +45,9 @@ module_gcamusa_batch_transportation_USA_xml <- function(command, ...) {
     return(xml_files)
   } else if(command == driver.MAKE) {
 
+    # Silence package check notes
+    sce <- year <- . <- NULL
+
     all_data <- list(...)[[1]]
 
     ret_data <- c()

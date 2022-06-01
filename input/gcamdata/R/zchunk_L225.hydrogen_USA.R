@@ -36,7 +36,8 @@ module_gcamusa_L225.hydrogen_USA <- function(command, ...) {
 
     all_data <- list(...)[[1]]
 
-    region <- subsector <- supplysector <- NULL  # silence package check notes
+    region <- subsector <- supplysector <- sector.name <- subsector.name <- technology <-
+      state <- grid_region <- minicam.energy.input <- market.name <- stub.technology <- year <- NULL  # silence package check notes
 
     # Load required inputs
     states_subregions <- get_data(all_data, "gcam-usa/states_subregions")

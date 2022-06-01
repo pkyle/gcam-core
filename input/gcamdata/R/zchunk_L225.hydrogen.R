@@ -54,6 +54,12 @@ module_energy_L225.hydrogen <- function(command, ...) {
              "L225.StubTechCost_h2"))
   } else if(command == driver.MAKE) {
 
+    # Silencing package checks
+    region <- coefficient <- cost <- price.unit.conversion <- sector.name <- subsector.name <-
+      stub.technology <- capacity.factor <- IdleRatio <- `2040` <- `2015` <- `2050` <-
+      intermittent.technology <- capital.overnight <- fixed.charge.rate <- OM.fixed <-
+      cost_75USD_kW_yr <- kWh_elec_per_kgH2 <- output_kgh2_d <- cost_75USD_kgH2 <- NULL
+
     all_data <- list(...)[[1]]
 
     year.fillout <- technology <- year <- efficiency <- supplysector <- value <-
