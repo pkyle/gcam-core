@@ -19,7 +19,7 @@
 #' @importFrom assertthat assert_that
 #' @importFrom dplyr arrange bind_rows distinct filter if_else group_by lag left_join mutate pull select
 #' @importFrom tidyr gather spread
-#' @author Yang Liu Sep 2019
+#' @author Yang Liu Sep 2019, Molly Charles 2020-21, 2022 modifications from Jay Fuhrman, Siddarth Durga, Page Kyle
 module_energy_L2324.Off_road <- function(command, ...) {
 
   INCOME_ELASTICITY_OUTPUTS <- c("GCAM3",
@@ -126,7 +126,6 @@ module_energy_L2324.Off_road <- function(command, ...) {
     # L2324.SubsectorLogit_Off_road: Subsector logit exponents of Off_road sector
     A324.subsector_logit %>%
       write_to_all_regions(c(LEVEL2_DATA_NAMES[["SubsectorLogit"]], LOGIT_TYPE_COLNAME), GCAM_region_names) ->
-      #anti_join(L2324.rm_heat_techs_R, by = c("region", "subsector")) -> # Remove non-existent heat subsectors from each region
       L2324.SubsectorLogit_Off_road
 
     # and L2324.SubsectorShrwtFllt_Off_road: Subsector shareweights of Off_road sector

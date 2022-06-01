@@ -76,7 +76,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
 
     # Process data
 
-    #cost ratio of CCS to non CCS for coal electricity generation.
+    # A. Calculate base-year cost and energy efficiency ratio of CCS to non CCS for coal and biomass IGCC electricity generation.
+
     L223.GlobalTechCapital_elec %>%
       filter(technology %in% c("coal (IGCC)", "coal (IGCC CCS)"),
                      year == 2015) %>%
@@ -97,14 +98,13 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       select(sector.name, subsector.name, IGCC_CCS_no_CCS_2015_ratio) -> elec_IGCC_2015_eff_ratio
 
 
-
     elec_IGCC_2015_eff_ratio %>%
       filter(subsector.name == "biomass") -> elec_IGCC_2015_eff_ratio_bio
 
     elec_IGCC_2015_eff_ratio %>%
       filter(subsector.name == "coal") -> elec_IGCC_2015_eff_ratio_coal
 
-    # B. Calculate improvement rate of CCS for biomass and coal IGCC electricity technologies
+    # B. Calculate maximum future improvement (2100/2015) of CCS for biomass and coal IGCC electricity technologies
     #    Costs:
     L223.GlobalTechCapital_elec %>%
       filter(technology %in% c("coal (IGCC)", "coal (IGCC CCS)","biomass (IGCC)", "biomass (IGCC CCS)"),
@@ -141,7 +141,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       select(sector.name, subsector.name, technology, max_improvement) -> elec_IGCC_CCS_eff_improvement
 
 
-    # C. Costs: Calculate max improvement rate of nuclear power generation capital overnight costs
+    # C. Costs: Calculate max improvement of nuclear power generation capital overnight costs
      L223.GlobalTechCapital_elec %>%
       filter(technology == "Gen_III",
              year %in% c(2015, 2100)) %>%
@@ -151,7 +151,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
 
 
 
-     #Convert Units
+     # D. Process H2A data, extrapolating all technologies in H2A to all GCAM model years using the cost and efficiency improvement factors calculated above
+     # Convert Units from H2A ($/kg, GJ/kg) to GCAM (1975$/GJ, GJ/GJ)
 
      H2A_prod_cost %>%
        select(-notes)%>%
@@ -162,7 +163,6 @@ module_energy_LA125.hydrogen <- function(command, ...) {
               value=value/CONV_GJ_KGH2,
               units="$1975/GJ H2")-> H2A_prod_cost_conv
 
-
      H2A_prod_coef %>%
        select(-notes)%>%
        gather_years()%>%
@@ -171,7 +171,6 @@ module_energy_LA125.hydrogen <- function(command, ...) {
                                       if_else(units == 'gal / kgH2 out', value / CONV_GJ_KGH2 * CONV_GAL_M3,
                                       NA_real_))),
               units = if_else(minicam.energy.input %in% c('water_td_ind_C','water_td_ind_W'),"M3 water / GJ H2", "GJ input / GJ H2")) -> H2A_prod_coef_conv
-
 
      H2A_prod_cost_conv %>%
        filter(technology %in% c("biomass to H2", "coal chemical CCS")) -> existing_coal_bio
