@@ -39,7 +39,7 @@ H2 central production,gas,natural gas steam reforming CCS,water_td_ind_C,gal / k
 H2 central production,nuclear,thermal splitting,water_td_ind_C,gal / kgH2 out,2.3609,2.3609,
 H2 wholesale dispensing,forecourt production,electrolysis,water_td_ind_C,gal / kgH2 out,4.76,3.98,
 H2 wholesale dispensing,forecourt production,natural gas steam reforming,water_td_ind_C,gal / kgH2 out,5.77,4.38,
-H2 industrial,forecourt production,electrolysis,water_td_ind_C,gal / kgH2 out,4.76,3.98,
+H2 industrial,onsite production,electrolysis,water_td_ind_C,gal / kgH2 out,4.76,3.98,
 H2 central production,biomass,biomass to H2,water_td_ind_W,gal / kgH2 out,3.37,3.28,Spath et al (2005)
 H2 central production,biomass,biomass to H2 CCS,water_td_ind_W,gal / kgH2 out,3.37,3.28,Spath et al (2005)
 H2 central production,coal,coal chemical,water_td_ind_W,gal / kgH2 out,10.06010314,10.06010314,
@@ -52,4 +52,4 @@ H2 central production,gas,natural gas steam reforming CCS,water_td_ind_W,gal / k
 H2 central production,nuclear,thermal splitting,water_td_ind_W,gal / kgH2 out,2.3609,2.3609,
 H2 wholesale dispensing,forecourt production,electrolysis,water_td_ind_W,gal / kgH2 out,4.76,3.98,
 H2 wholesale dispensing,forecourt production,natural gas steam reforming,water_td_ind_W,gal / kgH2 out,5.77,4.38,
-H2 industrial,forecourt production,electrolysis,water_td_ind_W,gal / kgH2 out,4.76,3.98,
+H2 industrial,onsite production,electrolysis,water_td_ind_W,gal / kgH2 out,4.76,3.98,
