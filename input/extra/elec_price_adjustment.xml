@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?><scenario>
+    <world>
+        <region name="Alaska grid">
+            <supplysector name="electricity_net_ownuse">
+                <subsector name="electricity_net_ownuse">
+                    <stub-technology name="electricity_net_ownuse">
+                        <period year="2015">
+                            <minicam-non-energy-input name="price harmonization">
+                                <input-cost>-4</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="California grid">
+            <supplysector name="electricity_net_ownuse">
+                <subsector name="electricity_net_ownuse">
+                    <stub-technology name="electricity_net_ownuse">
+                        <period year="2015">
+                            <minicam-non-energy-input name="price harmonization">
+                                <input-cost>-3.60058</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Central East grid">
+            <supplysector name="electricity_net_ownuse">
+                <subsector name="electricity_net_ownuse">
+                    <stub-technology name="electricity_net_ownuse">
+                        <period year="2015">
+                            <minicam-non-energy-input name="price harmonization">
+                                <input-cost>-3.334744</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Central Northeast grid">
+            <supplysector name="electricity_net_ownuse">
+                <subsector name="electricity_net_ownuse">
+                    <stub-technology name="electricity_net_ownuse">
+                        <period year="2015">
+                            <minicam-non-energy-input name="price harmonization">
+                                <input-cost>-3.32853</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Central Northwest grid">
+            <supplysector name="electricity_net_ownuse">
+                <subsector name="electricity_net_ownuse">
+                    <stub-technology name="electricity_net_ownuse">
+                        <period year="2015">
+                            <minicam-non-energy-input name="price harmonization">
+                                <input-cost>-4</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Central Southwest grid">
+            <supplysector name="electricity_net_ownuse">
+                <subsector name="electricity_net_ownuse">
+                    <stub-technology name="electricity_net_ownuse">
+                        <period year="2015">
+                            <minicam-non-energy-input name="price harmonization">
+                                <input-cost>-2.713805</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Florida grid">
+            <supplysector name="electricity_net_ownuse">
+                <subsector name="electricity_net_ownuse">
+                    <stub-technology name="electricity_net_ownuse">
+                        <period year="2015">
+                            <minicam-non-energy-input name="price harmonization">
+                                <input-cost>-4</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Hawaii grid">
+            <supplysector name="electricity_net_ownuse">
+                <subsector name="electricity_net_ownuse">
+                    <stub-technology name="electricity_net_ownuse">
+                        <period year="2015">
+                            <minicam-non-energy-input name="price harmonization">
+                                <input-cost>-3.60058</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Mid-Atlantic grid">
+            <supplysector name="electricity_net_ownuse">
+                <subsector name="electricity_net_ownuse">
+                    <stub-technology name="electricity_net_ownuse">
+                        <period year="2015">
+                            <minicam-non-energy-input name="price harmonization">
+                                <input-cost>-3.70267</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="New England grid">
+            <supplysector name="electricity_net_ownuse">
+                <subsector name="electricity_net_ownuse">
+                    <stub-technology name="electricity_net_ownuse">
+                        <period year="2015">
+                            <minicam-non-energy-input name="price harmonization">
+                                <input-cost>-3.769516667</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="New York grid">
+            <supplysector name="electricity_net_ownuse">
+                <subsector name="electricity_net_ownuse">
+                    <stub-technology name="electricity_net_ownuse">
+                        <period year="2015">
+                            <minicam-non-energy-input name="price harmonization">
+                                <input-cost>-3.56445</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Northwest grid">
+            <supplysector name="electricity_net_ownuse">
+                <subsector name="electricity_net_ownuse">
+                    <stub-technology name="electricity_net_ownuse">
+                        <period year="2015">
+                            <minicam-non-energy-input name="price harmonization">
+                                <input-cost>-3.25757</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Southeast grid">
+            <supplysector name="electricity_net_ownuse">
+                <subsector name="electricity_net_ownuse">
+                    <stub-technology name="electricity_net_ownuse">
+                        <period year="2015">
+                            <minicam-non-energy-input name="price harmonization">
+                                <input-cost>-3.492336667</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Southwest grid">
+            <supplysector name="electricity_net_ownuse">
+                <subsector name="electricity_net_ownuse">
+                    <stub-technology name="electricity_net_ownuse">
+                        <period year="2015">
+                            <minicam-non-energy-input name="price harmonization">
+                                <input-cost>-3.9589725</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Texas grid">
+            <supplysector name="electricity_net_ownuse">
+                <subsector name="electricity_net_ownuse">
+                    <stub-technology name="electricity_net_ownuse">
+                        <period year="2015">
+                            <minicam-non-energy-input name="price harmonization">
+                                <input-cost>-3.17989</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+    </world>
+</scenario>
