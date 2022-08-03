@@ -24,6 +24,7 @@ H2 central production,gas,natural gas steam reforming,elect_td_ind,GJ in /kg H2 
 H2 central production,gas,natural gas steam reforming CCS,regional natural gas,GJ in /kg H2 out,0.16437,0.16437,
 H2 central production,gas,natural gas steam reforming CCS,elect_td_ind,GJ in /kg H2 out,0.00235,0.00235,
 H2 central production,nuclear,thermal splitting,nuclearFuelGenIII,GJ in /kg H2 out,0.14406,0.14406,2040 efficiency assumed to be the same as 2015. Equals the sum of electricity and thermal energy requirements (GJ). Source: H2A 2008.
+H2 industrial,onsite production,electrolysis,elect_td_ind,GJ hydrogen output / GJ input,0.61158,0.66386,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
 H2 wholesale dispensing,forecourt production,electrolysis,elect_td_trn,GJ hydrogen output / GJ input,0.61158,0.66386,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
 H2 wholesale dispensing,forecourt production,natural gas steam reforming,delivered gas,GJ in /kg H2 out,0.16437,0.15382,
 H2 wholesale dispensing,forecourt production,natural gas steam reforming,elect_td_trn,GJ in /kg H2 out,0.004,0.00816,
