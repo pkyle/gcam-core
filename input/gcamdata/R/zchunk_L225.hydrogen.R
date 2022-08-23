@@ -277,7 +277,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
                (output_kgh2_d * capacity.factor / CONV_DAYS_YEAR),
              input.cost = cost_75USD_kgH2 / CONV_GJ_KGH2) %>%
       select(region, subsector.name, year, minicam.non.energy.input, input.cost) %>%
-      left_join(select(L225.GlobalTechCost_h2, -input.cost), by = c("subsector.name", "year", "minicam.non.energy.input")) %>%
+      left_join(L225.GlobalTechCost_h2 %>% select(-input.cost, -minicam.non.energy.input), by = c("subsector.name", "year")) %>%
       rename(supplysector = sector.name, subsector = subsector.name, stub.technology = technology) %>%
       select(LEVEL2_DATA_NAMES[["StubTechCost"]]) ->
       L225.StubTechCost_h2_renewables
