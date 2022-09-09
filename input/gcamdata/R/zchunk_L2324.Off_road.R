@@ -19,7 +19,7 @@
 #' @importFrom assertthat assert_that
 #' @importFrom dplyr arrange bind_rows distinct filter if_else group_by lag left_join mutate pull select
 #' @importFrom tidyr gather spread
-#' @author Yang Liu Sep 2019
+#' @author Yang Liu Sep 2019, Molly Charles 2020-21, 2022 modifications from Jay Fuhrman, Siddarth Durga, Page Kyle
 module_energy_L2324.Off_road <- function(command, ...) {
 
   INCOME_ELASTICITY_OUTPUTS <- c("GCAM3",
@@ -94,7 +94,9 @@ module_energy_L2324.Off_road <- function(command, ...) {
       technology <- supplysector <- subsector <- minicam.energy.input <- coefficient <-
       remove.fraction <- minicam.non.energy.input <- input.cost  <- calibration <- calOutputValue <- subs.share.weight <- region <-
       calibrated.value <- . <- scenario <- temp_lag <- base.service <- energy.final.demand <-
-      value.x <- value.y <- parameter <- NULL
+      value.x <- value.y <- parameter <- to.year <- from.year <- efficiency <- year.x <- year.y <-
+      sector.name <- subsector.name <- stub.technology <- calOutputValue.x <- calOutputValue.y <- output_tot <-
+      market.name <- terminal_coef <- share.weight <- interpolation.function <- NULL
 
     # ===================================================
     # 1. Perform computations
@@ -124,7 +126,6 @@ module_energy_L2324.Off_road <- function(command, ...) {
     # L2324.SubsectorLogit_Off_road: Subsector logit exponents of Off_road sector
     A324.subsector_logit %>%
       write_to_all_regions(c(LEVEL2_DATA_NAMES[["SubsectorLogit"]], LOGIT_TYPE_COLNAME), GCAM_region_names) ->
-      #anti_join(L2324.rm_heat_techs_R, by = c("region", "subsector")) -> # Remove non-existent heat subsectors from each region
       L2324.SubsectorLogit_Off_road
 
     # and L2324.SubsectorShrwtFllt_Off_road: Subsector shareweights of Off_road sector
@@ -136,7 +137,7 @@ module_energy_L2324.Off_road <- function(command, ...) {
 
     #change the share weight in regions where baseyear biomass share weight is 1
     L2324.SubsectorShrwtFllt_Off_road %>%
-      filter(region %in% c("Africa_Eastern","Africa_Southern","Africa_Western"),subsector=="biomass",supplysector == "agricultural energy use") %>%
+      filter(region %in% energy.OFF_ROAD.BIOMASS_GROWTH,subsector=="biomass",supplysector == "agricultural energy use") %>%
       mutate(year.fillout = 2020,share.weight=0.15) ->
       L2324.SubsectorShrwtFllt_Off_road_add
 
@@ -154,7 +155,7 @@ module_energy_L2324.Off_road <- function(command, ...) {
 
     #change interplate for the regions where baseyear biomass share weight is 1
     L2324.SubsectorInterp_Off_road %>%
-      filter(region %in% c("Africa_Eastern","Africa_Southern","Africa_Western"),subsector=="biomass",supplysector == "agricultural energy use") %>%
+      filter(region %in% energy.OFF_ROAD.BIOMASS_GROWTH,subsector=="biomass",supplysector == "agricultural energy use") %>%
       mutate(from.year=2015,to.year = 2020,interpolation.function="linear") ->
       L2324.SubsectorInterp_Off_road_add
 

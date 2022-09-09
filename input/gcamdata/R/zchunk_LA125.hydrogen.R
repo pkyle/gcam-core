@@ -8,7 +8,7 @@
 #' @param ... other optional parameters, depending on command
 #' @return Depends on \code{command}: either a vector of required inputs,
 #' a vector of output names, or (if \code{command} is "MAKE") all
-#' the generated outputs: \code{asdf}.
+#' the generated outputs: \code{L125.globaltech_coef},  \code{L125.globaltech_cost},  \code{L125.Electrolyzer_IdleRatio_Params}.
 #' @details Takes inputs from H2A and generates GCAM's assumptions by technology and year
 #' @importFrom assertthat assert_that
 #' @importFrom dplyr arrange filter group_by mutate select if_else
@@ -16,49 +16,37 @@
 #' @author GPK/JF/PW July 2021
 #'
 #'
-#' # Notes: 1) NREL H2A v2018 did not include the following H2 production technologies:
+#' # Note:  NREL H2A v2018 did not include the following H2 production technologies:
 #           bio + CCS, coal w/o CCS, coal + CCS (future), nuclear H2 prod,
-#           solar electrolysis, and wind electrolysis.
-#
-#           A) Base year bio + CCS and coal w/o CCS assumptions were created by leveraging the ratio between
-#              comparable IGCC technologies in the power sector.
-#
-#              Coal w/o CCS was given the same improvement rate as the NREL H2A biomass w/o CCS technology.
-#
-#              The "difference" (cost adder or efficiency loss) between "CCS" and "no CCS" technology pairs for
-#              coal and biomass was then reduced overtime by leveraging the reduction in this difference for
-#              the comparable IGCC technologies in the power sector.
-#
-#              Coal w/CCS and biomass w/CCS were then extended by adding this "difference" (cost adder or efficiency
-#              loss) to the non-CCS version of the H2 production technology, for each period.
-#
-#           B) Wind and solar electrolysis were created by adding the cost of panels and turbines to the H2A electrolysis plant
-#              using NREL ATB 2019 data.
-#
-#           C) Nuclear thermal splitting utilized an earlier version of H2A data (2008). This data was updated by modyfing
-#              H2A reactor costs to be consistent with NREL ATB's 2019 data. Max improvement leverages nuclear reactor
-#              improvement from GCAM power sector for Gen_III reactors
-#
+#           solar electrolysis, and wind electrolysis. See in line comments below for further detail.
 # ------------------------------------------------------------------------------
 #'
 module_energy_LA125.hydrogen <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "energy/H2A_IO_coef_data",
              FILE = "energy/H2A_NE_cost_data",
+             FILE = "energy/H2A_electrolyzer_NEcost_CF",
              "L223.GlobalTechCapital_elec",
              "L223.GlobalTechEff_elec"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L125.globaltech_coef",
-             "L125.globaltech_cost"))
+             "L125.globaltech_cost",
+             "L125.Electrolyzer_IdleRatio_Params"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
 
-    year <- value <- NULL  # silence package check notes
+    year <- value <- technology <- capital.overnight <- coal_IGCC_CCS <- coal_IGCC <-
+      sector.name <- subsector.name <- IGCC_CCS_no_CCS_2015_ratio <- efficiency <-
+      IGCC_CCS <- IGCC_no_CCS <- with_CCS <- without_CCS <- CCS_add_cost <- `2100` <-
+      `2015` <- max_improvement <- CCS_sub_eff <- notes <- minicam.energy.input <-
+      minicam.non.energy.input <- improvement_to_2040 <- improvement_rate <- cost <-
+      min_cost <- improvement_rate_post_2040 <- improve_max <- capacity.factor <- lm <- NULL  # silence package check notes
 
 
     H2A_prod_coef <- get_data(all_data, "energy/H2A_IO_coef_data")
     H2A_prod_cost <- get_data(all_data, "energy/H2A_NE_cost_data")
+    H2A_electrolyzer_NEcost_CF <- get_data(all_data, "energy/H2A_electrolyzer_NEcost_CF")
 
     L223.GlobalTechCapital_elec <- get_data(all_data, "L223.GlobalTechCapital_elec")
     L223.GlobalTechEff_elec <- get_data(all_data, "L223.GlobalTechEff_elec")
@@ -68,7 +56,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
 
     # Process data
 
-    #cost ratio of CCS to non CCS for coal electricity generation.
+    # A. Calculate base-year cost and energy efficiency ratio of CCS to non CCS for coal and biomass IGCC electricity generation.
+
     L223.GlobalTechCapital_elec %>%
       filter(technology %in% c("coal (IGCC)", "coal (IGCC CCS)"),
                      year == 2015) %>%
@@ -89,14 +78,13 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       select(sector.name, subsector.name, IGCC_CCS_no_CCS_2015_ratio) -> elec_IGCC_2015_eff_ratio
 
 
-
     elec_IGCC_2015_eff_ratio %>%
       filter(subsector.name == "biomass") -> elec_IGCC_2015_eff_ratio_bio
 
     elec_IGCC_2015_eff_ratio %>%
       filter(subsector.name == "coal") -> elec_IGCC_2015_eff_ratio_coal
 
-    # B. Calculate improvement rate of CCS for biomass and coal IGCC electricity technologies
+    # B. Calculate maximum future improvement (2100/2015) of CCS for biomass and coal IGCC electricity technologies
     #    Costs:
     L223.GlobalTechCapital_elec %>%
       filter(technology %in% c("coal (IGCC)", "coal (IGCC CCS)","biomass (IGCC)", "biomass (IGCC CCS)"),
@@ -133,7 +121,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       select(sector.name, subsector.name, technology, max_improvement) -> elec_IGCC_CCS_eff_improvement
 
 
-    # C. Costs: Calculate max improvement rate of nuclear power generation capital overnight costs
+    # C. Costs: Calculate max improvement of nuclear power generation capital overnight costs
      L223.GlobalTechCapital_elec %>%
       filter(technology == "Gen_III",
              year %in% c(2015, 2100)) %>%
@@ -143,8 +131,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
 
 
 
-     #Convert Units
 
+     # D. Convert Units from H2A ($/kg, GJ/kg) to GCAM (1975$/GJ, GJ/GJ)
      H2A_prod_cost %>%
        select(-notes)%>%
        gather_years() %>%
@@ -153,7 +141,6 @@ module_energy_LA125.hydrogen <- function(command, ...) {
                                       NA_real_)),
               value=value/CONV_GJ_KGH2,
               units="$1975/GJ H2")-> H2A_prod_cost_conv
-
 
      H2A_prod_coef %>%
        select(-notes)%>%
@@ -164,6 +151,19 @@ module_energy_LA125.hydrogen <- function(command, ...) {
                                       NA_real_))),
               units = if_else(minicam.energy.input %in% c('water_td_ind_C','water_td_ind_W'),"M3 water / GJ H2", "GJ input / GJ H2")) -> H2A_prod_coef_conv
 
+     # E. Process H2A data, extrapolating all technologies in H2A to all GCAM model years using the cost and efficiency improvement factors calculated above
+
+     # Base year bio + CCS and coal w/o CCS assumptions were created by applying the ratio between
+     # comparable IGCC technologies in the power sector.
+     #
+     # Coal w/o CCS was given the same improvement rate as the NREL H2A biomass w/o CCS technology.
+     #
+     # The "difference" (cost adder or efficiency loss) between "CCS" and "no CCS" technology pairs for
+     # coal and biomass was then reduced over time by leveraging the reduction in this difference for
+     # the comparable IGCC technologies in the power sector.
+     #
+     # Coal w/CCS and biomass w/CCS were then extended by adding this "difference" (cost adder or efficiency
+     # loss) to the non-CCS version of the H2 production technology, for each period.
 
      H2A_prod_cost_conv %>%
        filter(technology %in% c("biomass to H2", "coal chemical CCS")) -> existing_coal_bio
@@ -210,8 +210,11 @@ module_energy_LA125.hydrogen <- function(command, ...) {
      H2A_prod_cost_conv %>%
        filter(!(technology %in% c("coal chemical", "biomass to H2 CCS" , "coal chemical CCS"))) -> H2A_NE_cost_add_2015_techs
 
+     # F.Nuclear thermal splitting utilized an earlier version of H2A data (2008). This data was updated by modifying
+     #   H2A reactor costs to be consistent with NREL ATB's 2019 data. Max improvement leverages nuclear reactor
+     #   improvement from GCAM power sector for Gen_III reactors
 
-     H2A_NE_cost_add_2015_techs %>%
+    H2A_NE_cost_add_2015_techs %>%
        mutate(max_improvement = if_else(technology == "thermal splitting", elec_nuclear_cost_improvement$max_improvement,
                                         max_improvement)) -> H2A_NE_cost_add_nuclear
 
@@ -233,7 +236,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
        ungroup() -> H2A_NE_cost_GCAM_years
 
 
-    # E. Create bio + CCS and extend coal w/CCS
+    # G. Create bio + CCS and extend coal w/CCS
 
     # First, set bio's CCS tech to the same improvement rate as coal's, otherwise bio + CCS gets cheaper than coal + CCS
     elec_IGCC_CCS_cost_improvement %>%
@@ -303,7 +306,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
 
 
 
-    # Add 2015 value for coal w/o CCS and bio w/CCS
+    # Add 2015 value for coal w/o CCS and bio w/CCS, using same approach as for costs described above.
 
     H2A_eff_improvement %>%
       filter(technology %in% c("biomass to H2", "coal chemical CCS"))  -> existing_coal_bio_eff
@@ -450,6 +453,23 @@ module_energy_LA125.hydrogen <- function(command, ...) {
              units = if_else( minicam.energy.input %in% c( "water_td_ind_W", "water_td_ind_C" ),
                               "M3 water / GJ H2", "GJ input / GJ H2" ) ) -> L125.globaltech_coef
 
+    # H. Wind and solar electrolysis were created by adding the cost of panels and turbines to the H2A electrolysis plant
+    # using NREL ATB 2019 data.
+    # Relationship between capacity factor and levelized cost of electrolyzers, for estimation of NE costs of direct
+    # renewable electrolysis on a region-specific basis
+    H2A_electrolyzer_NEcost_CF <- H2A_electrolyzer_NEcost_CF %>%
+      mutate(IdleRatio = 1 / capacity.factor)
+
+    IdleRatioIntercept_2015 <- lm(H2A_electrolyzer_NEcost_CF$`2015` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[1]
+    IdleRatioSlope_2015 <- lm(H2A_electrolyzer_NEcost_CF$`2015` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[2]
+    IdleRatioIntercept_2040 <- lm(H2A_electrolyzer_NEcost_CF$`2040` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[1]
+    IdleRatioSlope_2040 <- lm(H2A_electrolyzer_NEcost_CF$`2040` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[2]
+    L125.Electrolyzer_IdleRatio_Params <- tibble(
+      year = c(2015, 2040),
+      slope = c(IdleRatioSlope_2015, IdleRatioSlope_2040),
+      intercept = c(IdleRatioIntercept_2015, IdleRatioIntercept_2040)
+    )
+
 
     # ===================================================
     # Produce outputs
@@ -469,8 +489,14 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       add_precursors("energy/H2A_NE_cost_data","L223.GlobalTechCapital_elec")  ->
       L125.globaltech_cost
 
+    L125.Electrolyzer_IdleRatio_Params %>%
+      add_title("Parameters of linear relationship between idle ratio and NE cost of electrolyzers") %>%
+      add_units("2016$/kg H2") %>%
+      add_comments("IdleRatio = 1 / Capacity factor; linear model used to estimate levelized cost as fn of reciprocal of CF") %>%
+      add_precursors("energy/H2A_electrolyzer_NEcost_CF") ->
+      L125.Electrolyzer_IdleRatio_Params
 
-    return_data(L125.globaltech_coef, L125.globaltech_cost)
+    return_data(L125.globaltech_coef, L125.globaltech_cost, L125.Electrolyzer_IdleRatio_Params)
   } else {
     stop("Unknown command")
   }

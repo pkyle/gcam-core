@@ -17,7 +17,7 @@
 		<Value write-output="0" append-scenario-name="0" name="landAllocatorGraphName">LandAllocatorGraph.dot</Value>
 	</Files>
 	<ScenarioComponents>
-        <Value name = "climate">../input/gcamdata/xml/no_climate_model.xml</Value>
+        <Value name = "climate">../input/gcamdata/xml/hector.xml</Value>
 		<Value name = "socioeconomics">../input/gcamdata/xml/socioeconomics_gSSP2.xml</Value>
 
 		<Value name = "resources">../input/gcamdata/xml/resources.xml</Value>
@@ -83,6 +83,7 @@
 		<Value name = "bio_feedstock_limit">../input/gcamdata/xml/liquids_limits.xml</Value>
 		<Value name = "bio_elec_w_feed_limit">../input/gcamdata/xml/water_elec_liquids_limits.xml</Value>
 		<Value name = "bio_neg_emiss_budget">../input/gcamdata/xml/negative_emissions_budget_gSSP2.xml</Value>
+		<Value name = "bio_externality">../input/gcamdata/xml/bio_externality.xml</Value>
         <Value name = "wind_update">../input/gcamdata/xml/onshore_wind.xml</Value>
 
 
@@ -112,6 +113,7 @@
 		<Value name = "no_new_coal_usa">../input/gcamdata/xml/nonewcoal_USA.xml</Value>
 		<Value name = "ITC_usa">../input/gcamdata/xml/elecS_costs_USA_itc.xml</Value>
 		<Value name = "PTC_usa">../input/gcamdata/xml/elecS_costs_USA_ptc.xml</Value>
+		<Value name = "geothermal_usa">../input/gcamdata/xml/geothermal_fixed_USA.xml</Value>
 
 		<Value name = "liq_lim_usa">../input/gcamdata/xml/liquids_limits_USA.xml</Value>
 		<Value name = "neg_emiss_usa">../input/gcamdata/xml/negative_emissions_budget_USA_gSSP2.xml</Value>
@@ -122,6 +124,37 @@
 		<Value name = "municipal_water_usa">../input/gcamdata/xml/water_demand_municipal_USA.xml</Value>
 		<Value name = "ind_water_usa">../input/gcamdata/xml/water_demand_industry_USA.xml</Value>
 		
+		<!--GHG EMISSIONS USA-->
+		<Value name = "ghg_usa">../input/gcamdata/xml/ghg_emissions_USA.xml</Value>
+		<Value name = "ghg_usa">../input/gcamdata/xml/elecS_ghg_emissions_water_USA.xml</Value>
+		<Value name = "ghg_usa">../input/gcamdata/xml/trn_ghg_emissions_USA.xml</Value>
+		
+		<!-- Global nonCO2 GHG files -->
+		<Value name = "ind_urb_proc">../input/gcamdata/xml/ind_urb_processing_sectors.xml</Value>
+		<Value name = "nonco2_energy">../input/gcamdata/xml/all_energy_emissions.xml</Value>
+		<Value name = "nonco2_fgas">../input/gcamdata/xml/all_fgas_emissions.xml</Value>
+		<Value name = "nonco2_unmgd">../input/gcamdata/xml/all_unmgd_emissions.xml</Value>
+		<Value name = "nonco2_aglu">../input/gcamdata/xml/all_aglu_emissions_IRR_MGMT.xml</Value>
+		<Value name = "nonco2_aglu_prot">../input/gcamdata/xml/all_protected_unmgd_emissions.xml</Value>
+		
+		<!-- Global nonCO2 GHG MAC files -->
+		<Value name = "nonco2_energy">../input/gcamdata/xml/all_energy_emissions_MAC.xml</Value>
+		<Value name = "nonco2_fgas">../input/gcamdata/xml/all_fgas_emissions_MAC.xml</Value>
+		<Value name = "nonco2_aglu">../input/gcamdata/xml/all_aglu_emissions_IRR_MGMT_MAC.xml</Value> 
+		<Value name = "nonco2_proc">../input/gcamdata/xml/ind_urb_processing_sectors_MAC.xml</Value> 
+
+		<!-- USA nonGHG files -->
+		<Value name = "bld_emiss_USA">../input/gcamdata/xml/bld_emissions_USA.xml</Value>
+		<Value name = "othertrn_emiss_USA">../input/gcamdata/xml/othertrn_emissions_USA.xml</Value>
+		<Value name = "indenergy_emiss_USA">../input/gcamdata/xml/indenergy_emissions_USA.xml</Value>
+		<Value name = "elc_emiss_USA">../input/gcamdata/xml/elc_emissions_USA.xml</Value>
+		<Value name = "transport_emiss_USA">../input/gcamdata/xml/transport_emissions_USA.xml</Value>
+		<Value name = "prc_usa">../input/gcamdata/xml/ind_urb_processing_sectors_USA.xml</Value>
+		<Value name = "process_emiss_USA">../input/gcamdata/xml/ind_urb_proc_emissions_USA.xml</Value>
+		<Value name = "refining_emiss_USA">../input/gcamdata/xml/refinery_emissions_USA.xml</Value>
+
+		<Value name = "ghg_usa">../input/gcamdata/xml/trn_ghg_emissions_USA.xml</Value>	
+	
 		<Value name = "solver">../input/solution/cal_broyden_config.xml</Value>
 		
 
@@ -143,6 +176,7 @@
 		<Value name="PrintValuesOnGraphs">1</Value>
 		<Value name="ShowNullPaths">0</Value>
 		<Value name="PrintPrices">1</Value>
+		<Value name="QuitFirstFailure">0</Value>
 	</Bools>
 	<Ints>
 		<Value name="numMarketsToFindSD">10</Value>

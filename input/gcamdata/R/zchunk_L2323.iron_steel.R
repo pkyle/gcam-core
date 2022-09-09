@@ -90,7 +90,8 @@ module_energy_L2323.iron_steel <- function(command, ...) {
       technology <- supplysector <- subsector <- minicam.energy.input <- coefficient <-
       remove.fraction <- minicam.non.energy.input <- input.cost  <- calibration <- calOutputValue <- subs.share.weight <- region <-
       calibrated.value <- . <- scenario <- temp_lag <- base.service <- energy.final.demand <-
-      value.x <- value.y <- parameter <- NULL
+      value.x <- value.y <- parameter <- year.x <- year.y <- tech.share.weight <- stub.technology <-
+      market.name <- sector.name <- subsector.name <- terminal_coef <- share.weight.year <- coeff <- NULL
 
     # ===================================================
     # 1. Perform computations
@@ -301,9 +302,9 @@ module_energy_L2323.iron_steel <- function(command, ...) {
       left_join(L2323.StubTechProd_iron_steel %>% select(-share.weight.year,-subs.share.weight,-tech.share.weight),
                 by = c("region", "supplysector", "subsector", "stub.technology", "year")) %>%
       mutate(coefficient = if_else(year > MODEL_FINAL_BASE_YEAR , coeff, coefficient)) %>%
-      mutate(coefficient = if_else(year > MODEL_FINAL_BASE_YEAR & stub.technology == "Biomass-based" , terminal_coef, coefficient)) %>%
-      mutate(coefficient = if_else(year > MODEL_FINAL_BASE_YEAR & minicam.energy.input == "scrap" , terminal_coef, coefficient)) %>%
-      mutate(coefficient = if_else(year > MODEL_FINAL_BASE_YEAR & minicam.energy.input == "H2 wholesale delivery" , terminal_coef, coefficient)) %>%
+      mutate(coefficient = if_else(year > MODEL_FINAL_BASE_YEAR & stub.technology == energy.IRON_STEEL.DEFAULT_COEF[1] , terminal_coef, coefficient)) %>%
+      mutate(coefficient = if_else(year > MODEL_FINAL_BASE_YEAR & minicam.energy.input == energy.IRON_STEEL.DEFAULT_COEF[2] , terminal_coef, coefficient)) %>%
+      mutate(coefficient = if_else(year > MODEL_FINAL_BASE_YEAR & minicam.energy.input == energy.IRON_STEEL.DEFAULT_COEF[3] , terminal_coef, coefficient)) %>%
       select(-terminal_coef,-coeff,-calOutputValue) %>%
       group_by(region, supplysector, subsector, stub.technology, minicam.energy.input) %>%
       mutate(coefficient = round(approx_fun(year, coefficient,rule = 2), energy.DIGITS_COEFFICIENT)) %>%
