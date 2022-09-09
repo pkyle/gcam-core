@@ -14,8 +14,8 @@ H2 central production,electricity,electrolysis,non-energy,$2016/kg H2,1.1801,0.5
 H2 central production,solar,electrolysis,electrolyzer,$2016/kg H2,5.5855,2.3746,0.5749,0.67,"Method of electrolysis utilized: PEM Electrolysis powered by solar PV created electricity. Electrolyzer costs only are provided here, assuming a capacity factor of 20% (matching solar panels)."
 H2 central production,wind,electrolysis,electrolyzer,$2016/kg H2,2.4487,1.0515,0.5706,0.67,"Method of electrolysis utilized: PEM Electrolysis powered by wind created electricity. Electrolyzer costs only are provided here, assuming a capacity factor of 46% (matching wind turbines)."
 H2 central production,gas,natural gas steam reforming,non-energy,$2016/kg H2,0.3207,0.2835,0.1162,0.22,
-H2 central production,gas,natural gas steam reforming CCS,non-energy,$2016/kg H2,0.733,0.707,0.0355,0.14,
-H2 central production,nuclear,thermal splitting,non-energy,$2005/kg H2,2.9887,2.9022,0.029,,Non-energy cost = required selling price. Source: H2A 2008.
-H2 industrial,forecourt production,electrolysis,non-energy,$2016/kg H2,1.2889,0.5395,0.5815,0.68,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
+H2 central production,gas,natural gas steam reforming CCS,non-energy,$2016/kg H2,0.7330,0.7070,0.0355,0.14,
+H2 central production,nuclear,thermal splitting,non-energy,$2005/kg H2,2.9887,2.9022,0.0290,,Non-energy cost = required selling price. Source: H2A 2008.
+H2 industrial,onsite production,electrolysis,non-energy,$2016/kg H2,1.2889,0.5395,0.5815,0.68,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
 H2 wholesale dispensing,forecourt production,electrolysis,production,$2016/kg H2,1.2889,0.5395,0.5815,0.68,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
 H2 wholesale dispensing,forecourt production,natural gas steam reforming,production,$2016/kg H2,0.7251,0.6875,0.0518,0.15,Forecourt model for larger (1500kG/H2/day) plant.
