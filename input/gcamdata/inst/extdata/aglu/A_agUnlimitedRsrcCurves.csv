@@ -1,8 +1,9 @@
 # File: A_agUnlimitedRsrcCurves.csv
-# Title: Sets the characteristics and supply curves of OtherMeat_Fish
+# Title: Sets the characteristics and supply curves of OtherMeat_Fish and P fertilizer
 # Units: Various
 # Source: NA
 # Column types: ccccnn
 # ----------
 unlimited.resource,market,output.unit,price.unit,capacity.factor,price
 OtherMeat_Fish,global,Mt,1975$/kg,1,1
+P_fertilizer,global,Mt,1975$/kg,1,1.100817

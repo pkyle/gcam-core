@@ -24,7 +24,7 @@ data to GCAM regions and GCAM commodities.
 \details{
 This chunk aggregates FAO food consumption, agricultural production,
 and harvested area data up to GCAM commodities and GCAM regions. Data is converted
-from FAO units (tons, hectares) to GCAM units (Mt, Pcal, billion km2). Note that
+from FAO units (tons, hectares) to GCAM units (Mt, Pcal, billion m2). Note that
 FAO's alfalfa production in the USA is divided by 4 "for consistency with USDA".
 Note (August 2018 GPK revision) - The FAO production and harvested area are disaggregated
 to basin PRIOR to aggregation by GCAM region. This reduces the bias from using a single
