@@ -20,6 +20,7 @@ module_aglu_L2052.ag_prodchange_cost_irr_mgmt <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "common/GCAM_region_names",
              FILE = "water/basin_to_country_mapping",
+             FILE = "aglu/GCAM_ag_yield_output",
              "L123.For_Yield_m3m2_R_GLU",
              "L161.ag_irrProd_Mt_R_C_Y_GLU",
              "L161.ag_rfdProd_Mt_R_C_Y_GLU",
@@ -40,7 +41,9 @@ module_aglu_L2052.ag_prodchange_cost_irr_mgmt <- function(command, ...) {
              "L2052.AgProdChange_bio_irr_ref",
              "L2052.AgProdChange_irr_high",
              "L2052.AgProdChange_irr_low",
-             "L2052.AgProdChange_irr_ssp4"))
+             "L2052.AgProdChange_irr_ssp4",
+             "L2052.AgProdChange_ag_irr_YLD",
+             "L2052.AgProdChange_bio_irr_YLD"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -54,6 +57,7 @@ module_aglu_L2052.ag_prodchange_cost_irr_mgmt <- function(command, ...) {
     # Load required inputs
     GCAM_region_names <- get_data(all_data, "common/GCAM_region_names", strip_attributes = TRUE)
     basin_to_country_mapping <- get_data(all_data, "water/basin_to_country_mapping", strip_attributes = TRUE)
+    GCAM_ag_yield_output <- get_data(all_data, "aglu/GCAM_ag_yield_output", strip_attributes = TRUE)
     L123.For_Yield_m3m2_R_GLU <- get_data(all_data, "L123.For_Yield_m3m2_R_GLU", strip_attributes = TRUE)
     L161.ag_irrProd_Mt_R_C_Y_GLU <- get_data(all_data, "L161.ag_irrProd_Mt_R_C_Y_GLU", strip_attributes = TRUE)
     L161.ag_rfdProd_Mt_R_C_Y_GLU <- get_data(all_data, "L161.ag_rfdProd_Mt_R_C_Y_GLU", strip_attributes = TRUE)
@@ -249,6 +253,57 @@ module_aglu_L2052.ag_prodchange_cost_irr_mgmt <- function(command, ...) {
                 filter(L2052.AgProdChange_irr_low, region %in% low_reg)) ->
       L2052.AgProdChange_irr_ssp4
 
+    # YLD intensification scenario - make the yield of the "_lo" technologies meet the "_hi" technologies in 2050
+
+    # obtain yield 2050 for hi_tech
+    Ag_yield_output_2050_hi <- GCAM_ag_yield_output %>%
+      select(-scenario) %>%
+      select(region, technology, `2050`) %>%
+      mutate(tech_base = gsub("_hi|_lo", "", technology)) %>%
+      filter(grepl("_hi", technology)) %>%
+      select(region, tech_base, `2050_hi` = `2050`)
+
+    # obtain yield 2015 for lo_tech
+    Ag_yield_output_2015_lo <- GCAM_ag_yield_output %>%
+      select(-scenario) %>%
+      select(region, technology, `2015`) %>%
+      mutate(tech_base = gsub("_hi|_lo", "", technology)) %>%
+      filter(grepl("_lo", technology)) %>%
+      select(region, tech_base, `2015_lo` = `2015`)
+
+    # backward calculate AgProd rate that makes lo_tech achieves the same yield by 2050 as the hi_techs
+    Ag_yield_output_2015_lo %>%
+      left_join_error_no_match(Ag_yield_output_2050_hi, by = c("region", "tech_base")) %>%
+      mutate(AgProdChange_adj = (`2050_hi` / `2015_lo`) ^ (1/35) - 1) %>%
+      mutate(AgProdChange_adj = ifelse(is.na(AgProdChange_adj) | is.infinite(AgProdChange_adj), 0, AgProdChange_adj)) %>%
+      mutate(AgProductionTechnology = paste0(tech_base, "_lo")) %>%
+      select(region, AgProductionTechnology, AgProdChange_adj) %>%
+      repeat_add_columns(tibble::tibble(year = seq(2020, 2050, 5))) -> L2052.AgProdChange_ag_irr_ref_lowAdj
+
+    # update low-tech production change
+    L2052.AgProdChange_ag_irr_ref %>%
+      inner_join(L2052.AgProdChange_ag_irr_ref_lowAdj,
+                 by = c("region", "AgProductionTechnology", "year")) %>%
+      mutate(AgProdChange = round(AgProdChange_adj, 4)) %>%
+      select(-AgProdChange_adj) %>%
+      bind_rows(L2052.AgProdChange_ag_irr_ref %>%
+                  filter(grepl("_hi", AgProductionTechnology) & year > 2050) %>%
+                  mutate(AgProductionTechnology = gsub("_hi", "_lo", AgProductionTechnology))) %>%
+      arrange(region, AgSupplySector, AgSupplySubsector, AgProductionTechnology, year)->
+      L2052.AgProdChange_ag_irr_YLD
+
+    L2052.AgProdChange_bio_irr_ref %>%
+      inner_join(L2052.AgProdChange_ag_irr_ref_lowAdj,
+                 by = c("region", "AgProductionTechnology", "year")) %>%
+      mutate(AgProdChange = round(AgProdChange_adj, 4)) %>%
+      select(-AgProdChange_adj) %>%
+      bind_rows(L2052.AgProdChange_bio_irr_ref %>%
+                  filter(grepl("_hi", AgProductionTechnology) & year > 2050) %>%
+                  mutate(AgProductionTechnology = gsub("_hi", "_lo", AgProductionTechnology))) %>%
+      arrange(region, AgSupplySector, AgSupplySubsector, AgProductionTechnology, year) ->
+      L2052.AgProdChange_bio_irr_YLD
+
+
     # Produce outputs
     L2052.AgCost_ag_irr_mgmt %>%
       add_title("Non-land variable costs of crops prodction by region / crop / GLU / technology") %>%
@@ -335,11 +390,29 @@ module_aglu_L2052.ag_prodchange_cost_irr_mgmt <- function(command, ...) {
       add_precursors("L102.pcgdp_thous90USD_Scen_R_Y") ->
       L2052.AgProdChange_irr_ssp4
 
+    L2052.AgProdChange_ag_irr_YLD %>%
+      add_title("YLD scenario selective yield improvement rates") %>%
+      add_units("Unitless") %>%
+      add_comments("YLD intensification scenario: lo-tech crops get the same yield as hi-tech") %>%
+      same_precursors_as("L2052.AgProdChange_ag_irr_ref") %>%
+      add_precursors("aglu/GCAM_ag_yield_output") ->
+      L2052.AgProdChange_ag_irr_YLD
+
+    L2052.AgProdChange_bio_irr_YLD %>%
+      add_title("YLD scenario selective yield improvement rates") %>%
+      add_units("Unitless") %>%
+      add_comments("YLD intensification scenario: lo-tech crops get the same yield as hi-tech") %>%
+      same_precursors_as("L2052.AgProdChange_ag_irr_ref") %>%
+      add_precursors("aglu/GCAM_ag_yield_output") ->
+      L2052.AgProdChange_bio_irr_YLD
+
+
     return_data(L2052.AgCost_ag_irr_mgmt, L2052.AgCost_bio_irr_mgmt,
                 L2052.AgCost_For,
                 L2052.AgProdChange_ag_irr_ref, L2052.AgProdChange_bio_irr_ref,
                 L2052.AgProdChange_irr_high, L2052.AgProdChange_irr_low,
-                L2052.AgProdChange_irr_ssp4)
+                L2052.AgProdChange_irr_ssp4,
+                L2052.AgProdChange_ag_irr_YLD, L2052.AgProdChange_bio_irr_YLD)
   } else {
     stop("Unknown command")
   }
