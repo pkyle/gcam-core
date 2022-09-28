@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BatchRunner xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="batch_runner.xsd">
+	<ComponentSet name="all">
+		<FileSet name="REF"> 
+		</FileSet>
+		<FileSet name="YLD"> 
+            <Value name = "YLD">../input/gcamdata/xml/ag_prodchange_Fert_YLD.xml</Value>
+		</FileSet>
+		<!--FileSet name="FLX"> 
+            <Value name = "FLX">../input/gcamdata/xml/food_FLX.xml</Value>
+		</FileSet-->
+		<FileSet name="CO2">
+		    <Value name = "CO2price">../input/policy/carbon_tax_SAM.xml</Value>
+		</FileSet>
+		<FileSet name="CO2_LUC">
+		    <Value name = "CO2price">../input/policy/carbon_tax_SAM.xml</Value>
+		    <Value name = "LUC_link">../input/policy/global_uct_in_constraint.xml</Value>
+		</FileSet>
+		<!--FileSet name="YLD_FLX_CO2">
+            <Value name = "YLD">../input/gcamdata/xml/ag_prodchange_Fert_YLD.xml</Value>
+            <Value name = "FLX">../input/gcamdata/xml/food_FLX.xml</Value>
+		    <Value name = "CO2price">../input/policy/carbon_tax_SAM.xml</Value>
+		</FileSet-->
+		<!--FileSet name="YLD_FLX_CO2_LUC">
+            <Value name = "YLD">../input/gcamdata/xml/ag_prodchange_Fert_YLD.xml</Value>
+            <Value name = "FLX">../input/gcamdata/xml/food_FLX.xml</Value>
+		    <Value name = "CO2price">../input/policy/carbon_tax_SAM.xml</Value>
+		    <Value name = "LUC_link">../input/policy/global_uct_in_constraint.xml</Value>
+		</FileSet-->
+	</ComponentSet>
+</BatchRunner>
+
+
