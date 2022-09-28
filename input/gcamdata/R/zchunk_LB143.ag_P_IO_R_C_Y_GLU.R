@@ -44,18 +44,18 @@ module_aglu_LB143.ag_P_IO_R_C_Y_GLU <- function(command, ...) {
     all_data <- list(...)[[1]]
 
     # Load required inputs
-    iso_GCAM_regID <- get_data(all_data, "common/iso_GCAM_regID")
-    FAO_ag_items_PRODSTAT <- get_data(all_data, "aglu/FAO/FAO_ag_items_PRODSTAT")
-    P_input <- get_data(all_data, "aglu/Pinput_crop_ctry")
-    L100.LDS_ag_prod_t <- get_data(all_data, "L100.LDS_ag_prod_t")
-    L100.FAO_Fert_Cons_tN <- get_data(all_data, "L100.FAO_Fert_Cons_tN")
-    L100.FAO_Fert_Prod_tN <- get_data(all_data, "L100.FAO_Fert_Prod_tN")
-    L101.ag_Prod_Mt_R_C_Y_GLU <- get_data(all_data, "L101.ag_Prod_Mt_R_C_Y_GLU")
-    L141.ag_Fert_Cons_MtN_ctry_crop <- get_data(all_data, "L141.ag_Fert_Cons_MtN_ctry_crop")
-    L101.LDS_ctry_crop_SHARES <- get_data(all_data, "L101.LDS_ctry_crop_SHARES")
-    L100.LDS_ag_prod_t<-get_data(all_data, "L100.LDS_ag_prod_t")
-    L100.FAO_ag_Prod_t<-get_data(all_data, "L100.FAO_ag_Prod_t")
-    L101.ag_Prod_Mt_R_C_Y<-get_data(all_data, "L101.ag_Prod_Mt_R_C_Y")
+    iso_GCAM_regID <- get_data(all_data, "common/iso_GCAM_regID",strip_attributes =  T)
+    FAO_ag_items_PRODSTAT <- get_data(all_data, "aglu/FAO/FAO_ag_items_PRODSTAT",strip_attributes =  T)
+    P_input <- get_data(all_data, "aglu/Pinput_crop_ctry",strip_attributes =  T)
+    L100.LDS_ag_prod_t <- get_data(all_data, "L100.LDS_ag_prod_t",strip_attributes =  T)
+    L100.FAO_Fert_Cons_tN <- get_data(all_data, "L100.FAO_Fert_Cons_tN",strip_attributes =  T)
+    L100.FAO_Fert_Prod_tN <- get_data(all_data, "L100.FAO_Fert_Prod_tN",strip_attributes =  T)
+    L101.ag_Prod_Mt_R_C_Y_GLU <- get_data(all_data, "L101.ag_Prod_Mt_R_C_Y_GLU",strip_attributes =  T)
+    L141.ag_Fert_Cons_MtN_ctry_crop <- get_data(all_data, "L141.ag_Fert_Cons_MtN_ctry_crop",strip_attributes =  T)
+    L101.LDS_ctry_crop_SHARES <- get_data(all_data, "L101.LDS_ctry_crop_SHARES",strip_attributes =  T)
+    L100.LDS_ag_prod_t<-get_data(all_data, "L100.LDS_ag_prod_t",strip_attributes =  T)
+    L100.FAO_ag_Prod_t<-get_data(all_data, "L100.FAO_ag_Prod_t",strip_attributes =  T)
+    L101.ag_Prod_Mt_R_C_Y<-get_data(all_data, "L101.ag_Prod_Mt_R_C_Y",strip_attributes =  T)
 
 
     # Calculate fertilizer input-output coefficients, scaled so that consumption of fertilizer balance

@@ -40,12 +40,12 @@ module_aglu_L2092.ag_P_irr_mgmt <- function(command, ...) {
       FertCost <- NULL  # silence package check notes
 
     # Load required inputs
-    GCAM_region_names <- get_data(all_data, "common/GCAM_region_names")
-    basin_to_country_mapping <- get_data(all_data, "water/basin_to_country_mapping")
-    A_Fodderbio_chars <- get_data(all_data, "aglu/A_Fodderbio_chars")
-    L2062.AgCost_ag_irr_mgmt_adj <- get_data(all_data, "L2062.AgCost_ag_irr_mgmt_adj")
-    L2062.AgCost_bio_irr_mgmt_adj <- get_data(all_data, "L2062.AgCost_bio_irr_mgmt_adj")
-    L143.ag_P_IO_cons_R_C_Y_GLU<-get_data(all_data,"L143.ag_P_IO_cons_R_C_Y_GLU")
+    GCAM_region_names <- get_data(all_data, "common/GCAM_region_names",strip_attributes =  T)
+    basin_to_country_mapping <- get_data(all_data, "water/basin_to_country_mapping",strip_attributes =  T)
+    A_Fodderbio_chars <- get_data(all_data, "aglu/A_Fodderbio_chars",strip_attributes =  T)
+    L2062.AgCost_ag_irr_mgmt_adj <- get_data(all_data, "L2062.AgCost_ag_irr_mgmt_adj",strip_attributes =  T)
+    L2062.AgCost_bio_irr_mgmt_adj <- get_data(all_data, "L2062.AgCost_bio_irr_mgmt_adj",strip_attributes =  T)
+    L143.ag_P_IO_cons_R_C_Y_GLU<-get_data(all_data,"L143.ag_P_IO_cons_R_C_Y_GLU",strip_attributes =  T)
 
     #set P price (2010$) price per kg based on 2009-2014 USDA avg
     P_price=3.553
