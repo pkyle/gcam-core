@@ -17,7 +17,7 @@ FoodDemand_NonStaples,Protein,Plant,0,start-year,1,share-weight,final-calibratio
 FoodDemand_NonStaples,MiscCrop,MiscCrop,0,start-year,1,share-weight,final-calibration-year,end-year,fixed,
 FoodDemand_NonStaples,Oil,OilCrop,0,start-year,1,share-weight,final-calibration-year,end-year,fixed,
 FoodDemand_NonStaples,Oil,OilPalm,0,start-year,1,share-weight,final-calibration-year,end-year,fixed,
-FoodDemand_NonStaples,Oil,Soybean,0,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples,Protein,Soybean,0,start-year,1,share-weight,final-calibration-year,end-year,fixed,
 FoodDemand_NonStaples,SugarCrop,SugarCrop,0,start-year,1,share-weight,final-calibration-year,end-year,fixed,
 FoodDemand_NonStaples,FruitsVeg,Vegetables,0,start-year,1,share-weight,final-calibration-year,end-year,fixed,
 FoodDemand_NonStaples,Protein,Animal,0,start-year,1,share-weight,final-calibration-year,end-year,fixed,
