@@ -73,45 +73,46 @@ module_aglu_LB143.ag_P_IO_R_C_Y_GLU <- function(command, ...) {
       full_join(P_input,by=c('countries','item','year'))    %>%
       drop_na(item) %>% #all-NA rows eliminated
       mutate(totP_kg=replace_na(totP_kg,0)) %>%
-      left_join(FAO_ag_items_PRODSTAT %>% select(GCAM_commodity,item),by="item") %>%
+      left_join(FAO_ag_items_PRODSTAT %>% select(GCAM_commodity, GCAM_subsector, item),by="item") %>%
       mutate(totP_t=totP_kg/1000)->Pin_crop_commod
 
 
     Pin_crop_commod %>%
-      group_by(GCAM_commodity,countries,year) %>%
+      group_by(GCAM_commodity,GCAM_subsector,countries,year) %>%
       summarize(total=sum(value)) %>%
       ungroup()->Pin_commod_totals
 
     Pin_commod_totals%>%
-      right_join(Pin_crop_commod, by = c("countries",  "year","GCAM_commodity")) %>%
+      right_join(Pin_crop_commod, by = c("countries",  "year","GCAM_commodity", "GCAM_subsector")) %>%
       mutate(commodWT=value/total,commodP=commodWT*totP_t)->FAO_prodwts
 
-    FAO_prodwts %>% select(GCAM_commodity,countries,item,year,totP_t,commodWT,commodP,value) %>%
-      group_by(GCAM_commodity, countries, year) %>%
-      summarize(Pin_commod=sum(commodP,na.rm=T),totProd=sum(value,na.rm=T)) %>%
+    FAO_prodwts %>% select(GCAM_commodity,GCAM_subsector,countries,item,year,totP_t,commodWT,commodP,value) %>%
+      group_by(GCAM_commodity, GCAM_subsector, countries, year) %>%
+      summarize(Pin_commod=sum(commodP,na.rm=T),
+                totProd=sum(value,na.rm=T)) %>%
       ungroup() -> Pin_commod_country
 
   # get GLU shares of country production
     Pin_commod_country %>% rename(country_name=countries) %>%
       left_join(iso_GCAM_regID,by='country_name')%>%
-      inner_join(L101.LDS_ctry_crop_SHARES,by=c("GCAM_commodity","iso")) %>%
+      inner_join(L101.LDS_ctry_crop_SHARES,by=c("GCAM_commodity","GCAM_subsector", "iso")) %>%
       mutate(Pin_commod_GLU=Pin_commod*prod_share_GLU)->Pin_commod_ctry_glu
 
     # weighted avg of country production to get regional production
     Pin_commod_ctry_glu %>%
-      group_by(GCAM_commodity,year,GCAM_region_ID,GLU) %>%
+      group_by(GCAM_commodity,GCAM_subsector,year,GCAM_region_ID,GLU) %>%
       summarize(reg_prod=sum(totProd)) %>%
       ungroup()->tot_prods
 
-    tot_prods %>% left_join(Pin_commod_ctry_glu, by = c("GCAM_commodity", "year", "GCAM_region_ID", "GLU")) %>%
+    tot_prods %>% left_join(Pin_commod_ctry_glu, by = c("GCAM_commodity", "GCAM_subsector", "year", "GCAM_region_ID", "GLU")) %>%
       mutate(P_prodwt=if_else(reg_prod==0,0,Pin_commod_GLU*totProd/reg_prod)) %>%
-      group_by(GCAM_commodity,GCAM_region_ID,GLU,year) %>%
+      group_by(GCAM_commodity,GCAM_subsector,GCAM_region_ID,GLU,year) %>%
       summarize(P_region=sum(P_prodwt,na.rm=T)) %>%
       ungroup()->Pin_commod_region_glu
 
 
     Pin_commod_region_glu %>%
-      group_by(GCAM_commodity,GCAM_region_ID)%>%
+      group_by(GCAM_commodity,GCAM_subsector,GCAM_region_ID)%>%
       mutate(Pin_avg=roll_mean(P_region,n=5,fill=NA))%>%
       ungroup() %>%
       filter(year %in% 1973:2012)-> Pin_rollavg #some series start in 1961, others in 1971, need same time window for all.
@@ -119,7 +120,7 @@ module_aglu_LB143.ag_P_IO_R_C_Y_GLU <- function(command, ...) {
 
     # Check to make sure that the fertilizer inputs do not blink in and out (if present in any year, need to be present in all years)
     Pin_rollavg %>%
-      group_by(GCAM_region_ID, GCAM_commodity, GLU) %>%
+      group_by(GCAM_region_ID, GCAM_commodity, GCAM_subsector, GLU) %>%
       summarise(value = sum(Pin_avg)) %>%                 # Get the total of all years
       ungroup() %>%
       filter(value != 0) %>%                            # Filter the region/commodity/GLU that are not completely missing for all years
@@ -128,8 +129,8 @@ module_aglu_LB143.ag_P_IO_R_C_Y_GLU <- function(command, ...) {
 
     Pin_rollavg %>% filter(year>1991) %>%
       # Filter the observations with the selected region/commodity/GLU combinations
-      semi_join(FertIOcheck, by = c("GCAM_region_ID", "GCAM_commodity", "GLU"))  %>%
-      select(GCAM_region_ID,GCAM_commodity,GLU,year,Pin_avg)    %>%
+      semi_join(FertIOcheck, by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector", "GLU"))  %>%
+      select(GCAM_region_ID,GCAM_commodity,GCAM_subsector,GLU,year,Pin_avg)    %>%
       filter(Pin_avg==0) %>%
       select(-Pin_avg, -year) %>%
       unique() -> blinks
@@ -140,7 +141,7 @@ module_aglu_LB143.ag_P_IO_R_C_Y_GLU <- function(command, ...) {
 
   #eliminate "blinks"
     Pin_rollavg %>% filter(year>1991) %>%
-      anti_join(blinks, by = c("GCAM_commodity", "GCAM_region_ID", "GLU")) %>%
+      anti_join(blinks, by = c("GCAM_commodity", "GCAM_subsector", "GCAM_region_ID", "GLU")) %>%
       mutate(P_Mt=Pin_avg*1e-6) %>%
       select(-Pin_avg)->
         L143.ag_P_cons_Mt_R_C_Y_GLU
@@ -156,18 +157,19 @@ module_aglu_LB143.ag_P_IO_R_C_Y_GLU <- function(command, ...) {
 
     #from consumption total to I/O
     L143.ag_P_cons_Mt_R_C_Y_GLU  %>%
-      left_join(L101.ag_Prod_Mt_R_C_Y_GLU, by = c("GCAM_commodity", "year", "GCAM_region_ID", "GLU")) %>%
+      left_join(L101.ag_Prod_Mt_R_C_Y_GLU, by = c("GCAM_commodity", "GCAM_subsector", "year", "GCAM_region_ID", "GLU")) %>%
       drop_na(value) %>%
-      mutate(P_IO_raw=if_else(value==0,0,P_Mt/value)) %>%
-      select(GCAM_commodity, GCAM_region_ID,GLU,year,P_IO_raw)->
+      mutate(P_IO_raw = if_else(is.na(P_Mt/value), 0, P_Mt/value)) %>%
+      select(GCAM_commodity, GCAM_subsector, GCAM_region_ID,GLU,year,P_IO_raw)->
       P_IO_raw
 
-    P_IO_raw %>% group_by(GCAM_commodity) %>%
+    P_IO_raw %>%
+      group_by(GCAM_commodity, GCAM_subsector) %>%
       summarize(P90=quantile(P_IO_raw,probs=0.9))->commodLIM
 
-    P_IO_raw %>% left_join(commodLIM, by="GCAM_commodity") %>%
+    P_IO_raw %>% left_join(commodLIM, by=c("GCAM_commodity", "GCAM_subsector")) %>%
       mutate(P_IO=if_else(P_IO_raw>P90,P90,P_IO_raw)) %>%
-      select(GCAM_commodity,GCAM_region_ID,GLU,year,P_IO)->
+      select(GCAM_region_ID, GCAM_commodity, GCAM_subsector,GLU, year, P_IO) ->
       L143.ag_P_IO_cons_R_C_Y_GLU
 
     # Produce outputs

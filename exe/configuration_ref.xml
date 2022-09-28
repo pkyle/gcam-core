@@ -52,7 +52,8 @@
 		<Value name = "ag_prodchange">../input/gcamdata/xml/ag_prodchange_ref_IRR_MGMT.xml</Value>
 		<Value name = "residue_bio">../input/gcamdata/xml/resbio_input_IRR_MGMT.xml</Value>
 		<Value name = "animal">../input/gcamdata/xml/an_input.xml</Value>
-		<Value name = "fertilizer">../input/gcamdata/xml/ag_Fert_IRR_MGMT.xml</Value>
+		<Value name = "Nfertilizer">../input/gcamdata/xml/ag_Fert_IRR_MGMT.xml</Value>
+		<Value name = "Pfertilizer">../input/gcamdata/xml/ag_P_IRR_MGMT.xml</Value>
 		<Value name = "land1">../input/gcamdata/xml/land_input_1.xml</Value>
 		<Value name = "land2">../input/gcamdata/xml/land_input_2.xml</Value>
 		<Value name = "land3">../input/gcamdata/xml/land_input_3_IRR.xml</Value>
