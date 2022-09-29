@@ -6,9 +6,10 @@
 		<FileSet name="YLD"> 
             <Value name = "YLD">../input/gcamdata/xml/ag_prodchange_Fert_YLD.xml</Value>
 		</FileSet>
-		<!--FileSet name="FLX"> 
-            <Value name = "FLX">../input/gcamdata/xml/food_FLX.xml</Value>
-		</FileSet-->
+		<FileSet name="FLX"> 
+            <Value name = "FLX_subs">../input/policy/addon/fuelprefelast_0.45.xml</Value>
+            <Value name = "FLX_incelas">../input/policy/addon/nonstaple_incelas_0.4.xml</Value>
+		</FileSet>
 		<FileSet name="CO2">
 		    <Value name = "CO2price">../input/policy/carbon_tax_SAM.xml</Value>
 		</FileSet>
@@ -16,17 +17,19 @@
 		    <Value name = "CO2price">../input/policy/carbon_tax_SAM.xml</Value>
 		    <Value name = "LUC_link">../input/policy/global_uct_in_constraint.xml</Value>
 		</FileSet>
-		<!--FileSet name="YLD_FLX_CO2">
+		<FileSet name="YLD_FLX_CO2">
             <Value name = "YLD">../input/gcamdata/xml/ag_prodchange_Fert_YLD.xml</Value>
-            <Value name = "FLX">../input/gcamdata/xml/food_FLX.xml</Value>
+            <Value name = "FLX_subs">../input/policy/addon/fuelprefelast_0.45.xml</Value>
+            <Value name = "FLX_incelas">../input/policy/addon/nonstaple_incelas_0.4.xml</Value>
 		    <Value name = "CO2price">../input/policy/carbon_tax_SAM.xml</Value>
-		</FileSet-->
-		<!--FileSet name="YLD_FLX_CO2_LUC">
+		</FileSet>
+		<FileSet name="YLD_FLX_CO2_LUC">
             <Value name = "YLD">../input/gcamdata/xml/ag_prodchange_Fert_YLD.xml</Value>
-            <Value name = "FLX">../input/gcamdata/xml/food_FLX.xml</Value>
+            <Value name = "FLX_subs">../input/policy/addon/fuelprefelast_0.45.xml</Value>
+            <Value name = "FLX_incelas">../input/policy/addon/nonstaple_incelas_0.4.xml</Value>
 		    <Value name = "CO2price">../input/policy/carbon_tax_SAM.xml</Value>
 		    <Value name = "LUC_link">../input/policy/global_uct_in_constraint.xml</Value>
-		</FileSet-->
+		</FileSet>
 	</ComponentSet>
 </BatchRunner>
 
