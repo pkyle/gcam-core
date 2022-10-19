@@ -109,7 +109,7 @@
 		<Value name = "en_transform_usa">../input/gcamdata/xml/en_transformation_USA.xml</Value>
 		<!--Value name = "elec_usa">../input/gcamdata/xml/elec_segments_USA.xml</Value-->
 		<Value name = "elec_water_usa">../input/gcamdata/xml/elec_segments_water_USA.xml</Value>
-		<!--Value name = "elec_ATB_mid">../input/extra/ATB_2021_mid_GCAMUSA.xml</Value-->
+		<Value name = "elec_ATB_mid">../input/extra/ATB_2021_mid_GCAMUSA.xml</Value>
 		<!--Value name = "elec_ATB_advRE">../input/extra/ATB_2021_adv_RE_GCAMUSA.xml</Value-->
 		<Value name = "h2_usa">../input/gcamdata/xml/hydrogen_USA.xml</Value>
 		<Value name = "elect_td_usa">../input/gcamdata/xml/electd_USA.xml</Value>
