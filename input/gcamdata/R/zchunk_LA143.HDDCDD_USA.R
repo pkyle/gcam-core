@@ -26,7 +26,7 @@ module_gcamusa_LA143.HDDCDD <- function(command, ...) {
              FILE = "gcam-usa/GIS/CDD_His",
              FILE = "gcam-usa/GIS/CDD_hist_constdds",
              FILE = "gcam-usa/GIS/CDD_GFDL_A2",
-             FILE = "gcam-usa/AEO_2015_HDDCDD"))
+             FILE = "gcam-usa/AEO_2022_HDDCDD"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L143.share_state_Pop_CDD_sR9",
              "L143.share_state_Pop_CDD_sR13",
@@ -46,7 +46,7 @@ module_gcamusa_LA143.HDDCDD <- function(command, ...) {
     HDD_His <- get_data(all_data, "gcam-usa/GIS/HDD_His")
     HDD_hist_constdds <- get_data(all_data, "gcam-usa/GIS/HDD_hist_constdds")
     HDD_GFDL_A2 <- get_data(all_data, "gcam-usa/GIS/HDD_GFDL_A2")
-    AEO_2015_HDDCDD <- get_data(all_data, "gcam-usa/AEO_2015_HDDCDD")
+    AEO_2022_HDDCDD <- get_data(all_data, "gcam-usa/AEO_2022_HDDCDD")
 
     # Silence package
     state <- subregion9 <- subregion13 <- year <- value <- degree_day <- population <-
@@ -320,7 +320,7 @@ module_gcamusa_LA143.HDDCDD <- function(command, ...) {
       mutate(DD = value_sR9 / pop_SR9) %>%
       select(subregion9, variable, DD) %>%
       repeat_add_columns(tibble(year = gcamusa.AEO_DD_YEARS)) %>%
-      left_join_error_no_match(AEO_2015_HDDCDD %>%
+      left_join_error_no_match(AEO_2022_HDDCDD %>%
                   gather_years("value_AEO") %>%
                   filter(year %in% gcamusa.AEO_DD_YEARS,
                          subregion9 != "USA"),
@@ -362,8 +362,8 @@ module_gcamusa_LA143.HDDCDD <- function(command, ...) {
       bind_rows(L143.HDDCDD_AEO_hist_years %>%
                   bind_rows(L143.HDDCDD_AEO_AEO_years,
                             L143.HDDCDD_AEO_postAEO_years) %>%
-                  mutate(Scen = "AEO_2015",
-                         GCM = "AEO_2015")  %>%
+                  mutate(Scen = "AEO_2022",
+                         GCM = "AEO_2022")  %>%
                   # getting rid of duplicate 2010 values & extra columns
                   distinct(state, Scen, GCM, variable, year, value)) ->
       L143.HDDCDD_scen_state
@@ -420,7 +420,7 @@ module_gcamusa_LA143.HDDCDD <- function(command, ...) {
       add_units("Degree F days") %>%
       add_comments("Replace GCM degree days with historical observations.") %>%
       add_comments("Normalize future GCM degree days by the fraction of observed degree days to GCM degree days in the base year.") %>%
-      add_comments("Includes a scenario with HDD / CDD harmonized to AEO 2015") %>%
+      add_comments("Includes a scenario with HDD / CDD harmonized to AEO 2022") %>%
       add_legacy_name("L143.HDDCDD_scen_state") %>%
       add_precursors("gcam-usa/states_subregions",
                      "gcam-usa/Census_pop",
@@ -430,7 +430,7 @@ module_gcamusa_LA143.HDDCDD <- function(command, ...) {
                      "gcam-usa/GIS/HDD_hist_constdds",
                      "gcam-usa/GIS/HDD_GFDL_A2",
                      "gcam-usa/GIS/CDD_GFDL_A2",
-                     "gcam-usa/AEO_2015_HDDCDD") ->
+                     "gcam-usa/AEO_2022_HDDCDD") ->
       L143.HDDCDD_scen_state
 
     return_data(L143.share_state_Pop_CDD_sR9,

@@ -17,7 +17,7 @@
 #' \code{L244.SubsectorLogit_bld_gcamusa}, \code{L244.StubTech_bld_gcamusa}, \code{L244.StubTechCalInput_bld_gcamusa}, \code{L244.StubTechMarket_bld},
 #' \code{L244.GlobalTechIntGainOutputRatio}, \code{L244.GlobalTechInterpTo_bld}, \code{L244.GlobalTechEff_bld},
 #' \code{L244.GlobalTechShrwt_bld_gcamusa}, \code{L244.GlobalTechCost_bld_gcamusa}, \code{L244.GlobalTechSCurve_bld}, \code{L244.HDDCDD_A2_GFDL_USA},
-#' \code{L244.HDDCDD_AEO_2015_USA}, \code{L244.HDDCDD_constdds_USA}, \code{L244.GompFnParam_gcamusa}.
+#' \code{L244.HDDCDD_AEO_2022_USA}, \code{L244.HDDCDD_constdds_USA}, \code{L244.GompFnParam_gcamusa}.
 #' The corresponding file in the original data system was \code{L244.building_USA.R} (gcam-usa level2).
 #' @details Creates GCAM-USA building output files for writing to xml.
 #' @importFrom assertthat assert_that
@@ -55,6 +55,7 @@ module_gcamusa_L244.building_USA <- function(command, ...) {
              "L144.flsp_bm2_state_comm",
              "L144.in_EJ_state_comm_F_U_Y",
              "L144.in_EJ_state_res_F_U_Y",
+             "L145.in_EJ_state_bld_F_U_tech_fby",
              "L143.HDDCDD_scen_state",
              "L100.Pop_thous_state",
              "L100.pcGDP_thous90usd_state"))
@@ -92,7 +93,7 @@ module_gcamusa_L244.building_USA <- function(command, ...) {
              "L244.GlobalTechSCurve_bld",
              "L244.HDDCDD_A2_GFDL_USA",
              "L244.HDDCDD_constdds_USA",
-             "L244.HDDCDD_AEO_2015_USA",
+             "L244.HDDCDD_AEO_2022_USA",
              "L244.GompFnParam_gcamusa"))
   } else if(command == driver.MAKE) {
 
@@ -148,6 +149,7 @@ module_gcamusa_L244.building_USA <- function(command, ...) {
     L100.pcGDP_thous90usd_state <- get_data(all_data, "L100.pcGDP_thous90usd_state", strip_attributes = TRUE)
     L144.hab_land_flsp_usa<- get_data(all_data, "gcam-usa/A44.hab_land_flsp_usa", strip_attributes = TRUE)
     L144.flsp_param <- get_data(all_data, "L144.flsp_param", strip_attributes = TRUE)
+    L145.in_EJ_state_bld_F_U_tech_fby <- get_data(all_data, "L145.in_EJ_state_bld_F_U_tech_fby", strip_attributes = TRUE)
 
     # ===================================================
     # Data Processing
@@ -355,8 +357,8 @@ module_gcamusa_L244.building_USA <- function(command, ...) {
       filter(Scen == "A2") %>%
       select(-Scen, -GCM, -variable)
 
-    L244.HDDCDD_AEO_2015_USA <- L244.HDDCDD_temp %>%
-      filter(Scen == "AEO_2015") %>%
+    L244.HDDCDD_AEO_2022_USA <- L244.HDDCDD_temp %>%
+      filter(Scen == "AEO_2022") %>%
       select(-Scen, -GCM, -variable)
 
     # L244.ShellConductance_bld_gcamusa: Shell conductance (inverse of shell efficiency)
@@ -486,7 +488,8 @@ module_gcamusa_L244.building_USA <- function(command, ...) {
       gather(tech_type, technology, technology1, technology2) %>%
       # Filter for same technology and share number, then remove tech_type and share_type columns
       filter(substr(tech_type, nchar(tech_type), nchar(tech_type)) == substr(share_type, nchar(share_type), nchar(share_type))) %>%
-      select(-tech_type, -share_type)
+      select(-tech_type, -share_type) %>%
+      drop_na()
 
     # For calibration table, start with global tech efficiency table, repeat by states, and match in tech shares.
     L244.StubTechCalInput_bld_gcamusa <- L244.GlobalTechEff_bld %>%
@@ -505,6 +508,45 @@ module_gcamusa_L244.building_USA <- function(command, ...) {
       # Set subsector and technology shareweights
       set_subsector_shrwt() %>%
       mutate(tech.share.weight =  if_else(calibrated.value > 0, 1, 0)) %>%
+      select(LEVEL2_DATA_NAMES[["StubTechCalInput"]])
+
+    # 10/18/2022 gpk - replace the calibration data with scout data
+    # First, set the category names for matching
+    L244.in_EJ_state_bld_F_U_tech_fby <- L145.in_EJ_state_bld_F_U_tech_fby %>%
+      rename(supplysector = service) %>%
+      left_join(calibrated_techs_bld_usa %>%
+                  select(sector, supplysector, fuel, subsector, minicam.energy.input) %>%
+                  distinct(), by = c("sector", "supplysector", "fuel")) %>%
+      select(region = state, supplysector, subsector, technology, minicam.energy.input, year, calibrated.value = value)
+
+    # The Scout data is already disaggregated to "efficiency-partitioned" technologies that don't have the string "hi-eff"
+    # These include heat pumps vs electric resistance for heating and hot water, and incandescent/fluorescent/solidstate lighting
+    L244.in_EJ_state_bld_F_U_techEffPrt_fby <- semi_join(L244.in_EJ_state_bld_F_U_tech_fby,
+                                               filter(A44.globaltech_eff_avg, grepl("hi-eff", technology2)),
+                                               by = c("supplysector", "subsector", technology = "technology1")) %>%
+      inner_join(L244.globaltech_shares, by = c("supplysector", "subsector"),
+                 suffix = c(".scout", ".gcam")) %>%
+      mutate(calibrated.value = calibrated.value * share) %>%
+      select(region, supplysector, subsector, technology = technology.gcam, minicam.energy.input, year, calibrated.value)
+
+    # Calibration values from scout include the technologies whose calibration values aren't partitioned by efficiency,
+    # and those whose values were in the prior block. anti_join to make sure none are duplicated
+    L244.StubTechCalInput_bld_scout <- anti_join(L244.in_EJ_state_bld_F_U_tech_fby,
+                                                   filter(A44.globaltech_eff_avg, grepl("hi-eff", technology2)),
+                                                   by = c("supplysector", "subsector", technology = "technology1")) %>%
+      bind_rows(L244.in_EJ_state_bld_F_U_techEffPrt_fby) %>%
+      arrange(region, supplysector, subsector, technology)
+
+    # Join the two calibration tables for comparison and merging
+    L244.StubTechCalInput_bld_gcamusa <- L244.StubTechCalInput_bld_gcamusa %>%
+      select(-share.weight.year, -subs.share.weight, -tech.share.weight) %>%
+      left_join(L244.StubTechCalInput_bld_scout,
+                by = c("region", "supplysector", "subsector", stub.technology = "technology", "minicam.energy.input", "year"),
+                suffix = c(".init", ".revised")) %>%
+      mutate(calibrated.value = round(if_else(is.na(calibrated.value.revised), calibrated.value.init, calibrated.value.revised), digits = energy.DIGITS_CALOUTPUT),
+             share.weight.year = year,
+             tech.share.weight =  if_else(calibrated.value > 0, 1, 0)) %>%
+      set_subsector_shrwt(value_col = "calibrated.value") %>%
       select(LEVEL2_DATA_NAMES[["StubTechCalInput"]])
 
     # L244.GlobalTechShrwt_bld_gcamusa: Default shareweights for global building technologies
@@ -893,7 +935,8 @@ module_gcamusa_L244.building_USA <- function(command, ...) {
       add_comments("Shares calculated using efficiency averages") %>%
       add_legacy_name("L244.StubTechCalInput_bld") %>%
       add_precursors("L144.in_EJ_state_res_F_U_Y", "L144.in_EJ_state_comm_F_U_Y", "gcam-usa/calibrated_techs_bld_usa",
-                     "gcam-usa/A44.globaltech_eff", "gcam-usa/A44.globaltech_eff_avg", "gcam-usa/A44.globaltech_shares") ->
+                     "gcam-usa/A44.globaltech_eff", "gcam-usa/A44.globaltech_eff_avg", "gcam-usa/A44.globaltech_shares",
+                     "L145.in_EJ_state_bld_F_U_tech_fby") ->
       L244.StubTechCalInput_bld_gcamusa
 
     L244.StubTechMarket_bld %>%
@@ -954,13 +997,13 @@ module_gcamusa_L244.building_USA <- function(command, ...) {
       add_precursors("gcam-usa/A44.globaltech_cost", "gcam-usa/A44.globaltech_retirement") ->
       L244.GlobalTechSCurve_bld
 
-    L244.HDDCDD_AEO_2015_USA %>%
-      add_title("Heating and Cooling Degree Days by State consistent with AEO 2015") %>%
+    L244.HDDCDD_AEO_2022_USA %>%
+      add_title("Heating and Cooling Degree Days by State consistent with AEO 2022") %>%
       add_units("Fahrenheit Degree Days") %>%
       add_comments("L143.HDDCDD_scen_state assigned to GCAM residential / commercial building consumers") %>%
       add_legacy_name("L244.HDDCDD_QER_QER") %>%
       same_precursors_as("L244.HDDCDD_A2_GFDL_USA") ->
-      L244.HDDCDD_AEO_2015_USA
+      L244.HDDCDD_AEO_2022_USA
 
     L244.HDDCDD_constdds_USA %>%
       add_title("Heating and Cooling Degree Days by State - constant at historical levels") %>%
@@ -1001,7 +1044,7 @@ module_gcamusa_L244.building_USA <- function(command, ...) {
                 L244.GlobalTechCost_bld_gcamusa,
                 L244.GlobalTechSCurve_bld,
                 L244.HDDCDD_A2_GFDL_USA,
-                L244.HDDCDD_AEO_2015_USA,
+                L244.HDDCDD_AEO_2022_USA,
                 L244.HDDCDD_constdds_USA,
                 L244.GompFnParam_gcamusa)
   } else {

@@ -914,7 +914,7 @@ gcamusa.STORAGE_TECH_LIST <- c("CSP_storage", "PV_storage", "wind_storage")
 # Degree day norms
 gcamusa.BASE_HDD_USA <- 4524 # https://www.eia.gov/totalenergy/data/annual/showtext.php?t=ptb0107
 gcamusa.BASE_CDD_USA <- 1215 # https://www.eia.gov/totalenergy/data/annual/showtext.php?t=ptb010
-gcamusa.AEO_DD_YEARS <- seq(2010, 2040, 5)
+gcamusa.AEO_DD_YEARS <- seq(2010, 2050, 5)
 
 
 # Years to be adjusted for RECS
