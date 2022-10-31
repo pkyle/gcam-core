@@ -1,0 +1,31 @@
+# File: DECARB_bld_scenarios.csv
+# Title: Parameter adjustments to define the buildings scenarios
+# Units: various
+# Comments: This is intended as a single control table for scenario differentiation
+# Source: harmonization exercise with Scout
+# Column types: cccccnn
+# ----------
+scenario,supplysector,subsector,technology,variable,value,adj_factor
+ref,resid cooking,electricity,,logit.exponent,-2,
+alt1,resid cooking,electricity,,logit.exponent,-4,
+alt2,resid cooking,electricity,,logit.exponent,-2,
+alt2,resid cooling,electricity,,efficiency,,1.33
+ref,resid heating,electricity,,efficiency,,1.1
+ref,resid heating,,,logit.exponent,-1.5,
+alt1,resid heating,,,logit.exponent,-5,
+alt1,resid heating,electricity,,logit.exponent,0,
+alt2,resid heating,electricity,electric heat pump,efficiency,,1.1
+alt2,resid heating,electricity,electric furnace,share.weight,0,
+ref,resid hot water,gas,,input.cost,,0.85
+alt1,resid hot water,,,logit.exponent,-5,
+alt1,resid hot water,electricity,electric heat pump water heater,input.cost,,2
+alt1,resid hot water,gas,,input.cost,,1.15
+alt2,resid hot water,electricity,electric resistance water heater,share.weight,0,
+alt2,resid hot water,electricity,electric resistance water heater hi-eff,share.weight,0,
+ref,comm cooking,electricity,,input.cost,,1.5
+alt2,comm cooking,electricity,,input.cost,,1.2
+ref,comm cooling,electricity,,efficiency,,0.9
+alt2,comm cooling,electricity,,efficiency,,1.15
+alt1,comm heating,,,logit.exponent,-2.5,
+alt1,comm hot water,,,logit.exponent,-4,
+alt2,comm hot water,,,logit.exponent,-2,
