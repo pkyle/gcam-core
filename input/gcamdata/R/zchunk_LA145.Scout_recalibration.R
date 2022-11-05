@@ -43,8 +43,7 @@ module_gcamusa_LA145.Scout_recalibration <- function(command, ...) {
       left_join_error_no_match(select(states_subregions, state, state_name),
                                by = "state_name") %>%
       select(-state_name) %>%
-      mutate(service = paste(sector, service),
-             share = if_else(service == "comm hot water" & fuel == "refined liquids" & state %in% c("AR", "LA", "OK"), 1, share))
+      mutate(service = paste(sector, service))
 
     # Only re-scale the year, service, and fuel categories that are in Scout. All others just keep the GCAM values.
     # The Scout data includes comm other in general, but not refined liquids or gas, so drop those from the re-scaling
@@ -52,8 +51,7 @@ module_gcamusa_LA145.Scout_recalibration <- function(command, ...) {
                                                    L144.in_EJ_state_res_F_U_Y) %>%
       filter(year %in% unique(Scout_bld_calibration$year),
              fuel %in% unique(Scout_bld_calibration$fuel),
-             service %in% unique(Scout_bld_calibration$service),
-             !paste(service, fuel) %in% c("comm other refined liquids", "comm other gas")) %>%
+             service %in% unique(Scout_bld_calibration$service)) %>%
       group_by(state, sector, fuel, year) %>%
       summarise(total = sum(value)) %>%
       ungroup() %>%
