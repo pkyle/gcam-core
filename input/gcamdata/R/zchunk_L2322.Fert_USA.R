@@ -222,12 +222,12 @@ module_gcamusa_L2322.Fert_USA <- function(command, ...) {
           new_df
 
         # If the input data frame includes subsector information subset the
-        # data frame for gas since state-level N fertilizer should not include
+        # data frame for gas and hydrogen, since state-level N fertilizer should not include
         # the Imports subsector and there is no need for the alternative fuels either.
         check_subsector <- c("subsector" %in% names(new_df))
         if(check_subsector) {
           new_df %>%
-            filter(grepl("gas", subsector)) ->
+            filter(subsector %in% c("gas", "hydrogen")) ->
             new_df
         }
       }
@@ -323,8 +323,10 @@ module_gcamusa_L2322.Fert_USA <- function(command, ...) {
 
     # Then add minicam.energy.input coefficients from the fertilizer production default coefficients data frame
     # by supplysector, subsector, and technology, then add USA as the default market name.
+    # GPK 11/7/2022: the first left_join needs to allow expansion in case any of these technologies take
+    # multiple inputs
     L2322.StubTechMarket_Fert_USA %>%
-      left_join_error_no_match(A322.globaltech_coef %>%
+      left_join(A322.globaltech_coef %>%
                                  select(supplysector, subsector, technology, minicam.energy.input),
                                by = c("supplysector", "subsector", c("stub.technology" = "technology"))) %>%
       mutate(market.name = gcam.USA_REGION) %>%
@@ -334,7 +336,9 @@ module_gcamusa_L2322.Fert_USA <- function(command, ...) {
                                  select(state, grid_region),
                                by = c("region" = "state")) %>%
       mutate(market.name = if_else(minicam.energy.input %in% gcamusa.REGIONAL_FUEL_MARKETS,
-                                   grid_region, market.name)) %>%
+                                   grid_region,
+                                   if_else(minicam.energy.input %in% gcamusa.STATE_FUEL_MARKETS,
+                                           region, market.name))) %>%
       select(-grid_region) ->
 	  L2322.StubTechMarket_Fert_USA
 

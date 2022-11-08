@@ -1,18 +1,18 @@
-
-<?xml version="1.0" encoding="UTF-8"?>
 <BatchRunner xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="batch_runner.xsd">
 	<ComponentSet name="DECARB scenarios">
-		<FileSet name="_REF_AEOtech">
+		<FileSet name="BLDr_ELr_INDr">
 			<Value name = "bld_ref">../input/gcamdata/xml/building_DECARB_ref.xml</Value>
+			<Value name = "ind_ref">../input/gcamdata/xml/industry_DECARB_ref.xml</Value>
 		</FileSet>
-		<FileSet name="_HiElec_LoEff">
+		<FileSet name="BLDhl_ELh_INDh">
 			<Value name = "bld_hielec">../input/gcamdata/xml/building_DECARB_hielec.xml</Value>
+			<Value name = "ind_hielec">../input/gcamdata/xml/industry_DECARB_hielec.xml</Value>
+			<Value name = "elec_ATB_adv">../input/extra/ATB_2021_adv_RE_GCAMUSA.xml</Value>
 		</FileSet>
-		<FileSet name="_HiElec_HiEff">
+		<FileSet name="BLDhh_ELh_INDh">
 			<Value name = "bld_adv">../input/gcamdata/xml/building_DECARB_adv.xml</Value>
+			<Value name = "ind_hielec">../input/gcamdata/xml/industry_DECARB_hielec.xml</Value>
+			<Value name = "elec_ATB_adv">../input/extra/ATB_2021_adv_RE_GCAMUSA.xml</Value>
 		</FileSet>
 	</ComponentSet>
-	
 </BatchRunner>
-
-

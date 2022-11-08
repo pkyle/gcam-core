@@ -233,7 +233,7 @@ module_gcamusa_L2321.cement_USA <- function(command, ...) {
     # Then linearly interpolate the default coefficients for future years. In the next step these
     # values will be added to the state input-output coefficients data frame.
     A321.globaltech_coef_long %>%
-      complete(nesting(supplysector, subsector, minicam.energy.input, technology), year = c(year, MODEL_FUTURE_YEARS)) %>%
+      complete(nesting(supplysector, subsector, minicam.energy.input, technology), year = c(year, MODEL_YEARS)) %>%
       arrange(supplysector, subsector, minicam.energy.input, technology, year) %>%
       group_by(supplysector, subsector, minicam.energy.input, technology) %>%
       mutate(value = approx_fun(year, value), value = signif(value, energy.DIGITS_COEFFICIENT)) %>%
@@ -287,6 +287,19 @@ module_gcamusa_L2321.cement_USA <- function(command, ...) {
                   select(coefficient, region = state, supplysector, minicam.energy.input, year),
                 by =c("region", "supplysector", "minicam.energy.input", "year")) ->
       L2321.StubTechCoef_cement_USA
+
+    # 11/7/2022 GPK hack - the above method isn't designed to allow the different production technologies to have
+    # different input-output coefficients. Any alternative technologies just get the same IO coefs. Revising for
+    # electro-cement technologies
+    L2321.StubTechCoef_electrocement_USA <- L2321.StubTechCoef_cement_USA %>%
+      filter(stub.technology == "electro-cement") %>%
+      left_join(L2321.globaltech_coef, by = c("supplysector", "subsector", stub.technology = "technology", "minicam.energy.input", "year")) %>%
+      drop_na(value) %>%
+      mutate(coefficient = value) %>%
+      select(-value)
+
+    L2321.StubTechCoef_cement_USA <- filter(L2321.StubTechCoef_cement_USA, stub.technology != "electro-cement") %>%
+      bind_rows(L2321.StubTechCoef_electrocement_USA)
 
     # Add market information: default is USA. replace for fuels with grid region level markets and state markets.
     # Process heat cement and limestone are also represented at the state level (names referenced from existing objects).

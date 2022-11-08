@@ -1,6 +1,6 @@
 # Copyright 2019 Battelle Memorial Institute; see the LICENSE file.
 
-#' module_gcamusa_batch_building_USA_scenarios_xml
+#' module_gcamusa_batch_DECARB_building_scenarios_xml
 #'
 #' Construct XML data structure for \code{building_USA.xml}.
 #'
@@ -10,7 +10,7 @@
 #' a vector of output names, or (if \code{command} is "MAKE") all
 #' the generated outputs: \code{building_USA.xml}. The corresponding file in the
 #' original data system was \code{batch_building_USA.xml} (gcamusa XML).
-module_gcamusa_batch_building_USA_scenarios_xml <- function(command, ...) {
+module_gcamusa_batch_DECARB_building_scenarios_xml <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "gcam-usa/DECARB_bld_scenarios",
              "L244.Supplysector_bld_gcamusa",

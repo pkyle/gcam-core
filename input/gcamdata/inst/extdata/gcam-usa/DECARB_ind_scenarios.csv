@@ -1,0 +1,14 @@
+# File: DECARB_ind_scenarios.csv
+# Title: Parameter adjustments to define the industry scenarios
+# Units: various
+# Comments: This is intended as a single control table for scenario differentiation
+# Source: correspondence with DECARB 2a industry team (incl. ORNL and LBNL)
+# Column types: cccccnn
+# ----------
+scenario,supplysector,subsector,technology,variable,value,adj_factor
+ref,cement,cement,electro-cement,share.weight,0,
+ref,N fertilizer,hydrogen,,share.weight,0,
+ref,other industrial energy use,,,logit.exponent,-2,
+hielec,H2 industrial,H2 delivery,,share.weight,0.1,
+hielec,H2 industrial,forecourt production,electrolysis,price.unit.conversion,0.6,
+hielec,other industrial energy use,,,logit.exponent,-3,

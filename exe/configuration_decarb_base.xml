@@ -170,7 +170,7 @@
 	
 	</ScenarioComponents>
 	<Strings>
-		<Value name="scenarioName">DECARB</Value>
+		<Value name="scenarioName"></Value>
 		<Value name="debug-region">CA</Value>
 		<Value name="MAGICC-input-dir">../input/magicc/inputs</Value>
 		<Value name="MAGICC-output-dir">../output</Value>

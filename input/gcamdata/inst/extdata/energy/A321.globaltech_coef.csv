@@ -10,6 +10,8 @@ cement,cement,cement,limestone,1.5,1.5,1.5
 cement,cement,cement CCS,process heat cement,0.004,0.004,0.003
 cement,cement,cement CCS,elect_td_ind,0.0005,0.0005,0.0005
 cement,cement,cement CCS,limestone,1.5,1.5,1.5
+cement,cement,electro-cement,elect_td_ind,0.00376,0.00376,0.00376
+cement,cement,electro-cement,limestone,1.5,1.5,1.5
 process heat cement,biomass,biomass,delivered biomass,1,1,1
 process heat cement,coal,coal,delivered coal,1,1,1
 process heat cement,gas,gas,wholesale gas,1,1,1

@@ -4,7 +4,6 @@
 # Column types: ccccccc
 # ----------
 supplysector,subsector,apply.to,from.year,to.year,to.value,interpolation.function
-cement,cement,share-weight,final-calibration-year,end-year,,fixed
 process heat cement,biomass,share-weight,final-calibration-year,end-year,,fixed
 process heat cement,coal,share-weight,final-calibration-year,end-year,,fixed
 process heat cement,gas,share-weight,final-calibration-year,end-year,,fixed
