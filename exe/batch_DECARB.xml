@@ -1,18 +1,25 @@
 <BatchRunner xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="batch_runner.xsd">
 	<ComponentSet name="DECARB scenarios">
-		<FileSet name="BLDr_ELr_INDr">
+		<FileSet name="BLDr_ELr_INDr_TRNr">
 			<Value name = "bld_ref">../input/gcamdata/xml/building_DECARB_ref.xml</Value>
 			<Value name = "ind_ref">../input/gcamdata/xml/industry_DECARB_ref.xml</Value>
 		</FileSet>
-		<FileSet name="BLDhl_ELh_INDh">
+		<FileSet name="BLDr_ELh_INDr_TRNr">
+			<Value name = "bld_ref">../input/gcamdata/xml/building_DECARB_ref.xml</Value>
+			<Value name = "ind_ref">../input/gcamdata/xml/industry_DECARB_ref.xml</Value>
+			<Value name = "elec_ATB_adv">../input/extra/ATB_2021_adv_RE_GCAMUSA.xml</Value>
+		</FileSet>
+		<FileSet name="BLDhl_ELh_INDh_TRNh">
 			<Value name = "bld_hielec">../input/gcamdata/xml/building_DECARB_hielec.xml</Value>
 			<Value name = "ind_hielec">../input/gcamdata/xml/industry_DECARB_hielec.xml</Value>
 			<Value name = "elec_ATB_adv">../input/extra/ATB_2021_adv_RE_GCAMUSA.xml</Value>
+			<Value name = "trn_hielec">../input/gcamdata/xml/transportation_USA_DECARB_high_elec.xml</Value>
 		</FileSet>
-		<FileSet name="BLDhh_ELh_INDh">
+		<FileSet name="BLDhh_ELh_INDh_TRNh">
 			<Value name = "bld_adv">../input/gcamdata/xml/building_DECARB_adv.xml</Value>
 			<Value name = "ind_hielec">../input/gcamdata/xml/industry_DECARB_hielec.xml</Value>
 			<Value name = "elec_ATB_adv">../input/extra/ATB_2021_adv_RE_GCAMUSA.xml</Value>
+			<Value name = "trn_hielec">../input/gcamdata/xml/transportation_USA_DECARB_high_elec.xml</Value>
 		</FileSet>
 	</ComponentSet>
 </BatchRunner>
