@@ -1,6 +1,7 @@
 # File: OTAQ_trn_data_DECARB_high_elec.csv
 # Title: OTAQ-specific assumptions to layer into UCD_trn_data_CORE.csv database
 # Units: Various
+# Comments: Charging infrastructure costs are now added for BEV LDV and trucks
 # Column types: ccccccccnnnnnnnnnnnnnnnnnnnn
 # Source: 2021.10.05 Vehicle tables.xlsx workbook. BEV 3-wheeler data from UCD_trn_data_CORE file of CMP 316
 # ----------
