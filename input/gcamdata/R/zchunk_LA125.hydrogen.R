@@ -491,8 +491,13 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       select(sector.name,subsector.name,technology,year,NE_cost_nuc_elec)
 
     L125.GlobalTechCoef_nuclear_elec <- L125.globaltech_coef %>%
-      filter(subsector.name == 'nuclear' & minicam.energy.input == 'electricity') %>%
-      mutate(coefficient = value)
+      filter(subsector.name == 'nuclear' & minicam.energy.input %in% c('electricity','thermal')) %>%
+      mutate(coefficient = if_else(minicam.energy.input == 'thermal', value / 3, value)) %>%
+      # Convert thermal to electric energy for non-fuel cost purposes to represent the potential generation capacity that is bled off to provide steam for process heat.
+      # Although some recuperation from stack exhaust is possible, we err on the side of being conservative here
+      group_by(sector.name, subsector.name, technology, units, year) %>%
+      summarize(coefficient = sum(coefficient)) %>%
+      ungroup()
 
     L125.GlobalTechCost_nuclear_H2 <- L125.GlobalTechCost_nuclear_elec %>%
       left_join_error_no_match(L125.GlobalTechCoef_nuclear_elec, by = c('sector.name','subsector.name','technology','year')) %>%
