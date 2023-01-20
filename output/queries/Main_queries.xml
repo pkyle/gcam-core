@@ -2390,7 +2390,7 @@ element input {
                         <axis1 name="region">region</axis1>
                         <axis2 name="Year">demand-physical[@vintage]</axis2>
                         <xPath buildList="true" dataName="input" group="false" sumAll="false">*[@type='sector' (:collapse:) and (@name='industry' or (exists(child::keyword[@final-energy='industry'])))]//
-               *[@type='input' (:collapse:) and (@name='delivered biomass' or @name='delivered coal' or
+               *[@type='input' (:collapse:) and (@name='delivered biomass' or @name='delivered coal' or @name='district heat' or
                @name='H2 wholesale delivery' or @name='H2 wholesale dispensing' or @name='H2 industrial' or
                @name='elect_td_ind' or @name='wholesale gas' or @name='refined liquids industrial')]/demand-physical/node()</xPath>
                         <comments/>
@@ -2399,7 +2399,7 @@ element input {
                         <axis1 name="sector">sector</axis1>
                         <axis2 name="Year">demand-physical[@vintage]</axis2>
                         <xPath buildList="true" dataName="input" group="false" sumAll="false">*[@type='sector' and (@name='industry' or (exists(child::keyword[@final-energy='industry'])))]//
-               *[@type='input' (:collapse:) and (@name='delivered biomass' or @name='delivered coal' or
+               *[@type='input' (:collapse:) and (@name='delivered biomass' or @name='delivered coal' or @name='district heat' or
                @name='H2 wholesale delivery' or @name='H2 wholesale dispensing' or @name='H2 industrial' or
                @name='elect_td_ind' or @name='wholesale gas' or
                @name='refined liquids industrial')]/demand-physical/node()</xPath>
@@ -2414,7 +2414,7 @@ element input {
                         <axis1 name="input">input</axis1>
                         <axis2 name="Year">demand-physical[@vintage]</axis2>
                         <xPath buildList="true" dataName="input" group="false" sumAll="false">*[@type='sector' (:collapse:) and (@name='industry' or (exists(child::keyword[@final-energy='industry'])))]//
-               *[@type='input' and (@name='delivered biomass' or @name='delivered coal' or
+               *[@type='input' and (@name='delivered biomass' or @name='delivered coal' or @name='district heat' or
                @name='H2 wholesale delivery' or @name='H2 wholesale dispensing' or @name='H2 industrial' or
                @name='elect_td_ind' or @name='wholesale gas' or
                @name='refined liquids industrial')]/demand-physical/node()</xPath>
@@ -2424,7 +2424,7 @@ element input {
                         <axis1 name="input">input</axis1>
                         <axis2 name="Year">demand-physical[@vintage]</axis2>
                         <xPath buildList="true" dataName="input" group="false" sumAll="false">*[@type='sector' and (@name='industry' or (exists(child::keyword[@final-energy='industry'])))]//
-               *[@type='input' and (@name='delivered biomass' or @name='delivered coal' or
+               *[@type='input' and (@name='delivered biomass' or @name='delivered coal' or @name='district heat' or
                @name='H2 wholesale delivery' or @name='H2 wholesale dispensing' or @name='H2 industrial' or
                @name='elect_td_ind' or @name='wholesale gas' or
                @name='refined liquids industrial')]/demand-physical/node()</xPath>
@@ -2440,7 +2440,7 @@ element input {
                         <axis2 name="Year">demand-physical[@vintage]</axis2>
                         <xPath buildList="true" dataName="input" group="false" sumAll="false">*[@type='sector' and (@name='industry' or (exists(child::keyword[@final-energy='industry'])))]/
                *[@type='subsector']/*[@type='technology']/
-               *[@type='input' and (@name='delivered biomass' or @name='delivered coal' or
+               *[@type='input' and (@name='delivered biomass' or @name='delivered coal' or @name='district heat' or
                @name='H2 wholesale delivery' or @name='H2 wholesale dispensing' or @name='H2 industrial' or
                @name='elect_td_ind' or @name='wholesale gas' or
                @name='refined liquids industrial')]/demand-physical/node()</xPath>
