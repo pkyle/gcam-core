@@ -32,10 +32,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
              "L125.Electrolyzer_IdleRatio_Params",
              "L223.StubTechCapFactor_elec",
              "L223.GlobalIntTechCapital_elec",
-             "L223.GlobalIntTechOMfixed_elec",
-             "L223.GlobalTechCapital_elec",
-             "L223.GlobalTechOMvar_elec",
-             "L223.GlobalTechOMfixed_elec"))
+             "L223.GlobalIntTechOMfixed_elec"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L225.Supplysector_h2",
              "L225.SectorUseTrialMarket_h2",
@@ -87,9 +84,6 @@ module_energy_L225.hydrogen <- function(command, ...) {
     L223.GlobalIntTechOMfixed_elec <- get_data(all_data, "L223.GlobalIntTechOMfixed_elec", strip_attributes = TRUE)
     L223.StubTechCapFactor_elec <- get_data(all_data, "L223.StubTechCapFactor_elec", strip_attributes = TRUE)
 
-    L223.GlobalTechCapital_elec <- get_data(all_data, "L223.GlobalTechCapital_elec", strip_attributes = TRUE)
-    L223.GlobalTechOMvar_elec <- get_data(all_data, "L223.GlobalTechOMvar_elec", strip_attributes = TRUE)
-    L223.GlobalTechOMfixed_elec <- get_data(all_data, "L223.GlobalTechOMfixed_elec", strip_attributes = TRUE)
     # ===================================================
 
     # 1. Build tables for CSVs
@@ -212,52 +206,6 @@ module_energy_L225.hydrogen <- function(command, ...) {
 
     L225.GlobalTechCost_h2 <- bind_rows(L225.GlobalTechCost_h2,L225.GlobalTechCost_h2_noprod)
 
-    #calculate non-energy costs for nuclear generation for electrolysis on a per GJ H2 basis using power sector assumptions for nuclear to add to electrolyzer cost
-
-    cap_factor_current <- 0.824 # source: H2A solid oxide electrolysis capacity factor
-    cap_factor_future <- 0.875
-
-    L225.GlobalTechOMfixed_nuclear_elec <- L223.GlobalTechOMfixed_elec %>%
-      filter(subsector.name == 'nuclear' & technology == 'Gen_III')
-
-    L225.GlobalTechCapital_OMfixed_nuclear_elec <- L223.GlobalTechCapital_elec %>%
-      filter(subsector.name == 'nuclear' & technology == 'Gen_III') %>%
-      left_join_error_no_match(L225.GlobalTechOMfixed_nuclear_elec, by = c('sector.name','subsector.name','technology','year')) %>%
-      mutate(sector.name = 'H2 central production',
-             subsector.name = 'nuclear',
-             technology = 'electrolysis',
-             capacity.factor = if_else(year <= 2015,cap_factor_current,
-                                       if_else(year >= 2040,cap_factor_future,NA_real_)),
-             capacity.factor = approx_fun(year, capacity.factor, rule = 2),
-             AEP_GJ = CONV_YEAR_HOURS * capacity.factor * CONV_KWH_GJ,
-             NE_cost_nuc_elec_fixed = (capital.overnight * fixed.charge.rate + OM.fixed) / AEP_GJ) %>%
-      select(sector.name,subsector.name,technology,year,NE_cost_nuc_elec_fixed)
-
-    L225.GlobalTechOMvar_nuclear_elec <- L223.GlobalTechOMvar_elec %>%
-      filter(subsector.name == 'nuclear' & technology == 'Gen_III') %>%
-      mutate(sector.name = 'H2 central production',
-             subsector.name = 'nuclear',
-             technology = 'electrolysis',
-             NE_cost_nuc_elec_var = OM.var / CONV_MWH_GJ) %>%
-      select(sector.name,subsector.name,technology,year,NE_cost_nuc_elec_var)
-
-    L225.GlobalTechCost_nuclear_elec <- L225.GlobalTechCapital_OMfixed_nuclear_elec %>%
-      left_join_error_no_match(L225.GlobalTechOMvar_nuclear_elec, by = c('sector.name','subsector.name','technology','year')) %>%
-      mutate(NE_cost_nuc_elec = NE_cost_nuc_elec_fixed + NE_cost_nuc_elec_var) %>%
-      select(sector.name,subsector.name,technology,year,NE_cost_nuc_elec)
-
-    L225.GlobalTechCoef_nuclear_elec <- L225.GlobalTechCoef_h2 %>%
-      filter(minicam.energy.input == 'nuclearFuelGenIII') %>%
-      mutate(coefficient = coefficient / 3)
-
-    L225.GlobalTechCost_nuclear_H2 <- L225.GlobalTechCost_nuclear_elec %>%
-      left_join_error_no_match(L225.GlobalTechCoef_nuclear_elec, by = c('sector.name','subsector.name','technology','year')) %>%
-      mutate(input.cost = NE_cost_nuc_elec * coefficient,
-             minicam.non.energy.input = 'nuclear electricity generation',
-             units = '$1975/GJ H2') %>%
-      select(sector.name,subsector.name,technology,minicam.non.energy.input,input.cost,year,units)
-
-    L225.GlobalTechCost_h2 <- bind_rows(L225.GlobalTechCost_h2,L225.GlobalTechCost_nuclear_H2)
 
     # Estimate the region-specific costs of direct wind and solar electrolysis, based on the capacity factors of the
     # electric generation technologies and relationship between capacity factors and NE costs of electrolysis
@@ -455,8 +403,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
       add_title("Costs of global technologies for hydrogen") %>%
       add_units("$1975 / GJ H2") %>%
       add_comments("Interpolated orginal data into all model years") %>%
-      add_precursors("L125.globaltech_cost",'energy/A25.globaltech_cost',
-                     'L223.GlobalTechCapital_elec','L223.GlobalTechOMvar_elec','L223.GlobalTechOMfixed_elec')  -> L225.GlobalTechCost_h2
+      add_precursors("L125.globaltech_cost",'energy/A25.globaltech_cost')  -> L225.GlobalTechCost_h2
 
     L225.GlobalTechShrwt_h2 %>%
       add_title("Shareweights of global technologies for hydrogen") %>%

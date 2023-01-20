@@ -27,7 +27,9 @@ module_energy_LA125.hydrogen <- function(command, ...) {
              FILE = "energy/H2A_NE_cost_data",
              FILE = "energy/H2A_electrolyzer_NEcost_CF",
              "L223.GlobalTechCapital_elec",
-             "L223.GlobalTechEff_elec"))
+             "L223.GlobalTechEff_elec",
+             "L223.GlobalTechOMvar_elec",
+             "L223.GlobalTechOMfixed_elec"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L125.globaltech_coef",
              "L125.globaltech_cost",
@@ -50,6 +52,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
 
     L223.GlobalTechCapital_elec <- get_data(all_data, "L223.GlobalTechCapital_elec")
     L223.GlobalTechEff_elec <- get_data(all_data, "L223.GlobalTechEff_elec")
+    L223.GlobalTechOMvar_elec <- get_data(all_data, "L223.GlobalTechOMvar_elec", strip_attributes = TRUE)
+    L223.GlobalTechOMfixed_elec <- get_data(all_data, "L223.GlobalTechOMfixed_elec", strip_attributes = TRUE)
 
 
     # ===================================================
@@ -119,18 +123,6 @@ module_energy_LA125.hydrogen <- function(command, ...) {
                                   if_else(subsector.name == "biomass", "biomass (IGCC CCS)",
                                           NA_character_))) %>%
       select(sector.name, subsector.name, technology, max_improvement) -> elec_IGCC_CCS_eff_improvement
-
-
-    # C. Costs: Calculate max improvement of nuclear power generation capital overnight costs
-     L223.GlobalTechCapital_elec %>%
-      filter(technology == "Gen_III",
-             year %in% c(2015, 2100)) %>%
-      spread(year, capital.overnight) %>%
-      mutate(max_improvement = (1 - (`2100`  / `2015`))) %>%
-      select(sector.name, subsector.name, technology, max_improvement) -> elec_nuclear_cost_improvement
-
-
-
 
      # D. Convert Units from H2A ($/kg, GJ/kg) to GCAM (1975$/GJ, GJ/GJ)
      H2A_prod_cost %>%
@@ -210,20 +202,12 @@ module_energy_LA125.hydrogen <- function(command, ...) {
      H2A_prod_cost_conv %>%
        filter(!(technology %in% c("coal chemical", "biomass to H2 CCS" , "coal chemical CCS"))) -> H2A_NE_cost_add_2015_techs
 
-     # F.Nuclear thermal splitting utilized an earlier version of H2A data (2008). This data was updated by modifying
-     #   H2A reactor costs to be consistent with NREL ATB's 2019 data. Max improvement leverages nuclear reactor
-     #   improvement from GCAM power sector for Gen_III reactors
-
     H2A_NE_cost_add_2015_techs %>%
-       mutate(max_improvement = if_else(subsector.name == "nuclear", elec_nuclear_cost_improvement$max_improvement,
-                                        max_improvement)) -> H2A_NE_cost_add_nuclear
-
-
-     H2A_NE_cost_add_nuclear %>%
        complete(nesting(sector.name, subsector.name, technology,minicam.non.energy.input), year = sort(unique(c(year, MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)))) %>%
        arrange(sector.name, subsector.name, technology, minicam.non.energy.input,year) %>%
        group_by(sector.name, subsector.name, technology, minicam.non.energy.input) %>%
-       mutate(improvement_to_2040 = approx_fun(year,improvement_to_2040, rule = 2),
+       mutate(max_improvement = if_else(subsector.name == 'nuclear', improvement_to_2040, max_improvement),
+              improvement_to_2040 = approx_fun(year,improvement_to_2040, rule = 2),
               max_improvement = approx_fun(year,max_improvement, rule = 2),
               improvement_rate = (1 - improvement_to_2040)^(1 / (2040 - 2015)) -1, #convert improvement by 2040 to annual compound growth rate
               min_cost = value[year == 2015]*(1 - max_improvement),
@@ -393,7 +377,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
               value = case_when( improvement_rate < 0 & year >= 2040 ~ value[year == 2040],
                                  improvement_rate < 0 & year < 2040 ~ value,
                                  improvement_rate >= 0 ~ value )) %>%
-      ungroup()-> H2A_eff_GCAM_years
+      ungroup() -> H2A_eff_GCAM_years
 
     add_coal_and_bio_eff %>%
       bind_rows(existing_coal_bio_eff) %>%
@@ -471,6 +455,60 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       intercept = c(IdleRatioIntercept_2015, IdleRatioIntercept_2040)
     )
 
+    # H2A cost assumptions for nuclear H2 are for electrolyzer cost only for a solid oxide electrolysis process.
+    # Here we calculate non-energy costs for nuclear generation for electrolysis on a per GJ H2 basis using power sector assumptions for nuclear to add to the electrolyzer cost
+
+    cap_factor_current <- 0.824 # source: H2A solid oxide electrolysis capacity factor
+    cap_factor_future <- 0.875
+
+    L125.GlobalTechOMfixed_nuclear_elec <- L223.GlobalTechOMfixed_elec %>%
+      filter(subsector.name == 'nuclear' & technology == 'Gen_III')
+
+    L125.GlobalTechCapital_OMfixed_nuclear_elec <- L223.GlobalTechCapital_elec %>%
+      filter(subsector.name == 'nuclear' & technology == 'Gen_III') %>%
+      left_join_error_no_match(L125.GlobalTechOMfixed_nuclear_elec, by = c('sector.name','subsector.name','technology','year')) %>%
+      mutate(sector.name = 'H2 central production',
+             subsector.name = 'nuclear',
+             technology = 'electrolysis',
+             capacity.factor = if_else(year <= 2015,cap_factor_current,
+                                       if_else(year >= 2040,cap_factor_future,NA_real_)),
+             capacity.factor = approx_fun(year, capacity.factor, rule = 2),
+             AEP_GJ = CONV_YEAR_HOURS * capacity.factor * CONV_KWH_GJ,
+             NE_cost_nuc_elec_fixed = (capital.overnight * fixed.charge.rate + OM.fixed) / AEP_GJ) %>%
+      select(sector.name,subsector.name,technology,year,NE_cost_nuc_elec_fixed)
+
+    L125.GlobalTechOMvar_nuclear_elec <- L223.GlobalTechOMvar_elec %>%
+      filter(subsector.name == 'nuclear' & technology == 'Gen_III') %>%
+      mutate(sector.name = 'H2 central production',
+             subsector.name = 'nuclear',
+             technology = 'electrolysis',
+             NE_cost_nuc_elec_var = OM.var / CONV_MWH_GJ) %>%
+      select(sector.name,subsector.name,technology,year,NE_cost_nuc_elec_var)
+
+    L125.GlobalTechCost_nuclear_elec <- L125.GlobalTechCapital_OMfixed_nuclear_elec %>%
+      left_join_error_no_match(L125.GlobalTechOMvar_nuclear_elec, by = c('sector.name','subsector.name','technology','year')) %>%
+      mutate(NE_cost_nuc_elec = NE_cost_nuc_elec_fixed + NE_cost_nuc_elec_var) %>%
+      select(sector.name,subsector.name,technology,year,NE_cost_nuc_elec)
+
+    L125.GlobalTechCoef_nuclear_elec <- L125.globaltech_coef %>%
+      filter(subsector.name == 'nuclear' & minicam.energy.input == 'electricity') %>%
+      mutate(coefficient = value)
+
+    L125.GlobalTechCost_nuclear_H2 <- L125.GlobalTechCost_nuclear_elec %>%
+      left_join_error_no_match(L125.GlobalTechCoef_nuclear_elec, by = c('sector.name','subsector.name','technology','year')) %>%
+      mutate(cost = NE_cost_nuc_elec * coefficient,
+             minicam.non.energy.input = 'nuclear electricity generation',
+             units = '$1975/GJ H2') %>%
+      select(sector.name,subsector.name,technology,minicam.non.energy.input,cost,year,units)
+
+    L125.globaltech_cost <- bind_rows(L125.globaltech_cost,L125.GlobalTechCost_nuclear_H2)
+
+    L125.globaltech_coef <- L125.globaltech_coef %>%
+      mutate(value = if_else((subsector.name == 'nuclear' & minicam.energy.input == 'electricity'), value * 3,value), #convert electricity to nuclear fuel use for primary energy accounting purposes
+             minicam.energy.input = if_else(subsector.name == 'nuclear' & minicam.energy.input %in% c('electricity','thermal'), 'nuclearFuelGenIII', minicam.energy.input)) %>% #now all energy is in terms of primary nuclear fuel, so change the name and aggregate
+      group_by(sector.name, subsector.name, technology, year, minicam.energy.input, units) %>%
+      summarize(value = sum(value)) %>%
+      ungroup()
 
     # ===================================================
     # Produce outputs
@@ -487,7 +525,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       add_units("Unitless") %>%
       add_comments("Interpolated orginal data into all model years") %>%
       add_legacy_name("L225.GlobalTechCost_h2") %>%
-      add_precursors("energy/H2A_NE_cost_data","L223.GlobalTechCapital_elec")  ->
+      add_precursors("energy/H2A_NE_cost_data","L223.GlobalTechCapital_elec","L223.GlobalTechOMvar_elec","L223.GlobalTechOMfixed_elec")  ->
       L125.globaltech_cost
 
     L125.Electrolyzer_IdleRatio_Params %>%
