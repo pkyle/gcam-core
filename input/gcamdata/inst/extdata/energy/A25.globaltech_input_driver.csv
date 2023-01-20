@@ -11,7 +11,7 @@ H2 central production,gas,natural gas steam reforming,regional natural gas
 H2 central production,gas,natural gas steam reforming CCS,regional natural gas
 H2 central production,biomass,biomass to H2,regional biomass
 H2 central production,biomass,biomass to H2 CCS,regional biomass
-H2 central production,nuclear,thermal splitting,nuclearFuelGenIII
+H2 central production,nuclear,electrolysis,nuclearFuelGenIII
 H2 central production,electricity,electrolysis,elect_td_ind
 H2 central production,wind,electrolysis,onshore wind resource
 H2 central production,solar,electrolysis,global solar resource

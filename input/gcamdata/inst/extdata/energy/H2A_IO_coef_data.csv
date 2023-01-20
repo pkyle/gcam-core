@@ -23,7 +23,7 @@ H2 central production,gas,natural gas steam reforming,regional natural gas,GJ in
 H2 central production,gas,natural gas steam reforming,elect_td_ind,GJ in /kg H2 out,0.00205,0.00216,
 H2 central production,gas,natural gas steam reforming CCS,regional natural gas,GJ in /kg H2 out,0.16437,0.16437,
 H2 central production,gas,natural gas steam reforming CCS,elect_td_ind,GJ in /kg H2 out,0.00235,0.00235,
-H2 central production,nuclear,thermal splitting,nuclearFuelGenIII,GJ in /kg H2 out,0.38336,0.38336,2040 efficiency assumed to be the same as 2015. Equals the sum of electricity and thermal energy requirements (GJ). Electricity is assumed to be produced by the nuclear plant (3.003 GJ of nuclear thermal heat per GJ of electricity). Source: H2A 2008.
+H2 central production,nuclear,electrolysis,nuclearFuelGenIII,GJ in /kg H2 out,0.457,0.42777,Method of electrolysis used: solid oxide electrolysis using thermal + electrical energy from nuclear.  Assumes 3 GJ thermal energy per GJ electricity for primary energy accounting purposes
 H2 industrial,onsite production,electrolysis,elect_td_ind,GJ hydrogen output / GJ input,0.61158,0.66386,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
 H2 wholesale dispensing,forecourt production,electrolysis,elect_td_trn,GJ hydrogen output / GJ input,0.61158,0.66386,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
 H2 wholesale dispensing,forecourt production,natural gas steam reforming,delivered gas,GJ in /kg H2 out,0.16437,0.15382,
@@ -37,7 +37,7 @@ H2 central production,solar,electrolysis,water_td_ind_C,gal / kgH2 out,4.76,3.98
 H2 central production,wind,electrolysis,water_td_ind_C,gal / kgH2 out,4.76,3.98,
 H2 central production,gas,natural gas steam reforming,water_td_ind_C,gal / kgH2 out,4.296129518,4.296129518,Assume the fraction of cooling water that is consumed is equal to that of the recirculating gas (steam/CT) technology from electricity sector
 H2 central production,gas,natural gas steam reforming CCS,water_td_ind_C,gal / kgH2 out,4.493433908,4.493433908,Assume the fraction of cooling water that is consumed is equal to that of the recirculating gas (CC CCS) technology from electricity sector
-H2 central production,nuclear,thermal splitting,water_td_ind_C,gal / kgH2 out,2.3609,2.3609,
+H2 central production,nuclear,electrolysis,water_td_ind_C,gal / kgH2 out,2.3609,2.3609,
 H2 wholesale dispensing,forecourt production,electrolysis,water_td_ind_C,gal / kgH2 out,4.76,3.98,
 H2 wholesale dispensing,forecourt production,natural gas steam reforming,water_td_ind_C,gal / kgH2 out,5.77,4.38,
 H2 industrial,onsite production,electrolysis,water_td_ind_C,gal / kgH2 out,4.76,3.98,
@@ -50,7 +50,7 @@ H2 central production,solar,electrolysis,water_td_ind_W,gal / kgH2 out,4.76,3.98
 H2 central production,wind,electrolysis,water_td_ind_W,gal / kgH2 out,4.76,3.98,
 H2 central production,gas,natural gas steam reforming,water_td_ind_W,gal / kgH2 out,4.85,4.85,
 H2 central production,gas,natural gas steam reforming CCS,water_td_ind_W,gal / kgH2 out,4.85,4.85,
-H2 central production,nuclear,thermal splitting,water_td_ind_W,gal / kgH2 out,2.3609,2.3609,
+H2 central production,nuclear,electrolysis,water_td_ind_W,gal / kgH2 out,2.3609,2.3609,
 H2 wholesale dispensing,forecourt production,electrolysis,water_td_ind_W,gal / kgH2 out,4.76,3.98,
 H2 wholesale dispensing,forecourt production,natural gas steam reforming,water_td_ind_W,gal / kgH2 out,5.77,4.38,
 H2 industrial,onsite production,electrolysis,water_td_ind_W,gal / kgH2 out,4.76,3.98,

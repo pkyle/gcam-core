@@ -10,6 +10,6 @@ H2 central production,gas,natural gas steam reforming,,1
 H2 central production,gas,natural gas steam reforming CCS,,1
 H2 central production,biomass,biomass to H2,,1
 H2 central production,biomass,biomass to H2 CCS,,1
-H2 central production,nuclear,thermal splitting,nuclear-H2,
+H2 central production,nuclear,electrolysis,nuclear-H2,
 H2 central production,wind,electrolysis,wind-H2,
 H2 central production,solar,electrolysis,solar-H2,

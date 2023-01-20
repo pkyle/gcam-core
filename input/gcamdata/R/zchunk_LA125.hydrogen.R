@@ -215,7 +215,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
      #   improvement from GCAM power sector for Gen_III reactors
 
     H2A_NE_cost_add_2015_techs %>%
-       mutate(max_improvement = if_else(technology == "thermal splitting", elec_nuclear_cost_improvement$max_improvement,
+       mutate(max_improvement = if_else(subsector.name == "nuclear", elec_nuclear_cost_improvement$max_improvement,
                                         max_improvement)) -> H2A_NE_cost_add_nuclear
 
 
@@ -351,7 +351,6 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       filter(!(technology %in% c("coal chemical", "biomass to H2 CCS"))) %>%
       bind_rows(add_coal_and_bio_eff) %>%
       mutate(max_improvement = round(improvement_to_2040 + 0.1, 2),
-             max_improvement = if_else(subsector.name == "nuclear", 0, max_improvement),
              max_improvement = if_else(technology == "coal chemical", 0.075, max_improvement),                #     Coal w/o CCS max improvement set to 7.5%
              max_improvement = if_else( minicam.energy.input %in% c( "water_td_ind_W", "water_td_ind_C" ),    #     Water coefs see no improvement past 2040 H2A assumptions
                                         improvement_to_2040, max_improvement ) ) -> H2A_eff_add_2015_techs
@@ -385,7 +384,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       mutate(value = case_when(year<2015 ~ value[year == 2015],
                                (year>=2015) ~ value[year == 2015]*(1 + improvement_rate) ^ (year - 2015),
                                year >= 2040 ~ value[year == 2040]*(1 + improvement_rate_post_2040)^(year - 2040)),
-             value = case_when(technology == 'coal chemical' & year>2015~value[year == 2015]*(1 + improvement_rate) ^ (year - 2015),
+             value = case_when(technology == 'coal chemical' & year>2015 ~ value[year == 2015]*(1 + improvement_rate) ^ (year - 2015),
                                TRUE~value))%>%
       mutate( improve_max = case_when( ( year >= 1975 ) ~ ( value[ year == 2015] * ( 1 + max_improvement ) ) ) ) %>%
       mutate( value = if_else( value > improve_max & improvement_rate > 0, improve_max, value ), # set to max improvement value if exceeded
