@@ -21,8 +21,8 @@ H2 central production,solar,electrolysis,global solar resource,GJ hydrogen outpu
 H2 central production,wind,electrolysis,onshore wind resource,GJ hydrogen output / GJ input,0.61496,0.66518,Method of electrolysis utilized: PEM Electrolysis powered by solar wind created electricity.Efficiency is equivalent to central electrolysis.
 H2 central production,gas,natural gas steam reforming,regional natural gas,GJ in /kg H2 out,0.16484,0.16458,
 H2 central production,gas,natural gas steam reforming,elect_td_ind,GJ in /kg H2 out,0.00205,0.00216,
-H2 central production,gas,natural gas steam reforming CCS,regional natural gas,GJ in /kg H2 out,0.16437,0.16437,
-H2 central production,gas,natural gas steam reforming CCS,elect_td_ind,GJ in /kg H2 out,0.00235,0.00235,
+H2 central production,gas,gas ATR CCS,regional natural gas,GJ in /kg H2 out,0.166352589,0.166352589,Assumes improvement from H2A gas SMR + CCS
+H2 central production,gas,gas ATR CCS,elect_td_ind,GJ in /kg H2 out,0.012581673,0.012581673,Assumes improvement from H2A gas SMR + CCS
 H2 central production,nuclear,electrolysis,electricity,GJ in /kg H2 out,0.13248,0.12636,Method of electrolysis used: solid oxide electrolysis using thermal + electrical energy from nuclear. 
 H2 central production,nuclear,electrolysis,thermal,GJ in /kg H2 out,0.059,0.048532569,Method of electrolysis used: solid oxide electrolysis using thermal + electrical energy from nuclear. 
 H2 industrial,onsite production,electrolysis,elect_td_ind,GJ hydrogen output / GJ input,0.61158,0.66386,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
@@ -37,7 +37,7 @@ H2 central production,electricity,electrolysis,water_td_ind_C,gal / kgH2 out,4.7
 H2 central production,solar,electrolysis,water_td_ind_C,gal / kgH2 out,4.76,3.98,
 H2 central production,wind,electrolysis,water_td_ind_C,gal / kgH2 out,4.76,3.98,
 H2 central production,gas,natural gas steam reforming,water_td_ind_C,gal / kgH2 out,4.296129518,4.296129518,Assume the fraction of cooling water that is consumed is equal to that of the recirculating gas (steam/CT) technology from electricity sector
-H2 central production,gas,natural gas steam reforming CCS,water_td_ind_C,gal / kgH2 out,4.493433908,4.493433908,Assume the fraction of cooling water that is consumed is equal to that of the recirculating gas (CC CCS) technology from electricity sector
+H2 central production,gas,gas ATR CCS,water_td_ind_C,gal / kgH2 out,8.12,8.12,
 H2 central production,nuclear,electrolysis,water_td_ind_C,gal / kgH2 out,2.3609,2.3609,
 H2 wholesale dispensing,forecourt production,electrolysis,water_td_ind_C,gal / kgH2 out,4.76,3.98,
 H2 wholesale dispensing,forecourt production,natural gas steam reforming,water_td_ind_C,gal / kgH2 out,5.77,4.38,
@@ -50,7 +50,7 @@ H2 central production,electricity,electrolysis,water_td_ind_W,gal / kgH2 out,4.7
 H2 central production,solar,electrolysis,water_td_ind_W,gal / kgH2 out,4.76,3.98,
 H2 central production,wind,electrolysis,water_td_ind_W,gal / kgH2 out,4.76,3.98,
 H2 central production,gas,natural gas steam reforming,water_td_ind_W,gal / kgH2 out,4.85,4.85,
-H2 central production,gas,natural gas steam reforming CCS,water_td_ind_W,gal / kgH2 out,4.85,4.85,
+H2 central production,gas,gas ATR CCS,water_td_ind_W,gal / kgH2 out,8.12,8.12,
 H2 central production,nuclear,electrolysis,water_td_ind_W,gal / kgH2 out,2.3609,2.3609,
 H2 wholesale dispensing,forecourt production,electrolysis,water_td_ind_W,gal / kgH2 out,4.76,3.98,
 H2 wholesale dispensing,forecourt production,natural gas steam reforming,water_td_ind_W,gal / kgH2 out,5.77,4.38,

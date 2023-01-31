@@ -356,7 +356,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       #      Set improvement rate post 2040 to pre-2040 improvement
             improvement_rate_post_2040 = improvement_rate,
       #      Post 2040 improvement rate for central NG w/ and w/o CCS set to 0.3%
-            improvement_rate_post_2040 = if_else(sector.name == "H2 central production" & technology %in% c("natural gas steam reforming","natural gas steam reforming CCS"),0.003,
+            improvement_rate_post_2040 = if_else(sector.name == "H2 central production" & technology %in% c("natural gas steam reforming","gas ATR CCS"),0.003,
                                                  improvement_rate_post_2040),
       #      Post 2040 improvement rate for forecourt NG set to 0.45%
             improvement_rate_post_2040 = if_else(subsector.name == "forecourt production" & technology == "natural gas steam reforming", 0.0045,

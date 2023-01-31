@@ -12,7 +12,7 @@ supplysector,subsector,technology,year,lifetime,half.life,steepness,median.shutd
 H2 central production,coal,coal chemical,initial-future-year,40,30,0.1,-0.1,6
 H2 central production,coal,coal chemical CCS,initial-future-year,40,30,0.1,-0.1,6
 H2 central production,gas,natural gas steam reforming,initial-future-year,40,30,0.1,-0.1,6
-H2 central production,gas,natural gas steam reforming CCS,initial-future-year,40,30,0.1,-0.1,6
+H2 central production,gas,gas ATR CCS,initial-future-year,40,30,0.1,-0.1,6
 H2 central production,biomass,biomass to H2,initial-future-year,40,30,0.1,-0.1,6
 H2 central production,biomass,biomass to H2 CCS,initial-future-year,40,30,0.1,-0.1,6
 H2 central production,nuclear,electrolysis,initial-future-year,40,30,0.1,-0.1,6

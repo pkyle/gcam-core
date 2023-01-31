@@ -7,7 +7,7 @@ supplysector,subsector,technology,1971,2010,2015,2020,2025,2030,2100
 H2 central production,coal,coal chemical,0,0,0,0,0,0,0
 H2 central production,coal,coal chemical CCS,0,0,0,0,0.5,1,1
 H2 central production,gas,natural gas steam reforming,1,1,1,1,1,1,1
-H2 central production,gas,natural gas steam reforming CCS,0,0,0,0,0.5,1,1
+H2 central production,gas,gas ATR CCS,0,0,0,0,0.5,1,1
 H2 central production,biomass,biomass to H2,1,1,1,1,1,1,1
 H2 central production,biomass,biomass to H2 CCS,0,0,0,0,0.5,1,1
 H2 central production,nuclear,electrolysis,1,1,1,1,1,1,1
