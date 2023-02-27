@@ -24,7 +24,7 @@ module_energy_LA1323.iron_steel <- function(command, ...) {
              FILE = "energy/steel_intensity",
              FILE = "common/iso_GCAM_regID",
              FILE = "energy/mappings/enduse_fuel_aggregation",
-             "L1011.en_bal_EJ_R_Si_Fi_Yh",
+             "L1012.en_bal_EJ_R_Si_Fi_Yh",
              "L1322.in_EJ_R_indenergy_F_Yh"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L1323.out_Mt_R_iron_steel_Yh",
@@ -45,7 +45,7 @@ module_energy_LA1323.iron_steel <- function(command, ...) {
     All_steel <- get_data(all_data, "energy/steel_prod")
     steel_intensity <- get_data(all_data, "energy/steel_intensity", strip_attributes = TRUE)
     L1322.in_EJ_R_indenergy_F_Yh <- get_data(all_data, "L1322.in_EJ_R_indenergy_F_Yh", strip_attributes = TRUE)
-    L1011.en_bal_EJ_R_Si_Fi_Yh <- get_data(all_data, "L1011.en_bal_EJ_R_Si_Fi_Yh", strip_attributes = TRUE)
+    L1012.en_bal_EJ_R_Si_Fi_Yh <- get_data(all_data, "L1012.en_bal_EJ_R_Si_Fi_Yh", strip_attributes = TRUE)
     iso_GCAM_regID <- get_data(all_data, "common/iso_GCAM_regID")
     enduse_fuel_aggregation <- get_data(all_data, "energy/mappings/enduse_fuel_aggregation")
 
@@ -71,7 +71,7 @@ module_energy_LA1323.iron_steel <- function(command, ...) {
       L1323.out_Mt_R_iron_steel_Yh
 
     # Get steel energy use from IEA energy balances
-    L1011.en_bal_EJ_R_Si_Fi_Yh %>%
+    L1012.en_bal_EJ_R_Si_Fi_Yh %>%
       filter(grepl("steel", sector)) %>%
       group_by(GCAM_region_ID, fuel, year) %>%
       summarise(value = sum(value)) %>%
@@ -93,7 +93,7 @@ module_energy_LA1323.iron_steel <- function(command, ...) {
     L1323.out_Mt_R_iron_steel_Yh %>%
       rename(output = value) %>%
       left_join(steel_intensity %>% select(-subsector), by = c("subsector"="technology")) %>%
-      dplyr::mutate(value = value * CONV_GJ_EJ / CONV_T_MT,
+      mutate(value = value * CONV_GJ_EJ / CONV_T_MT,
                     energy_use = output * value,
                     unit = "EJ") ->
       Intensity_literature
@@ -104,15 +104,15 @@ module_energy_LA1323.iron_steel <- function(command, ...) {
       dplyr::summarise(energy_use = sum(energy_use)) %>%
       ungroup() %>%
       left_join(en_steel %>% select(GCAM_region_ID, year, fuel, value),by = c("GCAM_region_ID","fuel",  "year")) %>%
-      dplyr::mutate(value = replace_na(value,0),
-                    scalar = replace_na(value / energy_use, 1)) %>%
-      dplyr::mutate(scalar = if_else(energy_use == 0 & value > 0, 1, scalar))->
+      mutate(value = replace_na(value,0),
+             scalar = replace_na(value / energy_use, 1),
+             scalar = if_else(energy_use == 0 & value > 0, 1, scalar)) ->
       Scaler
 
     # Intensity scaled = Intensity from the literature times scaler.
     Intensity_literature %>%
       left_join(Scaler %>% select(GCAM_region_ID, year, fuel, scalar),by = c("GCAM_region_ID", "fuel", "year")) %>%
-      dplyr::mutate(coefficient = value * scalar) %>%
+      mutate(coefficient = value * scalar) %>%
       select(GCAM_region_ID, year, subsector, fuel, coefficient, Unit) ->
       Intensity_scaled
 
@@ -145,8 +145,8 @@ module_energy_LA1323.iron_steel <- function(command, ...) {
                   group_by(GCAM_region_ID, year, fuel) %>%
                   summarise(value = sum(value)), by = c("GCAM_region_ID", "year", "fuel")) %>%
       ungroup() %>%
-      mutate(value = replace_na(value,0)) %>%
-      mutate(value = raw - value , raw = NULL) ->
+      mutate(value = replace_na(value,0),
+             value = raw - value , raw = NULL) ->
       L1323.in_EJ_R_indenergy_F_Yh_tmp
 
     L1323.in_EJ_R_indenergy_F_Yh_tmp %>%
@@ -206,7 +206,7 @@ module_energy_LA1323.iron_steel <- function(command, ...) {
       add_units("GJ/kg steel") %>%
       add_comments("IO coefficients for steel") %>%
       add_legacy_name("L1323.IO_GJkg_R_iron_steel_F_Yh") %>%
-      add_precursors( "energy/steel_prod", "energy/steel_intensity", "L1011.en_bal_EJ_R_Si_Fi_Yh", "energy/mappings/enduse_fuel_aggregation") ->
+      add_precursors( "energy/steel_prod", "energy/steel_intensity", "L1012.en_bal_EJ_R_Si_Fi_Yh", "energy/mappings/enduse_fuel_aggregation") ->
       L1323.IO_GJkg_R_iron_steel_F_Yh
 
     L1323.in_EJ_R_iron_steel_F_Y %>%
@@ -214,7 +214,7 @@ module_energy_LA1323.iron_steel <- function(command, ...) {
       add_units("Exajoules") %>%
       add_comments("Calculated by steel production and IO coefficients") %>%
       add_legacy_name("L1323.in_EJ_R_iron_steel_F_Y") %>%
-      add_precursors("energy/steel_prod","energy/steel_intensity", "L1011.en_bal_EJ_R_Si_Fi_Yh", "energy/mappings/enduse_fuel_aggregation") ->
+      add_precursors("energy/steel_prod","energy/steel_intensity", "L1012.en_bal_EJ_R_Si_Fi_Yh", "energy/mappings/enduse_fuel_aggregation") ->
       L1323.in_EJ_R_iron_steel_F_Y
 
     L1323.in_EJ_R_indenergy_F_Yh %>%
@@ -223,7 +223,7 @@ module_energy_LA1323.iron_steel <- function(command, ...) {
       add_comments("Subtracted iron and steel energy use from industrial energy use values in L1322.in_EJ_R_indenergy_F_Yh") %>%
       add_comments("To determine adjusted input energy for industrial energy use") %>%
       add_legacy_name("L1323.in_EJ_R_indenergy_F_Yh") %>%
-      add_precursors("L1322.in_EJ_R_indenergy_F_Yh", "energy/steel_prod", "L1011.en_bal_EJ_R_Si_Fi_Yh", "energy/mappings/enduse_fuel_aggregation") ->
+      add_precursors("L1322.in_EJ_R_indenergy_F_Yh", "energy/steel_prod", "L1012.en_bal_EJ_R_Si_Fi_Yh", "energy/mappings/enduse_fuel_aggregation") ->
       L1323.in_EJ_R_indenergy_F_Yh
 
     return_data(L1323.out_Mt_R_iron_steel_Yh, L1323.IO_GJkg_R_iron_steel_F_Yh, L1323.in_EJ_R_iron_steel_F_Y, L1323.in_EJ_R_indenergy_F_Yh)

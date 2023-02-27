@@ -365,7 +365,9 @@ module_energy_LA125.hydrogen <- function(command, ...) {
 
     H2A_eff_add_2015_techs %>%
       #      Forecourt electrolysis max improvement = central electrolysis max improvement - 1%
-      mutate(max_improvement = if_else(subsector.name %in% c("onsite production", "forecourt production") & technology == "electrolysis" & !(minicam.energy.input %in% c( "water_td_ind_W", "water_td_ind_C" )),
+      mutate(max_improvement = if_else(subsector.name %in% c("onsite production", "forecourt production") &
+                                         technology == "electrolysis" &
+                                         !(minicam.energy.input %in% c( "water_td_ind_W", "water_td_ind_C" )),
                                        central_elec_eff_max_imrpov - 0.01,
                                        max_improvement),
       #      Set improvement rate post 2040 to pre-2040 improvement

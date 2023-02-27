@@ -626,6 +626,7 @@
     <ClCompile Include="..\..\sectors\source\capacity_limit_backup_calculator.cpp" />
     <ClCompile Include="..\..\sectors\source\CSP_backup_calculator.cpp" />
     <ClCompile Include="..\..\sectors\source\energy_final_demand.cpp" />
+    <ClCompile Include="..\..\sectors\source\fixed_final_demand.cpp" />
     <ClCompile Include="..\..\sectors\source\nesting_subsector.cpp" />
     <ClCompile Include="..\..\sectors\source\pass_through_sector.cpp" />
     <ClCompile Include="..\..\sectors\source\sector.cpp" />
@@ -678,6 +679,7 @@
     <ClCompile Include="..\..\technologies\source\cal_data_output_percap.cpp" />
     <ClCompile Include="..\..\technologies\source\default_technology.cpp" />
     <ClCompile Include="..\..\technologies\source\empty_technology.cpp" />
+    <ClCompile Include="..\..\technologies\source\exogenous_shutdown_decider.cpp" />
     <ClCompile Include="..\..\technologies\source\expenditure.cpp" />
     <ClCompile Include="..\..\technologies\source\fixed_production_state.cpp" />
     <ClCompile Include="..\..\technologies\source\fractional_secondary_output.cpp" />
@@ -743,10 +745,8 @@
     <ClCompile Include="..\..\util\curves\source\xy_data_point.cpp" />
     <ClCompile Include="..\..\consumers\source\consumer.cpp" />
     <ClCompile Include="..\..\reporting\source\batch_csv_outputter.cpp" />
-    <ClCompile Include="..\..\reporting\source\energy_balance_table.cpp" />
     <ClCompile Include="..\..\reporting\source\graph_printer.cpp" />
     <ClCompile Include="..\..\reporting\source\land_allocator_printer.cpp" />
-    <ClCompile Include="..\..\reporting\source\storage_table.cpp" />
     <ClCompile Include="..\..\reporting\source\xml_db_outputter.cpp" />
     <ClCompile Include="..\..\climate\source\magicc_model.cpp" />
     <ClCompile Include="..\..\functions\source\aproduction_function.cpp" />
@@ -901,6 +901,7 @@
     <ClInclude Include="..\..\sectors\include\capacity_limit_backup_calculator.h" />
     <ClInclude Include="..\..\sectors\include\CSP_backup_calculator.h" />
     <ClInclude Include="..\..\sectors\include\energy_final_demand.h" />
+    <ClInclude Include="..\..\sectors\include\fixed_final_demand.h" />
     <ClInclude Include="..\..\sectors\include\ibackup_calculator.h" />
     <ClInclude Include="..\..\sectors\include\nesting_subsector.h" />
     <ClInclude Include="..\..\sectors\include\pass_through_sector.h" />
@@ -961,6 +962,7 @@
     <ClInclude Include="..\..\technologies\include\cal_data_output_percap.h" />
     <ClInclude Include="..\..\technologies\include\default_technology.h" />
     <ClInclude Include="..\..\technologies\include\empty_technology.h" />
+    <ClInclude Include="..\..\technologies\include\exogenous_shutdown_decider.h" />
     <ClInclude Include="..\..\technologies\include\expenditure.h" />
     <ClInclude Include="..\..\technologies\include\fixed_production_state.h" />
     <ClInclude Include="..\..\technologies\include\fractional_secondary_output.h" />
@@ -1057,9 +1059,7 @@
     <ClInclude Include="..\..\util\curves\include\xy_data_point.h" />
     <ClInclude Include="..\..\consumers\include\consumer.h" />
     <ClInclude Include="..\..\reporting\include\batch_csv_outputter.h" />
-    <ClInclude Include="..\..\reporting\include\energy_balance_table.h" />
     <ClInclude Include="..\..\reporting\include\graph_printer.h" />
-    <ClInclude Include="..\..\reporting\include\storage_table.h" />
     <ClInclude Include="..\..\reporting\include\xml_db_outputter.h" />
     <ClInclude Include="..\..\functions\include\aproduction_function.h" />
     <ClInclude Include="..\..\functions\include\ces_production_function.h" />

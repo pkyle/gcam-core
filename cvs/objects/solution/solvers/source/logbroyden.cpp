@@ -202,14 +202,21 @@ SolverComponent::ReturnCode LogBroyden::solve(SolutionInfoSet &solnset, int peri
     
     solverLog << "Initial market state:\nmkt    \tprice   \tsupply  \tdemand\n";
     std::vector<SolutionInfo> solvables = solnset.getSolvableSet();
+    bool isAllSolved = true;
     for(size_t i=0; i<solvables.size(); ++i) {
         allCols.push_back(i);
         solverLog << std::setw( 8 ) << i << "\t"
                   << std::setw( 8 ) << solvables[i].getPrice() << "\t"
                   << std::setw( 8 ) << solvables[i].getSupply() << "\t"
                   << std::setw( 8 ) << solvables[i].getDemand()
-                  << "\t\t" << solvables[i].getName() << "\n"; 
-    } 
+                  << "\t\t" << solvables[i].getName() << "\n";
+        isAllSolved &= solvables[i].isSolved();
+    }
+    
+    if( isAllSolved ) {
+        solverLog << "All solvable markets are already solved.  Exiting." << std::endl;
+        return SUCCESS;
+    }
 
     Timer& solverTimer = TimerRegistry::getInstance().getTimer( TimerRegistry::SOLVER );
     solverTimer.start();
@@ -255,12 +262,15 @@ SolverComponent::ReturnCode LogBroyden::solve(SolutionInfoSet &solnset, int peri
     fdjac(F, x, fx, J, allCols, true);
 
     solverLog << ">>>> Main loop jacobian called.\n";
+    UBVECTOR x_Backup(x);
     int pcfail = jacobian_precondition(x, fx, J, F, &solverLog, mLogPricep);
 
     if( pcfail ) {
       solverLog.setLevel(ILogger::WARNING);
       solverLog << "Unable to find nonsingular initial guess for one or more markets.  bsolve() will probably fail.\n";
       solverLog.setLevel(ILogger::DEBUG);
+        x = x_Backup;
+        F(x,fx);
     }
     else {
       solverLog << "Revised guess:\n" << x << "\nRevised F( x ):\n" << fx << "\n";
@@ -494,7 +504,7 @@ int LogBroyden::bsolve(VecFVec &F, UBVECTOR &x, UBVECTOR &fx,
           dxmag = sqrt(dx.dot(dx));
           solverLog << " new dxmag: " << dxmag << std::endl;
       }
-      else if(dxmag > 1000.0) {
+      /*else if(dxmag > 1000.0) {
           // potentially unreliable result, let's put a little more effort
           // in with full pivot LU to hopefully get a more accurate solution
           solverLog << "Attempting full pivot LU instead, old dxmag: " << dxmag;
@@ -503,7 +513,7 @@ int LogBroyden::bsolve(VecFVec &F, UBVECTOR &x, UBVECTOR &fx,
           dx = luFullPiv.solve(-1.0 * fx);
           dxmag = sqrt(dx.dot(dx));
           solverLog << " new dxmag: " << dxmag << std::endl;
-      }
+      }*/
 
     // log the proposal step
     solverLog << "Proposal step magnitude dxmag= " << sqrt(dx.dot(dx)) << "\n\n";
@@ -590,6 +600,7 @@ int LogBroyden::bsolve(VecFVec &F, UBVECTOR &x, UBVECTOR &fx,
       // We're not close enough to the solution, and we don't have a
       // good descent direction.  There are no good options at this point
       // so kick out and hope that the preconditioner can set us straight.
+      F(x, fx);
       solverLog << "linesearch failure\n";
       return -4;
     }
@@ -696,6 +707,7 @@ int LogBroyden::bsolve(VecFVec &F, UBVECTOR &x, UBVECTOR &fx,
         // got a very ill-behaved value in one of the variables.  Kick
         // it out and see if the bracketing routine can fix it.
         solverLog << "Repeated poor progress in Broyden solver.  Returning.\n";
+        F(x, fx);
         return -4;
       }
     }

@@ -344,7 +344,7 @@ module_gcamusa_L271.nonghg_trn_USA <- function(command, ...) {
       num_degrades_entries <- sum(degrades$id == X)
 
       if(num_degrades_entries == 0) {
-        stop("Error: There are 0 entires for this ID.")
+        stop("Error: There are 0 entries for this ID.")
       } else if(num_degrades_entries == 1) {
         # Some IDs only have a single entry. In this case, we want to assign the final emissions coefficient to what it is in the degrades table.
         prediction_table[curr_predict_id, "final.emissions.coefficient"] <<- degrades[degrades$id == X, "value", drop = TRUE]
