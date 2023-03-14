@@ -1,9 +1,9 @@
-# File: OTAQ_trn_data_EMF37.csv 
-# Title: OTAQ-specific assumptions to layer into UCD_trn_data_CORE.csv database 
-# Units: Various 
-# Column types: ccccccccnnnnnnnnnnnnnnnnnnnn 
-# Source: 2021.10.05 Vehicle tables.xlsx workbook. BEV 3-wheeler data from UCD_trn_data_CORE file of CMP 316 
-# ---------- 
+# File: OTAQ_trn_data_EMF37.csv
+# Title: OTAQ-specific assumptions to layer into UCD_trn_data_CORE.csv database
+# Units: Various
+# Column types: ccccccccnnnnnnnnnnnnnnnnnnnn
+# Source: 2023.03.14 Vehicle tables.xlsx workbook. BEV 3-wheeler data from UCD_trn_data_CORE file of CMP 316
+# ----------
 UCD_region,UCD_sector,mode,size.class,UCD_technology,UCD_fuel,variable,unit,2005,2010,2015,2020,2025,2030,2035,2040,2045,2050,2055,2060,2065,2070,2075,2080,2085,2090,2095,2100
 USA,Passenger,LDV_4W,Compact Car,BEV,Electricity,intensity,MJ/vkm,0.7796,0.7769,0.7742,0.7715,0.768833333,0.766166667,0.7635,0.7609,0.7583,0.7557,0.7557,0.7557,0.7557,0.7557,0.7557,0.7557,0.7557,0.7557,0.7557,0.7557
 USA,Passenger,LDV_4W,Compact Car,FCEV,Hydrogen,intensity,MJ/vkm,1.4156,1.3298,1.244,1.1582,1.138233333,1.118266667,1.0983,1.0803,1.0623,1.0443,1.0443,1.0443,1.0443,1.0443,1.0443,1.0443,1.0443,1.0443,1.0443,1.0443
@@ -2580,3 +2580,62 @@ Southeast Asia,Passenger,LDV_3W,Three-Wheeler,BEV,Electricity,energy,PJ/yr,0,0,0
 Southeast Asia,Passenger,LDV_3W,Three-Wheeler,BEV,Electricity,intensity,MJ/vkm,0.596516408,0.507998387,0.424590196,0.357377098,0.38866519,0.427677422,0.395293151,0.36919661,0.355246427,0.337902497,0.335749922,0.333597348,0.331444773,0.329499877,0.327554982,0.325610086,0.323737564,0.321865041,0.319992519,0.319992519
 Southeast Asia,Passenger,LDV_3W,Three-Wheeler,BEV,Electricity,load factor,pers/veh,1.88,1.88,1.88,1.88,1.88,1.88,1.88,1.88,1.88,1.88,1.88,1.88,1.88,1.88,1.88,1.88,1.88,1.88,1.88,1.88
 Southeast Asia,Passenger,LDV_3W,Three-Wheeler,BEV,Electricity,Operating costs (total non-fuel),2005$/veh/yr,111.8233,111.8233,111.8233,111.8233,111.8233,111.8233,111.8233,111.8233,111.8233,111.8233,111.8233,111.8233,111.8233,111.8233,111.8233,111.8233,111.8233,111.8233,111.8233,111.8233
+Africa,Passenger,LDV_4W,Mini Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Africa,Passenger,LDV_4W,Subcompact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Africa,Passenger,LDV_4W,Compact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Africa,Passenger,LDV_4W,Multipurpose Vehicle,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Australia_NZ,Passenger,LDV_4W,Compact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Australia_NZ,Passenger,LDV_4W,Midsize Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Australia_NZ,Passenger,LDV_4W,Large Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Australia_NZ,Passenger,LDV_4W,Light Truck and SUV,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Canada,Passenger,LDV_4W,Midsize Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Canada,Passenger,LDV_4W,Van,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Canada,Passenger,LDV_4W,Light Truck and SUV,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+China,Passenger,LDV_4W,Mini Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+China,Passenger,LDV_4W,Subcompact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+China,Passenger,LDV_4W,Compact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+China,Passenger,LDV_4W,Large Car and SUV,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Eastern Europe,Passenger,LDV_4W,Subcompact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Eastern Europe,Passenger,LDV_4W,Compact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Eastern Europe,Passenger,LDV_4W,Van,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Eastern Europe,Passenger,LDV_4W,Large Car and SUV,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Former Soviet Union,Passenger,LDV_4W,Subcompact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Former Soviet Union,Passenger,LDV_4W,Compact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Former Soviet Union,Passenger,LDV_4W,Midsize Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Former Soviet Union,Passenger,LDV_4W,Large Car and SUV,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+India,Passenger,LDV_4W,Mini Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+India,Passenger,LDV_4W,Subcompact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+India,Passenger,LDV_4W,Compact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+India,Passenger,LDV_4W,Multipurpose Vehicle,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Japan,Passenger,LDV_4W,Mini Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Japan,Passenger,LDV_4W,Subcompact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Japan,Passenger,LDV_4W,Compact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Japan,Passenger,LDV_4W,Large Car and SUV,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Korea,Passenger,LDV_4W,Subcompact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Korea,Passenger,LDV_4W,Compact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Korea,Passenger,LDV_4W,Large Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Korea,Passenger,LDV_4W,Light Truck and SUV,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Latin America,Passenger,LDV_4W,Mini Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Latin America,Passenger,LDV_4W,Subcompact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Latin America,Passenger,LDV_4W,Compact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Latin America,Passenger,LDV_4W,Large Car and SUV,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Middle East,Passenger,LDV_4W,Mini Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Middle East,Passenger,LDV_4W,Subcompact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Middle East,Passenger,LDV_4W,Compact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Middle East,Passenger,LDV_4W,Large Car and SUV,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Southeast Asia,Passenger,LDV_4W,Mini Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Southeast Asia,Passenger,LDV_4W,Subcompact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Southeast Asia,Passenger,LDV_4W,Compact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Southeast Asia,Passenger,LDV_4W,Multipurpose Vehicle,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+USA,Passenger,LDV_4W,Compact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+USA,Passenger,LDV_4W,Midsize Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+USA,Passenger,LDV_4W,Large Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+USA,Passenger,LDV_4W,Light Truck and SUV,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Western Europe,Passenger,LDV_4W,Subcompact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Western Europe,Passenger,LDV_4W,Compact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Western Europe,Passenger,LDV_4W,Van,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Western Europe,Passenger,LDV_4W,Large Car and SUV,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Brazil,Passenger,LDV_4W,Mini Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Brazil,Passenger,LDV_4W,Subcompact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Brazil,Passenger,LDV_4W,Compact Car,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
+Brazil,Passenger,LDV_4W,Large Car and SUV,BEV,Electricity,Capital costs (infrastructure),2005$/veh,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409,1409
