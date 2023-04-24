@@ -4966,6 +4966,13 @@ local:generate-sector-output-coefs(remove($inputNameQueue, 1), $currTree, $coefs
                 <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector']/*[@type='subsector']/*[@type='technology']/*[@type='output']/physical-output/node()</xPath>
                 <comments/>
             </supplyDemandQuery>
+            <supplyDemandQuery title="input-output coefficients by tech">
+                <axis1 name="input">input</axis1>
+                <axis2 name="Year">IO-coefficient[@vintage]</axis2>
+                <xPath buildList="true" dataName="input" group="false" sumAll="false">*[@type='sector']/*[@type='subsector']/*[@type='technology']/*[@type='input']/IO-coefficient[@vintage=parent::*/parent::*/@year]/node()</xPath>
+                <comments/>
+            </supplyDemandQuery>
+
         </queryGroup>
     </queryGroup>
     <queryGroup name="GCAM USA">
