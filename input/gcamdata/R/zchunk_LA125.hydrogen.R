@@ -29,7 +29,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
              "L223.GlobalTechCapital_elec",
              "L223.GlobalTechEff_elec",
              "L223.GlobalTechOMvar_elec",
-             "L223.GlobalTechOMfixed_elec"))
+             "L223.GlobalTechOMfixed_elec",
+             "L223.GlobalTechCapFac_elec"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L125.globaltech_coef",
              "L125.globaltech_cost",
@@ -54,18 +55,24 @@ module_energy_LA125.hydrogen <- function(command, ...) {
     L223.GlobalTechEff_elec <- get_data(all_data, "L223.GlobalTechEff_elec")
     L223.GlobalTechOMvar_elec <- get_data(all_data, "L223.GlobalTechOMvar_elec", strip_attributes = TRUE)
     L223.GlobalTechOMfixed_elec <- get_data(all_data, "L223.GlobalTechOMfixed_elec", strip_attributes = TRUE)
-
+    L223.GlobalTechCapFac_elec <- get_data(all_data, "L223.GlobalTechCapFac_elec", strip_attributes = TRUE)
 
     # ===================================================
 
     # Process data
 
     # A. Calculate base-year cost and energy efficiency ratio of CCS to non CCS for coal and biomass IGCC electricity generation.
+    nonFuelLCOE_elec <- L223.GlobalTechCapital_elec %>%
+      left_join(L223.GlobalTechOMfixed_elec, by = c('sector.name','subsector.name','technology','year')) %>%
+      left_join(L223.GlobalTechCapFac_elec, by = c('sector.name','subsector.name','technology','year')) %>%
+      left_join(L223.GlobalTechOMvar_elec, by = c('sector.name','subsector.name','technology','year')) %>%
+      mutate(nonfuel.LCOE = ( capital.overnight * fixed.charge.rate + OM.fixed ) / (capacity.factor * 365 * 24) + OM.var / 1000) %>%
+      select(sector.name, subsector.name,technology,year, nonfuel.LCOE)
 
-    L223.GlobalTechCapital_elec %>%
+    nonFuelLCOE_elec %>%
       filter(technology %in% c("coal (IGCC)", "coal (IGCC CCS)"),
                      year == 2015) %>%
-      spread(technology, capital.overnight) %>%
+      spread(technology, nonfuel.LCOE) %>%
       rename(coal_IGCC = "coal (IGCC)",coal_IGCC_CCS = "coal (IGCC CCS)") %>%
       mutate(IGCC_CCS_no_CCS_2015_ratio = coal_IGCC_CCS / coal_IGCC) %>%
       select(sector.name, subsector.name, IGCC_CCS_no_CCS_2015_ratio) -> elec_IGCC_2015_cost_ratio
@@ -90,13 +97,13 @@ module_energy_LA125.hydrogen <- function(command, ...) {
 
     # B. Calculate maximum future improvement (2100/2015) of CCS for biomass and coal IGCC electricity technologies
     #    Costs:
-    L223.GlobalTechCapital_elec %>%
+    nonFuelLCOE_elec %>%
       filter(technology %in% c("coal (IGCC)", "coal (IGCC CCS)","biomass (IGCC)", "biomass (IGCC CCS)"),
              year %in% c(2015, 2100)) %>%
       mutate(technology = if_else(technology %in% c("coal (IGCC)", "biomass (IGCC)"), "without_CCS",
                                   if_else(technology %in% c("coal (IGCC CCS)", "biomass (IGCC CCS)"), "with_CCS",
                                           NA_character_))) %>%
-      spread(technology, capital.overnight) %>%
+      spread(technology, nonfuel.LCOE) %>%
       mutate(CCS_add_cost = with_CCS - without_CCS) %>%
       select(sector.name, subsector.name, year, CCS_add_cost) %>%
       spread(year, CCS_add_cost) %>%
@@ -348,9 +355,7 @@ module_energy_LA125.hydrogen <- function(command, ...) {
 
     H2A_eff_add_2015_techs %>%
       #      Forecourt electrolysis max improvement = central electrolysis max improvement - 1%
-      mutate(max_improvement = if_else(subsector.name %in% c("onsite production", "forecourt production") &
-                                         technology == "electrolysis" &
-                                         !(minicam.energy.input %in% c( "water_td_ind_W", "water_td_ind_C" )),
+      mutate(max_improvement = if_else(subsector.name %in% c("onsite production", "forecourt production") & technology == "electrolysis" & !(minicam.energy.input %in% c( "water_td_ind_W", "water_td_ind_C" )),
                                        central_elec_eff_max_imrpov - 0.01,
                                        max_improvement),
       #      Set improvement rate post 2040 to pre-2040 improvement
@@ -514,6 +519,37 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       group_by(sector.name, subsector.name, technology, year, minicam.energy.input, units) %>%
       summarize(value = sum(value)) %>%
       ungroup()
+
+    #harmonize coal and biomass to H2 with IGCC per JIRA issue 451
+    gas_CC_eff <- L223.GlobalTechEff_elec %>%
+      filter(technology %in% c('gas (CC)')) %>%
+      rename(gas.CC.efficiency = efficiency)
+
+    gas_CC_costs <- nonFuelLCOE_elec %>%
+      filter(technology %in% c('gas (CC)')) %>%
+      mutate(nonfuel.LCOE.GJ.gas = nonfuel.LCOE / 0.0036)
+
+    IGCC_costs_elec <- nonFuelLCOE_elec %>%
+      filter(subsector.name %in% c('biomass','coal') & stringr::str_detect(technology,'IGCC')) %>%
+      mutate(nonfuel.LCOE.GJ = nonfuel.LCOE / 0.0036,
+             has_CCS = stringr::str_detect(technology,'CCS'))
+
+    L125.globaltech_cost_adj_IGCC <- L125.globaltech_cost %>%
+      filter(subsector.name %in% c('biomass','coal')) %>%
+      mutate(has_CCS = stringr::str_detect(technology,'CCS')) %>%
+      left_join(gas_CC_eff %>% select(year,gas.CC.efficiency),by = c('year')) %>%
+      left_join(gas_CC_costs %>% select(year,nonfuel.LCOE.GJ.gas), by = c('year')) %>%
+      mutate(H2_CC_adj_cost = cost / gas.CC.efficiency + nonfuel.LCOE.GJ.gas) %>%
+      left_join(IGCC_costs_elec %>% select(-technology,-sector.name), by = c('subsector.name','year','has_CCS')) %>%
+      mutate(H2_CC_adj_cost = if_else(H2_CC_adj_cost < nonfuel.LCOE.GJ,nonfuel.LCOE.GJ,H2_CC_adj_cost),
+             cost = ( H2_CC_adj_cost - nonfuel.LCOE.GJ.gas ) * gas.CC.efficiency)
+      # calculate levelized non-energy costs if the H2 created were run through a gas CC power plant
+      # with its corresponding efficiency and non-fuel cost adder.
+      # and don't let the H2 pathway be cheaper than corresponding IGCC electricity pathway
+
+    L125.globaltech_cost %>%
+      filter(!(subsector.name %in% c('biomass','coal'))) %>%
+      bind_rows(L125.globaltech_cost_adj_IGCC %>% select(colnames(L125.globaltech_cost))) -> L125.globaltech_cost
 
     # ===================================================
     # Produce outputs
