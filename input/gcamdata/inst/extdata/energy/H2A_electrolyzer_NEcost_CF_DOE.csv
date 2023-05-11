@@ -1,0 +1,16 @@
+# File: H2A_electrolyzer_NEcost_CF_DOE.csv
+# Title: H2A non-energy costs of electrolyzers as a function of capacity factor for DOE program goal of $150/kW by 2030
+# Units: 2016$/kg
+# Source: H2A is the DOE EERE Hydrogen program's analysis model (https://www.hydrogen.energy.gov/h2a_analysis.html)
+# Comments: Data provided by Patrick O'Rourke (Green_H2-Electrolyzer-costs-regional_CF-v2-150kW.xlsx)
+# Column types: nnn
+# ----------
+capacity.factor,2015,2030
+0.1,11.13511476,2.25727156
+0.15,7.435357173,1.516115875
+0.2,5.585478378,1.145538033
+0.25,4.475551102,0.923191328
+0.3,3.735599584,0.774960191
+0.35,3.207062785,0.669080807
+0.4,2.810660187,0.58967127
+0.97,1.180096919,0.263027914
