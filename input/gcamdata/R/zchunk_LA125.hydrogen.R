@@ -566,7 +566,8 @@ module_energy_LA125.hydrogen <- function(command, ...) {
       add_units("Unitless") %>%
       add_comments("Interpolated orginal data into all model years") %>%
       add_legacy_name("L225.GlobalTechCost_h2") %>%
-      add_precursors("energy/H2A_NE_cost_data","L223.GlobalTechCapital_elec","L223.GlobalTechOMvar_elec","L223.GlobalTechOMfixed_elec")  ->
+      add_precursors("energy/H2A_NE_cost_data","L223.GlobalTechCapital_elec","L223.GlobalTechOMvar_elec",
+                     "L223.GlobalTechOMfixed_elec", "L223.GlobalTechCapFac_elec")  ->
       L125.globaltech_cost
 
     L125.Electrolyzer_IdleRatio_Params %>%
