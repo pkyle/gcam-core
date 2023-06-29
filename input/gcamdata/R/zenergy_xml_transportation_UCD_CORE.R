@@ -37,7 +37,6 @@ module_energy_transportation_UCD_CORE_xml <- function(command, ...) {
              "L254.GlobalTranTechInterp",
              "L254.GlobalTranTechShrwt",
              "L254.GlobalTranTechSCurve",
-             "L254.GlobalTranTechProfitShutdown",
              "L254.StubTranTechCalInput",
              "L254.StubTranTechLoadFactor",
              "L254.StubTranTechCost",
@@ -89,7 +88,6 @@ module_energy_transportation_UCD_CORE_xml <- function(command, ...) {
     L254.GlobalTranTechInterp <- get_data(all_data, "L254.GlobalTranTechInterp")
     L254.GlobalTranTechShrwt <- get_data(all_data, "L254.GlobalTranTechShrwt")
     L254.GlobalTranTechSCurve <- get_data(all_data, "L254.GlobalTranTechSCurve")
-    L254.GlobalTranTechProfitShutdown <- get_data(all_data, "L254.GlobalTranTechProfitShutdown")
     L254.StubTranTechCalInput <- get_data(all_data, "L254.StubTranTechCalInput")
 
 
@@ -234,7 +232,6 @@ module_energy_transportation_UCD_CORE_xml <- function(command, ...) {
                        "L254.GlobalTranTechInterp",
                        "L254.GlobalTranTechShrwt",
                        "L254.GlobalTranTechSCurve",
-                       "L254.GlobalTranTechProfitShutdown",
                        "L254.StubTranTechCalInput",
                        "L254.StubTranTechLoadFactor",
                        "L254.StubTranTechCost",
