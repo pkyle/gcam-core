@@ -335,11 +335,6 @@ module_gcamusa_L271.nonghg_trn <- function(command, ...) {
       distinct() %>%
       rename(year = end.year)
 
-    # invisible(lapply(X = as.list(prediction_table$id), FUN = function(X){
-    #
-    #   prediction_table[prediction_table$id == X, "final.emissions.coefficient"]  <<- predict.lm(model_rslt[[X]], newdata = prediction_table[prediction_table$id == X, ])
-    #
-    # }))
     invisible(lapply(X = as.list(prediction_table$id), FUN = function(X){
 
       curr_predict_id <- prediction_table$id == X
