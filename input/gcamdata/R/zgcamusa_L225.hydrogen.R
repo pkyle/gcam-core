@@ -115,8 +115,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
       select(region, supplysector, subsector, stub.technology, year, minicam.energy.input) ->
       L225.DeleteStubTechMinicamEnergyInput_H2_USA
 
-    #### TEMPORARY  ####
-    # re-create H2 industrial tech in USA region with disaggregated subsectors in each state
+    # create "H2 industrial" supplysector in USA region with subsectors/technologies for each state
     L225.Supplysector_h2_ind_USA <- L225.Supplysector_h2_USA %>%
       filter(supplysector == 'H2 industrial') %>%
       mutate(region = gcam.USA_REGION)
@@ -128,22 +127,24 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
              region = gcam.USA_REGION)
 
     L225.PopShrwts <- L201.Pop_GCAMUSA %>%
-      #filter(year == 2020) %>%
       group_by(year) %>%
       mutate(popShrwt = totalPop / sum(totalPop)) %>%
       ungroup()
 
+    # These share-weights are revised each model time period, according to the population share over time.
+    # Full_join is used as an expanding join is wanted here (expanding by year)
     L225.SubsectorShrwtFllt_h2_ind_USA <- L225.SubsectorShrwtFllt_h2_USA %>%
       filter(supplysector == 'H2 industrial') %>%
       distinct(region,year.fillout,.keep_all=TRUE) %>%
-      left_join(L225.PopShrwts, by = c('region')) %>%
+      full_join(L225.PopShrwts, by = c('region')) %>%
       mutate(subsector = paste0(region,' ',supplysector),
              region = gcam.USA_REGION,
              share.weight = if_else(as.numeric(share.weight) != 0, round(popShrwt,energy.DIGITS_SHRWT), as.numeric(share.weight)))
 
+    # Full_join is used here in order to expand a global technology table by region (state)
     L225.TechCoef_h2_ind_USA <- L225.GlobalTechCoef_h2 %>%
       filter(sector.name == 'H2 industrial') %>%
-      left_join(states_subregions %>%
+      full_join(states_subregions %>%
                   select(state) %>%
                   mutate(sector.name = 'H2 industrial'),by = c('sector.name')) %>%
       distinct(state,year,.keep_all=TRUE) %>%

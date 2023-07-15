@@ -63,9 +63,9 @@ module_energy_L125.hydrogen <- function(command, ...) {
 
     # A. Calculate base-year cost and energy efficiency ratio of CCS to non CCS for coal and biomass IGCC electricity generation.
     nonFuelLCOE_elec <- L223.GlobalTechCapital_elec %>%
-      left_join(L223.GlobalTechOMfixed_elec, by = c('sector.name','subsector.name','technology','year')) %>%
-      left_join(L223.GlobalTechCapFac_elec, by = c('sector.name','subsector.name','technology','year')) %>%
-      left_join(L223.GlobalTechOMvar_elec, by = c('sector.name','subsector.name','technology','year')) %>%
+      left_join_error_no_match(L223.GlobalTechOMfixed_elec, by = c('sector.name','subsector.name','technology','year')) %>%
+      left_join_error_no_match(L223.GlobalTechCapFac_elec, by = c('sector.name','subsector.name','technology','year')) %>%
+      left_join_error_no_match(L223.GlobalTechOMvar_elec, by = c('sector.name','subsector.name','technology','year')) %>%
       mutate(nonfuel.LCOE = ( capital.overnight * fixed.charge.rate + OM.fixed ) / (capacity.factor * 365 * 24) + OM.var / 1000) %>%
       select(sector.name, subsector.name,technology,year, nonfuel.LCOE)
 
@@ -526,20 +526,20 @@ module_energy_L125.hydrogen <- function(command, ...) {
 
     gas_CC_costs <- nonFuelLCOE_elec %>%
       filter(technology %in% c('gas (CC)')) %>%
-      mutate(nonfuel.LCOE.GJ.gas = nonfuel.LCOE / 0.0036)
+      mutate(nonfuel.LCOE.GJ.gas = nonfuel.LCOE / CONV_KWH_GJ)
 
     IGCC_costs_elec <- nonFuelLCOE_elec %>%
       filter(subsector.name %in% c('biomass','coal') & stringr::str_detect(technology,'IGCC')) %>%
-      mutate(nonfuel.LCOE.GJ = nonfuel.LCOE / 0.0036,
+      mutate(nonfuel.LCOE.GJ = nonfuel.LCOE / CONV_KWH_GJ,
              has_CCS = stringr::str_detect(technology,'CCS'))
 
     L125.globaltech_cost_adj_IGCC <- L125.globaltech_cost %>%
       filter(subsector.name %in% c('biomass','coal')) %>%
       mutate(has_CCS = stringr::str_detect(technology,'CCS')) %>%
-      left_join(gas_CC_eff %>% select(year,gas.CC.efficiency),by = c('year')) %>%
-      left_join(gas_CC_costs %>% select(year,nonfuel.LCOE.GJ.gas), by = c('year')) %>%
+      left_join_error_no_match(gas_CC_eff %>% select(year,gas.CC.efficiency),by = c('year')) %>%
+      left_join_error_no_match(gas_CC_costs %>% select(year,nonfuel.LCOE.GJ.gas), by = c('year')) %>%
       mutate(H2_CC_adj_cost = cost / gas.CC.efficiency + nonfuel.LCOE.GJ.gas) %>%
-      left_join(IGCC_costs_elec %>% select(-technology,-sector.name), by = c('subsector.name','year','has_CCS')) %>%
+      left_join_error_no_match(IGCC_costs_elec %>% select(-technology,-sector.name), by = c('subsector.name','year','has_CCS')) %>%
       mutate(H2_CC_adj_cost = if_else(H2_CC_adj_cost < nonfuel.LCOE.GJ,nonfuel.LCOE.GJ,H2_CC_adj_cost),
              cost = ( H2_CC_adj_cost - nonfuel.LCOE.GJ.gas ) * gas.CC.efficiency)
       # calculate levelized non-energy costs if the H2 created were run through a gas CC power plant
