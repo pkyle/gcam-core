@@ -20,5 +20,8 @@ H2 central production,electricity,electrolysis,initial-future-year,40,30,0.1,-0.
 H2 central production,wind,electrolysis,initial-future-year,40,30,0.1,-0.1,6
 H2 central production,solar,electrolysis,initial-future-year,40,30,0.1,-0.1,6
 H2 industrial,onsite production,electrolysis,initial-future-year,20,15,0.1,-0.1,6
-H2 wholesale dispensing,forecourt production,natural gas steam reforming,initial-future-year,20,15,0.1,-0.1,6
-H2 wholesale dispensing,forecourt production,electrolysis,initial-future-year,20,15,0.1,-0.1,6
+H2 LDV,onsite production,natural gas steam reforming,initial-future-year,20,15,0.1,-0.1,6
+H2 LDV,onsite production,electrolysis,initial-future-year,20,15,0.1,-0.1,6
+H2 MHDV,onsite production,natural gas steam reforming,initial-future-year,20,15,0.1,-0.1,6
+H2 MHDV,onsite production,electrolysis,initial-future-year,20,15,0.1,-0.1,6
+LH2,onsite production,electrolysis,initial-future-year,20,15,0.1,-0.1,6

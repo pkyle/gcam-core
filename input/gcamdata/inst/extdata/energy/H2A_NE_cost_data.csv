@@ -17,5 +17,9 @@ H2 central production,gas,natural gas steam reforming,non-energy,$2016/kg H2,0.3
 H2 central production,gas,gas ATR CCS,non-energy,$2016/kg H2,0.6649,0.6413,0.0355,0.14,Assumes improvement from H2A gas SMR + CCS
 H2 central production,nuclear,electrolysis,electrolyzer,$2016/kg H2,1.59,0.64,0.5975,,Non-energy costs for electrolyzer only from H2A central solid oxide electrolysis technology (capital costs + fixed O&M only)  Additional costs associated with nuclear electricity generation are added downstream
 H2 industrial,onsite production,electrolysis,non-energy,$2016/kg H2,1.2889,0.5395,0.5815,0.68,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
-H2 wholesale dispensing,forecourt production,electrolysis,production,$2016/kg H2,1.2889,0.5395,0.5815,0.68,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
-H2 wholesale dispensing,forecourt production,natural gas steam reforming,production,$2016/kg H2,0.7251,0.6875,0.0518,0.15,Forecourt model for larger (1500kG/H2/day) plant
+H2 LDV,onsite production,electrolysis,production,$2016/kg H2,1.2889,0.5395,0.5815,0.68,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
+H2 LDV,onsite production,natural gas steam reforming,production,$2016/kg H2,0.7251,0.6875,0.0518,0.15,Forecourt model for larger (1500kG/H2/day) plant
+H2 MHDHV,onsite production,electrolysis,production,$2016/kg H2,1.2889,0.5395,0.5815,0.68,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
+H2 MHDHV,onsite production,natural gas steam reforming,production,$2016/kg H2,0.7251,0.6875,0.0518,0.15,Forecourt model for larger (1500kG/H2/day) plant
+LH2,onsite production,electrolysis,production,$2016/kg H2,1.2889,0.5395,0.5815,0.68,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
+LH2,onsite production,natural gas steam reforming,production,$2016/kg H2,0.7251,0.6875,0.0518,0.15,Forecourt model for larger (1500kG/H2/day) plant

@@ -26,9 +26,15 @@ H2 central production,gas,gas ATR CCS,elect_td_ind,GJ in /kg H2 out,0.012581673,
 H2 central production,nuclear,electrolysis,electricity,GJ in /kg H2 out,0.13248,0.12636,Method of electrolysis used: solid oxide electrolysis using thermal + electrical energy from nuclear. 
 H2 central production,nuclear,electrolysis,thermal,GJ in /kg H2 out,0.059,0.048532569,Method of electrolysis used: solid oxide electrolysis using thermal + electrical energy from nuclear. 
 H2 industrial,onsite production,electrolysis,elect_td_ind,GJ hydrogen output / GJ input,0.61158,0.66386,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
-H2 wholesale dispensing,forecourt production,electrolysis,elect_td_trn,GJ hydrogen output / GJ input,0.61158,0.66386,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
-H2 wholesale dispensing,forecourt production,natural gas steam reforming,delivered gas,GJ in /kg H2 out,0.16437,0.15382,
-H2 wholesale dispensing,forecourt production,natural gas steam reforming,elect_td_trn,GJ in /kg H2 out,0.004,0.00816,
+H2 LDV,onsite production,electrolysis,elect_td_trn,GJ hydrogen output / GJ input,0.61158,0.66386,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
+H2 LDV,onsite production,natural gas steam reforming,delivered gas,GJ in /kg H2 out,0.16437,0.15382,
+H2 LDV,onsite production,natural gas steam reforming,elect_td_trn,GJ in /kg H2 out,0.004,0.00816,
+H2 MHDV,onsite production,electrolysis,elect_td_trn,GJ hydrogen output / GJ input,0.61158,0.66386,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
+H2 MHDV,onsite production,natural gas steam reforming,delivered gas,GJ in /kg H2 out,0.16437,0.15382,
+H2 MHDV,onsite production,natural gas steam reforming,elect_td_trn,GJ in /kg H2 out,0.004,0.00816,
+LH2,onsite production,electrolysis,elect_td_trn,GJ hydrogen output / GJ input,0.61158,0.66386,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
+LH2,onsite production,natural gas steam reforming,delivered gas,GJ in /kg H2 out,0.16437,0.15382,
+LH2,onsite production,natural gas steam reforming,elect_td_trn,GJ in /kg H2 out,0.004,0.00816,
 H2 central production,biomass,biomass to H2,water_td_ind_C,gal / kgH2 out,3.273902439,3.187804878,Assume 100% process water consumption.  Total cooling water is calculated by subtracting from total WCF from Spath et al (2005) We then calculate the consumed fraction of cooling water by applying the consumption/withdrawal ratio from Mackinack et al for recirculating IGCC power plant
 H2 central production,biomass,biomass to H2 CCS,water_td_ind_C,gal / kgH2 out,3.273902439,3.187804878,Assume 100% process water consumption.  Total cooling water is calculated by subtracting from total WCF from Spath et al (2005) We then calculate the consumed fraction of cooling water by applying the consumption/withdrawal ratio from Mackinack et al for recirculating IGCC power plant
 H2 central production,coal,coal chemical,water_td_ind_C,gal / kgH2 out,10.06010314,10.06010314,
@@ -39,8 +45,12 @@ H2 central production,wind,electrolysis,water_td_ind_C,gal / kgH2 out,4.76,3.98,
 H2 central production,gas,natural gas steam reforming,water_td_ind_C,gal / kgH2 out,4.296129518,4.296129518,Assume the fraction of cooling water that is consumed is equal to that of the recirculating gas (steam/CT) technology from electricity sector
 H2 central production,gas,gas ATR CCS,water_td_ind_C,gal / kgH2 out,8.12,8.12,
 H2 central production,nuclear,electrolysis,water_td_ind_C,gal / kgH2 out,2.3609,2.3609,
-H2 wholesale dispensing,forecourt production,electrolysis,water_td_ind_C,gal / kgH2 out,4.76,3.98,
-H2 wholesale dispensing,forecourt production,natural gas steam reforming,water_td_ind_C,gal / kgH2 out,5.77,4.38,
+H2 LDV,onsite production,electrolysis,water_td_ind_C,gal / kgH2 out,4.76,3.98,
+H2 LDV,onsite production,natural gas steam reforming,water_td_ind_C,gal / kgH2 out,5.77,4.38,
+H2 MHDV,onsite production,electrolysis,water_td_ind_C,gal / kgH2 out,4.76,3.98,
+H2 MHDV,onsite production,natural gas steam reforming,water_td_ind_C,gal / kgH2 out,5.77,4.38,
+LH2,onsite production,electrolysis,water_td_ind_C,gal / kgH2 out,4.76,3.98,
+LH2,onsite production,natural gas steam reforming,water_td_ind_C,gal / kgH2 out,5.77,4.38,
 H2 industrial,onsite production,electrolysis,water_td_ind_C,gal / kgH2 out,4.76,3.98,
 H2 central production,biomass,biomass to H2,water_td_ind_W,gal / kgH2 out,3.37,3.28,Spath et al (2005)
 H2 central production,biomass,biomass to H2 CCS,water_td_ind_W,gal / kgH2 out,3.37,3.28,Spath et al (2005)
@@ -52,6 +62,10 @@ H2 central production,wind,electrolysis,water_td_ind_W,gal / kgH2 out,4.76,3.98,
 H2 central production,gas,natural gas steam reforming,water_td_ind_W,gal / kgH2 out,4.85,4.85,
 H2 central production,gas,gas ATR CCS,water_td_ind_W,gal / kgH2 out,8.12,8.12,
 H2 central production,nuclear,electrolysis,water_td_ind_W,gal / kgH2 out,2.3609,2.3609,
-H2 wholesale dispensing,forecourt production,electrolysis,water_td_ind_W,gal / kgH2 out,4.76,3.98,
-H2 wholesale dispensing,forecourt production,natural gas steam reforming,water_td_ind_W,gal / kgH2 out,5.77,4.38,
+H2 LDV,onsite production,electrolysis,water_td_ind_W,gal / kgH2 out,4.76,3.98,
+H2 LDV,onsite production,natural gas steam reforming,water_td_ind_W,gal / kgH2 out,5.77,4.38,
+H2 MHDV,onsite production,electrolysis,water_td_ind_W,gal / kgH2 out,4.76,3.98,
+H2 MHDV,onsite production,natural gas steam reforming,water_td_ind_W,gal / kgH2 out,5.77,4.38,
+LH2,onsite production,electrolysis,water_td_ind_W,gal / kgH2 out,4.76,3.98,
+LH2,onsite production,natural gas steam reforming,water_td_ind_W,gal / kgH2 out,5.77,4.38,
 H2 industrial,onsite production,electrolysis,water_td_ind_W,gal / kgH2 out,4.76,3.98,

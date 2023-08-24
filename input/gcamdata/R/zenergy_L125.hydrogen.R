@@ -353,8 +353,8 @@ module_energy_L125.hydrogen <- function(command, ...) {
     central_elec_eff_max_imrpov <- central_elec_eff_max_imrpov$max_improvement[1]
 
     H2A_eff_add_2015_techs %>%
-      #      Forecourt electrolysis max improvement = central electrolysis max improvement - 1%
-      mutate(max_improvement = if_else(subsector.name %in% c("onsite production", "forecourt production") & technology == "electrolysis" & !(minicam.energy.input %in% c( "water_td_ind_W", "water_td_ind_C" )),
+      #      Onsite electrolysis max improvement = central electrolysis max improvement - 1%
+      mutate(max_improvement = if_else(subsector.name %in% c("onsite production") & technology == "electrolysis" & !(minicam.energy.input %in% c( "water_td_ind_W", "water_td_ind_C" )),
                                        central_elec_eff_max_imrpov - 0.01,
                                        max_improvement),
       #      Set improvement rate post 2040 to pre-2040 improvement
@@ -362,8 +362,8 @@ module_energy_L125.hydrogen <- function(command, ...) {
       #      Post 2040 improvement rate for central NG w/ and w/o CCS set to 0.3%
             improvement_rate_post_2040 = if_else(sector.name == "H2 central production" & technology %in% c("natural gas steam reforming","gas ATR CCS"),0.003,
                                                  improvement_rate_post_2040),
-      #      Post 2040 improvement rate for forecourt NG set to 0.45%
-            improvement_rate_post_2040 = if_else(subsector.name == "forecourt production" & technology == "natural gas steam reforming", 0.0045,
+      #      Post 2040 improvement rate for onsite NG set to 0.45%
+            improvement_rate_post_2040 = if_else(subsector.name == "onsite production" & technology == "natural gas steam reforming", 0.0045,
                                                  improvement_rate_post_2040)) -> H2A_eff_fix_improv
 
     H2A_eff_fix_improv %>%
