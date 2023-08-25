@@ -590,6 +590,53 @@ module_gcamusa_L244.building <- function(command, ...) {
       mutate(tech.share.weight =  if_else(calibrated.value > 0, 1, 0)) %>%
       select(LEVEL2_DATA_NAMES[["StubTechCalInput"]])
 
+
+    # 10/18/2022 gpk - replace the calibration data with scout data
+    # First, set the category names for matching
+    # 8/24/23 GPK revision - re-set the default technology name of lighting to incandescent
+    L244.in_EJ_state_bld_F_U_tech_fby <- L145.in_EJ_state_bld_F_U_tech_fby %>%
+      rename(supplysector = service) %>%
+      left_join(calibrated_techs_bld_usa %>%
+                  select(sector, supplysector, fuel, subsector, minicam.energy.input) %>%
+                  distinct(), by = c("sector", "supplysector", "fuel")) %>%
+      select(region = state, supplysector, subsector, technology, minicam.energy.input, year, calibrated.value = value) %>%
+      mutate(technology = if_else(technology == "lighting", "incandescent", technology))
+
+    # The Scout data is already disaggregated to "efficiency-partitioned" technologies that don't have the string "hi-eff"
+    # These include heat pumps vs electric resistance for heating and hot water
+    # 8/24/23 GPK - original Scout data submissions included partitioning of incandescent, fluorescent, and solid state lighting
+    # As the current one does not, these techs need to be exogenously partitioned
+    # First, re-set the technology name from "lighting" to "incandescent" which is the technology1 assignment in A44.globaltech_eff_avg
+    L244.in_EJ_state_bld_F_U_techEffPrt_fby <- L244.in_EJ_state_bld_F_U_tech_fby %>%
+      semi_join(filter(A44.globaltech_eff_avg, grepl("hi-eff", technology2) | grepl("lighting", supplysector)),
+                by = c("supplysector", "subsector", technology = "technology1")) %>%
+      inner_join(L244.globaltech_shares, by = c("supplysector", "subsector"),
+                 suffix = c(".scout", ".gcam")) %>%
+      mutate(calibrated.value = calibrated.value * share) %>%
+      select(region, supplysector, subsector, technology = technology.gcam, minicam.energy.input, year, calibrated.value)
+
+    # Calibration values from scout include the technologies whose calibration values aren't partitioned by efficiency,
+    # and those whose values were in the prior block. anti_join to make sure none are duplicated
+    L244.StubTechCalInput_bld_scout <- anti_join(L244.in_EJ_state_bld_F_U_tech_fby,
+                                                   filter(A44.globaltech_eff_avg, grepl("hi-eff", technology2) |
+                                                            grepl("lighting", supplysector)),
+                                                   by = c("supplysector", "subsector", technology = "technology1")) %>%
+      bind_rows(L244.in_EJ_state_bld_F_U_techEffPrt_fby) %>%
+      arrange(region, supplysector, subsector, technology)
+
+    # Join the two calibration tables for comparison and merging
+    L244.StubTechCalInput_bld_gcamusa <- L244.StubTechCalInput_bld_gcamusa %>%
+      select(-share.weight.year, -subs.share.weight, -tech.share.weight) %>%
+      left_join(L244.StubTechCalInput_bld_scout,
+                by = c("region", "supplysector", "subsector", stub.technology = "technology", "minicam.energy.input", "year"),
+                suffix = c(".init", ".revised")) %>%
+      mutate(calibrated.value = round(if_else(is.na(calibrated.value.revised), calibrated.value.init, calibrated.value.revised), digits = energy.DIGITS_CALOUTPUT),
+             share.weight.year = year,
+             tech.share.weight =  if_else(calibrated.value > 0, 1, 0)) %>%
+      set_subsector_shrwt(value_col = "calibrated.value") %>%
+      select(LEVEL2_DATA_NAMES[["StubTechCalInput"]])
+
+
     # L244.GlobalTechShrwt_bld_gcamusa: Default shareweights for global building technologies
     L244.GlobalTechShrwt_bld_gcamusa <- A44.globaltech_shrwt %>%
       gather_years(value_col = "share.weight") %>%
