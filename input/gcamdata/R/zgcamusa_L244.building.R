@@ -605,11 +605,18 @@ module_gcamusa_L244.building <- function(command, ...) {
     # The Scout data is already disaggregated to "efficiency-partitioned" technologies that don't have the string "hi-eff"
     # These include heat pumps vs electric resistance for heating and hot water
     # 8/24/23 GPK - original Scout data submissions included partitioning of incandescent, fluorescent, and solid state lighting
-    # As the current one does not, these techs need to be exogenously partitioned
+    # As the current one (v3) does not, these techs need to be exogenously partitioned
     # First, re-set the technology name from "lighting" to "incandescent" which is the technology1 assignment in A44.globaltech_eff_avg
+    # This data table L244.EffPrtTechsForScout is a workaround to add a "resid lighting / incandescent" row.
+    L244.EffPrtTechsForScout <- A44.globaltech_eff_avg %>%
+      filter(grepl("hi-eff", technology2) | grepl("lighting", supplysector)) %>%
+      bind_rows(filter(A44.globaltech_shares, supplysector == "resid lighting" & technology1 =="incandescent")) %>%
+      select(supplysector, subsector, technology = technology1) %>%
+      distinct()
+
     L244.in_EJ_state_bld_F_U_techEffPrt_fby <- L244.in_EJ_state_bld_F_U_tech_fby %>%
-      semi_join(filter(A44.globaltech_eff_avg, grepl("hi-eff", technology2) | grepl("lighting", supplysector)),
-                by = c("supplysector", "subsector", technology = "technology1")) %>%
+      semi_join(L244.EffPrtTechsForScout,
+                by = c("supplysector", "subsector", "technology")) %>%
       inner_join(L244.globaltech_shares, by = c("supplysector", "subsector"),
                  suffix = c(".scout", ".gcam")) %>%
       mutate(calibrated.value = calibrated.value * share) %>%
@@ -618,9 +625,8 @@ module_gcamusa_L244.building <- function(command, ...) {
     # Calibration values from scout include the technologies whose calibration values aren't partitioned by efficiency,
     # and those whose values were in the prior block. anti_join to make sure none are duplicated
     L244.StubTechCalInput_bld_scout <- anti_join(L244.in_EJ_state_bld_F_U_tech_fby,
-                                                   filter(A44.globaltech_eff_avg, grepl("hi-eff", technology2) |
-                                                            grepl("lighting", supplysector)),
-                                                   by = c("supplysector", "subsector", technology = "technology1")) %>%
+                                                 L244.EffPrtTechsForScout,
+                                                   by = c("supplysector", "subsector", "technology")) %>%
       bind_rows(L244.in_EJ_state_bld_F_U_techEffPrt_fby) %>%
       arrange(region, supplysector, subsector, technology)
 
