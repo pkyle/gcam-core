@@ -64,3 +64,5 @@ trn_shipping_intl,International Ship,FCEV,share-weight,2030,2075,s-curve,CORE
 trn_shipping_intl,International Ship,Hybrid Liquids,share-weight,final-calibration-year,2050,s-curve,CORE
 trn_freight,Domestic Ship,BEV,share-weight,2030,2075,s-curve,CORE
 trn_shipping_intl,International Ship,BEV,share-weight,2030,2075,s-curve,CORE
+trn_freight,Domestic Ship,Ammonia,share-weight,2030,2075,s-curve,CORE
+trn_shipping_intl,International Ship,Ammonia,share-weight,2030,2075,s-curve,CORE
