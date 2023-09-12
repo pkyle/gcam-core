@@ -209,5 +209,5 @@ Freight,Truck,Truck (16-32t),Hybrid Liquids,Liquids,trn_road and rail,refined li
 Freight,Truck,Truck (3.5-16t),Hybrid Liquids,Liquids,trn_road and rail,refined liquids,trn_freight_road,Medium truck,Hybrid Liquids,refined liquids enduse
 Freight,Truck,Truck (>32t),Hybrid Liquids,Liquids,trn_road and rail,refined liquids,trn_freight_road,Heavy truck,Hybrid Liquids,refined liquids enduse
 Freight,Truck,Truck,Hybrid Liquids,Liquids,trn_road and rail,refined liquids,trn_freight_road,Medium truck,Hybrid Liquids,refined liquids enduse
-Freight,Ship Domestic,All,Ammonia,Ammonia,trn_domestic ship,Ammonia,trn_freight,Domestic Ship,Ammonia,Ammonia
-Freight,Ship International,All,Ammonia,Ammonia,trn_international ship,Ammonia,trn_shipping_intl,International Ship,Ammonia,Ammonia
+Freight,Ship Domestic,All,Ammonia,Ammonia,trn_domestic ship,ammonia,trn_freight,Domestic Ship,Ammonia,ammonia
+Freight,Ship International,All,Ammonia,Ammonia,trn_international ship,ammonia,trn_shipping_intl,International Ship,Ammonia,ammonia

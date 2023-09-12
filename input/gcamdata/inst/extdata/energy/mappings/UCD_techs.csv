@@ -5,7 +5,7 @@
 # Source: Mishra et al. 2013
 # Column types: ccccccccccc
 # ----------
-UCD_sector,mode,size.class,UCD_technology,Hydrogen,UCD_category,fuel,supplysector,tranSubsector,tranTechnology,minicam.energy.input
+UCD_sector,mode,size.class,UCD_technology,UCD_fuel,UCD_category,fuel,supplysector,tranSubsector,tranTechnology,minicam.energy.input
 Passenger,Air Domestic,All,Liquids,Liquids,trn_air,refined liquids,trn_pass,Domestic Aviation,Liquids,refined liquids enduse
 Passenger,Air International,All,Liquids,Liquids,trn_air,refined liquids,trn_aviation_intl,International Aviation,Liquids,refined liquids enduse
 Passenger,Bus,All,Liquids,Liquids,trn_road and rail,refined liquids,trn_pass_road,Bus,Liquids,refined liquids enduse
@@ -219,5 +219,5 @@ Freight,Truck,Truck (3.5-16t),Hybrid Liquids,Liquids,trn_road and rail,refined l
 Freight,Truck,Truck (>32t),Hybrid Liquids,Liquids,trn_road and rail,refined liquids,trn_freight_road,Truck (>32t),Hybrid Liquids,refined liquids enduse
 Freight,Truck,Truck,Hybrid Liquids,Liquids,trn_road and rail,refined liquids,trn_freight_road,Truck,Hybrid Liquids,refined liquids enduse
 Passenger,LDV_3W,Three-Wheeler,BEV,Electricity,trn_road and rail,electricity,trn_pass_road_LDV,Three-Wheeler,BEV,elect_td_trn
-Freight,Ship Domestic,All,Ammonia,Ammonia,trn_domestic ship,Ammonia,trn_freight,Domestic Ship,Ammonia,Ammonia
-Freight,Ship International,All,Ammonia,Ammonia,trn_international ship,Ammonia,trn_shipping_intl,International Ship,Ammonia,Ammonia
+Freight,Ship Domestic,All,Ammonia,Ammonia,trn_domestic ship,ammonia,trn_freight,Domestic Ship,Ammonia,ammonia
+Freight,Ship International,All,Ammonia,Ammonia,trn_international ship,ammonia,trn_shipping_intl,International Ship,Ammonia,ammonia
