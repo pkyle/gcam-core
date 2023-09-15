@@ -131,8 +131,10 @@ module_energy_L125.hydrogen <- function(command, ...) {
                                           NA_character_))) %>%
       select(sector.name, subsector.name, technology, max_improvement) -> elec_IGCC_CCS_eff_improvement
 
-     # D. Convert Units from H2A ($/kg, GJ/kg) to GCAM (1975$/GJ, GJ/GJ)
+     # D. Calculate improvement for costs and convert Units from H2A ($/kg, GJ/kg) to GCAM (1975$/GJ, GJ/GJ)
      H2A_prod_cost %>%
+       mutate( improvement_to_2040 =  ( 1 - (`2040` / `2015` ) ) ) %>%   # Improvement (or cost decline) % between the two H2A years
+       mutate( max_improvement = round( improvement_to_2040 + 0.1, 2 ) ) %>% # Allow for and additional 10% decline in non-energy costs
        select(-notes)%>%
        gather_years() %>%
        mutate(value = if_else(units == "$2016/kg H2", value * gdp_deflator(1975,2016),
