@@ -1,0 +1,10 @@
+# File: A322.globaltech_input_driver.csv
+# Title: Ammonia primary input name to drive non-co2 emissions
+# Units: Unitless
+# Comments: Used to identify which is the appropriate input to drive non-co2 emissions
+# Column types: cccc
+# ----------
+supplysector,subsector,technology,input.name
+ammonia,coal,coal,regional coal
+ammonia,gas,gas,regional natural gas
+ammonia,refined liquids,refined liquids,refined liquids industrial
