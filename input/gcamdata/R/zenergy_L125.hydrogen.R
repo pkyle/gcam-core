@@ -200,10 +200,10 @@ module_energy_L125.hydrogen <- function(command, ...) {
        complete(nesting(sector.name, subsector.name, technology,minicam.non.energy.input), year = sort(unique(c(year, MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)))) %>%
        arrange(sector.name, subsector.name, technology, minicam.non.energy.input, year) %>%
        group_by(sector.name, subsector.name, technology, minicam.non.energy.input) %>%
-       mutate(improvement_rate = (1 - improvement_to_2040[year == 2015]) ^ (1 / (2040 - 2015)) - 1,
-              min_cost = value[year == 2015]*(1 - max_improvement[year == 2015]),
-              cost = if_else(year <= 2015,value[year == 2015],
-                             value[year == 2015]*(1 + improvement_rate) ^ (year - 2015)),
+       mutate(improvement_rate = (1 - improvement_to_2040[year == energy.H2A_CURRENT_YEAR]) ^ (1 / (2040 - energy.H2A_CURRENT_YEAR)) - 1,
+              min_cost = value[year == energy.H2A_CURRENT_YEAR]*(1 - max_improvement[year == energy.H2A_CURRENT_YEAR]),
+              cost = if_else(year <= energy.H2A_CURRENT_YEAR,value[year == energy.H2A_CURRENT_YEAR],
+                             value[year == energy.H2A_CURRENT_YEAR]*(1 + improvement_rate) ^ (year - energy.H2A_CURRENT_YEAR)),
               cost = if_else(cost >= min_cost, cost, min_cost),
               units = first(na.omit(units))) -> coal_chem_costs_GCAM_years
 
@@ -450,15 +450,15 @@ module_energy_L125.hydrogen <- function(command, ...) {
     # renewable electrolysis on a region-specific basis
     H2A_electrolyzer_NEcost_CF <- H2A_electrolyzer_NEcost_CF %>%
       mutate(IdleRatio = 1 / capacity.factor)
-
-    IdleRatioIntercept_2015 <- lm(H2A_electrolyzer_NEcost_CF$`2015` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[1]
-    IdleRatioSlope_2015 <- lm(H2A_electrolyzer_NEcost_CF$`2015` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[2]
+    # TODO change explicit column naming to dynamic reading based on new H2A start year object
+    IdleRatioIntercept_CurrentYear <- lm(H2A_electrolyzer_NEcost_CF$`2015` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[1]
+    IdleRatioSlope_CurrentYear <- lm(H2A_electrolyzer_NEcost_CF$`2015` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[2]
     IdleRatioIntercept_2040 <- lm(H2A_electrolyzer_NEcost_CF$`2040` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[1]
     IdleRatioSlope_2040 <- lm(H2A_electrolyzer_NEcost_CF$`2040` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[2]
     L125.Electrolyzer_IdleRatio_Params <- tibble(
-      year = c(2015, 2040),
-      slope = c(IdleRatioSlope_2015, IdleRatioSlope_2040),
-      intercept = c(IdleRatioIntercept_2015, IdleRatioIntercept_2040)
+      year = c(energy.H2A_CURRENT_YEAR, 2040),
+      slope = c(IdleRatioSlope_CurrentYear, IdleRatioSlope_2040),
+      intercept = c(IdleRatioIntercept_CurrentYear, IdleRatioIntercept_2040)
     )
 
     # H2A cost assumptions for nuclear H2 are for electrolyzer cost only for a solid oxide electrolysis process.
