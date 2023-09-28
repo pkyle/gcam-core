@@ -5,6 +5,6 @@
 # Column types: cccc
 # ----------
 supplysector,subsector,technology,input.name
-ammonia,coal,coal,regional coal
-ammonia,gas,gas,regional natural gas
+ammonia,coal,coal,delivered coal
+ammonia,gas,gas,wholesale gas
 ammonia,refined liquids,refined liquids,refined liquids industrial
