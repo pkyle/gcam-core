@@ -29,6 +29,7 @@ module_gcamusa_L2236.elecS_ghg_emissions <- function(command, ...) {
              FILE = "energy/A22.globaltech_input_driver",
              FILE = "energy/A23.globaltech_input_driver",
              FILE = "energy/A25.globaltech_input_driver",
+             FILE = "energy/A322.globaltech_input_driver",
              'L2233.StubTechMarket_elecS_cool_USA',
              'L2233.StubTechProd_elecS_cool_USA'))
   } else if(command == driver.DECLARE_OUTPUTS) {
@@ -95,7 +96,8 @@ module_gcamusa_L2236.elecS_ghg_emissions <- function(command, ...) {
     bind_rows(
       get_data(all_data, "energy/A22.globaltech_input_driver"),
       get_data(all_data, "energy/A23.globaltech_input_driver"),
-      get_data(all_data, "energy/A25.globaltech_input_driver")
+      get_data(all_data, "energy/A25.globaltech_input_driver"),
+      get_data(all_data, "energy/A322.globaltech_input_driver")
     ) %>%
       rename(stub.technology = technology) ->
       EnTechInput
@@ -236,6 +238,7 @@ module_gcamusa_L2236.elecS_ghg_emissions <- function(command, ...) {
                      "energy/A22.globaltech_input_driver",
                      "energy/A23.globaltech_input_driver",
                      "energy/A25.globaltech_input_driver",
+                     "energy/A322.globaltech_input_driver",
                      'L2233.StubTechMarket_elecS_cool_USA',
                      'L2233.StubTechProd_elecS_cool_USA') ->
       L2236.elecS_cool_ghg_tech_coeff_USA
@@ -254,6 +257,7 @@ module_gcamusa_L2236.elecS_ghg_emissions <- function(command, ...) {
                      "energy/A22.globaltech_input_driver",
                      "energy/A23.globaltech_input_driver",
                      "energy/A25.globaltech_input_driver",
+                     "energy/A322.globaltech_input_driver",
                      "gcam-usa/A23.elecS_tech_mapping_cool",
                      'L2233.StubTechMarket_elecS_cool_USA',
                      'L2233.StubTechProd_elecS_cool_USA') ->

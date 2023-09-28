@@ -1,9 +1,9 @@
 # File: A41.tech_coeff.csv
-# Title: Emission coefficients for energy technology by sector 
+# Title: Emission coefficients for energy technology by sector
 # Units: NA
-# Source: NA 
-# Description: may.be.historic is an indicator variable that indicates if the "new" technology may be been used historically by some sector.  
-# Column types: cccnnnnnnnncci 
+# Source: NA
+# Description: may.be.historic is an indicator variable that indicates if the new technology may be been used historically by some sector.
+# Column types: cccnnnnnnnncci
 # ----------
 supplysector,subsector,stub.technology,SO2,NOx,CO,CH4,N2O,BC,OC,NMVOC,exception,exception_tech,may.be.historic
 refining,coal to liquids,coal to liquids,0.01,0.01,0.01,,0.0001,,,0.0001,CH4,coal (conv pul),1
@@ -36,3 +36,6 @@ H2 central production,gas,natural gas steam reforming CCS,,0.005462225,0.0004854
 H2 central production,biomass,biomass to H2,0.01,0.001,0.001,0.001,,,,0.0005,,,
 H2 central production,biomass,biomass to H2 CCS,0.01,0.001,0.001,0.001,,,,0.0005,,,
 H2 wholesale dispensing,forecourt production,natural gas steam reforming,,0.005462225,0.00048545,,,,,,,,
+ammonia,coal,coal,,0.7222,0.0011,,0.003611,,,,,,
+ammonia,gas,gas,,0.7222,0.0011,,0.003611,,,,,,
+ammonia,refined liquids,refined liquids,,0.7222,0.0011,,0.003611,,,,,,

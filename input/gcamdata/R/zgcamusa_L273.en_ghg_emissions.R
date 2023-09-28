@@ -42,6 +42,7 @@ module_gcamusa_L273.en_ghg_emissions <- function(command, ...) {
              FILE = "energy/A22.globaltech_input_driver",
              FILE = "energy/A23.globaltech_input_driver",
              FILE = "energy/A25.globaltech_input_driver",
+             FILE = "energy/A322.globaltech_input_driver",
              # the following to be able to map in the input.name to
              # use for the input-driver for res + ind
              FILE = "energy/calibrated_techs",
@@ -89,7 +90,8 @@ module_gcamusa_L273.en_ghg_emissions <- function(command, ...) {
     bind_rows(
       get_data(all_data, "energy/A22.globaltech_input_driver"),
       get_data(all_data, "energy/A23.globaltech_input_driver"),
-      get_data(all_data, "energy/A25.globaltech_input_driver")
+      get_data(all_data, "energy/A25.globaltech_input_driver"),
+      get_data(all_data, "energy/A322.globaltech_input_driver")
     ) %>%
       rename(stub.technology = technology) ->
       EnTechInputMap
@@ -421,6 +423,7 @@ module_gcamusa_L273.en_ghg_emissions <- function(command, ...) {
                      "energy/A22.globaltech_input_driver",
                      "energy/A23.globaltech_input_driver",
                      "energy/A25.globaltech_input_driver",
+                     "energy/A322.globaltech_input_driver",
                      "L222.StubTech_en_USA",
                      "L232.StubTechCalInput_indenergy_USA",
                      "L244.StubTechCalInput_bld_gcamusa",
