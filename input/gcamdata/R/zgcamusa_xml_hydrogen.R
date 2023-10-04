@@ -24,7 +24,8 @@ module_gcamusa_hydrogen_xml <- function(command, ...) {
              "L225.SubsectorLogit_h2_ind_USA",
              "L225.SubsectorShrwtFllt_h2_ind_USA",
              "L225.TechCoef_h2_ind_USA",
-             "L225.TechShrwt_h2_ind_USA"))
+             "L225.TechShrwt_h2_ind_USA",
+             "L225.StubTechCost_h2_USA"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c(XML = "hydrogen_USA.xml"))
   } else if(command == driver.MAKE) {
@@ -45,7 +46,7 @@ module_gcamusa_hydrogen_xml <- function(command, ...) {
     L225.SubsectorShrwtFllt_h2_ind_USA <- get_data(all_data, "L225.SubsectorShrwtFllt_h2_ind_USA")
     L225.TechCoef_h2_ind_USA <- get_data(all_data, "L225.TechCoef_h2_ind_USA")
     L225.TechShrwt_h2_ind_USA <- get_data(all_data, "L225.TechShrwt_h2_ind_USA")
-
+    L225.StubTechCost_h2_USA <- get_data(all_data, "L225.StubTechCost_h2_USA")
     # ===================================================
 
     # Produce outputs
@@ -59,6 +60,7 @@ module_gcamusa_hydrogen_xml <- function(command, ...) {
       add_xml_data(L225.SubsectorShrwtFllt_h2_USA, "SubsectorShrwtFllt") %>%
       add_xml_data(L225.SubsectorShrwtFllt_h2_ind_USA, "SubsectorShrwtFllt") %>%
       add_xml_data(L225.StubTech_h2_USA, "StubTech") %>%
+      add_xml_data(L225.StubTechCost_h2_USA, "StubTechCost") %>%
       add_xml_data(L225.StubTechMarket_h2_USA, "StubTechMarket") %>%
       add_xml_data(L225.DeleteStubTechMinicamEnergyInput_H2_USA,"DeleteStubTechMinicamEnergyInput") %>%
       add_xml_data(L225.TechCoef_h2_ind_USA,"TechCoef") %>%
@@ -75,7 +77,8 @@ module_gcamusa_hydrogen_xml <- function(command, ...) {
                      "L225.SubsectorLogit_h2_ind_USA",
                      "L225.SubsectorShrwtFllt_h2_ind_USA",
                      "L225.TechCoef_h2_ind_USA",
-                     "L225.TechShrwt_h2_ind_USA") ->
+                     "L225.TechShrwt_h2_ind_USA",
+                     "L225.StubTechCost_h2_USA") ->
       hydrogen_USA.xml
 
     return_data(hydrogen_USA.xml)
