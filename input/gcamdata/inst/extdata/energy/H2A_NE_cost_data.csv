@@ -5,7 +5,7 @@
 # Comments: Non-energy cost = required selling price - feedstock costs. Max improvement = improvement_to_2040 + 10% unless otherwise stated
 # Column types: cccccnnnnc
 # ----------
-sector.name,subsector.name,technology,minicam.non.energy.input,units,2015,2040,improvement_to_2040,max_improvement,notes
+sector.name,subsector.name,technology,minicam.non.energy.input,units,2020,2040,improvement_to_2040,max_improvement,notes
 H2 central production,biomass,biomass to H2,non-energy,$2016/kg H2,0.891131954,0.742957992,0.166276118,0.266276118,
 H2 central production,biomass,biomass to H2 CCS,non-energy,$2016/kg H2,,,,,H2A 2018 did not report Biomass + CCS assumptions.
 H2 central production,coal,coal chemical,non-energy,$2016/kg H2,,,,,H2A 2018 did not report Coal without CCS assumptions.

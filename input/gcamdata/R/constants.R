@@ -452,7 +452,7 @@ energy.CLIMATE_NORMAL_YEARS       <- 1981:2000
 energy.SATIATION_YEAR             <- max(MODEL_BASE_YEARS) # Needs to be the last model base year to avoid the risk of the model crashing
 energy.UCD_EN_YEAR                <- 2005        # UCD transportation year to use to compute shares for allocation of energy to mode/technology/fuel within category/fuel
 energy.WIND.BASE.COST.YEAR        <- 2005        # Base cost year for wind, used in capacity factor calculations
-energy.H2A_CURRENT_YEAR           <- 2015        # Year of H2A "current" assumptions
+energy.H2A_CURRENT_YEAR           <- 2020        # Year of H2A "current" assumptions
 
 energy.REG_NG_MARKET <- "regional natural gas" #Name of the regional natural gas market
 

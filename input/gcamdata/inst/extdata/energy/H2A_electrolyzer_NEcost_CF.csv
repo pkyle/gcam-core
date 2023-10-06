@@ -5,7 +5,7 @@
 # Comments: Data provided by Patrick O'Rourke (Green_H2-Electrolyzer-costs-regional_CF-H2A_ver_comp-v3.xlsx)
 # Column types: nnn
 # ----------
-capacity.factor,2015,2040
+capacity.factor,2020,2040
 0.1,5.649636775,1.67946879
 0.15,3.792818686,1.128370317
 0.2,2.864409642,0.85282108

@@ -28,7 +28,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
              "L225.GlobalTechCost_h2",
              "L225.RenewElec_cost",
              "L225.RenewElec_eff",
-             "L225.Electrolyzer_IdleRatio_Params_2015",
+             "L225.Electrolyzer_IdleRatio_Params_2020",
              "L225.Electrolyzer_IdleRatio_Params_2040"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L225.DeleteSupplysector_h2_USA",
@@ -64,7 +64,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
     L225.GlobalTechCost_h2 <- get_data(all_data, "L225.GlobalTechCost_h2", strip_attributes = TRUE)
     L225.RenewElec_cost <- get_data(all_data, "L225.RenewElec_cost", strip_attributes = TRUE)
     L225.RenewElec_eff <- get_data(all_data, "L225.RenewElec_eff", strip_attributes = TRUE)
-    L225.Electrolyzer_IdleRatio_Params_2015 <- get_data(all_data, "L225.Electrolyzer_IdleRatio_Params_2015", strip_attributes = TRUE)
+    L225.Electrolyzer_IdleRatio_Params_2020 <- get_data(all_data, "L225.Electrolyzer_IdleRatio_Params_2020", strip_attributes = TRUE)
     L225.Electrolyzer_IdleRatio_Params_2040 <- get_data(all_data, "L225.Electrolyzer_IdleRatio_Params_2040", strip_attributes = TRUE)
     NREL_us_re_capacity_factors <- get_data(all_data, "gcam-usa/NREL_us_re_capacity_factors", strip_attributes = TRUE)
     # ===================================================
@@ -85,12 +85,12 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
 
     L225.StubTechCapFactor_ren_USA %>%
       mutate(IdleRatio = pmax(1, 1 / (capacity.factor / energy.ELECTROLYZER_RENEWABLE_CAPACITY_RATIO)),
-             `2015` = L225.Electrolyzer_IdleRatio_Params_2015$intercept +
-               IdleRatio * L225.Electrolyzer_IdleRatio_Params_2015$slope,
+             `2020` = L225.Electrolyzer_IdleRatio_Params_2020$intercept +
+               IdleRatio * L225.Electrolyzer_IdleRatio_Params_2020$slope,
              `2040` = L225.Electrolyzer_IdleRatio_Params_2040$intercept +
                IdleRatio * L225.Electrolyzer_IdleRatio_Params_2040$slope,
              `2050` = `2040` * energy.Electrolyzer_2050_2040_cost_ratio) %>%
-      select(region, subsector, `2015`, `2040`, `2050`) %>%
+      select(region, subsector, `2020`, `2040`, `2050`) %>%
       gather_years() %>%
       complete(nesting(region, subsector), year = c(year, MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
       distinct(region,subsector,year,.keep_all=TRUE) %>%
@@ -343,7 +343,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
                      "L225.GlobalTechCoef_h2",
                      "L225.RenewElec_cost",
                      "L225.RenewElec_eff",
-                     "L225.Electrolyzer_IdleRatio_Params_2015",
+                     "L225.Electrolyzer_IdleRatio_Params_2020",
                      "L225.Electrolyzer_IdleRatio_Params_2040",
                      "gcam-usa/NREL_us_re_capacity_factors") ->
       L225.StubTechCost_h2_USA

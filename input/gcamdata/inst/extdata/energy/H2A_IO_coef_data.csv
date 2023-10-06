@@ -5,7 +5,7 @@
 # Comments: Non-energy cost = required selling price - feedstock costs. Max improvement = improvement_to_2040 + 10% unless otherwise stated
 # Column types: cccccnnc
 # ----------
-sector.name,subsector.name,technology,minicam.energy.input,units,2015,2040,notes
+sector.name,subsector.name,technology,minicam.energy.input,units,2020,2040,notes
 H2 central production,biomass,biomass to H2,regional biomass,GJ in /kg H2 out,0.263744,0.254725,
 H2 central production,biomass,biomass to H2,regional natural gas,GJ in /kg H2 out,0.006225,0.003113,
 H2 central production,biomass,biomass to H2,elect_td_ind,GJ in /kg H2 out,0.003528,0.003402,

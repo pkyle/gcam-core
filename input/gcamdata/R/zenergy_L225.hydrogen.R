@@ -54,13 +54,13 @@ module_energy_L225.hydrogen <- function(command, ...) {
              "L225.OutputEmissCoeff_h2",
              "L225.RenewElec_cost",
              "L225.RenewElec_eff",
-             "L225.Electrolyzer_IdleRatio_Params_2015",
+             "L225.Electrolyzer_IdleRatio_Params_2020",
              "L225.Electrolyzer_IdleRatio_Params_2040"))
   } else if(command == driver.MAKE) {
 
     # Silencing package checks
     region <- coefficient <- cost <- price.unit.conversion <- sector.name <- subsector.name <-
-      stub.technology <- capacity.factor <- IdleRatio <- `2040` <- `2015` <- `2050` <-
+      stub.technology <- capacity.factor <- IdleRatio <- `2040` <- `2020` <- `2050` <-
       intermittent.technology <- capital.overnight <- fixed.charge.rate <- OM.fixed <-
       cost_75USD_kW_yr <- kWh_elec_per_kgH2 <- output_kgh2_d <- cost_75USD_kgH2 <- NULL
 
@@ -231,12 +231,12 @@ module_energy_L225.hydrogen <- function(command, ...) {
 
     # Estimate the region-specific costs of direct wind and solar electrolysis, based on the capacity factors of the
     # electric generation technologies and relationship between capacity factors and NE costs of electrolysis
-    L225.Electrolyzer_IdleRatio_Params_2015 <- filter(L125.Electrolyzer_IdleRatio_Params, year == 2015)
+    L225.Electrolyzer_IdleRatio_Params_2020 <- filter(L125.Electrolyzer_IdleRatio_Params, year == 2020)
     L225.Electrolyzer_IdleRatio_Params_2040 <- filter(L125.Electrolyzer_IdleRatio_Params, year == 2040)
 
     # The following block uses the wind+solar capacity factors in each region to estimate the levelized cost of the
-    # hydrogen electrolyzers. The available cost estimate years are 2015 and 2040. Cost reductions are extrapolated to
-    # 2050 using the same improvement factor in all regions. The costs assigned to years between 2015 and 2050 are estimated
+    # hydrogen electrolyzers. The available cost estimate years are 2020 and 2040. Cost reductions are extrapolated to
+    # 2050 using the same improvement factor in all regions. The costs assigned to years between 2020 and 2050 are estimated
     # with linear interpolation, and outside this window we use fixed extrapolation.
     # Electrolyzer non-energy costs replace rather than add to the global default
     # values in L225.GlobalTechCost_h2. This is handled in the left_join.
@@ -244,12 +244,12 @@ module_energy_L225.hydrogen <- function(command, ...) {
       filter(year == max(MODEL_BASE_YEARS),
              stub.technology %in% c("wind", "PV")) %>%
       mutate(IdleRatio = pmax(1, 1 / (capacity.factor / energy.ELECTROLYZER_RENEWABLE_CAPACITY_RATIO)),
-             `2015` = L225.Electrolyzer_IdleRatio_Params_2015$intercept +
-               IdleRatio * L225.Electrolyzer_IdleRatio_Params_2015$slope,
+             `2020` = L225.Electrolyzer_IdleRatio_Params_2020$intercept +
+               IdleRatio * L225.Electrolyzer_IdleRatio_Params_2020$slope,
              `2040` = L225.Electrolyzer_IdleRatio_Params_2040$intercept +
                IdleRatio * L225.Electrolyzer_IdleRatio_Params_2040$slope,
              `2050` = `2040` * energy.Electrolyzer_2050_2040_cost_ratio) %>%
-      select(region, subsector, `2015`, `2040`, `2050`) %>%
+      select(region, subsector, `2020`, `2040`, `2050`) %>%
       gather_years() %>%
       complete(nesting(region, subsector), year = MODEL_YEARS) %>%
       group_by(region, subsector) %>%
@@ -545,12 +545,12 @@ module_energy_L225.hydrogen <- function(command, ...) {
       add_precursors("energy/A25.globaltech_coef") ->
       L225.RenewElec_eff
 
-    L225.Electrolyzer_IdleRatio_Params_2015 %>%
-      add_title("L225.Electrolyzer_IdleRatio_Params_2015") %>%
+    L225.Electrolyzer_IdleRatio_Params_2020 %>%
+      add_title("L225.Electrolyzer_IdleRatio_Params_2020") %>%
       add_comments("harmonized with electricity sector assumptions") %>%
       add_units("Unitless") %>%
       add_precursors("L125.Electrolyzer_IdleRatio_Params") ->
-      L225.Electrolyzer_IdleRatio_Params_2015
+      L225.Electrolyzer_IdleRatio_Params_2020
 
     L225.Electrolyzer_IdleRatio_Params_2040 %>%
       add_title("L225.Electrolyzer_IdleRatio_Params_2040") %>%
@@ -567,7 +567,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
                 L225.GlobalTechSCurve_h2, L225.GlobalTechProfitShutdown_h2, L225.StubTechCost_h2,
                 L225.OutputEmissCoeff_h2,
                 L225.RenewElec_cost,L225.RenewElec_eff,
-                L225.Electrolyzer_IdleRatio_Params_2015,L225.Electrolyzer_IdleRatio_Params_2040)
+                L225.Electrolyzer_IdleRatio_Params_2020,L225.Electrolyzer_IdleRatio_Params_2040)
   } else {
     stop("Unknown command")
   }
