@@ -51,7 +51,11 @@ module_energy_L225.hydrogen <- function(command, ...) {
              "L225.GlobalTechProfitShutdown_h2",
              "L225.GlobalTechSCurve_h2",
              "L225.StubTechCost_h2",
-             "L225.OutputEmissCoeff_h2"))
+             "L225.OutputEmissCoeff_h2",
+             "L225.RenewElec_cost",
+             "L225.RenewElec_eff",
+             "L225.Electrolyzer_IdleRatio_Params_2015",
+             "L225.Electrolyzer_IdleRatio_Params_2040"))
   } else if(command == driver.MAKE) {
 
     # Silencing package checks
@@ -227,10 +231,8 @@ module_energy_L225.hydrogen <- function(command, ...) {
 
     # Estimate the region-specific costs of direct wind and solar electrolysis, based on the capacity factors of the
     # electric generation technologies and relationship between capacity factors and NE costs of electrolysis
-    L125.Electrolyzer_IdleRatio_Params_2015 <- filter(L125.Electrolyzer_IdleRatio_Params, year == 2015)
-    L125.Electrolyzer_IdleRatio_Params_2040 <- filter(L125.Electrolyzer_IdleRatio_Params, year == 2040)
-    # Set the fraction of 2050 to 2040 costs. The specific number is from Pat's workbook
-    Electrolyzer_2050_2040_cost_ratio <- 0.77
+    L225.Electrolyzer_IdleRatio_Params_2015 <- filter(L125.Electrolyzer_IdleRatio_Params, year == 2015)
+    L225.Electrolyzer_IdleRatio_Params_2040 <- filter(L125.Electrolyzer_IdleRatio_Params, year == 2040)
 
     # The following block uses the wind+solar capacity factors in each region to estimate the levelized cost of the
     # hydrogen electrolyzers. The available cost estimate years are 2015 and 2040. Cost reductions are extrapolated to
@@ -242,11 +244,11 @@ module_energy_L225.hydrogen <- function(command, ...) {
       filter(year == max(MODEL_BASE_YEARS),
              stub.technology %in% c("wind", "PV")) %>%
       mutate(IdleRatio = pmax(1, 1 / (capacity.factor / energy.ELECTROLYZER_RENEWABLE_CAPACITY_RATIO)),
-             `2015` = L125.Electrolyzer_IdleRatio_Params_2015$intercept +
-               IdleRatio * L125.Electrolyzer_IdleRatio_Params_2015$slope,
-             `2040` = L125.Electrolyzer_IdleRatio_Params_2040$intercept +
-               IdleRatio * L125.Electrolyzer_IdleRatio_Params_2040$slope,
-             `2050` = `2040` * Electrolyzer_2050_2040_cost_ratio) %>%
+             `2015` = L225.Electrolyzer_IdleRatio_Params_2015$intercept +
+               IdleRatio * L225.Electrolyzer_IdleRatio_Params_2015$slope,
+             `2040` = L225.Electrolyzer_IdleRatio_Params_2040$intercept +
+               IdleRatio * L225.Electrolyzer_IdleRatio_Params_2040$slope,
+             `2050` = `2040` * energy.Electrolyzer_2050_2040_cost_ratio) %>%
       select(region, subsector, `2015`, `2040`, `2050`) %>%
       gather_years() %>%
       complete(nesting(region, subsector), year = MODEL_YEARS) %>%
@@ -529,13 +531,43 @@ module_energy_L225.hydrogen <- function(command, ...) {
       add_precursors("energy/A25.globaltech_losses") ->
       L225.OutputEmissCoeff_h2
 
+    L225.RenewElec_cost %>%
+      add_title("cost per kW wind turbines or solar panels") %>%
+      add_units("$1975 per kW per year") %>%
+      add_comments("harmonized with electricity sector assumptions") %>%
+      add_precursors("L223.GlobalIntTechCapital_elec") ->
+      L225.RenewElec_cost
+
+    L225.RenewElec_eff %>%
+      add_title("efficiency of wind turbines or solar panels") %>%
+      add_units("Unitless") %>%
+      add_comments("harmonized with electricity sector assumptions") %>%
+      add_precursors("energy/A25.globaltech_coef") ->
+      L225.RenewElec_eff
+
+    L225.Electrolyzer_IdleRatio_Params_2015 %>%
+      add_title("L225.Electrolyzer_IdleRatio_Params_2015") %>%
+      add_comments("harmonized with electricity sector assumptions") %>%
+      add_units("Unitless") %>%
+      add_precursors("L125.Electrolyzer_IdleRatio_Params") ->
+      L225.Electrolyzer_IdleRatio_Params_2015
+
+    L225.Electrolyzer_IdleRatio_Params_2040 %>%
+      add_title("L225.Electrolyzer_IdleRatio_Params_2040") %>%
+      add_units("Unitless") %>%
+      add_comments("harmonized with electricity sector assumptions") %>%
+      add_precursors("L125.Electrolyzer_IdleRatio_Params") ->
+      L225.Electrolyzer_IdleRatio_Params_2040
+
     return_data(L225.Supplysector_h2, L225.SectorUseTrialMarket_h2, L225.SubsectorLogit_h2, L225.StubTech_h2,
                 L225.GlobalTechCoef_h2, L225.GlobalTechCost_h2, L225.GlobalTechTrackCapital_h2, L225.GlobalTechShrwt_h2,
                 L225.PrimaryRenewKeyword_h2, L225.AvgFossilEffKeyword_h2,
                 L225.GlobalTechCapture_h2, L225.SubsectorShrwtFllt_h2,
                 L225.GlobalTechInputPMult_h2,
                 L225.GlobalTechSCurve_h2, L225.GlobalTechProfitShutdown_h2, L225.StubTechCost_h2,
-                L225.OutputEmissCoeff_h2)
+                L225.OutputEmissCoeff_h2,
+                L225.RenewElec_cost,L225.RenewElec_eff,
+                L225.Electrolyzer_IdleRatio_Params_2015,L225.Electrolyzer_IdleRatio_Params_2040)
   } else {
     stop("Unknown command")
   }
