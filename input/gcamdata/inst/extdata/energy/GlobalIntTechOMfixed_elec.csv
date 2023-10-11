@@ -1,0 +1,229 @@
+# File: GlobalIntTechOMfixed_elec.csv
+# Title: Intermittent electric sector OM fixed costs for central and advanced cases
+# Units: 1975$/kW
+# Source: ATB2023
+# Comments:
+# Column types: cccncnc
+# ----------
+sector.name,subsector.name,intermittent.technology,year,input.OM.fixed,OM.fixed,case
+elect_td_bld,rooftop_pv,rooftop_pv,1975,OM-fixed,7.16,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,1990,OM-fixed,7.16,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2005,OM-fixed,7.16,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2010,OM-fixed,7.16,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2015,OM-fixed,7.16,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2020,OM-fixed,7.11,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2025,OM-fixed,6.52,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2030,OM-fixed,5.04,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2035,OM-fixed,3.55,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2040,OM-fixed,3.37,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2045,OM-fixed,3.2,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2050,OM-fixed,3.02,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2055,OM-fixed,3.71,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2060,OM-fixed,3.65,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2065,OM-fixed,3.62,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2070,OM-fixed,3.6,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2075,OM-fixed,3.59,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2080,OM-fixed,3.58,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2085,OM-fixed,3.57,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2090,OM-fixed,3.57,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2095,OM-fixed,3.57,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2100,OM-fixed,3.57,adv tech
+electricity,solar,CSP,1975,OM-fixed,15.92,adv tech
+electricity,solar,CSP,1990,OM-fixed,15.92,adv tech
+electricity,solar,CSP,2005,OM-fixed,15.92,adv tech
+electricity,solar,CSP,2010,OM-fixed,15.92,adv tech
+electricity,solar,CSP,2015,OM-fixed,15.92,adv tech
+electricity,solar,CSP,2020,OM-fixed,14.04,adv tech
+electricity,solar,CSP,2025,OM-fixed,12.42,adv tech
+electricity,solar,CSP,2030,OM-fixed,9.57,adv tech
+electricity,solar,CSP,2035,OM-fixed,9.31,adv tech
+electricity,solar,CSP,2040,OM-fixed,9.04,adv tech
+electricity,solar,CSP,2045,OM-fixed,8.77,adv tech
+electricity,solar,CSP,2050,OM-fixed,8.51,adv tech
+electricity,solar,CSP,2055,OM-fixed,10.63,adv tech
+electricity,solar,CSP,2060,OM-fixed,10.63,adv tech
+electricity,solar,CSP,2065,OM-fixed,10.63,adv tech
+electricity,solar,CSP,2070,OM-fixed,10.63,adv tech
+electricity,solar,CSP,2075,OM-fixed,10.63,adv tech
+electricity,solar,CSP,2080,OM-fixed,10.63,adv tech
+electricity,solar,CSP,2085,OM-fixed,10.63,adv tech
+electricity,solar,CSP,2090,OM-fixed,10.63,adv tech
+electricity,solar,CSP,2095,OM-fixed,10.63,adv tech
+electricity,solar,CSP,2100,OM-fixed,10.63,adv tech
+electricity,solar,PV,1975,OM-fixed,6.1,adv tech
+electricity,solar,PV,1990,OM-fixed,6.1,adv tech
+electricity,solar,PV,2005,OM-fixed,6.1,adv tech
+electricity,solar,PV,2010,OM-fixed,6.1,adv tech
+electricity,solar,PV,2015,OM-fixed,6.1,adv tech
+electricity,solar,PV,2020,OM-fixed,5.69,adv tech
+electricity,solar,PV,2025,OM-fixed,5,adv tech
+electricity,solar,PV,2030,OM-fixed,4.14,adv tech
+electricity,solar,PV,2035,OM-fixed,3.3,adv tech
+electricity,solar,PV,2040,OM-fixed,3.18,adv tech
+electricity,solar,PV,2045,OM-fixed,3.05,adv tech
+electricity,solar,PV,2050,OM-fixed,2.93,adv tech
+electricity,solar,PV,2055,OM-fixed,3.46,adv tech
+electricity,solar,PV,2060,OM-fixed,3.44,adv tech
+electricity,solar,PV,2065,OM-fixed,3.42,adv tech
+electricity,solar,PV,2070,OM-fixed,3.41,adv tech
+electricity,solar,PV,2075,OM-fixed,3.41,adv tech
+electricity,solar,PV,2080,OM-fixed,3.4,adv tech
+electricity,solar,PV,2085,OM-fixed,3.4,adv tech
+electricity,solar,PV,2090,OM-fixed,3.4,adv tech
+electricity,solar,PV,2095,OM-fixed,3.4,adv tech
+electricity,solar,PV,2100,OM-fixed,3.4,adv tech
+electricity,wind,wind,1975,OM-fixed,7.62,adv tech
+electricity,wind,wind,1990,OM-fixed,7.62,adv tech
+electricity,wind,wind,2005,OM-fixed,7.62,adv tech
+electricity,wind,wind,2010,OM-fixed,7.62,adv tech
+electricity,wind,wind,2015,OM-fixed,7.62,adv tech
+electricity,wind,wind,2020,OM-fixed,10.81,adv tech
+electricity,wind,wind,2025,OM-fixed,6.88,adv tech
+electricity,wind,wind,2030,OM-fixed,5.96,adv tech
+electricity,wind,wind,2035,OM-fixed,5.44,adv tech
+electricity,wind,wind,2040,OM-fixed,4.92,adv tech
+electricity,wind,wind,2045,OM-fixed,4.4,adv tech
+electricity,wind,wind,2050,OM-fixed,3.88,adv tech
+electricity,wind,wind,2055,OM-fixed,6.08,adv tech
+electricity,wind,wind,2060,OM-fixed,6.02,adv tech
+electricity,wind,wind,2065,OM-fixed,5.98,adv tech
+electricity,wind,wind,2070,OM-fixed,5.95,adv tech
+electricity,wind,wind,2075,OM-fixed,5.93,adv tech
+electricity,wind,wind,2080,OM-fixed,5.91,adv tech
+electricity,wind,wind,2085,OM-fixed,5.9,adv tech
+electricity,wind,wind,2090,OM-fixed,5.89,adv tech
+electricity,wind,wind,2095,OM-fixed,5.88,adv tech
+electricity,wind,wind,2100,OM-fixed,5.88,adv tech
+electricity,wind,wind_offshore,1975,OM-fixed,42.79,adv tech
+electricity,wind,wind_offshore,1990,OM-fixed,42.79,adv tech
+electricity,wind,wind_offshore,2005,OM-fixed,42.79,adv tech
+electricity,wind,wind_offshore,2010,OM-fixed,42.79,adv tech
+electricity,wind,wind_offshore,2015,OM-fixed,42.79,adv tech
+electricity,wind,wind_offshore,2020,OM-fixed,27,adv tech
+electricity,wind,wind_offshore,2025,OM-fixed,23.23,adv tech
+electricity,wind,wind_offshore,2030,OM-fixed,20.74,adv tech
+electricity,wind,wind_offshore,2035,OM-fixed,19.06,adv tech
+electricity,wind,wind_offshore,2040,OM-fixed,17.81,adv tech
+electricity,wind,wind_offshore,2045,OM-fixed,16.79,adv tech
+electricity,wind,wind_offshore,2050,OM-fixed,15.95,adv tech
+electricity,wind,wind_offshore,2055,OM-fixed,19.25,adv tech
+electricity,wind,wind_offshore,2060,OM-fixed,19.06,adv tech
+electricity,wind,wind_offshore,2065,OM-fixed,18.93,adv tech
+electricity,wind,wind_offshore,2070,OM-fixed,18.85,adv tech
+electricity,wind,wind_offshore,2075,OM-fixed,18.79,adv tech
+electricity,wind,wind_offshore,2080,OM-fixed,18.75,adv tech
+electricity,wind,wind_offshore,2085,OM-fixed,18.73,adv tech
+electricity,wind,wind_offshore,2090,OM-fixed,18.71,adv tech
+electricity,wind,wind_offshore,2095,OM-fixed,18.7,adv tech
+electricity,wind,wind_offshore,2100,OM-fixed,18.7,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,1975,OM-fixed,7.16,central
+elect_td_bld,rooftop_pv,rooftop_pv,1990,OM-fixed,7.16,central
+elect_td_bld,rooftop_pv,rooftop_pv,2005,OM-fixed,7.16,central
+elect_td_bld,rooftop_pv,rooftop_pv,2010,OM-fixed,7.16,central
+elect_td_bld,rooftop_pv,rooftop_pv,2015,OM-fixed,7.16,central
+elect_td_bld,rooftop_pv,rooftop_pv,2020,OM-fixed,7.11,central
+elect_td_bld,rooftop_pv,rooftop_pv,2025,OM-fixed,6.76,central
+elect_td_bld,rooftop_pv,rooftop_pv,2030,OM-fixed,5.65,central
+elect_td_bld,rooftop_pv,rooftop_pv,2035,OM-fixed,4.55,central
+elect_td_bld,rooftop_pv,rooftop_pv,2040,OM-fixed,4.22,central
+elect_td_bld,rooftop_pv,rooftop_pv,2045,OM-fixed,3.88,central
+elect_td_bld,rooftop_pv,rooftop_pv,2050,OM-fixed,3.55,central
+elect_td_bld,rooftop_pv,rooftop_pv,2055,OM-fixed,3.71,central
+elect_td_bld,rooftop_pv,rooftop_pv,2060,OM-fixed,3.65,central
+elect_td_bld,rooftop_pv,rooftop_pv,2065,OM-fixed,3.62,central
+elect_td_bld,rooftop_pv,rooftop_pv,2070,OM-fixed,3.6,central
+elect_td_bld,rooftop_pv,rooftop_pv,2075,OM-fixed,3.59,central
+elect_td_bld,rooftop_pv,rooftop_pv,2080,OM-fixed,3.58,central
+elect_td_bld,rooftop_pv,rooftop_pv,2085,OM-fixed,3.57,central
+elect_td_bld,rooftop_pv,rooftop_pv,2090,OM-fixed,3.57,central
+elect_td_bld,rooftop_pv,rooftop_pv,2095,OM-fixed,3.57,central
+elect_td_bld,rooftop_pv,rooftop_pv,2100,OM-fixed,3.57,central
+electricity,solar,CSP,1975,OM-fixed,15.92,central
+electricity,solar,CSP,1990,OM-fixed,15.92,central
+electricity,solar,CSP,2005,OM-fixed,15.92,central
+electricity,solar,CSP,2010,OM-fixed,15.92,central
+electricity,solar,CSP,2015,OM-fixed,15.92,central
+electricity,solar,CSP,2020,OM-fixed,14.04,central
+electricity,solar,CSP,2025,OM-fixed,13.07,central
+electricity,solar,CSP,2030,OM-fixed,11.02,central
+electricity,solar,CSP,2035,OM-fixed,11.02,central
+electricity,solar,CSP,2040,OM-fixed,11.02,central
+electricity,solar,CSP,2045,OM-fixed,11.02,central
+electricity,solar,CSP,2050,OM-fixed,11.02,central
+electricity,solar,CSP,2055,OM-fixed,10.63,central
+electricity,solar,CSP,2060,OM-fixed,10.63,central
+electricity,solar,CSP,2065,OM-fixed,10.63,central
+electricity,solar,CSP,2070,OM-fixed,10.63,central
+electricity,solar,CSP,2075,OM-fixed,10.63,central
+electricity,solar,CSP,2080,OM-fixed,10.63,central
+electricity,solar,CSP,2085,OM-fixed,10.63,central
+electricity,solar,CSP,2090,OM-fixed,10.63,central
+electricity,solar,CSP,2095,OM-fixed,10.63,central
+electricity,solar,CSP,2100,OM-fixed,10.63,central
+electricity,solar,PV,1975,OM-fixed,6.1,central
+electricity,solar,PV,1990,OM-fixed,6.1,central
+electricity,solar,PV,2005,OM-fixed,6.1,central
+electricity,solar,PV,2010,OM-fixed,6.1,central
+electricity,solar,PV,2015,OM-fixed,6.1,central
+electricity,solar,PV,2020,OM-fixed,5.69,central
+electricity,solar,PV,2025,OM-fixed,5.15,central
+electricity,solar,PV,2030,OM-fixed,4.52,central
+electricity,solar,PV,2035,OM-fixed,3.9,central
+electricity,solar,PV,2040,OM-fixed,3.73,central
+electricity,solar,PV,2045,OM-fixed,3.56,central
+electricity,solar,PV,2050,OM-fixed,3.39,central
+electricity,solar,PV,2055,OM-fixed,3.46,central
+electricity,solar,PV,2060,OM-fixed,3.44,central
+electricity,solar,PV,2065,OM-fixed,3.42,central
+electricity,solar,PV,2070,OM-fixed,3.41,central
+electricity,solar,PV,2075,OM-fixed,3.41,central
+electricity,solar,PV,2080,OM-fixed,3.4,central
+electricity,solar,PV,2085,OM-fixed,3.4,central
+electricity,solar,PV,2090,OM-fixed,3.4,central
+electricity,solar,PV,2095,OM-fixed,3.4,central
+electricity,solar,PV,2100,OM-fixed,3.4,central
+electricity,wind,wind,1975,OM-fixed,7.62,central
+electricity,wind,wind,1990,OM-fixed,7.62,central
+electricity,wind,wind,2005,OM-fixed,7.62,central
+electricity,wind,wind,2010,OM-fixed,7.62,central
+electricity,wind,wind,2015,OM-fixed,7.62,central
+electricity,wind,wind,2020,OM-fixed,10.81,central
+electricity,wind,wind,2025,OM-fixed,7.25,central
+electricity,wind,wind,2030,OM-fixed,6.79,central
+electricity,wind,wind,2035,OM-fixed,6.56,central
+electricity,wind,wind,2040,OM-fixed,6.32,central
+electricity,wind,wind,2045,OM-fixed,6.09,central
+electricity,wind,wind,2050,OM-fixed,5.86,central
+electricity,wind,wind,2055,OM-fixed,6.08,central
+electricity,wind,wind,2060,OM-fixed,6.02,central
+electricity,wind,wind,2065,OM-fixed,5.98,central
+electricity,wind,wind,2070,OM-fixed,5.95,central
+electricity,wind,wind,2075,OM-fixed,5.93,central
+electricity,wind,wind,2080,OM-fixed,5.91,central
+electricity,wind,wind,2085,OM-fixed,5.9,central
+electricity,wind,wind,2090,OM-fixed,5.89,central
+electricity,wind,wind,2095,OM-fixed,5.88,central
+electricity,wind,wind,2100,OM-fixed,5.88,central
+electricity,wind,wind_offshore,1975,OM-fixed,42.79,central
+electricity,wind,wind_offshore,1990,OM-fixed,42.79,central
+electricity,wind,wind_offshore,2005,OM-fixed,42.79,central
+electricity,wind,wind_offshore,2010,OM-fixed,42.79,central
+electricity,wind,wind_offshore,2015,OM-fixed,42.79,central
+electricity,wind,wind_offshore,2020,OM-fixed,28.29,central
+electricity,wind,wind_offshore,2025,OM-fixed,25.15,central
+electricity,wind,wind_offshore,2030,OM-fixed,22.93,central
+electricity,wind,wind_offshore,2035,OM-fixed,21.44,central
+electricity,wind,wind_offshore,2040,OM-fixed,20.33,central
+electricity,wind,wind_offshore,2045,OM-fixed,19.43,central
+electricity,wind,wind_offshore,2050,OM-fixed,18.68,central
+electricity,wind,wind_offshore,2055,OM-fixed,19.25,central
+electricity,wind,wind_offshore,2060,OM-fixed,19.06,central
+electricity,wind,wind_offshore,2065,OM-fixed,18.93,central
+electricity,wind,wind_offshore,2070,OM-fixed,18.85,central
+electricity,wind,wind_offshore,2075,OM-fixed,18.79,central
+electricity,wind,wind_offshore,2080,OM-fixed,18.75,central
+electricity,wind,wind_offshore,2085,OM-fixed,18.73,central
+electricity,wind,wind_offshore,2090,OM-fixed,18.71,central
+electricity,wind,wind_offshore,2095,OM-fixed,18.7,central
+electricity,wind,wind_offshore,2100,OM-fixed,18.7,central
+

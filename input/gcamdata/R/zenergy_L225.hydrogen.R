@@ -28,6 +28,8 @@ module_energy_L225.hydrogen <- function(command, ...) {
              FILE = "energy/A25.globaltech_shrwt",
              FILE = "energy/A25.globaltech_keyword",
              FILE = "energy/A25.globaltech_co2capture",
+             FILE = "energy/GlobalIntTechCapital_elec",
+             FILE = "energy/GlobalIntTechOMfixed_elec",
              "L125.globaltech_coef",
              "L125.globaltech_cost",
              "L125.Electrolyzer_IdleRatio_Params",
@@ -88,8 +90,11 @@ module_energy_L225.hydrogen <- function(command, ...) {
     L125.globaltech_cost <- get_data(all_data, "L125.globaltech_cost", strip_attributes = TRUE)
     L125.Electrolyzer_IdleRatio_Params <- get_data(all_data, "L125.Electrolyzer_IdleRatio_Params", strip_attributes = TRUE)
 
-    L223.GlobalIntTechCapital_elec <- get_data(all_data, "L223.GlobalIntTechCapital_elec", strip_attributes = TRUE)
-    L223.GlobalIntTechOMfixed_elec <- get_data(all_data, "L223.GlobalIntTechOMfixed_elec", strip_attributes = TRUE)
+    ## Updating data sources for capital and O&M costs
+    #L223.GlobalIntTechCapital_elec <- get_data(all_data, "L223.GlobalIntTechCapital_elec", strip_attributes = TRUE)
+    #L223.GlobalIntTechOMfixed_elec <- get_data(all_data, "L223.GlobalIntTechOMfixed_elec", strip_attributes = TRUE)
+    L223.GlobalIntTechCapital_elec <- get_data(all_data, "energy/GlobalIntTechCapital_elec", strip_attributes = TRUE)
+    L223.GlobalIntTechOMfixed_elec <- get_data(all_data, "energy/GlobalIntTechOMfixed_elec", strip_attributes = TRUE)
     L223.StubTechCapFactor_elec <- get_data(all_data, "L223.StubTechCapFactor_elec", strip_attributes = TRUE)
 
     # ===================================================
@@ -261,19 +266,21 @@ module_energy_L225.hydrogen <- function(command, ...) {
     # Estimate the wind turbine and solar panel related aspects of the costs of direct renewable hydrogen electrolysis
     # These are estimated from the capital costs of wind and solar technologies (generic, global), the region-specific
     # capacity factors, efficiencies of hydrogen production, and size of the representative hydrogen plant
+    # Updated to process ATB central and advanced cases
     L225.RenewElec_cost <- L223.GlobalIntTechCapital_elec %>%
       filter(intermittent.technology %in% c("wind", "PV")) %>%
-      left_join(L223.GlobalIntTechOMfixed_elec, by = c("sector.name", "subsector.name", "intermittent.technology", "year")) %>%
+      left_join(L223.GlobalIntTechOMfixed_elec, by = c("sector.name", "subsector.name", "intermittent.technology", "year", "case")) %>%
       mutate(cost_75USD_kW_yr = capital.overnight * fixed.charge.rate + OM.fixed) %>%
-      select(subsector.name, intermittent.technology, year, cost_75USD_kW_yr)
+      select(subsector.name, intermittent.technology, year, cost_75USD_kW_yr, case)
 
     L225.RenewElec_eff <- filter(L225.GlobalTechCoef_h2,
                                  subsector.name %in% c("solar", "wind") & !grepl("water", minicam.energy.input)) %>%
       mutate(kWh_elec_per_kgH2 = coefficient * CONV_GJ_KGH2 / CONV_KWH_GJ) %>%
       select(subsector.name, year, kWh_elec_per_kgH2)
 
+    # Central ATB costs
     L225.RenewElec_cost %>%
-      left_join_error_no_match(L225.RenewElec_eff, by = c("subsector.name", "year")) %>%
+      left_join_error_no_match(L225.RenewElec_eff, by = c("subsector.name", "year")) %>% filter(case=="central") %>%
       left_join(L223.StubTechCapFactor_elec,
                 by = c("subsector.name" = "subsector", "intermittent.technology" = "stub.technology", "year")) %>%
       mutate(minicam.non.energy.input = if_else(subsector.name == "solar", "solar panels", "wind turbines"),
@@ -287,6 +294,23 @@ module_energy_L225.hydrogen <- function(command, ...) {
             rename(supplysector = sector.name, subsector = subsector.name, stub.technology = technology) %>%
       select(LEVEL2_DATA_NAMES[["StubTechCost"]]) ->
       L225.StubTechCost_h2_renewables
+
+    # Advanced ATB costs
+    L225.RenewElec_cost %>%
+      left_join_error_no_match(L225.RenewElec_eff, by = c("subsector.name", "year")) %>% filter(case=="adv tech") %>%
+      left_join(L223.StubTechCapFactor_elec,
+                by = c("subsector.name" = "subsector", "intermittent.technology" = "stub.technology", "year"))%>%
+      mutate(minicam.non.energy.input = if_else(subsector.name == "solar", "solar panels", "wind turbines"),
+             output_kgh2_d = if_else(subsector.name == "solar", energy.SOLAR_ELECTROLYSIS_KGH2_D, energy.WIND_ELECTROLYSIS_KGH2_D),
+             cost_75USD_kgH2 = cost_75USD_kW_yr * kWh_elec_per_kgH2 * output_kgh2_d / CONV_DAY_HOURS /
+               (output_kgh2_d * capacity.factor / CONV_DAYS_YEAR),
+             input.cost = cost_75USD_kgH2 / CONV_GJ_KGH2) %>%
+      select(region, subsector.name, year, minicam.non.energy.input, input.cost) %>%
+      left_join_error_no_match(L225.GlobalTechCost_h2 %>% select(-input.cost, -minicam.non.energy.input),
+                               by = c("subsector.name", "year")) %>%
+      rename(supplysector = sector.name, subsector = subsector.name, stub.technology = technology) %>%
+      select(LEVEL2_DATA_NAMES[["StubTechCost"]]) ->
+      L225.StubTechCost_h2_renewables_adv
 
     # Combine the electrolyzer and renewable power generation technologies' levelized non-energy costs into a single table
     L225.StubTechCost_h2 <- bind_rows(L225.StubTechCost_h2_electrolyzer_ref, L225.StubTechCost_h2_renewables) %>%
