@@ -18,6 +18,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "gcam-usa/states_subregions",
              FILE = "gcam-usa/NREL_us_re_capacity_factors",
+             "L125.Electrolyzer_IdleRatio_Params",
              "L225.Supplysector_h2",
              "L225.SectorUseTrialMarket_h2",
              "L225.SubsectorLogit_h2",
@@ -27,9 +28,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
              "L201.Pop_GCAMUSA",
              "L225.GlobalTechCost_h2",
              "L225.RenewElec_cost",
-             "L225.RenewElec_eff",
-             "L225.Electrolyzer_IdleRatio_Params_2020",
-             "L225.Electrolyzer_IdleRatio_Params_2040"))
+             "L225.RenewElec_eff"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L225.DeleteSupplysector_h2_USA",
              "L225.Supplysector_h2_USA",
@@ -44,7 +43,9 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
              "L225.SubsectorShrwtFllt_h2_ind_USA",
              "L225.TechCoef_h2_ind_USA",
              "L225.TechShrwt_h2_ind_USA",
-             "L225.StubTechCost_h2_USA"))
+             "L225.StubTechCost_h2_USA_ref",
+             "L225.StubTechCost_h2_USA_high",
+             "L225.StubTechCost_h2_USA_brkt"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -54,6 +55,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
 
     # Load required inputs
     states_subregions <- get_data(all_data, "gcam-usa/states_subregions")
+    L125.Electrolyzer_IdleRatio_Params <- get_data(all_data, "L125.Electrolyzer_IdleRatio_Params", strip_attributes = TRUE)
     L225.Supplysector_h2 <- get_data(all_data, "L225.Supplysector_h2", strip_attributes = TRUE)
     L225.SectorUseTrialMarket_h2 <- get_data(all_data, "L225.SectorUseTrialMarket_h2", strip_attributes = TRUE)
     L225.SubsectorLogit_h2 <- get_data(all_data, "L225.SubsectorLogit_h2", strip_attributes = TRUE)
@@ -64,8 +66,6 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
     L225.GlobalTechCost_h2 <- get_data(all_data, "L225.GlobalTechCost_h2", strip_attributes = TRUE)
     L225.RenewElec_cost <- get_data(all_data, "L225.RenewElec_cost", strip_attributes = TRUE)
     L225.RenewElec_eff <- get_data(all_data, "L225.RenewElec_eff", strip_attributes = TRUE)
-    L225.Electrolyzer_IdleRatio_Params_2020 <- get_data(all_data, "L225.Electrolyzer_IdleRatio_Params_2020", strip_attributes = TRUE)
-    L225.Electrolyzer_IdleRatio_Params_2040 <- get_data(all_data, "L225.Electrolyzer_IdleRatio_Params_2040", strip_attributes = TRUE)
     NREL_us_re_capacity_factors <- get_data(all_data, "gcam-usa/NREL_us_re_capacity_factors", strip_attributes = TRUE)
     # ===================================================
 
@@ -79,32 +79,27 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
       mutate(stub.technology = 'electrolysis',
              year = 1975) %>%
       gather_years %>%
-      complete(nesting(region, subsector,stub.technology,capacity.factor), year = c(year, MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
+      complete(nesting(region, subsector,stub.technology,capacity.factor), year = MODEL_YEARS) %>%
       filter(region != 'DC')
 
-
+    ELECTROLYZER_YEARS <- unique(L125.Electrolyzer_IdleRatio_Params$Year[L125.Electrolyzer_IdleRatio_Params$Year %in% MODEL_YEARS])
     L225.StubTechCapFactor_ren_USA %>%
-      mutate(IdleRatio = pmax(1, 1 / (capacity.factor / energy.ELECTROLYZER_RENEWABLE_CAPACITY_RATIO)),
-             `2020` = L225.Electrolyzer_IdleRatio_Params_2020$intercept +
-               IdleRatio * L225.Electrolyzer_IdleRatio_Params_2020$slope,
-             `2040` = L225.Electrolyzer_IdleRatio_Params_2040$intercept +
-               IdleRatio * L225.Electrolyzer_IdleRatio_Params_2040$slope,
-             `2050` = `2040` * energy.Electrolyzer_2050_2040_cost_ratio) %>%
-      select(region, subsector, `2020`, `2040`, `2050`) %>%
-      gather_years() %>%
-      complete(nesting(region, subsector), year = c(year, MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
-      distinct(region,subsector,year,.keep_all=TRUE) %>%
-      group_by(region, subsector) %>%
+      filter(year %in% ELECTROLYZER_YEARS) %>%
+      mutate(IdleRatio = pmax(1, 1 / (capacity.factor / energy.ELECTROLYZER_RENEWABLE_CAPACITY_RATIO))) %>%
+      left_join(L125.Electrolyzer_IdleRatio_Params, by = c(year = "Year")) %>%
+      mutate(input.cost = Intercept + Slope * IdleRatio) %>%
+      select(Scen, region, subsector, year, input.cost) %>%
+      complete(nesting(Scen, region, subsector), year = MODEL_YEARS) %>%
+      group_by(Scen, region, subsector) %>%
       mutate(minicam.non.energy.input = "electrolyzer",
-             input.cost = approx_fun(year, value, rule = 2),
+             input.cost = approx_fun(year, input.cost, rule = 2),
              input.cost = input.cost * gdp_deflator(1975, 2016) / CONV_GJ_KGH2) %>%
       ungroup() %>%
-      select(-value) %>%
       left_join(select(L225.GlobalTechCost_h2, -input.cost),
                 by = c("subsector" = "subsector.name", "year", "minicam.non.energy.input")) %>%
-      rename(supplysector = sector.name, stub.technology = technology) %>%
-      select(LEVEL2_DATA_NAMES[["StubTechCost"]]) ->
+      rename(supplysector = sector.name, stub.technology = technology) ->
       L225.StubTechCost_h2_electrolyzer_USA
+
 
     L225.RenewElec_cost %>%
       left_join_error_no_match(L225.RenewElec_eff, by = c("subsector.name", "year")) %>%
@@ -116,16 +111,31 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
              cost_75USD_kgH2 = cost_75USD_kW_yr * kWh_elec_per_kgH2 * output_kgh2_d / CONV_DAY_HOURS /
                (output_kgh2_d * capacity.factor / CONV_DAYS_YEAR),
              input.cost = cost_75USD_kgH2 / CONV_GJ_KGH2) %>%
-      select(region, subsector.name, year, minicam.non.energy.input, input.cost) %>%
+      select(case, region, subsector.name, year, minicam.non.energy.input, input.cost) %>%
       left_join_error_no_match(L225.GlobalTechCost_h2 %>% select(-input.cost, -minicam.non.energy.input),
                                by = c("subsector.name", "year")) %>%
-      rename(supplysector = sector.name, subsector = subsector.name, stub.technology = technology) %>%
-      select(LEVEL2_DATA_NAMES[["StubTechCost"]]) ->
+      rename(supplysector = sector.name, subsector = subsector.name, stub.technology = technology) ->
       L225.StubTechCost_h2_renewables_USA
 
     # Combine the electrolyzer and renewable power generation technologies' levelized non-energy costs into a single table
-    L225.StubTechCost_h2_USA <- bind_rows(L225.StubTechCost_h2_electrolyzer_USA, L225.StubTechCost_h2_renewables_USA) %>%
-      mutate(input.cost = round(input.cost, digits = energy.DIGITS_COST))
+    L225.StubTechCost_h2_USA_ref <- L225.StubTechCost_h2_electrolyzer_USA %>%
+      filter(Scen == "bau") %>%
+      bind_rows(filter(L225.StubTechCost_h2_renewables_USA, case == "central")) %>%
+      mutate(input.cost = round(input.cost, digits = energy.DIGITS_COST)) %>%
+      select(LEVEL2_DATA_NAMES[["StubTechCost"]])
+
+    L225.StubTechCost_h2_USA_high <- L225.StubTechCost_h2_electrolyzer_USA %>%
+      filter(Scen == "high") %>%
+      bind_rows(filter(L225.StubTechCost_h2_renewables_USA, case == "adv tech")) %>%
+      mutate(input.cost = round(input.cost, digits = energy.DIGITS_COST)) %>%
+      select(LEVEL2_DATA_NAMES[["StubTechCost"]])
+
+    L225.StubTechCost_h2_USA_brkt <- L225.StubTechCost_h2_electrolyzer_USA %>%
+      filter(Scen == "breakthrough") %>%
+      bind_rows(filter(L225.StubTechCost_h2_renewables_USA, case == "adv tech")) %>%
+      mutate(input.cost = round(input.cost, digits = energy.DIGITS_COST)) %>%
+      select(LEVEL2_DATA_NAMES[["StubTechCost"]])
+
 
     # Delete the hydrogen sectors from the USA region
     L225.DeleteSupplysector_h2_USA <- L225.Supplysector_h2 %>%
@@ -335,18 +345,31 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
                      "L225.GlobalTechCoef_h2") ->
       L225.TechShrwt_h2_ind_USA
 
-    L225.StubTechCost_h2_USA %>%
-      add_title("State-level green hydrogen production costs") %>%
+    L225.StubTechCost_h2_USA_ref %>%
+      add_title("State-level green hydrogen production costs (reference scenario)") %>%
       add_units("$1975/GJ") %>%
       add_comments("LCOH for the electrolyzer and renewables providing electricity.") %>%
-      add_precursors("L225.GlobalTechCost_h2",
+      add_precursors("L125.Electrolyzer_IdleRatio_Params",
+                     "L225.GlobalTechCost_h2",
                      "L225.GlobalTechCoef_h2",
                      "L225.RenewElec_cost",
                      "L225.RenewElec_eff",
-                     "L225.Electrolyzer_IdleRatio_Params_2020",
-                     "L225.Electrolyzer_IdleRatio_Params_2040",
                      "gcam-usa/NREL_us_re_capacity_factors") ->
-      L225.StubTechCost_h2_USA
+      L225.StubTechCost_h2_USA_ref
+
+    L225.StubTechCost_h2_USA_high %>%
+      add_title("State-level green hydrogen production costs (high tech scenario)") %>%
+      add_units("$1975/GJ") %>%
+      add_comments("LCOH for the electrolyzer and renewables providing electricity.") %>%
+      same_precursors_as(L225.StubTechCost_h2_USA_ref) ->
+      L225.StubTechCost_h2_USA_high
+
+    L225.StubTechCost_h2_USA_brkt %>%
+      add_title("State-level green hydrogen production costs (breakthrough scenario)") %>%
+      add_units("$1975/GJ") %>%
+      add_comments("LCOH for the electrolyzer and renewables providing electricity.") %>%
+      same_precursors_as(L225.StubTechCost_h2_USA_ref) ->
+      L225.StubTechCost_h2_USA_brkt
 
     return_data(L225.DeleteSupplysector_h2_USA,
                 L225.Supplysector_h2_USA,
@@ -361,7 +384,9 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
                 L225.SubsectorShrwtFllt_h2_ind_USA,
                 L225.TechCoef_h2_ind_USA,
                 L225.TechShrwt_h2_ind_USA,
-                L225.StubTechCost_h2_USA)
+                L225.StubTechCost_h2_USA_ref,
+                L225.StubTechCost_h2_USA_high,
+                L225.StubTechCost_h2_USA_brkt)
   } else {
     stop("Unknown command")
   }

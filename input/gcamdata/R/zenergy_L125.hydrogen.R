@@ -25,7 +25,7 @@ module_energy_L125.hydrogen <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "energy/H2A_IO_coef_data",
              FILE = "energy/H2A_NE_cost_data",
-             FILE = "energy/H2A_electrolyzer_NEcost_CF",
+             FILE = "energy/H2Fast_electrolyzer_NEcost_CF",
              "L223.GlobalTechCapital_elec",
              "L223.GlobalTechEff_elec",
              "L223.GlobalTechOMvar_elec",
@@ -49,7 +49,7 @@ module_energy_L125.hydrogen <- function(command, ...) {
 
     H2A_prod_coef <- get_data(all_data, "energy/H2A_IO_coef_data")
     H2A_prod_cost <- get_data(all_data, "energy/H2A_NE_cost_data")
-    H2A_electrolyzer_NEcost_CF <- get_data(all_data, "energy/H2A_electrolyzer_NEcost_CF")
+    H2Fast_electrolyzer_NEcost_CF <- get_data(all_data, "energy/H2Fast_electrolyzer_NEcost_CF")
 
     L223.GlobalTechCapital_elec <- get_data(all_data, "L223.GlobalTechCapital_elec")
     L223.GlobalTechEff_elec <- get_data(all_data, "L223.GlobalTechEff_elec")
@@ -448,18 +448,28 @@ module_energy_L125.hydrogen <- function(command, ...) {
     # using NREL ATB 2019 data.
     # Relationship between capacity factor and levelized cost of electrolyzers, for estimation of NE costs of direct
     # renewable electrolysis on a region-specific basis
-    H2A_electrolyzer_NEcost_CF <- H2A_electrolyzer_NEcost_CF %>%
-      mutate(IdleRatio = 1 / capacity.factor)
-    # TODO change explicit column naming to dynamic reading based on new H2A start year object
-    IdleRatioIntercept_CurrentYear <- lm(H2A_electrolyzer_NEcost_CF$`2020` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[1]
-    IdleRatioSlope_CurrentYear <- lm(H2A_electrolyzer_NEcost_CF$`2020` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[2]
-    IdleRatioIntercept_2040 <- lm(H2A_electrolyzer_NEcost_CF$`2040` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[1]
-    IdleRatioSlope_2040 <- lm(H2A_electrolyzer_NEcost_CF$`2040` ~ H2A_electrolyzer_NEcost_CF$IdleRatio)$coefficients[2]
+    H2Fast_electrolyzer_NEcost_CF <- H2Fast_electrolyzer_NEcost_CF %>%
+      mutate(IdleRatio = 1 / CF)
+
     L125.Electrolyzer_IdleRatio_Params <- tibble(
-      year = c(energy.H2A_CURRENT_YEAR, 2040),
-      slope = c(IdleRatioSlope_CurrentYear, IdleRatioSlope_2040),
-      intercept = c(IdleRatioIntercept_CurrentYear, IdleRatioIntercept_2040)
+      Scen = character(),
+      Year = integer(),
+      Slope = numeric(),
+      Intercept = numeric()
     )
+
+    for(i in unique(H2Fast_electrolyzer_NEcost_CF$Scen)){
+      for(j in unique(H2Fast_electrolyzer_NEcost_CF$Year)){
+        data_filtered <- filter(H2Fast_electrolyzer_NEcost_CF, Scen == i & Year == j)
+        linear_model_params <- tibble(
+          Scen = i,
+          Year = j,
+          Slope = lm(data_filtered$NEcost_2016USD_per_kg ~ data_filtered$IdleRatio)$coefficients[1],
+          Intercept = lm(data_filtered$NEcost_2016USD_per_kg ~ data_filtered$IdleRatio)$coefficients[2]
+        )
+        L125.Electrolyzer_IdleRatio_Params <- bind_rows(L125.Electrolyzer_IdleRatio_Params, linear_model_params)
+      }
+    }
 
     # H2A cost assumptions for nuclear H2 are for electrolyzer cost only for a solid oxide electrolysis process.
     # Here we calculate non-energy costs for nuclear generation for electrolysis on a per GJ H2 basis using power sector assumptions for nuclear to add to the electrolyzer cost
@@ -575,7 +585,7 @@ module_energy_L125.hydrogen <- function(command, ...) {
       add_title("Parameters of linear relationship between idle ratio and NE cost of electrolyzers") %>%
       add_units("2016$/kg H2") %>%
       add_comments("IdleRatio = 1 / Capacity factor; linear model used to estimate levelized cost as fn of reciprocal of CF") %>%
-      add_precursors("energy/H2A_electrolyzer_NEcost_CF") ->
+      add_precursors("energy/H2Fast_electrolyzer_NEcost_CF") ->
       L125.Electrolyzer_IdleRatio_Params
 
     return_data(L125.globaltech_coef, L125.globaltech_cost, L125.Electrolyzer_IdleRatio_Params)

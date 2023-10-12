@@ -25,9 +25,13 @@ module_gcamusa_hydrogen_xml <- function(command, ...) {
              "L225.SubsectorShrwtFllt_h2_ind_USA",
              "L225.TechCoef_h2_ind_USA",
              "L225.TechShrwt_h2_ind_USA",
-             "L225.StubTechCost_h2_USA"))
+             "L225.StubTechCost_h2_USA_ref",
+             "L225.StubTechCost_h2_USA_high",
+             "L225.StubTechCost_h2_USA_brkt"))
   } else if(command == driver.DECLARE_OUTPUTS) {
-    return(c(XML = "hydrogen_USA.xml"))
+    return(c(XML = "hydrogen_USA.xml",
+             XML = "hydrogen_electrolysis_USA_hitech.xml",
+             XML = "hydrogen_electrolysis_USA_breakthru.xml"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -46,7 +50,10 @@ module_gcamusa_hydrogen_xml <- function(command, ...) {
     L225.SubsectorShrwtFllt_h2_ind_USA <- get_data(all_data, "L225.SubsectorShrwtFllt_h2_ind_USA")
     L225.TechCoef_h2_ind_USA <- get_data(all_data, "L225.TechCoef_h2_ind_USA")
     L225.TechShrwt_h2_ind_USA <- get_data(all_data, "L225.TechShrwt_h2_ind_USA")
-    L225.StubTechCost_h2_USA <- get_data(all_data, "L225.StubTechCost_h2_USA")
+    L225.StubTechCost_h2_USA_ref <- get_data(all_data, "L225.StubTechCost_h2_USA_ref")
+    L225.StubTechCost_h2_USA_high <- get_data(all_data, "L225.StubTechCost_h2_USA_high")
+    L225.StubTechCost_h2_USA_brkt <- get_data(all_data, "L225.StubTechCost_h2_USA_brkt")
+
     # ===================================================
 
     # Produce outputs
@@ -60,7 +67,7 @@ module_gcamusa_hydrogen_xml <- function(command, ...) {
       add_xml_data(L225.SubsectorShrwtFllt_h2_USA, "SubsectorShrwtFllt") %>%
       add_xml_data(L225.SubsectorShrwtFllt_h2_ind_USA, "SubsectorShrwtFllt") %>%
       add_xml_data(L225.StubTech_h2_USA, "StubTech") %>%
-      add_xml_data(L225.StubTechCost_h2_USA, "StubTechCost") %>%
+      add_xml_data(L225.StubTechCost_h2_USA_ref, "StubTechCost") %>%
       add_xml_data(L225.StubTechMarket_h2_USA, "StubTechMarket") %>%
       add_xml_data(L225.DeleteStubTechMinicamEnergyInput_H2_USA,"DeleteStubTechMinicamEnergyInput") %>%
       add_xml_data(L225.TechCoef_h2_ind_USA,"TechCoef") %>%
@@ -78,10 +85,22 @@ module_gcamusa_hydrogen_xml <- function(command, ...) {
                      "L225.SubsectorShrwtFllt_h2_ind_USA",
                      "L225.TechCoef_h2_ind_USA",
                      "L225.TechShrwt_h2_ind_USA",
-                     "L225.StubTechCost_h2_USA") ->
+                     "L225.StubTechCost_h2_USA_ref") ->
       hydrogen_USA.xml
 
-    return_data(hydrogen_USA.xml)
+    create_xml("hydrogen_electrolysis_USA_hitech.xml") %>%
+      add_xml_data(L225.StubTechCost_h2_USA_high, "StubTechCost") %>%
+      add_precursors("L225.StubTechCost_h2_USA_high") ->
+      hydrogen_electrolysis_USA_hitech.xml
+
+    create_xml("hydrogen_electrolysis_USA_breakthru.xml") %>%
+      add_xml_data(L225.StubTechCost_h2_USA_brkt, "StubTechCost") %>%
+      add_precursors("L225.StubTechCost_h2_USA_brkt") ->
+      hydrogen_electrolysis_USA_breakthru.xml
+
+    return_data(hydrogen_USA.xml,
+                hydrogen_electrolysis_USA_hitech.xml,
+                hydrogen_electrolysis_USA_breakthru.xml)
   } else {
     stop("Unknown command")
   }
