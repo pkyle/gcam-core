@@ -29,7 +29,9 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
              "L201.Pop_GCAMUSA",
              "L225.GlobalTechCost_h2",
              "L225.RenewElec_cost",
-             "L225.RenewElec_eff"))
+             "L225.RenewElec_eff",
+             "L2237.StubTechCapFactor_wind_reeds_USA",
+             "L2238.StubTechCapFactor_PV_reeds_USA"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L225.DeleteSupplysector_h2_USA",
              "L225.Supplysector_h2_USA",
@@ -65,6 +67,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
 
     # Load required inputs
     states_subregions <- get_data(all_data, "gcam-usa/states_subregions")
+    NREL_us_re_capacity_factors <- get_data(all_data, "gcam-usa/NREL_us_re_capacity_factors")
     L125.Electrolyzer_IdleRatio_Params <- get_data(all_data, "L125.Electrolyzer_IdleRatio_Params", strip_attributes = TRUE)
     L225.Supplysector_h2 <- get_data(all_data, "L225.Supplysector_h2", strip_attributes = TRUE)
     L225.SectorUseTrialMarket_h2 <- get_data(all_data, "L225.SectorUseTrialMarket_h2", strip_attributes = TRUE)
@@ -76,7 +79,8 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
     L225.GlobalTechCost_h2 <- get_data(all_data, "L225.GlobalTechCost_h2", strip_attributes = TRUE)
     L225.RenewElec_cost <- get_data(all_data, "L225.RenewElec_cost", strip_attributes = TRUE)
     L225.RenewElec_eff <- get_data(all_data, "L225.RenewElec_eff", strip_attributes = TRUE)
-    NREL_us_re_capacity_factors <- get_data(all_data, "gcam-usa/NREL_us_re_capacity_factors", strip_attributes = TRUE)
+    L2237.StubTechCapFactor_wind_reeds_USA <- get_data(all_data, "L2237.StubTechCapFactor_wind_reeds_USA", strip_attributes = TRUE)
+    L2238.StubTechCapFactor_PV_reeds_USA <- get_data(all_data, "L2238.StubTechCapFactor_PV_reeds_USA", strip_attributes = TRUE)
     A225.structure <- get_data(all_data, "gcam-usa/A225.structure")
     # ===================================================
 
@@ -160,18 +164,25 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
       select(region, supplysector, subsector, technology, year, minicam.energy.input,
              coefficient, market.name) -> L225.TechCoef_h2_PADD
 
-    L225.StubTechCapFactor_ren_USA <- NREL_us_re_capacity_factors %>%
-      rename(state_name = State) %>%
-      filter(state_name != 'Average') %>%
-      left_join_error_no_match(states_subregions,by = c('state_name')) %>%
-      rename(region = state,solar = Rural_Utility_scale_PV,wind = Onshore_Wind) %>%
-      select(region,solar,wind) %>%
-      tidyr::pivot_longer(cols = !region,names_to='subsector',values_to = 'capacity.factor') %>%
-      mutate(stub.technology = 'electrolysis',
-             year = 1975) %>%
-      gather_years %>%
-      complete(nesting(region, subsector,stub.technology,capacity.factor), year = MODEL_YEARS) %>%
-      filter(region != 'DC')
+    # ===================================================
+
+    L225.StubTechCapFactor_ren_USA <- bind_rows(L2238.StubTechCapFactor_PV_reeds_USA,
+                                                L2237.StubTechCapFactor_wind_reeds_USA) %>%
+      select(region, subsector0, year, capacity.factor) %>%
+      rename(subsector = subsector0) %>%
+      group_by(region, subsector, year) %>%
+      # The capacity factors don't vary across load segments; just need to drop the duplication
+      summarise(capacity.factor = median(capacity.factor)) %>%
+      ungroup() %>%
+      mutate(stub.technology = "electrolysis") %>%
+      # Alaska and Hawaii don't have wind capacity factors in this data, but do in NREL_us_re_capacity_factors
+      complete(nesting(subsector, stub.technology, year), region = sort(unique(L2238.StubTechCapFactor_PV_reeds_USA$region))) %>%
+      mutate(capacity.factor = if_else(subsector == "wind" & region == "AK",
+                                       NREL_us_re_capacity_factors$Onshore_Wind[NREL_us_re_capacity_factors$State == "Alaska"],
+                                       capacity.factor),
+             capacity.factor = if_else(subsector == "wind" & region == "HI",
+                                       NREL_us_re_capacity_factors$Onshore_Wind[NREL_us_re_capacity_factors$State == "Hawaii"],
+                                       capacity.factor))
 
     ELECTROLYZER_YEARS <- unique(L125.Electrolyzer_IdleRatio_Params$Year[L125.Electrolyzer_IdleRatio_Params$Year %in% MODEL_YEARS])
     L225.StubTechCapFactor_ren_USA %>%
@@ -346,10 +357,6 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
       add_precursors('L225.Supplysector_h2') ->
       L225.DeleteStubTechMinicamEnergyInput_H2_USA
 
-
-
-
-
     L225.DeleteSupplysector_h2_USA %>%
       add_title("Remove hydrogen sectors of USA region for GCAM-USA") %>%
       add_units("Unitless") %>%
@@ -442,12 +449,14 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
       add_title("State-level green hydrogen production costs (reference scenario)") %>%
       add_units("$1975/GJ") %>%
       add_comments("LCOH for the electrolyzer and renewables providing electricity.") %>%
-      add_precursors("L125.Electrolyzer_IdleRatio_Params",
+      add_precursors("gcam-usa/NREL_us_re_capacity_factors",
+                     "L125.Electrolyzer_IdleRatio_Params",
                      "L225.GlobalTechCost_h2",
                      "L225.GlobalTechCoef_h2",
                      "L225.RenewElec_cost",
                      "L225.RenewElec_eff",
-                     "gcam-usa/NREL_us_re_capacity_factors") ->
+                     "L2237.StubTechCapFactor_wind_reeds_USA",
+                     "L2238.StubTechCapFactor_PV_reeds_USA") ->
       L225.StubTechCost_h2_USA_ref
 
     L225.StubTechCost_h2_USA_high %>%
