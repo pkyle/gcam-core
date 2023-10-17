@@ -19,7 +19,7 @@ H2 central production,nuclear,electrolysis,electrolyzer,$2016/kg H2,5.032636338,
 H2 industrial,onsite production,electrolysis,non-energy,$2016/kg H2,0.914570079,0.544998267,0.404093487,0.504093487,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
 H2 LDV,onsite production,electrolysis,production,$2016/kg H2,0.914570079,0.544998267,0.404093487,0.504093487,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
 H2 LDV,onsite production,natural gas steam reforming,production,$2016/kg H2,0.527095155,0.373668167,0.291080248,0.391080248,Forecourt model for larger (1500kG/H2/day) plant
-H2 MHDHV,onsite production,electrolysis,production,$2016/kg H2,0.914570079,0.544998267,0.404093487,0.504093487,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
-H2 MHDHV,onsite production,natural gas steam reforming,production,$2016/kg H2,0.527095155,0.373668167,0.291080248,0.391080248,Forecourt model for larger (1500kG/H2/day) plant
+H2 MHDV,onsite production,electrolysis,production,$2016/kg H2,0.914570079,0.544998267,0.404093487,0.504093487,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
+H2 MHDV,onsite production,natural gas steam reforming,production,$2016/kg H2,0.527095155,0.373668167,0.291080248,0.391080248,Forecourt model for larger (1500kG/H2/day) plant
 LH2,onsite production,electrolysis,production,$2016/kg H2,0.914570079,0.544998267,0.404093487,0.504093487,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
 LH2,onsite production,natural gas steam reforming,production,$2016/kg H2,0.527095155,0.373668167,0.291080248,0.391080248,Forecourt model for larger (1500kG/H2/day) plant
