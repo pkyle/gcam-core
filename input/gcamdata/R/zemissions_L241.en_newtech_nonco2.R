@@ -29,6 +29,7 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
              FILE = "energy/A23.globaltech_input_driver",
              FILE = "energy/A25.globaltech_input_driver",
              FILE = "energy/A322.globaltech_input_driver",
+             FILE = "energy/A54.globaltech_input_driver",
              "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
              "L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
              "L223.GlobalTechEff_elec"))
@@ -63,7 +64,8 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
       get_data(all_data, "energy/A22.globaltech_input_driver"),
       get_data(all_data, "energy/A23.globaltech_input_driver"),
       get_data(all_data, "energy/A25.globaltech_input_driver"),
-      get_data(all_data, "energy/A322.globaltech_input_driver")
+      get_data(all_data, "energy/A322.globaltech_input_driver"),
+      get_data(all_data, "energy/A54.globaltech_input_driver")
     ) %>%
       rename(stub.technology = technology) ->
       EnTechInputMap
@@ -238,12 +240,13 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
       unite(region_bio, region, stub.technology, sep = "~", remove = FALSE) %>%
       filter(!stub.technology %in% L241.firstgenbio_techs | region_bio %in% region_biofuels) %>%
       select(-region_bio) %>%
-      left_join_error_no_match(EnTechInputMap, by = c("supplysector", "subsector", "stub.technology")) ->
+      #left_join_error_no_match(EnTechInputMap, by = c("supplysector", "subsector", "stub.technology")) ->
+      left_join(EnTechInputMap, by = c("supplysector", "subsector", "stub.technology")) ->
       L241.nonco2_tech_coeff
 
     #write out for testing:
     #library(xlsx)
-    #write.xlsx(L241.nonco2_tech_coeff, file = paste0("_L241.nonco2_tech_coeff_.xlsx"), sheetName = paste0(deparse(substitute(L241.nonco2_tech_coeff))), append = TRUE, col.names = TRUE, row.names = TRUE)
+    #write.xlsx(L241.nonco2_tech_coeff, file = paste0("_L241.nonco2_tech_coeff_0928_leftjoin_2.xlsx"), sheetName = paste0(deparse(substitute(L241.nonco2_tech_coeff))), append = TRUE, col.names = TRUE, row.names = TRUE)
 
 
 
@@ -292,6 +295,7 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
                      "energy/A23.globaltech_input_driver",
                      "energy/A25.globaltech_input_driver",
                      "energy/A322.globaltech_input_driver",
+                     "energy/A54.globaltech_input_driver",
                      "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
                      "L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP")  ->
       L241.nonco2_tech_coeff
