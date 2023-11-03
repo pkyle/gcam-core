@@ -10,7 +10,7 @@ H2 central production,biomass,biomass to H2,non-energy,$2016/kg H2,0.891131954,0
 H2 central production,biomass,biomass to H2 CCS,non-energy,$2016/kg H2,,,,,H2A 2018 did not report Biomass + CCS assumptions.
 H2 central production,coal,coal chemical,non-energy,$2016/kg H2,,,,,H2A 2018 did not report Coal without CCS assumptions.
 H2 central production,coal,coal chemical CCS,non-energy,$2016/kg H2,2.63601882,,,,H2A  2018 did not report future Coal + CCS assumptions.
-H2 central production,electricity,electrolysis,non-energy,$2016/kg H2,4.963178522,4.341997557,0.125157893,0.225157893,Method of electrolysis utilized: PEM Electrolysis.
+H2 central production,electricity,electrolysis,electrolyzer,$2016/kg H2,1.481718027,0.555740071,0.125157893,0.225157893,Method of electrolysis utilized: PEM Electrolysis.  Taken from H2Fast data table assuming 95% CF
 H2 central production,solar,electrolysis,electrolyzer,$2016/kg H2,2.864409642,0.85282108,0.702269861,0.802269861,Method of electrolysis utilized: PEM Electrolysis powered by solar PV created electricity. Electrolyzer costs only are provided here assuming a capacity factor of 20% (matching solar panels).
 H2 central production,wind,electrolysis,electrolyzer,$2016/kg H2,1.471796075,0.439497225,0.701387147,0.801387147,Method of electrolysis utilized: PEM Electrolysis powered by wind created electricity. Electrolyzer costs only are provided here assuming a capacity factor of 46% (matching wind turbines).
 H2 central production,gas,natural gas steam reforming,non-energy,$2016/kg H2,0.285971367,0.25737423,0.1,0.2,No future assumptions provided; assumed 10% improvement

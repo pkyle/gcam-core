@@ -238,6 +238,26 @@ module_energy_L225.hydrogen <- function(command, ...) {
     # hydrogen electrolyzers.
     # Electrolyzer non-energy costs replace rather than add to the global default
     # values in L225.GlobalTechCost_h2. This is handled in the left_join.
+    # In addition we calculate the cost based on H2Fast data for grid electrolysis (replacing all electrolyzer costs with zero in H2A_cost input data)
+    # and append this to the stub tech to more seamlessly integrate with 3 scenario structure
+
+    L225.StubTechCost_h2_electrolyzer_grid <- L125.Electrolyzer_IdleRatio_Params %>%
+      filter(Year %in% MODEL_YEARS) %>%
+      mutate(year = Year,
+             IdleRatio = 1 / energy.Grid.Electrolyzer.capacity.factor,
+             input.cost = Intercept + Slope * IdleRatio,
+             minicam.non.energy.input = 'electrolyzer',
+             subsector = 'electricity',
+             supplysector = 'H2 central production',
+             stub.technology = 'electrolysis') %>%
+      complete(nesting(Scen, supplysector, subsector,stub.technology,minicam.non.energy.input), year = MODEL_YEARS) %>%
+      group_by(Scen) %>%
+      mutate(input.cost = approx_fun(year, input.cost, rule = 2),
+             input.cost = input.cost * gdp_deflator(1975, 2016) / CONV_GJ_KGH2) %>%
+      ungroup() %>%
+      write_to_all_regions(c(LEVEL2_DATA_NAMES[["StubTechCost"]],'Scen'),GCAM_region_names) %>%
+      select(c(LEVEL2_DATA_NAMES[["StubTechCost"]],Scen))
+
     L223.StubTechCapFactor_elec %>%
       filter(year %in% L125.Electrolyzer_IdleRatio_Params$Year,
              stub.technology %in% c("wind", "PV")) %>%
@@ -253,7 +273,8 @@ module_energy_L225.hydrogen <- function(command, ...) {
       ungroup() %>%
       left_join(select(L225.GlobalTechCost_h2, -input.cost),
                 by = c("subsector" = "subsector.name", "year", "minicam.non.energy.input")) %>%
-      rename(supplysector = sector.name, stub.technology = technology) ->
+      rename(supplysector = sector.name, stub.technology = technology) %>%
+      bind_rows(L225.StubTechCost_h2_electrolyzer_grid) ->
       L225.StubTechCost_h2_electrolyzer
 
     L225.StubTechCost_h2_electrolyzer_ref <- filter(L225.StubTechCost_h2_electrolyzer, Scen == "bau") %>%
