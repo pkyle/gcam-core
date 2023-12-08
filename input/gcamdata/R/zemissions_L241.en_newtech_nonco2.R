@@ -240,8 +240,8 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
       unite(region_bio, region, stub.technology, sep = "~", remove = FALSE) %>%
       filter(!stub.technology %in% L241.firstgenbio_techs | region_bio %in% region_biofuels) %>%
       select(-region_bio) %>%
-      #left_join_error_no_match(EnTechInputMap, by = c("supplysector", "subsector", "stub.technology")) ->
-      left_join(EnTechInputMap, by = c("supplysector", "subsector", "stub.technology")) ->
+      left_join_error_no_match(EnTechInputMap, by = c("supplysector", "subsector", "stub.technology")) ->
+      #left_join(EnTechInputMap, by = c("supplysector", "subsector", "stub.technology")) ->
       L241.nonco2_tech_coeff
 
     #write out for testing:
