@@ -5,13 +5,12 @@
 # ----------
 supplysector,subsector,technology,traded,1971,2010,2015,2019,2020,2050,2100
 ammonia,coal,coal,0,1,1,1,1,1,1,1
-ammonia,coal,coal CCS,0,0,0,0,0,0.25,1,1
+ammonia,coal,coal CCS,0,0,0,0,0,0,1,1
 ammonia,gas,gas,0,1,1,1,1,1,1,1
-ammonia,gas,gas CCS,0,0,0,0,0,0.25,1,1
+ammonia,gas,gas CCS,0,0,0,0,0,0,1,1
 ammonia,refined liquids,refined liquids,0,1,1,1,1,1,1,1
-ammonia,hydrogen,hydrogen,0,0,0,0,0,0.25,1,1
+ammonia,hydrogen,hydrogen,0,0,0,0,0,0,1,1
 traded ammonia,traded ammonia,traded ammonia,1,1,1,1,1,1,1,1
 regional ammonia,domestic ammonia,domestic ammonia,0,1,1,1,1,1,1,1
 regional ammonia,imported ammonia,imported ammonia,0,1,1,1,1,1,1,1
 N fertilizer,N fertilizer,N fertilizer,0,1,1,1,1,1,1,1
-ammonia energy,ammonia energy,ammonia energy,0,1,1,1,1,1,1,1

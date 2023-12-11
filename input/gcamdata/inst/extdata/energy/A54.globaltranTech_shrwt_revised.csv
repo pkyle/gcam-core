@@ -51,8 +51,8 @@ trn_freight_road,Heavy truck,BEV,0,0,0,0,0,0,1,1,1,CORE
 trn_aviation_intl,International Aviation,BEV,0,0,0,0,0,0,0,0,0.1,CORE
 trn_aviation_intl,International Aviation,Hydrogen,0,0,0,0,0,0,0,0,1,CORE
 trn_freight,Domestic Ship,BEV,0,0,0,0,0,0,0,1,1,CORE
-trn_freight,Domestic Ship,FCEV,0,0,0,0,0.5,1,1,1,1,CORE
-trn_freight,Domestic Ship,Hybrid Liquids,0,0,0,0,0.5,1,1,1,1,CORE
+trn_freight,Domestic Ship,FCEV,0,0,0,0,0,0,0,1,1,CORE
+trn_freight,Domestic Ship,Hybrid Liquids,0,0,0,0,0,0,1,1,1,CORE
 trn_freight,Freight Rail,BEV,0,0,0,0,0,0,1,1,1,CORE
 trn_freight,Freight Rail,FCEV,0,0,0,0,0,0,1,1,1,CORE
 trn_freight,Freight Rail,Hybrid Liquids,0,0,0,0,0,0,1,1,1,CORE
@@ -67,7 +67,7 @@ trn_pass,Domestic Aviation,Hydrogen,0,0,0,0,0,0,0,0,1,CORE
 trn_pass_road,Bus,FCEV,0,0,0,0,0,0,1,1,1,CORE
 trn_pass_road,Bus,Hybrid Liquids,0,0,0,0,0,1,1,1,1,CORE
 trn_shipping_intl,International Ship,BEV,0,0,0,0,0,0,0,1,1,CORE
-trn_shipping_intl,International Ship,FCEV,0,0,0,0,0.5,1,1,1,1,CORE
-trn_shipping_intl,International Ship,Hybrid Liquids,0,0,0,0,0.5,1,1,1,1,CORE
-trn_freight,Domestic Ship,Ammonia,0,0,0,0,0.5,1,1,1,1,CORE
-trn_shipping_intl,International Ship,Ammonia,0,0,0,0,0.5,1,1,1,1,CORE
+trn_shipping_intl,International Ship,FCEV,0,0,0,0,0,0,0,1,1,CORE
+trn_shipping_intl,International Ship,Hybrid Liquids,0,0,0,0,0,0,1,1,1,CORE
+trn_freight,Domestic Ship,Ammonia,0,0,0,0,0,0,0,1,1,CORE
+trn_shipping_intl,International Ship,Ammonia,0,0,0,0,0,0,0,1,1,CORE

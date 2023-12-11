@@ -7,11 +7,10 @@ supplysector,subsector,traded,year.fillout,year,share.weight
 ammonia,coal,0,start-year,,1
 ammonia,gas,0,start-year,,1
 ammonia,refined liquids,0,start-year,,1
-ammonia,refined liquids,0,2035,,1
-ammonia,hydrogen,0,start-year,,1
+ammonia,refined liquids,0,2035,,0
+ammonia,hydrogen,0,start-year,,0
 ammonia,hydrogen,0,2050,,1
 traded ammonia,traded ammonia,1,start-year,,1
 regional ammonia,domestic ammonia,0,start-year,,1
 regional ammonia,imported ammonia,0,start-year,,1
 N fertilizer,N fertilizer,0,start-year,,1
-ammonia energy,ammonia energy,0,start-year,,1

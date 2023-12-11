@@ -5,5 +5,5 @@
 # Column types: cccc
 # ----------
 supplysector,subsector,technology,input.name
-trn_shipping_intl,International Ship,ammonia energy,ammonia energy
-trn_freight,Domestic Ship,ammonia energy,ammonia energy
+trn_shipping_intl,International Ship,ammonia,ammonia
+trn_freight,Domestic Ship,ammonia,ammonia
