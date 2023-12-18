@@ -65,3 +65,5 @@ other industrial energy use,refined liquids,refined liquids cogen,0.3,0.09
 other industrial energy use,biomass,biomass,0.05,0.2
 other industrial energy use,biomass ,biomass cogen,0.05,0.2
 urban processes,waste_incineration,waste_incineration,0.05,0.2
+trn_shipping_intl,International Ship,Ammonia,0,0
+trn_freight,Domestic Ship,Ammonia,0,0

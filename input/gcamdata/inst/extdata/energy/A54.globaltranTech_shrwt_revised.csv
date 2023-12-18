@@ -69,5 +69,7 @@ trn_pass_road,Bus,Hybrid Liquids,0,0,0,0,0,1,1,1,1,CORE
 trn_shipping_intl,International Ship,BEV,0,0,0,0,0,0,0,1,1,CORE
 trn_shipping_intl,International Ship,FCEV,0,0,0,0,0,0,0,1,1,CORE
 trn_shipping_intl,International Ship,Hybrid Liquids,0,0,0,0,0,0,1,1,1,CORE
-trn_freight,Domestic Ship,Ammonia,0,0,0,0,0,0,0,1,1,CORE
-trn_shipping_intl,International Ship,Ammonia,0,0,0,0,0,0,0,1,1,CORE
+trn_shipping_intl,International Ship,FCEV,0,0,0,0,0.5,1,1,1,1,CORE
+trn_shipping_intl,International Ship,Hybrid Liquids,0,0,0,0,0.5,1,1,1,1,CORE
+trn_freight,Domestic Ship,Ammonia,0,0,0,0,0.5,1,1,1,1,CORE
+trn_shipping_intl,International Ship,Ammonia,0,0,0,0,0.5,1,1,1,1,CORE

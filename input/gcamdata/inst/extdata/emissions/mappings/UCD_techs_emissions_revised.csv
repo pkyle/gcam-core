@@ -130,3 +130,5 @@ Freight,Truck,Medium truck,Liquids,Liquids,trn_road and rail,refined liquids,trn
 Freight,Truck,Medium truck,NG,Natural Gas,trn_road and rail,gas,trn_freight_road,Medium truck,NG,delivered gas
 Freight,Truck,Heavy truck,Liquids,Liquids,trn_road and rail,refined liquids,trn_freight_road,Heavy truck,Liquids,refined liquids enduse
 Freight,Truck,Heavy truck,NG,Natural Gas,trn_road and rail,gas,trn_freight_road,Heavy truck,NG,delivered gas
+Freight,Ship Domestic,All,Ammonia,Ammonia,trn_domestic ship,ammonia energy,trn_freight,Domestic Ship,Ammonia,ammonia energy
+Freight,Ship International,All,Ammonia,Ammonia,trn_international ship,ammonia energy,trn_shipping_intl,International Ship,Ammonia,ammonia energy

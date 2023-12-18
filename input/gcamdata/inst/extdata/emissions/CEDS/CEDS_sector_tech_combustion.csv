@@ -156,3 +156,5 @@ iron and steel,refined liquids,EAF with DRI CCS,iron and steel,refined liquids
 iron and steel,gas,EAF with DRI CCS,iron and steel,gas
 iron and steel,refined liquids,EAF with scrap,iron and steel,refined liquids
 iron and steel,gas,EAF with scrap,iron and steel,gas
+trn_freight,Domestic Ship,Ammonia,trn_domestic ship,refined liquids
+trn_shipping_intl,International Ship,Ammonia,trn_intl_ship,refined liquids
