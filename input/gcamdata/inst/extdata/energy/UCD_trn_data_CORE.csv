@@ -4891,7 +4891,6 @@ Brazil,Freight,Truck,Truck (>15t),BEV,Electricity,intensity,MJ/vkm,3.2548,3.2386
 Brazil,Freight,Truck,Truck (0-1t),BEV,Electricity,load factor,tonnes/veh,1.225,1.225,1.225,1.225,1.225,1.225,1.225,1.225,1.225,1.225,1.225,1.225,1.225,1.225,1.225,1.225,1.225,1.225,1.225,1.225
 Brazil,Freight,Truck,Truck (6-15t),BEV,Electricity,load factor,tonnes/veh,4.725,4.725,4.725,4.725,4.725,4.725,4.725,4.725,4.725,4.725,4.725,4.725,4.725,4.725,4.725,4.725,4.725,4.725,4.725,4.725
 Brazil,Freight,Truck,Truck (>15t),BEV,Electricity,load factor,tonnes/veh,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1
-Brazil,Freight,Truck,Truck (>15t),BEV,Electricity,load factor,tonnes/veh,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1,8.1
 Africa,Freight,Ship Domestic,All,Ammonia,Ammonia,CAPEX and non-fuel OPEX,2005$/vkt,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708
 Australia_NZ,Freight,Ship Domestic,All,Ammonia,Ammonia,CAPEX and non-fuel OPEX,2005$/vkt,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708
 Canada,Freight,Ship Domestic,All,Ammonia,Ammonia,CAPEX and non-fuel OPEX,2005$/vkt,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708,33.0708
