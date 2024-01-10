@@ -9,7 +9,7 @@ chemical energy use,refined liquids,share-weight,final-calibration-year,end-year
 chemical energy use,gas,share-weight,final-calibration-year,end-year,,fixed
 chemical energy use,biomass,share-weight,final-calibration-year,end-year,,fixed
 chemical energy use,electricity,share-weight,final-calibration-year,end-year,,fixed
-chemical energy use,hydrogen,share-weight,final-calibration-year,end-year,,linear
+chemical energy use,hydrogen,share-weight,2020,end-year,,linear
 chemical energy use,coal,share-weight,final-calibration-year,end-year,,fixed
 chemical energy use,heat,share-weight,final-calibration-year,end-year,,fixed
 chemical feedstocks,refined liquids,share-weight,final-calibration-year,end-year,,linear

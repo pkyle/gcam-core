@@ -9,7 +9,8 @@ chemical energy use,refined liquids,start-year,,1
 chemical energy use,gas,start-year,,1
 chemical energy use,biomass,start-year,,1
 chemical energy use,electricity,start-year,,1
-chemical energy use,hydrogen,start-year,,0.5
+chemical energy use,hydrogen,start-year,,0
+chemical energy use,hydrogen,2025,,0.5
 chemical energy use,coal,start-year,,1
 chemical energy use,heat,start-year,,1
 chemical feedstocks,refined liquids,start-year,,1
