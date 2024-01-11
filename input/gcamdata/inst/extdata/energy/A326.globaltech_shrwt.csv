@@ -1,7 +1,7 @@
 # File: A326.globaltech_shrwt.csv
 # Title: chemical default shareweights
 # Units: Unitless
-# Column types: cccnnnnn
+# Column types: cccnnnnnn
 # ----------
 supplysector,subsector,technology,1971,2015,2019,2020,2050,2100
 alumina,refined liquids,refined liquids,1,1,1,1,1,1
