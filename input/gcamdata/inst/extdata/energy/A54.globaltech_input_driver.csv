@@ -1,5 +1,5 @@
 # File: A54.globaltech_input_driver.csv
-# Title: Ammonia ships primary input name to drive non-co2 emissions
+# Title: Ammonia and hybrid ship primary input names to drive non-co2 emissions
 # Units: Unitless
 # Comments: Used to identify which is the appropriate input to drive non-co2 emissions
 # Column types: cccc
@@ -7,3 +7,5 @@
 supplysector,subsector,technology,input.name
 trn_shipping_intl,International Ship,Ammonia,ammonia energy
 trn_freight,Domestic Ship,Ammonia,ammonia energy
+trn_shipping_intl,International Ship,Hybrid Liquids,refined liquids enduse
+trn_freight,Domestic Ship,Hybrid Liquids,refined liquids enduse
