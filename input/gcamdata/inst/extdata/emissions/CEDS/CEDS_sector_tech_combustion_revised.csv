@@ -159,3 +159,5 @@ trn_freight,Domestic Ship,Ammonia,trn_domestic ship,ammonia energy
 trn_shipping_intl,International Ship,Ammonia,trn_intl_ship,ammonia energy
 trn_freight,Domestic Ship,Hybrid Liquids,trn_domestic ship,refined liquids
 trn_shipping_intl,International Ship,Hybrid Liquids,trn_intl_ship,refined liquids
+trn_freight,Domestic Ship,Liquids,trn_domestic ship,refined liquids
+trn_shipping_intl,International Ship,Liquids,trn_intl_ship,refined liquids

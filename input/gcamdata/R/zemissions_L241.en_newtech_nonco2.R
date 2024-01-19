@@ -70,10 +70,21 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
       rename(stub.technology = technology) ->
       EnTechInputMap
 
+    # Add Non.CO2 objects N2O_int_ship and N2O_dom_ship for the purpose of introducing policies that limit N2O emissions of the shipping sector
+    A41.tech_coeff %>%
+      mutate(N2O_dom_ship = 0, .after = N2O) %>%
+      mutate(N2O_int_ship = 0, .after = N2O_dom_ship) %>%
+      mutate(N2O_dom_ship = case_when(
+        subsector == "Domestic Ship" ~ N2O)) %>%
+      mutate(N2O_int_ship = case_when(
+        subsector == "International Ship" ~ N2O))->
+      A41.tech_coeff_ship
+
+
     # ===================================================
     # Assign new technology emission factors to all GCAM regions
     # for nonco2 emissions.
-    A41.tech_coeff %>%
+    A41.tech_coeff_ship %>%
       gather(Non.CO2, emiss.coeff, -supplysector, -subsector, -stub.technology, -exception, -exception_tech, -may.be.historic) %>%
       repeat_add_columns(tibble(region = GCAM_region_names[["region"]])) ->
       L241.nonco2_tech_coeff
@@ -120,6 +131,46 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
       mutate(year = min(MODEL_FUTURE_YEARS)) %>%
       select(region, supplysector, subsector, stub.technology, year, Non.CO2, emiss.coeff) ->
       L241.nonco2_tech_coeff
+
+
+    # Add N2O emissions factors for ships and all model base years
+    L241.nonco2_tech_coeff_n2O_ship <- L241.nonco2_tech_coeff %>%
+      filter(grepl("Ship", subsector)) %>%
+      #filter(stub.technology == "Ammonia") %>%
+      filter(grepl("N2O_", Non.CO2))
+
+    #Copy for all model base years
+    L241.nonco2_tech_coeff_n2O_ship_1975 <- L241.nonco2_tech_coeff_n2O_ship
+    L241.nonco2_tech_coeff_n2O_ship_1975$year <- "1975"
+
+    L241.nonco2_tech_coeff_n2O_ship_1990 <- L241.nonco2_tech_coeff_n2O_ship
+    L241.nonco2_tech_coeff_n2O_ship_1990$year <- "1990"
+
+    L241.nonco2_tech_coeff_n2O_ship_2005 <- L241.nonco2_tech_coeff_n2O_ship
+    L241.nonco2_tech_coeff_n2O_ship_2005$year <- "2005"
+
+    L241.nonco2_tech_coeff_n2O_ship_2010 <- L241.nonco2_tech_coeff_n2O_ship
+    L241.nonco2_tech_coeff_n2O_ship_2010$year <- "2010"
+
+    L241.nonco2_tech_coeff_n2O_ship_2015 <- L241.nonco2_tech_coeff_n2O_ship
+    L241.nonco2_tech_coeff_n2O_ship_2015$year <- "2015"
+
+    L241.nonco2_tech_coeff <- L241.nonco2_tech_coeff %>%
+      rbind(L241.nonco2_tech_coeff_n2O_ship,
+            L241.nonco2_tech_coeff_n2O_ship_1975,
+          L241.nonco2_tech_coeff_n2O_ship_1990,
+          L241.nonco2_tech_coeff_n2O_ship_2005,
+          L241.nonco2_tech_coeff_n2O_ship_2010,
+          L241.nonco2_tech_coeff_n2O_ship_2015) %>%
+      mutate(year = as.double(year))
+
+      #gather(Non.CO2, emiss.coeff, -supplysector, -subsector, -stub.technology, -exception, -exception_tech, -may.be.historic) %>%
+      #repeat_add_columns(tibble(region = GCAM_region_names[["region"]])) ->
+      #MODEL_BASE_YEARS
+
+
+
+
 
     # Emission reduction from energy technologies.
     #
@@ -203,6 +254,16 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
       mutate(year = replace(year, sector_tech_id %in% L241.maybe_historic$sector_tech_id, min(MODEL_BASE_YEARS))) %>%
       select(-sector_tech_id) ->
       L241.nonco2_tech_coeff
+
+    # add the other historic years in again
+    L241.nonco2_tech_coeff <- L241.nonco2_tech_coeff %>%
+      rbind(L241.nonco2_tech_coeff_n2O_ship,
+            L241.nonco2_tech_coeff_n2O_ship_1990,
+            L241.nonco2_tech_coeff_n2O_ship_2005,
+            L241.nonco2_tech_coeff_n2O_ship_2010,
+            L241.nonco2_tech_coeff_n2O_ship_2015) %>%
+      mutate(year = as.double(year))
+
 
     # Start the max emission reduction for the technologies & reigons that may be have
     # used in historical years in the first model base year.
