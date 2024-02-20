@@ -27,7 +27,16 @@ module_gcamusa_hydrogen_xml <- function(command, ...) {
              "L225.TechShrwt_h2_ind_USA",
              "L225.StubTechCost_h2_USA_ref",
              "L225.StubTechCost_h2_USA_high",
-             "L225.StubTechCost_h2_USA_brkt"))
+             "L225.StubTechCost_h2_USA_brkt",
+             "L225.InterestRate_PADD",
+             "L225.Pop_PADD",
+             "L225.GDP_PADD",
+             "L225.Supplysector_h2_PADD",
+             "L225.SubsectorShrwtFllt_h2_PADD",
+             "L225.SubsectorShrwt_h2_PADD",
+             "L225.SubsectorLogit_h2_PADD",
+             "L225.TechShrwt_h2_PADD",
+             "L225.TechCoef_h2_PADD"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c(XML = "hydrogen_USA.xml",
              XML = "hydrogen_electrolysis_USA_hitech.xml",
@@ -54,6 +63,16 @@ module_gcamusa_hydrogen_xml <- function(command, ...) {
     L225.StubTechCost_h2_USA_high <- get_data(all_data, "L225.StubTechCost_h2_USA_high")
     L225.StubTechCost_h2_USA_brkt <- get_data(all_data, "L225.StubTechCost_h2_USA_brkt")
 
+    L225.InterestRate_PADD <- get_data(all_data, "L225.InterestRate_PADD")
+    L225.Pop_PADD <- get_data(all_data, "L225.Pop_PADD")
+    L225.GDP_PADD <- get_data(all_data, "L225.GDP_PADD")
+    L225.Supplysector_h2_PADD <- get_data(all_data, "L225.Supplysector_h2_PADD")
+    L225.SubsectorShrwtFllt_h2_PADD <- get_data(all_data,  "L225.SubsectorShrwtFllt_h2_PADD")
+    L225.SubsectorShrwt_h2_PADD <- get_data(all_data, "L225.SubsectorShrwt_h2_PADD")
+    L225.SubsectorLogit_h2_PADD <- get_data(all_data, "L225.SubsectorLogit_h2_PADD")
+    L225.TechShrwt_h2_PADD <- get_data(all_data, "L225.TechShrwt_h2_PADD")
+    L225.TechCoef_h2_PADD <- get_data(all_data, "L225.TechCoef_h2_PADD")
+
     # ===================================================
 
     # Produce outputs
@@ -72,6 +91,15 @@ module_gcamusa_hydrogen_xml <- function(command, ...) {
       add_xml_data(L225.DeleteStubTechMinicamEnergyInput_H2_USA,"DeleteStubTechMinicamEnergyInput") %>%
       add_xml_data(L225.TechCoef_h2_ind_USA,"TechCoef") %>%
       add_xml_data(L225.TechShrwt_h2_ind_USA,"TechShrwt") %>%
+      add_xml_data(L225.InterestRate_PADD, "InterestRate") %>%
+      add_xml_data(L225.Pop_PADD, "Pop") %>%
+      add_xml_data(L225.GDP_PADD, "GDP") %>%
+      add_logit_tables_xml(L225.Supplysector_h2_PADD, "Supplysector") %>%
+      add_logit_tables_xml(L225.SubsectorLogit_h2_PADD, "SubsectorLogit") %>%
+      add_xml_data(L225.SubsectorShrwtFllt_h2_PADD, "SubsectorShrwtFllt") %>%
+      add_xml_data(L225.SubsectorShrwt_h2_PADD, "SubsectorShrwt") %>%
+      add_xml_data(L225.TechShrwt_h2_PADD, "TechShrwt") %>%
+      add_xml_data(L225.TechCoef_h2_PADD, "TechCoef") %>%
       add_precursors("L225.DeleteSupplysector_h2_USA",
                      "L225.Supplysector_h2_USA",
                      "L225.SectorUseTrialMarket_h2_USA",
@@ -85,7 +113,16 @@ module_gcamusa_hydrogen_xml <- function(command, ...) {
                      "L225.SubsectorShrwtFllt_h2_ind_USA",
                      "L225.TechCoef_h2_ind_USA",
                      "L225.TechShrwt_h2_ind_USA",
-                     "L225.StubTechCost_h2_USA_ref") ->
+                     "L225.StubTechCost_h2_USA_ref",
+                     "L225.InterestRate_PADD",
+                     "L225.Pop_PADD",
+                     "L225.GDP_PADD",
+                     "L225.Supplysector_h2_PADD",
+                     "L225.SubsectorShrwtFllt_h2_PADD",
+                     "L225.SubsectorShrwt_h2_PADD",
+                     "L225.SubsectorLogit_h2_PADD",
+                     "L225.TechShrwt_h2_PADD",
+                     "L225.TechCoef_h2_PADD") ->
       hydrogen_USA.xml
 
     create_xml("hydrogen_electrolysis_USA_hitech.xml") %>%

@@ -966,6 +966,8 @@ gcamusa.STATE_FUEL_MARKETS <- c(gcamusa.ELECT_TD_SECTORS, "H2 central production
                                 "H2 liquid truck", "H2 MHDV", "H2 pipeline", "H2 retail delivery",
                                 "H2 wholesale delivery", "LH2")
 
+gcamusa.H2_TD_MARKETS <- c("H2 pipeline","H2 liquid truck")
+
 # Indicate whether to use regional ?cost adders? to differentiate
 # fuel prices by grid region in GCAM-USA (FALSE = same prices in all states)
 gcamusa.USE_REGIONAL_FUEL_MARKETS  <- TRUE

@@ -18,6 +18,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "gcam-usa/states_subregions",
              FILE = "gcam-usa/NREL_us_re_capacity_factors",
+             FILE = "gcam-usa/A225.structure",
              "L125.Electrolyzer_IdleRatio_Params",
              "L225.Supplysector_h2",
              "L225.SectorUseTrialMarket_h2",
@@ -45,7 +46,16 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
              "L225.TechShrwt_h2_ind_USA",
              "L225.StubTechCost_h2_USA_ref",
              "L225.StubTechCost_h2_USA_high",
-             "L225.StubTechCost_h2_USA_brkt"))
+             "L225.StubTechCost_h2_USA_brkt",
+             "L225.InterestRate_PADD",
+             "L225.Pop_PADD",
+             "L225.GDP_PADD",
+             "L225.Supplysector_h2_PADD",
+             "L225.SubsectorShrwtFllt_h2_PADD",
+             "L225.SubsectorShrwt_h2_PADD",
+             "L225.SubsectorLogit_h2_PADD",
+             "L225.TechShrwt_h2_PADD",
+             "L225.TechCoef_h2_PADD"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -67,7 +77,88 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
     L225.RenewElec_cost <- get_data(all_data, "L225.RenewElec_cost", strip_attributes = TRUE)
     L225.RenewElec_eff <- get_data(all_data, "L225.RenewElec_eff", strip_attributes = TRUE)
     NREL_us_re_capacity_factors <- get_data(all_data, "gcam-usa/NREL_us_re_capacity_factors", strip_attributes = TRUE)
+    A225.structure <- get_data(all_data, "gcam-usa/A225.structure")
     # ===================================================
+
+    # A vector of USA PADD region names
+    states_subregions %>%
+      select(PADD) %>%
+      unique %>%
+      arrange(PADD) %>%
+      unlist ->
+      PADD_regions
+
+    # Socioeconomic information in the PADD regions (required for GCAM to run with these regions)
+
+    # L225.InterestRate_PADD: Interest rates in the PADD regions
+    tibble(region = PADD_regions,
+           interest.rate = socioeconomics.DEFAULT_INTEREST_RATE) ->
+      L225.InterestRate_PADD
+
+    # L225.Pop_PADD: Population
+    tibble(region = PADD_regions,
+           totalPop = 1) %>%
+      repeat_add_columns(tibble(year = MODEL_YEARS)) ->
+      L225.Pop_PADD
+
+    # L225.GDP_PADD: GDP in PADD regions
+    tibble(region = PADD_regions,
+           GDP = 1)  %>%
+      repeat_add_columns(tibble(year = MODEL_YEARS))->
+      L225.GDP_PADD
+
+    # Supplysector information for H2 passthru T&D sectors in PADD regions
+    A225.structure %>%
+      select(-region,-market.name) %>%
+      repeat_add_columns(tibble(PADD = PADD_regions)) %>%
+      left_join(states_subregions, by = c("PADD")) %>%
+      mutate(market.name = state,
+             subsector = state) %>%
+      select(region = PADD,
+             supplysector,subsector,technology,minicam.energy.input,market.name,
+             subsector.logit,subsector.logit.type,technology.logit,technology.logit.type,
+             output.unit,input.unit,price.unit) -> L225.structure_PADD
+
+    # Supplysector info
+    L225.structure_PADD %>%
+      mutate(logit.year.fillout = min(MODEL_BASE_YEARS),
+             logit.type = gcamusa.GRID_REGION_LOGIT_TYPE) %>%
+      select(region, supplysector, output.unit, input.unit, price.unit,
+             logit.year.fillout, logit.exponent = subsector.logit, logit.type) ->
+      L225.Supplysector_h2_PADD
+
+    # Subsector (grid region) shareweights in USA electricity
+    L225.structure_PADD %>%
+      select(region, supplysector, subsector) %>%
+      mutate(year.fillout = min(MODEL_BASE_YEARS),
+             share.weight = gcamusa.DEFAULT_SHAREWEIGHT) -> L225.SubsectorShrwtFllt_h2_PADD
+
+    L225.structure_PADD %>%
+      repeat_add_columns(tibble(year = MODEL_YEARS)) %>%
+      mutate(share.weight = 1) %>%
+      select(LEVEL2_DATA_NAMES$SubsectorShrwt) -> L225.SubsectorShrwt_h2_PADD
+
+
+    # NOTE: There is only one tech per subsector in the PADD markets so the logit choice does not matter
+    L225.structure_PADD %>%
+      mutate(logit.year.fillout = min(MODEL_BASE_YEARS),
+             logit.type = gcamusa.GRID_REGION_LOGIT_TYPE) %>%
+      select(region, supplysector, subsector, logit.year.fillout,
+             logit.exponent = technology.logit, logit.type) -> L225.SubsectorLogit_h2_PADD
+
+    # Technology shareweights, USA region
+    L225.structure_PADD %>%
+      select(region, supplysector, subsector, technology) %>%
+      repeat_add_columns(tibble(year = MODEL_YEARS)) %>%
+      mutate(share.weight = gcamusa.DEFAULT_SHAREWEIGHT) -> L225.TechShrwt_h2_PADD
+
+    # Technology coefficients and market names
+    L225.structure_PADD %>%
+      repeat_add_columns(tibble(year = MODEL_YEARS)) %>%
+      filter(supplysector != "electricity_net_ownuse") %>%
+      mutate(coefficient = gcamusa.DEFAULT_COEFFICIENT) %>%
+      select(region, supplysector, subsector, technology, year, minicam.energy.input,
+             coefficient, market.name) -> L225.TechCoef_h2_PADD
 
     L225.StubTechCapFactor_ren_USA <- NREL_us_re_capacity_factors %>%
       rename(state_name = State) %>%
@@ -176,7 +267,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
              stub.technology = technology) %>%
       mutate(market.name = gcam.USA_REGION) %>%
       write_to_all_states(LEVEL2_DATA_NAMES[["StubTechMarket"]]) %>%
-      left_join_error_no_match(select(states_subregions, state, grid_region),
+      left_join_error_no_match(select(states_subregions, state, grid_region,PADD),
                                by = c("region" = "state")) %>%
       mutate(market.name = if_else(minicam.energy.input %in% gcamusa.REGIONAL_FUEL_MARKETS,
                                    grid_region, market.name),
@@ -186,6 +277,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
                                    region, market.name),
              market.name = if_else(minicam.energy.input %in% c("water_td_ind_C","water_td_ind_W","trn_freight_road","onshore wind resource","global solar resource"),
                                    region, market.name),
+             market.name = if_else(minicam.energy.input %in% gcamusa.H2_TD_MARKETS,PADD,market.name),
              minicam.energy.input = if_else(minicam.energy.input == 'global solar resource','PV_resource',minicam.energy.input)) %>%
       filter(!(region == 'DC' & subsector %in% c('solar','wind'))) #We should eventually do an anti-join for this but for now it's easier to just say DC
 
@@ -225,14 +317,15 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
     L225.TechCoef_h2_ind_USA <- L225.GlobalTechCoef_h2 %>%
       filter(sector.name == 'H2 industrial') %>%
       full_join(states_subregions %>%
-                  select(state) %>%
+                  select(state,PADD) %>%
                   mutate(sector.name = 'H2 industrial'),by = c('sector.name')) %>%
       distinct(state,year,.keep_all=TRUE) %>%
       mutate(subsector.name = paste0(state,' ',sector.name),
              technology = paste0(state,' ',sector.name),
              minicam.energy.input = 'H2 industrial',
              region = gcam.USA_REGION,
-             market.name = state) %>%
+             market.name = state,
+             market.name = if_else(minicam.energy.input %in% gcamusa.H2_TD_MARKETS,PADD,market.name)) %>%
       rename(supplysector = sector.name,
              subsector = subsector.name) %>%
       select(LEVEL2_DATA_NAMES[["TechCoef"]])
@@ -371,6 +464,77 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
       same_precursors_as(L225.StubTechCost_h2_USA_ref) ->
       L225.StubTechCost_h2_USA_brkt
 
+    L225.InterestRate_PADD %>%
+      add_title("Interest rates in PADD regions") %>%
+      add_units("Unitless") %>%
+      add_comments("Use the default interest rate") %>%
+      add_legacy_name("L225.InterestRate_PADD") %>%
+      add_precursors("gcam-usa/states_subregions") ->
+      L225.InterestRate_PADD
+
+    L225.Pop_PADD %>%
+      add_title("Population in PADD regions") %>%
+      add_units("Unitless") %>%
+      add_comments("The same value is copied to all model years") %>%
+      add_legacy_name("L225.Pop_PADD") %>%
+      add_precursors("gcam-usa/states_subregions") ->
+      L225.Pop_PADD
+
+    L225.GDP_PADD %>%
+      add_title("GDP in PADD regions") %>%
+      add_units("Unitless") %>%
+      add_comments("") %>%
+      add_precursors("gcam-usa/states_subregions") ->
+      L225.GDP_PADD
+
+    L225.Supplysector_h2_PADD %>%
+      #add_title("PADD region Hydrogen T&D Passthrough Sector Information")
+      add_units("unitless") %>%
+      add_comments("Supply sector information for hydrogen T&D passthrough sectors in the PADD regions") %>%
+      add_legacy_name("L225.Supplysector_h2_PADD") %>%
+      add_precursors("gcam-usa/states_subregions",
+                     "gcam-usa/A225.structure") ->
+      L225.Supplysector_h2_PADD
+
+    L225.SubsectorLogit_h2_PADD %>%
+      #add_title("PADD hydrogen T&D Passthrough Subsector Logits") %>%
+      add_units("unitless") %>%
+      add_comments("Subsector logits for hydrogen T&D passthrough sectors in the PADD regions") %>%
+      add_legacy_name("L225.SubsectorShrwtFllt_h2_PADD") %>%
+      same_precursors_as("L225.Supplysector_h2_PADD") ->
+      L225.SubsectorLogit_h2_PADD
+
+    L225.SubsectorShrwtFllt_h2_PADD %>%
+      #add_title("PADD hydrogen T&D Passthrough Subsector Share Weights") %>%
+      add_units("unitless") %>%
+      add_comments("Subsector share weights for hydrogen T&D passthrough sectors in the PADD regions") %>%
+      add_legacy_name("L225.SubsectorShrwtFllt_h2_PADD") %>%
+      same_precursors_as("L225.Supplysector_h2_PADD") ->
+      L225.SubsectorShrwtFllt_h2_PADD
+
+    L225.SubsectorShrwt_h2_PADD %>%
+      #add_title("PADD hydrogen T&D Passthrough Subsector Share Weights") %>%
+      add_units("unitless") %>%
+      add_comments("Subsector share weights for hydrogen T&D passthrough sectors in the PADD regions at points of inflexion") %>%
+      same_precursors_as("L225.Supplysector_h2_PADD") ->
+      L225.SubsectorShrwt_h2_PADD
+
+    L225.TechShrwt_h2_PADD %>%
+      #add_title("PADD hydrogen T&D Passthrough Technology Share Weights") %>%
+      add_units("unitless") %>%
+      add_comments("Technology share weights for hydrogen T&D passthrough sectors in the PADD regions") %>%
+      add_legacy_name("L225.TechShrwt_h2_PADD") %>%
+      same_precursors_as("L225.Supplysector_h2_PADD_USA") ->
+      L225.TechShrwt_h2_PADD
+
+    L225.TechCoef_h2_PADD %>%
+      #add_title("PADD hydrogen T&D Passthrough Technology Market Info") %>%
+      add_units("unitless") %>%
+      add_comments("Hydrogen T&D passthrough technology coefficients and market names in the PADD regions") %>%
+      add_legacy_name("L225.TechCoef_h2_PADD") %>%
+      same_precursors_as("L225.Supplysector_h2_PADD_USA") ->
+      L225.TechCoef_h2_PADD
+
     return_data(L225.DeleteSupplysector_h2_USA,
                 L225.Supplysector_h2_USA,
                 L225.SectorUseTrialMarket_h2_USA,
@@ -386,7 +550,16 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
                 L225.TechShrwt_h2_ind_USA,
                 L225.StubTechCost_h2_USA_ref,
                 L225.StubTechCost_h2_USA_high,
-                L225.StubTechCost_h2_USA_brkt)
+                L225.StubTechCost_h2_USA_brkt,
+                L225.InterestRate_PADD,
+                L225.Pop_PADD,
+                L225.GDP_PADD,
+                L225.Supplysector_h2_PADD,
+                L225.SubsectorShrwtFllt_h2_PADD,
+                L225.SubsectorShrwt_h2_PADD,
+                L225.SubsectorLogit_h2_PADD,
+                L225.TechShrwt_h2_PADD,
+                L225.TechCoef_h2_PADD)
   } else {
     stop("Unknown command")
   }
