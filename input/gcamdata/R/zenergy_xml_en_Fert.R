@@ -13,6 +13,7 @@
 module_energy_en_Fert_xml <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c("L2322.Supplysector_Fert",
+             "L2322.SectorUseTrialMarket_tra",
              "L2322.FinalEnergyKeyword_Fert",
              "L2322.SubsectorLogit_Fert",
              "L2322.SubsectorShrwtFllt_Fert",
@@ -41,6 +42,7 @@ module_energy_en_Fert_xml <- function(command, ...) {
 
     # Load required inputs
     L2322.Supplysector_Fert <- get_data(all_data, "L2322.Supplysector_Fert")
+    L2322.SectorUseTrialMarket_tra <- get_data(all_data, "L2322.SectorUseTrialMarket_tra")
     L2322.FinalEnergyKeyword_Fert <- get_data(all_data, "L2322.FinalEnergyKeyword_Fert")
     L2322.SubsectorLogit_Fert <- get_data(all_data, "L2322.SubsectorLogit_Fert")
     L2322.SubsectorShrwtFllt_Fert <- get_data(all_data, "L2322.SubsectorShrwtFllt_Fert")
@@ -67,6 +69,7 @@ module_energy_en_Fert_xml <- function(command, ...) {
     # Produce outputs
     create_xml("en_Fert.xml") %>%
       add_logit_tables_xml(L2322.Supplysector_Fert, "Supplysector") %>%
+      add_xml_data(L2322.SectorUseTrialMarket_tra, "SectorUseTrialMarket") %>%
       add_xml_data(L2322.FinalEnergyKeyword_Fert, "FinalEnergyKeyword") %>%
       add_logit_tables_xml(L2322.SubsectorLogit_Fert, "SubsectorLogit") %>%
       add_xml_data(L2322.SubsectorShrwtFllt_Fert, "SubsectorShrwtFllt") %>%
@@ -88,6 +91,7 @@ module_energy_en_Fert_xml <- function(command, ...) {
       add_xml_data(L2322.StubTechProd_FertDomCons, "StubTechProd") %>%
       add_xml_data(L2322.StubTechProd_NtoAg, "StubTechProd") %>%
       add_precursors("L2322.Supplysector_Fert",
+                     "L2322.SectorUseTrialMarket_tra",
                      "L2322.FinalEnergyKeyword_Fert",
                      "L2322.SubsectorLogit_Fert",
                      "L2322.SubsectorShrwtFllt_Fert",

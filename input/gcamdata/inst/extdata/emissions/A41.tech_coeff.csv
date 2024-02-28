@@ -32,7 +32,7 @@ electricity,biomass,biomass (IGCC CCS),0.001,0.03,,0.0005,0.0001,4.07E-07,1.00E-
 H2 central production,coal,coal chemical,0.01,0.001,0.001,0.002,,,,0.0005,,,
 H2 central production,coal,coal chemical CCS,0.01,0.001,0.001,0.002,,,,0.0005,,,
 H2 central production,gas,natural gas steam reforming,,0.005462225,0.00048545,,,,,,,,
-H2 central production,gas,natural gas steam reforming CCS,,0.005462225,0.00048545,,,,,,,,
+H2 central production,gas,gas ATR CCS,,0.005462225,0.00048545,,,,,,,,
 H2 central production,biomass,biomass to H2,0.01,0.001,0.001,0.001,,,,0.0005,,,
 H2 central production,biomass,biomass to H2 CCS,0.01,0.001,0.001,0.001,,,,0.0005,,,
 H2 wholesale dispensing,forecourt production,natural gas steam reforming,,0.005462225,0.00048545,,,,,,,,
@@ -47,3 +47,5 @@ trn_shipping_intl,International Ship,Hybrid Liquids,,,,,0.003611,,,,,,1
 trn_freight,Domestic Ship,Hybrid Liquids,,,,,0.003611,,,,,,1
 trn_shipping_intl,International Ship,Liquids,,,,,0.003611,,,,,,1
 trn_freight,Domestic Ship,Liquids,,,,,0.003611,,,,,,1
+backup_electricity,gas,gas (steam/CT),8.87E-05,0.044466679,0.024704416,0.008024657,0.002304998,,,0.00068996,,,
+backup_electricity,hydrogen,hydrogen combustion turbine,,0.044466679,,,0.002304998,,,,,,

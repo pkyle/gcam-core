@@ -38,6 +38,7 @@ module_energy_L2322.Fert <- function(command, ...) {
              "L142.ag_Fert_NetExp_MtN_R_Y"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L2322.Supplysector_Fert",
+             "L2322.SectorUseTrialMarket_tra",
              "L2322.FinalEnergyKeyword_Fert",
              "L2322.SubsectorLogit_Fert",
              "L2322.SubsectorShrwtFllt_Fert",
@@ -96,6 +97,12 @@ module_energy_L2322.Fert <- function(command, ...) {
                            GCAM_region_names,
                            has_traded = TRUE) ->
       L2322.Supplysector_Fert
+
+    # L2322.SectorUseTrialMarket_tra: Create solved markets for the traded sectors
+    L2322.SectorUseTrialMarket_tra <- filter(A322.sector, traded == 1) %>%
+      mutate(region = gcam.USA_REGION,
+             use.trial.market = 1) %>%
+      select(LEVEL2_DATA_NAMES[["SectorUseTrialMarket"]])
 
     # L2322.FinalEnergyKeyword_Fert: Supply sector keywords for fertilizer sector
     A322.sector %>%
@@ -387,6 +394,13 @@ module_energy_L2322.Fert <- function(command, ...) {
       add_precursors("common/GCAM_region_names", "energy/A322.sector") ->
       L2322.Supplysector_Fert
 
+    L2322.SectorUseTrialMarket_tra %>%
+      add_title("Supplysector flag indicating to make trial markets for traded ammonia") %>%
+      add_units("NA") %>%
+      add_comments("This helps model solution") %>%
+      add_precursors("energy/A322.sector") ->
+      L2322.SectorUseTrialMarket_tra
+
     L2322.FinalEnergyKeyword_Fert %>%
       add_title("Supply sector keywords for fertilizer sector") %>%
       add_units("NA") %>%
@@ -548,8 +562,8 @@ module_energy_L2322.Fert <- function(command, ...) {
       same_precursors_as(L2322.StubTechProd_FertDomCons) ->
       L2322.StubTechProd_NtoAg
 
-
-    return_data(L2322.Supplysector_Fert, L2322.FinalEnergyKeyword_Fert, L2322.SubsectorLogit_Fert,
+    return_data(L2322.Supplysector_Fert, L2322.SectorUseTrialMarket_tra,
+                L2322.FinalEnergyKeyword_Fert, L2322.SubsectorLogit_Fert,
                 L2322.SubsectorShrwtFllt_Fert, L2322.SubsectorInterp_Fert,
                 L2322.StubTech_Fert, L2322.GlobalTechShrwt_Fert, L2322.TechShrwt_TradedFert,
                 L2322.GlobalTechCoef_Fert, L2322.TechCoef_TradedFert, L2322.StubTechMarket_FertImports,

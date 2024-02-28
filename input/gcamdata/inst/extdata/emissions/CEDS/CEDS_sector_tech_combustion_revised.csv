@@ -161,3 +161,14 @@ trn_freight,Domestic Ship,Hybrid Liquids,trn_domestic ship,refined liquids
 trn_shipping_intl,International Ship,Hybrid Liquids,trn_intl_ship,refined liquids
 trn_freight,Domestic Ship,Liquids,trn_domestic ship,refined liquids
 trn_shipping_intl,International Ship,Liquids,trn_intl_ship,refined liquids
+waste biomass for paper,biomass,biomass,paper,biomass
+waste biomass for paper,biomass,biomass cogen,paper,biomass
+waste biomass for paper,biomass,biomass CCS,paper,biomass
+waste biomass for paper,biomass,biomass cogen CCS,paper,biomass
+process heat paper,gas,gas,paper,gas
+process heat paper,gas,gas cogen,paper,gas
+process heat paper,refined liquids,refined liquids,paper,refined liquids
+process heat paper,refined liquids,refined liquids cogen,paper,refined liquids
+process heat paper,heat,heat,paper,heat
+process heat paper,coal,coal,paper,coal
+process heat paper,coal,coal cogen,paper,coal

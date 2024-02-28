@@ -222,6 +222,17 @@ module_gcamusa_L2322.Fert <- function(command, ...) {
           write_to_all_states(names = df_names) %>%
           filter(region %in% Fert_states[["state"]]) ->
           new_df
+
+        # If the input data frame includes subsector information subset the
+        # data frame for gas and hydrogen since state-level ammonia should not include
+        # refined liquids or coal
+        check_subsector <- c("subsector" %in% names(new_df))
+        if(check_subsector) {
+          new_df %>%
+            filter(subsector %in% c("gas", "hydrogen")) ->
+            new_df
+        }
+
       }
       return(new_df)
     } # end of function

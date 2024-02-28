@@ -1,7 +1,11 @@
 # File: A322.sector.csv
 # Title: ammonia / traded ammonia / regional ammonia / N fertilizer default supplysector information (units and logit exponents)
 # Units: Units-in-table
+<<<<<<< HEAD
 # Column types: ccccnncc 
+=======
+# Column types: ccccincc 
+>>>>>>> master
 # ----------
 supplysector,output.unit,input.unit,price.unit,traded,logit.exponent,final.energy,logit.type
 ammonia,Mt NH3,EJ,1975$/kgNH3,0,-3,industry,

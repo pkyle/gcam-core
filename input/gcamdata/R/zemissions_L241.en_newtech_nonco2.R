@@ -30,6 +30,7 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
              FILE = "energy/A25.globaltech_input_driver",
              FILE = "energy/A322.globaltech_input_driver",
              FILE = "energy/A54.globaltech_input_driver",
+             FILE = "energy/A26.globaltech_input_driver",
              "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
              "L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
              "L223.GlobalTechEff_elec"))
@@ -64,8 +65,12 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
       get_data(all_data, "energy/A22.globaltech_input_driver"),
       get_data(all_data, "energy/A23.globaltech_input_driver"),
       get_data(all_data, "energy/A25.globaltech_input_driver"),
+<<<<<<< HEAD
       get_data(all_data, "energy/A322.globaltech_input_driver"),
       get_data(all_data, "energy/A54.globaltech_input_driver")
+=======
+      get_data(all_data, "energy/A26.globaltech_input_driver")
+>>>>>>> master
     ) %>%
       rename(stub.technology = technology) ->
       EnTechInputMap
@@ -355,8 +360,12 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
                      "energy/A22.globaltech_input_driver",
                      "energy/A23.globaltech_input_driver",
                      "energy/A25.globaltech_input_driver",
+<<<<<<< HEAD
                      "energy/A322.globaltech_input_driver",
                      "energy/A54.globaltech_input_driver",
+=======
+                     "energy/A26.globaltech_input_driver",
+>>>>>>> master
                      "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
                      "L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP")  ->
       L241.nonco2_tech_coeff
