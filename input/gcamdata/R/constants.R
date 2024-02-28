@@ -265,7 +265,9 @@ aglu.BIO_GRASS_COST_75USD_GJ <- 0.75   # Production costs of biomass (from Patri
 aglu.BIO_TREE_COST_75USD_GJ  <- 0.67   # Production costs of biomass (from Patrick Luckow's work)
 aglu.FERT_PRICE              <- 596    # Price of fertilizer, 2010$ per ton NH3
 aglu.FERT_PRICE_YEAR         <- 2010   # Year corresponding to the above price/cost
-aglu.FOR_COST_SHARE          <- 0.59   # Non-land forestry cost share (from 2011 GTAP data base)
+aglu.FOR_COST_SHARE_HARDWOOD          <- 0.59   # Non-land forestry cost share (from 2011 GTAP data base)
+aglu.FOR_COST_SHARE_SOFTWOOD          <- 0.59   # Non-land forestry cost share (from 2011 GTAP data base)
+
 
 # Price at which base year bio frac produced is used.
 # The share of residue biomass production in each region,
@@ -297,18 +299,17 @@ aglu.BIO_ENERGY_CONTENT_GJT <- 17.5
 # kbn 2019/09/25 Took taiwan out from below since we have data for Taiwan now.
 aglu.NO_AGLU_REGIONS <- ""
 
-# Define GCAM category name of fertilizer
+# Define GCAM category name of fertilizer for input to the agricultural sector
 aglu.FERT_NAME <- "N fertilizer"
 
 # Average Wood Density kg/m^3 for mass conversion
-# Source: http://www.engineeringtoolbox.com/wood-density-d_40.html
-# To Page's knowledge, nobody's ever done a weighted average wood density
-# across all tree species that are commercially logged;
-# 500 was was chosen to be towards the middle of the species that are produced.
-aglu.AVG_WOOD_DENSITY_KGM3 <- 500 # In kg per m3
+# Source: https://matmatch.com/learn/property/density-of-wood
+# We have broken down densities separately for Hardwood, Softwood. This is the mean across species.
+aglu.AVG_WOOD_DENSITY_KGM3_HARDWOOD <- 734 # In kg per m3
+aglu.AVG_WOOD_DENSITY_KGM3_SOFTWOOD <- 519
 # Carbon content of wood is about 50 percent across species
-aglu.AVG_WOOD_DENSITY_KGCM3 <- 250 # In kg carbon per m3
-
+aglu.AVG_WOOD_DENSITY_KGCM3_HARDWOOD <- 367 # In kg carbon per m3
+aglu.AVG_WOOD_DENSITY_KGCM3_SOFTWOOD <-  259
 # Carbon content adjustments from unmanaged to managed
 # conversion factor from unmanaged forest to managed forest, where the former is
 # understood to be forest not in logging rotation, and the latter is forest in
@@ -337,6 +338,23 @@ aglu.MILL_EROSION_CTRL_KGM2 <- 0
 # Wood energy content in GJ/kg
 aglu.WOOD_ENERGY_CONTENT_GJKG <- 0.0189
 
+
+aglu.FOREST_commodities <- c("sawnwood","woodpulp")
+aglu.FOREST_demand_sectors <- c("NonFoodDemand_sawnwood","NonFoodDemand_woodpulp")
+aglu.FOREST_supply_sector <- "Forest"
+#Below is a default amount of roundwood required to produce sawnwood.The model will calculate the IO using data. This will get used if and only if
+# the IO calculated by the model is an NA. This is taken as an everage across countries from a UNECE report on forest products. Available here- https://unece.org/fileadmin/DAM/timber/publications/DP-49.pdf
+aglu.FOREST_sawtimber_conversion <- 2.17
+aglu.PAPER_delete_ag_demand <- "NonFoodDemand_woodpulp"
+aglu.PAPER_delete_ag_demand_USA <- c("woodpulp_energy", "regional woodpulp for energy")
+
+
+#90% of pulp processing is chemical which has an IO of 5.44 and 10% is mechanical which is 2.55. Taking weighted average of the two,
+# we get 5.15. These are calculated as averages across countries.
+#Source- https://unece.org/fileadmin/DAM/timber/publications/DP-49.pdf
+aglu.FOREST_pulp_conversion <- 5.15
+
+aglu.FOREST_max_price <- 165
 # wood water content
 # Unitless (mass of water / total wood mass)
 aglu.WOOD_WATER_CONTENT <- 0.065
@@ -440,7 +458,8 @@ aglu.DIGITS_WATER_CONTENT <- 2
 
 #Land leaf names used in the data system for different land types
 aglu.PASTURE_NODE_NAMES <- "Pasture"
-aglu.FOREST_NODE_NAMES <- "Forest"
+aglu.FOREST_NODE_NAMES <- c("Softwood_Forest", "Hardwood_Forest")
+aglu.UNMANAGED_FOREST_NODE_NAMES <- c("UnmanagedSoftwood_Forest", "UnmanagedHardwood_Forest")
 aglu.GRASSLAND_NODE_NAMES <- "Grassland"
 
 
@@ -661,6 +680,8 @@ socioeconomics.FINAL_DEMAND_SECTORS <- c("other industrial energy use",
                                          "chemical energy use",
                                          "alumina",
                                          "iron and steel",
+                                         "process heat paper",
+                                         "waste biomass for paper",
                                          "resid cooling",
                                          "resid heating",
                                          "resid others",
@@ -975,7 +996,7 @@ gcamusa.USE_REGIONAL_FUEL_MARKETS  <- TRUE
 # GCAM-USA fertlizer constants
 gcamusa.FERT_LOGIT_EXP  <- -3             # Define default logit expoent used in the fertlizer subsector
 gcamusa.FERT_LOGIT_TYPE <- NA
-gcamusa.FERT_NAME       <- "N fertilizer" # Define GCAM-USA category name of fertilizer
+gcamusa.FERT_NAME       <- "ammonia" # Define GCAM-USA category name of fertilizer
 
 # Fuels whose markets will be modeled at the level of the FERC regions, with prices calibrated
 gcamusa.REGIONAL_FUEL_MARKETS <- c("regional coal", "delivered coal", "wholesale gas", "delivered gas",
