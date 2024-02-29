@@ -1,0 +1,228 @@
+# File: GlobalIntTechCapital_elec.csv
+# Title: Intermittent electric sector capital costs for central and advanced cases
+# Units: 1975$/kW
+# Source: ATB2023
+# Comments:
+# Column types: cccncnnc
+# ----------
+sector.name,subsector.name,intermittent.technology,year,input.capital,capital.overnight,fixed.charge.rate,case
+elect_td_bld,rooftop_pv,rooftop_pv,1975,capital,1083,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,1990,capital,1083,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2005,capital,1083,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2010,capital,1083,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2015,capital,1083,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2020,capital,663,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2025,capital,611,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2030,capital,449,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2035,capital,288,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2040,capital,269,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2045,capital,250,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2050,capital,231,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2055,capital,272,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2060,capital,261,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2065,capital,253,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2070,capital,248,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2075,capital,244,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2080,capital,241,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2085,capital,240,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2090,capital,238,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2095,capital,237,0.1,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,2100,capital,237,0.1,adv tech
+electricity,solar,CSP,1975,capital,1362,0.13,adv tech
+electricity,solar,CSP,1990,capital,1362,0.13,adv tech
+electricity,solar,CSP,2005,capital,1362,0.13,adv tech
+electricity,solar,CSP,2010,capital,1362,0.13,adv tech
+electricity,solar,CSP,2015,capital,1362,0.13,adv tech
+electricity,solar,CSP,2020,capital,942,0.13,adv tech
+electricity,solar,CSP,2025,capital,828,0.13,adv tech
+electricity,solar,CSP,2030,capital,576,0.13,adv tech
+electricity,solar,CSP,2035,capital,540,0.13,adv tech
+electricity,solar,CSP,2040,capital,504,0.13,adv tech
+electricity,solar,CSP,2045,capital,468,0.13,adv tech
+electricity,solar,CSP,2050,capital,432,0.13,adv tech
+electricity,solar,CSP,2055,capital,522,0.13,adv tech
+electricity,solar,CSP,2060,capital,512,0.13,adv tech
+electricity,solar,CSP,2065,capital,505,0.13,adv tech
+electricity,solar,CSP,2070,capital,501,0.13,adv tech
+electricity,solar,CSP,2075,capital,498,0.13,adv tech
+electricity,solar,CSP,2080,capital,496,0.13,adv tech
+electricity,solar,CSP,2085,capital,495,0.13,adv tech
+electricity,solar,CSP,2090,capital,494,0.13,adv tech
+electricity,solar,CSP,2095,capital,493,0.13,adv tech
+electricity,solar,CSP,2100,capital,493,0.13,adv tech
+electricity,solar,PV,1975,capital,567,0.13,adv tech
+electricity,solar,PV,1990,capital,567,0.13,adv tech
+electricity,solar,PV,2005,capital,567,0.13,adv tech
+electricity,solar,PV,2010,capital,567,0.13,adv tech
+electricity,solar,PV,2015,capital,567,0.13,adv tech
+electricity,solar,PV,2020,capital,328,0.13,adv tech
+electricity,solar,PV,2025,capital,292,0.13,adv tech
+electricity,solar,PV,2030,capital,223,0.13,adv tech
+electricity,solar,PV,2035,capital,153,0.13,adv tech
+electricity,solar,PV,2040,capital,144,0.13,adv tech
+electricity,solar,PV,2045,capital,135,0.13,adv tech
+electricity,solar,PV,2050,capital,126,0.13,adv tech
+electricity,solar,PV,2055,capital,156,0.13,adv tech
+electricity,solar,PV,2060,capital,151,0.13,adv tech
+electricity,solar,PV,2065,capital,148,0.13,adv tech
+electricity,solar,PV,2070,capital,146,0.13,adv tech
+electricity,solar,PV,2075,capital,144,0.13,adv tech
+electricity,solar,PV,2080,capital,143,0.13,adv tech
+electricity,solar,PV,2085,capital,143,0.13,adv tech
+electricity,solar,PV,2090,capital,142,0.13,adv tech
+electricity,solar,PV,2095,capital,142,0.13,adv tech
+electricity,solar,PV,2100,capital,141,0.13,adv tech
+electricity,wind,wind,1975,capital,451,0.13,adv tech
+electricity,wind,wind,1990,capital,451,0.13,adv tech
+electricity,wind,wind,2005,capital,451,0.13,adv tech
+electricity,wind,wind,2010,capital,451,0.13,adv tech
+electricity,wind,wind,2015,capital,451,0.13,adv tech
+electricity,wind,wind,2020,capital,353,0.13,adv tech
+electricity,wind,wind,2025,capital,295,0.13,adv tech
+electricity,wind,wind,2030,capital,260,0.13,adv tech
+electricity,wind,wind,2035,capital,245,0.13,adv tech
+electricity,wind,wind,2040,capital,230,0.13,adv tech
+electricity,wind,wind,2045,capital,216,0.13,adv tech
+electricity,wind,wind,2050,capital,201,0.13,adv tech
+electricity,wind,wind,2055,capital,224,0.13,adv tech
+electricity,wind,wind,2060,capital,220,0.13,adv tech
+electricity,wind,wind,2065,capital,216,0.13,adv tech
+electricity,wind,wind,2070,capital,213,0.13,adv tech
+electricity,wind,wind,2075,capital,211,0.13,adv tech
+electricity,wind,wind,2080,capital,209,0.13,adv tech
+electricity,wind,wind,2085,capital,208,0.13,adv tech
+electricity,wind,wind,2090,capital,207,0.13,adv tech
+electricity,wind,wind,2095,capital,206,0.13,adv tech
+electricity,wind,wind,2100,capital,205,0.13,adv tech
+electricity,wind,wind_offshore,1975,capital,1118,0.13,adv tech
+electricity,wind,wind_offshore,1990,capital,1118,0.13,adv tech
+electricity,wind,wind_offshore,2005,capital,1118,0.13,adv tech
+electricity,wind,wind_offshore,2010,capital,1118,0.13,adv tech
+electricity,wind,wind_offshore,2015,capital,1118,0.13,adv tech
+electricity,wind,wind_offshore,2020,capital,620,0.13,adv tech
+electricity,wind,wind_offshore,2025,capital,492,0.13,adv tech
+electricity,wind,wind_offshore,2030,capital,445,0.13,adv tech
+electricity,wind,wind_offshore,2035,capital,417,0.13,adv tech
+electricity,wind,wind_offshore,2040,capital,396,0.13,adv tech
+electricity,wind,wind_offshore,2045,capital,379,0.13,adv tech
+electricity,wind,wind_offshore,2050,capital,366,0.13,adv tech
+electricity,wind,wind_offshore,2055,capital,422,0.13,adv tech
+electricity,wind,wind_offshore,2060,capital,414,0.13,adv tech
+electricity,wind,wind_offshore,2065,capital,408,0.13,adv tech
+electricity,wind,wind_offshore,2070,capital,404,0.13,adv tech
+electricity,wind,wind_offshore,2075,capital,401,0.13,adv tech
+electricity,wind,wind_offshore,2080,capital,399,0.13,adv tech
+electricity,wind,wind_offshore,2085,capital,397,0.13,adv tech
+electricity,wind,wind_offshore,2090,capital,396,0.13,adv tech
+electricity,wind,wind_offshore,2095,capital,395,0.13,adv tech
+electricity,wind,wind_offshore,2100,capital,394,0.13,adv tech
+elect_td_bld,rooftop_pv,rooftop_pv,1975,capital,1083,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,1990,capital,1083,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2005,capital,1083,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2010,capital,1083,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2015,capital,1083,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2020,capital,663,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2025,capital,636,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2030,capital,516,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2035,capital,397,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2040,capital,360,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2045,capital,324,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2050,capital,288,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2055,capital,272,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2060,capital,261,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2065,capital,253,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2070,capital,248,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2075,capital,244,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2080,capital,241,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2085,capital,240,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2090,capital,238,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2095,capital,237,0.1,central
+elect_td_bld,rooftop_pv,rooftop_pv,2100,capital,237,0.1,central
+electricity,solar,CSP,1975,capital,1362,0.13,central
+electricity,solar,CSP,1990,capital,1362,0.13,central
+electricity,solar,CSP,2005,capital,1362,0.13,central
+electricity,solar,CSP,2010,capital,1362,0.13,central
+electricity,solar,CSP,2015,capital,1362,0.13,central
+electricity,solar,CSP,2020,capital,942,0.13,central
+electricity,solar,CSP,2025,capital,892,0.13,central
+electricity,solar,CSP,2030,capital,720,0.13,central
+electricity,solar,CSP,2035,capital,695,0.13,central
+electricity,solar,CSP,2040,capital,669,0.13,central
+electricity,solar,CSP,2045,capital,643,0.13,central
+electricity,solar,CSP,2050,capital,617,0.13,central
+electricity,solar,CSP,2055,capital,522,0.13,central
+electricity,solar,CSP,2060,capital,512,0.13,central
+electricity,solar,CSP,2065,capital,505,0.13,central
+electricity,solar,CSP,2070,capital,501,0.13,central
+electricity,solar,CSP,2075,capital,498,0.13,central
+electricity,solar,CSP,2080,capital,496,0.13,central
+electricity,solar,CSP,2085,capital,495,0.13,central
+electricity,solar,CSP,2090,capital,494,0.13,central
+electricity,solar,CSP,2095,capital,493,0.13,central
+electricity,solar,CSP,2100,capital,493,0.13,central
+electricity,solar,PV,1975,capital,567,0.13,central
+electricity,solar,PV,1990,capital,567,0.13,central
+electricity,solar,PV,2005,capital,567,0.13,central
+electricity,solar,PV,2010,capital,567,0.13,central
+electricity,solar,PV,2015,capital,567,0.13,central
+electricity,solar,PV,2020,capital,328,0.13,central
+electricity,solar,PV,2025,capital,303,0.13,central
+electricity,solar,PV,2030,capital,252,0.13,central
+electricity,solar,PV,2035,capital,201,0.13,central
+electricity,solar,PV,2040,capital,185,0.13,central
+electricity,solar,PV,2045,capital,169,0.13,central
+electricity,solar,PV,2050,capital,153,0.13,central
+electricity,solar,PV,2055,capital,156,0.13,central
+electricity,solar,PV,2060,capital,151,0.13,central
+electricity,solar,PV,2065,capital,148,0.13,central
+electricity,solar,PV,2070,capital,146,0.13,central
+electricity,solar,PV,2075,capital,144,0.13,central
+electricity,solar,PV,2080,capital,143,0.13,central
+electricity,solar,PV,2085,capital,143,0.13,central
+electricity,solar,PV,2090,capital,142,0.13,central
+electricity,solar,PV,2095,capital,142,0.13,central
+electricity,solar,PV,2100,capital,141,0.13,central
+electricity,wind,wind,1975,capital,451,0.13,central
+electricity,wind,wind,1990,capital,451,0.13,central
+electricity,wind,wind,2005,capital,451,0.13,central
+electricity,wind,wind,2010,capital,451,0.13,central
+electricity,wind,wind,2015,capital,451,0.13,central
+electricity,wind,wind,2020,capital,353,0.13,central
+electricity,wind,wind,2025,capital,300,0.13,central
+electricity,wind,wind,2030,capital,272,0.13,central
+electricity,wind,wind,2035,capital,259,0.13,central
+electricity,wind,wind,2040,capital,246,0.13,central
+electricity,wind,wind,2045,capital,232,0.13,central
+electricity,wind,wind,2050,capital,219,0.13,central
+electricity,wind,wind,2055,capital,224,0.13,central
+electricity,wind,wind,2060,capital,220,0.13,central
+electricity,wind,wind,2065,capital,216,0.13,central
+electricity,wind,wind,2070,capital,213,0.13,central
+electricity,wind,wind,2075,capital,211,0.13,central
+electricity,wind,wind,2080,capital,209,0.13,central
+electricity,wind,wind,2085,capital,208,0.13,central
+electricity,wind,wind,2090,capital,207,0.13,central
+electricity,wind,wind,2095,capital,206,0.13,central
+electricity,wind,wind,2100,capital,205,0.13,central
+electricity,wind,wind_offshore,1975,capital,1118,0.13,central
+electricity,wind,wind_offshore,1990,capital,1118,0.13,central
+electricity,wind,wind_offshore,2005,capital,1118,0.13,central
+electricity,wind,wind_offshore,2010,capital,1118,0.13,central
+electricity,wind,wind_offshore,2015,capital,1118,0.13,central
+electricity,wind,wind_offshore,2020,capital,651,0.13,central
+electricity,wind,wind_offshore,2025,capital,542,0.13,central
+electricity,wind,wind_offshore,2030,capital,498,0.13,central
+electricity,wind,wind_offshore,2035,capital,471,0.13,central
+electricity,wind,wind_offshore,2040,capital,451,0.13,central
+electricity,wind,wind_offshore,2045,capital,436,0.13,central
+electricity,wind,wind_offshore,2050,capital,423,0.13,central
+electricity,wind,wind_offshore,2055,capital,422,0.13,central
+electricity,wind,wind_offshore,2060,capital,414,0.13,central
+electricity,wind,wind_offshore,2065,capital,408,0.13,central
+electricity,wind,wind_offshore,2070,capital,404,0.13,central
+electricity,wind,wind_offshore,2075,capital,401,0.13,central
+electricity,wind,wind_offshore,2080,capital,399,0.13,central
+electricity,wind,wind_offshore,2085,capital,397,0.13,central
+electricity,wind,wind_offshore,2090,capital,396,0.13,central
+electricity,wind,wind_offshore,2095,capital,395,0.13,central
+electricity,wind,wind_offshore,2100,capital,394,0.13,central

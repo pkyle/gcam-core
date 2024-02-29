@@ -2,11 +2,7 @@
 # Title: OTAQ-specific assumptions to layer into UCD_trn_data_CORE.csv database
 # Units: Various
 # Column types: ccccccccnnnnnnnnnnnnnnnnnnnn
-<<<<<<< HEAD
-# Source: 2021.10.05 Vehicle tables.xlsx workbook. BEV 3-wheeler data from UCD_trn_data_CORE file of CMP 316
-=======
 # Source: 2023.03.14 Vehicle tables.xlsx workbook. BEV 3-wheeler data from UCD_trn_data_CORE file of CMP 316
->>>>>>> master
 # ----------
 UCD_region,UCD_sector,mode,size.class,UCD_technology,UCD_fuel,variable,unit,2005,2010,2015,2020,2025,2030,2035,2040,2045,2050,2055,2060,2065,2070,2075,2080,2085,2090,2095,2100
 USA,Passenger,LDV_4W,Compact Car,BEV,Electricity,intensity,MJ/vkm,0.7796,0.7769,0.7742,0.7715,0.768833333,0.766166667,0.7635,0.7609,0.7583,0.7557,0.7557,0.7557,0.7557,0.7557,0.7557,0.7557,0.7557,0.7557,0.7557,0.7557

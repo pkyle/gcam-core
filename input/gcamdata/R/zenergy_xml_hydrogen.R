@@ -28,9 +28,13 @@ module_energy_hydrogen_xml <- function(command, ...) {
               "L225.GlobalTechInputPMult_h2",
               "L225.GlobalTechProfitShutdown_h2",
               "L225.GlobalTechSCurve_h2",
-              "L225.OutputEmissCoeff_h2"))
+              "L225.OutputEmissCoeff_h2",
+              "L225.StubTechCost_h2_high",
+              "L225.StubTechCost_h2_brkt"))
   } else if(command == driver.DECLARE_OUTPUTS) {
-    return(c(XML = "hydrogen.xml"))
+    return(c(XML = "hydrogen.xml",
+             XML = "hydrogen_electrolysis_hitech.xml",
+             XML = "hydrogen_electrolysis_breakthru.xml"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -53,6 +57,8 @@ module_energy_hydrogen_xml <- function(command, ...) {
     L225.GlobalTechSCurve_h2 <- get_data(all_data, "L225.GlobalTechSCurve_h2")
     L225.StubTechCost_h2 <- get_data(all_data, "L225.StubTechCost_h2")
     L225.OutputEmissCoeff_h2 <- get_data(all_data, "L225.OutputEmissCoeff_h2")
+    L225.StubTechCost_h2_high <- get_data(all_data, "L225.StubTechCost_h2_high")
+    L225.StubTechCost_h2_brkt <- get_data(all_data, "L225.StubTechCost_h2_brkt")
     # ===================================================
 
     # Produce outputs
@@ -97,7 +103,21 @@ module_energy_hydrogen_xml <- function(command, ...) {
                      "L225.OutputEmissCoeff_h2") ->
       hydrogen.xml
 
-    return_data(hydrogen.xml)
+    #add-on with high-technology (i.e. low-cost) renewable electrolysis
+    create_xml("hydrogen_electrolysis_hitech.xml") %>%
+      add_xml_data(L225.StubTechCost_h2_high, "StubTechCost") %>%
+      add_precursors("L225.StubTechCost_h2_high") ->
+      hydrogen_electrolysis_hitech.xml
+
+    #HFTO program goals met for renewable electrolysis
+    create_xml("hydrogen_electrolysis_breakthru.xml") %>%
+      add_xml_data(L225.StubTechCost_h2_brkt, "StubTechCost") %>%
+      add_precursors("L225.StubTechCost_h2_brkt") ->
+      hydrogen_electrolysis_breakthru.xml
+
+    return_data(hydrogen.xml,
+                hydrogen_electrolysis_hitech.xml,
+                hydrogen_electrolysis_breakthru.xml)
   } else {
     stop("Unknown command")
   }
