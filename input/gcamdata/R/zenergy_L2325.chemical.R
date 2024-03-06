@@ -469,7 +469,7 @@ module_energy_L2325.chemical <- function(command, ...) {
 
     L2325.SubsectorShrwtFllt_chemical %>%
       left_join(nobaseyear, by = c("region", "supplysector")) %>%
-      mutate(value = replace_na(value,1),share.weight = if_else(value ==0,0.5,share.weight),year = NULL,value = NULL) ->
+      mutate(value = replace_na(value,1),share.weight = if_else(value == 0 & subsector != "hydrogen", 0.5, share.weight),year = NULL,value = NULL) ->
       L2325.SubsectorShrwtFllt_chemical
 
 
