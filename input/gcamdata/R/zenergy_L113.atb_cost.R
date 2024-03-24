@@ -371,7 +371,7 @@ module_energy_L113.atb_cost <- function(command, ...) {
       mutate(value = if_else(is.na(value), value[year==energy.ATB_BASE_YEAR], value)) %>%
       ungroup() %>%
       # Use exponential decay function to extrapolate costs till 2100
-      fill_exp_decay_extrapolate(MODEL_YEARS) %>%
+      fill_exp_decay_extrapolate(MODEL_YEARS, tech_colnames = "technology") %>%
       # NAs are from variable OM, which is zero in all time periods
       replace_na(list(value = 0)) %>%
       rename(period = year) %>%
