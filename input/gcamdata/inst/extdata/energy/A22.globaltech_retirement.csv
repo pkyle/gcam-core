@@ -39,3 +39,21 @@ refining,biomass liquids,corn ethanol,initial-future-year,45,,30,0.3,-0.5,5
 refining,biomass liquids,sugar cane ethanol,initial-future-year,45,,30,0.3,-0.5,5
 refining,biomass liquids,biodiesel,initial-future-year,45,,30,0.3,-0.9,5
 refining,biomass liquids,BTL with hydrogen,final-calibration-year,45,,25,0.2,-0.1,10
+aviation fuels,oil refining,oil refining,final-calibration-year,50,,30,0.2,-0.1,10
+aviation fuels,biomass liquids,cellulosic ethanol,final-calibration-year,45,,25,0.2,-0.1,10
+aviation fuels,biomass liquids,cellulosic ethanol CCS level 1,final-calibration-year,45,,25,0.2,-0.1,10
+aviation fuels,biomass liquids,cellulosic ethanol CCS level 2,final-calibration-year,45,,25,0.2,-0.1,10
+aviation fuels,biomass liquids,FT biofuels,final-calibration-year,45,,25,0.2,-0.1,10
+aviation fuels,biomass liquids,FT biofuels CCS level 1,final-calibration-year,45,,25,0.2,-0.1,10
+aviation fuels,biomass liquids,FT biofuels CCS level 2,final-calibration-year,45,,25,0.2,-0.1,10
+aviation fuels,biomass liquids,corn ethanol,final-calibration-year,45,,25,0.2,-0.5,5
+aviation fuels,biomass liquids,sugar cane ethanol,final-calibration-year,45,,25,0.2,-0.5,5
+aviation fuels,oil refining,oil refining,initial-future-year,45,,30,0.3,-0.1,10
+aviation fuels,biomass liquids,cellulosic ethanol,initial-future-year,45,,30,0.3,-0.1,10
+aviation fuels,biomass liquids,cellulosic ethanol CCS level 1,initial-future-year,45,,30,0.3,-0.1,10
+aviation fuels,biomass liquids,cellulosic ethanol CCS level 2,initial-future-year,45,,30,0.3,-0.1,10
+aviation fuels,biomass liquids,FT biofuels,initial-future-year,45,,30,0.3,-0.1,10
+aviation fuels,biomass liquids,FT biofuels CCS level 1,initial-future-year,45,,30,0.3,-0.1,10
+aviation fuels,biomass liquids,FT biofuels CCS level 2,initial-future-year,45,,30,0.3,-0.1,10
+aviation fuels,biomass liquids,corn ethanol,initial-future-year,45,,30,0.3,-0.5,5
+aviation fuels,biomass liquids,sugar cane ethanol,initial-future-year,45,,30,0.3,-0.5,5

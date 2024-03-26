@@ -4,29 +4,60 @@
 # Column types: ccccnnn 
 # ----------
 supplysector,subsector,technology,minicam.energy.input,1971,2020,2100
-gas processing,natural gas,natural gas,regional natural gas,1,1,1
-gas processing,biomass gasification,biomass gasification,regional biomass,1.343,1.343,1.227
-gas processing,coal gasification,coal gasification,regional coal,1.326,1.326,1.211
-nuclearFuelGenII,enrichedUranium,enrichedUranium,uranium,0.002373172,0.002373172,0.002373172
-nuclearFuelGenIII,enrichedUranium,enrichedUranium,uranium,0.002373172,0.002373172,0.002373172
-refining,oil refining,oil refining,regional oil,1.055,1.055,1.02
-refining,oil refining,oil refining,wholesale gas,0.018,0.018,0.018
-refining,oil refining,oil refining,elect_td_ind,0.005,0.005,0.005
-refining,coal to liquids,coal to liquids,regional coal,2.112,2.112,1.959
-refining,coal to liquids,coal to liquids CCS level 1,regional coal,2.196,2.196,2.037
-refining,coal to liquids,coal to liquids CCS level 2,regional coal,2.323,2.323,2.155
-refining,gas to liquids,gas to liquids,regional natural gas,1.654,1.654,1.534
-refining,biomass liquids,cellulosic ethanol,regional biomass,2.057,2.057,1.771
-refining,biomass liquids,cellulosic ethanol CCS level 1,regional biomass,2.139,2.139,1.842
-refining,biomass liquids,cellulosic ethanol CCS level 2,regional biomass,2.263,2.263,1.948
-refining,biomass liquids,FT biofuels,regional biomass,1.961,1.961,1.739
-refining,biomass liquids,FT biofuels CCS level 1,regional biomass,2.039,2.039,1.809
-refining,biomass liquids,FT biofuels CCS level 2,regional biomass,2.157,2.157,1.913
-refining,biomass liquids,corn ethanol,regional corn for ethanol,1,1,1
-refining,biomass liquids,corn ethanol,wholesale gas,0.318,0.318,0.318
-refining,biomass liquids,corn ethanol,elect_td_ind,0.026,0.026,0.026
-refining,biomass liquids,sugar cane ethanol,regional sugar for ethanol,1,1,1
-refining,biomass liquids,biodiesel,regional biomassOil,1.0309,1.0309,1.03
-refining,biomass liquids,biodiesel,wholesale gas,0.05767,0.05767,0.06
-refining,biomass liquids,BTL with hydrogen,H2 industrial,0.816228052,0.816228052,0.816228052
-refining,biomass liquids,BTL with hydrogen,regional biomass,1.031914894,1.031914894,1.031914894
+gas processing,natural gas,natural gas,regional natural gas,1.0000,1.0000,1.0000
+gas processing,biomass gasification,biomass gasification,regional biomass,1.3430,1.3430,1.2270
+gas processing,coal gasification,coal gasification,regional coal,1.3260,1.3260,1.2110
+nuclearFuelGenII,enrichedUranium,enrichedUranium,uranium,0.0024,0.0024,0.0024
+nuclearFuelGenIII,enrichedUranium,enrichedUranium,uranium,0.0024,0.0024,0.0024
+refining,oil refining,oil refining,regional oil,1.0550,1.0550,1.0200
+refining,oil refining,oil refining,wholesale gas,0.0180,0.0180,0.0180
+refining,oil refining,oil refining,elect_td_ind,0.0050,0.0050,0.0050
+refining,coal to liquids,coal to liquids,regional coal,2.1120,2.1120,1.9590
+refining,coal to liquids,coal to liquids CCS level 1,regional coal,2.1960,2.1960,2.0370
+refining,coal to liquids,coal to liquids CCS level 2,regional coal,2.3230,2.3230,2.1550
+refining,gas to liquids,gas to liquids,regional natural gas,1.6540,1.6540,1.5340
+refining,biomass liquids,cellulosic ethanol,regional biomass,2.7162,2.7162,2.4446
+refining,biomass liquids,cellulosic ethanol CCS level 1,regional biomass,2.7162,2.7162,2.4446
+refining,biomass liquids,cellulosic ethanol CCS level 2,regional biomass,2.7200,2.7200,2.4480
+refining,biomass liquids,FT biofuels,regional biomass,2.1902,2.1902,1.9712
+refining,biomass liquids,FT biofuels CCS level 1,regional biomass,2.2599,2.2599,2.0339
+refining,biomass liquids,FT biofuels CCS level 2,regional biomass,2.2599,2.2599,2.0339
+refining,biomass liquids,corn ethanol,regional corn for ethanol,1.0000,1.0000,1.0000
+refining,biomass liquids,corn ethanol,wholesale gas,0.3180,0.3180,0.3180
+refining,biomass liquids,corn ethanol,elect_td_ind,0.0260,0.0260,0.0260
+refining,biomass liquids,sugar cane ethanol,regional sugar for ethanol,1.0000,1.0000,1.0000
+refining,biomass liquids,biodiesel,regional biomassOil,1.0309,1.0309,1.0300
+refining,biomass liquids,biodiesel,wholesale gas,0.0577,0.0577,0.0600
+refining,biomass liquids,BTL with hydrogen,H2 industrial,0.8162,0.8162,0.8162
+refining,biomass liquids,BTL with hydrogen,regional biomass,1.0319,1.0319,1.0319
+refining,biomass liquids,cellulosic ethanol CCS level 1,H2 industrial,0.0107,0.0107,0.0096
+refining,biomass liquids,cellulosic ethanol CCS level 2,H2 industrial,0.0107,0.0107,0.0096
+refining,biomass liquids,cellulosic ethanol CCS level 2,wholesale gas,0.0380,0.0380,0.0342
+refining,biomass liquids,FT biofuels,wholesale gas,0.00000003,0.00000003,0.00000003
+refining,biomass liquids,FT biofuels CCS level 1,wholesale gas,0.00000004,0.00000004,0.00000003
+refining,biomass liquids,FT biofuels CCS level 2,wholesale gas,0.00000004,0.00000004,0.00000003
+refining,biomass liquids,cellulosic ethanol CCS level 2,elect_td_ind,0.0084,0.0084,0.0076
+refining,biomass liquids,FT biofuels CCS level 1,elect_td_ind,0.0025,0.0025,0.0023
+refining,biomass liquids,FT biofuels CCS level 2,elect_td_ind,0.0071,0.0071,0.0064
+aviation fuels,oil refining,oil refining,regional oil,1.0550,1.0550,1.0200
+aviation fuels,oil refining,oil refining,wholesale gas,0.0180,0.0180,0.0180
+aviation fuels,oil refining,oil refining,elect_td_ind,0.0050,0.0050,0.0050
+aviation fuels,biomass liquids,cellulosic ethanol,regional biomass,2.7162,2.7162,2.4446
+aviation fuels,biomass liquids,cellulosic ethanol CCS level 1,regional biomass,2.7162,2.7162,2.4446
+aviation fuels,biomass liquids,cellulosic ethanol CCS level 2,regional biomass,2.7200,2.7200,2.4480
+aviation fuels,biomass liquids,FT biofuels,regional biomass,2.1902,2.1902,1.9712
+aviation fuels,biomass liquids,FT biofuels CCS level 1,regional biomass,2.2599,2.2599,2.0339
+aviation fuels,biomass liquids,FT biofuels CCS level 2,regional biomass,2.2599,2.2599,2.0339
+aviation fuels,biomass liquids,corn ethanol,regional corn for ethanol,1.0000,1.0000,1.0000
+aviation fuels,biomass liquids,corn ethanol,wholesale gas,0.3180,0.3180,0.3180
+aviation fuels,biomass liquids,corn ethanol,elect_td_ind,0.0260,0.0260,0.0260
+aviation fuels,biomass liquids,sugar cane ethanol,regional sugar for ethanol,1.0000,1.0000,1.0000
+aviation fuels,biomass liquids,cellulosic ethanol CCS level 1,H2 industrial,0.0107,0.0107,0.0096
+aviation fuels,biomass liquids,cellulosic ethanol CCS level 2,H2 industrial,0.0107,0.0107,0.0096
+aviation fuels,biomass liquids,cellulosic ethanol CCS level 2,wholesale gas,0.0380,0.0380,0.0342
+aviation fuels,biomass liquids,FT biofuels,wholesale gas,0.00000003,0.00000003,0.00000003
+aviation fuels,biomass liquids,FT biofuels CCS level 1,wholesale gas,0.00000004,0.00000004,0.00000003
+aviation fuels,biomass liquids,FT biofuels CCS level 2,wholesale gas,0.00000004,0.00000004,0.00000003
+aviation fuels,biomass liquids,cellulosic ethanol CCS level 2,elect_td_ind,0.0084,0.0084,0.0076
+aviation fuels,biomass liquids,FT biofuels CCS level 1,elect_td_ind,0.0025,0.0025,0.0023
+aviation fuels,biomass liquids,FT biofuels CCS level 2,elect_td_ind,0.0071,0.0071,0.0064

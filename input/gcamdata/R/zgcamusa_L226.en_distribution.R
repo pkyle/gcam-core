@@ -234,7 +234,7 @@ module_gcamusa_L226.en_distribution <- function(command, ...) {
                liquids = liq_adj) %>%
         gather(sector1, adjustment, -region, -supplysector, -subsector, -technology, -year, -minicam.non.energy.input) %>%
         mutate(tmp = supplysector,
-               tmp = if_else(grepl("refined liquids*", tmp), "refined liquids", tmp)) %>%
+               tmp = if_else(grepl("fuels|liquids", tmp), "refined liquids", tmp)) %>%
         separate(tmp, c("trash1", "sector2"), sep = " ") %>%
         filter(sector1 == sector2) %>%
         select(-trash1, -sector1, -sector2) %>%

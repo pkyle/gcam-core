@@ -87,8 +87,10 @@ module_gcamusa_L273.en_ghg_emissions <- function(command, ...) {
 
     # make a complete mapping to be able to look up with sector + subsector + tech the
     # input name to use for an input-driver
+    # The refining supplysector+subsector are appended
     bind_rows(
-      get_data(all_data, "energy/A22.globaltech_input_driver"),
+      get_data(all_data, "energy/A22.globaltech_input_driver") %>%
+        mutate(supplysector = paste(supplysector, subsector)),
       get_data(all_data, "energy/A23.globaltech_input_driver"),
       get_data(all_data, "energy/A25.globaltech_input_driver"),
       get_data(all_data, "energy/A322.globaltech_input_driver")
@@ -124,8 +126,8 @@ module_gcamusa_L273.en_ghg_emissions <- function(command, ...) {
     # Match the refining emission factors to the corresponding technologies in the states. Matching on subsector
     # and stub technology because the names of the sectors are different
     L222.StubTech_en_USA %>%
-      repeat_add_columns(tibble("year" = unique(L241.ref_ghg_tech_coeff_USA$year))) %>%
-      repeat_add_columns(tibble("Non.CO2" = unique(L241.ref_ghg_tech_coeff_USA$Non.CO2))) %>%
+      repeat_add_columns(distinct(L241.ref_ghg_tech_coeff_USA,year)) %>%
+      repeat_add_columns(distinct(L241.ref_ghg_tech_coeff_USA,Non.CO2)) %>%
       # using left_join because there will be missing tech/year combinations. OK to omit
       left_join(L241.ref_ghg_tech_coeff_USA %>%
                   select("subsector", "stub.technology", "year", "Non.CO2", "emiss.coeff"),
@@ -139,7 +141,7 @@ module_gcamusa_L273.en_ghg_emissions <- function(command, ...) {
     L273.ref_ghg_tech_coeff_USA %>%
       mutate(emiss.coeff = round(emiss.coeff, emissions.DIGITS_EMISSIONS)) %>%
       arrange(region, supplysector, subsector, stub.technology, year, Non.CO2) %>%
-      left_join_error_no_match(EnTechInputMap %>% select(-supplysector), by = c("subsector", "stub.technology"))->
+      left_join_error_no_match(EnTechInputMap, by = c("supplysector", "subsector", "stub.technology"))->
       L273.en_ghg_tech_coeff_USA
 
     # 2c. Input Emissions

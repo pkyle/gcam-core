@@ -16,3 +16,6 @@ refining,coal to liquids,initial-future-year,,0
 refining,coal to liquids,end-year,,0.1
 refining,gas to liquids,initial-future-year,,0
 refining,gas to liquids,end-year,,0.25
+aviation fuels,oil refining,start-year,,1
+aviation fuels,biomass liquids,start-year,,0
+aviation fuels,biomass liquids,initial-future-year,,1

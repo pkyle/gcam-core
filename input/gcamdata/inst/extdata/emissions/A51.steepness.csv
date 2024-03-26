@@ -80,6 +80,15 @@ refining,coal to liquids,coal to liquids CCS level 1,3.5,3.5,3.5,3.5,3.5,3.5
 refining,coal to liquids,coal to liquids CCS level 2,3.5,3.5,3.5,3.5,3.5,3.5
 refining,gas to liquids,gas to liquids,3.5,3.5,3.5,3.5,3.5,3.5
 refining,oil refining,oil refining,3.5,3.5,3.5,3.5,3.5,3.5
+aviation fuels,biomass liquids,cellulosic ethanol,3.5,3.5,3.5,3.5,3.5,3.5
+aviation fuels,biomass liquids,cellulosic ethanol CCS level 1,3.5,3.5,3.5,3.5,3.5,3.5
+aviation fuels,biomass liquids,cellulosic ethanol CCS level 2,3.5,3.5,3.5,3.5,3.5,3.5
+aviation fuels,biomass liquids,corn ethanol,3.5,3.5,3.5,3.5,3.5,3.5
+aviation fuels,biomass liquids,FT biofuels,3.5,3.5,3.5,3.5,3.5,3.5
+aviation fuels,biomass liquids,FT biofuels CCS level 1,3.5,3.5,3.5,3.5,3.5,3.5
+aviation fuels,biomass liquids,FT biofuels CCS level 2,3.5,3.5,3.5,3.5,3.5,3.5
+aviation fuels,biomass liquids,sugar cane ethanol,3.5,3.5,3.5,3.5,3.5,3.5
+aviation fuels,oil refining,oil refining,3.5,3.5,3.5,3.5,3.5,3.5
 unconventional oil production,unconventional oil production,unconventional oil production,,,,,,3.5
 regional oil,crude oil,crude oil,3.5,3.5,3.5,,,3.5
 resid heating,biomass,biomass,3.5,3.5,3.5,3.5,3.5,3.5

@@ -1005,7 +1005,7 @@ gcamusa.FERT_NAME       <- "ammonia" # Define GCAM-USA category name of fertiliz
 
 # Fuels whose markets will be modeled at the level of the FERC regions, with prices calibrated
 gcamusa.REGIONAL_FUEL_MARKETS <- c("regional coal", "delivered coal", "wholesale gas", "delivered gas",
-                                   "refined liquids industrial", "refined liquids enduse")
+                                   "refined liquids industrial", "refined liquids enduse", "delivered aviation fuels")
 
 
 # Resources that will be modeled at the state level
@@ -1014,7 +1014,7 @@ gcamusa.STATE_UNLIMITED_RESOURCES <- c("global solar resource", "limestone", "sc
 
 # Define sector(s) used in L222.en_transformation_USA
 # The supplysector and subsector structure in these sectors are retained
-gcamusa.SECTOR_EN_NAMES <- "refining"
+gcamusa.SECTOR_EN_NAMES <- c("refining", "aviation fuels")
 
 # Define intermittent technologies
 gcamusa.INT_TECH_LIST <- c("CSP", "PV", "wind")

@@ -47,7 +47,8 @@ module_energy_L222.en_transformation <- function(command, ...) {
         FILE = "energy/A22.globaltech_keyword",
         "L122.out_EJ_R_gasproc_F_Yh",
         "L122.out_EJ_R_refining_F_Yh",
-        "L122.IO_R_oilrefining_F_Yh"))
+        "L122.IO_R_oilrefining_F_Yh",
+        "L154.in_EJ_R_trn_m_sz_tech_F_Yh"))
 
   MODULE_OUTPUTS <-
     c("L222.Supplysector_en",
@@ -195,7 +196,7 @@ module_energy_L222.en_transformation <- function(command, ...) {
 
     # L222.StubTech_en: Identification of stub technologies of energy transformation
     # set up filter to keep all non-first gen bio techs in L222.StubTech_en
-    firstgenbio_techs <- c("corn ethanol", "sugarbeet ethanol", "sugar cane ethanol", "biodiesel")
+    firstgenbio_techs <- c("corn ethanol", "sugar cane ethanol", "biodiesel")
 
     # create list of regional stub.technologies
     A22.globaltech_shrwt %>%
@@ -425,14 +426,45 @@ module_energy_L222.en_transformation <- function(command, ...) {
       rename(stub.technology = technology) %>%
       left_join(L222.out_EJ_R_refining_F_Yh, by = c("sector", "fuel")) %>%
       # rounds and renames outputs and adds year column for shareweights
-      mutate(calOutputValue = round(value, energy.DIGITS_CALOUTPUT), year.share.weight = year) %>%
+      mutate(calOutputValue = round(value, energy.DIGITS_CALOUTPUT), share.weight.year = year) %>%
       select(-sector, -GCAM_region_ID, -fuel, -value) %>%
       # sets shareweight to 1 if output exists, otherwise 0
-      mutate(share.weight = if_else(calOutputValue > 0, 1, 0)) %>%
+      mutate(tech.share.weight = if_else(calOutputValue > 0, 1, 0)) %>%
       set_subsector_shrwt() ->
       L222.StubTechProd_refining
     # reorders columns to match expected model interface input
-    L222.StubTechProd_refining <- L222.StubTechProd_refining[c(LEVEL2_DATA_NAMES[["StubTechYr"]], "calOutputValue", "year.share.weight", "subs.share.weight", "share.weight")]
+    L222.StubTechProd_refining <- L222.StubTechProd_refining[LEVEL2_DATA_NAMES[["StubTechProd"]]]
+
+    # DISAGGREGATION OF OIL REFINING TECHNOLOGY TO REFINING AND AVIATION FUELS
+    # Aviation fuels / oil refining output is equal to the input to aviation technologies in the transportation sector
+    L222.StubTechProd_avfuels <- L154.in_EJ_R_trn_m_sz_tech_F_Yh %>%
+      filter(year %in% MODEL_BASE_YEARS,
+             mode %in% c("Air Domestic", "Air International"),
+             fuel == "refined liquids") %>%
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+      group_by(region, year) %>%
+      summarise(calOutputValue = round(sum(value), digits = energy.DIGITS_CALOUTPUT)) %>%
+      ungroup() %>%
+      left_join_error_no_match(filter(L222.StubTech_en, supplysector == "aviation fuels" & subsector == "oil refining"),
+                               by = "region") %>%
+      mutate(share.weight.year = year,
+             subs.share.weight = if_else(calOutputValue > 0, 1, 0),
+             tech.share.weight = subs.share.weight) %>%
+      select(LEVEL2_DATA_NAMES[["StubTechProd"]])
+
+    # Refining / oil refining output is revised to its initial value above minus aviation fuels
+    L222.StubTechProd_avfuels_forjoin <-L222.StubTechProd_avfuels %>%
+      mutate(supplysector = "refining",
+             avfuels = calOutputValue) %>%
+      select(c(LEVEL2_DATA_NAMES[["StubTechYr"]], "avfuels"))
+
+    L222.StubTechProd_refining %>%
+      left_join(L222.StubTechProd_avfuels_forjoin,
+                by = c("region", "supplysector", "subsector", "stub.technology", "year")) %>%
+      mutate(calOutputValue = if_else(is.na(avfuels), calOutputValue, calOutputValue - avfuels)) %>%
+      select(-avfuels) %>%
+      bind_rows(L222.StubTechProd_avfuels) ->
+      L222.StubTechProd_refining
 
     # L222.StubTechCoef_refining: calibrated input-output coefficients of oil refining by region and input
     # interpolates values of IO coefficients for base years from historical values
@@ -459,6 +491,11 @@ module_energy_L222.en_transformation <- function(command, ...) {
       L222.StubTechCoef_refining
     # reorders columns to match expected model interface input
     L222.StubTechCoef_refining <- L222.StubTechCoef_refining[c(LEVEL2_DATA_NAMES[["StubTechYr"]], "minicam.energy.input", "coefficient", "market.name")]
+
+    # Copy these coefficients to aviation fuels
+    L222.StubTechCoef_avfuels <- filter(L222.StubTechCoef_refining, subsector == "oil refining") %>%
+      mutate(supplysector = "aviation fuels")
+    L222.StubTechCoef_refining <- bind_rows(L222.StubTechCoef_refining, L222.StubTechCoef_avfuels)
 
     # ===================================================
 
@@ -679,7 +716,7 @@ module_energy_L222.en_transformation <- function(command, ...) {
       add_units("EJ") %>%
       add_comments("Historical values of output for liquid refining for base model years by region") %>%
       add_legacy_name("L222.StubTechProd_refining") %>%
-      add_precursors("L122.out_EJ_R_refining_F_Yh", "energy/calibrated_techs", "common/GCAM_region_names") ->
+      add_precursors("L122.out_EJ_R_refining_F_Yh", "energy/calibrated_techs", "common/GCAM_region_names", "L154.in_EJ_R_trn_m_sz_tech_F_Yh") ->
       L222.StubTechProd_refining
 
     L222.StubTechCoef_refining %>%
