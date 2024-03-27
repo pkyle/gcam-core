@@ -55,6 +55,7 @@ module_gcamusa_L273.nonghg_refinery <- function(command, ...) {
       filter(stub.technology == "oil refining") %>%
       group_by(region, year) %>%
       mutate(share = calOutputValue / sum(calOutputValue)) %>%
+      replace_na(list(share = 0)) %>%
       ungroup() %>%
       select(region, supplysector, subsector, stub.technology, year, share)
 
