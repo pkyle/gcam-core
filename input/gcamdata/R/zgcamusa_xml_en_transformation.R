@@ -91,7 +91,6 @@ module_gcamusa_en_transformation_xml <- function(command, ...) {
       add_xml_data(L222.Tech_USAen, "PassThroughTech") %>%
       add_xml_data(L222.TechInterp_USAen, "TechInterp") %>%
       add_xml_data(L222.TechShrwt_USAen, "TechShrwt") %>%
-      add_xml_data(L222.TechShrwt_USAen, "TechShrwt") %>%
       add_xml_data(L222.TechCoef_USAen, "TechCoef") %>%
       add_xml_data(L222.Production_USArefining, "Production") %>%
       add_logit_tables_xml(L222.Supplysector_en_USA, "Supplysector") %>%

@@ -161,12 +161,11 @@ module_gcamusa_L222.en_transformation <- function(command, ...) {
       L222.Tech_USAen
 
     # L222.TechInterp_USAen: technology shareweights, USA region
-    # Technology interpolation only applies to calibrated technologies.
-    # For biomass liquids, allow state shares to shift over time
-    # (future techs are different than present techs).
-    # Oil refining and biomass liquids shareweights are fixed at calibration values through max model year
+    # Technology interpolation only applies to calibrated technologies: refining/oil refining, refining/biomass liquids,
+    # and aviation fuels/oil refining.
+    # Calibrated technology share-weights are held constant
     L222.Tech_USAen %>%
-      filter(subsector %in% c("oil refining", "biomass liquids")) %>%
+      filter(subsector == "oil refining" | (supplysector == "refining" & subsector == "biomass liquids")) %>%
       mutate(apply.to = "share-weight",
              from.year = max(MODEL_BASE_YEARS),
              to.year = max(MODEL_YEARS),
