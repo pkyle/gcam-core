@@ -1679,28 +1679,28 @@ local:generate-sector-input-coefs(remove($outputNameQueue, 1), $currTree, $coefs
                 <supplyDemandQuery title="refined liquids production by region">
                     <axis1 name="region">region</axis1>
                     <axis2 name="Year">physical-output[@vintage]</axis2>
-                    <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' (:collapse:) and (@name='refining')]//
-               output-primary[@type='output']/physical-output/node()</xPath>
+                    <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' (:collapse:) and (@name='refining' or @name='aviation fuels')]//
+               output-primary[@type='output']/physical-output (:collapse:)/node()</xPath>
                     <comments/>
                 </supplyDemandQuery>
                 <supplyDemandQuery title="refined liquids production by subsector">
                     <axis1 name="subsector">subsector</axis1>
                     <axis2 name="Year">physical-output[@vintage]</axis2>
-                    <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and (@name='refining')]/*[@type='subsector']//
+                    <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and (@name='refining' or @name='aviation fuels')]/*[@type='subsector']//
                output-primary[@type='output']/physical-output/node()</xPath>
                     <comments/>
                 </supplyDemandQuery>
                 <supplyDemandQuery title="refined liquids production by tech">
                     <axis1 name="technology">technology</axis1>
                     <axis2 name="Year">physical-output[@vintage]</axis2>
-                    <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and contains(@name,'refining')]/*[@type='subsector']/
+                    <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and (@name='refining' or @name='aviation fuels')]/*[@type='subsector']/
                *[@type='technology']/output-primary[@type='output']/physical-output/node()</xPath>
                     <comments/>
                 </supplyDemandQuery>
                 <supplyDemandQuery title="refined liquids production by tech and vintage">
                     <axis1 name="technology">technology</axis1>
                     <axis2 name="Year">physical-output[@vintage]</axis2>
-                    <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and contains(@name,'refining')]/*[@type='subsector']/
+                    <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and (@name='refining' or @name='aviation fuels'))]/*[@type='subsector']/
                *[@type='technology']/output-primary[@type='output']/physical-output/node()</xPath>
                     <comments/>
                     <showAttribute attribute-name="year" level="technology"/>
@@ -1708,7 +1708,7 @@ local:generate-sector-input-coefs(remove($outputNameQueue, 1), $currTree, $coefs
                 <supplyDemandQuery title="refined liquids production by tech (new)">
                     <axis1 name="technology">technology</axis1>
                     <axis2 name="Year">physical-output[@vintage]</axis2>
-                    <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and contains(@name,'refining')]/*[@type='subsector']/
+                    <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and (@name='refining' or @name='aviation fuels')]/*[@type='subsector']/
                *[@type='technology']/output-primary[@type='output']/physical-output[
                @vintage=parent::*/parent::*/@year]/node()</xPath>
                     <comments/>
@@ -1716,7 +1716,7 @@ local:generate-sector-input-coefs(remove($outputNameQueue, 1), $currTree, $coefs
                 <supplyDemandQuery title="refinery inputs by tech (energy and feedstocks)">
                     <axis1 name="input">input</axis1>
                     <axis2 name="Year">demand-physical[@vintage]</axis2>
-                    <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and (@name='refining' or @name='regional oil' or
+                    <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and (@name='refining' or @name='aviation fuels' or @name='regional oil' or
                @name='regional corn for ethanol' or @name='regional sugar for ethanol' or @name='regional biomassOil')]/
                *[@type='subsector']/*[@type='technology']/
                *[@type='input' and not(contains(@name,'water'))]/demand-physical/node()</xPath>
@@ -1725,33 +1725,33 @@ local:generate-sector-input-coefs(remove($outputNameQueue, 1), $currTree, $coefs
                 <supplyDemandQuery title="refined liquids prices by sector">
                     <axis1 name="fuel">sector</axis1>
                     <axis2 name="Year">cost</axis2>
-                    <xPath buildList="true" dataName="price" group="false" sumAll="false">*[@type='sector' and (@name='refining' or @name='refined liquids enduse' or
-               @name='refined liquids industrial')]/cost/text()</xPath>
+                    <xPath buildList="true" dataName="price" group="false" sumAll="false">*[@type='sector' and (@name='refining' or @name='aviation fuels' or @name='refined liquids enduse' or
+               @name='refined liquids industrial' or @name='delivered aviation fuels')]/cost/text()</xPath>
                     <comments/>
                 </supplyDemandQuery>
                 <supplyDemandQuery title="refined liquids costs by subsector">
                     <axis1 name="subsector">subsector</axis1>
                     <axis2 name="Year">cost</axis2>
-                    <xPath buildList="true" dataName="cost" group="false" sumAll="false">*[@type='sector' and (@name='refining')]/*[@type='subsector']/cost/text()</xPath>
+                    <xPath buildList="true" dataName="cost" group="false" sumAll="false">*[@type='sector' and (@name='refining' or @name='aviation fuels')]/*[@type='subsector']/cost/text()</xPath>
                     <comments/>
                 </supplyDemandQuery>
                 <supplyDemandQuery title="refined liquids costs by tech">
                     <axis1 name="technology">technology</axis1>
                     <axis2 name="Year">cost</axis2>
-                    <xPath buildList="true" dataName="cost" group="false" sumAll="false">*[@type='sector' and (@name='refining')]/*[@type='subsector']/*[@type='technology']/cost/text()</xPath>
+                    <xPath buildList="true" dataName="cost" group="false" sumAll="false">*[@type='sector' and (@name='refining' or @name='aviation fuels')]/*[@type='subsector']/*[@type='technology']/cost/text()</xPath>
                     <comments/>
                 </supplyDemandQuery>
                 <supplyDemandQuery title="refining and oil share-weights by subsector">
                     <axis1 name="subsector">subsector</axis1>
                     <axis2 name="Year">share-weight</axis2>
-                    <xPath buildList="true" dataName="share-weight" group="false" sumAll="false">*[@type='sector' and (@name='refining' or @name='regional oil')]/
+                    <xPath buildList="true" dataName="share-weight" group="false" sumAll="false">*[@type='sector' and (@name='refining' or @name='aviation fuels' or @name='regional oil')]/
                *[@type='subsector']/share-weight/text()</xPath>
                     <comments/>
                 </supplyDemandQuery>
                 <supplyDemandQuery title="refining share-weights by tech">
                     <axis1 name="technology">technology</axis1>
                     <axis2 name="Year">technology</axis2>
-                    <xPath buildList="true" dataName="share-weight" group="false" sumAll="false">*[@type='sector' and (@name='refining')]/*[@type='subsector']/
+                    <xPath buildList="true" dataName="share-weight" group="false" sumAll="false">*[@type='sector' and (@name='refining' or @name='aviation fuels')]/*[@type='subsector']/
                *[@type='technology']/share-weight/node()</xPath>
                     <comments/>
                 </supplyDemandQuery>
@@ -2150,6 +2150,7 @@ element input {
                             <rewrite from="regional coal" to="coal"/>
                             <rewrite from="H2 industrial" to="hydrogen"/>
                             <rewrite from="refined liquids enduse" to="refined liquids"/>
+                            <rewrite from="delivered aviation fuels" to="refined liquids"/>
                             <rewrite from="elect_td_trn" to="electricity"/>
                             <rewrite from="delivered coal" to="coal"/>
                             <rewrite from="delivered gas" to="gas"/>
@@ -2181,6 +2182,7 @@ element input {
                             <rewrite from="regional coal" to="coal"/>
                             <rewrite from="H2 industrial" to="hydrogen"/>
                             <rewrite from="refined liquids enduse" to="refined liquids"/>
+                            <rewrite from="delivered aviation fuels" to="refined liquids"/>
                             <rewrite from="elect_td_trn" to="electricity"/>
                             <rewrite from="delivered coal" to="coal"/>
                             <rewrite from="delivered gas" to="gas"/>
@@ -2204,7 +2206,7 @@ element input {
             @name='delivered coal' or @name='delivered biomass' or @name='traditional biomass' or
             @name='elect_td_ind' or @name='elect_td_bld' or @name='elect_td_trn' or
             @name='H2 wholesale dispensing' or @name='H2 wholesale delivery' or @name='H2 retail dispensing' or @name='H2 retail delivery' or
-            @name='refined liquids industrial' or @name='refined liquids enduse' or @name='waste biomass for paper')]/
+            @name='refined liquids industrial' or @name='refined liquids enduse' or @name='delivered aviation fuels' or @name='waste biomass for paper')]/
             cost/text()</xPath>
                     <comments/>
                 </supplyDemandQuery>
@@ -2961,7 +2963,7 @@ element input {
                     <axis1 name="fuel">sector</axis1>
                     <axis2 name="Year">cost</axis2>
                     <xPath buildList="true" dataName="cost" group="false" sumAll="false">*[@type='sector' and (@name='delivered gas' or @name='delivered coal' or @name='elect_td_trn'
-               or @name='refined liquids enduse' or @name='H2 wholesale dispensing' or @name='H2 retail dispensing')]/cost/text()</xPath>
+               or @name='refined liquids enduse' or @name='delivered aviation fuels' or @name='H2 wholesale dispensing' or @name='H2 retail dispensing')]/cost/text()</xPath>
                     <comments/>
                 </supplyDemandQuery>
                 <supplyDemandQuery title="costs of transport services">
@@ -4319,7 +4321,9 @@ element input {
             <PrimaryFuelCO2Coef name="natural gas">14.2</PrimaryFuelCO2Coef>,
             <PrimaryFuelCO2Coef name="refined liquids enduse">19.6</PrimaryFuelCO2Coef>,
             <PrimaryFuelCO2Coef name="refined liquids industrial">19.6</PrimaryFuelCO2Coef>,
+            <PrimaryFuelCO2Coef name="delivered aviation fuels">19.6</PrimaryFuelCO2Coef>,
             <PrimaryFuelCO2Coef name="refining">19.6</PrimaryFuelCO2Coef>,
+            <PrimaryFuelCO2Coef name="aviation fuels">19.6</PrimaryFuelCO2Coef>,
             <PrimaryFuelCO2Coef name="regional biomass">23</PrimaryFuelCO2Coef>,
             <PrimaryFuelCO2Coef name="regional biomassOil">19.6</PrimaryFuelCO2Coef>,
             <PrimaryFuelCO2Coef name="regional coal">27.3</PrimaryFuelCO2Coef>,
@@ -5883,7 +5887,7 @@ A user can adjust the query to search for any of:
                     <axis1 name="region">region</axis1>
                     <axis2 name="Year">physical-output[@vintage]</axis2>
                     <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' (:collapse:) and
-               (@name='oil refining' or @name='biomass liquids' or @name='gas to liquids' or @name='coal to liquids')]//
+               (contains(@name, 'oil refining') or contains(@name,'biomass liquids') or contains(@name,'gas to liquids') or contains(@name,'coal to liquids'))]//
                output-primary[@type='output' (:collapse:)]/physical-output/node()</xPath>
                     <comments/>
                 </supplyDemandQuery>
@@ -5891,7 +5895,7 @@ A user can adjust the query to search for any of:
                     <axis1 name="subsector">subsector</axis1>
                     <axis2 name="Year">physical-output[@vintage]</axis2>
                     <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and 
-               (@name='oil refining' or @name='biomass liquids' or @name='gas to liquids' or @name='coal to liquids')]/
+               (contains(@name, 'oil refining') or contains(@name,'biomass liquids') or contains(@name,'gas to liquids') or contains(@name,'coal to liquids'))]/
                *[@type='subsector']//
                output-primary[@type='output' (:collapse:)]/physical-output/node()</xPath>
                     <comments/>
@@ -5900,7 +5904,7 @@ A user can adjust the query to search for any of:
                     <axis1 name="technology">technology</axis1>
                     <axis2 name="Year">physical-output[@vintage]</axis2>
                     <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and 
-               (@name='oil refining' or @name='biomass liquids' or @name='gas to liquids' or @name='coal to liquids')]/*[@type='subsector']/
+               (contains(@name, 'oil refining') or contains(@name,'biomass liquids') or contains(@name,'gas to liquids') or contains(@name,'coal to liquids'))]/*[@type='subsector']/
                *[@type='technology']/output-primary[@type='output' (:collapse:)]/physical-output/node()</xPath>
                     <comments/>
                 </supplyDemandQuery>
@@ -5908,7 +5912,7 @@ A user can adjust the query to search for any of:
                     <axis1 name="technology">technology</axis1>
                     <axis2 name="Year">physical-output[@vintage]</axis2>
                     <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and 
-               (@name='oil refining' or @name='biomass liquids' or @name='gas to liquids' or @name='coal to liquids')]/*[@type='subsector']/
+               (contains(@name, 'oil refining') or contains(@name,'biomass liquids') or contains(@name,'gas to liquids') or contains(@name,'coal to liquids'))]/*[@type='subsector']/
                *[@type='technology']/output-primary[@type='output' (:collapse:)]/physical-output/node()</xPath>
                     <comments/>
                     <showAttribute attribute-name="year" level="technology"/>
@@ -5917,7 +5921,7 @@ A user can adjust the query to search for any of:
                     <axis1 name="technology">technology</axis1>
                     <axis2 name="Year">physical-output[@vintage]</axis2>
                     <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and 
-               (@name='oil refining' or @name='biomass liquids' or @name='gas to liquids' or @name='coal to liquids')]/*[@type='subsector']/
+               (contains(@name, 'oil refining') or contains(@name,'biomass liquids') or contains(@name,'gas to liquids') or contains(@name,'coal to liquids'))]/*[@type='subsector']/
                *[@type='technology']/output-primary[@type='output' (:collapse:)]/physical-output[
                @vintage=parent::*/parent::*/@year]/node()</xPath>
                     <comments/>
@@ -5926,7 +5930,7 @@ A user can adjust the query to search for any of:
                     <axis1 name="input">input</axis1>
                     <axis2 name="Year">demand-physical[@vintage]</axis2>
                     <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and 
-               (@name='oil refining' or @name='biomass liquids' or @name='gas to liquids' or @name='coal to liquids' or 
+               (contains(@name, 'oil refining') or contains(@name,'biomass liquids') or contains(@name,'gas to liquids') or contains(@name,'coal to liquids') or 
                @name='regional oil' or @name='regional corn for ethanol' or @name='regional sugar for ethanol')]/
                *[@type='subsector']/*[@type='technology']/
                *[@type='input' and not(contains(@name,'water'))]/demand-physical/node()</xPath>
@@ -5936,37 +5940,37 @@ A user can adjust the query to search for any of:
                     <axis1 name="fuel">sector</axis1>
                     <axis2 name="Year">cost</axis2>
                     <xPath buildList="true" dataName="price" group="false" sumAll="false">*[@type='sector' and 
-               (@name='oil refining' or @name='biomass liquids' or @name='gas to liquids' or @name='coal to liquids' or 
+               (contains(@name, 'oil refining') or contains(@name,'biomass liquids') or contains(@name,'gas to liquids') or contains(@name,'coal to liquids') or 
                @name='refined liquids enduse' or @name='refined liquids industrial')]/cost/text()</xPath>
                     <comments/>
                 </supplyDemandQuery>
                 <supplyDemandQuery title="refined liquids costs by subsector">
                     <axis1 name="subsector">subsector</axis1>
                     <axis2 name="Year">cost</axis2>
-                    <xPath buildList="true" dataName="cost" group="false" sumAll="false">*[@type='sector' and (@name='oil refining' or 
-               @name='biomass liquids' or @name='gas to liquids' or @name='coal to liquids')]/*[@type='subsector']/cost/text()</xPath>
+                    <xPath buildList="true" dataName="cost" group="false" sumAll="false">*[@type='sector' and
+                    (contains(@name, 'oil refining') or contains(@name,'biomass liquids') or contains(@name,'gas to liquids') or contains(@name,'coal to liquids'))]/*[@type='subsector']/cost/text()</xPath>
                     <comments/>
                 </supplyDemandQuery>
                 <supplyDemandQuery title="refined liquids costs by tech">
                     <axis1 name="technology">technology</axis1>
                     <axis2 name="Year">cost</axis2>
-                    <xPath buildList="true" dataName="cost" group="false" sumAll="false">*[@type='sector' and (@name='oil refining' or 
-               @name='biomass liquids' or @name='gas to liquids' or @name='coal to liquids')]/*[@type='subsector']/*[@type='technology']/cost/text()</xPath>
+                    <xPath buildList="true" dataName="cost" group="false" sumAll="false">*[@type='sector' and
+                    (contains(@name, 'oil refining') or contains(@name,'biomass liquids') or contains(@name,'gas to liquids') or contains(@name,'coal to liquids'))]/*[@type='subsector']/*[@type='technology']/cost/text()</xPath>
                     <comments/>
                 </supplyDemandQuery>
                 <supplyDemandQuery title="refining and oil share-weights by subsector">
                     <axis1 name="subsector">subsector</axis1>
                     <axis2 name="Year">share-weight</axis2>
-                    <xPath buildList="true" dataName="share-weight" group="false" sumAll="false">*[@type='sector' and (@name='oil refining' or 
-               @name='biomass liquids' or @name='gas to liquids' or @name='coal to liquids' or @name='regional oil')]/
+                    <xPath buildList="true" dataName="share-weight" group="false" sumAll="false">*[@type='sector' and
+                    (contains(@name, 'oil refining') or contains(@name,'biomass liquids') or contains(@name,'gas to liquids') or contains(@name,'coal to liquids'))]/
                *[@type='subsector']/share-weight/text()</xPath>
                     <comments/>
                 </supplyDemandQuery>
                 <supplyDemandQuery title="refining share-weights by tech">
                     <axis1 name="technology">technology</axis1>
                     <axis2 name="Year">technology</axis2>
-                    <xPath buildList="true" dataName="share-weight" group="false" sumAll="false">*[@type='sector' and (@name='oil refining' or 
-               @name='biomass liquids' or @name='gas to liquids' or @name='coal to liquids')]/*[@type='subsector']/
+                    <xPath buildList="true" dataName="share-weight" group="false" sumAll="false">*[@type='sector' and
+                    (contains(@name, 'oil refining') or contains(@name,'biomass liquids') or contains(@name,'gas to liquids') or contains(@name,'coal to liquids'))]/*[@type='subsector']/
                *[@type='technology']/share-weight/node()</xPath>
                     <comments/>
                 </supplyDemandQuery>
