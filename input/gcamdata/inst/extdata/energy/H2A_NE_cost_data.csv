@@ -15,7 +15,7 @@ H2 central production,solar,electrolysis,electrolyzer,$2016/kg H2,2.864409642,0.
 H2 central production,wind,electrolysis,electrolyzer,$2016/kg H2,1.471796075,0.439497225,0.701387147,0.801387147,Method of electrolysis utilized: PEM Electrolysis powered by wind created electricity. Electrolyzer costs only are provided here assuming a capacity factor of 46% (matching wind turbines).
 H2 central production,gas,natural gas steam reforming,non-energy,$2016/kg H2,0.285971367,0.25737423,0.1,0.2,No future assumptions provided; assumed 10% improvement
 H2 central production,gas,gas ATR CCS,non-energy,$2016/kg H2,0.709091814,0.638182632,0.1,0.2,As above
-H2 central production,nuclear,electrolysis,electrolyzer,$2016/kg H2,5.032636338,0.674795959,0.86591601,0.96591601,Method of electrolysis utilized: solid oxide electrolysis 
+H2 central production,nuclear,electrolysis,electrolyzer,$2016/kg H2,2.2402,0.669,0.701347,0.8,Non-energy costs for electrolyzer only from H2A central solid oxide electrolysis technology (capital costs + fixed O&M only)  Additional costs associated with nuclear electricity generation are added downstream
 H2 industrial,onsite production,electrolysis,non-energy,$2016/kg H2,0.914570079,0.544998267,0.404093487,0.504093487,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
 H2 LDV,onsite production,electrolysis,production,$2016/kg H2,0.914570079,0.544998267,0.404093487,0.504093487,Method of electrolysis utilized: PEM Electrolysis - Forecourt model for larger (1500kG/H2/day) plant.
 H2 LDV,onsite production,natural gas steam reforming,production,$2016/kg H2,0.527095155,0.373668167,0.291080248,0.391080248,Forecourt model for larger (1500kG/H2/day) plant
