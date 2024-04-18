@@ -37,7 +37,7 @@ module_emissions_L253.emission_controls <- function(command, ...) {
              user_em_control_files, # All files in user_emission_controls folder
              "L102.pcgdp_thous90USD_Scen_R_Y",
              "L201.nonghg_steepness",
-             "L277.nonghg_steepness_USA",
+             #"L277.nonghg_steepness_USA",
              "L223.StubTechEff_elec",
              "L223.GlobalTechEff_elec",
              "L224.Supplysector_heat"))
@@ -74,7 +74,7 @@ module_emissions_L253.emission_controls <- function(command, ...) {
     states_subregions <- get_data(all_data, "gcam-usa/states_subregions")
     pcGDP_MER <- get_data(all_data, "L102.pcgdp_thous90USD_Scen_R_Y", strip_attributes = TRUE)
     L201.nonghg_steepness <- get_data(all_data, "L201.nonghg_steepness", strip_attributes = TRUE)
-    L277.nonghg_steepness_USA <- get_data(all_data, "L277.nonghg_steepness_USA", strip_attributes = TRUE)
+    #L277.nonghg_steepness_USA <- get_data(all_data, "L277.nonghg_steepness_USA", strip_attributes = TRUE)
     base_year_eff <- get_data(all_data, "L223.StubTechEff_elec", strip_attributes = TRUE)
     future_year_eff <- get_data(all_data, "L223.GlobalTechEff_elec", strip_attributes = TRUE) %>%
       filter(year %in% MODEL_FUTURE_YEARS)
@@ -138,8 +138,7 @@ module_emissions_L253.emission_controls <- function(command, ...) {
 
     # Get all technologies that have a default generic GDP control, which will be removed if there are new controls in place
     L201.nonghg_steepness %>%
-      select(region, supplysector, subsector, stub.technology) %>%
-      bind_rows(select(L277.nonghg_steepness_USA, region, supplysector, subsector, stub.technology)) -> GDP_controlled_techs
+      select(region, supplysector, subsector, stub.technology) -> GDP_controlled_techs
 
     # Define a utility function that returns the next model year.
     # Because we vectorize the function, the argument can be a vector (or column) of years
@@ -453,8 +452,7 @@ module_emissions_L253.emission_controls <- function(command, ...) {
             add_title("U.S. States Delete GDP Control") %>%
             add_units("Various") %>%
             add_comments("Delete GDP control in U.S. states because new control is in place") %>%
-            same_precursors_as(L253.Retrofit_off_USA) %>%
-            add_precursors("L277.nonghg_steepness_USA")-> L253.delete_gdp_control_USA
+            same_precursors_as(L253.Retrofit_off_USA) -> L253.delete_gdp_control_USA
         } else {
           missing_data() -> L253.delete_gdp_control_USA
         }
