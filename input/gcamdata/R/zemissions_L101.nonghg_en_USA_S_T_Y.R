@@ -1,6 +1,6 @@
 # Copyright 2019 Battelle Memorial Institute; see the LICENSE file.
 
-#' module_gcamusa_L101.nonghg_en_S_T_Y
+#' module_emissions_L101.nonghg_en_USA_S_T_Y
 #'
 #' Compute historical emissions factors for energy by GCAM technology, from EPA emissions data and IEA energy balances.
 #'
@@ -20,7 +20,7 @@
 #' @importFrom dplyr bind_rows distinct filter if_else group_by left_join mutate select summarise
 #' @importFrom tidyr replace_na spread
 #' @author BBL April 2017
-module_gcamusa_L101.nonghg_en_S_T_Y <- function(command, ...) {
+module_emissions_L101.nonghg_en_USA_S_T_Y <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "energy/mappings/IEA_flow_sector",
              FILE = "energy/mappings/IEA_product_fuel",

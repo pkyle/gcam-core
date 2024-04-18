@@ -1,6 +1,6 @@
 # Copyright 2019 Battelle Memorial Institute; see the LICENSE file.
 
-#' module_gcamusa_L102.ghg_en_S_T_Y
+#' module_emissions_L102.ghg_en_USA_S_T_Y
 #'
 #' Calculates CH4 and N2O emission factors derived from EPA GHG inventory and GCAM energy balances for the US in 2005.
 #'
@@ -14,7 +14,7 @@
 #' @importFrom assertthat assert_that
 #' @importFrom dplyr arrange filter if_else group_by left_join mutate select summarize summarize_if
 #' @author HCM April 2017
-module_gcamusa_L102.ghg_en_S_T_Y <- function(command, ...) {
+module_emissions_L102.ghg_en_USA_S_T_Y <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "common/iso_GCAM_regID",
              FILE = "energy/mappings/IEA_flow_sector",

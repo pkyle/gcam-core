@@ -1,6 +1,6 @@
 # Copyright 2019 Battelle Memorial Institute; see the LICENSE file.
 
-#' module_gcamusa_L105.nh3_an_S_T_Y
+#' module_emissions_L105.nh3_an_USA_S_T_Y
 #'
 #' Historical NH3 emissions factors for animals by GCAM technology, computed from EPA emissions data and FAO animal statistics
 #'
@@ -17,7 +17,7 @@
 #' @importFrom assertthat assert_that
 #' @importFrom dplyr arrange bind_rows filter group_by left_join mutate select rename summarize summarize_at vars
 #' @author RMH April 2017
-module_gcamusa_L105.nh3_an_S_T_Y <- function(command, ...) {
+module_emissions_L105.nh3_an_USA_S_T_Y <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "emissions/mappings/EPA_tech",
              "L107.an_Prod_Mt_R_C_Sys_Fd_Y",

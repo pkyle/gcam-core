@@ -1,6 +1,6 @@
 # Copyright 2019 Battelle Memorial Institute; see the LICENSE file.
 
-#' module_gcamusa_L103.ghg_an_S_T_Y
+#' module_emissions_L103.ghg_an_USA_S_T_Y
 #'
 #' Calculates methane emissions factors for animals by GCAM technology,
 #' computed from EPA emissions data and FAO animal data for the US, 2005
@@ -16,7 +16,7 @@
 #' @importFrom assertthat assert_that
 #' @importFrom dplyr filter group_by left_join mutate select summarise summarise_if
 #' @author RH April 2017
-module_gcamusa_L103.ghg_an_S_T_Y <- function(command, ...) {
+module_emissions_L103.ghg_an_USA_S_T_Y <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "common/iso_GCAM_regID",
              FILE = "emissions/mappings/EPA_ghg_tech",

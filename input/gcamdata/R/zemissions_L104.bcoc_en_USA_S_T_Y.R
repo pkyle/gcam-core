@@ -1,6 +1,6 @@
 # Copyright 2019 Battelle Memorial Institute; see the LICENSE file.
 
-#' module_gcamusa_L104.bcoc_en_S_T_Y
+#' module_emissions_L104.bcoc_en_USA_S_T_Y
 #'
 #' Creates USA BC and OC emission factors for combustion sectors
 #'
@@ -15,7 +15,7 @@
 #' @importFrom dplyr filter group_by left_join mutate select summarize summarize_if
 #' @importFrom tidyr replace_na
 #' @author SJS May 2017
-module_gcamusa_L104.bcoc_en_S_T_Y <- function(command, ...) {
+module_emissions_L104.bcoc_en_USA_S_T_Y <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "common/iso_GCAM_regID",
              FILE = "energy/mappings/IEA_flow_sector",
