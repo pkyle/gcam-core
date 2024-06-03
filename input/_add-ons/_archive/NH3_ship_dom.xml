@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><scenario>
+    <world>
+        <global-technology-database>
+            <location-info sector-name="trn_freight" subsector-name="Domestic Ship">
+                <tranTechnology name="Ammonia">
+                    <period year="1975">
+                        <share-weight>0</share-weight>
+                        <CO2 name="CO2"/>
+                    </period>
+                    <period year="1990">
+                        <share-weight>0</share-weight>
+                        <CO2 name="CO2"/>
+                    </period>
+                    <period year="2005">
+                        <share-weight>0</share-weight>
+                        <CO2 name="CO2"/>
+                    </period>
+                    <period year="2010">
+                        <share-weight>0</share-weight>
+                        <CO2 name="CO2"/>
+                    </period>
+                    <period year="2015">
+                        <share-weight>0</share-weight>
+                        <CO2 name="CO2"/>
+                    </period>
+                    <period year="2020">
+                        <share-weight>0</share-weight>
+                        <CO2 name="CO2"/>
+                    </period>
+                    <period year="2025">
+                        <share-weight>0.5</share-weight>
+                        <CO2 name="CO2"/>
+                    </period>
+                    <period year="2030">
+                        <share-weight>1</share-weight>
+                        <CO2 name="CO2"/>
+                    </period>
+                    <period year="2035">
+                        <share-weight>0.7</share-weight>
+                        <CO2 name="CO2"/>
+                    </period>
+                    <period year="2040">
+                        <share-weight>0.45</share-weight>
+                        <CO2 name="CO2"/>
+                    </period>
+                    <period year="2045">
+                        <share-weight>0.15</share-weight>
+                        <CO2 name="CO2"/>
+                    </period>
+                    <period year="2050">
+                        <share-weight>0</share-weight>
+                        <CO2 name="CO2"/>
+                    </period>
+                    <period year="2075">
+                        <share-weight>0</share-weight>
+                        <CO2 name="CO2"/>
+                    </period>
+                    <period year="2100">
+                        <share-weight>0</share-weight>
+                        <CO2 name="CO2"/>
+                    </period>
+                </tranTechnology>
+            </location-info>
+        </global-technology-database>
+    </world>
+</scenario>

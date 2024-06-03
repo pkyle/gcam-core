@@ -1,0 +1,554 @@
+<scenario>
+    <world>
+
+
+        <region name="Africa_Eastern">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="USA">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="Africa_Northern">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="Africa_Southern">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="Africa_Western">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="Australia_NZ">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="Brazil">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="Canada">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="Central America and Caribbean">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="Central Asia">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="Taiwan">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="China">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="EU-12">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="EU-15">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="Europe_Eastern">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="Europe_Non_EU">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="European Free Trade Association">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="India">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="Indonesia">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+       
+
+        <region name="Japan">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="Mexico">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="Middle East">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="Pakistan">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="Russia">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="South Africa">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="South America_Northern">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="South America_Southern">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="South Asia">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+        <region name="South Korea">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+       <region name="Southeast Asia">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+ <region name="Argentina">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+ <region name="Colombia">
+         <supplysector name="trn_shipping_intl" nocreate="1">
+                <subsector name="International Ship" nocreate="1">
+                    <stub-technology name="Ammonia" nocreate="1">
+                        <period year="2020">
+                            <Non-CO2 name="N2O">
+                                <emiss-coef>12.5</emiss-coef>
+                                <input-driver>
+                                    <input-name>ammonia energy</input-name>
+                                </input-driver>
+                            </Non-CO2>
+                        </period>
+                    </stub-technology>
+              </supplysector>
+          </subsector>
+         </region>
+
+
+     </world>
+</scenario>
+

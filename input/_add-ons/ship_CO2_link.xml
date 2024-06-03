@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+    <world>
+        <region name="USA">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Canada">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="EU-15">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Europe_Non_EU">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="European Free Trade Association">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Japan">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Australia_NZ">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Central Asia">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Russia">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="China">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Middle East">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Africa_Eastern">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Africa_Northern">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Africa_Southern">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Africa_Western">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="South Africa">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Brazil">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Central America and Caribbean">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Mexico">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="South America_Northern">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="South America_Southern">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Argentina">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Colombia">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Indonesia">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Pakistan">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="South Asia">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Southeast Asia">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Taiwan">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="Europe_Eastern">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="EU-12">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="South Korea">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <region name="India">
+            <linked-ghg-policy name="CO2_int_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+            <linked-ghg-policy name="CO2_dom_ship">
+                <price-adjust fillout="1" year="1975">1</price-adjust>
+                <demand-adjust fillout="1" year="1975">3.666666667</demand-adjust>
+                <market>USA</market>
+                <linked-policy>GHG_ship</linked-policy>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+        <global-technology-database>
+            <location-info sector-name="trn_shipping_intl" subsector-name="International Ship">
+                <technology name="Liquids">
+                    <period year="1975">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="1990">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2005">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2010">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2015">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2020">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2025">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2030">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2035">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2040">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2045">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2050">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2055">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2060">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2065">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2070">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2075">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2080">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2085">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2090">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2095">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2100">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                </technology>
+                <technology name="Hybrid Liquids">
+                    <period year="1975">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="1990">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2005">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2010">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2015">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2020">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2025">
+                        <CO2 name="CO2_int_ship"/>
+                     </period>
+                    <period year="2030">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2035">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2040">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2045">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2050">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2055">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2060">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2065">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2070">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2075">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2080">
+                        <CO2 name="CO2_int_ship"/> 
+                    </period>
+                    <period year="2085">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2090">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2095">
+                        <CO2 name="CO2_int_ship"/>
+                    </period>
+                    <period year="2100">
+                        <CO2 name="CO2_int_ship"/> 
+                    </period>
+                </technology>
+            </location-info>
+              <location-info sector-name="trn_freight" subsector-name="Domestic Ship">
+                <technology name="Liquids">
+                    <period year="1975">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="1990">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2005">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2010">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2015">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2020">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2025">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2030">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2035">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2040">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2045">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2050">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2055">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2060">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2065">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2070">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2075">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2080">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2085">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2090">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2095">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2100">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                </technology>
+                <technology name="Hybrid Liquids">
+                    <period year="1975">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="1990">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2005">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2010">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2015">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2020">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2025">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2030">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2035">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2040">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2045">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2050">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2055">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2060">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2065">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2070">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2075">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2080">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2085">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2090">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2095">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                    <period year="2100">
+                        <CO2 name="CO2_dom_ship"/>
+                     </period>
+                </technology>
+            </location-info>
+        </global-technology-database>
+    </world>
+</scenario>

@@ -1,0 +1,2244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+    <world>
+        <region name = "USA">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Africa_Eastern">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Africa_Northern">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Africa_Southern">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Africa_Western">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Australia_NZ">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Brazil">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Canada">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Central America and Caribbean">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Central Asia">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "China">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "EU-12">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "EU-15">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Europe_Eastern">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Europe_Non_EU">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "European Free Trade Association">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "India">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Indonesia">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Japan">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Mexico">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Middle East">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Pakistan">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Russia">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "South Africa">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "South America_Northern">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "South America_Southern">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "South Asia">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "South Korea">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Southeast Asia">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Taiwan">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Argentina">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+
+        <region name = "Colombia">
+            <sector name="trn_shipping_intl">
+                    <subsector name="International Ship">
+                        <technology name="Ammonia">
+                        <period year = "2015">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2020">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2025">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2030">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2035">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2040">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2045">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2050">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2055">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2060">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2065">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2070">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2075">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2080">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2085">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2090">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2095">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                        <period year = "2100">
+                            <input-tax name = "NH3_int_ship_ceiling"/>
+                        </period>
+                    </technology>
+                </subsector>
+            </sector>
+            <policy-portfolio-standard name = "NH3_int_ship_ceiling">
+                <market>global</market>
+                <policyType>tax</policyType>
+                <constraint year = "2035">1.25</constraint>
+				<constraint year = "2040">1.00</constraint>
+				<constraint year = "2045">0.75</constraint>
+            </policy-portfolio-standard>
+			</region>
+    </world>
+</scenario>

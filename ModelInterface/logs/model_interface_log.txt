@@ -1,0 +1,58 @@
+PROPERTY CHANGEtitle
+PROPERTY CHANGEdocument-replaced
+DOCUMENT REPLACED
+PROPERTY CHANGEdocument-replaced
+DOCUMENT REPLACED
+Going to change controls
+About to perform query: collection()/scenario
+About to perform query: distinct-values(collection()/scenario/world/*[@type = 'region']/@name)
+Didn't find builder for detailed land allocation query going to use defaults
+Didn't find builder for detailed historical land allocation query going to use defaults
+Didn't find builder for land allocation by crop query going to use defaults
+Didn't find builder for aggregated land allocation query going to use defaults
+Didn't find builder for aggregated historical land allocation query going to use defaults
+Didn't find builder for land allocation in a specified land use region query going to use defaults
+Didn't find builder for land allocation by crop and water source query going to use defaults
+Didn't find builder for LUC emissions by region query going to use defaults
+Didn't find builder for LUC emissions by LUT query going to use defaults
+Didn't find builder for LUC emissions by LUT in a specified land use region query going to use defaults
+Didn't find builder for vegetative carbon stock by region query going to use defaults
+Didn't find builder for profit rate query going to use defaults
+Didn't find builder for profit rate in a specified land use region query going to use defaults
+Didn't find builder for land leaf shares query going to use defaults
+Didn't find builder for land leaf shares in a specified land use region query going to use defaults
+Didn't find builder for National Account query going to use defaults
+Didn't find builder for Social Accounting Matrix query going to use defaults
+About to perform query: collection()/singleQueryListCache/cache[@id=-1476836665]/text()
+Time : 2
+Before Function: 1709757420170
+About to perform query: collection()/scenario[ (@name='S6' and @date='2024-5-3T18:05:46+16:00') ]/world/region/*[@type='sector']/*[@type='subsector']/*[@type='technology']/*[@type='output']/physical-output/node()
+In Function: 1709757420171
+After build Tree: 1709757457251
+BIG PROBLEM, COUNT TOKENS ISN'T 2!!!!!!!!!!: output@
+lineToParse: scenario@S6,date=2024-5-3T18:05:46+16:00~sector@comm others~subsector@biomass~output@
+allNodeInfo: output@
+BIG PROBLEM, COUNT TOKENS ISN'T 2!!!!!!!!!!: output@
+lineToParse: scenario@S6,date=2024-5-3T18:05:46+16:00~sector@comm others~subsector@coal~output@
+allNodeInfo: output@
+BIG PROBLEM, COUNT TOKENS ISN'T 2!!!!!!!!!!: output@
+lineToParse: scenario@S6,date=2024-5-3T18:05:46+16:00~sector@comm others~subsector@district heat~output@
+allNodeInfo: output@
+BIG PROBLEM, COUNT TOKENS ISN'T 2!!!!!!!!!!: output@
+lineToParse: scenario@S6,date=2024-5-3T18:05:46+16:00~sector@comm others~subsector@gas~output@
+allNodeInfo: output@
+BIG PROBLEM, COUNT TOKENS ISN'T 2!!!!!!!!!!: output@
+lineToParse: scenario@S6,date=2024-5-3T18:05:46+16:00~sector@resid others~subsector@biomass~output@
+allNodeInfo: output@
+BIG PROBLEM, COUNT TOKENS ISN'T 2!!!!!!!!!!: output@
+lineToParse: scenario@S6,date=2024-5-3T18:05:46+16:00~sector@resid others~subsector@coal~output@
+allNodeInfo: output@
+BIG PROBLEM, COUNT TOKENS ISN'T 2!!!!!!!!!!: output@
+lineToParse: scenario@S6,date=2024-5-3T18:05:46+16:00~sector@resid others~subsector@district heat~output@
+allNodeInfo: output@
+BIG PROBLEM, COUNT TOKENS ISN'T 2!!!!!!!!!!: output@
+lineToParse: scenario@S6,date=2024-5-3T18:05:46+16:00~sector@resid others~subsector@gas~output@
+allNodeInfo: output@
+After Add table: 1709757457381
+Caught the window closing
+Doing remove because of control

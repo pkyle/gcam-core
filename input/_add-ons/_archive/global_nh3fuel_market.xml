@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="UTF-8"?><scenario>
+    <world>
+        <region name="USA">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                             </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Africa_Eastern">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Africa_Northern">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Africa_Southern">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                             <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Africa_Western">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                             <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Australia_NZ">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                               <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Brazil">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                              <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Canada">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Central America and Caribbean">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                             <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Central Asia">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                              <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="China">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="EU-12">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                              <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="EU-15">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                             <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                             <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Europe_Eastern">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                              <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Europe_Non_EU">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="European Free Trade Association">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="India">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Indonesia">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Japan">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+  							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Mexico">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+    							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Middle East">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                             <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Pakistan">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                              <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                             <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Russia">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="South Africa">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                             <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="South America_Northern">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                             <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2050">
+                                <input-tax name="NH3"/>
+                            </period>
+ 							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                             <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="South America_Southern">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                             <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="South Asia">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2050">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>        
+<region name="South Korea">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Southeast Asia">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Taiwan">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Argentina">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+        <region name="Colombia">
+            <sector name="trn_shipping_intl"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="International Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+            <sector name="trn_freight"> 
+                  <technology name="Ammonia">
+                  <input name="ammonia energy"> 
+                  <mode name="Domestic Ship">
+                            <period year="2035">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2040">
+                                <input-tax name="NH3"/>
+                            </period>
+                            <period year="2045">
+                                <input-tax name="NH3"/>
+                            </period>
+							</mode>
+							</input>
+							</technology>
+							</sector>
+					        </region>
+    </world>
+</scenario>

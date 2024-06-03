@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><scenario>
+    <world>
+        <region name="USA">
+            <supplysector name="regional natural gas">
+                <subsector name="International Ship">
+                    	<interpolation-rule apply-to="share-weight" from-year="2030" to-year="2045" delete="1">
+                      	  <to-value>0.15</to-value>
+                      	  <interpolation-function name="linear"/>
+                    	</interpolation-rule>
+                   	 <share-weight year="2045">0.15</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+    </world>
+</scenario>
