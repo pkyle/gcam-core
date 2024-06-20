@@ -149,7 +149,7 @@ module_aglu_L2052.ag_prodchange_cost_irr_mgmt <- function(command, ...) {
       unique() %>%
       # Copy costs to all model years
       repeat_add_columns(tibble(year = MODEL_YEARS)) %>%
-      repeat_add_columns(tibble(GCAM_commodity= aglu.FOREST_supply_sector)) %>%
+      repeat_add_columns(tibble(GCAM_commodity= aglu.FOREST_SUPPLY_SECTOR)) %>%
       left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
       left_join_error_no_match(basin_to_country_mapping[c("GLU_code", "GLU_name")], by = c("GLU" = "GLU_code")) %>%
       # Add sector, subsector, technology names
@@ -188,7 +188,7 @@ module_aglu_L2052.ag_prodchange_cost_irr_mgmt <- function(command, ...) {
     L2052.UnAdjProfits %>%
       select(region, AgSupplySector) %>%
       distinct() %>%
-      mutate(cal.min.profit.rate = min(L2052.UnAdjProfits$Profit)) ->
+      mutate(cal.min.profit.rate = min(L2052.UnAdjProfits[year = max(MODEL_BASE_YEARS)]$Profit)) ->
       L2052.AgCalMinProfitRate
 
 
@@ -234,8 +234,11 @@ module_aglu_L2052.ag_prodchange_cost_irr_mgmt <- function(command, ...) {
       # Separate the AgProductionTechnology variable to get GLU names for matching in the yield change rates
       separate(AgProductionTechnology, c("biomass", "GLU_name"), sep = aglu.CROP_GLU_DELIMITER) %>%
       # Map in yield change rates, the same values for bioenergy crops are applied equally to grass and tree crops.
-      left_join(L2051.AgProdChange_bio_irr_ref[c("region", "GLU_name", "Irr_Rfd", "year", "AgProdChange")],
-                by = c("region", "GLU_name", "IRR_RFD" = "Irr_Rfd", "year")) %>%
+      # NA expected and replaced later
+      left_join(L2051.AgProdChange_bio_irr_ref %>%
+                  select(region, GLU_name, biomass = GCAM_subsector, IRR_RFD = Irr_Rfd, year, AgProdChange),
+                by = c("region", "biomass", "GLU_name", "year", "IRR_RFD")) %>%
+
       # Note: Grass crops are available in any land use regions with crop production, and tree crops are available in any region with forests.
       # Because the yield growth rates are based on crops, some places that have forests but no cropland will not have yield improvement rates.
       # These regions are assumed minor agriculturally and as such not assigned yield improvement for tree-based bioenergy crops.

@@ -15,7 +15,7 @@
 #' @importFrom dplyr bind_rows filter if_else inner_join left_join mutate rename select
 #' @importFrom tidyr  complete drop_na gather nesting spread replace_na
 #' @importFrom tibble tibble
-#' @author GPK/RC/STW February 2019; XZ 2022
+#' @author GPK/RC/STW February 2019; XZ 2022/2024
 module_aglu_L100.regional_ag_an_for_prices <- function(command, ...) {
 
   MODULE_INPUTS <-
@@ -32,7 +32,9 @@ module_aglu_L100.regional_ag_an_for_prices <- function(command, ...) {
       # price data
       FILE = "aglu/FAO/GCAMDATA_FAOSTAT_ProducerPrice_170Regs_185PrimaryItems_2010to2020",
       FILE = "aglu/FAO/GCAMDATA_FAOSTAT_ForExportPrice_214Regs_Roundwood_1973to2020","L110.IO_Coefs_pulp",
-      FILE="aglu/A_forest_mapping")
+      FILE="aglu/A_forest_mapping",
+      # Supply utilization for crops
+      "L109.ag_ALL_Mt_R_C_Y")
 
   MODULE_OUTPUTS <-
     c("L1321.ag_prP_R_C_75USDkg",
@@ -200,7 +202,7 @@ module_aglu_L100.regional_ag_an_for_prices <- function(command, ...) {
                                          RegP_interpolated)) %>%
       select(GCAM_region_ID, GCAM_commodity, RegP_interpolated)
 
-    ## Fill in missing where needed ----
+    ## 2.8. Fill in missing where needed ----
     L100.FAO_ag_an_ProducerPrice_R_C_Y <-
       L100.FAO_ag_an_ProducerPrice_R_C_Y_0 %>%
       left_join(L100.FAO_ag_an_ProducerPrice_R_C_Y_1_interpolated,
@@ -234,8 +236,61 @@ module_aglu_L100.regional_ag_an_for_prices <- function(command, ...) {
         )
     }
 
+    ## 2.9. Update producer prices when domestic production is zero ----
+    # This is important for pricing opening stocks
+    # We want to use imported price (world price) as opposed  to the value interpolated above using relative regional index
 
+    # Calculate import prices for crops
+    # [Note that this price adjustments have not been done for livestock
+    #  if incorporating meat storage, that likely will be needed]
 
+    L1321.ag_tradedP_C_75USDkg <-
+      L109.ag_ALL_Mt_R_C_Y %>%
+      select(GCAM_region_ID, GCAM_commodity, year, GrossExp_Mt, GrossImp_Mt) %>%
+      filter(year == max(MODEL_BASE_YEARS),
+             GCAM_commodity%in% aglu.TRADED_CROPS) %>%
+      inner_join(L100.FAO_ag_an_ProducerPrice_R_C_Y, by = c("GCAM_region_ID", "GCAM_commodity")) %>%
+      mutate(Exp_wtd_price = GrossExp_Mt * value) %>%
+      group_by(GCAM_commodity) %>%
+      summarise(GrossExp_Mt = sum(GrossExp_Mt),
+                Exp_wtd_price = sum(Exp_wtd_price)) %>%
+      ungroup() %>%
+      mutate(tradedP = Exp_wtd_price / GrossExp_Mt) %>%
+      select(GCAM_commodity, tradedP)
+
+    L100.FAO_ag_an_ProducerPrice_R_C_Y %>%
+      # Join traded prices only for storage commodities; NA for non-storage commodities expected
+      left_join(L1321.ag_tradedP_C_75USDkg, by = "GCAM_commodity") %>%
+      # Join SUA table to calculate a few metrics
+      # NA expected from above
+      left_join(
+        L109.ag_ALL_Mt_R_C_Y %>%
+          filter(year == max(MODEL_BASE_YEARS), GCAM_commodity%in% aglu.TRADED_CROPS) %>%
+          transmute(GCAM_commodity, GCAM_region_ID, Prod_Mt, GrossImp_Mt,
+                    ArmingtonDomestic = `Opening stocks` + Prod_Mt - GrossExp_Mt,
+                    # setting metrics to a large value e.g., 10 when GrossImp_Mt == 0 or ArmingtonDomestic == 0
+                    ProdImpRatio = if_else(GrossImp_Mt == 0, 10, Prod_Mt / GrossImp_Mt),
+                    ProdDomRatio = if_else(ArmingtonDomestic == 0, 10, Prod_Mt / ArmingtonDomestic)),
+        by = c("GCAM_region_ID", "GCAM_commodity")
+      ) %>%
+      # consider storage in domestic pricing
+      # Note that domestic price is a weighted average of storage and producer price
+      # by default, domestic producer prices are used for pricing opening stock
+      # but this might not be true when a region import and store significantly
+      # here, we derive a price by pricing storage using international prices
+      mutate(Price_StorageAdjusted = (value * Prod_Mt + tradedP * (ArmingtonDomestic - Prod_Mt)) / ArmingtonDomestic,
+             Price_StorageAdjusted = if_else(ArmingtonDomestic == 0 |Price_StorageAdjusted < 0, value, Price_StorageAdjusted),
+      # then we use metrics to define High Storage Dependence regions & High Trade Dependence regions
+      # High Storage Dependence regions & High Trade Dependence regions:
+      # ProdDomRatio < 0.5 & ProdImpRatio < 0.5
+      # and set their prices to Price_StorageAdjusted
+            value = if_else(ProdDomRatio < 0.5 & ProdImpRatio < 0.5 & !is.na(Prod_Mt), Price_StorageAdjusted, value)) %>%
+      select(GCAM_region_ID, region, GCAM_commodity, value, unit) ->
+      L100.FAO_ag_an_ProducerPrice_R_C_Y
+
+    assertthat::assert_that(
+      L100.FAO_ag_an_ProducerPrice_R_C_Y %>% filter(is.na(value)) %>% nrow == 0
+    )
 
     ## clean more ----
     rm(L100.FAO_ag_an_ProducerPrice_R_C_Y_0,
@@ -303,12 +358,12 @@ module_aglu_L100.regional_ag_an_for_prices <- function(command, ...) {
     L1321.expP_R_F_75USDm3 <- L100.FAO_for_ExpPrice_R_C_Y
 
     L1321.expP_R_F_75USDm3 %>%
-      filter(GCAM_commodity %in% aglu.FOREST_commodities) %>%
-      left_join_error_no_match(L1321.expP_R_F_75USDm3 %>% filter(!GCAM_commodity %in% aglu.FOREST_commodities) %>% rename(Price_USDm3 = value) %>% select(-GCAM_commodity), by = c("GCAM_region_ID")) %>%
+      filter(GCAM_commodity %in% aglu.FOREST_COMMODITIES) %>%
+      left_join_error_no_match(L1321.expP_R_F_75USDm3 %>% filter(!GCAM_commodity %in% aglu.FOREST_COMMODITIES) %>% rename(Price_USDm3 = value) %>% select(-GCAM_commodity), by = c("GCAM_region_ID")) %>%
       left_join(L110.IO_Coefs_pulp %>%filter(year %in% c(MODEL_FINAL_BASE_YEAR)) %>%  group_by(GCAM_region_ID) %>% summarize(IO= mean(IO)), by = c("GCAM_region_ID")) %>%
-      mutate(IO= if_else(is.na(IO),aglu.FOREST_sawtimber_conversion,IO)) %>%
-      mutate(ForCost = if_else(GCAM_commodity== "sawnwood",value-(Price_USDm3*IO),
-                               value-(Price_USDm3*aglu.FOREST_pulp_conversion))) %>%
+      mutate(IO = if_else(is.na(IO),aglu.FOREST_SAWTIMBER_CONVERSION,IO),
+             ForCost = if_else(GCAM_commodity== "sawnwood",value-(Price_USDm3*IO),
+                               value-(Price_USDm3*aglu.FOREST_PULP_CONVERSION))) %>%
       select(-Price_USDm3) %>%
       filter(ForCost > 0) %>%
       group_by(GCAM_region_ID, GCAM_commodity) %>%
@@ -341,7 +396,8 @@ module_aglu_L100.regional_ag_an_for_prices <- function(command, ...) {
                      "aglu/FAO/FAO_ag_items_PRODSTAT",
                      "aglu/FAO/FAO_an_items_PRODSTAT",
                      "common/FAO_GDP_Deflators",
-                     "aglu/USDA/USDA_Alfalfa_prices_USDt") ->
+                     "aglu/USDA/USDA_Alfalfa_prices_USDt",
+                     "L109.ag_ALL_Mt_R_C_Y") ->
       L1321.ag_prP_R_C_75USDkg
 
     L1321.an_prP_R_C_75USDkg %>%
@@ -354,11 +410,12 @@ module_aglu_L100.regional_ag_an_for_prices <- function(command, ...) {
                      "aglu/FAO/GCAMDATA_FAOSTAT_ProducerPrice_170Regs_185PrimaryItems_2010to2020",
                      "aglu/FAO/FAO_ag_items_PRODSTAT",
                      "aglu/FAO/FAO_an_items_PRODSTAT",
-                     "common/FAO_GDP_Deflators") ->
+                     "common/FAO_GDP_Deflators",
+                     "L109.ag_ALL_Mt_R_C_Y") ->
       L1321.an_prP_R_C_75USDkg
 
     L1321.expP_R_F_75USDm3 %>%
-      filter(GCAM_commodity %in% aglu.FOREST_supply_sector) %>%
+      filter(GCAM_commodity %in% aglu.FOREST_SUPPLY_SECTOR) %>%
       add_title("Regional prices for GCAM forest commodities") %>%
       add_units("1975$/m3") %>%
       add_comments("Region-specific calibration prices by GCAM commodity and region") %>%
