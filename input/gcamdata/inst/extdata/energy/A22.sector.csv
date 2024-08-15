@@ -10,3 +10,4 @@ nuclearFuelGenII,EJ,EJ,1975$/GJ,-3,
 nuclearFuelGenIII,EJ,EJ,1975$/GJ,-3,
 refining,EJ,EJ,1975$/GJ,-6,absolute-cost-logit
 aviation fuels,EJ,EJ,1975$/GJ,-6,absolute-cost-logit
+diesel,EJ,EJ,1975$/GJ,-6,absolute-cost-logit

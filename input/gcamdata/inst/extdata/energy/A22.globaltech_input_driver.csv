@@ -30,3 +30,9 @@ aviation fuels,biomass liquids,FT biofuels CCS level 1,regional biomass
 aviation fuels,biomass liquids,FT biofuels CCS level 2,regional biomass
 aviation fuels,biomass liquids,sugar cane ethanol,regional sugar for ethanol
 aviation fuels,oil refining,oil refining,regional oil
+diesel,biomass liquids,FT biofuels,regional biomass
+diesel,biomass liquids,FT biofuels CCS level 1,regional biomass
+diesel,biomass liquids,FT biofuels CCS level 2,regional biomass
+diesel,biomass liquids,renewable diesel,regional biomassOil
+diesel,e-fuels,e-diesel,elect_td_ind
+diesel,oil refining,oil refining,regional oil

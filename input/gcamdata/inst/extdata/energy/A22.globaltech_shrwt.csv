@@ -34,3 +34,9 @@ aviation fuels,biomass liquids,FT biofuels CCS level 1,0,0,0.333,0.444,1,1
 aviation fuels,biomass liquids,FT biofuels CCS level 2,0,0,0.333,0.444,1,1
 aviation fuels,biomass liquids,corn ethanol,0,0,0,1,1,1
 aviation fuels,biomass liquids,sugar cane ethanol,0,0,0,1,1,1
+diesel,oil refining,oil refining,1,1,1,1,1,1
+diesel,biomass liquids,FT biofuels,0,0,0,1,1,1
+diesel,biomass liquids,FT biofuels CCS level 1,0,0,0.333,0.444,1,1
+diesel,biomass liquids,FT biofuels CCS level 2,0,0,0.333,0.444,1,1
+diesel,biomass liquids,renewable diesel,0,0,0,1,1,1
+diesel,e-fuels,e-diesel,0,0,0,1,1,1

@@ -90,6 +90,12 @@ aviation fuels,biomass liquids,FT biofuels CCS level 1,25,46,80,50,50,60
 aviation fuels,biomass liquids,FT biofuels CCS level 2,25,46,80,50,50,60
 aviation fuels,biomass liquids,sugar cane ethanol,25,46,80,50,50,60
 aviation fuels,oil refining,oil refining,25,46,80,50,50,60
+diesel,biomass liquids,FT biofuels,25,46,80,50,50,60
+diesel,biomass liquids,FT biofuels CCS level 1,25,46,80,50,50,60
+diesel,biomass liquids,FT biofuels CCS level 2,25,46,80,50,50,60
+diesel,biomass liquids,renewable diesel,25,46,80,50,50,60
+diesel,e-fuels,e-diesel,25,46,80,50,50,60
+diesel,oil refining,oil refining,25,46,80,50,50,60
 unconventional oil production,unconventional oil production,unconventional oil production,,,,,,60
 regional oil,crude oil,crude oil,95,46,80,,,60
 resid heating,biomass,biomass,50,46,80,92,90,60

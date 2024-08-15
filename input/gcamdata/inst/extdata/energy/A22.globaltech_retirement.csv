@@ -57,3 +57,15 @@ aviation fuels,biomass liquids,FT biofuels CCS level 1,initial-future-year,45,,3
 aviation fuels,biomass liquids,FT biofuels CCS level 2,initial-future-year,45,,30,0.3,-0.1,10
 aviation fuels,biomass liquids,corn ethanol,initial-future-year,45,,30,0.3,-0.5,5
 aviation fuels,biomass liquids,sugar cane ethanol,initial-future-year,45,,30,0.3,-0.5,5
+diesel,oil refining,oil refining,final-calibration-year,50,,30,0.2,-0.1,10
+diesel,biomass liquids,FT biofuels,final-calibration-year,45,,25,0.2,-0.1,10
+diesel,biomass liquids,FT biofuels CCS level 1,final-calibration-year,45,,25,0.2,-0.1,10
+diesel,biomass liquids,FT biofuels CCS level 2,final-calibration-year,45,,25,0.2,-0.1,10
+diesel,biomass liquids,renewable diesel,final-calibration-year,45,,25,0.2,-0.5,5
+diesel,e-fuels,e-diesel,final-calibration-year,45,,25,0.2,-0.5,5
+diesel,oil refining,oil refining,initial-future-year,45,,30,0.3,-0.1,10
+diesel,biomass liquids,FT biofuels,initial-future-year,45,,30,0.3,-0.1,10
+diesel,biomass liquids,FT biofuels CCS level 1,initial-future-year,45,,30,0.3,-0.1,10
+diesel,biomass liquids,FT biofuels CCS level 2,initial-future-year,45,,30,0.3,-0.1,10
+diesel,biomass liquids,renewable diesel,initial-future-year,45,,30,0.3,-0.5,5
+diesel,e-fuels,e-diesel,initial-future-year,45,,30,0.3,-0.5,5

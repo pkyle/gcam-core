@@ -61,3 +61,17 @@ aviation fuels,biomass liquids,FT biofuels CCS level 2,wholesale gas,0.00000004,
 aviation fuels,biomass liquids,cellulosic ethanol CCS level 2,elect_td_ind,0.0084,0.0084,0.0076
 aviation fuels,biomass liquids,FT biofuels CCS level 1,elect_td_ind,0.0025,0.0025,0.0023
 aviation fuels,biomass liquids,FT biofuels CCS level 2,elect_td_ind,0.0071,0.0071,0.0064
+diesel,oil refining,oil refining,regional oil,1.0550,1.0550,1.0200
+diesel,oil refining,oil refining,wholesale gas,0.0180,0.0180,0.0180
+diesel,oil refining,oil refining,elect_td_ind,0.0050,0.0050,0.0050
+diesel,biomass liquids,FT biofuels,regional biomass,2.1902,2.1902,1.9712
+diesel,biomass liquids,FT biofuels,wholesale gas,0.00000003,0.00000003,0.00000003
+diesel,biomass liquids,FT biofuels CCS level 1,regional biomass,2.2599,2.2599,2.0339
+diesel,biomass liquids,FT biofuels CCS level 1,wholesale gas,0.00000004,0.00000004,0.00000003
+diesel,biomass liquids,FT biofuels CCS level 1,elect_td_ind,0.0025,0.0025,0.0023
+diesel,biomass liquids,FT biofuels CCS level 2,regional biomass,2.2599,2.2599,2.0339
+diesel,biomass liquids,FT biofuels CCS level 2,wholesale gas,0.00000004,0.00000004,0.00000003
+diesel,biomass liquids,FT biofuels CCS level 2,elect_td_ind,0.0071,0.0071,0.0064
+diesel,biomass liquids,renewable diesel,regional biomassOil,1.0309,1.0309,1.0300
+diesel,biomass liquids,renewable diesel,wholesale gas,0.0577,0.0577,0.0600
+diesel,e-fuels,e-diesel,elect_td_ind,2.0,2.0,2.0
