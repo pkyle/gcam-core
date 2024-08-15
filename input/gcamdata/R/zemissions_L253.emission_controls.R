@@ -138,8 +138,7 @@ module_emissions_L253.emission_controls <- function(command, ...) {
 
     # Get all technologies that have a default generic GDP control, which will be removed if there are new controls in place
     L201.nonghg_steepness %>%
-      select(region, supplysector, subsector, stub.technology, Non.CO2) %>%
-      bind_rows(select(L277.nonghg_steepness_USA, region, supplysector, subsector, stub.technology, Non.CO2)) -> GDP_controlled_techs
+      select(region, supplysector, subsector, stub.technology, Non.CO2) -> GDP_controlled_techs
 
     # Define a utility function that returns the next model year.
     # Because we vectorize the function, the argument can be a vector (or column) of years
