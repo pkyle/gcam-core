@@ -7,7 +7,7 @@
 supplysector,subsector,technology,input.name
 trn_shipping_intl,International Ship,Ammonia,ammonia energy
 trn_freight,Domestic Ship,Ammonia,ammonia energy
-trn_shipping_intl,International Ship,Hybrid Liquids,refined liquids enduse
-trn_freight,Domestic Ship,Hybrid Liquids,refined liquids enduse
-trn_shipping_intl,International Ship,Liquids,refined liquids enduse
-trn_freight,Domestic Ship,Liquids,refined liquids enduse
+trn_shipping_intl,International Ship,Hybrid Liquids,delivered diesel
+trn_freight,Domestic Ship,Hybrid Liquids,delivered diesel
+trn_shipping_intl,International Ship,Liquids,delivered diesel
+trn_freight,Domestic Ship,Liquids,delivered diesel
