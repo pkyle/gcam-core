@@ -72,6 +72,9 @@ diesel,biomass liquids,FT biofuels CCS level 1,elect_td_ind,0.0025,0.0025,0.0023
 diesel,biomass liquids,FT biofuels CCS level 2,regional biomass,2.2599,2.2599,2.0339
 diesel,biomass liquids,FT biofuels CCS level 2,wholesale gas,0.00000004,0.00000004,0.00000003
 diesel,biomass liquids,FT biofuels CCS level 2,elect_td_ind,0.0071,0.0071,0.0064
-diesel,biomass liquids,renewable diesel,regional biomassOil,1.0309,1.0309,1.0300
-diesel,biomass liquids,renewable diesel,wholesale gas,0.0577,0.0577,0.0600
-diesel,e-fuels,e-diesel,elect_td_ind,2.0,2.0,2.0
+diesel,biomass liquids,renewable diesel,regional biomassOil,1.26,1.26,1.26
+diesel,biomass liquids,renewable diesel,wholesale gas,0.0179,0.0179,0.0179
+diesel,biomass liquids,renewable diesel,elect_td_ind,0.0098,0.0098,0.0098
+diesel,biomass liquids,renewable diesel,H2 industrial,0.099,0.099,0.099
+diesel,e-fuels,e-diesel,H2 central production,1.05,1.05,1.05
+diesel,e-fuels,e-diesel,elect_td_ind,1.127,1.127,1.127

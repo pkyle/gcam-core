@@ -38,4 +38,4 @@ diesel,biomass liquids,FT biofuels,non-energy,3.683,3.683,,,0.7,0.03,
 diesel,biomass liquids,FT biofuels CCS level 1,non-energy,4.228,4.228,,,0.6,0.05,FT biofuels
 diesel,biomass liquids,FT biofuels CCS level 2,non-energy,5.562,5.562,,,0.6,0.05,FT biofuels
 diesel,biomass liquids,renewable diesel,non-energy,1.880,1.880,,1.88,,,
-diesel,e-fuels,e-diesel,non-energy,2.000,2.000,,2.00,,,
+diesel,e-fuels,e-diesel,non-energy,5.74,5.74,,5.74,,,
