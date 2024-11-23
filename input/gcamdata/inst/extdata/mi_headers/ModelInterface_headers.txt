@@ -454,6 +454,8 @@ StubTechFixOut, world/+{name}region, region/+{name}supplysector, supplysector/+{
 
 StubTechCapFactor, world/+{name}region, region/+{name}supplysector, supplysector/+{name}subsector, subsector/+{name}stub-technology, stub-technology/+{year}period, period/+capacity-factor, scenario, scenario/world
 
+StubTechInputPMult, world/+{name}region, region/+{name}supplysector, supplysector/+{name}subsector, subsector/+{name}stub-technology, stub-technology/+{year}period, period/+{name}minicam-energy-input, minicam-energy-input/+price-unit-conversion, scenario, scenario/world
+
 StubTechSecOut, world/+{name}region, region/+{name}supplysector, supplysector/+{name}subsector, subsector/+{name}stub-technology, stub-technology/+{year}period, period/+{name}secondary-output, secondary-output/+output-ratio, scenario, scenario/world
 
 StubTechSecMarket, world/+{name}region, region/+{name}supplysector, supplysector/+{name}subsector, subsector/+{name}stub-technology, stub-technology/+{year}period, period/+{name}secondary-output, secondary-output/+market-name, scenario, scenario/world

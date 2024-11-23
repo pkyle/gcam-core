@@ -1,0 +1,9 @@
+# File: A81.emissions_remapping.csv
+# Title: remapping of emissions from standard techs to where LCA will include them
+# Units: Unitless
+# Column types: cccccc
+# ----------
+from.id1,from.id2,from.id3,to.supplysector,to.subsector,to.technology
+crude oil,crude oil,crude oil,diesel,oil refining,oil refining
+natural gas,natural gas,natural gas,gas processing,natural gas,natural gas
+biomass,biomassGrass_ArkWhtRedR,biomassGrass_ArkWhtRedR_IRR_lo,regional biomass,regional biomass,regional biomass

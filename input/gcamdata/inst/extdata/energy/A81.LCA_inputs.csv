@@ -1,0 +1,18 @@
+# File: A81.LCA_inputs.csv
+# Title: assignments of inputs to upstream / energy transformation / distribution sectors for life cycle analysis
+# Units: Unitless
+# Column types: ccccicncn
+# ----------
+region,supplysector,subsector,stub.technology,from.year,minicam.energy.input,coefficient,market.name,price.unit.conversion
+USA,diesel,oil refining,oil refining,2020,regional oil,1.0972,USA,
+USA,diesel,oil refining,oil refining,2020,wholesale gas,0.01836,USA,
+USA,gas processing,natural gas,natural gas,2020,regional natural gas,1.05,USA,
+USA,regional biomass,regional biomass,regional biomass,2020,refined liquids industrial,0.00857,USA,
+USA,regional biomass,regional biomass,regional biomass,2020,trn_freight,33000,USA,3.62E-05
+USA,ammonia energy,ammonia energy,ammonia energy,2020,trn_freight,6230,USA,0.000452
+USA,diesel,biomass liquids,FT biofuels,2020,trn_freight,2800,USA,0.000452
+USA,diesel,biomass liquids,FT biofuels CCS level 1,2020,trn_freight,2800,USA,0.000452
+USA,diesel,biomass liquids,FT biofuels CCS level 2,2020,trn_freight,2800,USA,0.000452
+USA,diesel,biomass liquids,renewable diesel,2020,trn_freight,2800,USA,0.000452
+USA,diesel,e-fuels,e-diesel,2020,trn_freight,2800,USA,0.000452
+USA,diesel,oil refining,oil refining,2020,trn_freight,2800,USA,0.000452
