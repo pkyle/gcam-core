@@ -10,5 +10,5 @@ ammonia,coal,coal CCS,delivered coal
 ammonia,gas,gas,wholesale gas
 ammonia,gas,gas CCS,wholesale gas
 ammonia,refined liquids,refined liquids,refined liquids industrial
-ammonia,hydrogen,hydrogen,H2 industrial
+ammonia,hydrogen,hydrogen,H2 central production
 ammonia,hydrogen,hydrogen,wholesale gas
