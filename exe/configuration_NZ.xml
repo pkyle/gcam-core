@@ -22,7 +22,6 @@
 		<Value name = "resources">../input/gcamdata/xml/resources.xml</Value>
 		<Value name = "energy_supply">../input/gcamdata/xml/en_supply.xml</Value>
 		<Value name = "energy_transformation">../input/gcamdata/xml/en_transformation.xml</Value>
-		<!--Value name = "electricity">../input/gcamdata/xml/electricity.xml</Value-->
 		<Value name = "elec_water_base">../input/gcamdata/xml/electricity_water.xml</Value>
 		<Value name = "heat">../input/gcamdata/xml/heat.xml</Value>
 		<Value name = "hydrogen">../input/gcamdata/xml/hydrogen.xml</Value>
@@ -40,6 +39,7 @@
 		<Value name = "aluminum_income_elas">../input/gcamdata/xml/aluminum_incelas_gssp2.xml</Value> 
  		<Value name = "paper">../input/gcamdata/xml/paper.xml</Value>
 		<Value name = "paper_income_elas">../input/gcamdata/xml/paper_incelas_gssp2.xml</Value> 
+		<Value name = "food_processing">../input/gcamdata/xml/food_processing.xml</Value> 
 		<Value name = "cement">../input/gcamdata/xml/cement.xml</Value>
 		<Value name = "cement_income_elas">../input/gcamdata/xml/cement_incelas_gssp2.xml</Value>
 		<Value name = "fertilizer_energy">../input/gcamdata/xml/en_Fert.xml</Value>
@@ -68,6 +68,7 @@
 		<Value name = "demand_paper">../input/gcamdata/xml/paper_delete_ag_demand.xml</Value>
 		<Value name = "bio_trade">../input/gcamdata/xml/bio_trade.xml</Value>
 		<Value name = "ag_trade">../input/gcamdata/xml/ag_trade.xml</Value>
+		<Value name = "ag_storage">../input/gcamdata/xml/ag_storage.xml</Value>
 
 		<Value name = "unlim_supply_water">../input/gcamdata/xml/unlimited_water_supply.xml</Value>
 		<Value name = "water_supply">../input/gcamdata/xml/water_supply_constrained.xml</Value>
@@ -91,6 +92,7 @@
 		<Value name = "nonco2_aglu">../input/gcamdata/xml/all_aglu_emissions_IRR_MGMT.xml</Value>
 		<Value name = "nonco2_aglu_prot">../input/gcamdata/xml/all_protected_unmgd_emissions.xml</Value>
 		<Value name = "nonco2_em_controls">../input/gcamdata/xml/emission_factor_controls.xml</Value>
+		<Value name = "nonco2_TradBio">../input/gcamdata/xml/ssp2_emissions_factors_tradBio.xml</Value> 
 		
 		<!-- Global nonCO2 GHG MAC files -->
 		<Value name = "nonco2_energy">../input/gcamdata/xml/all_energy_emissions_MAC.xml</Value>
@@ -104,24 +106,25 @@
 		<Value name = "bio_elec_w_feed_limit">../input/gcamdata/xml/water_elec_liquids_limits.xml</Value>
 		<Value name = "bio_externality">../input/gcamdata/xml/bio_externality.xml</Value>
         <Value name = "gas_trade">../input/gcamdata/xml/gas_trade.xml</Value>
+        <Value name = "lca_inputs">../input/gcamdata/xml/LCAdata.xml</Value>
 
         <Value name = "prune_ag">../input/gcamdata/xml/prune_empty_ag.xml</Value>
 
 		<Value name = "solver">../input/solution/cal_broyden_config.xml</Value>
 		
-<!-- Net-zero constraint -->
-       <Value name = "co2_path">../input/_add-ons/global_co2_constraint_2050_zero.xml</Value>
-	  	<Value name = "co2_link">../input/_add-ons/global_uct_in_constraint.xml</Value>
+			<Value name = "co2_constraint">../input/policy/USAreg_netZero_CO2_constraint.xml</Value>
+			<Value name = "beccs_constraint">../input/policy/BECCS_ceiling_10_USAreg.xml</Value>		
+			<Value name = "beccs_constraint">../input/policy/BECCS_link_USAreg.xml</Value>		
+			<Value name = "beccs_constraint">../input/policy/BECCS_mkt.xml</Value>
+			<Value name = "dac">../input/gcamdata/xml/dac_ssp2.xml</Value>
+			<Value name = "dac_constraint">../input/policy/DAC_ceiling_no_us.xml</Value>
+			<Value name = "dac_constraint">../input/policy/DAC_ceiling_10_USAreg.xml</Value>		
+			<Value name = "dac_constraint">../input/policy/DAC_ceiling_mkt_USAreg.xml</Value>
 
-
-<!-- Add-on files for assumptions on ammonia ship N2O combustion emissions 
-		<Value name = "n2o_dom_ship_zero">../input/_add-ons/N2O_dom_ship_zero.xml</Value>
-		<Value name = "n2o_int_ship_zero">../input/_add-ons/N2O_int_ship_zero.xml</Value-->
-
-
+		
 	</ScenarioComponents>
 	<Strings>
-		<Value name="scenarioName">NZ</Value>
+		<Value name="scenarioName">NZ2050</Value>
 		<Value name="debug-region">USA</Value>
 		<Value name="MAGICC-input-dir">../input/magicc/inputs</Value>
 		<Value name="MAGICC-output-dir">../output</Value>

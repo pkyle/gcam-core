@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><scenario>
+    <world>
+        <region name="USA">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>USA</market>
+                <policyType>tax</policyType>
+                <constraint fillout="1" year="2020">141.48</constraint>
+            </policy-portfolio-standard>
+        </region>
+    </world>
+</scenario>

@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+   <world>
+        <region name="Canada">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Canada</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">6</constraint>
+                <constraint year="2025">6</constraint>
+                <constraint year="2030">6</constraint>
+                <constraint year="2035">6</constraint>
+                <constraint year="2040">6</constraint>
+                <constraint year="2045">6</constraint>
+                <constraint year="2050">6</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="EU-15">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>EU-15</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">12</constraint>
+                <constraint year="2025">12</constraint>
+                <constraint year="2030">12</constraint>
+                <constraint year="2035">12</constraint>
+                <constraint year="2040">12</constraint>
+                <constraint year="2045">12</constraint>
+                <constraint year="2050">12</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Europe_Non_EU">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Europe_Non_EU</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">1</constraint>
+                <constraint year="2025">1</constraint>
+                <constraint year="2030">1</constraint>
+                <constraint year="2035">1</constraint>
+                <constraint year="2040">1</constraint>
+                <constraint year="2045">1</constraint>
+                <constraint year="2050">1</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="European Free Trade Association">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>European Free Trade Association</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">1</constraint>
+                <constraint year="2025">1</constraint>
+                <constraint year="2030">1</constraint>
+                <constraint year="2035">1</constraint>
+                <constraint year="2040">1</constraint>
+                <constraint year="2045">1</constraint>
+                <constraint year="2050">1</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Japan">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Japan</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">6</constraint>
+                <constraint year="2025">6</constraint>
+                <constraint year="2030">6</constraint>
+                <constraint year="2035">6</constraint>
+                <constraint year="2040">6</constraint>
+                <constraint year="2045">6</constraint>
+                <constraint year="2050">6</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Australia_NZ">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Australia_NZ</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">30</constraint>
+                <constraint year="2025">30</constraint>
+                <constraint year="2030">30</constraint>
+                <constraint year="2035">30</constraint>
+                <constraint year="2040">30</constraint>
+                <constraint year="2045">30</constraint>
+                <constraint year="2050">30</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Central Asia">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Central Asia</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">24</constraint>
+                <constraint year="2025">24</constraint>
+                <constraint year="2030">24</constraint>
+                <constraint year="2035">24</constraint>
+                <constraint year="2040">24</constraint>
+                <constraint year="2045">24</constraint>
+                <constraint year="2050">24</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Russia">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Russia</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">24</constraint>
+                <constraint year="2025">24</constraint>
+                <constraint year="2030">24</constraint>
+                <constraint year="2035">24</constraint>
+                <constraint year="2040">24</constraint>
+                <constraint year="2045">24</constraint>
+                <constraint year="2050">24</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="China">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>China</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">100</constraint>
+                <constraint year="2025">100</constraint>
+                <constraint year="2030">100</constraint>
+                <constraint year="2035">100</constraint>
+                <constraint year="2040">100</constraint>
+                <constraint year="2045">100</constraint>
+                <constraint year="2050">100</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Middle East">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Middle East</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">18</constraint>
+                <constraint year="2025">18</constraint>
+                <constraint year="2030">18</constraint>
+                <constraint year="2035">18</constraint>
+                <constraint year="2040">18</constraint>
+                <constraint year="2045">18</constraint>
+                <constraint year="2050">18</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Africa_Eastern">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Africa_Eastern</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">1</constraint>
+                <constraint year="2025">1</constraint>
+                <constraint year="2030">1</constraint>
+                <constraint year="2035">1</constraint>
+                <constraint year="2040">1</constraint>
+                <constraint year="2045">1</constraint>
+                <constraint year="2050">1</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Africa_Northern">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Africa_Northern</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">1</constraint>
+                <constraint year="2025">1</constraint>
+                <constraint year="2030">1</constraint>
+                <constraint year="2035">1</constraint>
+                <constraint year="2040">1</constraint>
+                <constraint year="2045">1</constraint>
+                <constraint year="2050">1</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Africa_Southern">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Africa_Southern</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">1</constraint>
+                <constraint year="2025">1</constraint>
+                <constraint year="2030">1</constraint>
+                <constraint year="2035">1</constraint>
+                <constraint year="2040">1</constraint>
+                <constraint year="2045">1</constraint>
+                <constraint year="2050">1</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Africa_Western">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Africa_Western</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">2</constraint>
+                <constraint year="2025">2</constraint>
+                <constraint year="2030">2</constraint>
+                <constraint year="2035">2</constraint>
+                <constraint year="2040">2</constraint>
+                <constraint year="2045">2</constraint>
+                <constraint year="2050">2</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="South Africa">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>South Africa</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">1</constraint>
+                <constraint year="2025">1</constraint>
+                <constraint year="2030">1</constraint>
+                <constraint year="2035">1</constraint>
+                <constraint year="2040">1</constraint>
+                <constraint year="2045">1</constraint>
+                <constraint year="2050">1</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Brazil">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Brazil</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">60</constraint>
+                <constraint year="2025">60</constraint>
+                <constraint year="2030">60</constraint>
+                <constraint year="2035">60</constraint>
+                <constraint year="2040">60</constraint>
+                <constraint year="2045">60</constraint>
+                <constraint year="2050">60</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Central America and Caribbean">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Central America and Caribbean</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">6</constraint>
+                <constraint year="2025">6</constraint>
+                <constraint year="2030">6</constraint>
+                <constraint year="2035">6</constraint>
+                <constraint year="2040">6</constraint>
+                <constraint year="2045">6</constraint>
+                <constraint year="2050">6</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Mexico">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Mexico</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">18</constraint>
+                <constraint year="2025">18</constraint>
+                <constraint year="2030">18</constraint>
+                <constraint year="2035">18</constraint>
+                <constraint year="2040">18</constraint>
+                <constraint year="2045">18</constraint>
+                <constraint year="2050">18</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="South America_Northern">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>South America_Northern</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">12</constraint>
+                <constraint year="2025">12</constraint>
+                <constraint year="2030">12</constraint>
+                <constraint year="2035">12</constraint>
+                <constraint year="2040">12</constraint>
+                <constraint year="2045">12</constraint>
+                <constraint year="2050">12</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="South America_Southern">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>South America_Southern</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">12</constraint>
+                <constraint year="2025">12</constraint>
+                <constraint year="2030">12</constraint>
+                <constraint year="2035">12</constraint>
+                <constraint year="2040">12</constraint>
+                <constraint year="2045">12</constraint>
+                <constraint year="2050">12</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Argentina">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Argentina</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">12</constraint>
+                <constraint year="2025">12</constraint>
+                <constraint year="2030">12</constraint>
+                <constraint year="2035">12</constraint>
+                <constraint year="2040">12</constraint>
+                <constraint year="2045">12</constraint>
+                <constraint year="2050">12</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Colombia">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Colombia</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">12</constraint>
+                <constraint year="2025">12</constraint>
+                <constraint year="2030">12</constraint>
+                <constraint year="2035">12</constraint>
+                <constraint year="2040">12</constraint>
+                <constraint year="2045">12</constraint>
+                <constraint year="2050">12</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Indonesia">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Indonesia</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">1</constraint>
+                <constraint year="2025">1</constraint>
+                <constraint year="2030">1</constraint>
+                <constraint year="2035">1</constraint>
+                <constraint year="2040">1</constraint>
+                <constraint year="2045">1</constraint>
+                <constraint year="2050">1</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Pakistan">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Pakistan</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">1</constraint>
+                <constraint year="2025">1</constraint>
+                <constraint year="2030">1</constraint>
+                <constraint year="2035">1</constraint>
+                <constraint year="2040">1</constraint>
+                <constraint year="2045">1</constraint>
+                <constraint year="2050">1</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="South Asia">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>South Asia</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">1</constraint>
+                <constraint year="2025">1</constraint>
+                <constraint year="2030">1</constraint>
+                <constraint year="2035">1</constraint>
+                <constraint year="2040">1</constraint>
+                <constraint year="2045">1</constraint>
+                <constraint year="2050">1</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Southeast Asia">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Southeast Asia</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">12</constraint>
+                <constraint year="2025">12</constraint>
+                <constraint year="2030">12</constraint>
+                <constraint year="2035">12</constraint>
+                <constraint year="2040">12</constraint>
+                <constraint year="2045">12</constraint>
+                <constraint year="2050">12</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Taiwan">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Taiwan</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">1</constraint>
+                <constraint year="2025">1</constraint>
+                <constraint year="2030">1</constraint>
+                <constraint year="2035">1</constraint>
+                <constraint year="2040">1</constraint>
+                <constraint year="2045">1</constraint>
+                <constraint year="2050">1</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Europe_Eastern">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>Europe_Eastern</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">1</constraint>
+                <constraint year="2025">1</constraint>
+                <constraint year="2030">1</constraint>
+                <constraint year="2035">1</constraint>
+                <constraint year="2040">1</constraint>
+                <constraint year="2045">1</constraint>
+                <constraint year="2050">1</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="EU-12">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>EU-12</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">12</constraint>
+                <constraint year="2025">12</constraint>
+                <constraint year="2030">12</constraint>
+                <constraint year="2035">12</constraint>
+                <constraint year="2040">12</constraint>
+                <constraint year="2045">12</constraint>
+                <constraint year="2050">12</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="South Korea">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>South Korea</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">1</constraint>
+                <constraint year="2025">1</constraint>
+                <constraint year="2030">1</constraint>
+                <constraint year="2035">1</constraint>
+                <constraint year="2040">1</constraint>
+                <constraint year="2045">1</constraint>
+                <constraint year="2050">1</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="India">
+            <policy-portfolio-standard name="DAC-ceiling">
+                <market>India</market>
+                <policyType>tax</policyType>
+                <constraint year="2020">12</constraint>
+                <constraint year="2025">12</constraint>
+                <constraint year="2030">12</constraint>
+                <constraint year="2035">12</constraint>
+                <constraint year="2040">12</constraint>
+                <constraint year="2045">12</constraint>
+                <constraint year="2050">12</constraint>
+            </policy-portfolio-standard>
+        </region>
+   </world>
+</scenario>
