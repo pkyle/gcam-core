@@ -1,0 +1,8 @@
+# File: A322.globaltech_shrwt_scen.csv
+# Title:scenario specific technology share-weights
+# Units: Unitless
+# Column types: ccccnnn
+# ----------
+scenario,supplysector,subsector,technology,2025,2050,2100
+NGCCS_NH3,ammonia,gas,gas,0,0,0
+NGCCS_NH3,ammonia,gas,gas CCS,1,1,1

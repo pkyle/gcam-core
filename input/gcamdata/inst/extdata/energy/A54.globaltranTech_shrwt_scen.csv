@@ -1,0 +1,12 @@
+# File: A54.globaltranTech_shrwt_scen.csv
+# Title: Transportation technology scenario shareweights
+# Source: NA
+# Units: Unitless
+# Column types: ccccnnn
+# ----------
+scenario,supplysector,tranSubsector,tranTechnology,2025,2050,2100
+NH3_ship,trn_shipping_intl,International Ship,Liquids,1,0,0
+NH3_ship,trn_shipping_intl,International Ship,BEV,0,0,0
+NH3_ship,trn_shipping_intl,International Ship,FCEV,0,0,0
+NH3_ship,trn_shipping_intl,International Ship,Hybrid Liquids,0,0,0
+NH3_ship,trn_shipping_intl,International Ship,Ammonia,0.1,1,1

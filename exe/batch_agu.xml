@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BatchRunner xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="batch_runner.xsd">
+	<ComponentSet name="scenarios">
+		<FileSet name="elec_NH3_hicost">
+			<Value name="elec_NH3">../input/gcamdata/xml/elec_NH3.xml</Value>		
+		</FileSet>
+		<FileSet name="elec_NH3_locost">
+			<Value name="elec_NH3">../input/gcamdata/xml/elec_NH3.xml</Value>		
+			<Value name="electrolysis_breakthru">../input/gcamdata/xml/hydrogen_electrolysis_breakthru.xml</Value>		
+		</FileSet>
+		<FileSet name="NGCCS_NH3">
+			<Value name="NGCCS_NH3">../input/gcamdata/xml/NGCCS_NH3.xml</Value>		
+		</FileSet>
+		<FileSet name="elec_NH3_hicost_NH3ship">
+			<Value name="elec_NH3">../input/gcamdata/xml/elec_NH3.xml</Value>		
+			<Value name="NH3_ship">../input/gcamdata/xml/NH3_ship.xml</Value>		
+		</FileSet>
+		<FileSet name="elec_NH3_locost_NH3ship">
+			<Value name="elec_NH3">../input/gcamdata/xml/elec_NH3.xml</Value>		
+			<Value name="electrolysis_breakthru">../input/gcamdata/xml/hydrogen_electrolysis_breakthru.xml</Value>		
+			<Value name="NH3_ship">../input/gcamdata/xml/NH3_ship.xml</Value>		
+		</FileSet>
+		<FileSet name="NGCCS_NH3_NH3ship">
+			<Value name="NGCCS_NH3">../input/gcamdata/xml/NGCCS_NH3.xml</Value>		
+			<Value name="NH3_ship">../input/gcamdata/xml/NH3_ship.xml</Value>		
+		</FileSet>
+		
+	</ComponentSet>
+	
+</BatchRunner>
+
+

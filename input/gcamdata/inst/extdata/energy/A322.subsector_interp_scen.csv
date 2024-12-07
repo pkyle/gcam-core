@@ -1,0 +1,14 @@
+# File: A322.subsector_interp_scen.csv
+# Title: ammonia scenario-specific subsector shareweight interpolation
+# Units: NA
+# Column types: cccccncnc
+# ----------
+scenario,supplysector,subsector,apply.to,from.year,from.value,to.year,to.value,interpolation.function
+NGCCS_NH3,ammonia,coal,share-weight,2025,0,2100,,fixed
+NGCCS_NH3,ammonia,gas,share-weight,2020,1,2100,,fixed
+NGCCS_NH3,ammonia,refined liquids,share-weight,2025,0,2100,,fixed
+NGCCS_NH3,ammonia,hydrogen,share-weight,2025,0,2100,,fixed
+elec_NH3,ammonia,coal,share-weight,2025,0,2100,,fixed
+elec_NH3,ammonia,gas,share-weight,2025,0,2100,,fixed
+elec_NH3,ammonia,refined liquids,share-weight,2025,0,2100,,fixed
+elec_NH3,ammonia,hydrogen,share-weight,2025,1,2100,,fixed

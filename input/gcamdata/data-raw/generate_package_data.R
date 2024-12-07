@@ -108,6 +108,7 @@ generate_level2_data_names <- function() {
   level2_data_names[["SubsectorShrwtFllt"]] <- c(level2_data_names[["Subsector"]], "year.fillout", "share.weight")
   level2_data_names[["SubsectorInterp"]] <- c(level2_data_names[["Subsector"]], "apply.to", "from.year", "to.year", "interpolation.function")
   level2_data_names[["SubsectorInterpTo"]] <- c(level2_data_names[["Subsector"]], "apply.to", "from.year", "to.year", "to.value", "interpolation.function")
+  level2_data_names[["SubsectorInterpFrom"]] <- c(level2_data_names[["Subsector"]], "apply.to", "from.year", "from.value", "to.year", "interpolation.function")
   level2_data_names[["FuelPrefElast"]] <- c(level2_data_names[["Subsector"]], "year.fillout", "fuelprefElasticity")
   level2_data_names[["tranSubsectorFuelPref"]] <- c("region", "supplysector", "tranSubsector", "year.fillout", "fuelprefElasticity")
   level2_data_names[["tranSubsectorInterp"]] <- c("region", "supplysector", "tranSubsector", "apply.to", "from.year", "to.year", "interpolation.function")

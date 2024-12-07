@@ -1,0 +1,13 @@
+# File: A25.subsector_shrwt_scen.csv
+# Title: Hydrogen subsector shareweights
+# Units: Unitless
+# Column types: ccccci 
+# ----------
+scenario,supplysector,subsector,year.fillout,year,share.weight
+elec_NH3,H2 central production,coal,2020,,0
+elec_NH3,H2 central production,gas,2020,,0
+elec_NH3,H2 central production,biomass,2020,,0
+elec_NH3,H2 central production,nuclear,2020,,1
+elec_NH3,H2 central production,electricity,2020,,0
+elec_NH3,H2 central production,wind,2020,,1
+elec_NH3,H2 central production,solar,2020,,1

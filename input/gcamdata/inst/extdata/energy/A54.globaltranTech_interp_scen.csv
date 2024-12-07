@@ -1,0 +1,10 @@
+# File: A54.globaltranTech_interp_scen.csv
+# Title: Transportation technology scenario-specific shareweight interpolation
+# Source: NA
+# Units: NA
+# Column types: cccccccc
+# ----------
+scenario,supplysector,tranSubsector,tranTechnology,apply.to,from.year,to.year,interpolation.function
+NH3_ship,trn_shipping_intl,International Ship,Liquids,share-weight,2025,2050,linear
+NH3_ship,trn_shipping_intl,International Ship,Ammonia,share-weight,2025,2050,linear
+NH3_ship,trn_shipping_intl,International Ship,Ammonia,share-weight,2050,2100,fixed
