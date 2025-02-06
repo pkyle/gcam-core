@@ -1,7 +1,9 @@
 # Ignore executables
+gcam
 *.exe
 *.pdb
 *.dll
+run-gcam.command
 
 # Ignore build directories
 Debug*
@@ -12,3 +14,7 @@ Release*
 gas*.emk
 outFile*.csv
 debug*.xml
+batch-csv-out.csv
+
+# Ignore the standard expendable configuration file
+configuration.xml
