@@ -24,6 +24,14 @@ module_aglu_ag_prodchange_ref_IRR_MGMT_xml <- function(command, ...) {
     L2052.AgProdChange_ag_irr_ref <- get_data(all_data, "L2052.AgProdChange_ag_irr_ref")
     L2052.AgProdChange_bio_irr_ref <- get_data(all_data, "L2052.AgProdChange_bio_irr_ref")
 
+    # hack to return Yusheng's agprodchange from email dated 3/21/2025
+    # 16% improvement from 2020 to 2050
+    EngWales_AgProdChange <- round(1.16 ^ (1/30) - 1, aglu.DIGITS_AGPRODCHANGE)
+    L2052.AgProdChange_ag_irr_ref$AgProdChange[
+      grepl("EngWales", L2052.AgProdChange_ag_irr_ref$AgProductionTechnology) &
+        L2052.AgProdChange_ag_irr_ref$year %in% 2020:2050] <-
+      EngWales_AgProdChange
+
     # ===================================================
 
     # Produce outputs
