@@ -238,7 +238,10 @@ module_energy_L223.electricity <- function(command, ...) {
       complete(nesting(region, supplysector, subsector), year = MODEL_FUTURE_YEARS[MODEL_FUTURE_YEARS >= min(year) & MODEL_FUTURE_YEARS <= max(year)]) %>%
       filter(year %in% MODEL_FUTURE_YEARS[MODEL_FUTURE_YEARS >= min(year) & MODEL_FUTURE_YEARS <= max(year)]) %>%
       arrange(region,supplysector,subsector,year) %>%
-      mutate(share.weight = approx_fun(year, share.weight, rule = 1),year = as.integer(year))->
+      group_by(region, supplysector, subsector) %>%
+      mutate(share.weight = approx_fun(year, share.weight, rule = 1),
+             year = as.integer(year)) %>%
+      ungroup() ->
       L223.SubsectorShrwt_coal
     L223.SubsectorShrwt_coal <- L223.SubsectorShrwt_coal[LEVEL2_DATA_NAMES[["SubsectorShrwt"]]]
 

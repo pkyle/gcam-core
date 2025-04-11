@@ -25,3 +25,5 @@ refining,biomass liquids,corn ethanol,0,1,1,1,1,1
 refining,biomass liquids,sugar cane ethanol,0,1,1,1,1,1
 refining,biomass liquids,biodiesel,0,1,1,1,1,1
 refining,biomass liquids,BTL with hydrogen,0,0,0,1,1,1
+refining,e-fuels,syngas ferm,0,0,0,1,1,1
+refining,e-fuels,syngas FTS,0,0,0,1,1,1

@@ -14,5 +14,7 @@ refining,oil refining,start-year,,1
 refining,biomass liquids,initial-future-year,,1
 refining,coal to liquids,initial-future-year,,0
 refining,coal to liquids,end-year,,0.1
+refining,e-fuels,start-year,,0
+refining,e-fuels,initial-future-year,,1
 refining,gas to liquids,initial-future-year,,0
 refining,gas to liquids,end-year,,0.25

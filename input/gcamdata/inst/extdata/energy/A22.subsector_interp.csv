@@ -12,4 +12,5 @@ nuclearFuelGenIII,enrichedUranium,share-weight,final-calibration-year,end-year,,
 refining,oil refining,share-weight,final-calibration-year,end-year,,fixed
 refining,biomass liquids,share-weight,final-calibration-year,2030,,linear
 refining,coal to liquids,share-weight,initial-future-year,end-year,,linear
+refining,e-fuels,share-weight,final-calibration-year,2030,,linear
 refining,gas to liquids,share-weight,initial-future-year,end-year,,linear

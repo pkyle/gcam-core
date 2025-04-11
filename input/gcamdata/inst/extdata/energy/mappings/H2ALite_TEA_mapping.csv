@@ -1,0 +1,13 @@
+# File: H2ALite_TEA_mapping.csv
+# Title: Mapping H2ALite technoeconomic analysis data of hydrogen production technologies
+# Units: Indicated in column names
+# Source: Misho Penev email 12/23/2024
+# Column types: cccc
+# ----------
+sector.name,subsector.name,technology,TechnologyH2A
+H2 central production,hybrid,electrolysis,Hybrid PEM
+H2 central production,electricity,electrolysis,Grid PEM
+H2 central production,gas,natural gas steam reforming,NG-SMR
+H2 central production,gas,gas ATR CCS,NG-ATR+CCS
+H2 central production,biomass,biomass to H2,Biomass gasification
+H2 central production,biomass,biomass to H2 CCS,Biomass gasification + CCS

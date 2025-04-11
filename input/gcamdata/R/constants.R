@@ -514,7 +514,7 @@ energy.SATIATION_YEAR             <- MODEL_FINAL_BASE_YEAR # Needs to be the las
 energy.UCD_EN_YEAR                <- 2005        # UCD transportation year to use to compute shares for allocation of energy to mode/technology/fuel within category/fuel
 energy.WIND.BASE.COST.YEAR        <- 2005        # Base cost year for wind, used in capacity factor calculations
 energy.FUEL_PRICES_MEAN_PERIOD    <- 5           # number of years used for calculating moving average for annual fossil fuel prices
-
+energy.H2A_CURRENT_YEAR           <- 2020        # Year of H2A "current" assumptions
 energy.ELEC_USE_BACKUP <- FALSE # constant for switching to old approach to variable renewable integration
                                 # FALSE (default) uses new value factor approach
                                 # TRUE eschews new approach and uses older backup capacity / backup electricity approach
@@ -575,6 +575,8 @@ energy.PV_RESID_OM             <- 100      # 2005USD per kw per year
 energy.CSP_STORAGE_CF_DIFF     <- 0.25     # capacity factor difference between CSP_storage (0.5) and CSP (0.25)
 energy.SOLAR_ELECTROLYSIS_KGH2_D <- 50000    # kg of h2 produced per day at a solar-electrolysis plant
 energy.ELECTROLYZER_RENEWABLE_CAPACITY_RATIO <- 0.618  # unitless capacity ratio of electrolyzers to renewable-electric equipment
+energy.Electrolyzer_2050_2040_cost_ratio <- 0.77 # Set the fraction of 2050 to 2040 costs. The specific number is from Pat's workbook
+energy.Grid.Electrolyzer.capacity.factor <- 0.95
 
 # Wind related constants
 energy.WIND_CURVE_MIDPOINT <- 0.5
@@ -1069,10 +1071,14 @@ gcamusa.GEOTHERMAL_DEFAULT_EFFICIENCY <- 0.1
 gcamusa.ELECT_TD_SECTORS  <- c("elect_td_bld", "elect_td_ind", "elect_td_trn")
 
 #Fuels whose markets will be represented with state-specific prices
-gcamusa.STATE_FUEL_MARKETS <- c(gcamusa.ELECT_TD_SECTORS, "H2 industrial", "H2 retail delivery", "H2 retail dispensing",
-                                "H2 wholesale delivery", "H2 wholesale dispensing","H2 central production","H2 pipeline","H2 liquid truck")
+gcamusa.STATE_FUEL_MARKETS <- c(gcamusa.ELECT_TD_SECTORS, "H2 central production", "H2 industrial", "H2 LDV",
+                                "H2 liquid truck", "H2 MHDV", "H2 pipeline", "H2 retail delivery",
+                                "H2 wholesale delivery", "LH2",
+                                "delivered biomass", "regional biomass")
 
-# Indicate whether to use regional ?cost adders? to differentiate
+gcamusa.H2_TD_MARKETS <- c("H2 pipeline","H2 liquid truck")
+
+# Indicate whether to use regional cost adders to differentiate
 # fuel prices by grid region in GCAM-USA (FALSE = same prices in all states)
 gcamusa.USE_REGIONAL_FUEL_MARKETS  <- TRUE
 

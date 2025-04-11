@@ -163,7 +163,7 @@ module_energy_L1323.iron_steel <- function(command, ...) {
     L1323.out_Mt_R_iron_steel_Yh %>%
       rename(output = value) %>%
       left_join(steel_intensity %>% select(-subsector,-ratio), by = c("subsector"="technology")) %>%
-      mutate(value = value * CONV_GJ_EJ / CONV_T_MT,
+      mutate(value = if_else(Unit == "GJ/t", value * CONV_GJ_EJ / CONV_T_MT, value),
                     energy_use = output * value,
                     unit = "EJ") ->
       Intensity_literature

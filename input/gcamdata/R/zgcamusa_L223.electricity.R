@@ -313,8 +313,10 @@ module_gcamusa_L223.electricity <- function(command, ...) {
       if("market.name" %in% names(data_new)) {
         data_new <- data_new %>%
           left_join_error_no_match(select(states_subregions, state, grid_region), by = c("region" = "state")) %>%
-          mutate(market.name = replace(market.name, minicam.energy.input %in% gcamusa.REGIONAL_FUEL_MARKETS,
-                                       grid_region[minicam.energy.input %in% gcamusa.REGIONAL_FUEL_MARKETS])) %>%
+          mutate(market.name = if_else(minicam.energy.input %in% gcamusa.REGIONAL_FUEL_MARKETS,
+                                       grid_region, market.name),
+                 market.name = if_else(minicam.energy.input %in% gcamusa.STATE_FUEL_MARKETS,
+                                       region, market.name)) %>%
           select(-grid_region)
       }
 

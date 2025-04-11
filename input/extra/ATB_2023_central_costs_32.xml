@@ -1,0 +1,3265 @@
+<?xml version="1.0" encoding="UTF-8"?><scenario>
+    <world>
+        <global-technology-database>
+            <location-info sector-name="electricity" subsector-name="solar">
+                <pass-through-technology name="CSP">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>942</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>14.04</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.88</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>892</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>13.07</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.85</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>720</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>11.02</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.75</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>695</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>11.02</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.75</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>669</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>11.02</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.75</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>643</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>11.02</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.75</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>617</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>11.02</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.75</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+                <pass-through-technology name="CSP_storage">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>1569</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>16.59</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.88</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>1486</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>15.44</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.85</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>1201</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>13.03</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.75</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>1158</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>13.03</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.75</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>1115</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>13.03</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.75</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>1072</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>13.03</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.75</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>1029</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>13.03</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.75</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+                <technology name="PV_storage">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>1630</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>38.26</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>1386</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>32.23</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>1160</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>27.22</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>1039</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>24.85</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>953</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>22.93</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>867</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>21.01</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>781</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>19.09</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                </technology>
+                <intermittent-technology name="PV">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>328</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.69</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>303</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.15</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>252</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>4.52</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>201</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>3.9</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>185</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>3.73</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>169</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>3.56</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>153</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>3.39</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                </intermittent-technology>
+            </location-info>
+            <location-info sector-name="electricity" subsector-name="coal">
+                <pass-through-technology name="coal (conv pul)">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>646</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>18.6</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>2.01</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>706</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>19.31</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>2.1</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>687</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>18.88</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>2.06</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>667</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>18.43</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>2.01</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>635</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>17.67</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.98</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>603</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>16.94</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.95</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>571</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>16.19</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.91</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+                <pass-through-technology name="coal (IGCC)">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>1119</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>35.33</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>3.48</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>1250</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>37.61</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>3.7</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>1238</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>37.28</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>3.67</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>1225</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>36.93</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>3.64</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>1213</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>36.6</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>3.61</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>1201</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>36.25</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>3.58</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>1188</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>35.93</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>3.55</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+                <pass-through-technology name="coal (conv pul CCS)">
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>1151</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>30.07</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>3.59</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>1080</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>28.43</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>3.42</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>1010</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>26.82</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>3.26</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>955</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>25.54</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>3.2</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>900</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>24.26</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>3.14</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>845</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>22.98</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>3.08</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+                <pass-through-technology name="coal (IGCC CCS)">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>1846</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>70.66</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>5.36</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>2063</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>75.22</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>5.69</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>2042</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>74.57</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>5.64</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>2022</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>73.86</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>5.6</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>2001</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>73.21</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>5.55</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>1981</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>72.51</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>5.51</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>1961</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>71.85</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>5.47</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+            </location-info>
+            <location-info sector-name="electricity" subsector-name="gas">
+                <pass-through-technology name="gas (steam/CT)">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>211</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.28</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.26</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>246</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.93</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>236</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.76</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>226</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.61</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>216</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.43</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>206</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.25</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>196</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.1</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+                <pass-through-technology name="gas (CC)">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>238</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>7.04</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.5</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>273</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>7.59</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.48</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>261</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>7.22</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.46</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>249</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>6.81</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.44</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>239</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>6.56</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.43</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>229</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>6.31</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.42</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>218</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>6.06</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.41</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+                <pass-through-technology name="gas (CC CCS)">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>603</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>16.84</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.51</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>564</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>15.11</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.11</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>507</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>13.58</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.02</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>450</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>12.04</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.93</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>424</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>11.41</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.9</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>399</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>10.79</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.87</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>373</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>10.16</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.83</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+            </location-info>
+            <location-info sector-name="electricity" subsector-name="refined liquids">
+                <pass-through-technology name="refined liquids (steam/CT)">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>211</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.28</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.26</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>246</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.93</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>236</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.76</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>226</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.61</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>216</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.43</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>206</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.25</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>196</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.1</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+                <pass-through-technology name="refined liquids (CC)">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>238</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>7.04</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.5</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>273</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>7.59</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.48</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>261</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>7.22</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.46</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>249</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>6.81</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.44</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>239</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>6.56</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.43</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>229</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>6.31</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.42</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>218</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>6.06</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.41</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+                <pass-through-technology name="refined liquids (CC CCS)">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>718</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>20.05</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.8</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>672</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>17.98</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.32</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>604</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>16.16</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.21</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>536</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>14.33</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.11</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>505</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>13.58</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.07</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>475</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>12.84</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.03</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>444</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>12.09</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.99</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+            </location-info>
+            <location-info sector-name="electricity" subsector-name="biomass">
+                <pass-through-technology name="biomass (conv)">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>1027</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>37.92</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.46</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>1054</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>39.53</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.27</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>1005</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>39.53</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.27</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>971</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>39.53</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.27</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>937</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>39.53</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.27</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>905</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>39.53</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.27</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>866</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>39.53</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.27</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+                <pass-through-technology name="biomass (IGCC)">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>1540</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>55.89</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>2.19</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>1581</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>58.25</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.9</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>1507</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>58.25</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.9</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>1457</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>58.25</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.9</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>1406</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>58.25</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.9</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>1357</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>58.25</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.9</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>1300</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>58.25</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.9</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+                <pass-through-technology name="biomass (conv CCS)">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>1976</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>46.33</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.95</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>2029</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>48.29</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.69</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>1934</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>48.29</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.69</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>1870</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>48.29</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.69</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>1804</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>48.29</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.69</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>1742</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>48.29</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.69</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>1668</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>48.29</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>1.69</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+                <pass-through-technology name="biomass (IGCC CCS)">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>2271</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>67.66</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>2.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>2332</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>70.52</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>2.27</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>2223</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>70.52</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>2.27</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>2149</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>70.52</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>2.27</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>2073</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>70.52</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>2.27</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>2002</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>70.52</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>2.27</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>1917</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>70.52</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>2.27</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+            </location-info>
+            <location-info sector-name="electricity" subsector-name="nuclear">
+                <pass-through-technology name="Gen_II_LWR"/>
+                <pass-through-technology name="Gen_III">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>1595</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>36.7</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.71</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>1612</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>38.24</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>1537</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>38.24</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>1486</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>38.24</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>1434</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>38.24</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>1384</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>38.24</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>1326</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>38.24</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0.62</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+            </location-info>
+            <location-info sector-name="electricity" subsector-name="geothermal">
+                <pass-through-technology name="geothermal">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>1146</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>27</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>1101</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>27.84</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>1014</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>26.94</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>957</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>26.04</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>933</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>26.04</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>910</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>26.04</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>888</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>26.04</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                </pass-through-technology>
+            </location-info>
+            <location-info sector-name="electricity" subsector-name="wind">
+                <technology name="wind_storage">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>1656</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>43.38</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>1384</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>34.33</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>1180</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>29.49</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>1097</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>27.5</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>1013</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>25.52</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>930</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>23.54</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>847</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>21.56</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                </technology>
+                <intermittent-technology name="wind">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>353</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>10.81</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>300</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>7.25</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>272</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>6.79</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>259</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>6.56</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>246</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>6.32</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>232</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>6.09</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>219</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.86</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                </intermittent-technology>
+                <intermittent-technology name="wind_offshore">
+                    <period year="2020">
+                        <input-capital name="capital">
+                            <capital-overnight>651</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>28.29</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-capital name="capital">
+                            <capital-overnight>542</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>25.15</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-capital name="capital">
+                            <capital-overnight>498</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>22.93</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-capital name="capital">
+                            <capital-overnight>471</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>21.44</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-capital name="capital">
+                            <capital-overnight>451</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>20.33</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-capital name="capital">
+                            <capital-overnight>436</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>19.43</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-capital name="capital">
+                            <capital-overnight>423</capital-overnight>
+                        </input-capital>
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>18.68</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                </intermittent-technology>
+            </location-info>
+            <location-info sector-name="elect_td_bld" subsector-name="rooftop_pv">
+                <intermittent-technology name="rooftop_pv">
+                    <period year="2020">
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>7.11</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2025">
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>6.76</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2030">
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>5.65</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2035">
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>4.55</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2040">
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>4.22</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2045">
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>3.88</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                    <period year="2050">
+                        <input-OM-fixed name="OM-fixed">
+                            <OM-fixed>3.55</OM-fixed>
+                        </input-OM-fixed>
+                        <input-OM-var name="OM-var">
+                            <OM-var>0</OM-var>
+                        </input-OM-var>
+                    </period>
+                </intermittent-technology>
+            </location-info>
+        </global-technology-database>
+        <region name="USA">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>12.3583</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>11.8551</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.6183</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.4001</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.7104</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.0394</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.3683</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Africa_Eastern">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.7535</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.397</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.8127</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.2415</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.753</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.2777</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>3.8024</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Africa_Northern">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.8211</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.4619</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.8653</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.282</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.7898</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.3108</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>3.8318</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Africa_Southern">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.9702</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.6049</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.9814</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.3713</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.8707</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.3836</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>3.8966</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Africa_Western">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.0349</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.6669</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.0317</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.41</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.9058</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.4152</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>3.9246</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Australia_NZ">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.0696</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.7003</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.0587</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.4308</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.9247</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.4322</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>3.9397</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Brazil">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>10.0183</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.6104</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.7971</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.9989</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.4398</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.8958</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.3519</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Canada">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>19.045</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>18.2694</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>14.8223</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>11.404</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>10.3412</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.307</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.2729</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Central America and Caribbean">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.8343</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.4338</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.6538</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.8887</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.3399</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.8059</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.2719</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Central Asia">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>11.5135</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>11.0446</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.9607</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.8942</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.2517</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.6265</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.0013</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="China">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>10.3036</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.884</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.0191</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.1697</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.5947</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.0352</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.4758</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="EU-12">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>14.9328</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>14.3247</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>11.6219</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.9417</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.1083</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.2975</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.4866</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="EU-15">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>13.493</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>12.9435</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>10.5013</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.0795</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.3265</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.5939</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.8612</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Europe_Eastern">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>15.1748</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>14.5568</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>11.8103</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.0866</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.2397</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.4157</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.5918</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Europe_Non_EU">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>11.2587</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>10.8002</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.7624</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.7416</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.1133</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.502</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.8906</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="European Free Trade Association">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>22.489</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>21.5732</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>17.5028</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>13.4663</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>12.2112</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>10.9901</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.769</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="India">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.9922</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.5853</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.7767</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.9832</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.4256</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.8831</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.3405</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Indonesia">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>10.6646</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>10.2303</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.3</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.3859</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.7907</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.2116</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.6326</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Japan">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>13.0692</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>12.537</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>10.1715</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.8257</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.0964</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.3868</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.6771</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Mexico">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.2078</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.8328</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.1662</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.5136</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.9997</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.4997</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>3.9998</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Middle East">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.0299</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.6621</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.0278</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.407</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.9031</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.4128</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>3.9225</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Pakistan">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.5204</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.1327</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.4095</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.7007</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.1694</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.6525</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.1356</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Russia">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>18.9813</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>18.2083</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>14.7727</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>11.3659</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>10.3066</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.2759</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.2453</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="South Africa">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.9506</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.5861</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.9661</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.3595</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.86</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.374</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>3.888</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="South America_Northern">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>10.1682</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.7541</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.9137</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.0886</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.5212</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.9691</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.4169</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="South America_Southern">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>10.2704</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.8522</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.9933</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.1499</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.5767</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.019</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.4614</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="South Asia">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.701</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.3059</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.5501</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.8089</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.2675</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.7408</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.214</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="South Korea">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>11.8133</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>11.3323</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.1941</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.0738</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.4145</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.773</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.1316</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Southeast Asia">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>10.397</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.9736</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.0918</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.2257</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.6454</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.0809</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.5164</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Taiwan">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>12.3609</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>11.8575</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>9.6203</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>7.4016</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.7118</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.0406</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.3695</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Argentina">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>10.6148</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>10.1825</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.2613</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.3561</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.7637</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.1873</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.6109</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Colombia">
+            <supplysector name="elect_td_bld">
+                <subsector name="rooftop_pv">
+                    <stub-technology name="rooftop_pv">
+                        <period year="2020">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>11.2944</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2025">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>10.8345</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2030">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>8.7902</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2035">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.763</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2040">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>6.1327</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2045">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>5.5194</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                        <period year="2050">
+                            <minicam-non-energy-input name="capital">
+                                <input-cost>4.9062</input-cost>
+                            </minicam-non-energy-input>
+                        </period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+        </region>
+    </world>
+</scenario>
