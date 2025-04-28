@@ -12,7 +12,8 @@
 #' original data system was \code{batch_nuclear_adv_xml.R} (energy XML).
 module_energy_nuclear_adv_xml <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
-    return(c("L223.GlobalTechCapital_nuc_adv"))
+    return(c("L223.GlobalTechCapital_nuc_adv",
+             "L125.nuclear_hydrogen_costs_adv"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c(XML = "nuclear_adv.xml"))
   } else if(command == driver.MAKE) {
@@ -21,13 +22,16 @@ module_energy_nuclear_adv_xml <- function(command, ...) {
 
     # Load required inputs
     L223.GlobalTechCapital_nuc_adv <- get_data(all_data, "L223.GlobalTechCapital_nuc_adv")
+    L125.nuclear_hydrogen_costs_adv <- get_data(all_data, "L125.nuclear_hydrogen_costs_adv")
 
     # ===================================================
 
     # Produce outputs
     create_xml("nuclear_adv.xml") %>%
       add_xml_data(L223.GlobalTechCapital_nuc_adv, "GlobalTechCapital") %>%
-      add_precursors("L223.GlobalTechCapital_nuc_adv") ->
+      add_xml_data(L125.nuclear_hydrogen_costs_adv, "GlobalTechCost") %>%
+      add_precursors("L223.GlobalTechCapital_nuc_adv",
+                     "L125.nuclear_hydrogen_costs_adv") ->
       nuclear_adv.xml
 
     return_data(nuclear_adv.xml)

@@ -29,8 +29,6 @@ electricity,refined liquids,refined liquids (CC CCS),0.001,0.03,,0.0005,0.0001,4
 electricity,biomass,biomass (conv CCS),0.001,0.03,,0.0005,0.0001,4.07E-07,1.00E-05,0.0001,CO,gas (steam/CT),
 electricity,biomass,biomass (IGCC),0.001,0.03,,0.0005,0.0001,4.07E-07,1.00E-05,0.0001,CO,gas (steam/CT),
 electricity,biomass,biomass (IGCC CCS),0.001,0.03,,0.0005,0.0001,4.07E-07,1.00E-05,0.0001,CO,gas (steam/CT),
-H2 central production,coal,coal chemical,0.01,0.001,0.001,0.002,,,,0.0005,,,
-H2 central production,coal,coal chemical CCS,0.01,0.001,0.001,0.002,,,,0.0005,,,
 H2 central production,gas,natural gas steam reforming,,0.005462225,0.00048545,,,,,,,,
 H2 central production,gas,gas ATR CCS,,0.005462225,0.00048545,,,,,,,,
 H2 central production,biomass,biomass to H2,0.01,0.001,0.001,0.001,,,,0.0005,,,

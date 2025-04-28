@@ -17,21 +17,22 @@
 module_gcamusa_L225.hydrogen <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "gcam-usa/states_subregions",
-             FILE = "gcam-usa/NREL_us_re_capacity_factors",
+             FILE = "energy/H2ALite_TEAdata",
+             FILE = "energy/H2ALite_wind_solar_CF",
+             FILE = "energy/mappings/H2ALite_TEA_mapping",
              FILE = "gcam-usa/A225.structure",
-             "L125.Electrolyzer_IdleRatio_Params",
+             "L223.GlobalIntTechCapital_elec",
+             "L223.GlobalIntTechOMfixed_elec",
+             "L223.GlobalIntTechCapital_sol_adv",
+             "L223.GlobalIntTechCapital_sol_low",
+             "L223.GlobalIntTechCapital_wind_adv",
+             "L223.GlobalIntTechCapital_wind_low",
              "L225.Supplysector_h2",
              "L225.SectorUseTrialMarket_h2",
              "L225.SubsectorLogit_h2",
              "L225.SubsectorShrwtFllt_h2",
              "L225.StubTech_h2",
-             "L225.GlobalTechCoef_h2",
-             "L201.Pop_GCAMUSA",
-             "L225.GlobalTechCost_h2",
-             "L225.RenewElec_cost",
-             "L225.RenewElec_eff",
-             "L2237.StubTechCapFactor_wind_reeds_USA",
-             "L2238.StubTechCapFactor_PV_reeds_USA"))
+             "L225.GlobalTechCoef_h2_ref"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L225.DeleteSupplysector_h2_USA",
              "L225.Supplysector_h2_USA",
@@ -41,14 +42,12 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
              "L225.StubTech_h2_USA",
              "L225.StubTechMarket_h2_USA",
              "L225.DeleteStubTechMinicamEnergyInput_H2_USA",
-             "L225.Supplysector_h2_ind_USA",
-             "L225.SubsectorLogit_h2_ind_USA",
-             "L225.SubsectorShrwtFllt_h2_ind_USA",
-             "L225.TechCoef_h2_ind_USA",
-             "L225.TechShrwt_h2_ind_USA",
              "L225.StubTechCost_h2_USA_ref",
-             "L225.StubTechCost_h2_USA_high",
-             "L225.StubTechCost_h2_USA_brkt",
+             "L225.StubTechCost_h2_USA_adv",
+             "L225.StubTechCost_h2_USA_lotech",
+             "L225.StubTechCoef_h2_USA_ref",
+             "L225.StubTechCoef_h2_USA_adv",
+             "L225.StubTechCoef_h2_USA_lotech",
              "L225.InterestRate_PADD",
              "L225.Pop_PADD",
              "L225.GDP_PADD",
@@ -67,21 +66,22 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
 
     # Load required inputs
     states_subregions <- get_data(all_data, "gcam-usa/states_subregions")
-    NREL_us_re_capacity_factors <- get_data(all_data, "gcam-usa/NREL_us_re_capacity_factors")
-    L125.Electrolyzer_IdleRatio_Params <- get_data(all_data, "L125.Electrolyzer_IdleRatio_Params", strip_attributes = TRUE)
+    H2ALite_TEAdata <- get_data(all_data, "energy/H2ALite_TEAdata")
+    H2ALite_TEA_mapping <- get_data(all_data, "energy/mappings/H2ALite_TEA_mapping")
+    H2ALite_wind_solar_CF <- get_data(all_data,"energy/H2ALite_wind_solar_CF", strip_attributes = TRUE)
+    A225.structure <- get_data(all_data, "gcam-usa/A225.structure")
+    L223.GlobalIntTechCapital_elec <- get_data(all_data, "L223.GlobalIntTechCapital_elec", strip_attributes = TRUE)
+    L223.GlobalIntTechOMfixed_elec <- get_data(all_data, "L223.GlobalIntTechOMfixed_elec", strip_attributes = TRUE)
+    L223.GlobalIntTechCapital_sol_adv <- get_data(all_data, "L223.GlobalIntTechCapital_sol_adv", strip_attributes = TRUE)
+    L223.GlobalIntTechCapital_sol_low <- get_data(all_data, "L223.GlobalIntTechCapital_sol_low", strip_attributes = TRUE)
+    L223.GlobalIntTechCapital_wind_adv <- get_data(all_data, "L223.GlobalIntTechCapital_wind_adv", strip_attributes = TRUE)
+    L223.GlobalIntTechCapital_wind_low <- get_data(all_data, "L223.GlobalIntTechCapital_wind_low", strip_attributes = TRUE)
     L225.Supplysector_h2 <- get_data(all_data, "L225.Supplysector_h2", strip_attributes = TRUE)
     L225.SectorUseTrialMarket_h2 <- get_data(all_data, "L225.SectorUseTrialMarket_h2", strip_attributes = TRUE)
     L225.SubsectorLogit_h2 <- get_data(all_data, "L225.SubsectorLogit_h2", strip_attributes = TRUE)
     L225.SubsectorShrwtFllt_h2 <- get_data(all_data, "L225.SubsectorShrwtFllt_h2", strip_attributes = TRUE)
     L225.StubTech_h2 <- get_data(all_data, "L225.StubTech_h2", strip_attributes = TRUE)
-    L225.GlobalTechCoef_h2 <- get_data(all_data, "L225.GlobalTechCoef_h2", strip_attributes = TRUE)
-    L201.Pop_GCAMUSA <- get_data(all_data, "L201.Pop_GCAMUSA", strip_attributes = TRUE)
-    L225.GlobalTechCost_h2 <- get_data(all_data, "L225.GlobalTechCost_h2", strip_attributes = TRUE)
-    L225.RenewElec_cost <- get_data(all_data, "L225.RenewElec_cost", strip_attributes = TRUE)
-    L225.RenewElec_eff <- get_data(all_data, "L225.RenewElec_eff", strip_attributes = TRUE)
-    L2237.StubTechCapFactor_wind_reeds_USA <- get_data(all_data, "L2237.StubTechCapFactor_wind_reeds_USA", strip_attributes = TRUE)
-    L2238.StubTechCapFactor_PV_reeds_USA <- get_data(all_data, "L2238.StubTechCapFactor_PV_reeds_USA", strip_attributes = TRUE)
-    A225.structure <- get_data(all_data, "gcam-usa/A225.structure")
+    L225.GlobalTechCoef_h2_ref <- get_data(all_data, "L225.GlobalTechCoef_h2_ref", strip_attributes = TRUE)
 
     # ===================================================
 
@@ -165,79 +165,6 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
       select(region, supplysector, subsector, technology, year, minicam.energy.input,
              coefficient, market.name) -> L225.TechCoef_h2_PADD
 
-    L225.StubTechCapFactor_ren_USA <- bind_rows(L2238.StubTechCapFactor_PV_reeds_USA,
-                                                L2237.StubTechCapFactor_wind_reeds_USA) %>%
-      select(region, subsector0, year, capacity.factor) %>%
-      rename(subsector = subsector0) %>%
-      group_by(region, subsector, year) %>%
-      # The capacity factors don't vary across load segments; just need to drop the duplication
-      summarise(capacity.factor = median(capacity.factor)) %>%
-      ungroup() %>%
-      mutate(stub.technology = "electrolysis") %>%
-      # Alaska and Hawaii don't have wind capacity factors in this data, but do in NREL_us_re_capacity_factors
-      complete(nesting(subsector, stub.technology, year), region = sort(unique(L2238.StubTechCapFactor_PV_reeds_USA$region))) %>%
-      mutate(capacity.factor = if_else(subsector == "wind" & region == "AK",
-                                       NREL_us_re_capacity_factors$Onshore_Wind[NREL_us_re_capacity_factors$State == "Alaska"],
-                                       capacity.factor),
-             capacity.factor = if_else(subsector == "wind" & region == "HI",
-                                       NREL_us_re_capacity_factors$Onshore_Wind[NREL_us_re_capacity_factors$State == "Hawaii"],
-                                       capacity.factor))
-
-    ELECTROLYZER_YEARS <- unique(L125.Electrolyzer_IdleRatio_Params$Year[L125.Electrolyzer_IdleRatio_Params$Year %in% MODEL_YEARS])
-    L225.StubTechCapFactor_ren_USA %>%
-      filter(year %in% ELECTROLYZER_YEARS) %>%
-      mutate(IdleRatio = pmax(1, 1 / (capacity.factor / energy.ELECTROLYZER_RENEWABLE_CAPACITY_RATIO))) %>%
-      left_join(L125.Electrolyzer_IdleRatio_Params, by = c(year = "Year")) %>%
-      mutate(input.cost = Intercept + Slope * IdleRatio) %>%
-      select(Scen, region, subsector, year, input.cost) %>%
-      complete(nesting(Scen, region, subsector), year = MODEL_YEARS) %>%
-      group_by(Scen, region, subsector) %>%
-      mutate(minicam.non.energy.input = "electrolyzer",
-             input.cost = approx_fun(year, input.cost, rule = 2),
-             input.cost = input.cost * gdp_deflator(1975, 2020) / CONV_GJ_KGH2) %>%
-      ungroup() %>%
-      left_join(select(L225.GlobalTechCost_h2, -input.cost),
-                by = c("subsector" = "subsector.name", "year", "minicam.non.energy.input")) %>%
-      rename(supplysector = sector.name, stub.technology = technology) ->
-      L225.StubTechCost_h2_electrolyzer_USA
-
-
-    L225.RenewElec_cost %>%
-      left_join_error_no_match(L225.RenewElec_eff, by = c("subsector.name", "year")) %>%
-      mutate(intermittent.technology = 'electrolysis') %>%
-      left_join(L225.StubTechCapFactor_ren_USA,
-                by = c("subsector.name" = "subsector", "intermittent.technology" = "stub.technology", "year")) %>%
-      mutate(minicam.non.energy.input = if_else(subsector.name == "solar", "solar panels", "wind turbines"),
-             output_kgh2_d = if_else(subsector.name == "solar", energy.SOLAR_ELECTROLYSIS_KGH2_D, energy.WIND_ELECTROLYSIS_KGH2_D),
-             cost_75USD_kgH2 = cost_75USD_kW_yr * kWh_elec_per_kgH2 * output_kgh2_d / CONV_DAY_HOURS /
-               (output_kgh2_d * capacity.factor / CONV_DAYS_YEAR),
-             input.cost = cost_75USD_kgH2 / CONV_GJ_KGH2) %>%
-      select(case, region, subsector.name, year, minicam.non.energy.input, input.cost) %>%
-      left_join_error_no_match(L225.GlobalTechCost_h2 %>% select(-input.cost, -minicam.non.energy.input),
-                               by = c("subsector.name", "year")) %>%
-      rename(supplysector = sector.name, subsector = subsector.name, stub.technology = technology) ->
-      L225.StubTechCost_h2_renewables_USA
-
-    # Combine the electrolyzer and renewable power generation technologies' levelized non-energy costs into a single table
-    L225.StubTechCost_h2_USA_ref <- L225.StubTechCost_h2_electrolyzer_USA %>%
-      filter(Scen == "bau") %>%
-      bind_rows(filter(L225.StubTechCost_h2_renewables_USA, case == "central")) %>%
-      mutate(input.cost = round(input.cost, digits = energy.DIGITS_COST)) %>%
-      select(LEVEL2_DATA_NAMES[["StubTechCost"]])
-
-    L225.StubTechCost_h2_USA_high <- L225.StubTechCost_h2_electrolyzer_USA %>%
-      filter(Scen == "high") %>%
-      bind_rows(filter(L225.StubTechCost_h2_renewables_USA, case == "adv tech")) %>%
-      mutate(input.cost = round(input.cost, digits = energy.DIGITS_COST)) %>%
-      select(LEVEL2_DATA_NAMES[["StubTechCost"]])
-
-    L225.StubTechCost_h2_USA_brkt <- L225.StubTechCost_h2_electrolyzer_USA %>%
-      filter(Scen == "breakthrough") %>%
-      bind_rows(filter(L225.StubTechCost_h2_renewables_USA, case == "adv tech")) %>%
-      mutate(input.cost = round(input.cost, digits = energy.DIGITS_COST)) %>%
-      select(LEVEL2_DATA_NAMES[["StubTechCost"]])
-
-
     # Delete the hydrogen sectors from the USA region
     L225.DeleteSupplysector_h2_USA <- L225.Supplysector_h2 %>%
       filter(region == gcam.USA_REGION) %>%
@@ -254,24 +181,93 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
     L225.SubsectorLogit_h2_USA <- L225.SubsectorLogit_h2 %>%
       filter(region == gcam.USA_REGION) %>%
       write_to_all_states(c(LEVEL2_DATA_NAMES[["SubsectorLogit"]], LOGIT_TYPE_COLNAME)) %>%
-      filter(!(region == 'DC' & subsector %in% c('solar','wind')))
+      filter(!(region == 'DC' & subsector == "hybrid"))
 
     L225.SubsectorShrwtFllt_h2_USA <- L225.SubsectorShrwtFllt_h2 %>%
       filter(region == gcam.USA_REGION) %>%
       write_to_all_states(LEVEL2_DATA_NAMES[["SubsectorShrwtFllt"]]) %>%
-      filter(!(region == 'DC' & subsector %in% c('solar','wind')))
+      filter(!(region == 'DC' & subsector == "hybrid"))
 
     L225.StubTech_h2_USA <- L225.StubTech_h2 %>%
-      filter(region == gcam.USA_REGION,
-             !(region == 'DC' & subsector %in% c('solar','wind'))) %>%
+      filter(region == gcam.USA_REGION) %>%
       write_to_all_states(LEVEL2_DATA_NAMES[["StubTech"]]) %>%
-      filter(!(region == 'DC' & subsector %in% c('solar','wind')))
+      filter(!(region == 'DC' & subsector == "hybrid"))
 
-    # Assign the market names. Use the USA region as the default, then
+    # Process H2ALite data to generate non-energy costs, and IO coefs of inputs, for hybrid technology
+    # All other technologies will simply use stub-technology pointers to global tech database
+    H2ALite_TEAdata %>%
+      filter(Region != "US Average",
+             Technology %in% unique(H2ALite_TEA_mapping$TechnologyH2A[H2ALite_TEA_mapping$subsector.name == "hybrid"])) %>%
+      left_join_error_no_match(select(states_subregions, state, Region = state_name),
+                               by = "Region") %>%
+      select(Scenario, state, TechnologyH2A = Technology, year = Year, `Energy-free levelized cost [2022$/kg]`,
+             contains('Energy use')) ->
+      L225.H2ALite_Hybrid_TEAdata
+
+    L225.StubTechCost_h2_USA_scen <- L225.H2ALite_Hybrid_TEAdata %>%
+      mutate(input.cost = `Energy-free levelized cost [2022$/kg]` * gdp_deflator(1975,2022) / CONV_GJ_KGH2,
+             minicam.non.energy.input = "other non-energy") %>%
+      inner_join(H2ALite_TEA_mapping, by = "TechnologyH2A") %>%
+      select(Scenario, region = state, supplysector = sector.name, subsector = subsector.name,
+             stub.technology = technology, year, minicam.non.energy.input, input.cost) %>%
+      complete(nesting(Scenario, region, supplysector, subsector, stub.technology, minicam.non.energy.input),
+               year = MODEL_YEARS) %>%
+      group_by(Scenario, region, supplysector, subsector, stub.technology, minicam.non.energy.input) %>%
+      mutate(input.cost = round(approx_fun(year, input.cost,  rule = 2), energy.DIGITS_COST)) %>%
+      ungroup() %>%
+      select(c("Scenario", LEVEL2_DATA_NAMES[["StubTechCost"]]))
+
+    # Because Alaska and Hawaii are not in the H2ALite data, they would inherit the global tech defaults if not include specifically.
+    # Because the global tech defaults (from "US Average") are from near-optimal siting in the US, they aren't appropriate here
+    # Just assigning Florida's costs to both, as they are near at/near the upper limit among the states
+    L225.StubTechCost_h2_USA_scen <- bind_rows(
+      L225.StubTechCost_h2_USA_scen,
+      mutate(filter(L225.StubTechCost_h2_USA_scen, region == "FL"), region = "AK"),
+      mutate(filter(L225.StubTechCost_h2_USA_scen, region == "FL"), region = "HI")
+    )
+
+    # Split by scenario for data write-out
+    L225.StubTechCost_h2_USA_ref <- filter(L225.StubTechCost_h2_USA_scen, Scenario == "med") %>%
+      select(-Scenario)
+    L225.StubTechCost_h2_USA_adv <- filter(L225.StubTechCost_h2_USA_scen, Scenario == "low") %>%
+      select(-Scenario)
+    L225.StubTechCost_h2_USA_lotech <- filter(L225.StubTechCost_h2_USA_scen, Scenario == "high") %>%
+      select(-Scenario)
+
+    L225.StubTechCoef_h2_USA_scen <- L225.H2ALite_Hybrid_TEAdata %>%
+      mutate(PV_resource = `Energy use Electricity (Solar) [kWh/kg]`* CONV_KWH_GJ / CONV_GJ_KGH2) %>%
+      mutate(`onshore wind resource` = `Energy use Electricity (On-shore wind) [kWh/kg]`* CONV_KWH_GJ / CONV_GJ_KGH2) %>%
+      select(Scenario, region = state, TechnologyH2A, year, PV_resource, `onshore wind resource`) %>%
+      tidyr::gather(key = "minicam.energy.input", value = "coefficient", -Scenario, -region, -TechnologyH2A, -year) %>%
+      complete(nesting(Scenario, region, TechnologyH2A, minicam.energy.input), year = MODEL_YEARS) %>%
+      group_by(Scenario, region, TechnologyH2A, minicam.energy.input) %>%
+      mutate(coefficient = round(approx_fun(year, coefficient,  rule = 2), energy.DIGITS_COEFFICIENT)) %>%
+      ungroup() %>%
+      mutate(market.name = region) %>%
+      inner_join(H2ALite_TEA_mapping, by = "TechnologyH2A") %>%
+      rename(supplysector = sector.name, subsector = subsector.name, stub.technology = technology) %>%
+      select(c("Scenario", LEVEL2_DATA_NAMES[["StubTechCoef"]]))
+
+    #Expand to AK and HI. NH has the lowest solar coefficients of any state, so copying it. HI will use FL.
+    L225.StubTechCoef_h2_USA_scen <- bind_rows(
+      L225.StubTechCoef_h2_USA_scen,
+      mutate(filter(L225.StubTechCoef_h2_USA_scen, region == "NH"), region = "AK", market.name = "AK"),
+      mutate(filter(L225.StubTechCoef_h2_USA_scen, region == "FL"), region = "HI", market.name = "HI")
+    )
+
+    # Split the scenarios
+    L225.StubTechCoef_h2_USA_ref <- filter(L225.StubTechCoef_h2_USA_scen, Scenario == "med") %>%
+      select(-Scenario)
+    L225.StubTechCoef_h2_USA_adv <- filter(L225.StubTechCoef_h2_USA_scen, Scenario == "low") %>%
+      select(-Scenario)
+    L225.StubTechCoef_h2_USA_lotech <- filter(L225.StubTechCoef_h2_USA_scen, Scenario == "high") %>%
+      select(-Scenario)
+
+    # Assign the market names to all hydrogen technologies. Use the USA region as the default, then
     # - re-set grid-region fuel market
     # - re-set state-level fuel markets
-    # - re-set upstream hydrogen commodity markets (hack - this replacement will need to be updated when inter-state hydrogen markets are represented)
-    L225.StubTechMarket_h2_USA <- L225.GlobalTechCoef_h2 %>%
+    # - re-set upstream hydrogen commodity markets
+    L225.StubTechMarket_h2_USA <- L225.GlobalTechCoef_h2_ref %>%
       rename(supplysector = sector.name,
              subsector = subsector.name,
              stub.technology = technology) %>%
@@ -289,60 +285,13 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
                                    region, market.name),
              market.name = if_else(minicam.energy.input %in% gcamusa.H2_TD_MARKETS,PADD,market.name),
              minicam.energy.input = if_else(minicam.energy.input == 'global solar resource','PV_resource',minicam.energy.input)) %>%
-      filter(!(region == 'DC' & subsector %in% c('solar','wind'))) #We should eventually do an anti-join for this but for now it's easier to just say DC
+      filter(!(region == 'DC' & subsector == "hybrid")) #We should eventually do an anti-join for this but for now it's easier to just say DC
 
     L225.StubTechMarket_h2_USA %>%
       filter(minicam.energy.input == "PV_resource") %>%
       mutate(minicam.energy.input = "global solar resource") %>%
       select(region, supplysector, subsector, stub.technology, year, minicam.energy.input) ->
       L225.DeleteStubTechMinicamEnergyInput_H2_USA
-
-    # create "H2 industrial" supplysector in USA region with subsectors/technologies for each state
-    L225.Supplysector_h2_ind_USA <- L225.Supplysector_h2_USA %>%
-      filter(supplysector == 'H2 industrial') %>%
-      mutate(region = gcam.USA_REGION)
-
-    L225.SubsectorLogit_h2_ind_USA <- L225.SubsectorLogit_h2_USA %>%
-      filter(supplysector == 'H2 industrial') %>%
-      distinct(region,.keep_all=TRUE) %>%
-      mutate(subsector = paste0(region,' ',supplysector),
-             region = gcam.USA_REGION)
-
-    L225.PopShrwts <- L201.Pop_GCAMUSA %>%
-      group_by(year) %>%
-      mutate(popShrwt = totalPop / sum(totalPop)) %>%
-      ungroup()
-
-    # These share-weights are revised each model time period, according to the population share over time.
-    # Full_join is used as an expanding join is wanted here (expanding by year)
-    L225.SubsectorShrwtFllt_h2_ind_USA <- L225.SubsectorShrwtFllt_h2_USA %>%
-      filter(supplysector == 'H2 industrial') %>%
-      distinct(region,year.fillout,.keep_all=TRUE) %>%
-      full_join(L225.PopShrwts, by = c('region')) %>%
-      mutate(subsector = paste0(region,' ',supplysector),
-             region = gcam.USA_REGION,
-             share.weight = if_else(as.numeric(share.weight) != 0, round(popShrwt,energy.DIGITS_SHRWT), as.numeric(share.weight)))
-
-    # Full_join is used here in order to expand a global technology table by region (state)
-    L225.TechCoef_h2_ind_USA <- L225.GlobalTechCoef_h2 %>%
-      filter(sector.name == 'H2 industrial') %>%
-      full_join(states_subregions %>%
-                  select(state,PADD) %>%
-                  mutate(sector.name = 'H2 industrial'),by = c('sector.name')) %>%
-      distinct(state,year,.keep_all=TRUE) %>%
-      mutate(subsector.name = paste0(state,' ',sector.name),
-             technology = paste0(state,' ',sector.name),
-             minicam.energy.input = 'H2 industrial',
-             region = gcam.USA_REGION,
-             market.name = state,
-             market.name = if_else(minicam.energy.input %in% gcamusa.H2_TD_MARKETS,PADD,market.name)) %>%
-      rename(supplysector = sector.name,
-             subsector = subsector.name) %>%
-      select(LEVEL2_DATA_NAMES[["TechCoef"]])
-
-    L225.TechShrwt_h2_ind_USA <- L225.TechCoef_h2_ind_USA %>%
-      mutate(share.weight = 1) %>%
-      select(LEVEL2_DATA_NAMES[["TechShrwt"]])
 
     # ===================================================
 
@@ -407,74 +356,59 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
       add_units("Unitless") %>%
       add_comments("Mirror of information in all regions") %>%
       add_precursors("gcam-usa/states_subregions",
-                     "L225.GlobalTechCoef_h2") ->
+                     "L225.GlobalTechCoef_h2_ref") ->
       L225.StubTechMarket_h2_USA
-
-    L225.Supplysector_h2_ind_USA %>%
-      add_title("Add back H2 industrial to USA region") %>%
-      add_units("Unitless") %>%
-      add_comments("Mirror of information in all regions") %>%
-      add_precursors("L225.Supplysector_h2") ->
-      L225.Supplysector_h2_ind_USA
-
-    L225.SubsectorLogit_h2_ind_USA %>%
-      add_title("State-level logit exponents for H2 industrial in GCAM-USA") %>%
-      add_units("Unitless") %>%
-      add_comments("Mirror of information in all regions") %>%
-      add_precursors("L225.SubsectorLogit_h2") ->
-      L225.SubsectorLogit_h2_ind_USA
-
-    L225.SubsectorShrwtFllt_h2_ind_USA %>%
-      add_title("Subsector shareweight fillout for state-level H2 industrial in GCAM-USA") %>%
-      add_units("Unitless") %>%
-      add_comments("Shareweights based on relative population in each state") %>%
-      add_precursors("L225.SubsectorShrwtFllt_h2",
-                     "L201.Pop_GCAMUSA") ->
-      L225.SubsectorShrwtFllt_h2_ind_USA
-
-    L225.TechCoef_h2_ind_USA %>%
-      add_title("Technology market names for inputs to state-level H2 industrial technologies in GCAM-USA") %>%
-      add_units("Unitless") %>%
-      add_comments("Mirror of information in all regions") %>%
-      add_precursors("gcam-usa/states_subregions",
-                     "L225.GlobalTechCoef_h2") ->
-      L225.TechCoef_h2_ind_USA
-
-    L225.TechShrwt_h2_ind_USA %>%
-      add_title("Technology market names for inputs to state-level H2 industrial technologies in GCAM-USA") %>%
-      add_units("Unitless") %>%
-      add_comments("Mirror of information in all regions") %>%
-      add_precursors("gcam-usa/states_subregions",
-                     "L225.GlobalTechCoef_h2") ->
-      L225.TechShrwt_h2_ind_USA
 
     L225.StubTechCost_h2_USA_ref %>%
       add_title("State-level green hydrogen production costs (reference scenario)") %>%
       add_units("$1975/GJ") %>%
       add_comments("LCOH for the electrolyzer and renewables providing electricity.") %>%
-      add_precursors("gcam-usa/NREL_us_re_capacity_factors",
-                     "L125.Electrolyzer_IdleRatio_Params",
-                     "L225.GlobalTechCost_h2",
-                     "L225.GlobalTechCoef_h2",
-                     "L225.RenewElec_cost",
-                     "L225.RenewElec_eff",
-                     "L2237.StubTechCapFactor_wind_reeds_USA",
-                     "L2238.StubTechCapFactor_PV_reeds_USA") ->
+      add_precursors("gcam-usa/states_subregions",
+                     "energy/H2ALite_TEAdata",
+                     "energy/H2ALite_wind_solar_CF",
+                     "energy/mappings/H2ALite_TEA_mapping",
+                     "L223.GlobalIntTechCapital_elec",
+                     "L223.GlobalIntTechOMfixed_elec") ->
       L225.StubTechCost_h2_USA_ref
 
-    L225.StubTechCost_h2_USA_high %>%
-      add_title("State-level green hydrogen production costs (high tech scenario)") %>%
+    L225.StubTechCost_h2_USA_adv %>%
+      add_title("State-level green hydrogen production costs (adv scenario)") %>%
       add_units("$1975/GJ") %>%
       add_comments("LCOH for the electrolyzer and renewables providing electricity.") %>%
-      same_precursors_as(L225.StubTechCost_h2_USA_ref) ->
-      L225.StubTechCost_h2_USA_high
+      same_precursors_as(L225.StubTechCost_h2_USA_ref) %>%
+      add_precursors("L223.GlobalIntTechCapital_sol_low",
+                     "L223.GlobalIntTechCapital_wind_low") ->
+      L225.StubTechCost_h2_USA_adv
 
-    L225.StubTechCost_h2_USA_brkt %>%
-      add_title("State-level green hydrogen production costs (breakthrough scenario)") %>%
+    L225.StubTechCost_h2_USA_lotech %>%
+      add_title("State-level green hydrogen production costs (lotech scenario)") %>%
       add_units("$1975/GJ") %>%
       add_comments("LCOH for the electrolyzer and renewables providing electricity.") %>%
+      same_precursors_as(L225.StubTechCost_h2_USA_ref) %>%
+      add_precursors("L223.GlobalIntTechCapital_sol_adv",
+                     "L223.GlobalIntTechCapital_wind_adv") ->
+      L225.StubTechCost_h2_USA_lotech
+
+    L225.StubTechCoef_h2_USA_ref %>%
+      add_title("State-level green hydrogen IO coefficients (ref scenario)") %>%
+      add_units("$1975/GJ") %>%
+      add_comments("GJelec/GJh2 inputs of wind and solar to hybrid technology") %>%
       same_precursors_as(L225.StubTechCost_h2_USA_ref) ->
-      L225.StubTechCost_h2_USA_brkt
+      L225.StubTechCoef_h2_USA_ref
+
+    L225.StubTechCoef_h2_USA_adv %>%
+      add_title("State-level green hydrogen IO coefficients (adv scenario)") %>%
+      add_units("$1975/GJ") %>%
+      add_comments("GJelec/GJh2 inputs of wind and solar to hybrid technology") %>%
+      same_precursors_as(L225.StubTechCost_h2_USA_ref) ->
+      L225.StubTechCoef_h2_USA_adv
+
+    L225.StubTechCoef_h2_USA_lotech %>%
+      add_title("State-level green hydrogen IO coefficients (lotech scenario)") %>%
+      add_units("$1975/GJ") %>%
+      add_comments("GJelec/GJh2 inputs of wind and solar to hybrid technology") %>%
+      same_precursors_as(L225.StubTechCost_h2_USA_ref) ->
+      L225.StubTechCoef_h2_USA_lotech
 
     L225.InterestRate_PADD %>%
       add_title("Interest rates in PADD regions") %>%
@@ -555,14 +489,12 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
                 L225.StubTech_h2_USA,
                 L225.StubTechMarket_h2_USA,
                 L225.DeleteStubTechMinicamEnergyInput_H2_USA,
-                L225.Supplysector_h2_ind_USA,
-                L225.SubsectorLogit_h2_ind_USA,
-                L225.SubsectorShrwtFllt_h2_ind_USA,
-                L225.TechCoef_h2_ind_USA,
-                L225.TechShrwt_h2_ind_USA,
                 L225.StubTechCost_h2_USA_ref,
-                L225.StubTechCost_h2_USA_high,
-                L225.StubTechCost_h2_USA_brkt,
+                L225.StubTechCost_h2_USA_adv,
+                L225.StubTechCost_h2_USA_lotech,
+                L225.StubTechCoef_h2_USA_ref,
+                L225.StubTechCoef_h2_USA_adv,
+                L225.StubTechCoef_h2_USA_lotech,
                 L225.InterestRate_PADD,
                 L225.Pop_PADD,
                 L225.GDP_PADD,

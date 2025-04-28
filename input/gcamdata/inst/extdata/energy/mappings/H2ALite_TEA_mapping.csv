@@ -6,8 +6,16 @@
 # ----------
 sector.name,subsector.name,technology,TechnologyH2A
 H2 central production,hybrid,electrolysis,Hybrid PEM
-H2 central production,electricity,electrolysis,Grid PEM
+H2 central production,electricity,electrolysis,Grid ALK
+H2 central production,nuclear,electrolysis,Grid ALK
 H2 central production,gas,natural gas steam reforming,NG-SMR
 H2 central production,gas,gas ATR CCS,NG-ATR+CCS
 H2 central production,biomass,biomass to H2,Biomass gasification
 H2 central production,biomass,biomass to H2 CCS,Biomass gasification + CCS
+H2 industrial,onsite production,electrolysis,Grid ALK
+H2 LDV,onsite production,electrolysis,Grid PEM
+H2 LDV,onsite production,natural gas steam reforming,NG-SMR
+H2 MHDV,onsite production,electrolysis,Grid PEM
+H2 MHDV,onsite production,natural gas steam reforming,NG-SMR
+LH2,onsite production,electrolysis,Grid ALK
+LH2,onsite production,natural gas steam reforming,NG-SMR
