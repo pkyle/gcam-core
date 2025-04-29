@@ -193,7 +193,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
       write_to_all_states(LEVEL2_DATA_NAMES[["StubTech"]]) %>%
       filter(!(region == 'DC' & subsector == "hybrid"))
 
-    # Process H2ALite data to generate non-energy costs, and IO coefs of inputs, for hybrid technology
+    # Process H2ALite data to generate IO coefs and non-energy costs of inputs, for hybrid technology
     # All other technologies will simply use stub-technology pointers to global tech database
     H2ALite_TEAdata %>%
       filter(Region != "US Average",
@@ -204,36 +204,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
              contains('Energy use')) ->
       L225.H2ALite_Hybrid_TEAdata
 
-    L225.StubTechCost_h2_USA_scen <- L225.H2ALite_Hybrid_TEAdata %>%
-      mutate(input.cost = `Energy-free levelized cost [2022$/kg]` * gdp_deflator(1975,2022) / CONV_GJ_KGH2,
-             minicam.non.energy.input = "other non-energy") %>%
-      inner_join(H2ALite_TEA_mapping, by = "TechnologyH2A") %>%
-      select(Scenario, region = state, supplysector = sector.name, subsector = subsector.name,
-             stub.technology = technology, year, minicam.non.energy.input, input.cost) %>%
-      complete(nesting(Scenario, region, supplysector, subsector, stub.technology, minicam.non.energy.input),
-               year = MODEL_YEARS) %>%
-      group_by(Scenario, region, supplysector, subsector, stub.technology, minicam.non.energy.input) %>%
-      mutate(input.cost = round(approx_fun(year, input.cost,  rule = 2), energy.DIGITS_COST)) %>%
-      ungroup() %>%
-      select(c("Scenario", LEVEL2_DATA_NAMES[["StubTechCost"]]))
-
-    # Because Alaska and Hawaii are not in the H2ALite data, they would inherit the global tech defaults if not include specifically.
-    # Because the global tech defaults (from "US Average") are from near-optimal siting in the US, they aren't appropriate here
-    # Just assigning Florida's costs to both, as they are near at/near the upper limit among the states
-    L225.StubTechCost_h2_USA_scen <- bind_rows(
-      L225.StubTechCost_h2_USA_scen,
-      mutate(filter(L225.StubTechCost_h2_USA_scen, region == "FL"), region = "AK"),
-      mutate(filter(L225.StubTechCost_h2_USA_scen, region == "FL"), region = "HI")
-    )
-
-    # Split by scenario for data write-out
-    L225.StubTechCost_h2_USA_ref <- filter(L225.StubTechCost_h2_USA_scen, Scenario == "med") %>%
-      select(-Scenario)
-    L225.StubTechCost_h2_USA_adv <- filter(L225.StubTechCost_h2_USA_scen, Scenario == "low") %>%
-      select(-Scenario)
-    L225.StubTechCost_h2_USA_lotech <- filter(L225.StubTechCost_h2_USA_scen, Scenario == "high") %>%
-      select(-Scenario)
-
+    # IO coefficients are determined first as they are used to compute renewable electricity generation costs
     L225.StubTechCoef_h2_USA_scen <- L225.H2ALite_Hybrid_TEAdata %>%
       mutate(PV_resource = `Energy use Electricity (Solar) [kWh/kg]`* CONV_KWH_GJ / CONV_GJ_KGH2) %>%
       mutate(`onshore wind resource` = `Energy use Electricity (On-shore wind) [kWh/kg]`* CONV_KWH_GJ / CONV_GJ_KGH2) %>%
@@ -248,19 +219,87 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
       rename(supplysector = sector.name, subsector = subsector.name, stub.technology = technology) %>%
       select(c("Scenario", LEVEL2_DATA_NAMES[["StubTechCoef"]]))
 
-    #Expand to AK and HI. NH has the lowest solar coefficients of any state, so copying it. HI will use FL.
+    # Cost calculations
+    L225.StubTechCost_h2_USA_scen <- L225.H2ALite_Hybrid_TEAdata %>%
+      mutate(input.cost = `Energy-free levelized cost [2022$/kg]` * gdp_deflator(1975,2022) / CONV_GJ_KGH2,
+             minicam.non.energy.input = "other non-energy") %>%
+      inner_join(H2ALite_TEA_mapping, by = "TechnologyH2A") %>%
+      select(Scenario, region = state, supplysector = sector.name, subsector = subsector.name,
+             stub.technology = technology, year, minicam.non.energy.input, input.cost) %>%
+      complete(nesting(Scenario, region, supplysector, subsector, stub.technology, minicam.non.energy.input),
+               year = MODEL_YEARS) %>%
+      group_by(Scenario, region, supplysector, subsector, stub.technology, minicam.non.energy.input) %>%
+      mutate(input.cost = round(approx_fun(year, input.cost,  rule = 2), energy.DIGITS_COST)) %>%
+      ungroup() %>%
+      select(c("Scenario", LEVEL2_DATA_NAMES[["StubTechCost"]]))
+
+    # Calculate and bind in the costs of generating renewable electricity in each state
+    # Renewable electricity cost = solar LCOE * solar IOcoef + wind LCOE * wind IOcoef
+    L225.CapacityFactor_USA <- H2ALite_wind_solar_CF %>%
+      filter(State != "US Average") %>%
+      left_join_error_no_match(select(states_subregions, state, State = state_name),
+                               by = "State") %>%
+      rename(wind = Wind_CF, solar = Solar_CF) %>%
+      select(region = state, wind, solar) %>%
+      gather(key = subsector, value = capacity.factor, -region)
+
+    L225.RenewElec_cost_USA_scen <- L223.GlobalIntTechCapital_elec %>%
+      mutate(Scenario = "med") %>%
+      bind_rows(mutate(bind_rows(L223.GlobalIntTechCapital_wind_adv, L223.GlobalIntTechCapital_sol_adv), Scenario = "low")) %>%
+      bind_rows(mutate(bind_rows(L223.GlobalIntTechCapital_wind_low, L223.GlobalIntTechCapital_sol_low), Scenario = "high")) %>%
+      filter(intermittent.technology %in% c("wind", "PV")) %>%
+      left_join(L223.GlobalIntTechOMfixed_elec, by = c("sector.name", "subsector.name", "intermittent.technology", "year")) %>%
+      rename(supplysector = sector.name, subsector = subsector.name, stub.technology = intermittent.technology) %>%
+      left_join(L225.CapacityFactor_USA, by = c("subsector")) %>%
+      mutate(elec_cost_75USD_GJ = (capital.overnight * fixed.charge.rate + OM.fixed) /
+               (CONV_YEAR_HOURS * capacity.factor * CONV_KWH_GJ)) %>%
+      select(Scenario, region, renew_tech = subsector, year, elec_cost_75USD_GJ)
+
+    # Join in the costs to the coefficient table (which indicates electricity IO coefs), multiply,
+    # and aggregate to get the total renewable-electric non-energy cost
+    L225.StubTechCost_h2_renewelec_USA_scen <- L225.StubTechCoef_h2_USA_scen %>%
+      mutate(renew_tech = if_else(minicam.energy.input == "PV_resource", "solar", "wind")) %>%
+      left_join(L225.RenewElec_cost_USA_scen, by = c("Scenario", "region", "renew_tech", "year")) %>%
+      mutate(minicam.non.energy.input = "renewable electricity generation",
+             input.cost = coefficient * elec_cost_75USD_GJ) %>%
+      group_by(Scenario, region, supplysector, subsector, stub.technology, year, minicam.non.energy.input) %>%
+      summarise(input.cost = sum(input.cost)) %>%
+      ungroup()
+
+    L225.StubTechCost_h2_USA_scen <- L225.StubTechCost_h2_USA_scen %>%
+      bind_rows(L225.StubTechCost_h2_renewelec_USA_scen) %>%
+      mutate(input.cost = round(input.cost,energy.DIGITS_COST))
+
+    # Because Alaska and Hawaii are not in the H2ALite data, they would inherit the global tech defaults if not include specifically.
+    # Because the global tech defaults (from "US Average") are from near-optimal siting in the US, they aren't appropriate here
+    # IO coefs: NH has the lowest solar coefficients of any state, so copying it. HI will use FL.
     L225.StubTechCoef_h2_USA_scen <- bind_rows(
       L225.StubTechCoef_h2_USA_scen,
       mutate(filter(L225.StubTechCoef_h2_USA_scen, region == "NH"), region = "AK", market.name = "AK"),
       mutate(filter(L225.StubTechCoef_h2_USA_scen, region == "FL"), region = "HI", market.name = "HI")
     )
 
-    # Split the scenarios
+    # Split the IOcoef data into scenario-specific tables
     L225.StubTechCoef_h2_USA_ref <- filter(L225.StubTechCoef_h2_USA_scen, Scenario == "med") %>%
       select(-Scenario)
     L225.StubTechCoef_h2_USA_adv <- filter(L225.StubTechCoef_h2_USA_scen, Scenario == "low") %>%
       select(-Scenario)
     L225.StubTechCoef_h2_USA_lotech <- filter(L225.StubTechCoef_h2_USA_scen, Scenario == "high") %>%
+      select(-Scenario)
+
+    # AK/HI costs: assign Florida's costs to both, as FL costs are near at/near the upper limit among the states
+    L225.StubTechCost_h2_USA_scen <- bind_rows(
+      L225.StubTechCost_h2_USA_scen,
+      mutate(filter(L225.StubTechCost_h2_USA_scen, region == "FL"), region = "AK"),
+      mutate(filter(L225.StubTechCost_h2_USA_scen, region == "FL"), region = "HI")
+    )
+
+    # Split costs by scenario for data write-out
+    L225.StubTechCost_h2_USA_ref <- filter(L225.StubTechCost_h2_USA_scen, Scenario == "med") %>%
+      select(-Scenario)
+    L225.StubTechCost_h2_USA_adv <- filter(L225.StubTechCost_h2_USA_scen, Scenario == "low") %>%
+      select(-Scenario)
+    L225.StubTechCost_h2_USA_lotech <- filter(L225.StubTechCost_h2_USA_scen, Scenario == "high") %>%
       select(-Scenario)
 
     # Assign the market names to all hydrogen technologies. Use the USA region as the default, then
