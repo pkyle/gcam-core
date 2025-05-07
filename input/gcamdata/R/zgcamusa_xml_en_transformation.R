@@ -72,6 +72,17 @@ module_gcamusa_en_transformation_xml <- function(command, ...) {
     L222.Tech_USAen <- rename(L222.Tech_USAen, pass.through.technology = technology)
     L222.SubsectorShrwtFllt_en_USA <- rename(L222.SubsectorShrwtFllt_en_USA, year.fillout = year)
 
+    # 5/6/25 GPK - assign a parsed base value to e-fuels in order to avoid model crash
+    EfuelsLogitType <- unique(L222.SubsectorLogit_en_USA$logit.type[L222.SubsectorLogit_en_USA$subsector == "e-fuels"])
+    EfuelsBaseValue <- 10
+    if(!is.na(EfuelsLogitType) & EfuelsLogitType == "absolute-cost-logit"){
+      L222.AbsoluteLogitBaseValue_USAen <- L222.DeleteStubTech_USAen %>%
+        filter(subsector == "e-fuels") %>%
+        distinct(region, supplysector, subsector) %>%
+        mutate(is.base.value.parsed = 1,
+               base.value = EfuelsBaseValue)
+    }
+
     # Produce outputs
     create_xml("en_transformation_USA.xml") %>%
       add_node_equiv_xml("sector") %>%
@@ -123,6 +134,12 @@ module_gcamusa_en_transformation_xml <- function(command, ...) {
                      "L222.StubTechMarket_en_USA",
                      "L222.CarbonCoef_en_USA") ->
       en_transformation_USA.xml
+
+    if(!is.na(EfuelsLogitType) & EfuelsLogitType == "absolute-cost-logit"){
+      en_transformation_USA.xml %>%
+        add_xml_data(L222.AbsoluteLogitBaseValue_USAen, "AbsoluteLogitBaseValue") ->
+        en_transformation_USA.xml
+    }
 
     return_data(en_transformation_USA.xml)
   } else {
