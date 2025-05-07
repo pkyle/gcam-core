@@ -98,13 +98,13 @@
     </ComponentSet>
     <ComponentSet name="HFTO scenarios">
         <FileSet name="Baseline">
-            <Value name = "ATB_2023">../input/extra/ATB_2023_central_costs_32.xml</Value>
-            <Value name = "trn_ref">../input/gcamdata/xml/transport_DECARB_IRA.xml</Value>
+\            <Value name = "trn_ref">../input/gcamdata/xml/transport_DECARB_IRA.xml</Value>
         </FileSet>
         <FileSet name="Advanced">
             <Value name = "trn_hi">../input/gcamdata/xml/transport_DECARB_HiTech.xml</Value>
-            <Value name = "elec_adv">../input/extra/ATB_2023_adv_costs_32.xml</Value>
-            <Value name = "electrolysis_adv">../input/gcamdata/xml/hydrogen_electrolysis_adv.xml</Value>
+            <Value name = "wind_adv">../input/gcamdata/xml/wind_adv.xml</Value>
+            <Value name = "solar_adv">../input/gcamdata/xml/solar_adv.xml</Value>
+            <Value name = "electrolysis_adv">../input/gcamdata/xml/hydrogen_adv.xml</Value>
         </FileSet>
     </ComponentSet>
 </BatchRunner>
