@@ -4,13 +4,10 @@
 # Column types: ccic
 # ----------
 supplysector,subsector,logit.exponent,logit.type
-H2 central production,coal,-10,
 H2 central production,gas,-10,
 H2 central production,biomass,-10,
 H2 central production,nuclear,-10,
 H2 central production,electricity,-10,
-H2 central production,wind,-10,
-H2 central production,solar,-10,
 H2 central production,hybrid,-10,
 H2 pipeline,H2 pipeline,-6,
 H2 liquid truck,H2 liquid truck,-6,

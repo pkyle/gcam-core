@@ -4,13 +4,10 @@
 # Column types: cccci
 # ----------
 supplysector,subsector,year.fillout,year,share.weight
-H2 central production,coal,start-year,,0
 H2 central production,gas,start-year,,0
 H2 central production,biomass,start-year,,0
 H2 central production,nuclear,start-year,,0
 H2 central production,electricity,start-year,,0
-H2 central production,wind,start-year,,0
-H2 central production,solar,start-year,,0
 H2 central production,hybrid,start-year,,0
 H2 pipeline,H2 pipeline,start-year,,0
 H2 liquid truck,H2 liquid truck,start-year,,0
@@ -25,13 +22,10 @@ H2 MHDV,H2 delivery,start-year,,0
 H2 MHDV,onsite production,start-year,,0
 LH2,H2 delivery,start-year,,0
 LH2,onsite production,start-year,,0
-H2 central production,coal,2020,,1
 H2 central production,gas,2020,,1
 H2 central production,biomass,2020,,1
 H2 central production,nuclear,2020,,1
 H2 central production,electricity,2020,,1
-H2 central production,wind,2020,,1
-H2 central production,solar,2020,,1
 H2 central production,hybrid,2020,,1
 H2 pipeline,H2 pipeline,2020,,1
 H2 liquid truck,H2 liquid truck,2020,,1

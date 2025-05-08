@@ -576,8 +576,6 @@ energy.PV_RESID_OM             <- 100      # 2005USD per kw per year
 energy.CSP_STORAGE_CF_DIFF     <- 0.25     # capacity factor difference between CSP_storage (0.5) and CSP (0.25)
 energy.SOLAR_ELECTROLYSIS_KGH2_D <- 50000    # kg of h2 produced per day at a solar-electrolysis plant
 energy.ELECTROLYZER_RENEWABLE_CAPACITY_RATIO <- 0.618  # unitless capacity ratio of electrolyzers to renewable-electric equipment
-energy.Electrolyzer_2050_2040_cost_ratio <- 0.77 # Set the fraction of 2050 to 2040 costs. The specific number is from Pat's workbook
-energy.Grid.Electrolyzer.capacity.factor <- 0.95
 
 # Wind related constants
 energy.WIND_CURVE_MIDPOINT <- 0.5

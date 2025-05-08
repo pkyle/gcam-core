@@ -40,8 +40,6 @@ gas processing,coal gasification,coal gasification,,,,,,
 gas processing,natural gas,natural gas,,,,,,
 H2 central production,biomass,biomass to H2,10,82,80,50,50,60
 H2 central production,biomass,biomass to H2 CCS,10,82,80,50,50,60
-H2 central production,coal,coal chemical,10,82,80,50,50,60
-H2 central production,coal,coal chemical CCS,10,82,80,50,50,60
 H2 central production,gas,natural gas steam reforming,,23.5,15,100,100,
 H2 central production,gas,gas ATR CCS,,23.5,15,100,100,
 H2 LDV,onsite production,natural gas steam reforming,,23.5,15,100,100,
