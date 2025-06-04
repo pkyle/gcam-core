@@ -98,13 +98,19 @@
     </ComponentSet>
     <ComponentSet name="HFTO scenarios">
         <FileSet name="Baseline">
-\            <Value name = "trn_ref">../input/gcamdata/xml/transport_DECARB_IRA.xml</Value>
+            <Value name = "trn_ref">../input/gcamdata/xml/transport_DECARB_IRA.xml</Value>
         </FileSet>
         <FileSet name="Advanced">
             <Value name = "trn_hi">../input/gcamdata/xml/transport_DECARB_HiTech.xml</Value>
             <Value name = "wind_adv">../input/gcamdata/xml/wind_adv.xml</Value>
             <Value name = "solar_adv">../input/gcamdata/xml/solar_adv.xml</Value>
             <Value name = "electrolysis_adv">../input/gcamdata/xml/hydrogen_adv.xml</Value>
+        </FileSet>
+        <FileSet name="LoTech">
+            <Value name = "trn_ref">../input/gcamdata/xml/transport_DECARB_IRA.xml</Value>
+            <Value name = "wind_low">../input/gcamdata/xml/wind_low.xml</Value>
+            <Value name = "solar_low">../input/gcamdata/xml/solar_low.xml</Value>
+            <Value name = "electrolysis_low">../input/gcamdata/xml/hydrogen_lotech.xml</Value>
         </FileSet>
     </ComponentSet>
 </BatchRunner>
