@@ -20,6 +20,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
              FILE = "energy/H2ALite_TEAdata",
              FILE = "energy/H2ALite_wind_solar_CF",
              FILE = "energy/mappings/H2ALite_TEA_mapping",
+             FILE = "energy/Melaina_h2_water",
              FILE = "gcam-usa/A225.structure",
              "L223.GlobalIntTechCapital_elec",
              "L223.GlobalIntTechOMfixed_elec",
@@ -69,6 +70,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
     H2ALite_TEAdata <- get_data(all_data, "energy/H2ALite_TEAdata")
     H2ALite_TEA_mapping <- get_data(all_data, "energy/mappings/H2ALite_TEA_mapping")
     H2ALite_wind_solar_CF <- get_data(all_data,"energy/H2ALite_wind_solar_CF", strip_attributes = TRUE)
+    Melaina_h2_water <- get_data(all_data, "energy/Melaina_h2_water")
     A225.structure <- get_data(all_data, "gcam-usa/A225.structure")
     L223.GlobalIntTechCapital_elec <- get_data(all_data, "L223.GlobalIntTechCapital_elec", strip_attributes = TRUE)
     L223.GlobalIntTechOMfixed_elec <- get_data(all_data, "L223.GlobalIntTechOMfixed_elec", strip_attributes = TRUE)
@@ -205,10 +207,17 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
       L225.H2ALite_Hybrid_TEAdata
 
     # IO coefficients are determined first as they are used to compute renewable electricity generation costs
+    # 6/28/25 GPK - modify to include water inputs
+    SolarH2_water_m3GJ <- Melaina_h2_water$Value[Melaina_h2_water$Technology == "Solar PV electrolysis"] * CONV_GAL_M3 / CONV_GJ_KGH2
+    WindH2_water_m3GJ <- Melaina_h2_water$Value[Melaina_h2_water$Technology == "Wind electrolysis"] * CONV_GAL_M3 / CONV_GJ_KGH2
+
     L225.StubTechCoef_h2_USA_scen <- L225.H2ALite_Hybrid_TEAdata %>%
-      mutate(PV_resource = `Energy use Electricity (Solar) [kWh/kg]`* CONV_KWH_GJ / CONV_GJ_KGH2) %>%
-      mutate(`onshore wind resource` = `Energy use Electricity (On-shore wind) [kWh/kg]`* CONV_KWH_GJ / CONV_GJ_KGH2) %>%
-      select(Scenario, region = state, TechnologyH2A, year, PV_resource, `onshore wind resource`) %>%
+      mutate(PV_resource = `Energy use Electricity (Solar) [kWh/kg]`* CONV_KWH_GJ / CONV_GJ_KGH2,
+             `onshore wind resource` = `Energy use Electricity (On-shore wind) [kWh/kg]`* CONV_KWH_GJ / CONV_GJ_KGH2,
+             water_td_ind_W = (PV_resource * SolarH2_water_m3GJ + `onshore wind resource` * WindH2_water_m3GJ) /
+               (PV_resource + `onshore wind resource`),
+             water_td_ind_C = water_td_ind_W) %>%
+      select(Scenario, region = state, TechnologyH2A, year, PV_resource, `onshore wind resource`, water_td_ind_W, water_td_ind_C) %>%
       tidyr::gather(key = "minicam.energy.input", value = "coefficient", -Scenario, -region, -TechnologyH2A, -year) %>%
       complete(nesting(Scenario, region, TechnologyH2A, minicam.energy.input), year = MODEL_YEARS) %>%
       group_by(Scenario, region, TechnologyH2A, minicam.energy.input) %>%
@@ -275,8 +284,10 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
     # IO coefs: NH has the lowest solar coefficients of any state, so copying it. HI will use FL.
     L225.StubTechCoef_h2_USA_scen <- bind_rows(
       L225.StubTechCoef_h2_USA_scen,
-      mutate(filter(L225.StubTechCoef_h2_USA_scen, region == "NH"), region = "AK", market.name = "AK"),
-      mutate(filter(L225.StubTechCoef_h2_USA_scen, region == "FL"), region = "HI", market.name = "HI")
+      mutate(filter(L225.StubTechCoef_h2_USA_scen, region == "NH"),
+             region = "AK", market.name = "AK"),
+      mutate(filter(L225.StubTechCoef_h2_USA_scen, region == "FL"),
+             region = "HI", market.name = "HI")
     )
 
     # Split the IOcoef data into scenario-specific tables
@@ -432,7 +443,8 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
       add_title("State-level green hydrogen IO coefficients (ref scenario)") %>%
       add_units("$1975/GJ") %>%
       add_comments("GJelec/GJh2 inputs of wind and solar to hybrid technology") %>%
-      same_precursors_as(L225.StubTechCost_h2_USA_ref) ->
+      same_precursors_as(L225.StubTechCost_h2_USA_ref) %>%
+      add_precursors("energy/Melaina_h2_water") ->
       L225.StubTechCoef_h2_USA_ref
 
     L225.StubTechCoef_h2_USA_adv %>%
