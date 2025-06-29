@@ -27,6 +27,7 @@ module_energy_L125.hydrogen <- function(command, ...) {
     return(c(FILE = "common/GCAM_region_names",
              FILE = "energy/H2ALite_TEAdata",
              FILE = "energy/H2ALite_wind_solar_CF",
+             FILE = "energy/Melaina_h2_water",
              FILE = "energy/mappings/H2ALite_TEA_mapping",
              "L223.GlobalTechCapFac_elec",
              "L223.GlobalTechCapital_elec",
@@ -52,6 +53,7 @@ module_energy_L125.hydrogen <- function(command, ...) {
     H2ALite_TEAdata <- get_data(all_data, "energy/H2ALite_TEAdata")
     H2ALite_TEA_mapping <- get_data(all_data, "energy/mappings/H2ALite_TEA_mapping")
     H2ALite_wind_solar_CF <- get_data(all_data,"energy/H2ALite_wind_solar_CF", strip_attributes = TRUE)
+    Melaina_h2_water <- get_data(all_data, "energy/Melaina_h2_water")
 
     L223.GlobalTechCapFac_elec <- get_data(all_data, "L223.GlobalTechCapFac_elec", strip_attributes = TRUE)
     L223.GlobalTechCapital_elec <- get_data(all_data, "L223.GlobalTechCapital_elec", strip_attributes = TRUE)
@@ -313,6 +315,54 @@ module_energy_L125.hydrogen <- function(command, ...) {
     L125.StubTechCoef_h2_hybrid_scen <-
       bind_rows(L125.StubTechCoef_h2_hybrid_scen_US, L125.StubTechCoef_h2_hybrid_scen_noUS)
 
+    # 6/26/25 GPK - compile and include data on water use by hydrogen production
+    L125.h2_water<- Melaina_h2_water %>%
+      mutate(coefficient = Value * CONV_GAL_M3 / CONV_GJ_KGH2) %>%
+      select(WaterTechnology = Technology, coefficient)
+
+    # Global tech water coefficients
+    # Hybrid: turn wind and solar into percentages, multiply by water intensities of each, and add them up.
+    L125.globaltech_coef_water_hybrid <- L125.globaltech_coef_scen %>%
+      filter(subsector.name == "hybrid") %>%
+      group_by(Scenario, sector.name, subsector.name, technology, year) %>%
+      mutate(share = coefficient / sum(coefficient)) %>%
+      ungroup() %>%
+      mutate(WaterTechnology = if_else(minicam.energy.input == "global solar resource", "Solar PV electrolysis", "Wind electrolysis")) %>%
+      left_join_error_no_match(L125.h2_water, by = "WaterTechnology", suffix = c(".energy", ".water")) %>%
+      mutate(coefficient = coefficient.water * share) %>%
+      group_by(Scenario, sector.name, subsector.name, technology, year) %>%
+      summarise(coefficient = sum(coefficient)) %>%
+      ungroup() %>%
+      repeat_add_columns(tibble(minicam.energy.input = c("water_td_ind_W", "water_td_ind_C"))) %>%
+      select(c("Scenario", LEVEL2_DATA_NAMES[["GlobalTechCoef"]]))
+
+    # Standard global technologies
+    L125.globaltech_coef_water <- L125.globaltech_coef_scen %>%
+      filter(subsector.name != "hybrid") %>%
+      distinct(Scenario, sector.name, subsector.name, technology, year) %>%
+      left_join_error_no_match(H2ALite_TEA_mapping, by = c("sector.name", "subsector.name", "technology")) %>%
+      left_join_error_no_match(L125.h2_water, by = "WaterTechnology") %>%
+      repeat_add_columns(tibble(minicam.energy.input = c("water_td_ind_W", "water_td_ind_C"))) %>%
+      select(c("Scenario", LEVEL2_DATA_NAMES[["GlobalTechCoef"]])) %>%
+      bind_rows(L125.globaltech_coef_water_hybrid)
+
+    L125.globaltech_coef_scen <- bind_rows(L125.globaltech_coef_scen, L125.globaltech_coef_water)
+
+    # Hybrid stub-technologies
+    L125.StubTechCoef_h2_water_hybrid_scen <- L125.StubTechCoef_h2_hybrid_scen %>%
+      group_by(Scenario, region, supplysector, subsector, stub.technology, year) %>%
+      mutate(share = coefficient / sum(coefficient)) %>%
+      ungroup() %>%
+      mutate(WaterTechnology = if_else(minicam.energy.input == "global solar resource", "Solar PV electrolysis", "Wind electrolysis")) %>%
+      left_join_error_no_match(L125.h2_water, by = "WaterTechnology", suffix = c(".energy", ".water")) %>%
+      mutate(coefficient = coefficient.water * share) %>%
+      group_by(Scenario, region, supplysector, subsector, stub.technology, year) %>%
+      summarise(coefficient = sum(coefficient)) %>%
+      ungroup() %>%
+      repeat_add_columns(tibble(minicam.energy.input = c("water_td_ind_W", "water_td_ind_C")))
+
+    L125.StubTechCoef_h2_hybrid_scen <- bind_rows(L125.StubTechCoef_h2_hybrid_scen, L125.StubTechCoef_h2_water_hybrid_scen)
+
     # ===================================================
     # Produce outputs
 
@@ -322,7 +372,7 @@ module_energy_L125.hydrogen <- function(command, ...) {
       add_comments("Interpolated original data into all model years") %>%
       add_precursors("common/GCAM_region_names", "energy/mappings/H2ALite_TEA_mapping",
                      "energy/H2ALite_TEAdata", "energy/H2ALite_wind_solar_CF",
-                     "L223.StubTechCapFactor_elec")  ->
+                     "energy/Melaina_h2_water", "L223.StubTechCapFactor_elec")  ->
       L125.globaltech_coef_scen
 
     L125.globaltech_cost_scen %>%
