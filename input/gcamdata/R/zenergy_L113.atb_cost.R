@@ -514,7 +514,7 @@ module_energy_L113.atb_cost <- function(command, ...) {
       warning(paste0("energy.ATB_BASE_YEAR < energy.ATB_LATEST_YEAR (", energy.ATB_BASE_YEAR, " < ", energy.ATB_LATEST_YEAR, ") extending using fill_exp_decay_extrapolate"))
       L113.globaltech_cost_atb %>%
         spread(year, value) %>%
-        fill_exp_decay_extrapolate(unique(c(L113.globaltech_cost_atb$year, energy.ATB_LATEST_YEAR))) %>%
+        fill_exp_decay_extrapolate(unique(c(L113.globaltech_cost_atb$year, energy.ATB_LATEST_YEAR)), tech_colnames = "technology") %>%
         gather_years() -> L113.extended_data
       # finally, we need to recover the extrapolation params
       L113.globaltech_cost_atb %>%
