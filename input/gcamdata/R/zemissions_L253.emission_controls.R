@@ -35,6 +35,7 @@ module_emissions_L253.emission_controls <- function(command, ...) {
              FILE = "emissions/emission_controls/A53.em_ctrl_param_intl_shipping",
              FILE = "emissions/emission_controls/A53.em_ctrl_param_dom_shipping",
              FILE = "emissions/emission_controls/A53.em_ctrl_param_H2_ind_comb",
+             FILE = "emissions/emission_controls/A53.em_ctrl_param_H2_ind_comb_GCAMUSA",
              user_em_control_files, # All files in user_emission_controls folder
              "L102.pcgdp_thous90USD_Scen_R_Y",
              "L201.nonghg_steepness",

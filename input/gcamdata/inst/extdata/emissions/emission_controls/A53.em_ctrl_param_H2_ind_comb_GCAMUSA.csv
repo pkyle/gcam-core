@@ -1,0 +1,11 @@
+# File: A53.em_ctrl_param_H2_ind_comb_GCAMUSA.csv
+# Title: NOx_em_controls_H2_industrial_combustion
+# Units: kg/GJ_energy_in or Tg/EJ_energy_in
+# Source: EMEP 2023
+# Description: NOx emission factors for hydrogen combustion are set equal to the industrial natural gas value from EMEP 2023
+# Column types: cccccnnnnnnnnc
+# ---------
+region,supplysector,subsector,stub.technology,Non.CO2,pcGDP_start_NSPS,NSPS_start_year,NSPS_em_coeff,pcGDP_start_retrofit,retrofit_start_year,retrofit_time,retrofit_vintage,retrofit_em_coeff,Notes and sources
+All states,process heat cement,hydrogen,hydrogen,NOx, NA,1975,0.074, NA, NA, NA, NA, NA,Based on EMEP 2023 industrial natural gas combustion emissions factor
+All states,other industrial energy use,hydrogen,hydrogen,NOx, NA,1975,0.074, NA, NA, NA, NA, NA,Based on EMEP 2023 industrial natural gas combustion emissions factor
+All states,other industrial energy use,hydrogen,hydrogen cogen,NOx, NA,1975,0.074, NA, NA, NA, NA, NA,Based on EMEP 2023 industrial natural gas combustion emissions factor
