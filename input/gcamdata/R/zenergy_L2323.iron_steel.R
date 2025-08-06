@@ -414,7 +414,7 @@ module_energy_L2323.iron_steel <- function(command, ...) {
       group_by(region, supplysector, subsector, stub.technology, minicam.energy.input) %>%
       mutate(coefficient = round(approx_fun(year, coefficient,rule = 2), energy.DIGITS_COEFFICIENT)) %>%
       ungroup() %>%
-      filter(year %in% MODEL_YEARS) ->   # drop the terminal coef year if it's outside of the model years
+      filter(year %in% MODEL_BASE_YEARS) ->   # drop the terminal coef year if it's outside of the model years
       L2323.StubTechCoef_iron_steel
 
     # L2323.PerCapitaBased_iron_steel: per-capita based flag for iron_steel exports final demand
