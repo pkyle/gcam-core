@@ -3,44 +3,82 @@
 # Units: GJ/t
 # Description: Energy coefficient in steel production
 # Source: Literature
-# Column types: cccncn
+# Column types: cccncnc
 # ----------
-subsector,technology,fuel,value,Unit,ratio
-BLASTFUR,Biomass-based,biomass,17.1,GJ/t,
-BLASTFUR,Biomass-based,refined liquids,0.1,GJ/t,1
-BLASTFUR,Biomass-based,electricity,1.6,GJ/t,1
-BLASTFUR,Biomass-based,gas,6.6,GJ/t,1
-BLASTFUR,BLASTFUR,coal,17.1,GJ/t,1
-BLASTFUR,BLASTFUR,refined liquids,0.1,GJ/t,1
-BLASTFUR,BLASTFUR,electricity,1.6,GJ/t,1
-BLASTFUR,BLASTFUR,gas,6.6,GJ/t,1
-BLASTFUR,BLASTFUR CCS,coal,13.7,GJ/t,0.798074348
-BLASTFUR,BLASTFUR CCS,refined liquids,0.1,GJ/t,1
-BLASTFUR,BLASTFUR CCS,electricity,2.3,GJ/t,1.935511997
-BLASTFUR,BLASTFUR CCS,gas,6.6,GJ/t,1
-BLASTFUR,BLASTFUR with hydrogen,coal,14,GJ/t,0.814041123
-BLASTFUR,BLASTFUR with hydrogen,electricity,1.6,GJ/t,1
-BLASTFUR,BLASTFUR with hydrogen,Hydrogen,3.2,GJ/t,
-BLASTFUR,BLASTFUR with hydrogen,refined liquids,0.1,GJ/t,1
-BLASTFUR,BLASTFUR with hydrogen,gas,6.6,GJ/t,1
-BLASTFUR,BLASTFUR CCS with hydrogen,coal,14,GJ/t,0.612115471
-BLASTFUR,BLASTFUR CCS with hydrogen,electricity,1.6,GJ/t,1.935511997
-BLASTFUR,BLASTFUR CCS with hydrogen,Hydrogen,3.2,GJ/t,
-BLASTFUR,BLASTFUR CCS with hydrogen,refined liquids,0.1,GJ/t,1
-BLASTFUR,BLASTFUR CCS with hydrogen,gas,6.6,GJ/t,1
-EAF with DRI,EAF with DRI,coal,0.1,GJ/t,1
-EAF with DRI,EAF with DRI,refined liquids,0.1,GJ/t,1
-EAF with DRI,EAF with DRI,electricity,3.4,GJ/t,1
-EAF with DRI,EAF with DRI,gas,18.3,GJ/t,1
-EAF with DRI,EAF with DRI CCS,coal,0.1,GJ/t,1
-EAF with DRI,EAF with DRI CCS,refined liquids,0.1,GJ/t,1
-EAF with DRI,EAF with DRI CCS,electricity,3.4,GJ/t,1
-EAF with DRI,EAF with DRI CCS,gas,18.3,GJ/t,1
-EAF with DRI,Hydrogen-based DRI,Hydrogen,9.966,GJ/t,
-EAF with DRI,Hydrogen-based DRI,electricity,3.836,GJ/t,0.943223159
-EAF with DRI,Hydrogen-based DRI,refined liquids,1.112,GJ/t,
-EAF with DRI,Hydrogen-based DRI,gas,0.244,GJ/t,
-EAF with scrap,EAF with scrap,refined liquids,0.1,GJ/t,1
-EAF with scrap,EAF with scrap,electricity,2.9,GJ/t,1
-EAF with scrap,EAF with scrap,scrap,1.1,GJ/t,1
-EAF with scrap,EAF with scrap,gas,3,GJ/t,1
+subsector,technology,fuel,value,Unit,ratio,steel_thermal_fuel
+BLASTFUR,Biomass-based,biomass,23.6,GJ/t,,gas
+BLASTFUR,Biomass-based,refined liquids,0.1,GJ/t,1,gas
+BLASTFUR,Biomass-based,electricity,1.6,GJ/t,1,gas
+BLASTFUR,Biomass-based,gas,0.1,GJ/t,1,gas
+BLASTFUR,BLASTFUR,coal,17.1,GJ/t,1,gas
+BLASTFUR,BLASTFUR,refined liquids,0.1,GJ/t,1,gas
+BLASTFUR,BLASTFUR,electricity,1.6,GJ/t,1,gas
+BLASTFUR,BLASTFUR,gas,6.6,GJ/t,1,gas
+BLASTFUR,BLASTFUR CCS,coal,13.7,GJ/t,0.798074348,gas
+BLASTFUR,BLASTFUR CCS,refined liquids,0.1,GJ/t,1,gas
+BLASTFUR,BLASTFUR CCS,electricity,2.3,GJ/t,1.935511997,gas
+BLASTFUR,BLASTFUR CCS,gas,6.6,GJ/t,1,gas
+BLASTFUR,BLASTFUR with hydrogen,coal,14,GJ/t,0.814041123,gas
+BLASTFUR,BLASTFUR with hydrogen,electricity,1.6,GJ/t,1,gas
+BLASTFUR,BLASTFUR with hydrogen,Hydrogen,3.2,GJ/t,,gas
+BLASTFUR,BLASTFUR with hydrogen,refined liquids,0.1,GJ/t,1,gas
+BLASTFUR,BLASTFUR with hydrogen,gas,6.6,GJ/t,1,gas
+BLASTFUR,BLASTFUR CCS with hydrogen,coal,14,GJ/t,0.612115471,gas
+BLASTFUR,BLASTFUR CCS with hydrogen,electricity,1.6,GJ/t,1.935511997,gas
+BLASTFUR,BLASTFUR CCS with hydrogen,Hydrogen,3.2,GJ/t,,gas
+BLASTFUR,BLASTFUR CCS with hydrogen,refined liquids,0.1,GJ/t,1,gas
+BLASTFUR,BLASTFUR CCS with hydrogen,gas,6.6,GJ/t,1,gas
+EAF with DRI,EAF with DRI,coal,0.1,GJ/t,1,gas
+EAF with DRI,EAF with DRI,refined liquids,0.1,GJ/t,1,gas
+EAF with DRI,EAF with DRI,electricity,3.4,GJ/t,1,gas
+EAF with DRI,EAF with DRI,gas,18.3,GJ/t,1,gas
+EAF with DRI,EAF with DRI CCS,coal,0.1,GJ/t,1,gas
+EAF with DRI,EAF with DRI CCS,refined liquids,0.1,GJ/t,1,gas
+EAF with DRI,EAF with DRI CCS,electricity,3.4,GJ/t,1,gas
+EAF with DRI,EAF with DRI CCS,gas,18.3,GJ/t,1,gas
+EAF with DRI,Hydrogen-based DRI,Hydrogen,7.321,GJ/t,,gas
+EAF with DRI,Hydrogen-based DRI,electricity,4.173,GJ/t,0.943223159,gas
+EAF with DRI,Hydrogen-based DRI,refined liquids,1.069,GJ/t,,gas
+EAF with DRI,Hydrogen-based DRI,gas,3.573,GJ/t,,gas
+EAF with scrap,EAF with scrap,refined liquids,0.1,GJ/t,1,gas
+EAF with scrap,EAF with scrap,electricity,2.9,GJ/t,1,gas
+EAF with scrap,EAF with scrap,scrap,1.1,GJ/t,1,gas
+EAF with scrap,EAF with scrap,gas,3,GJ/t,1,gas
+BLASTFUR,Biomass-based,biomass,23.6,GJ/t,,coal
+BLASTFUR,Biomass-based,refined liquids,0.1,GJ/t,1,coal
+BLASTFUR,Biomass-based,electricity,1.6,GJ/t,1,coal
+BLASTFUR,Biomass-based,gas,0.1,GJ/t,1,coal
+BLASTFUR,BLASTFUR,coal,23.6,GJ/t,1,coal
+BLASTFUR,BLASTFUR,refined liquids,0.1,GJ/t,1,coal
+BLASTFUR,BLASTFUR,electricity,1.6,GJ/t,1,coal
+BLASTFUR,BLASTFUR,gas,0.1,GJ/t,1,coal
+BLASTFUR,BLASTFUR CCS,coal,20.2,GJ/t,0.798074348,coal
+BLASTFUR,BLASTFUR CCS,refined liquids,0.1,GJ/t,1,coal
+BLASTFUR,BLASTFUR CCS,electricity,2.3,GJ/t,1.935511997,coal
+BLASTFUR,BLASTFUR CCS,gas,0.1,GJ/t,1,coal
+BLASTFUR,BLASTFUR with hydrogen,coal,20.5,GJ/t,0.814041123,coal
+BLASTFUR,BLASTFUR with hydrogen,electricity,1.6,GJ/t,1,coal
+BLASTFUR,BLASTFUR with hydrogen,Hydrogen,3.2,GJ/t,,coal
+BLASTFUR,BLASTFUR with hydrogen,refined liquids,0.1,GJ/t,1,coal
+BLASTFUR,BLASTFUR with hydrogen,gas,0.1,GJ/t,1,coal
+BLASTFUR,BLASTFUR CCS with hydrogen,coal,20.5,GJ/t,0.612115471,coal
+BLASTFUR,BLASTFUR CCS with hydrogen,electricity,1.6,GJ/t,1.935511997,coal
+BLASTFUR,BLASTFUR CCS with hydrogen,Hydrogen,3.2,GJ/t,,coal
+BLASTFUR,BLASTFUR CCS with hydrogen,refined liquids,0.1,GJ/t,1,coal
+BLASTFUR,BLASTFUR CCS with hydrogen,gas,0.1,GJ/t,1,coal
+EAF with DRI,EAF with DRI,coal,0.1,GJ/t,1,coal
+EAF with DRI,EAF with DRI,refined liquids,0.1,GJ/t,1,coal
+EAF with DRI,EAF with DRI,electricity,3.4,GJ/t,1,coal
+EAF with DRI,EAF with DRI,gas,18.3,GJ/t,1,coal
+EAF with DRI,EAF with DRI CCS,coal,0.1,GJ/t,1,coal
+EAF with DRI,EAF with DRI CCS,refined liquids,0.1,GJ/t,1,coal
+EAF with DRI,EAF with DRI CCS,electricity,3.4,GJ/t,1,coal
+EAF with DRI,EAF with DRI CCS,gas,18.3,GJ/t,1,coal
+EAF with DRI,Hydrogen-based DRI,Hydrogen,7.321,GJ/t,,coal
+EAF with DRI,Hydrogen-based DRI,electricity,4.173,GJ/t,0.943223159,coal
+EAF with DRI,Hydrogen-based DRI,refined liquids,1.069,GJ/t,,coal
+EAF with DRI,Hydrogen-based DRI,gas,3.573,GJ/t,,coal
+EAF with scrap,EAF with scrap,refined liquids,0.1,GJ/t,1,coal
+EAF with scrap,EAF with scrap,electricity,2.9,GJ/t,1,coal
+EAF with scrap,EAF with scrap,scrap,1.1,GJ/t,1,coal
+EAF with scrap,EAF with scrap,gas,3,GJ/t,1,coal

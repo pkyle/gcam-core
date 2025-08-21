@@ -27,6 +27,7 @@ module_energy_L1323.iron_steel <- function(command, ...) {
              FILE = "common/GCAM_region_names",
              FILE = "energy/mappings/enduse_fuel_aggregation",
              FILE = "energy/A323.subsector_interp",
+             FILE = "energy/A_regions",
              "L1012.en_bal_EJ_R_Si_Fi_Yh",
              "L1322.in_EJ_R_indenergy_F_Yh",
              "LB1092.Tradebalance_iron_steel_Mt_R_Y"))
@@ -59,6 +60,7 @@ module_energy_L1323.iron_steel <- function(command, ...) {
     iso_GCAM_regID <- get_data(all_data, "common/iso_GCAM_regID")
     GCAM_region_names <- get_data(all_data, "common/GCAM_region_names")
     enduse_fuel_aggregation <- get_data(all_data, "energy/mappings/enduse_fuel_aggregation")
+    A_regions <- get_data(all_data, "energy/A_regions")
 
     # some checking to ensure we have enough historical data to cover the calibration years and issue a warning
     # and copy forward if no
@@ -88,7 +90,7 @@ module_energy_L1323.iron_steel <- function(command, ...) {
 
     #Estimate DRI (direct reduced iron) consumption from country-wise WSA DRI production, imports, and exports data
     DRI_stats %>%
-      gather(year,value,-metric,-country_name)%>%
+      tidyr::gather(year,value,-metric,-country_name)%>%
       spread(metric,value)%>%
       replace(is.na(.), 0) %>%
       mutate(year = as.numeric(year),
@@ -147,7 +149,7 @@ module_energy_L1323.iron_steel <- function(command, ...) {
         ungroup()%>%
         select(GCAM_region_ID,year,BLASTFUR,`EAF with scrap`,`EAF with DRI`)%>%
         #convert from wide to long
-        gather(subsector,value,-year,-GCAM_region_ID) %>%
+        tidyr::gather(subsector,value,-year,-GCAM_region_ID) %>%
         #convert unit from kt to mt
         mutate(value = value * CONV_KT_MT) %>%
         select(GCAM_region_ID, year,subsector, value) -> L1323.out_Mt_R_iron_steel_Yh
@@ -188,11 +190,19 @@ module_energy_L1323.iron_steel <- function(command, ...) {
     # Calculate bottom-up energy consumption = production * intensity from literature
     L1323.out_Mt_R_iron_steel_Yh %>%
       rename(output = value) %>%
-      left_join(steel_intensity %>% select(-subsector,-ratio), by = c("subsector"="technology")) %>%
-      mutate(value = if_else(Unit == "GJ/t", value * CONV_GJ_EJ / CONV_T_MT, value),
-                    energy_use = output * value,
-                    unit = "EJ") ->
-      Intensity_literature
+      left_join(A_regions,by=c("GCAM_region_ID"))%>%
+      select(GCAM_region_ID,year,subsector,output,steel_thermal_fuel) %>%
+      left_join(steel_intensity %>% select(-subsector,-ratio), by = c("subsector"="technology","steel_thermal_fuel"))%>%
+      #make EAF-DRI switch
+      mutate(fuel = case_when(subsector == "EAF with DRI" & GCAM_region_ID %in% c(17) & fuel == "coal" ~ "gas",
+        subsector == "EAF with DRI" & GCAM_region_ID %in% c(17) & fuel == "gas"  ~ "coal",
+        TRUE ~ fuel)) %>%
+      mutate(value = case_when(
+        subsector == "EAF with DRI" & GCAM_region_ID %in% c(17) & fuel == "coal" ~ 25,
+        TRUE ~ value)) %>%
+        mutate(value = if_else(Unit == "GJ/t", value * CONV_GJ_EJ / CONV_T_MT, value),
+              energy_use = output * value,
+              unit = "EJ") -> Intensity_literature
 
     # Scaler: IEA's estimates of fuel consumption divided by bottom-up estimate of energy consumption
     Intensity_literature %>%
@@ -204,11 +214,8 @@ module_energy_L1323.iron_steel <- function(command, ...) {
              value= if_else(value == 0 & energy_use > 0, energy_use, value), #if bottom-up calculation is non-zero and IEA value is zero, then set IEA value = bottom-up value
              scalar = replace_na(value / energy_use, 1), #calculate scalar = IEA data/bottom-up data, if NA replace scaler = 1
              scalar = if_else(energy_use == 0 & value > 0, 1, scalar),  #if IEA data is non-zero, but bottom-up data is zero; set scaler = 1
-             scalar = if_else(scalar>=6,1,scalar), #if IEA data is 6 times higher or lower than bottom-up calculation; then do not scale the results (i.e., scaler = 1)
-             scalar = if_else(scalar<=0.16,1,scalar)) -> Scaler
-
-
-
+             scalar = if_else(scalar>=1.5,1,scalar), #if IEA data is 6 times higher or lower than bottom-up calculation; then do not scale the results (i.e., scaler = 1)
+             scalar = if_else(scalar<=1/1.5,1,scalar)) -> Scaler
 
     # Intensity scaled = Intensity from the literature times scaler.
     Intensity_literature %>%

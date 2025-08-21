@@ -39,6 +39,8 @@ module_energy_L2323.iron_steel <- function(command, ...) {
              FILE = "energy/TZ_steel_production_costs",
              FILE = "energy/mappings/TZ_steel_cost_gcam_mapping",
              FILE = "energy/mappings/TZ_steel_cost_oecd_mapping",
+             FILE = "energy/steel_intensity",
+             FILE = "energy/A_regions",
 			       "L1323.out_Mt_R_iron_steel_Yh",
              "L1323.IO_GJkg_R_iron_steel_F_Yh",
 			       "L1323.SubsectorInterp_iron_steel",
@@ -92,7 +94,8 @@ module_energy_L2323.iron_steel <- function(command, ...) {
     TZ_steel_production_costs <- get_data(all_data, "energy/TZ_steel_production_costs", strip_attributes = TRUE)
     TZ_steel_cost_gcam_mapping <- get_data(all_data, "energy/mappings/TZ_steel_cost_gcam_mapping", strip_attributes = TRUE)
     TZ_steel_cost_oecd_mapping <- get_data(all_data, "energy/mappings/TZ_steel_cost_oecd_mapping", strip_attributes = TRUE)
-
+    A_regions <- get_data(all_data, "energy/A_regions", strip_attributes = TRUE)
+    steel_intensity <- get_data(all_data, "energy/steel_intensity", strip_attributes = TRUE)
 
     # ===================================================
     # Give binding for variable names used in pipeline
@@ -113,7 +116,7 @@ module_energy_L2323.iron_steel <- function(command, ...) {
 
       TZ_steel_production_costs %>%
         # filter non-energy costs for GCAM model years
-        filter(Model_Year %in% c(MODEL_BASE_YEARS)) %>%
+        filter(Model_Year %in% c(2015)) %>%
         rename(year=Model_Year,subsector= Primary_Production_Route,value=Value)%>%
         # remove energy and total costs from data
         filter(!(Category%in%c("Total","Energy"))) %>%
@@ -147,6 +150,11 @@ module_energy_L2323.iron_steel <- function(command, ...) {
     # with OECD average data
     all_steel_production_costs <- bind_rows(aggregate_steel_production_costs(data=TZ_steel_production_costs,agg_region=Country),
                                             oecd_steel_production_costs)
+
+    all_steel_production_costs <- all_steel_production_costs %>%
+      rbind(all_steel_production_costs %>%
+              filter(subsector=="EAF with scrap")%>%
+              mutate(subsector="EAF with DRI"))
 
     #add capital costs and CCS costs to estimate total production costs
     all_steel_production_costs <-  TZ_steel_cost_gcam_mapping%>%
@@ -414,8 +422,41 @@ module_energy_L2323.iron_steel <- function(command, ...) {
       group_by(region, supplysector, subsector, stub.technology, minicam.energy.input) %>%
       mutate(coefficient = round(approx_fun(year, coefficient,rule = 2), energy.DIGITS_COEFFICIENT)) %>%
       ungroup() %>%
-      filter(year %in% MODEL_BASE_YEARS) ->   # drop the terminal coef year if it's outside of the model years
-      L2323.StubTechCoef_iron_steel
+      filter(year %in% MODEL_YEARS) ->   # drop the terminal coef year if it's outside of the model years
+      L2323.StubTechCoef_iron_steel_tmp
+
+    #Add Future StubTechCoef for coal-heavy regions and make EAF-DRI-Coal adjustment for India
+    L2323.StubTechCoef_iron_steel_tmp %>%
+      left_join(A_regions,by=c("region"))%>%
+      select(-region.class,-has_district_heat,-elect_td_techchange,
+             -biomassOil_tech,-tradbio_region,-ethanol,-biodiesel)-> L2323.StubTechCoef_iron_steel_tmp
+
+    L2323.StubTechCoef_iron_steel_hist <- L2323.StubTechCoef_iron_steel_tmp %>%
+      filter(year %in% MODEL_BASE_YEARS)%>%
+      select(-steel_thermal_fuel,-GCAM_region_ID)
+
+    L2323.StubTechCoef_iron_steel_coal_future <- L2323.StubTechCoef_iron_steel_tmp %>%
+      filter(year %in% MODEL_FUTURE_YEARS, steel_thermal_fuel == "coal")%>%
+      select(-GCAM_region_ID,-steel_thermal_fuel)
+
+     steel_intensity %>%
+       filter(steel_thermal_fuel=="coal")%>%
+       left_join(calibrated_techs_export %>%
+                   select(subsector,technology,fuel,minicam.energy.input), by = c("subsector","technology","fuel"))%>%
+       filter(technology != "Hydrogen-based DRI") -> steel_intensity_coal
+
+     L2323.StubTechCoef_iron_steel_coal_future %>%
+       left_join(steel_intensity_coal %>%
+                   rename(stub.technology=technology),
+                 by=c("subsector","stub.technology","minicam.energy.input")) %>%
+       mutate(value=value/1000)%>%
+       filter(stub.technology!="Hydrogen-based DRI") %>%
+       mutate(coefficient=round(value,energy.DIGITS_COEFFICIENT))%>%
+       select(-ratio,-Unit,-value,-fuel,-steel_thermal_fuel)-> L2323.StubTechCoef_iron_steel_coal_future
+
+    L2323.StubTechCoef_iron_steel <- rbind(L2323.StubTechCoef_iron_steel_hist,L2323.StubTechCoef_iron_steel_coal_future)
+
+
 
     # L2323.PerCapitaBased_iron_steel: per-capita based flag for iron_steel exports final demand
     A323.demand %>%
