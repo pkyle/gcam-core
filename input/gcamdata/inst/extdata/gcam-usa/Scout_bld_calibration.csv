@@ -1,0 +1,2164 @@
+# File: Scout_bld_calibration.csv
+# Title: Buildings sector calibration from Scout model
+# Units: unitless shares
+# Comments: Scout output data processed to compute shares of service/technology within state/sector/fuel
+# Source:  LBNL team (Aven Satre-Meloy) provided for DECARB project
+# Column types: cccccinn
+# ----------
+state,sector,fuel,service,technology,year,share,energy
+Alabama,comm,electricity,cooking,electric range,2015,0.0163922,0.0014723
+Alabama,comm,electricity,cooling,air conditioning,2015,0.1385748,0.0124462
+Alabama,comm,electricity,heating,electric furnace,2015,0.0096627,8.679e-4
+Alabama,comm,electricity,heating,electric heat pump,2015,0.0045031,4.045e-4
+Alabama,comm,electricity,hot water,electric heat pump water heater,2015,5.14e-5,4.6e-6
+Alabama,comm,electricity,hot water,electric resistance water heater,2015,0.0056203,5.048e-4
+Alabama,comm,electricity,lighting,lighting,2015,0.1086722,0.0097605
+Alabama,comm,electricity,office,office equipment,2015,0.1021778,0.0091772
+Alabama,comm,electricity,other,electricity,2015,0.4119504,0.0369996
+Alabama,comm,electricity,refrigeration,refrigeration,2015,0.1193925,0.0107233
+Alabama,comm,electricity,ventilation,ventilation,2015,0.0830026,0.0074549
+Alabama,comm,gas,cooking,gas range,2015,0.1482354,0.003882
+Alabama,comm,gas,cooling,gas cooling,2015,0.019256,5.043e-4
+Alabama,comm,gas,heating,gas furnace,2015,0.5216209,0.0136603
+Alabama,comm,gas,hot water,gas water heater,2015,0.239568,0.0062739
+Alabama,comm,gas,other,gas,2015,0.0713197,0.0018677
+Alabama,comm,refined liquids,heating,fuel furnace,2015,0.2504007,4.307e-4
+Alabama,comm,refined liquids,hot water,fuel water heater,2015,0.0017173,3e-6
+Alabama,comm,refined liquids,other,refined liquids,2015,0.747882,0.0012863
+Alabama,resid,biomass,heating,wood furnace,2015,1,0.0050245
+Alabama,resid,electricity,clothes dryers,clothes dryer,2015,0.0399628,0.0037342
+Alabama,resid,electricity,clothes washers,clothes washer,2015,0.0059175,5.53e-4
+Alabama,resid,electricity,computers,electricity,2015,0.0182655,0.0017068
+Alabama,resid,electricity,cooking,electric oven,2015,0.0106978,9.996e-4
+Alabama,resid,electricity,cooling,air conditioning,2015,0.1872573,0.0174978
+Alabama,resid,electricity,dishwashers,dishwasher,2015,0.0039137,3.657e-4
+Alabama,resid,electricity,freezers,freezer,2015,0.0114433,0.0010693
+Alabama,resid,electricity,furnace fans,electricity,2015,0.0148638,0.0013889
+Alabama,resid,electricity,heating,electric furnace,2015,0.0950485,0.0088816
+Alabama,resid,electricity,heating,electric heat pump,2015,0.05171,0.0048319
+Alabama,resid,electricity,hot water,electric resistance water heater,2015,0.1454495,0.0135912
+Alabama,resid,electricity,lighting,lighting,2015,0.0714611,0.0066775
+Alabama,resid,electricity,other,electricity,2015,0.2961715,0.0276751
+Alabama,resid,electricity,refrigerators,refrigerator,2015,0.0478376,0.0044701
+Alabama,resid,gas,clothes dryers,clothes dryer,2015,0.0040937,1.965e-4
+Alabama,resid,gas,cooking,gas oven,2015,0.0229712,0.0011025
+Alabama,resid,gas,cooling,air conditioning,2015,0.0583987,0.0028029
+Alabama,resid,gas,heating,gas furnace,2015,0.6374783,0.0305964
+Alabama,resid,gas,hot water,gas water heater,2015,0.19871,0.0095373
+Alabama,resid,gas,other,gas,2015,0.0783482,0.0037604
+Alabama,resid,refined liquids,cooking,lpg oven,2015,0.0391938,1.945e-4
+Alabama,resid,refined liquids,heating,fuel furnace,2015,0.6863775,0.0034061
+Alabama,resid,refined liquids,hot water,fuel water heater,2015,0.1468427,7.287e-4
+Alabama,resid,refined liquids,other,refined liquids,2015,0.127586,6.331e-4
+Arizona,comm,electricity,cooking,electric range,2015,0.0165021,0.0017737
+Arizona,comm,electricity,cooling,air conditioning,2015,0.0978957,0.0105221
+Arizona,comm,electricity,heating,electric furnace,2015,0.0061585,6.619e-4
+Arizona,comm,electricity,heating,electric heat pump,2015,0.0024657,2.65e-4
+Arizona,comm,electricity,hot water,electric heat pump water heater,2015,1.08e-5,1.2e-6
+Arizona,comm,electricity,hot water,electric resistance water heater,2015,0.0023952,2.574e-4
+Arizona,comm,electricity,lighting,lighting,2015,0.0818918,0.008802
+Arizona,comm,electricity,office,office equipment,2015,0.1000137,0.0107498
+Arizona,comm,electricity,other,electricity,2015,0.5257371,0.0565079
+Arizona,comm,electricity,refrigeration,refrigeration,2015,0.0851693,0.0091543
+Arizona,comm,electricity,ventilation,ventilation,2015,0.08176,0.0087878
+Arizona,comm,gas,cooking,gas range,2015,0.0704891,0.0029907000000000002
+Arizona,comm,gas,cooling,gas cooling,2015,0.0044842,1.903e-4
+Arizona,comm,gas,heating,gas furnace,2015,0.4845447,0.0205583
+Arizona,comm,gas,hot water,gas water heater,2015,0.2045157,0.0086772
+Arizona,comm,gas,other,gas,2015,0.2359663,0.0100116
+Arizona,comm,refined liquids,heating,fuel furnace,2015,0,0
+Arizona,comm,refined liquids,hot water,fuel water heater,2015,2.529e-4,0
+Arizona,comm,refined liquids,other,refined liquids,2015,0.9997471,5.3e-6
+Arizona,resid,biomass,heating,wood furnace,2015,1,0.0066129
+Arizona,resid,electricity,clothes dryers,clothes dryer,2015,0.0407138,0.0043247
+Arizona,resid,electricity,clothes washers,clothes washer,2015,0.0071999,7.648e-4
+Arizona,resid,electricity,computers,electricity,2015,0.0259667,0.0027582
+Arizona,resid,electricity,cooking,electric oven,2015,0.0094191,0.0010005
+Arizona,resid,electricity,cooling,air conditioning,2015,0.2530129,0.0268755
+Arizona,resid,electricity,dishwashers,dishwasher,2015,0.0053088,5.639e-4
+Arizona,resid,electricity,freezers,freezer,2015,0.0159321,0.0016923
+Arizona,resid,electricity,furnace fans,electricity,2015,0.0282196,0.0029975
+Arizona,resid,electricity,heating,electric furnace,2015,0.0301855,0.0032064
+Arizona,resid,electricity,heating,electric heat pump,2015,0.0075528,8.023e-4
+Arizona,resid,electricity,hot water,electric resistance water heater,2015,0.0702556,0.0074627
+Arizona,resid,electricity,lighting,lighting,2015,0.0932411,0.0099042
+Arizona,resid,electricity,other,electricity,2015,0.350537,0.0372346
+Arizona,resid,electricity,refrigerators,refrigerator,2015,0.062455,0.0066341
+Arizona,resid,gas,clothes dryers,clothes dryer,2015,0.007314,3.613e-4
+Arizona,resid,gas,cooking,gas oven,2015,0.0188854,9.329e-4
+Arizona,resid,gas,cooling,air conditioning,2015,0.0182115,8.996e-4
+Arizona,resid,gas,heating,gas furnace,2015,0.6053685,0.0299034
+Arizona,resid,gas,hot water,gas water heater,2015,0.2868483,0.0141695
+Arizona,resid,gas,other,gas,2015,0.0633723,0.0031304
+Arizona,resid,refined liquids,cooking,lpg oven,2015,0.0377561,2.228e-4
+Arizona,resid,refined liquids,heating,fuel furnace,2015,0.5073799,0.0029936
+Arizona,resid,refined liquids,hot water,fuel water heater,2015,0.2630277,0.0015519
+Arizona,resid,refined liquids,other,refined liquids,2015,0.1918362,0.0011319
+Arkansas,comm,electricity,cooking,electric range,2015,0.0152971,7.928e-4
+Arkansas,comm,electricity,cooling,air conditioning,2015,0.1499483,0.0077714
+Arkansas,comm,electricity,heating,electric furnace,2015,0.0104899,5.437e-4
+Arkansas,comm,electricity,heating,electric heat pump,2015,0.0044226,2.292e-4
+Arkansas,comm,electricity,hot water,electric heat pump water heater,2015,3.54e-5,1.8e-6
+Arkansas,comm,electricity,hot water,electric resistance water heater,2015,0.0056916,2.95e-4
+Arkansas,comm,electricity,lighting,lighting,2015,0.1013665,0.0052536
+Arkansas,comm,electricity,office,office equipment,2015,0.0878651,0.0045538
+Arkansas,comm,electricity,other,electricity,2015,0.4273321,0.0221475
+Arkansas,comm,electricity,refrigeration,refrigeration,2015,0.1179073,0.0061108000000000004
+Arkansas,comm,electricity,ventilation,ventilation,2015,0.0796441,0.0041277
+Arkansas,comm,gas,cooking,gas range,2015,0.1663392,0.0042334
+Arkansas,comm,gas,cooling,gas cooling,2015,0.0267097,6.798e-4
+Arkansas,comm,gas,heating,gas furnace,2015,0.5335559,0.0135792
+Arkansas,comm,gas,hot water,gas water heater,2015,0.2342298,0.0059612
+Arkansas,comm,gas,other,gas,2015,0.0391653,9.968e-4
+Arkansas,comm,refined liquids,heating,fuel furnace,2015,0,0
+Arkansas,comm,refined liquids,hot water,fuel water heater,2015,0,0
+Arkansas,comm,refined liquids,other,refined liquids,2015,1,0.0060378
+Arkansas,resid,biomass,heating,wood furnace,2015,1,0.0031947
+Arkansas,resid,electricity,clothes dryers,clothes dryer,2015,0.0386321,0.0023441
+Arkansas,resid,electricity,clothes washers,clothes washer,2015,0.006007,3.645e-4
+Arkansas,resid,electricity,computers,electricity,2015,0.0172822,0.0010486
+Arkansas,resid,electricity,cooking,electric oven,2015,0.008515,5.167e-4
+Arkansas,resid,electricity,cooling,air conditioning,2015,0.2276951,0.0138158
+Arkansas,resid,electricity,dishwashers,dishwasher,2015,0.0040389,2.451e-4
+Arkansas,resid,electricity,freezers,freezer,2015,0.0123105,7.47e-4
+Arkansas,resid,electricity,furnace fans,electricity,2015,0.0162941,9.887e-4
+Arkansas,resid,electricity,heating,electric furnace,2015,0.132218,0.0080226
+Arkansas,resid,electricity,heating,electric heat pump,2015,0.0233301,0.0014156
+Arkansas,resid,electricity,hot water,electric resistance water heater,2015,0.115423,0.0070035
+Arkansas,resid,electricity,lighting,lighting,2015,0.0674372,0.0040919
+Arkansas,resid,electricity,other,electricity,2015,0.2787766,0.0169153
+Arkansas,resid,electricity,refrigerators,refrigerator,2015,0.0520402,0.0031576
+Arkansas,resid,gas,clothes dryers,clothes dryer,2015,0.0068437,2.055e-4
+Arkansas,resid,gas,cooking,gas oven,2015,0.0244212,7.334e-4
+Arkansas,resid,gas,cooling,air conditioning,2015,0.0281331,8.449e-4
+Arkansas,resid,gas,heating,gas furnace,2015,0.6224452,0.0186929
+Arkansas,resid,gas,hot water,gas water heater,2015,0.2278635,0.0068431
+Arkansas,resid,gas,other,gas,2015,0.0902933,0.0027116
+Arkansas,resid,refined liquids,cooking,lpg oven,2015,0.0621626,2.126e-4
+Arkansas,resid,refined liquids,heating,fuel furnace,2015,0.56179,0.0019215
+Arkansas,resid,refined liquids,hot water,fuel water heater,2015,0.2086297,7.136e-4
+Arkansas,resid,refined liquids,other,refined liquids,2015,0.1674177,5.726e-4
+California,comm,electricity,cooking,electric range,2015,0.0199068,0.0102586
+California,comm,electricity,cooling,air conditioning,2015,0.0906017,0.0466897
+California,comm,electricity,heating,electric furnace,2015,0.0150943,0.0077785
+California,comm,electricity,heating,electric heat pump,2015,0.0062304,0.0032107
+California,comm,electricity,hot water,electric heat pump water heater,2015,6.66e-5,3.43e-5
+California,comm,electricity,hot water,electric resistance water heater,2015,0.0044092,0.0022722
+California,comm,electricity,lighting,lighting,2015,0.1012939,0.0521998
+California,comm,electricity,office,office equipment,2015,0.1539409,0.0793303
+California,comm,electricity,other,electricity,2015,0.359144,0.1850776
+California,comm,electricity,refrigeration,refrigeration,2015,0.125913,0.0648867
+California,comm,electricity,ventilation,ventilation,2015,0.1233993,0.0635913
+California,comm,gas,cooking,gas range,2015,0.1883383,0.0459439
+California,comm,gas,cooling,gas cooling,2015,0.0056436,0.0013767
+California,comm,gas,heating,gas furnace,2015,0.3680899,0.0897931
+California,comm,gas,hot water,gas water heater,2015,0.2871565,0.0700499
+California,comm,gas,other,gas,2015,0.1507718,0.0367798
+California,comm,refined liquids,heating,fuel furnace,2015,6.616e-4,1.2e-6
+California,comm,refined liquids,hot water,fuel water heater,2015,2.467e-4,4e-7
+California,comm,refined liquids,other,refined liquids,2015,0.9990916,0.0017497
+California,resid,biomass,heating,wood furnace,2015,1,0.0451215
+California,resid,electricity,clothes dryers,clothes dryer,2015,0.0468548,0.0146992
+California,resid,electricity,clothes washers,clothes washer,2015,0.0109575,0.0034376
+California,resid,electricity,computers,electricity,2015,0.0444037,0.0139303
+California,resid,electricity,cooking,electric oven,2015,0.0107881,0.0033844
+California,resid,electricity,cooling,air conditioning,2015,0.1308873,0.0410618
+California,resid,electricity,dishwashers,dishwasher,2015,0.0087413,0.0027423
+California,resid,electricity,freezers,freezer,2015,0.0190326,0.0059709
+California,resid,electricity,furnace fans,electricity,2015,0.0160792,0.0050444
+California,resid,electricity,heating,electric furnace,2015,0.0528138,0.0165687
+California,resid,electricity,heating,electric heat pump,2015,0.0170465,0.0053478
+California,resid,electricity,hot water,electric resistance water heater,2015,0.0675116,0.0211796
+California,resid,electricity,lighting,lighting,2015,0.1520687,0.0477068
+California,resid,electricity,other,electricity,2015,0.3190604,0.1000952
+California,resid,electricity,refrigerators,refrigerator,2015,0.1037544,0.0325497
+California,resid,gas,clothes dryers,clothes dryer,2015,0.0140595,0.0057114
+California,resid,gas,cooking,gas oven,2015,0.0331768,0.0134776
+California,resid,gas,cooling,air conditioning,2015,0.0071718,0.0029134
+California,resid,gas,heating,gas furnace,2015,0.4944305,0.2008549
+California,resid,gas,hot water,gas water heater,2015,0.3503383,0.1423196
+California,resid,gas,other,gas,2015,0.1008232,0.0409579
+California,resid,refined liquids,cooking,lpg oven,2015,0.0718775,0.0014788
+California,resid,refined liquids,heating,fuel furnace,2015,0.2941103,0.0060508
+California,resid,refined liquids,hot water,fuel water heater,2015,0.352011,0.0072421
+California,resid,refined liquids,other,refined liquids,2015,0.2820012,0.0058017
+Colorado,comm,electricity,cooking,electric range,2015,0.0178859,0.0014608
+Colorado,comm,electricity,cooling,air conditioning,2015,0.034003,0.0027772
+Colorado,comm,electricity,heating,electric furnace,2015,0.0185723,0.0015169
+Colorado,comm,electricity,heating,electric heat pump,2015,0.0073837,6.031e-4
+Colorado,comm,electricity,hot water,electric heat pump water heater,2015,9.5e-6,8e-7
+Colorado,comm,electricity,hot water,electric resistance water heater,2015,0.0023322,1.905e-4
+Colorado,comm,electricity,lighting,lighting,2015,0.0784529,0.0064077
+Colorado,comm,electricity,office,office equipment,2015,0.1084386,0.0088568
+Colorado,comm,electricity,other,electricity,2015,0.5797283,0.0473496
+Colorado,comm,electricity,refrigeration,refrigeration,2015,0.0785991,0.0064196
+Colorado,comm,electricity,ventilation,ventilation,2015,0.0745946,0.0060925
+Colorado,comm,gas,cooking,gas range,2015,0.057867,0.0035309
+Colorado,comm,gas,cooling,gas cooling,2015,0.0021151,1.291e-4
+Colorado,comm,gas,heating,gas furnace,2015,0.4825125,0.0294419
+Colorado,comm,gas,hot water,gas water heater,2015,0.1979366,0.0120777
+Colorado,comm,gas,other,gas,2015,0.2595687,0.0158383
+Colorado,comm,refined liquids,heating,fuel furnace,2015,0.0399751,1.278e-4
+Colorado,comm,refined liquids,hot water,fuel water heater,2015,1.095e-4,4e-7
+Colorado,comm,refined liquids,other,refined liquids,2015,0.9599154,0.0030696
+Colorado,resid,biomass,heating,wood furnace,2015,1,0.0123142
+Colorado,resid,electricity,clothes dryers,clothes dryer,2015,0.0476332,0.0034114
+Colorado,resid,electricity,clothes washers,clothes washer,2015,0.0088027,6.304e-4
+Colorado,resid,electricity,computers,electricity,2015,0.0314779,0.0022544
+Colorado,resid,electricity,cooking,electric oven,2015,0.0142222,0.0010186
+Colorado,resid,electricity,cooling,air conditioning,2015,0.0492889,0.00353
+Colorado,resid,electricity,dishwashers,dishwasher,2015,0.0065321,4.678e-4
+Colorado,resid,electricity,freezers,freezer,2015,0.0197806,0.0014167
+Colorado,resid,electricity,furnace fans,electricity,2015,0.0152996,0.0010957
+Colorado,resid,electricity,heating,electric furnace,2015,0.0969854,0.006946
+Colorado,resid,electricity,heating,electric heat pump,2015,0.0244919,0.0017541
+Colorado,resid,electricity,hot water,electric resistance water heater,2015,0.0896028,0.0064172
+Colorado,resid,electricity,lighting,lighting,2015,0.1057015,0.0075702
+Colorado,resid,electricity,other,electricity,2015,0.4137816,0.0296344
+Colorado,resid,electricity,refrigerators,refrigerator,2015,0.0763997,0.0054716
+Colorado,resid,gas,clothes dryers,clothes dryer,2015,0.0070785,8.814e-4
+Colorado,resid,gas,cooking,gas oven,2015,0.0177382,0.0022088
+Colorado,resid,gas,cooling,air conditioning,2015,0.0176856,0.0022023
+Colorado,resid,gas,heating,gas furnace,2015,0.6092142,0.0758614
+Colorado,resid,gas,hot water,gas water heater,2015,0.289746,0.0360801
+Colorado,resid,gas,other,gas,2015,0.0585374,0.0072893
+Colorado,resid,refined liquids,cooking,lpg oven,2015,0.0336762,3.857e-4
+Colorado,resid,refined liquids,heating,fuel furnace,2015,0.5329831,0.0061042
+Colorado,resid,refined liquids,hot water,fuel water heater,2015,0.2526383,0.0028935
+Colorado,resid,refined liquids,other,refined liquids,2015,0.1807025,0.0020696
+Connecticut,comm,electricity,cooking,electric range,2015,0.0120756,6.157e-4
+Connecticut,comm,electricity,cooling,air conditioning,2015,0.048894,0.0024929
+Connecticut,comm,electricity,heating,electric furnace,2015,0.0156825,7.996e-4
+Connecticut,comm,electricity,heating,electric heat pump,2015,0.0069388,3.538e-4
+Connecticut,comm,electricity,hot water,electric heat pump water heater,2015,4.2e-5,2.1e-6
+Connecticut,comm,electricity,hot water,electric resistance water heater,2015,0.0053416,2.724e-4
+Connecticut,comm,electricity,lighting,lighting,2015,0.088669799999999993,0.004521
+Connecticut,comm,electricity,office,office equipment,2015,0.110951,0.005657
+Connecticut,comm,electricity,other,electricity,2015,0.4952979,0.0252534
+Connecticut,comm,electricity,refrigeration,refrigeration,2015,0.1403147,0.0071541
+Connecticut,comm,electricity,ventilation,ventilation,2015,0.0757921,0.0038644
+Connecticut,comm,gas,cooking,gas range,2015,0.0422426,0.0019754
+Connecticut,comm,gas,cooling,gas cooling,2015,0.0018806,8.79e-5
+Connecticut,comm,gas,heating,gas furnace,2015,0.2909385,0.0136052
+Connecticut,comm,gas,hot water,gas water heater,2015,0.0440144,0.0020582
+Connecticut,comm,gas,other,gas,2015,0.620924,0.0290363
+Connecticut,comm,refined liquids,heating,fuel furnace,2015,0.9839995,0.0211425
+Connecticut,comm,refined liquids,hot water,fuel water heater,2015,0.0160005,3.438e-4
+Connecticut,comm,refined liquids,other,refined liquids,2015,0,0
+Connecticut,resid,biomass,heating,wood furnace,2015,1,0.0134686
+Connecticut,resid,electricity,clothes dryers,clothes dryer,2015,0.0473456,0.0018636
+Connecticut,resid,electricity,clothes washers,clothes washer,2015,0.0088934,3.501e-4
+Connecticut,resid,electricity,computers,electricity,2015,0.0325419,0.0012809
+Connecticut,resid,electricity,cooking,electric oven,2015,0.0158503,6.239e-4
+Connecticut,resid,electricity,cooling,air conditioning,2015,0.0577003,0.0022711
+Connecticut,resid,electricity,dishwashers,dishwasher,2015,0.0060162,2.368e-4
+Connecticut,resid,electricity,freezers,freezer,2015,0.0150479,5.923e-4
+Connecticut,resid,electricity,furnace fans,electricity,2015,0.0302728,0.0011916
+Connecticut,resid,electricity,heating,electric furnace,2015,0.06947,0.0027344
+Connecticut,resid,electricity,heating,electric heat pump,2015,0.0028202,1.11e-4
+Connecticut,resid,electricity,hot water,electric resistance water heater,2015,0.1150288,0.0045276
+Connecticut,resid,electricity,lighting,lighting,2015,0.1220162,0.0048027
+Connecticut,resid,electricity,other,electricity,2015,0.4013041,0.0157957
+Connecticut,resid,electricity,refrigerators,refrigerator,2015,0.0756922,0.0029793
+Connecticut,resid,gas,clothes dryers,clothes dryer,2015,0.0055299,2.897e-4
+Connecticut,resid,gas,cooking,gas oven,2015,0.0187156,9.803e-4
+Connecticut,resid,gas,cooling,air conditioning,2015,5.707e-4,2.99e-5
+Connecticut,resid,gas,heating,gas furnace,2015,0.7603502,0.0398281
+Connecticut,resid,gas,hot water,gas water heater,2015,0.1953955,0.0102351
+Connecticut,resid,gas,other,gas,2015,0.019438,0.0010182
+Connecticut,resid,refined liquids,cooking,lpg oven,2015,0.0111704,7.191e-4
+Connecticut,resid,refined liquids,heating,fuel furnace,2015,0.8494985,0.0546837
+Connecticut,resid,refined liquids,hot water,fuel water heater,2015,0.1163579,0.0074902
+Connecticut,resid,refined liquids,other,refined liquids,2015,0.0229733,0.0014788
+Delaware,comm,electricity,cooking,electric range,2015,0.0121044,1.835e-4
+Delaware,comm,electricity,cooling,air conditioning,2015,0.0923867,0.0014002
+Delaware,comm,electricity,heating,electric furnace,2015,0.0200534,3.039e-4
+Delaware,comm,electricity,heating,electric heat pump,2015,0.0060007,9.09e-5
+Delaware,comm,electricity,hot water,electric heat pump water heater,2015,8.38e-5,1.3e-6
+Delaware,comm,electricity,hot water,electric resistance water heater,2015,0.0044544,6.75e-5
+Delaware,comm,electricity,lighting,lighting,2015,0.1302127,0.0019735
+Delaware,comm,electricity,office,office equipment,2015,0.1379385,0.0020906
+Delaware,comm,electricity,other,electricity,2015,0.3461042,0.0052457
+Delaware,comm,electricity,refrigeration,refrigeration,2015,0.128986,0.001955
+Delaware,comm,electricity,ventilation,ventilation,2015,0.1216751,0.0018441
+Delaware,comm,gas,cooking,gas range,2015,0.0918274,0.0012844
+Delaware,comm,gas,cooling,gas cooling,2015,0.0145145,2.03e-4
+Delaware,comm,gas,heating,gas furnace,2015,0.5779083,0.0080832
+Delaware,comm,gas,hot water,gas water heater,2015,0.2094414,0.0029294
+Delaware,comm,gas,other,gas,2015,0.1063084,0.0014869
+Delaware,comm,refined liquids,heating,fuel furnace,2015,0.958295,0.0019479
+Delaware,comm,refined liquids,hot water,fuel water heater,2015,0.041705,8.48e-5
+Delaware,comm,refined liquids,other,refined liquids,2015,0,0
+Delaware,resid,biomass,heating,wood furnace,2015,1,0.0020323
+Delaware,resid,electricity,clothes dryers,clothes dryer,2015,0.0386461,5.068e-4
+Delaware,resid,electricity,clothes washers,clothes washer,2015,0.0077538,1.017e-4
+Delaware,resid,electricity,computers,electricity,2015,0.0313376,4.109e-4
+Delaware,resid,electricity,cooking,electric oven,2015,0.0098155,1.287e-4
+Delaware,resid,electricity,cooling,air conditioning,2015,0.1180514,0.0015481
+Delaware,resid,electricity,dishwashers,dishwasher,2015,0.0054485,7.14e-5
+Delaware,resid,electricity,freezers,freezer,2015,0.0157523,2.066e-4
+Delaware,resid,electricity,furnace fans,electricity,2015,0.0236858,3.106e-4
+Delaware,resid,electricity,heating,electric furnace,2015,0.1156959,0.0015172
+Delaware,resid,electricity,heating,electric heat pump,2015,0.0401672,5.267e-4
+Delaware,resid,electricity,hot water,electric resistance water heater,2015,0.1233494,0.0016175
+Delaware,resid,electricity,lighting,lighting,2015,0.1006427,0.0013198
+Delaware,resid,electricity,other,electricity,2015,0.3027811,0.0039705
+Delaware,resid,electricity,refrigerators,refrigerator,2015,0.0668728,8.769e-4
+Delaware,resid,gas,clothes dryers,clothes dryer,2015,0.006796,1.388e-4
+Delaware,resid,gas,cooking,gas oven,2015,0.0256413,5.236e-4
+Delaware,resid,gas,cooling,air conditioning,2015,0.0097796,1.997e-4
+Delaware,resid,gas,heating,gas furnace,2015,0.7373481,0.0150562
+Delaware,resid,gas,hot water,gas water heater,2015,0.182837,0.0037334
+Delaware,resid,gas,other,gas,2015,0.037598,7.677e-4
+Delaware,resid,refined liquids,cooking,lpg oven,2015,0.0091124,5.34e-5
+Delaware,resid,refined liquids,heating,fuel furnace,2015,0.8162729,0.0047842
+Delaware,resid,refined liquids,hot water,fuel water heater,2015,0.1264136,7.409e-4
+Delaware,resid,refined liquids,other,refined liquids,2015,0.0482011,2.825e-4
+District of Columbia,comm,electricity,cooking,electric range,2015,0.0160323,1.89e-4
+District of Columbia,comm,electricity,cooling,air conditioning,2015,0.1276368,0.0015043
+District of Columbia,comm,electricity,heating,electric furnace,2015,0.0147003,1.733e-4
+District of Columbia,comm,electricity,heating,electric heat pump,2015,0.0091985,1.084e-4
+District of Columbia,comm,electricity,hot water,electric heat pump water heater,2015,7.05e-5,8e-7
+District of Columbia,comm,electricity,hot water,electric resistance water heater,2015,0.0068086,8.02e-5
+District of Columbia,comm,electricity,lighting,lighting,2015,0.1091197,0.0012861
+District of Columbia,comm,electricity,office,office equipment,2015,0.1162179,0.0013697
+District of Columbia,comm,electricity,other,electricity,2015,0.3916497,0.0046159
+District of Columbia,comm,electricity,refrigeration,refrigeration,2015,0.1223903,0.0014425
+District of Columbia,comm,electricity,ventilation,ventilation,2015,0.0861754,0.0010156
+District of Columbia,comm,gas,cooking,gas range,2015,0.1753621,0.0011629
+District of Columbia,comm,gas,cooling,gas cooling,2015,0.0253966,1.684e-4
+District of Columbia,comm,gas,heating,gas furnace,2015,0.4753915,0.0031525
+District of Columbia,comm,gas,hot water,gas water heater,2015,0.2424838,0.001608
+District of Columbia,comm,gas,other,gas,2015,0.0813661,5.396e-4
+District of Columbia,comm,refined liquids,heating,fuel furnace,2015,0.2411023,3.135e-4
+District of Columbia,comm,refined liquids,hot water,fuel water heater,2015,0.056167,7.3e-5
+District of Columbia,comm,refined liquids,other,refined liquids,2015,0.7027307,9.138e-4
+District of Columbia,resid,biomass,heating,wood furnace,2015,1,0.0011307
+District of Columbia,resid,electricity,clothes dryers,clothes dryer,2015,0.0362501,4.743e-4
+District of Columbia,resid,electricity,clothes washers,clothes washer,2015,0.0059139,7.74e-5
+District of Columbia,resid,electricity,computers,electricity,2015,0.0201343,2.635e-4
+District of Columbia,resid,electricity,cooking,electric oven,2015,0.0106805,1.398e-4
+District of Columbia,resid,electricity,cooling,air conditioning,2015,0.1338336,0.0017513
+District of Columbia,resid,electricity,dishwashers,dishwasher,2015,0.0041277,5.4e-5
+District of Columbia,resid,electricity,freezers,freezer,2015,0.0091283,1.194e-4
+District of Columbia,resid,electricity,furnace fans,electricity,2015,0.0128297,1.679e-4
+District of Columbia,resid,electricity,heating,electric furnace,2015,0.1325029,0.0017339
+District of Columbia,resid,electricity,heating,electric heat pump,2015,0.0735241,9.621e-4
+District of Columbia,resid,electricity,hot water,electric resistance water heater,2015,0.1477607,0.0019335
+District of Columbia,resid,electricity,lighting,lighting,2015,0.075827,9.922e-4
+District of Columbia,resid,electricity,other,electricity,2015,0.2890445,0.0037823
+District of Columbia,resid,electricity,refrigerators,refrigerator,2015,0.0484426,6.339e-4
+District of Columbia,resid,gas,clothes dryers,clothes dryer,2015,0.0048352,3.58e-5
+District of Columbia,resid,gas,cooking,gas oven,2015,0.0237802,1.762e-4
+District of Columbia,resid,gas,cooling,air conditioning,2015,0.0577043,4.277e-4
+District of Columbia,resid,gas,heating,gas furnace,2015,0.6005685,0.004451
+District of Columbia,resid,gas,hot water,gas water heater,2015,0.2238082,0.0016587
+District of Columbia,resid,gas,other,gas,2015,0.0893035,6.618e-4
+District of Columbia,resid,refined liquids,cooking,lpg oven,2015,0.0181977,3.86e-5
+District of Columbia,resid,refined liquids,heating,fuel furnace,2015,0.7377408,0.0015655
+District of Columbia,resid,refined liquids,hot water,fuel water heater,2015,0.1151741,2.444e-4
+District of Columbia,resid,refined liquids,other,refined liquids,2015,0.1288873,2.735e-4
+Florida,comm,electricity,cooking,electric range,2015,0.0139983,0.0056335
+Florida,comm,electricity,cooling,air conditioning,2015,0.226258,0.0910547
+Florida,comm,electricity,heating,electric furnace,2015,0.0041396,0.0016659
+Florida,comm,electricity,heating,electric heat pump,2015,0.0025467,0.0010249
+Florida,comm,electricity,hot water,electric heat pump water heater,2015,8.46e-5,3.4e-5
+Florida,comm,electricity,hot water,electric resistance water heater,2015,0.0081968,0.0032987
+Florida,comm,electricity,lighting,lighting,2015,0.1020885,0.0410843
+Florida,comm,electricity,office,office equipment,2015,0.1009092,0.0406097
+Florida,comm,electricity,other,electricity,2015,0.3423527,0.1377756
+Florida,comm,electricity,refrigeration,refrigeration,2015,0.1163585,0.046827
+Florida,comm,electricity,ventilation,ventilation,2015,0.0830671,0.0334293
+Florida,comm,gas,cooking,gas range,2015,0.1738352,0.0109729
+Florida,comm,gas,cooling,gas cooling,2015,0.0250509,0.0015813
+Florida,comm,gas,heating,gas furnace,2015,0.4779937,0.0301722
+Florida,comm,gas,hot water,gas water heater,2015,0.2423196,0.0152959
+Florida,comm,gas,other,gas,2015,0.0808006,0.0051003
+Florida,comm,refined liquids,heating,fuel furnace,2015,0.2459039,7.62e-5
+Florida,comm,refined liquids,hot water,fuel water heater,2015,0.02805,8.7e-6
+Florida,comm,refined liquids,other,refined liquids,2015,0.7260462,2.249e-4
+Florida,resid,biomass,heating,wood furnace,2015,1,0.0085864
+Florida,resid,electricity,clothes dryers,clothes dryer,2015,0.0366653,0.0143098
+Florida,resid,electricity,clothes washers,clothes washer,2015,0.005688,0.0022199
+Florida,resid,electricity,computers,electricity,2015,0.0196456,0.0076673
+Florida,resid,electricity,cooking,electric oven,2015,0.010803,0.0042162
+Florida,resid,electricity,cooling,air conditioning,2015,0.299961,0.1170689
+Florida,resid,electricity,dishwashers,dishwasher,2015,0.0039618,0.0015462
+Florida,resid,electricity,freezers,freezer,2015,0.0088685,0.0034612
+Florida,resid,electricity,furnace fans,electricity,2015,0.0201642,0.0078697
+Florida,resid,electricity,heating,electric furnace,2015,0.0285919,0.0111588
+Florida,resid,electricity,heating,electric heat pump,2015,0.0158323,0.006179
+Florida,resid,electricity,hot water,electric resistance water heater,2015,0.1368219,0.0533989
+Florida,resid,electricity,lighting,lighting,2015,0.0712743,0.027817
+Florida,resid,electricity,other,electricity,2015,0.2917918,0.1138806
+Florida,resid,electricity,refrigerators,refrigerator,2015,0.0499303,0.0194868
+Florida,resid,gas,clothes dryers,clothes dryer,2015,0.0046505,1.206e-4
+Florida,resid,gas,cooking,gas oven,2015,0.0235787,6.113e-4
+Florida,resid,gas,cooling,air conditioning,2015,0.0578773,0.0015004
+Florida,resid,gas,heating,gas furnace,2015,0.6097623,0.0158075
+Florida,resid,gas,hot water,gas water heater,2015,0.2175566,0.0056399
+Florida,resid,gas,other,gas,2015,0.0865747,0.0022444
+Florida,resid,refined liquids,cooking,lpg oven,2015,0.0408188,2.971e-4
+Florida,resid,refined liquids,heating,fuel furnace,2015,0.5663396,0.0041218
+Florida,resid,refined liquids,hot water,fuel water heater,2015,0.1680167,0.0012228
+Florida,resid,refined liquids,other,refined liquids,2015,0.224825,0.0016363
+Georgia,comm,electricity,cooking,electric range,2015,0.0159713,0.0030929
+Georgia,comm,electricity,cooling,air conditioning,2015,0.1460022,0.028274
+Georgia,comm,electricity,heating,electric furnace,2015,0.0081568,0.0015796
+Georgia,comm,electricity,heating,electric heat pump,2015,0.0041944,8.123e-4
+Georgia,comm,electricity,hot water,electric heat pump water heater,2015,5.46e-5,1.06e-5
+Georgia,comm,electricity,hot water,electric resistance water heater,2015,0.0057527,0.001114
+Georgia,comm,electricity,lighting,lighting,2015,0.1096533,0.0212349
+Georgia,comm,electricity,office,office equipment,2015,0.1041005,0.0201595
+Georgia,comm,electricity,other,electricity,2015,0.3982307,0.0771192
+Georgia,comm,electricity,refrigeration,refrigeration,2015,0.1230982,0.0238385
+Georgia,comm,electricity,ventilation,ventilation,2015,0.0847853,0.0164191
+Georgia,comm,gas,cooking,gas range,2015,0.1569794,0.0082334
+Georgia,comm,gas,cooling,gas cooling,2015,0.0212353,0.0011138
+Georgia,comm,gas,heating,gas furnace,2015,0.5067193,0.026577
+Georgia,comm,gas,hot water,gas water heater,2015,0.2405079,0.0126144
+Georgia,comm,gas,other,gas,2015,0.0745581,0.0039105
+Georgia,comm,refined liquids,heating,fuel furnace,2015,0.2501169,4.219e-4
+Georgia,comm,refined liquids,hot water,fuel water heater,2015,0.0033793,5.7e-6
+Georgia,comm,refined liquids,other,refined liquids,2015,0.7465038,0.0012593
+Georgia,resid,biomass,heating,wood furnace,2015,1,0.0106962
+Georgia,resid,electricity,clothes dryers,clothes dryer,2015,0.0399889,0.007908
+Georgia,resid,electricity,clothes washers,clothes washer,2015,0.0060335,0.0011932
+Georgia,resid,electricity,computers,electricity,2015,0.018984,0.0037542
+Georgia,resid,electricity,cooking,electric oven,2015,0.0103166,0.0020402
+Georgia,resid,electricity,cooling,air conditioning,2015,0.1991582,0.0393847
+Georgia,resid,electricity,dishwashers,dishwasher,2015,0.0040482,8.006e-4
+Georgia,resid,electricity,freezers,freezer,2015,0.0110517,0.0021855
+Georgia,resid,electricity,furnace fans,electricity,2015,0.0157281,0.0031103
+Georgia,resid,electricity,heating,electric furnace,2015,0.0850721,0.0168235
+Georgia,resid,electricity,heating,electric heat pump,2015,0.046555,0.0092065
+Georgia,resid,electricity,hot water,electric resistance water heater,2015,0.1412893,0.0279408
+Georgia,resid,electricity,lighting,lighting,2015,0.0720417,0.0142467
+Georgia,resid,electricity,other,electricity,2015,0.300911,0.0595069
+Georgia,resid,electricity,refrigerators,refrigerator,2015,0.0488216,0.0096548
+Georgia,resid,gas,clothes dryers,clothes dryer,2015,0.004369,4.491e-4
+Georgia,resid,gas,cooking,gas oven,2015,0.0232716,0.0023921
+Georgia,resid,gas,cooling,air conditioning,2015,0.0581408,0.0059763
+Georgia,resid,gas,heating,gas furnace,2015,0.6237725,0.064118
+Georgia,resid,gas,hot water,gas water heater,2015,0.2080298,0.0213835
+Georgia,resid,gas,other,gas,2015,0.0824162,0.0084716
+Georgia,resid,refined liquids,cooking,lpg oven,2015,0.0399681,4.033e-4
+Georgia,resid,refined liquids,heating,fuel furnace,2015,0.6569305,0.0066284
+Georgia,resid,refined liquids,hot water,fuel water heater,2015,0.1528688,0.0015424
+Georgia,resid,refined liquids,other,refined liquids,2015,0.1502326,0.0015158
+Idaho,comm,electricity,cooking,electric range,2015,0.0177404,4.623e-4
+Idaho,comm,electricity,cooling,air conditioning,2015,0.0525553,0.0013696
+Idaho,comm,electricity,heating,electric furnace,2015,0.0127489,3.322e-4
+Idaho,comm,electricity,heating,electric heat pump,2015,0.0051143,1.333e-4
+Idaho,comm,electricity,hot water,electric heat pump water heater,2015,2.32e-5,6e-7
+Idaho,comm,electricity,hot water,electric resistance water heater,2015,0.0030064,7.83e-5
+Idaho,comm,electricity,lighting,lighting,2015,0.0912658,0.0023783
+Idaho,comm,electricity,office,office equipment,2015,0.1117009,0.0029108
+Idaho,comm,electricity,other,electricity,2015,0.5395818,0.0140611
+Idaho,comm,electricity,refrigeration,refrigeration,2015,0.0953795,0.0024855
+Idaho,comm,electricity,ventilation,ventilation,2015,0.0708835,0.0018472
+Idaho,comm,gas,cooking,gas range,2015,0.072575,0.001484
+Idaho,comm,gas,cooling,gas cooling,2015,0.0025258,5.16e-5
+Idaho,comm,gas,heating,gas furnace,2015,0.4697965,0.0096061
+Idaho,comm,gas,hot water,gas water heater,2015,0.2095571,0.0042849
+Idaho,comm,gas,other,gas,2015,0.2455456,0.0050208
+Idaho,comm,refined liquids,heating,fuel furnace,2015,0.0229192,5.97e-5
+Idaho,comm,refined liquids,hot water,fuel water heater,2015,3.93e-5,1e-7
+Idaho,comm,refined liquids,other,refined liquids,2015,0.9770415,0.002545
+Idaho,resid,biomass,heating,wood furnace,2015,1,0.0023609
+Idaho,resid,electricity,clothes dryers,clothes dryer,2015,0.0442414,9.865e-4
+Idaho,resid,electricity,clothes washers,clothes washer,2015,0.007881,1.757e-4
+Idaho,resid,electricity,computers,electricity,2015,0.0286455,6.387e-4
+Idaho,resid,electricity,cooking,electric oven,2015,0.012484,2.784e-4
+Idaho,resid,electricity,cooling,air conditioning,2015,0.1033005,0.0023033
+Idaho,resid,electricity,dishwashers,dishwasher,2015,0.0059272,1.322e-4
+Idaho,resid,electricity,freezers,freezer,2015,0.0169172,3.772e-4
+Idaho,resid,electricity,furnace fans,electricity,2015,0.0172569,3.848e-4
+Idaho,resid,electricity,heating,electric furnace,2015,0.1064055,0.0023725
+Idaho,resid,electricity,heating,electric heat pump,2015,0.0303687,6.771e-4
+Idaho,resid,electricity,hot water,electric resistance water heater,2015,0.1075176,0.0023973
+Idaho,resid,electricity,lighting,lighting,2015,0.1007593,0.0022467
+Idaho,resid,electricity,other,electricity,2015,0.3466765,0.0077299
+Idaho,resid,electricity,refrigerators,refrigerator,2015,0.0716185,0.0015969
+Idaho,resid,gas,clothes dryers,clothes dryer,2015,0.0079318,2.19e-4
+Idaho,resid,gas,cooking,gas oven,2015,0.0196198,5.418e-4
+Idaho,resid,gas,cooling,air conditioning,2015,0.0165467,4.57e-4
+Idaho,resid,gas,heating,gas furnace,2015,0.5944539,0.0164168
+Idaho,resid,gas,hot water,gas water heater,2015,0.2975646,0.0082177
+Idaho,resid,gas,other,gas,2015,0.0638834,0.0017642
+Idaho,resid,refined liquids,cooking,lpg oven,2015,0.0338548,7.49e-5
+Idaho,resid,refined liquids,heating,fuel furnace,2015,0.5480643,0.001213
+Idaho,resid,refined liquids,hot water,fuel water heater,2015,0.243567,5.391e-4
+Idaho,resid,refined liquids,other,refined liquids,2015,0.174514,3.862e-4
+Illinois,comm,electricity,cooking,electric range,2015,0.0199138,0.0040701
+Illinois,comm,electricity,cooling,air conditioning,2015,0.07156,0.0146259
+Illinois,comm,electricity,heating,electric furnace,2015,0.024466,0.0050005
+Illinois,comm,electricity,heating,electric heat pump,2015,0.004354,8.899e-4
+Illinois,comm,electricity,hot water,electric heat pump water heater,2015,3.01e-5,6.1e-6
+Illinois,comm,electricity,hot water,electric resistance water heater,2015,0.0041003,8.381e-4
+Illinois,comm,electricity,lighting,lighting,2015,0.1100815,0.0224992
+Illinois,comm,electricity,office,office equipment,2015,0.1179312,0.0241035
+Illinois,comm,electricity,other,electricity,2015,0.4742768,0.0969357
+Illinois,comm,electricity,refrigeration,refrigeration,2015,0.0739696,0.0151184
+Illinois,comm,electricity,ventilation,ventilation,2015,0.0993166,0.020299
+Illinois,comm,gas,cooking,gas range,2015,0.0493732,0.0099194
+Illinois,comm,gas,cooling,gas cooling,2015,0.0021486,4.317e-4
+Illinois,comm,gas,heating,gas furnace,2015,0.5796832,0.1164618
+Illinois,comm,gas,hot water,gas water heater,2015,0.1228625,0.0246838
+Illinois,comm,gas,other,gas,2015,0.2459324,0.0494093
+Illinois,comm,refined liquids,heating,fuel furnace,2015,0.3605866,4.689e-4
+Illinois,comm,refined liquids,hot water,fuel water heater,2015,1.754e-4,2e-7
+Illinois,comm,refined liquids,other,refined liquids,2015,0.639238,8.312e-4
+Illinois,resid,biomass,heating,wood furnace,2015,1,0.0134064
+Illinois,resid,electricity,clothes dryers,clothes dryer,2015,0.0302526,0.0046987
+Illinois,resid,electricity,clothes washers,clothes washer,2015,0.0088548,0.0013753
+Illinois,resid,electricity,computers,electricity,2015,0.0306452,0.0047597
+Illinois,resid,electricity,cooking,electric oven,2015,0.0126621,0.0019666
+Illinois,resid,electricity,cooling,air conditioning,2015,0.1212555,0.0188329
+Illinois,resid,electricity,dishwashers,dishwasher,2015,0.005624,8.735e-4
+Illinois,resid,electricity,freezers,freezer,2015,0.0189994,0.0029509
+Illinois,resid,electricity,furnace fans,electricity,2015,0.0420247,0.0065271
+Illinois,resid,electricity,heating,electric furnace,2015,0.1015651,0.0157746
+Illinois,resid,electricity,heating,electric heat pump,2015,0.0209883,0.0032598
+Illinois,resid,electricity,hot water,electric resistance water heater,2015,0.0898339,0.0139526
+Illinois,resid,electricity,lighting,lighting,2015,0.1187531,0.0184442
+Illinois,resid,electricity,other,electricity,2015,0.3252008,0.0505087
+Illinois,resid,electricity,refrigerators,refrigerator,2015,0.0733405,0.0113909
+Illinois,resid,gas,clothes dryers,clothes dryer,2015,0.0084526,0.0032145
+Illinois,resid,gas,cooking,gas oven,2015,0.0161267,0.0061329
+Illinois,resid,gas,cooling,air conditioning,2015,4.347e-4,1.653e-4
+Illinois,resid,gas,heating,gas furnace,2015,0.7847087,0.2984228
+Illinois,resid,gas,hot water,gas water heater,2015,0.1654623,0.0629249
+Illinois,resid,gas,other,gas,2015,0.024815,0.0094371
+Illinois,resid,refined liquids,cooking,lpg oven,2015,0.0135326,2.841e-4
+Illinois,resid,refined liquids,heating,fuel furnace,2015,0.7820662,0.0164176
+Illinois,resid,refined liquids,hot water,fuel water heater,2015,0.1080139,0.0022675
+Illinois,resid,refined liquids,other,refined liquids,2015,0.0963873,0.0020234
+Indiana,comm,electricity,cooking,electric range,2015,0.0177265,0.0018983
+Indiana,comm,electricity,cooling,air conditioning,2015,0.0786878,0.0084265
+Indiana,comm,electricity,heating,electric furnace,2015,0.0258408,0.0027672
+Indiana,comm,electricity,heating,electric heat pump,2015,0.0055433,5.936e-4
+Indiana,comm,electricity,hot water,electric heat pump water heater,2015,4.03e-5,4.3e-6
+Indiana,comm,electricity,hot water,electric resistance water heater,2015,0.0038938,4.17e-4
+Indiana,comm,electricity,lighting,lighting,2015,0.1080363,0.0115694
+Indiana,comm,electricity,office,office equipment,2015,0.1094459,0.0117204
+Indiana,comm,electricity,other,electricity,2015,0.4548019,0.0487039
+Indiana,comm,electricity,refrigeration,refrigeration,2015,0.1022009,0.0109445
+Indiana,comm,electricity,ventilation,ventilation,2015,0.0937826,0.010043
+Indiana,comm,gas,cooking,gas range,2015,0.0587547,0.0051062
+Indiana,comm,gas,cooling,gas cooling,2015,0.0040096,3.485e-4
+Indiana,comm,gas,heating,gas furnace,2015,0.5631116,0.0489382
+Indiana,comm,gas,hot water,gas water heater,2015,0.1299435,0.011293
+Indiana,comm,gas,other,gas,2015,0.2441806,0.021221
+Indiana,comm,refined liquids,heating,fuel furnace,2015,0.4871642,0.0021184
+Indiana,comm,refined liquids,hot water,fuel water heater,2015,0.0190708,8.29e-5
+Indiana,comm,refined liquids,other,refined liquids,2015,0.4937649,0.0021471
+Indiana,resid,biomass,heating,wood furnace,2015,1,0.0084426
+Indiana,resid,electricity,clothes dryers,clothes dryer,2015,0.04175,0.0045232
+Indiana,resid,electricity,clothes washers,clothes washer,2015,0.0077365,8.382e-4
+Indiana,resid,electricity,computers,electricity,2015,0.0250587,0.0027148
+Indiana,resid,electricity,cooking,electric oven,2015,0.0114378,0.0012392
+Indiana,resid,electricity,cooling,air conditioning,2015,0.1219124,0.0132079
+Indiana,resid,electricity,dishwashers,dishwasher,2015,0.0050812,5.505e-4
+Indiana,resid,electricity,freezers,freezer,2015,0.0168992,0.0018309
+Indiana,resid,electricity,furnace fans,electricity,2015,0.0338658,0.003669
+Indiana,resid,electricity,heating,electric furnace,2015,0.1377157,0.0149201
+Indiana,resid,electricity,heating,electric heat pump,2015,0.0337895,0.0036607
+Indiana,resid,electricity,hot water,electric resistance water heater,2015,0.1129427,0.0122362
+Indiana,resid,electricity,lighting,lighting,2015,0.092852,0.0100595
+Indiana,resid,electricity,other,electricity,2015,0.2961085,0.0320803
+Indiana,resid,electricity,refrigerators,refrigerator,2015,0.0628502,0.0068092
+Indiana,resid,gas,clothes dryers,clothes dryer,2015,0.0077302,0.0011746
+Indiana,resid,gas,cooking,gas oven,2015,0.0162558,0.0024701
+Indiana,resid,gas,cooling,air conditioning,2015,0.0035331,5.369e-4
+Indiana,resid,gas,heating,gas furnace,2015,0.7733283,0.1175099
+Indiana,resid,gas,hot water,gas water heater,2015,0.1724146,0.026199
+Indiana,resid,gas,other,gas,2015,0.0267381,0.0040629
+Indiana,resid,refined liquids,cooking,lpg oven,2015,0.0123757,1.963e-4
+Indiana,resid,refined liquids,heating,fuel furnace,2015,0.8098167,0.0128433
+Indiana,resid,refined liquids,hot water,fuel water heater,2015,0.1028548,0.0016312
+Indiana,resid,refined liquids,other,refined liquids,2015,0.0749528,0.0011887
+Iowa,comm,electricity,cooking,electric range,2015,0.0176494,8.797e-4
+Iowa,comm,electricity,cooling,air conditioning,2015,0.0449793,0.0022419
+Iowa,comm,electricity,heating,electric furnace,2015,0.0274516,0.0013683
+Iowa,comm,electricity,heating,electric heat pump,2015,0.0064474,3.214e-4
+Iowa,comm,electricity,hot water,electric heat pump water heater,2015,6.06e-5,3e-6
+Iowa,comm,electricity,hot water,electric resistance water heater,2015,0.0041174,2.052e-4
+Iowa,comm,electricity,lighting,lighting,2015,0.0933347,0.0046521
+Iowa,comm,electricity,office,office equipment,2015,0.1021004,0.005089
+Iowa,comm,electricity,other,electricity,2015,0.526467,0.026241
+Iowa,comm,electricity,refrigeration,refrigeration,2015,0.097315,0.0048505
+Iowa,comm,electricity,ventilation,ventilation,2015,0.0800773,0.0039913
+Iowa,comm,gas,cooking,gas range,2015,0.0477712,0.0024378
+Iowa,comm,gas,cooling,gas cooling,2015,0.0013126,6.7e-5
+Iowa,comm,gas,heating,gas furnace,2015,0.5159397,0.0263288
+Iowa,comm,gas,hot water,gas water heater,2015,0.0951457,0.0048553
+Iowa,comm,gas,other,gas,2015,0.3398307,0.0173418
+Iowa,comm,refined liquids,heating,fuel furnace,2015,0.3436283,0.0018519
+Iowa,comm,refined liquids,hot water,fuel water heater,2015,0.0017792,9.6e-6
+Iowa,comm,refined liquids,other,refined liquids,2015,0.6545925,0.0035278
+Iowa,resid,biomass,heating,wood furnace,2015,1,0.0082745
+Iowa,resid,electricity,clothes dryers,clothes dryer,2015,0.0492328,0.0022434
+Iowa,resid,electricity,clothes washers,clothes washer,2015,0.0085018,3.874e-4
+Iowa,resid,electricity,computers,electricity,2015,0.0277473,0.0012644
+Iowa,resid,electricity,cooking,electric oven,2015,0.0135863,6.191e-4
+Iowa,resid,electricity,cooling,air conditioning,2015,0.0567847,0.0025875
+Iowa,resid,electricity,dishwashers,dishwasher,2015,0.0060041,2.736e-4
+Iowa,resid,electricity,freezers,freezer,2015,0.0214961,9.795e-4
+Iowa,resid,electricity,furnace fans,electricity,2015,0.0295376,0.0013459
+Iowa,resid,electricity,heating,electric furnace,2015,0.1142199,0.0052047
+Iowa,resid,electricity,heating,electric heat pump,2015,0.0219427,9.999e-4
+Iowa,resid,electricity,hot water,electric resistance water heater,2015,0.1144246,0.005214
+Iowa,resid,electricity,lighting,lighting,2015,0.1063063,0.0048441
+Iowa,resid,electricity,other,electricity,2015,0.3578021,0.016304
+Iowa,resid,electricity,refrigerators,refrigerator,2015,0.0724137,0.0032997
+Iowa,resid,gas,clothes dryers,clothes dryer,2015,0.0055737,3.846e-4
+Iowa,resid,gas,cooking,gas oven,2015,0.012833,0.00088540000000000005
+Iowa,resid,gas,cooling,air conditioning,2015,0.0028842,1.99e-4
+Iowa,resid,gas,heating,gas furnace,2015,0.770636,0.0531691
+Iowa,resid,gas,hot water,gas water heater,2015,0.1893869,0.0130665
+Iowa,resid,gas,other,gas,2015,0.0186862,0.0012892
+Iowa,resid,refined liquids,cooking,lpg oven,2015,0.0124994,1.894e-4
+Iowa,resid,refined liquids,heating,fuel furnace,2015,0.8621472,0.0130642
+Iowa,resid,refined liquids,hot water,fuel water heater,2015,0.0841764,0.0012755
+Iowa,resid,refined liquids,other,refined liquids,2015,0.0411769,6.24e-4
+Kansas,comm,electricity,cooking,electric range,2015,0.0169724,0.0011262
+Kansas,comm,electricity,cooling,air conditioning,2015,0.0611896,0.0040601
+Kansas,comm,electricity,heating,electric furnace,2015,0.0156233,0.0010366
+Kansas,comm,electricity,heating,electric heat pump,2015,0.0042362,2.811e-4
+Kansas,comm,electricity,hot water,electric heat pump water heater,2015,5.3e-5,3.5e-6
+Kansas,comm,electricity,hot water,electric resistance water heater,2015,0.0027396,1.818e-4
+Kansas,comm,electricity,lighting,lighting,2015,0.0892375,0.0059211
+Kansas,comm,electricity,office,office equipment,2015,0.0965747,0.0064079
+Kansas,comm,electricity,other,electricity,2015,0.5764799,0.0382506
+Kansas,comm,electricity,refrigeration,refrigeration,2015,0.0656316,0.0043548
+Kansas,comm,electricity,ventilation,ventilation,2015,0.0712622,0.0047284
+Kansas,comm,gas,cooking,gas range,2015,0.0467867,0.0014687
+Kansas,comm,gas,cooling,gas cooling,2015,8.184e-4,2.57e-5
+Kansas,comm,gas,heating,gas furnace,2015,0.4786732,0.0150265
+Kansas,comm,gas,hot water,gas water heater,2015,0.0784275,0.002462
+Kansas,comm,gas,other,gas,2015,0.3952942,0.0124091
+Kansas,comm,refined liquids,heating,fuel furnace,2015,0.3365754,2.54e-5
+Kansas,comm,refined liquids,hot water,fuel water heater,2015,0.0026389,2e-7
+Kansas,comm,refined liquids,other,refined liquids,2015,0.6607858,4.99e-5
+Kansas,resid,biomass,heating,wood furnace,2015,1,0.0039731
+Kansas,resid,electricity,clothes dryers,clothes dryer,2015,0.0455475,0.0022512
+Kansas,resid,electricity,clothes washers,clothes washer,2015,0.0074287,3.672e-4
+Kansas,resid,electricity,computers,electricity,2015,0.0234685,0.0011599
+Kansas,resid,electricity,cooking,electric oven,2015,0.0129847,6.418e-4
+Kansas,resid,electricity,cooling,air conditioning,2015,0.1537995,0.0076016
+Kansas,resid,electricity,dishwashers,dishwasher,2015,0.0056011,2.768e-4
+Kansas,resid,electricity,freezers,freezer,2015,0.0207051,0.0010234
+Kansas,resid,electricity,furnace fans,electricity,2015,0.0337609,0.0016686
+Kansas,resid,electricity,heating,electric furnace,2015,0.0956046,0.0047253
+Kansas,resid,electricity,heating,electric heat pump,2015,0.0175551,8.677e-4
+Kansas,resid,electricity,hot water,electric resistance water heater,2015,0.0908456,0.0044901
+Kansas,resid,electricity,lighting,lighting,2015,0.0900756,0.004452
+Kansas,resid,electricity,other,electricity,2015,0.3431856,0.0169621
+Kansas,resid,electricity,refrigerators,refrigerator,2015,0.0594375,0.0029377
+Kansas,resid,gas,clothes dryers,clothes dryer,2015,0.0034714,1.833e-4
+Kansas,resid,gas,cooking,gas oven,2015,0.0104186,5.502e-4
+Kansas,resid,gas,cooling,air conditioning,2015,0.0046262,2.443e-4
+Kansas,resid,gas,heating,gas furnace,2015,0.7608491,0.0401819
+Kansas,resid,gas,hot water,gas water heater,2015,0.2065302,0.0109073
+Kansas,resid,gas,other,gas,2015,0.0141044,0.00074489999999999995
+Kansas,resid,refined liquids,cooking,lpg oven,2015,0.0145906,9.47e-5
+Kansas,resid,refined liquids,heating,fuel furnace,2015,0.8808397,0.00572
+Kansas,resid,refined liquids,hot water,fuel water heater,2015,0.0884855,5.746e-4
+Kansas,resid,refined liquids,other,refined liquids,2015,0.0160842,1.044e-4
+Kentucky,comm,electricity,cooking,electric range,2015,0.018434,0.001527
+Kentucky,comm,electricity,cooling,air conditioning,2015,0.098952300000000007,0.0081968
+Kentucky,comm,electricity,heating,electric furnace,2015,0.0181696,0.0015051
+Kentucky,comm,electricity,heating,electric heat pump,2015,0.006122,5.071e-4
+Kentucky,comm,electricity,hot water,electric heat pump water heater,2015,3.57e-5,3e-6
+Kentucky,comm,electricity,hot water,electric resistance water heater,2015,0.0049076,4.065e-4
+Kentucky,comm,electricity,lighting,lighting,2015,0.1048129,0.0086823
+Kentucky,comm,electricity,office,office equipment,2015,0.0945108,0.0078289
+Kentucky,comm,electricity,other,electricity,2015,0.4758134,0.0394146
+Kentucky,comm,electricity,refrigeration,refrigeration,2015,0.101967,0.0084466
+Kentucky,comm,electricity,ventilation,ventilation,2015,0.0762746,0.0063183
+Kentucky,comm,gas,cooking,gas range,2015,0.1112854,0.0039731
+Kentucky,comm,gas,cooling,gas cooling,2015,0.0116497,4.159e-4
+Kentucky,comm,gas,heating,gas furnace,2015,0.572328,0.0204331
+Kentucky,comm,gas,hot water,gas water heater,2015,0.2237676,0.0079889
+Kentucky,comm,gas,other,gas,2015,0.0809693,0.0028907
+Kentucky,comm,refined liquids,heating,fuel furnace,2015,0.2786562,0.0017077
+Kentucky,comm,refined liquids,hot water,fuel water heater,2015,0.0030665,1.88e-5
+Kentucky,comm,refined liquids,other,refined liquids,2015,0.7182772,0.0044017
+Kentucky,resid,biomass,heating,wood furnace,2015,1,0.0051166
+Kentucky,resid,electricity,clothes dryers,clothes dryer,2015,0.0400545,0.0037183
+Kentucky,resid,electricity,clothes washers,clothes washer,2015,0.0055669,5.168e-4
+Kentucky,resid,electricity,computers,electricity,2015,0.0157917,0.001466
+Kentucky,resid,electricity,cooking,electric oven,2015,0.0123388,0.0011454
+Kentucky,resid,electricity,cooling,air conditioning,2015,0.1304323,0.0121082
+Kentucky,resid,electricity,dishwashers,dishwasher,2015,0.0034287,3.183e-4
+Kentucky,resid,electricity,freezers,freezer,2015,0.0134055,0.0012444
+Kentucky,resid,electricity,furnace fans,electricity,2015,0.0122239,0.0011348
+Kentucky,resid,electricity,heating,electric furnace,2015,0.1403929,0.0130328
+Kentucky,resid,electricity,heating,electric heat pump,2015,0.0730665,0.0067828
+Kentucky,resid,electricity,hot water,electric resistance water heater,2015,0.161508,0.014993
+Kentucky,resid,electricity,lighting,lighting,2015,0.0706333,0.006557
+Kentucky,resid,electricity,other,electricity,2015,0.2763019,0.0256494
+Kentucky,resid,electricity,refrigerators,refrigerator,2015,0.0448552,0.004164
+Kentucky,resid,gas,clothes dryers,clothes dryer,2015,0.0036953,1.887e-4
+Kentucky,resid,gas,cooking,gas oven,2015,0.0209463,0.0010694
+Kentucky,resid,gas,cooling,air conditioning,2015,0.0503453,0.0025703
+Kentucky,resid,gas,heating,gas furnace,2015,0.7143824,0.0364718
+Kentucky,resid,gas,hot water,gas water heater,2015,0.1565861,0.0079943
+Kentucky,resid,gas,other,gas,2015,0.0540446,0.0027592
+Kentucky,resid,refined liquids,cooking,lpg oven,2015,0.0311589,2.113e-4
+Kentucky,resid,refined liquids,heating,fuel furnace,2015,0.7982577,0.005413
+Kentucky,resid,refined liquids,hot water,fuel water heater,2015,0.1204967,8.171e-4
+Kentucky,resid,refined liquids,other,refined liquids,2015,0.0500867,3.396e-4
+Louisiana,comm,electricity,cooking,electric range,2015,0.0153097,0.0012184
+Louisiana,comm,electricity,cooling,air conditioning,2015,0.1552446,0.012355
+Louisiana,comm,electricity,heating,electric furnace,2015,0.0099889,7.95e-4
+Louisiana,comm,electricity,heating,electric heat pump,2015,0.0041899,3.335e-4
+Louisiana,comm,electricity,hot water,electric heat pump water heater,2015,3.64e-5,2.9e-6
+Louisiana,comm,electricity,hot water,electric resistance water heater,2015,0.0058489,4.655e-4
+Louisiana,comm,electricity,lighting,lighting,2015,0.1009713,0.0080357
+Louisiana,comm,electricity,office,office equipment,2015,0.0875317,0.0069661
+Louisiana,comm,electricity,other,electricity,2015,0.4265157,0.0339439
+Louisiana,comm,electricity,refrigeration,refrigeration,2015,0.1149642,0.0091493
+Louisiana,comm,electricity,ventilation,ventilation,2015,0.0793987,0.0063189
+Louisiana,comm,gas,cooking,gas range,2015,0.1660605,0.0063694
+Louisiana,comm,gas,cooling,gas cooling,2015,0.0265773,0.0010194
+Louisiana,comm,gas,heating,gas furnace,2015,0.5347593,0.0205111
+Louisiana,comm,gas,hot water,gas water heater,2015,0.2345077,0.0089947
+Louisiana,comm,gas,other,gas,2015,0.0380953,0.0014612
+Louisiana,comm,refined liquids,heating,fuel furnace,2015,0,0
+Louisiana,comm,refined liquids,hot water,fuel water heater,2015,0,0
+Louisiana,comm,refined liquids,other,refined liquids,2015,1,0.0099281
+Louisiana,resid,biomass,heating,wood furnace,2015,1,0.0045258
+Louisiana,resid,electricity,clothes dryers,clothes dryer,2015,0.0385353,0.0036141
+Louisiana,resid,electricity,clothes washers,clothes washer,2015,0.0059558,5.586e-4
+Louisiana,resid,electricity,computers,electricity,2015,0.0171531,0.0016087
+Louisiana,resid,electricity,cooking,electric oven,2015,0.0086119,8.077e-4
+Louisiana,resid,electricity,cooling,air conditioning,2015,0.2324653,0.021802
+Louisiana,resid,electricity,dishwashers,dishwasher,2015,0.0039938,3.746e-4
+Louisiana,resid,electricity,freezers,freezer,2015,0.0122628,0.0011501
+Louisiana,resid,electricity,furnace fans,electricity,2015,0.0160948,0.0015095
+Louisiana,resid,electricity,heating,electric furnace,2015,0.1282936,0.0120321
+Louisiana,resid,electricity,heating,electric heat pump,2015,0.0233888,0.0021935
+Louisiana,resid,electricity,hot water,electric resistance water heater,2015,0.1161813,0.0108962
+Louisiana,resid,electricity,lighting,lighting,2015,0.0672973,0.0063115
+Louisiana,resid,electricity,other,electricity,2015,0.2781567,0.0260872
+Louisiana,resid,electricity,refrigerators,refrigerator,2015,0.0516093,0.0048402
+Louisiana,resid,gas,clothes dryers,clothes dryer,2015,0.0067286,2.913e-4
+Louisiana,resid,gas,cooking,gas oven,2015,0.024385,0.0010556
+Louisiana,resid,gas,cooling,air conditioning,2015,0.02907,0.0012584
+Louisiana,resid,gas,heating,gas furnace,2015,0.6248372,0.0270483
+Louisiana,resid,gas,hot water,gas water heater,2015,0.2253595,0.0097555
+Louisiana,resid,gas,other,gas,2015,0.0896197,0.0038795
+Louisiana,resid,refined liquids,cooking,lpg oven,2015,0.0605038,2.95e-4
+Louisiana,resid,refined liquids,heating,fuel furnace,2015,0.5793359,0.0028247
+Louisiana,resid,refined liquids,hot water,fuel water heater,2015,0.2022963,9.863e-4
+Louisiana,resid,refined liquids,other,refined liquids,2015,0.157864,7.697e-4
+Maine,comm,electricity,cooking,electric range,2015,0.0120756,2.321e-4
+Maine,comm,electricity,cooling,air conditioning,2015,0.048894,9.399e-4
+Maine,comm,electricity,heating,electric furnace,2015,0.0156825,3.015e-4
+Maine,comm,electricity,heating,electric heat pump,2015,0.0069388,1.334e-4
+Maine,comm,electricity,hot water,electric heat pump water heater,2015,4.2e-5,8e-7
+Maine,comm,electricity,hot water,electric resistance water heater,2015,0.0053416,1.027e-4
+Maine,comm,electricity,lighting,lighting,2015,0.088669799999999993,0.0017045
+Maine,comm,electricity,office,office equipment,2015,0.110951,0.0021328
+Maine,comm,electricity,other,electricity,2015,0.4952979,0.0095212
+Maine,comm,electricity,refrigeration,refrigeration,2015,0.1403147,0.0026973
+Maine,comm,electricity,ventilation,ventilation,2015,0.0757921,0.001457
+Maine,comm,gas,cooking,gas range,2015,0.0422426,7.448e-4
+Maine,comm,gas,cooling,gas cooling,2015,0.0018806,3.32e-5
+Maine,comm,gas,heating,gas furnace,2015,0.2909385,0.0051295
+Maine,comm,gas,hot water,gas water heater,2015,0.0440144,7.76e-4
+Maine,comm,gas,other,gas,2015,0.620924,0.0109475
+Maine,comm,refined liquids,heating,fuel furnace,2015,0.9839995,0.0079713
+Maine,comm,refined liquids,hot water,fuel water heater,2015,0.0160005,1.296e-4
+Maine,comm,refined liquids,other,refined liquids,2015,0,0
+Maine,resid,biomass,heating,wood furnace,2015,1,0.005078
+Maine,resid,electricity,clothes dryers,clothes dryer,2015,0.0473456,7.026e-4
+Maine,resid,electricity,clothes washers,clothes washer,2015,0.0088934,1.32e-4
+Maine,resid,electricity,computers,electricity,2015,0.0325419,4.829e-4
+Maine,resid,electricity,cooking,electric oven,2015,0.0158503,2.352e-4
+Maine,resid,electricity,cooling,air conditioning,2015,0.0577003,8.563e-4
+Maine,resid,electricity,dishwashers,dishwasher,2015,0.0060162,8.93e-5
+Maine,resid,electricity,freezers,freezer,2015,0.0150479,2.233e-4
+Maine,resid,electricity,furnace fans,electricity,2015,0.0302728,4.493e-4
+Maine,resid,electricity,heating,electric furnace,2015,0.06947,0.0010309
+Maine,resid,electricity,heating,electric heat pump,2015,0.0028202,4.19e-5
+Maine,resid,electricity,hot water,electric resistance water heater,2015,0.1150288,0.001707
+Maine,resid,electricity,lighting,lighting,2015,0.1220162,0.0018107
+Maine,resid,electricity,other,electricity,2015,0.4013041,0.0059554
+Maine,resid,electricity,refrigerators,refrigerator,2015,0.0756922,0.0011233
+Maine,resid,gas,clothes dryers,clothes dryer,2015,0.0055299,1.092e-4
+Maine,resid,gas,cooking,gas oven,2015,0.0187156,3.696e-4
+Maine,resid,gas,cooling,air conditioning,2015,5.707e-4,1.13e-5
+Maine,resid,gas,heating,gas furnace,2015,0.7603502,0.0150163
+Maine,resid,gas,hot water,gas water heater,2015,0.1953955,0.0038589
+Maine,resid,gas,other,gas,2015,0.019438,3.839e-4
+Maine,resid,refined liquids,cooking,lpg oven,2015,0.0111704,2.711e-4
+Maine,resid,refined liquids,heating,fuel furnace,2015,0.8494985,0.0206173
+Maine,resid,refined liquids,hot water,fuel water heater,2015,0.1163579,0.002824
+Maine,resid,refined liquids,other,refined liquids,2015,0.0229733,5.576e-4
+Maryland,comm,electricity,cooking,electric range,2015,0.013538,0.0012996
+Maryland,comm,electricity,cooling,air conditioning,2015,0.089051,0.0085483
+Maryland,comm,electricity,heating,electric furnace,2015,0.0219379,0.0021059
+Maryland,comm,electricity,heating,electric heat pump,2015,0.0061667,5.92e-4
+Maryland,comm,electricity,hot water,electric heat pump water heater,2015,7.25e-5,7e-6
+Maryland,comm,electricity,hot water,electric resistance water heater,2015,0.0044682,4.289e-4
+Maryland,comm,electricity,lighting,lighting,2015,0.1265487,0.0121479
+Maryland,comm,electricity,office,office equipment,2015,0.1321938,0.0126898
+Maryland,comm,electricity,other,electricity,2015,0.3642017,0.0349611
+Maryland,comm,electricity,refrigeration,refrigeration,2015,0.1257798,0.0120741
+Maryland,comm,electricity,ventilation,ventilation,2015,0.1160416,0.0111393
+Maryland,comm,gas,cooking,gas range,2015,0.0880727,0.0074869
+Maryland,comm,gas,cooling,gas cooling,2015,0.0128794,0.0010948
+Maryland,comm,gas,heating,gas furnace,2015,0.5752052,0.0488968
+Maryland,comm,gas,hot water,gas water heater,2015,0.1967787,0.0167277
+Maryland,comm,gas,other,gas,2015,0.127064,0.0108014
+Maryland,comm,refined liquids,heating,fuel furnace,2015,0.8784608,0.0101979
+Maryland,comm,refined liquids,hot water,fuel water heater,2015,0.0383298,4.45e-4
+Maryland,comm,refined liquids,other,refined liquids,2015,0.0832093,9.66e-4
+Maryland,resid,biomass,heating,wood furnace,2015,1,0.0115875
+Maryland,resid,electricity,clothes dryers,clothes dryer,2015,0.0398321,0.003382
+Maryland,resid,electricity,clothes washers,clothes washer,2015,0.0077853,6.61e-4
+Maryland,resid,electricity,computers,electricity,2015,0.0298393,0.0025336
+Maryland,resid,electricity,cooking,electric oven,2015,0.0101714,8.636e-4
+Maryland,resid,electricity,cooling,air conditioning,2015,0.1126346,0.0095635
+Maryland,resid,electricity,dishwashers,dishwasher,2015,0.0053441,4.538e-4
+Maryland,resid,electricity,freezers,freezer,2015,0.0157114,0.001334
+Maryland,resid,electricity,furnace fans,electricity,2015,0.0252129,0.0021407
+Maryland,resid,electricity,heating,electric furnace,2015,0.1219024,0.0103504
+Maryland,resid,electricity,heating,electric heat pump,2015,0.0415314,0.0035263
+Maryland,resid,electricity,hot water,electric resistance water heater,2015,0.1234574,0.0104824
+Maryland,resid,electricity,lighting,lighting,2015,0.0987199,0.008382
+Maryland,resid,electricity,other,electricity,2015,0.3017489,0.0256206
+Maryland,resid,electricity,refrigerators,refrigerator,2015,0.066109,0.0056131
+Maryland,resid,gas,clothes dryers,clothes dryer,2015,0.0071094,9.08e-4
+Maryland,resid,gas,cooking,gas oven,2015,0.0237421,0.0030323
+Maryland,resid,gas,cooling,air conditioning,2015,0.0093727,0.001197
+Maryland,resid,gas,heating,gas furnace,2015,0.7430325,0.0948976
+Maryland,resid,gas,hot water,gas water heater,2015,0.1800544,0.0229959
+Maryland,resid,gas,other,gas,2015,0.036688900000000003,0.0046858
+Maryland,resid,refined liquids,cooking,lpg oven,2015,0.0094324,3.023e-4
+Maryland,resid,refined liquids,heating,fuel furnace,2015,0.814814,0.0261136
+Maryland,resid,refined liquids,hot water,fuel water heater,2015,0.1230838,0.0039446
+Maryland,resid,refined liquids,other,refined liquids,2015,0.0526699,0.001688
+Massachusetts,comm,electricity,cooking,electric range,2015,0.0120756,0.0011903
+Massachusetts,comm,electricity,cooling,air conditioning,2015,0.048894,0.0048194
+Massachusetts,comm,electricity,heating,electric furnace,2015,0.0156825,0.0015458
+Massachusetts,comm,electricity,heating,electric heat pump,2015,0.0069388,6.839e-4
+Massachusetts,comm,electricity,hot water,electric heat pump water heater,2015,4.2e-5,4.1e-6
+Massachusetts,comm,electricity,hot water,electric resistance water heater,2015,0.0053416,5.265e-4
+Massachusetts,comm,electricity,lighting,lighting,2015,0.088669799999999993,0.00874
+Massachusetts,comm,electricity,office,office equipment,2015,0.110951,0.0109362
+Massachusetts,comm,electricity,other,electricity,2015,0.4952979,0.0488206
+Massachusetts,comm,electricity,refrigeration,refrigeration,2015,0.1403147,0.0138306
+Massachusetts,comm,electricity,ventilation,ventilation,2015,0.0757921,0.0074707
+Massachusetts,comm,gas,cooking,gas range,2015,0.0422426,0.0038189
+Massachusetts,comm,gas,cooling,gas cooling,2015,0.0018806,1.7e-4
+Massachusetts,comm,gas,heating,gas furnace,2015,0.2909385,0.0263019
+Massachusetts,comm,gas,hot water,gas water heater,2015,0.0440144,0.0039791
+Massachusetts,comm,gas,other,gas,2015,0.620924,0.0561337
+Massachusetts,comm,refined liquids,heating,fuel furnace,2015,0.9839995,0.0408732
+Massachusetts,comm,refined liquids,hot water,fuel water heater,2015,0.0160005,6.646e-4
+Massachusetts,comm,refined liquids,other,refined liquids,2015,0,0
+Massachusetts,resid,biomass,heating,wood furnace,2015,1,0.0260378
+Massachusetts,resid,electricity,clothes dryers,clothes dryer,2015,0.0473456,0.0036027
+Massachusetts,resid,electricity,clothes washers,clothes washer,2015,0.0088934,6.767e-4
+Massachusetts,resid,electricity,computers,electricity,2015,0.0325419,0.0024762
+Massachusetts,resid,electricity,cooking,electric oven,2015,0.0158503,0.0012061
+Massachusetts,resid,electricity,cooling,air conditioning,2015,0.0577003,0.0043906
+Massachusetts,resid,electricity,dishwashers,dishwasher,2015,0.0060162,4.578e-4
+Massachusetts,resid,electricity,freezers,freezer,2015,0.0150479,0.001145
+Massachusetts,resid,electricity,furnace fans,electricity,2015,0.0302728,0.0023036
+Massachusetts,resid,electricity,heating,electric furnace,2015,0.06947,0.0052862
+Massachusetts,resid,electricity,heating,electric heat pump,2015,0.0028202,2.146e-4
+Massachusetts,resid,electricity,hot water,electric resistance water heater,2015,0.1150288,0.0087529
+Massachusetts,resid,electricity,lighting,lighting,2015,0.1220162,0.0092846
+Massachusetts,resid,electricity,other,electricity,2015,0.4013041,0.0305366
+Massachusetts,resid,electricity,refrigerators,refrigerator,2015,0.0756922,0.0057597
+Massachusetts,resid,gas,clothes dryers,clothes dryer,2015,0.0055299,5.6e-4
+Massachusetts,resid,gas,cooking,gas oven,2015,0.0187156,0.0018952
+Massachusetts,resid,gas,cooling,air conditioning,2015,5.707e-4,5.78e-5
+Massachusetts,resid,gas,heating,gas furnace,2015,0.7603502,0.0769967
+Massachusetts,resid,gas,hot water,gas water heater,2015,0.1953955,0.0197867
+Massachusetts,resid,gas,other,gas,2015,0.019438,0.0019684
+Massachusetts,resid,refined liquids,cooking,lpg oven,2015,0.0111704,0.0013901
+Massachusetts,resid,refined liquids,heating,fuel furnace,2015,0.8494985,0.1057159
+Massachusetts,resid,refined liquids,hot water,fuel water heater,2015,0.1163579,0.0144802
+Massachusetts,resid,refined liquids,other,refined liquids,2015,0.0229733,0.0028589
+Michigan,comm,electricity,cooking,electric range,2015,0.0187164,0.002591
+Michigan,comm,electricity,cooling,air conditioning,2015,0.0649176,0.0089869
+Michigan,comm,electricity,heating,electric furnace,2015,0.0218282,0.0030218
+Michigan,comm,electricity,heating,electric heat pump,2015,0.0039559,5.476e-4
+Michigan,comm,electricity,hot water,electric heat pump water heater,2015,2.56e-5,3.6e-6
+Michigan,comm,electricity,hot water,electric resistance water heater,2015,0.0037852,5.24e-4
+Michigan,comm,electricity,lighting,lighting,2015,0.1215011,0.0168202
+Michigan,comm,electricity,office,office equipment,2015,0.112378,0.0155572
+Michigan,comm,electricity,other,electricity,2015,0.4324938,0.0598728
+Michigan,comm,electricity,refrigeration,refrigeration,2015,0.117079,0.016208
+Michigan,comm,electricity,ventilation,ventilation,2015,0.103319,0.0143031
+Michigan,comm,gas,cooking,gas range,2015,0.0510556,0.0082835
+Michigan,comm,gas,cooling,gas cooling,2015,0.0025278,4.101e-4
+Michigan,comm,gas,heating,gas furnace,2015,0.5825813,0.0945211
+Michigan,comm,gas,hot water,gas water heater,2015,0.1264964,0.0205234
+Michigan,comm,gas,other,gas,2015,0.2373389,0.0385071
+Michigan,comm,refined liquids,heating,fuel furnace,2015,0.3874077,0.0024403
+Michigan,comm,refined liquids,hot water,fuel water heater,2015,0.0041592,2.62e-5
+Michigan,comm,refined liquids,other,refined liquids,2015,0.6084331,0.0038325
+Michigan,resid,biomass,heating,wood furnace,2015,1,0.0239065
+Michigan,resid,electricity,clothes dryers,clothes dryer,2015,0.0410551,0.0051877
+Michigan,resid,electricity,clothes washers,clothes washer,2015,0.0098213,0.001241
+Michigan,resid,electricity,computers,electricity,2015,0.0312765,0.0039521
+Michigan,resid,electricity,cooking,electric oven,2015,0.0121308,0.0015328
+Michigan,resid,electricity,cooling,air conditioning,2015,0.0930185,0.0117538
+Michigan,resid,electricity,dishwashers,dishwasher,2015,0.0061411,7.76e-4
+Michigan,resid,electricity,freezers,freezer,2015,0.0203923,0.0025768
+Michigan,resid,electricity,furnace fans,electricity,2015,0.0430668,0.0054419
+Michigan,resid,electricity,heating,electric furnace,2015,0.0793775,0.0100302
+Michigan,resid,electricity,heating,electric heat pump,2015,0.0181339,0.0022914
+Michigan,resid,electricity,hot water,electric resistance water heater,2015,0.1003994,0.0126865
+Michigan,resid,electricity,lighting,lighting,2015,0.1184624,0.0149689
+Michigan,resid,electricity,other,electricity,2015,0.3455581,0.0436648
+Michigan,resid,electricity,refrigerators,refrigerator,2015,0.0811661,0.0102562
+Michigan,resid,gas,clothes dryers,clothes dryer,2015,0.0086066,0.0026378
+Michigan,resid,gas,cooking,gas oven,2015,0.0164484,0.0050412
+Michigan,resid,gas,cooling,air conditioning,2015,6.833e-4,2.094e-4
+Michigan,resid,gas,heating,gas furnace,2015,0.7842427,0.2403603
+Michigan,resid,gas,hot water,gas water heater,2015,0.1643449,0.0503696
+Michigan,resid,gas,other,gas,2015,0.0256741,0.0078688
+Michigan,resid,refined liquids,cooking,lpg oven,2015,0.0127892,5.044e-4
+Michigan,resid,refined liquids,heating,fuel furnace,2015,0.7809259,0.0308015
+Michigan,resid,refined liquids,hot water,fuel water heater,2015,0.1058429,0.0041747
+Michigan,resid,refined liquids,other,refined liquids,2015,0.100442,0.0039617
+Minnesota,comm,electricity,cooking,electric range,2015,0.0179449,0.0016252
+Minnesota,comm,electricity,cooling,air conditioning,2015,0.0451361,0.0040878
+Minnesota,comm,electricity,heating,electric furnace,2015,0.0265795,0.0024072
+Minnesota,comm,electricity,heating,electric heat pump,2015,0.006073,5.5e-4
+Minnesota,comm,electricity,hot water,electric heat pump water heater,2015,5.8e-5,5.3e-6
+Minnesota,comm,electricity,hot water,electric resistance water heater,2015,0.0041163,3.728e-4
+Minnesota,comm,electricity,lighting,lighting,2015,0.0944852,0.0085571
+Minnesota,comm,electricity,office,office equipment,2015,0.1039991,0.0094187
+Minnesota,comm,electricity,other,electricity,2015,0.5268955,0.0477184
+Minnesota,comm,electricity,refrigeration,refrigeration,2015,0.0943567,0.0085454
+Minnesota,comm,electricity,ventilation,ventilation,2015,0.0803557,0.0072774
+Minnesota,comm,gas,cooking,gas range,2015,0.0478924,0.0043917
+Minnesota,comm,gas,cooling,gas cooling,2015,0.0013815,1.267e-4
+Minnesota,comm,gas,heating,gas furnace,2015,0.5213153,0.0478046
+Minnesota,comm,gas,hot water,gas water heater,2015,0.0973341,0.0089255
+Minnesota,comm,gas,other,gas,2015,0.3320766,0.0304514
+Minnesota,comm,refined liquids,heating,fuel furnace,2015,0.3453064,0.0034148
+Minnesota,comm,refined liquids,hot water,fuel water heater,2015,0.0016825,1.66e-5
+Minnesota,comm,refined liquids,other,refined liquids,2015,0.6530111,0.0064578
+Minnesota,resid,biomass,heating,wood furnace,2015,1,0.0148456
+Minnesota,resid,electricity,clothes dryers,clothes dryer,2015,0.0498998,0.003961
+Minnesota,resid,electricity,clothes washers,clothes washer,2015,0.0087147,6.918e-4
+Minnesota,resid,electricity,computers,electricity,2015,0.0285154,0.0022635
+Minnesota,resid,electricity,cooking,electric oven,2015,0.0137652,0.0010927
+Minnesota,resid,electricity,cooling,air conditioning,2015,0.0556512,0.0044175
+Minnesota,resid,electricity,dishwashers,dishwasher,2015,0.0060915,4.835e-4
+Minnesota,resid,electricity,freezers,freezer,2015,0.0216984,0.0017224
+Minnesota,resid,electricity,furnace fans,electricity,2015,0.0301624,0.0023942
+Minnesota,resid,electricity,heating,electric furnace,2015,0.1045971,0.0083027
+Minnesota,resid,electricity,heating,electric heat pump,2015,0.020321,0.001613
+Minnesota,resid,electricity,hot water,electric resistance water heater,2015,0.1153182,0.0091537
+Minnesota,resid,electricity,lighting,lighting,2015,0.1094433,0.0086874
+Minnesota,resid,electricity,other,electricity,2015,0.3613751,0.0286852
+Minnesota,resid,electricity,refrigerators,refrigerator,2015,0.0744465,0.0059094
+Minnesota,resid,gas,clothes dryers,clothes dryer,2015,0.0058236,7.372e-4
+Minnesota,resid,gas,cooking,gas oven,2015,0.0131164,0.0016605
+Minnesota,resid,gas,cooling,air conditioning,2015,0.002659,3.366e-4
+Minnesota,resid,gas,heating,gas furnace,2015,0.7719893,0.0977298
+Minnesota,resid,gas,hot water,gas water heater,2015,0.1872222,0.0237014
+Minnesota,resid,gas,other,gas,2015,0.0191895,0.0024293
+Minnesota,resid,refined liquids,cooking,lpg oven,2015,0.0123603,3.374e-4
+Minnesota,resid,refined liquids,heating,fuel furnace,2015,0.858513,0.0234353
+Minnesota,resid,refined liquids,hot water,fuel water heater,2015,0.084444,0.0023051
+Minnesota,resid,refined liquids,other,refined liquids,2015,0.0446827,0.0012197
+Mississippi,comm,electricity,cooking,electric range,2015,0.0161626,8.532e-4
+Mississippi,comm,electricity,cooling,air conditioning,2015,0.1450497,0.0076573
+Mississippi,comm,electricity,heating,electric furnace,2015,0.0104853,5.535e-4
+Mississippi,comm,electricity,heating,electric heat pump,2015,0.0044066,2.326e-4
+Mississippi,comm,electricity,hot water,electric heat pump water heater,2015,4.28e-5,2.3e-6
+Mississippi,comm,electricity,hot water,electric resistance water heater,2015,0.0057439,3.032e-4
+Mississippi,comm,electricity,lighting,lighting,2015,0.1041043,0.0054958
+Mississippi,comm,electricity,office,office equipment,2015,0.0937243,0.0049478
+Mississippi,comm,electricity,other,electricity,2015,0.4273943,0.0225626
+Mississippi,comm,electricity,refrigeration,refrigeration,2015,0.1129329,0.0059618
+Mississippi,comm,electricity,ventilation,ventilation,2015,0.0799533,0.0042208
+Mississippi,comm,gas,cooking,gas range,2015,0.1542194,0.0031746
+Mississippi,comm,gas,cooling,gas cooling,2015,0.0224371,4.619e-4
+Mississippi,comm,gas,heating,gas furnace,2015,0.5369546,0.0110532
+Mississippi,comm,gas,hot water,gas water heater,2015,0.236465,0.0048676
+Mississippi,comm,gas,other,gas,2015,0.0499238,0.0010277
+Mississippi,comm,refined liquids,heating,fuel furnace,2015,0.0519035,2.237e-4
+Mississippi,comm,refined liquids,hot water,fuel water heater,2015,2.39e-4,1e-6
+Mississippi,comm,refined liquids,other,refined liquids,2015,0.9478575,0.004085
+Mississippi,resid,biomass,heating,wood furnace,2015,1,0.0028377
+Mississippi,resid,electricity,clothes dryers,clothes dryer,2015,0.0391629,0.0023233
+Mississippi,resid,electricity,clothes washers,clothes washer,2015,0.0058327,3.46e-4
+Mississippi,resid,electricity,computers,electricity,2015,0.0171879,0.0010196
+Mississippi,resid,electricity,cooking,electric oven,2015,0.0099412,5.897e-4
+Mississippi,resid,electricity,cooling,air conditioning,2015,0.2061175,0.0122276
+Mississippi,resid,electricity,dishwashers,dishwasher,2015,0.0038431,2.28e-4
+Mississippi,resid,electricity,freezers,freezer,2015,0.0120582,7.153e-4
+Mississippi,resid,electricity,furnace fans,electricity,2015,0.0148313,8.798e-4
+Mississippi,resid,electricity,heating,electric furnace,2015,0.1151096,0.0068287
+Mississippi,resid,electricity,heating,electric heat pump,2015,0.040577,0.0024072
+Mississippi,resid,electricity,hot water,electric resistance water heater,2015,0.1337168,0.0079326
+Mississippi,resid,electricity,lighting,lighting,2015,0.0689224,0.0040887
+Mississippi,resid,electricity,other,electricity,2015,0.2838433,0.0168386
+Mississippi,resid,electricity,refrigerators,refrigerator,2015,0.0488562,0.0028983
+Mississippi,resid,gas,clothes dryers,clothes dryer,2015,0.0050232,1.374e-4
+Mississippi,resid,gas,cooking,gas oven,2015,0.0233854,6.398e-4
+Mississippi,resid,gas,cooling,air conditioning,2015,0.0459075,0.001256
+Mississippi,resid,gas,heating,gas furnace,2015,0.6427134,0.0175839
+Mississippi,resid,gas,hot water,gas water heater,2015,0.2027282,0.0055464
+Mississippi,resid,gas,other,gas,2015,0.0802422,0.0021953
+Mississippi,resid,refined liquids,cooking,lpg oven,2015,0.0472172,1.424e-4
+Mississippi,resid,refined liquids,heating,fuel furnace,2015,0.668347,0.0020154
+Mississippi,resid,refined liquids,hot water,fuel water heater,2015,0.1637982,4.939e-4
+Mississippi,resid,refined liquids,other,refined liquids,2015,0.1206377,3.638e-4
+Missouri,comm,electricity,cooking,electric range,2015,0.0174433,0.001981
+Missouri,comm,electricity,cooling,air conditioning,2015,0.0692589,0.0078657
+Missouri,comm,electricity,heating,electric furnace,2015,0.0202601,0.0023009
+Missouri,comm,electricity,heating,electric heat pump,2015,0.0045652999999999996,5.185e-4
+Missouri,comm,electricity,hot water,electric heat pump water heater,2015,4.62e-5,5.2e-6
+Missouri,comm,electricity,hot water,electric resistance water heater,2015,0.0031247,3.549e-4
+Missouri,comm,electricity,lighting,lighting,2015,0.0958557,0.0108863
+Missouri,comm,electricity,office,office equipment,2015,0.100692,0.0114355
+Missouri,comm,electricity,other,electricity,2015,0.5295649,0.0601424
+Missouri,comm,electricity,refrigeration,refrigeration,2015,0.0790726,0.0089802
+Missouri,comm,electricity,ventilation,ventilation,2015,0.0801165,0.0090988
+Missouri,comm,gas,cooking,gas range,2015,0.0480994,0.0035212
+Missouri,comm,gas,cooling,gas cooling,2015,0.0014935,1.093e-4
+Missouri,comm,gas,heating,gas furnace,2015,0.5299384,0.0387947
+Missouri,comm,gas,hot water,gas water heater,2015,0.1009794,0.0073923
+Missouri,comm,gas,other,gas,2015,0.3194893,0.0233886
+Missouri,comm,refined liquids,heating,fuel furnace,2015,0.3572937,2.331e-4
+Missouri,comm,refined liquids,hot water,fuel water heater,2015,5.141e-4,3e-7
+Missouri,comm,refined liquids,other,refined liquids,2015,0.6421922,4.19e-4
+Missouri,resid,biomass,heating,wood furnace,2015,1,0.0076435
+Missouri,resid,electricity,clothes dryers,clothes dryer,2015,0.0430747,0.0043834
+Missouri,resid,electricity,clothes washers,clothes washer,2015,0.007567,7.7e-4
+Missouri,resid,electricity,computers,electricity,2015,0.0240527,0.0024476
+Missouri,resid,electricity,cooking,electric oven,2015,0.0122162,0.0012431
+Missouri,resid,electricity,cooling,air conditioning,2015,0.142324,0.0144831
+Missouri,resid,electricity,dishwashers,dishwasher,2015,0.005302,5.395e-4
+Missouri,resid,electricity,freezers,freezer,2015,0.0189133,0.0019246
+Missouri,resid,electricity,furnace fans,electricity,2015,0.0352828,0.0035904
+Missouri,resid,electricity,heating,electric furnace,2015,0.1198488,0.012196
+Missouri,resid,electricity,heating,electric heat pump,2015,0.0235219,0.0023936
+Missouri,resid,electricity,hot water,electric resistance water heater,2015,0.1002626,0.0102029
+Missouri,resid,electricity,lighting,lighting,2015,0.0913262,0.0092935
+Missouri,resid,electricity,other,electricity,2015,0.3153298,0.0320885
+Missouri,resid,electricity,refrigerators,refrigerator,2015,0.060978,0.0062052
+Missouri,resid,gas,clothes dryers,clothes dryer,2015,0.0061121,7.888e-4
+Missouri,resid,gas,cooking,gas oven,2015,0.0134447,0.0017351
+Missouri,resid,gas,cooling,air conditioning,2015,0.0024041,3.103e-4
+Missouri,resid,gas,heating,gas furnace,2015,0.7734979,0.0998254
+Missouri,resid,gas,hot water,gas water heater,2015,0.1847587,0.0238444
+Missouri,resid,gas,other,gas,2015,0.0197825,0.0025531
+Missouri,resid,refined liquids,cooking,lpg oven,2015,0.014019,1.742e-4
+Missouri,resid,refined liquids,heating,fuel furnace,2015,0.8439394,0.0104846
+Missouri,resid,refined liquids,hot water,fuel water heater,2015,0.095003,0.0011803
+Missouri,resid,refined liquids,other,refined liquids,2015,0.0470385,5.844e-4
+Montana,comm,electricity,cooking,electric range,2015,0.0179845,2.234e-4
+Montana,comm,electricity,cooling,air conditioning,2015,0.030817399999999998,3.827e-4
+Montana,comm,electricity,heating,electric furnace,2015,0.0167085,2.075e-4
+Montana,comm,electricity,heating,electric heat pump,2015,0.0066121,8.21e-5
+Montana,comm,electricity,hot water,electric heat pump water heater,2015,1.051e-4,1.3e-6
+Montana,comm,electricity,hot water,electric resistance water heater,2015,0.0071392,8.87e-5
+Montana,comm,electricity,lighting,lighting,2015,0.1493071,0.0018543
+Montana,comm,electricity,office,office equipment,2015,0.1347949,0.0016741
+Montana,comm,electricity,other,electricity,2015,0.3594861,0.0044647
+Montana,comm,electricity,refrigeration,refrigeration,2015,0.2253666,0.002799
+Montana,comm,electricity,ventilation,ventilation,2015,0.0516784,6.418e-4
+Montana,comm,gas,cooking,gas range,2015,0.1497324,0.0014583
+Montana,comm,gas,cooling,gas cooling,2015,0.0045362,4.42e-5
+Montana,comm,gas,heating,gas furnace,2015,0.4015551,0.0039108
+Montana,comm,gas,hot water,gas water heater,2015,0.253873,0.0024725
+Montana,comm,gas,other,gas,2015,0.1903033,0.0018534
+Montana,comm,refined liquids,heating,fuel furnace,2015,0.0185393,3.12e-5
+Montana,comm,refined liquids,hot water,fuel water heater,2015,2.719e-4,5e-7
+Montana,comm,refined liquids,other,refined liquids,2015,0.9811888,0.0016511
+Montana,resid,biomass,heating,wood furnace,2015,1,0.0023394
+Montana,resid,electricity,clothes dryers,clothes dryer,2015,0.0446207,7.405e-4
+Montana,resid,electricity,clothes washers,clothes washer,2015,0.0068563,1.138e-4
+Montana,resid,electricity,computers,electricity,2015,0.0255866,4.246e-4
+Montana,resid,electricity,cooking,electric oven,2015,0.0145661,2.417e-4
+Montana,resid,electricity,cooling,air conditioning,2015,0.0224702,3.729e-4
+Montana,resid,electricity,dishwashers,dishwasher,2015,0.0054154,8.99e-5
+Montana,resid,electricity,freezers,freezer,2015,0.0125607,2.085e-4
+Montana,resid,electricity,furnace fans,electricity,2015,0.0075385,1.251e-4
+Montana,resid,electricity,heating,electric furnace,2015,0.213486,0.0035431
+Montana,resid,electricity,heating,electric heat pump,2015,0.0669932,0.0011119
+Montana,resid,electricity,hot water,electric resistance water heater,2015,0.2181512,0.0036206
+Montana,resid,electricity,lighting,lighting,2015,0.0858021,0.001424
+Montana,resid,electricity,other,electricity,2015,0.2088684,0.0034665
+Montana,resid,electricity,refrigerators,refrigerator,2015,0.0670845,0.0011134
+Montana,resid,gas,clothes dryers,clothes dryer,2015,0.0123587,1.559e-4
+Montana,resid,gas,cooking,gas oven,2015,0.0294226,3.711e-4
+Montana,resid,gas,cooling,air conditioning,2015,0.0086314,1.089e-4
+Montana,resid,gas,heating,gas furnace,2015,0.5286032,0.0066678
+Montana,resid,gas,hot water,gas water heater,2015,0.33195210000000003,0.0041872
+Montana,resid,gas,other,gas,2015,0.089032,0.0011231
+Montana,resid,refined liquids,cooking,lpg oven,2015,0.0391742,7.49e-5
+Montana,resid,refined liquids,heating,fuel furnace,2015,0.5296859,0.0010134
+Montana,resid,refined liquids,hot water,fuel water heater,2015,0.2545086,4.869e-4
+Montana,resid,refined liquids,other,refined liquids,2015,0.1766314,3.379e-4
+Nebraska,comm,electricity,cooking,electric range,2015,0.0154373,4.201e-4
+Nebraska,comm,electricity,cooling,air conditioning,2015,0.0436721,0.0011883
+Nebraska,comm,electricity,heating,electric furnace,2015,0.0338809,9.219e-4
+Nebraska,comm,electricity,heating,electric heat pump,2015,0.0092649,2.521e-4
+Nebraska,comm,electricity,hot water,electric heat pump water heater,2015,7.89e-5,2.1e-6
+Nebraska,comm,electricity,hot water,electric resistance water heater,2015,0.0041046,1.117e-4
+Nebraska,comm,electricity,lighting,lighting,2015,0.0845329,0.0023002
+Nebraska,comm,electricity,office,office equipment,2015,0.0879462,0.0023931
+Nebraska,comm,electricity,other,electricity,2015,0.5238953,0.0142555
+Nebraska,comm,electricity,refrigeration,refrigeration,2015,0.1192615,0.0032452
+Nebraska,comm,electricity,ventilation,ventilation,2015,0.0779255,0.0021204
+Nebraska,comm,gas,cooking,gas range,2015,0.0470208,0.0014139
+Nebraska,comm,gas,cooling,gas cooling,2015,8.458e-4,2.54e-5
+Nebraska,comm,gas,heating,gas furnace,2015,0.4787543,0.0143962
+Nebraska,comm,gas,hot water,gas water heater,2015,0.0809523,0.0024342
+Nebraska,comm,gas,other,gas,2015,0.3924268,0.0118003
+Nebraska,comm,refined liquids,heating,fuel furnace,2015,0.3283552,8.869e-4
+Nebraska,comm,refined liquids,hot water,fuel water heater,2015,0.0025688,6.9e-6
+Nebraska,comm,refined liquids,other,refined liquids,2015,0.6690761,0.0018073
+Nebraska,resid,biomass,heating,wood furnace,2015,1,0.0049379
+Nebraska,resid,electricity,clothes dryers,clothes dryer,2015,0.0455569,0.0014832
+Nebraska,resid,electricity,clothes washers,clothes washer,2015,0.0073356,2.388e-4
+Nebraska,resid,electricity,computers,electricity,2015,0.0235629,7.672e-4
+Nebraska,resid,electricity,cooking,electric oven,2015,0.0126093,4.105e-4
+Nebraska,resid,electricity,cooling,air conditioning,2015,0.0629416,0.0020492
+Nebraska,resid,electricity,dishwashers,dishwasher,2015,0.0055292,1.8e-4
+Nebraska,resid,electricity,freezers,freezer,2015,0.0203701,6.632e-4
+Nebraska,resid,electricity,furnace fans,electricity,2015,0.0259821,8.459e-4
+Nebraska,resid,electricity,heating,electric furnace,2015,0.1668979,0.0054338
+Nebraska,resid,electricity,heating,electric heat pump,2015,0.0308684,0.001005
+Nebraska,resid,electricity,hot water,electric resistance water heater,2015,0.1093,0.0035586
+Nebraska,resid,electricity,lighting,lighting,2015,0.0890787,0.0029002
+Nebraska,resid,electricity,other,electricity,2015,0.3386786,0.0110267
+Nebraska,resid,electricity,refrigerators,refrigerator,2015,0.0612889,0.0019954
+Nebraska,resid,gas,clothes dryers,clothes dryer,2015,0.0035561,1.242e-4
+Nebraska,resid,gas,cooking,gas oven,2015,0.0105904,3.699e-4
+Nebraska,resid,gas,cooling,air conditioning,2015,0.0049327,1.723e-4
+Nebraska,resid,gas,heating,gas furnace,2015,0.7572898,0.026454
+Nebraska,resid,gas,hot water,gas water heater,2015,0.2084835,0.0072829
+Nebraska,resid,gas,other,gas,2015,0.0151474,5.291e-4
+Nebraska,resid,refined liquids,cooking,lpg oven,2015,0.0135876,1.189e-4
+Nebraska,resid,refined liquids,heating,fuel furnace,2015,0.8859563,0.0077514
+Nebraska,resid,refined liquids,hot water,fuel water heater,2015,0.0831784,7.277e-4
+Nebraska,resid,refined liquids,other,refined liquids,2015,0.0172777,1.512e-4
+Nevada,comm,electricity,cooking,electric range,2015,0.0176785,8.332e-4
+Nevada,comm,electricity,cooling,air conditioning,2015,0.0565007,0.002663
+Nevada,comm,electricity,heating,electric furnace,2015,0.0121956,5.748e-4
+Nevada,comm,electricity,heating,electric heat pump,2015,0.0048693,2.295e-4
+Nevada,comm,electricity,hot water,electric heat pump water heater,2015,8.5e-6,4e-7
+Nevada,comm,electricity,hot water,electric resistance water heater,2015,0.0022518,1.061e-4
+Nevada,comm,electricity,lighting,lighting,2015,0.080483,0.0037934
+Nevada,comm,electricity,office,office equipment,2015,0.107239,0.0050545
+Nevada,comm,electricity,other,electricity,2015,0.5727637,0.0269958
+Nevada,comm,electricity,refrigeration,refrigeration,2015,0.0715051,0.0033702
+Nevada,comm,electricity,ventilation,ventilation,2015,0.0745048,0.0035116
+Nevada,comm,gas,cooking,gas range,2015,0.058041,0.0021543
+Nevada,comm,gas,cooling,gas cooling,2015,0.0021355,7.93e-5
+Nevada,comm,gas,heating,gas furnace,2015,0.4825728,0.0179116
+Nevada,comm,gas,hot water,gas water heater,2015,0.1998126,0.0074164
+Nevada,comm,gas,other,gas,2015,0.2574382,0.0095553
+Nevada,comm,refined liquids,heating,fuel furnace,2015,0.0271332,1.194e-4
+Nevada,comm,refined liquids,hot water,fuel water heater,2015,0,0
+Nevada,comm,refined liquids,other,refined liquids,2015,0.9728668,0.0042827
+Nevada,resid,biomass,heating,wood furnace,2015,1,0.0034547
+Nevada,resid,electricity,clothes dryers,clothes dryer,2015,0.0441451,0.0016006
+Nevada,resid,electricity,clothes washers,clothes washer,2015,0.0082056,2.975e-4
+Nevada,resid,electricity,computers,electricity,2015,0.0295695,0.0010721
+Nevada,resid,electricity,cooking,electric oven,2015,0.0118185,4.285e-4
+Nevada,resid,electricity,cooling,air conditioning,2015,0.12873,0.0046674
+Nevada,resid,electricity,dishwashers,dishwasher,2015,0.0060873,2.207e-4
+Nevada,resid,electricity,freezers,freezer,2015,0.0183661,6.659e-4
+Nevada,resid,electricity,furnace fans,electricity,2015,0.020506,7.435e-4
+Nevada,resid,electricity,heating,electric furnace,2015,0.0726833,0.0026353
+Nevada,resid,electricity,heating,electric heat pump,2015,0.018584,6.738e-4
+Nevada,resid,electricity,hot water,electric resistance water heater,2015,0.0719948,0.0026103
+Nevada,resid,electricity,lighting,lighting,2015,0.1054481,0.0038232
+Nevada,resid,electricity,other,electricity,2015,0.3908999,0.0141729
+Nevada,resid,electricity,refrigerators,refrigerator,2015,0.0729615,0.0026454
+Nevada,resid,gas,clothes dryers,clothes dryer,2015,0.0071109,3.587e-4
+Nevada,resid,gas,cooking,gas oven,2015,0.0178039,8.98e-4
+Nevada,resid,gas,cooling,air conditioning,2015,0.0178028,8.979e-4
+Nevada,resid,gas,heating,gas furnace,2015,0.6078535,0.0306582
+Nevada,resid,gas,hot water,gas water heater,2015,0.2904927,0.0146515
+Nevada,resid,gas,other,gas,2015,0.0589362,0.0029726
+Nevada,resid,refined liquids,cooking,lpg oven,2015,0.0310159,1.085e-4
+Nevada,resid,refined liquids,heating,fuel furnace,2015,0.5680852,0.0019882
+Nevada,resid,refined liquids,hot water,fuel water heater,2015,0.2331322,8.159e-4
+Nevada,resid,refined liquids,other,refined liquids,2015,0.1677667,5.872e-4
+New Hampshire,comm,electricity,cooking,electric range,2015,0.0120756,2.348e-4
+New Hampshire,comm,electricity,cooling,air conditioning,2015,0.048894,9.507e-4
+New Hampshire,comm,electricity,heating,electric furnace,2015,0.0156825,3.049e-4
+New Hampshire,comm,electricity,heating,electric heat pump,2015,0.0069388,1.349e-4
+New Hampshire,comm,electricity,hot water,electric heat pump water heater,2015,4.2e-5,8e-7
+New Hampshire,comm,electricity,hot water,electric resistance water heater,2015,0.0053416,1.039e-4
+New Hampshire,comm,electricity,lighting,lighting,2015,0.088669799999999993,0.0017242
+New Hampshire,comm,electricity,office,office equipment,2015,0.110951,0.0021574
+New Hampshire,comm,electricity,other,electricity,2015,0.4952979,0.009631
+New Hampshire,comm,electricity,refrigeration,refrigeration,2015,0.1403147,0.0027284
+New Hampshire,comm,electricity,ventilation,ventilation,2015,0.0757921,0.0014738
+New Hampshire,comm,gas,cooking,gas range,2015,0.0422426,7.534e-4
+New Hampshire,comm,gas,cooling,gas cooling,2015,0.0018806,3.35e-5
+New Hampshire,comm,gas,heating,gas furnace,2015,0.2909385,0.0051887
+New Hampshire,comm,gas,hot water,gas water heater,2015,0.0440144,7.85e-4
+New Hampshire,comm,gas,other,gas,2015,0.620924,0.0110737
+New Hampshire,comm,refined liquids,heating,fuel furnace,2015,0.9839995,0.0080632
+New Hampshire,comm,refined liquids,hot water,fuel water heater,2015,0.0160005,1.311e-4
+New Hampshire,comm,refined liquids,other,refined liquids,2015,0,0
+New Hampshire,resid,biomass,heating,wood furnace,2015,1,0.0051366
+New Hampshire,resid,electricity,clothes dryers,clothes dryer,2015,0.0473456,7.107e-4
+New Hampshire,resid,electricity,clothes washers,clothes washer,2015,0.0088934,1.335e-4
+New Hampshire,resid,electricity,computers,electricity,2015,0.0325419,4.885e-4
+New Hampshire,resid,electricity,cooking,electric oven,2015,0.0158503,2.379e-4
+New Hampshire,resid,electricity,cooling,air conditioning,2015,0.0577003,8.662e-4
+New Hampshire,resid,electricity,dishwashers,dishwasher,2015,0.0060162,9.03e-5
+New Hampshire,resid,electricity,freezers,freezer,2015,0.0150479,2.259e-4
+New Hampshire,resid,electricity,furnace fans,electricity,2015,0.0302728,4.544e-4
+New Hampshire,resid,electricity,heating,electric furnace,2015,0.06947,0.0010428
+New Hampshire,resid,electricity,heating,electric heat pump,2015,0.0028202,4.23e-5
+New Hampshire,resid,electricity,hot water,electric resistance water heater,2015,0.1150288,0.0017267
+New Hampshire,resid,electricity,lighting,lighting,2015,0.1220162,0.0018316
+New Hampshire,resid,electricity,other,electricity,2015,0.4013041,0.0060241
+New Hampshire,resid,electricity,refrigerators,refrigerator,2015,0.0756922,0.0011362
+New Hampshire,resid,gas,clothes dryers,clothes dryer,2015,0.0055299,1.105e-4
+New Hampshire,resid,gas,cooking,gas oven,2015,0.0187156,3.739e-4
+New Hampshire,resid,gas,cooling,air conditioning,2015,5.707e-4,1.14e-5
+New Hampshire,resid,gas,heating,gas furnace,2015,0.7603502,0.0151894
+New Hampshire,resid,gas,hot water,gas water heater,2015,0.1953955,0.0039034
+New Hampshire,resid,gas,other,gas,2015,0.019438,3.883e-4
+New Hampshire,resid,refined liquids,cooking,lpg oven,2015,0.0111704,2.742e-4
+New Hampshire,resid,refined liquids,heating,fuel furnace,2015,0.8494985,0.020855
+New Hampshire,resid,refined liquids,hot water,fuel water heater,2015,0.1163579,0.0028566
+New Hampshire,resid,refined liquids,other,refined liquids,2015,0.0229733,5.64e-4
+New Jersey,comm,electricity,cooking,electric range,2015,0.0121044,0.0016734
+New Jersey,comm,electricity,cooling,air conditioning,2015,0.0923867,0.0127723
+New Jersey,comm,electricity,heating,electric furnace,2015,0.0200534,0.0027723
+New Jersey,comm,electricity,heating,electric heat pump,2015,0.0060007,8.296e-4
+New Jersey,comm,electricity,hot water,electric heat pump water heater,2015,8.38e-5,1.16e-5
+New Jersey,comm,electricity,hot water,electric resistance water heater,2015,0.0044544,6.158e-4
+New Jersey,comm,electricity,lighting,lighting,2015,0.1302127,0.0180017
+New Jersey,comm,electricity,office,office equipment,2015,0.1379385,0.0190698
+New Jersey,comm,electricity,other,electricity,2015,0.3461042,0.0478484
+New Jersey,comm,electricity,refrigeration,refrigeration,2015,0.128986,0.0178321
+New Jersey,comm,electricity,ventilation,ventilation,2015,0.1216751,0.0168214
+New Jersey,comm,gas,cooking,gas range,2015,0.0918274,0.0117155
+New Jersey,comm,gas,cooling,gas cooling,2015,0.0145145,0.0018518
+New Jersey,comm,gas,heating,gas furnace,2015,0.5779083,0.0737306
+New Jersey,comm,gas,hot water,gas water heater,2015,0.2094414,0.0267209
+New Jersey,comm,gas,other,gas,2015,0.1063084,0.013563
+New Jersey,comm,refined liquids,heating,fuel furnace,2015,0.958295,0.0177676
+New Jersey,comm,refined liquids,hot water,fuel water heater,2015,0.041705,7.732e-4
+New Jersey,comm,refined liquids,other,refined liquids,2015,0,0
+New Jersey,resid,biomass,heating,wood furnace,2015,1,0.018538
+New Jersey,resid,electricity,clothes dryers,clothes dryer,2015,0.0386461,0.0046226
+New Jersey,resid,electricity,clothes washers,clothes washer,2015,0.0077538,9.275e-4
+New Jersey,resid,electricity,computers,electricity,2015,0.0313376,0.0037484
+New Jersey,resid,electricity,cooking,electric oven,2015,0.0098155,0.0011741
+New Jersey,resid,electricity,cooling,air conditioning,2015,0.1180514,0.0141207
+New Jersey,resid,electricity,dishwashers,dishwasher,2015,0.0054485,6.517e-4
+New Jersey,resid,electricity,freezers,freezer,2015,0.0157523,0.0018842
+New Jersey,resid,electricity,furnace fans,electricity,2015,0.0236858,0.0028332
+New Jersey,resid,electricity,heating,electric furnace,2015,0.1156959,0.0138389
+New Jersey,resid,electricity,heating,electric heat pump,2015,0.0401672,0.0048046
+New Jersey,resid,electricity,hot water,electric resistance water heater,2015,0.1233494,0.0147544
+New Jersey,resid,electricity,lighting,lighting,2015,0.1006427,0.0120383
+New Jersey,resid,electricity,other,electricity,2015,0.3027811,0.036217
+New Jersey,resid,electricity,refrigerators,refrigerator,2015,0.0668728,0.007999
+New Jersey,resid,gas,clothes dryers,clothes dryer,2015,0.006796,0.0012658
+New Jersey,resid,gas,cooking,gas oven,2015,0.0256413,0.0047758
+New Jersey,resid,gas,cooling,air conditioning,2015,0.0097796,0.0018215
+New Jersey,resid,gas,heating,gas furnace,2015,0.7373481,0.1373356
+New Jersey,resid,gas,hot water,gas water heater,2015,0.182837,0.0340545
+New Jersey,resid,gas,other,gas,2015,0.037598,0.0070029
+New Jersey,resid,refined liquids,cooking,lpg oven,2015,0.0091124,4.872e-4
+New Jersey,resid,refined liquids,heating,fuel furnace,2015,0.8162729,0.043639
+New Jersey,resid,refined liquids,hot water,fuel water heater,2015,0.1264136,0.0067582
+New Jersey,resid,refined liquids,other,refined liquids,2015,0.0482011,0.0025769
+New Mexico,comm,electricity,cooking,electric range,2015,0.0163913,5.181e-4
+New Mexico,comm,electricity,cooling,air conditioning,2015,0.0984818,0.0031129
+New Mexico,comm,electricity,heating,electric furnace,2015,0.0078344,2.476e-4
+New Mexico,comm,electricity,heating,electric heat pump,2015,0.0031887,1.008e-4
+New Mexico,comm,electricity,hot water,electric heat pump water heater,2015,1.37e-5,4e-7
+New Mexico,comm,electricity,hot water,electric resistance water heater,2015,0.0027751,8.77e-5
+New Mexico,comm,electricity,lighting,lighting,2015,0.0848671,0.0026826
+New Mexico,comm,electricity,office,office equipment,2015,0.0989017,0.0031262
+New Mexico,comm,electricity,other,electricity,2015,0.5146546,0.0162678
+New Mexico,comm,electricity,refrigeration,refrigeration,2015,0.091678,0.0028979
+New Mexico,comm,electricity,ventilation,ventilation,2015,0.0812137,0.0025671
+New Mexico,comm,gas,cooking,gas range,2015,0.0869636,0.0011954000000000001
+New Mexico,comm,gas,cooling,gas cooling,2015,0.0084087,1.156e-4
+New Mexico,comm,gas,heating,gas furnace,2015,0.4923759,0.0067681
+New Mexico,comm,gas,hot water,gas water heater,2015,0.2090934,0.0028742
+New Mexico,comm,gas,other,gas,2015,0.2031584,0.0027926
+New Mexico,comm,refined liquids,heating,fuel furnace,2015,0.0062473,2.8e-6
+New Mexico,comm,refined liquids,hot water,fuel water heater,2015,1.78e-5,0
+New Mexico,comm,refined liquids,other,refined liquids,2015,0.9937349,4.377e-4
+New Mexico,resid,biomass,heating,wood furnace,2015,1,0.0022049
+New Mexico,resid,electricity,clothes dryers,clothes dryer,2015,0.040777,0.0012941
+New Mexico,resid,electricity,clothes washers,clothes washer,2015,0.0071179,2.259e-4
+New Mexico,resid,electricity,computers,electricity,2015,0.0248761,7.894e-4
+New Mexico,resid,electricity,cooking,electric oven,2015,0.0094229,2.99e-4
+New Mexico,resid,electricity,cooling,air conditioning,2015,0.2350449,0.0074591
+New Mexico,resid,electricity,dishwashers,dishwasher,2015,0.0051905,1.647e-4
+New Mexico,resid,electricity,freezers,freezer,2015,0.0155477,4.934e-4
+New Mexico,resid,electricity,furnace fans,electricity,2015,0.0257444,8.17e-4
+New Mexico,resid,electricity,heating,electric furnace,2015,0.0537358,0.0017053
+New Mexico,resid,electricity,heating,electric heat pump,2015,0.0109837,3.486e-4
+New Mexico,resid,electricity,hot water,electric resistance water heater,2015,0.0781904,0.0024814
+New Mexico,resid,electricity,lighting,lighting,2015,0.0896159,0.0028439
+New Mexico,resid,electricity,other,electricity,2015,0.3420287,0.0108542
+New Mexico,resid,electricity,refrigerators,refrigerator,2015,0.061724,0.0019588
+New Mexico,resid,gas,clothes dryers,clothes dryer,2015,0.0072619,1.287e-4
+New Mexico,resid,gas,cooking,gas oven,2015,0.0198255,3.514e-4
+New Mexico,resid,gas,cooling,air conditioning,2015,0.0194664,3.451e-4
+New Mexico,resid,gas,heating,gas furnace,2015,0.6077321,0.0107734
+New Mexico,resid,gas,hot water,gas water heater,2015,0.2773294,0.0049163
+New Mexico,resid,gas,other,gas,2015,0.0683848,0.0012123
+New Mexico,resid,refined liquids,cooking,lpg oven,2015,0.0432676,8.82e-5
+New Mexico,resid,refined liquids,heating,fuel furnace,2015,0.5101297,0.0010402
+New Mexico,resid,refined liquids,hot water,fuel water heater,2015,0.2548718,5.197e-4
+New Mexico,resid,refined liquids,other,refined liquids,2015,0.1917309,3.91e-4
+New York,comm,electricity,cooking,electric range,2015,0.0110954,0.0031629
+New York,comm,electricity,cooling,air conditioning,2015,0.0831501,0.023703
+New York,comm,electricity,heating,electric furnace,2015,0.0200111,0.0057044
+New York,comm,electricity,heating,electric heat pump,2015,0.0047448,0.0013526
+New York,comm,electricity,hot water,electric heat pump water heater,2015,8.82e-5,2.52e-5
+New York,comm,electricity,hot water,electric resistance water heater,2015,0.0038762,0.001105
+New York,comm,electricity,lighting,lighting,2015,0.1272695,0.0362799
+New York,comm,electricity,office,office equipment,2015,0.147077,0.0419263
+New York,comm,electricity,other,electricity,2015,0.3379772,0.0963449
+New York,comm,electricity,refrigeration,refrigeration,2015,0.1271772,0.0362535
+New York,comm,electricity,ventilation,ventilation,2015,0.1375333,0.0392057
+New York,comm,gas,cooking,gas range,2015,0.0715808,0.022018
+New York,comm,gas,cooling,gas cooling,2015,0.0118769,0.0036533
+New York,comm,gas,heating,gas furnace,2015,0.6027557,0.1854056
+New York,comm,gas,hot water,gas water heater,2015,0.2014328,0.06196
+New York,comm,gas,other,gas,2015,0.1123537,0.0345596
+New York,comm,refined liquids,heating,fuel furnace,2015,0.9772099,0.0506684
+New York,comm,refined liquids,hot water,fuel water heater,2015,0.0227901,0.0011817
+New York,comm,refined liquids,other,refined liquids,2015,0,0
+New York,resid,biomass,heating,wood furnace,2015,1,0.0546253
+New York,resid,electricity,clothes dryers,clothes dryer,2015,0.0373879,0.0072259
+New York,resid,electricity,clothes washers,clothes washer,2015,0.0081839,0.0015817
+New York,resid,electricity,computers,electricity,2015,0.0405909,0.007845
+New York,resid,electricity,cooking,electric oven,2015,0.0112019,0.002165
+New York,resid,electricity,cooling,air conditioning,2015,0.1091185,0.0210892
+New York,resid,electricity,dishwashers,dishwasher,2015,0.0057623,0.0011137
+New York,resid,electricity,freezers,freezer,2015,0.0178269,0.0034454
+New York,resid,electricity,furnace fans,electricity,2015,0.0304695,0.0058888
+New York,resid,electricity,heating,electric furnace,2015,0.0847059,0.016371
+New York,resid,electricity,heating,electric heat pump,2015,0.0218194,0.004217
+New York,resid,electricity,hot water,electric resistance water heater,2015,0.1155138,0.0223252
+New York,resid,electricity,lighting,lighting,2015,0.1243154,0.0240263
+New York,resid,electricity,other,electricity,2015,0.3076727,0.0594635
+New York,resid,electricity,refrigerators,refrigerator,2015,0.085431000000000007,0.0165112
+New York,resid,gas,clothes dryers,clothes dryer,2015,0.0071129,0.0033494
+New York,resid,gas,cooking,gas oven,2015,0.0259421,0.0122159
+New York,resid,gas,cooling,air conditioning,2015,0.0020338,9.577e-4
+New York,resid,gas,heating,gas furnace,2015,0.7594551,0.3576199
+New York,resid,gas,hot water,gas water heater,2015,0.176215,0.0829779
+New York,resid,gas,other,gas,2015,0.0292411,0.0137693
+New York,resid,refined liquids,cooking,lpg oven,2015,0.0094091,0.0013393
+New York,resid,refined liquids,heating,fuel furnace,2015,0.8170557,0.1162984
+New York,resid,refined liquids,hot water,fuel water heater,2015,0.1329647,0.018926
+New York,resid,refined liquids,other,refined liquids,2015,0.0405705,0.0057747
+North Carolina,comm,electricity,cooking,electric range,2015,0.0150099,0.0029596
+North Carolina,comm,electricity,cooling,air conditioning,2015,0.1403563,0.027675
+North Carolina,comm,electricity,heating,electric furnace,2015,0.0126647,0.0024972
+North Carolina,comm,electricity,heating,electric heat pump,2015,0.0079248,0.0015626
+North Carolina,comm,electricity,hot water,electric heat pump water heater,2015,7.06e-5,1.39e-5
+North Carolina,comm,electricity,hot water,electric resistance water heater,2015,0.0068264,0.001346
+North Carolina,comm,electricity,lighting,lighting,2015,0.1149164,0.0226589
+North Carolina,comm,electricity,office,office equipment,2015,0.1088065,0.0214541
+North Carolina,comm,electricity,other,electricity,2015,0.3666733,0.0722995
+North Carolina,comm,electricity,refrigeration,refrigeration,2015,0.1430853,0.0282131
+North Carolina,comm,electricity,ventilation,ventilation,2015,0.0836658,0.016497
+North Carolina,comm,gas,cooking,gas range,2015,0.1753621,0.0099404
+North Carolina,comm,gas,cooling,gas cooling,2015,0.0253966,0.0014396
+North Carolina,comm,gas,heating,gas furnace,2015,0.4753915,0.0269476
+North Carolina,comm,gas,hot water,gas water heater,2015,0.2424838,0.0137452
+North Carolina,comm,gas,other,gas,2015,0.0813661,0.0046122
+North Carolina,comm,refined liquids,heating,fuel furnace,2015,0.2411023,0.0014249
+North Carolina,comm,refined liquids,hot water,fuel water heater,2015,0.056167,3.319e-4
+North Carolina,comm,refined liquids,other,refined liquids,2015,0.7027307,0.0041532
+North Carolina,resid,biomass,heating,wood furnace,2015,1,0.0184296
+North Carolina,resid,electricity,clothes dryers,clothes dryer,2015,0.036322,0.0075558
+North Carolina,resid,electricity,clothes washers,clothes washer,2015,0.0058071,0.001208
+North Carolina,resid,electricity,computers,electricity,2015,0.0196034,0.004078
+North Carolina,resid,electricity,cooking,electric oven,2015,0.0094609,0.0019681
+North Carolina,resid,electricity,cooling,air conditioning,2015,0.1652435,0.0343745
+North Carolina,resid,electricity,dishwashers,dishwasher,2015,0.0040532,8.432e-4
+North Carolina,resid,electricity,freezers,freezer,2015,0.0089635,0.0018646
+North Carolina,resid,electricity,furnace fans,electricity,2015,0.0147099,0.00306
+North Carolina,resid,electricity,heating,electric furnace,2015,0.1183045,0.0246101
+North Carolina,resid,electricity,heating,electric heat pump,2015,0.0656456,0.0136558
+North Carolina,resid,electricity,hot water,electric resistance water heater,2015,0.1516321,0.031543
+North Carolina,resid,electricity,lighting,lighting,2015,0.0684951,0.0142486
+North Carolina,resid,electricity,other,electricity,2015,0.2840226,0.0590834
+North Carolina,resid,electricity,refrigerators,refrigerator,2015,0.0477365,0.0099303
+North Carolina,resid,gas,clothes dryers,clothes dryer,2015,0.0048352,3.36e-4
+North Carolina,resid,gas,cooking,gas oven,2015,0.0237802,0.0016527
+North Carolina,resid,gas,cooling,air conditioning,2015,0.0577043,0.0040103
+North Carolina,resid,gas,heating,gas furnace,2015,0.6005685,0.0417383
+North Carolina,resid,gas,hot water,gas water heater,2015,0.2238082,0.0155542
+North Carolina,resid,gas,other,gas,2015,0.0893035,0.0062064
+North Carolina,resid,refined liquids,cooking,lpg oven,2015,0.0307157,6.294e-4
+North Carolina,resid,refined liquids,heating,fuel furnace,2015,0.635369,0.0130198
+North Carolina,resid,refined liquids,hot water,fuel water heater,2015,0.1455909,0.0029834
+North Carolina,resid,refined liquids,other,refined liquids,2015,0.1883243,0.0038591
+North Dakota,comm,electricity,cooking,electric range,2015,0.0156942,1.706e-4
+North Dakota,comm,electricity,cooling,air conditioning,2015,0.0439417,4.777e-4
+North Dakota,comm,electricity,heating,electric furnace,2015,0.0332211,3.611e-4
+North Dakota,comm,electricity,heating,electric heat pump,2015,0.0089246,9.7e-5
+North Dakota,comm,electricity,hot water,electric heat pump water heater,2015,7.73e-5,8e-7
+North Dakota,comm,electricity,hot water,electric resistance water heater,2015,0.004125,4.48e-5
+North Dakota,comm,electricity,lighting,lighting,2015,0.0857228,9.319e-4
+North Dakota,comm,electricity,office,office equipment,2015,0.0895388,9.734e-4
+North Dakota,comm,electricity,other,electricity,2015,0.5236322,0.0056924
+North Dakota,comm,electricity,refrigeration,refrigeration,2015,0.1168864,0.0012707
+North Dakota,comm,electricity,ventilation,ventilation,2015,0.078236,8.505e-4
+North Dakota,comm,gas,cooking,gas range,2015,0.047032,5.616e-4
+North Dakota,comm,gas,cooling,gas cooling,2015,8.923e-4,1.07e-5
+North Dakota,comm,gas,heating,gas furnace,2015,0.4831588,0.0057697
+North Dakota,comm,gas,hot water,gas water heater,2015,0.0818003,9.768e-4
+North Dakota,comm,gas,other,gas,2015,0.3871166,0.0046228
+North Dakota,comm,refined liquids,heating,fuel furnace,2015,0.3316297,3.643e-4
+North Dakota,comm,refined liquids,hot water,fuel water heater,2015,0.0024708,2.7e-6
+North Dakota,comm,refined liquids,other,refined liquids,2015,0.6658995,7.314e-4
+North Dakota,resid,biomass,heating,wood furnace,2015,1,0.0019548
+North Dakota,resid,electricity,clothes dryers,clothes dryer,2015,0.0459095,5.808e-4
+North Dakota,resid,electricity,clothes washers,clothes washer,2015,0.007441,9.41e-5
+North Dakota,resid,electricity,computers,electricity,2015,0.0239199,3.026e-4
+North Dakota,resid,electricity,cooking,electric oven,2015,0.0126946,1.606e-4
+North Dakota,resid,electricity,cooling,air conditioning,2015,0.0624322,7.899e-4
+North Dakota,resid,electricity,dishwashers,dishwasher,2015,0.0055689,7.05e-5
+North Dakota,resid,electricity,freezers,freezer,2015,0.0204879,2.592e-4
+North Dakota,resid,electricity,furnace fans,electricity,2015,0.0264246,3.343e-4
+North Dakota,resid,electricity,heating,electric furnace,2015,0.1621652,0.0020517
+North Dakota,resid,electricity,heating,electric heat pump,2015,0.0300228,3.798e-4
+North Dakota,resid,electricity,hot water,electric resistance water heater,2015,0.109972,0.0013913
+North Dakota,resid,electricity,lighting,lighting,2015,0.0906763,0.0011472
+North Dakota,resid,electricity,other,electricity,2015,0.3399995,0.0043016
+North Dakota,resid,electricity,refrigerators,refrigerator,2015,0.062285600000000003,7.88e-4
+North Dakota,resid,gas,clothes dryers,clothes dryer,2015,0.0037881,5.33e-5
+North Dakota,resid,gas,cooking,gas oven,2015,0.0108079,1.52e-4
+North Dakota,resid,gas,cooling,air conditioning,2015,0.0044932,6.32e-5
+North Dakota,resid,gas,heating,gas furnace,2015,0.7609648,0.0107052
+North Dakota,resid,gas,hot water,gas water heater,2015,0.2048566,0.0028819
+North Dakota,resid,gas,other,gas,2015,0.0150894,2.123e-4
+North Dakota,resid,refined liquids,cooking,lpg oven,2015,0.013363,4.67e-5
+North Dakota,resid,refined liquids,heating,fuel furnace,2015,0.8847086,0.0030894
+North Dakota,resid,refined liquids,hot water,fuel water heater,2015,0.0825149,2.881e-4
+North Dakota,resid,refined liquids,other,refined liquids,2015,0.0194136,6.78e-5
+Ohio,comm,electricity,cooking,electric range,2015,0.0173596,0.0034047
+Ohio,comm,electricity,cooling,air conditioning,2015,0.0801587,0.0157213
+Ohio,comm,electricity,heating,electric furnace,2015,0.0269617,0.0052879
+Ohio,comm,electricity,heating,electric heat pump,2015,0.0066093,0.0012963
+Ohio,comm,electricity,hot water,electric heat pump water heater,2015,4.24e-5,8.3e-6
+Ohio,comm,electricity,hot water,electric resistance water heater,2015,0.0045049,8.835e-4
+Ohio,comm,electricity,lighting,lighting,2015,0.1167812,0.022904
+Ohio,comm,electricity,office,office equipment,2015,0.11688,0.0229234
+Ohio,comm,electricity,other,electricity,2015,0.4124452,0.0808918
+Ohio,comm,electricity,refrigeration,refrigeration,2015,0.1172329,0.0229926
+Ohio,comm,electricity,ventilation,ventilation,2015,0.1010242,0.0198136
+Ohio,comm,gas,cooking,gas range,2015,0.0763232,0.0117679
+Ohio,comm,gas,cooling,gas cooling,2015,0.0077629,0.0011969
+Ohio,comm,gas,heating,gas furnace,2015,0.5667463,0.087384
+Ohio,comm,gas,hot water,gas water heater,2015,0.1571539,0.0242308
+Ohio,comm,gas,other,gas,2015,0.1920137,0.0296057
+Ohio,comm,refined liquids,heating,fuel furnace,2015,0.5123044,0.0091848
+Ohio,comm,refined liquids,hot water,fuel water heater,2015,0.0227768,4.084e-4
+Ohio,comm,refined liquids,other,refined liquids,2015,0.4649188,0.0083353
+Ohio,resid,biomass,heating,wood furnace,2015,1,0.0166791
+Ohio,resid,electricity,clothes dryers,clothes dryer,2015,0.0427548,0.0078482
+Ohio,resid,electricity,clothes washers,clothes washer,2015,0.0078629,0.0014433
+Ohio,resid,electricity,computers,electricity,2015,0.026147,0.0047996
+Ohio,resid,electricity,cooking,electric oven,2015,0.0110486,0.0020281
+Ohio,resid,electricity,cooling,air conditioning,2015,0.0992858,0.0182251
+Ohio,resid,electricity,dishwashers,dishwasher,2015,0.0050868,9.338e-4
+Ohio,resid,electricity,freezers,freezer,2015,0.0156106,0.0028655
+Ohio,resid,electricity,furnace fans,electricity,2015,0.0289762,0.0053189
+Ohio,resid,electricity,heating,electric furnace,2015,0.1371973,0.0251842
+Ohio,resid,electricity,heating,electric heat pump,2015,0.0448932,0.0082407
+Ohio,resid,electricity,hot water,electric resistance water heater,2015,0.1237234,0.0227109
+Ohio,resid,electricity,lighting,lighting,2015,0.0939813,0.0172514
+Ohio,resid,electricity,other,electricity,2015,0.2992051,0.0549227
+Ohio,resid,electricity,refrigerators,refrigerator,2015,0.0642269,0.0117896
+Ohio,resid,gas,clothes dryers,clothes dryer,2015,0.0079848,0.0020135
+Ohio,resid,gas,cooking,gas oven,2015,0.0184371,0.0046492
+Ohio,resid,gas,cooling,air conditioning,2015,0.0082359,0.0020768
+Ohio,resid,gas,heating,gas furnace,2015,0.758911,0.1913703
+Ohio,resid,gas,hot water,gas water heater,2015,0.1722817,0.0434433
+Ohio,resid,gas,other,gas,2015,0.0341495,0.0086113
+Ohio,resid,refined liquids,cooking,lpg oven,2015,0.0111416,4.217e-4
+Ohio,resid,refined liquids,heating,fuel furnace,2015,0.8070212,0.0305463
+Ohio,resid,refined liquids,hot water,fuel water heater,2015,0.1052978,0.0039856
+Ohio,resid,refined liquids,other,refined liquids,2015,0.0765395,0.0028971
+Oklahoma,comm,electricity,cooking,electric range,2015,0.0152397,0.001051
+Oklahoma,comm,electricity,cooling,air conditioning,2015,0.1257195,0.0086698
+Oklahoma,comm,electricity,heating,electric furnace,2015,0.0127817,8.815e-4
+Oklahoma,comm,electricity,heating,electric heat pump,2015,0.0054868,3.784e-4
+Oklahoma,comm,electricity,hot water,electric heat pump water heater,2015,3.04e-5,2.1e-6
+Oklahoma,comm,electricity,hot water,electric resistance water heater,2015,0.0049721,3.429e-4
+Oklahoma,comm,electricity,lighting,lighting,2015,0.1031747,0.0071151
+Oklahoma,comm,electricity,office,office equipment,2015,0.0893901,0.0061645
+Oklahoma,comm,electricity,other,electricity,2015,0.431067,0.0297272
+Oklahoma,comm,electricity,refrigeration,refrigeration,2015,0.1313712,0.0090596
+Oklahoma,comm,electricity,ventilation,ventilation,2015,0.0807668,0.0055698
+Oklahoma,comm,gas,cooking,gas range,2015,0.1674926,0.0061534
+Oklahoma,comm,gas,cooling,gas cooling,2015,0.0272578,0.0010014
+Oklahoma,comm,gas,heating,gas furnace,2015,0.5285758,0.0194189
+Oklahoma,comm,gas,hot water,gas water heater,2015,0.2330801,0.0085629
+Oklahoma,comm,gas,other,gas,2015,0.0435937,0.0016016
+Oklahoma,comm,refined liquids,heating,fuel furnace,2015,0,0
+Oklahoma,comm,refined liquids,hot water,fuel water heater,2015,0,0
+Oklahoma,comm,refined liquids,other,refined liquids,2015,1,0.0054309
+Oklahoma,resid,biomass,heating,wood furnace,2015,1,0.0057565
+Oklahoma,resid,electricity,clothes dryers,clothes dryer,2015,0.039092,0.0030612
+Oklahoma,resid,electricity,clothes washers,clothes washer,2015,0.0062501,4.894e-4
+Oklahoma,resid,electricity,computers,electricity,2015,0.0178949,0.0014013
+Oklahoma,resid,electricity,cooking,electric oven,2015,0.0080554,6.308e-4
+Oklahoma,resid,electricity,cooling,air conditioning,2015,0.2050478,0.0160568
+Oklahoma,resid,electricity,dishwashers,dishwasher,2015,0.0042528,3.33e-4
+Oklahoma,resid,electricity,freezers,freezer,2015,0.012537,9.817e-4
+Oklahoma,resid,electricity,furnace fans,electricity,2015,0.0172403,0.00135
+Oklahoma,resid,electricity,heating,electric furnace,2015,0.1508495,0.0118127
+Oklahoma,resid,electricity,heating,electric heat pump,2015,0.0230514,0.0018051
+Oklahoma,resid,electricity,hot water,electric resistance water heater,2015,0.1118228,0.0087566
+Oklahoma,resid,electricity,lighting,lighting,2015,0.068101,0.0053328
+Oklahoma,resid,electricity,other,electricity,2015,0.2817194,0.0220608
+Oklahoma,resid,electricity,refrigerators,refrigerator,2015,0.0540855,0.0042353
+Oklahoma,resid,gas,clothes dryers,clothes dryer,2015,0.0072299,3.699e-4
+Oklahoma,resid,gas,cooking,gas oven,2015,0.0245426,0.0012557
+Oklahoma,resid,gas,cooling,air conditioning,2015,0.0249909,0.0012786
+Oklahoma,resid,gas,heating,gas furnace,2015,0.6144227,0.0314366
+Oklahoma,resid,gas,hot water,gas water heater,2015,0.2362615,0.0120882
+Oklahoma,resid,gas,other,gas,2015,0.0925524,0.0047354
+Oklahoma,resid,refined liquids,cooking,lpg oven,2015,0.0674682,4.077e-4
+Oklahoma,resid,refined liquids,heating,fuel furnace,2015,0.5056694,0.0030556
+Oklahoma,resid,refined liquids,hot water,fuel water heater,2015,0.228887,0.0013831
+Oklahoma,resid,refined liquids,other,refined liquids,2015,0.1979754,0.0011963
+Oregon,comm,electricity,cooking,electric range,2015,0.0180922,8.781e-4
+Oregon,comm,electricity,cooling,air conditioning,2015,0.0301412,0.0014629
+Oregon,comm,electricity,heating,electric furnace,2015,0.0158918,7.713e-4
+Oregon,comm,electricity,heating,electric heat pump,2015,0.0065058,3.157e-4
+Oregon,comm,electricity,hot water,electric heat pump water heater,2015,1.067e-4,5.2e-6
+Oregon,comm,electricity,hot water,electric resistance water heater,2015,0.0072934,3.54e-4
+Oregon,comm,electricity,lighting,lighting,2015,0.1525225,0.0074024
+Oregon,comm,electricity,office,office equipment,2015,0.1370491,0.0066515
+Oregon,comm,electricity,other,electricity,2015,0.351077,0.017039
+Oregon,comm,electricity,refrigeration,refrigeration,2015,0.2310092,0.0112117
+Oregon,comm,electricity,ventilation,ventilation,2015,0.0503112,0.0024418
+Oregon,comm,gas,cooking,gas range,2015,0.1571882,0.0058625
+Oregon,comm,gas,cooling,gas cooling,2015,0.0047982,1.79e-4
+Oregon,comm,gas,heating,gas furnace,2015,0.3954167,0.0147474
+Oregon,comm,gas,hot water,gas water heater,2015,0.2662872,0.0099314
+Oregon,comm,gas,other,gas,2015,0.1763097,0.0065756
+Oregon,comm,refined liquids,heating,fuel furnace,2015,0.006625,4.41e-5
+Oregon,comm,refined liquids,hot water,fuel water heater,2015,1.911e-4,1.3e-6
+Oregon,comm,refined liquids,other,refined liquids,2015,0.9931838,0.0066145
+Oregon,resid,biomass,heating,wood furnace,2015,1,0.0091663
+Oregon,resid,electricity,clothes dryers,clothes dryer,2015,0.044554,0.0029113
+Oregon,resid,electricity,clothes washers,clothes washer,2015,0.0068275,4.461e-4
+Oregon,resid,electricity,computers,electricity,2015,0.0256462,0.0016758
+Oregon,resid,electricity,cooking,electric oven,2015,0.0146442,9.569e-4
+Oregon,resid,electricity,cooling,air conditioning,2015,0.0207576,0.0013563
+Oregon,resid,electricity,dishwashers,dishwasher,2015,0.0054073,3.533e-4
+Oregon,resid,electricity,freezers,freezer,2015,0.012214,7.981e-4
+Oregon,resid,electricity,furnace fans,electricity,2015,0.0067102,4.385e-4
+Oregon,resid,electricity,heating,electric furnace,2015,0.2158661,0.0141051
+Oregon,resid,electricity,heating,electric heat pump,2015,0.0686211,0.0044838
+Oregon,resid,electricity,hot water,electric resistance water heater,2015,0.2228228,0.0145597
+Oregon,resid,electricity,lighting,lighting,2015,0.0855398,0.0055894
+Oregon,resid,electricity,other,electricity,2015,0.2031298,0.0132729
+Oregon,resid,electricity,refrigerators,refrigerator,2015,0.0672593,0.0043949
+Oregon,resid,gas,clothes dryers,clothes dryer,2015,0.0129172,6.275e-4
+Oregon,resid,gas,cooking,gas oven,2015,0.0306481,0.0014889
+Oregon,resid,gas,cooling,air conditioning,2015,0.0089175,4.332e-4
+Oregon,resid,gas,heating,gas furnace,2015,0.5130736,0.0249254
+Oregon,resid,gas,hot water,gas water heater,2015,0.3405142,0.0165423
+Oregon,resid,gas,other,gas,2015,0.0939294,0.0045631
+Oregon,resid,refined liquids,cooking,lpg oven,2015,0.0420811,2.973e-4
+Oregon,resid,refined liquids,heating,fuel furnace,2015,0.4900489,0.0034623
+Oregon,resid,refined liquids,hot water,fuel water heater,2015,0.2738043,0.0019345
+Oregon,resid,refined liquids,other,refined liquids,2015,0.1940657,0.0013711
+Pennsylvania,comm,electricity,cooking,electric range,2015,0.0133082,0.0026965
+Pennsylvania,comm,electricity,cooling,air conditioning,2015,0.0895857,0.0181516
+Pennsylvania,comm,electricity,heating,electric furnace,2015,0.0216359,0.0043838
+Pennsylvania,comm,electricity,heating,electric heat pump,2015,0.0061401,0.0012441
+Pennsylvania,comm,electricity,hot water,electric heat pump water heater,2015,7.44e-5,1.51e-5
+Pennsylvania,comm,electricity,hot water,electric resistance water heater,2015,0.004466,9.049e-4
+Pennsylvania,comm,electricity,lighting,lighting,2015,0.127136,0.0257599
+Pennsylvania,comm,electricity,office,office equipment,2015,0.1331146,0.0269713
+Pennsylvania,comm,electricity,other,electricity,2015,0.3613009,0.0732057
+Pennsylvania,comm,electricity,refrigeration,refrigeration,2015,0.1262937,0.0255893
+Pennsylvania,comm,electricity,ventilation,ventilation,2015,0.1169446,0.023695
+Pennsylvania,comm,gas,cooking,gas range,2015,0.0886957,0.0160219
+Pennsylvania,comm,gas,cooling,gas cooling,2015,0.0131507,0.0023755
+Pennsylvania,comm,gas,heating,gas furnace,2015,0.5756537,0.1039857
+Pennsylvania,comm,gas,hot water,gas water heater,2015,0.1988797,0.0359255
+Pennsylvania,comm,gas,other,gas,2015,0.1236202,0.0223307
+Pennsylvania,comm,refined liquids,heating,fuel furnace,2015,0.8948623,0.0222488
+Pennsylvania,comm,refined liquids,hot water,fuel water heater,2015,0.0390265,9.703e-4
+Pennsylvania,comm,refined liquids,other,refined liquids,2015,0.0661112,0.0016437
+Pennsylvania,resid,biomass,heating,wood furnace,2015,1,0.0248927
+Pennsylvania,resid,electricity,clothes dryers,clothes dryer,2015,0.0396455,0.0070803
+Pennsylvania,resid,electricity,clothes washers,clothes washer,2015,0.0077803,0.0013895
+Pennsylvania,resid,electricity,computers,electricity,2015,0.030075,0.0053711
+Pennsylvania,resid,electricity,cooking,electric oven,2015,0.0101154,0.0018065
+Pennsylvania,resid,electricity,cooling,air conditioning,2015,0.1134869,0.0202676
+Pennsylvania,resid,electricity,dishwashers,dishwasher,2015,0.0053605,9.573e-4
+Pennsylvania,resid,electricity,freezers,freezer,2015,0.0157178,0.002807
+Pennsylvania,resid,electricity,furnace fans,electricity,2015,0.0249726,0.0044598
+Pennsylvania,resid,electricity,heating,electric furnace,2015,0.1209259,0.0215961
+Pennsylvania,resid,electricity,heating,electric heat pump,2015,0.0413167,0.0073787
+Pennsylvania,resid,electricity,hot water,electric resistance water heater,2015,0.1234404,0.0220451
+Pennsylvania,resid,electricity,lighting,lighting,2015,0.0990224,0.0176844
+Pennsylvania,resid,electricity,other,electricity,2015,0.3019113,0.0539181
+Pennsylvania,resid,electricity,refrigerators,refrigerator,2015,0.0662292,0.0118278
+Pennsylvania,resid,gas,clothes dryers,clothes dryer,2015,0.0070586,0.0019067
+Pennsylvania,resid,gas,cooking,gas oven,2015,0.0240498,0.0064963
+Pennsylvania,resid,gas,cooling,air conditioning,2015,0.0094386,0.0025496
+Pennsylvania,resid,gas,heating,gas furnace,2015,0.7421117,0.2004598
+Pennsylvania,resid,gas,hot water,gas water heater,2015,0.1805051,0.0487582
+Pennsylvania,resid,gas,other,gas,2015,0.0368361,0.0099502
+Pennsylvania,resid,refined liquids,cooking,lpg oven,2015,0.0093744,6.502e-4
+Pennsylvania,resid,refined liquids,heating,fuel furnace,2015,0.8150781,0.0565354
+Pennsylvania,resid,refined liquids,hot water,fuel water heater,2015,0.1236867,0.0085792
+Pennsylvania,resid,refined liquids,other,refined liquids,2015,0.0518607,0.0035972
+Rhode Island,comm,electricity,cooking,electric range,2015,0.0120756,1.829e-4
+Rhode Island,comm,electricity,cooling,air conditioning,2015,0.048894,7.407e-4
+Rhode Island,comm,electricity,heating,electric furnace,2015,0.0156825,2.376e-4
+Rhode Island,comm,electricity,heating,electric heat pump,2015,0.0069388,1.051e-4
+Rhode Island,comm,electricity,hot water,electric heat pump water heater,2015,4.2e-5,6e-7
+Rhode Island,comm,electricity,hot water,electric resistance water heater,2015,0.0053416,8.09e-5
+Rhode Island,comm,electricity,lighting,lighting,2015,0.088669799999999993,0.0013433
+Rhode Island,comm,electricity,office,office equipment,2015,0.110951,0.0016809
+Rhode Island,comm,electricity,other,electricity,2015,0.4952979,0.0075036
+Rhode Island,comm,electricity,refrigeration,refrigeration,2015,0.1403147,0.0021257
+Rhode Island,comm,electricity,ventilation,ventilation,2015,0.0757921,0.0011482
+Rhode Island,comm,gas,cooking,gas range,2015,0.0422426,5.87e-4
+Rhode Island,comm,gas,cooling,gas cooling,2015,0.0018806,2.61e-5
+Rhode Island,comm,gas,heating,gas furnace,2015,0.2909385,0.0040425
+Rhode Island,comm,gas,hot water,gas water heater,2015,0.0440144,6.116e-4
+Rhode Island,comm,gas,other,gas,2015,0.620924,0.0086276
+Rhode Island,comm,refined liquids,heating,fuel furnace,2015,0.9839995,0.0062821
+Rhode Island,comm,refined liquids,hot water,fuel water heater,2015,0.0160005,1.022e-4
+Rhode Island,comm,refined liquids,other,refined liquids,2015,0,0
+Rhode Island,resid,biomass,heating,wood furnace,2015,1,0.0040019
+Rhode Island,resid,electricity,clothes dryers,clothes dryer,2015,0.0473456,5.537e-4
+Rhode Island,resid,electricity,clothes washers,clothes washer,2015,0.0088934,1.04e-4
+Rhode Island,resid,electricity,computers,electricity,2015,0.0325419,3.806e-4
+Rhode Island,resid,electricity,cooking,electric oven,2015,0.0158503,1.854e-4
+Rhode Island,resid,electricity,cooling,air conditioning,2015,0.0577003,6.748e-4
+Rhode Island,resid,electricity,dishwashers,dishwasher,2015,0.0060162,7.04e-5
+Rhode Island,resid,electricity,freezers,freezer,2015,0.0150479,1.76e-4
+Rhode Island,resid,electricity,furnace fans,electricity,2015,0.0302728,3.541e-4
+Rhode Island,resid,electricity,heating,electric furnace,2015,0.06947,8.125e-4
+Rhode Island,resid,electricity,heating,electric heat pump,2015,0.0028202,3.3e-5
+Rhode Island,resid,electricity,hot water,electric resistance water heater,2015,0.1150288,0.0013453
+Rhode Island,resid,electricity,lighting,lighting,2015,0.1220162,0.001427
+Rhode Island,resid,electricity,other,electricity,2015,0.4013041,0.0046934
+Rhode Island,resid,electricity,refrigerators,refrigerator,2015,0.0756922,8.852e-4
+Rhode Island,resid,gas,clothes dryers,clothes dryer,2015,0.0055299,8.61e-5
+Rhode Island,resid,gas,cooking,gas oven,2015,0.0187156,2.913e-4
+Rhode Island,resid,gas,cooling,air conditioning,2015,5.707e-4,8.9e-6
+Rhode Island,resid,gas,heating,gas furnace,2015,0.7603502,0.0118342
+Rhode Island,resid,gas,hot water,gas water heater,2015,0.1953955,0.0030412
+Rhode Island,resid,gas,other,gas,2015,0.019438,3.025e-4
+Rhode Island,resid,refined liquids,cooking,lpg oven,2015,0.0111704,2.137e-4
+Rhode Island,resid,refined liquids,heating,fuel furnace,2015,0.8494985,0.0162483
+Rhode Island,resid,refined liquids,hot water,fuel water heater,2015,0.1163579,0.0022256
+Rhode Island,resid,refined liquids,other,refined liquids,2015,0.0229733,4.394e-4
+South Carolina,comm,electricity,cooking,electric range,2015,0.0149353,0.0014591
+South Carolina,comm,electricity,cooling,air conditioning,2015,0.1412841,0.0138024
+South Carolina,comm,electricity,heating,electric furnace,2015,0.0125163,0.0012227
+South Carolina,comm,electricity,heating,electric heat pump,2015,0.0078318,7.651e-4
+South Carolina,comm,electricity,hot water,electric heat pump water heater,2015,7.07e-5,6.9e-6
+South Carolina,comm,electricity,hot water,electric resistance water heater,2015,0.0068277,6.67e-4
+South Carolina,comm,electricity,lighting,lighting,2015,0.1153392,0.0112678
+South Carolina,comm,electricity,office,office equipment,2015,0.1082659,0.0105768
+South Carolina,comm,electricity,other,electricity,2015,0.3648515,0.0356433
+South Carolina,comm,electricity,refrigeration,refrigeration,2015,0.1445948,0.0141258
+South Carolina,comm,electricity,ventilation,ventilation,2015,0.0834827,0.0081556
+South Carolina,comm,gas,cooking,gas range,2015,0.1753621,0.0045812
+South Carolina,comm,gas,cooling,gas cooling,2015,0.0253966,6.635e-4
+South Carolina,comm,gas,heating,gas furnace,2015,0.4753915,0.0124191
+South Carolina,comm,gas,hot water,gas water heater,2015,0.2424838,0.0063347
+South Carolina,comm,gas,other,gas,2015,0.0813661,0.0021256
+South Carolina,comm,refined liquids,heating,fuel furnace,2015,0.2411023,5.679e-4
+South Carolina,comm,refined liquids,hot water,fuel water heater,2015,0.056167,1.323e-4
+South Carolina,comm,refined liquids,other,refined liquids,2015,0.7027307,0.0016553
+South Carolina,resid,biomass,heating,wood furnace,2015,1,0.0091135
+South Carolina,resid,electricity,clothes dryers,clothes dryer,2015,0.0363276,0.0037299
+South Carolina,resid,electricity,clothes washers,clothes washer,2015,0.0057988,5.954e-4
+South Carolina,resid,electricity,computers,electricity,2015,0.0195625,0.0020085
+South Carolina,resid,electricity,cooking,electric oven,2015,0.0093669,9.617e-4
+South Carolina,resid,electricity,cooling,air conditioning,2015,0.1676639,0.0172145
+South Carolina,resid,electricity,dishwashers,dishwasher,2015,0.0040475,4.156e-4
+South Carolina,resid,electricity,freezers,freezer,2015,0.0089508,9.19e-4
+South Carolina,resid,electricity,furnace fans,electricity,2015,0.0148548,0.0015252
+South Carolina,resid,electricity,heating,electric furnace,2015,0.1172105,0.0120343
+South Carolina,resid,electricity,heating,electric heat pump,2015,0.0650385,0.0066777
+South Carolina,resid,electricity,hot water,electric resistance water heater,2015,0.1519304,0.0155991
+South Carolina,resid,electricity,lighting,lighting,2015,0.0679302,0.0069746
+South Carolina,resid,electricity,other,electricity,2015,0.2836356,0.0291217
+South Carolina,resid,electricity,refrigerators,refrigerator,2015,0.0476821,0.0048957
+South Carolina,resid,gas,clothes dryers,clothes dryer,2015,0.0048352,1.57e-4
+South Carolina,resid,gas,cooking,gas oven,2015,0.0237802,7.72e-4
+South Carolina,resid,gas,cooling,air conditioning,2015,0.0577043,0.0018733
+South Carolina,resid,gas,heating,gas furnace,2015,0.6005685,0.0194968
+South Carolina,resid,gas,hot water,gas water heater,2015,0.2238082,0.0072657
+South Carolina,resid,gas,other,gas,2015,0.0893035,0.0028991
+South Carolina,resid,refined liquids,cooking,lpg oven,2015,0.0323869,3.112e-4
+South Carolina,resid,refined liquids,heating,fuel furnace,2015,0.621702,0.0059748
+South Carolina,resid,refined liquids,hot water,fuel water heater,2015,0.1496517,0.0014382
+South Carolina,resid,refined liquids,other,refined liquids,2015,0.1962594,0.0018861
+South Dakota,comm,electricity,cooking,electric range,2015,0.0155542,1.936e-4
+South Dakota,comm,electricity,cooling,air conditioning,2015,0.0432103,5.379e-4
+South Dakota,comm,electricity,heating,electric furnace,2015,0.0331498,4.127e-4
+South Dakota,comm,electricity,heating,electric heat pump,2015,0.009175,1.142e-4
+South Dakota,comm,electricity,hot water,electric heat pump water heater,2015,7.55e-5,9e-7
+South Dakota,comm,electricity,hot water,electric resistance water heater,2015,0.0040199,5e-5
+South Dakota,comm,electricity,lighting,lighting,2015,0.0842425,0.0010487
+South Dakota,comm,electricity,office,office equipment,2015,0.0889248,0.001107
+South Dakota,comm,electricity,other,electricity,2015,0.5265618,0.0065552
+South Dakota,comm,electricity,refrigeration,refrigeration,2015,0.1173196,0.0014605
+South Dakota,comm,electricity,ventilation,ventilation,2015,0.0777665,9.681e-4
+South Dakota,comm,gas,cooking,gas range,2015,0.0473765,6.417e-4
+South Dakota,comm,gas,cooling,gas cooling,2015,8.874e-4,1.2e-5
+South Dakota,comm,gas,heating,gas furnace,2015,0.4788775,0.0064861
+South Dakota,comm,gas,hot water,gas water heater,2015,0.0847886,0.0011484
+South Dakota,comm,gas,other,gas,2015,0.3880699,0.0052562
+South Dakota,comm,refined liquids,heating,fuel furnace,2015,0.3227616,3.873e-4
+South Dakota,comm,refined liquids,hot water,fuel water heater,2015,0.0025211,3e-6
+South Dakota,comm,refined liquids,other,refined liquids,2015,0.6747174,8.097e-4
+South Dakota,resid,biomass,heating,wood furnace,2015,1,0.0022409
+South Dakota,resid,electricity,clothes dryers,clothes dryer,2015,0.0456305,6.71e-4
+South Dakota,resid,electricity,clothes washers,clothes washer,2015,0.0073876,1.086e-4
+South Dakota,resid,electricity,computers,electricity,2015,0.0238435,3.506e-4
+South Dakota,resid,electricity,cooking,electric oven,2015,0.0126665,1.863e-4
+South Dakota,resid,electricity,cooling,air conditioning,2015,0.0624576,9.185e-4
+South Dakota,resid,electricity,dishwashers,dishwasher,2015,0.0055648,8.18e-5
+South Dakota,resid,electricity,freezers,freezer,2015,0.0203492,2.992e-4
+South Dakota,resid,electricity,furnace fans,electricity,2015,0.0256034,3.765e-4
+South Dakota,resid,electricity,heating,electric furnace,2015,0.1644193,0.0024179
+South Dakota,resid,electricity,heating,electric heat pump,2015,0.0306423,4.506e-4
+South Dakota,resid,electricity,hot water,electric resistance water heater,2015,0.1086017,0.001597
+South Dakota,resid,electricity,lighting,lighting,2015,0.089668,0.0013186
+South Dakota,resid,electricity,other,electricity,2015,0.3413412,0.0050196
+South Dakota,resid,electricity,refrigerators,refrigerator,2015,0.0618246,9.092e-4
+South Dakota,resid,gas,clothes dryers,clothes dryer,2015,0.0037541,6.05e-5
+South Dakota,resid,gas,cooking,gas oven,2015,0.0109922,1.773e-4
+South Dakota,resid,gas,cooling,air conditioning,2015,0.0056496,9.11e-5
+South Dakota,resid,gas,heating,gas furnace,2015,0.748966,0.0120771
+South Dakota,resid,gas,hot water,gas water heater,2015,0.2130515,0.0034355
+South Dakota,resid,gas,other,gas,2015,0.0175865,2.836e-4
+South Dakota,resid,refined liquids,cooking,lpg oven,2015,0.0140176,5.46e-5
+South Dakota,resid,refined liquids,heating,fuel furnace,2015,0.8784012,0.0034214
+South Dakota,resid,refined liquids,hot water,fuel water heater,2015,0.0868055,3.381e-4
+South Dakota,resid,refined liquids,other,refined liquids,2015,0.0207756,8.09e-5
+Tennessee,comm,electricity,cooking,electric range,2015,0.0185362,0.0023708
+Tennessee,comm,electricity,cooling,air conditioning,2015,0.1007394,0.0128845
+Tennessee,comm,electricity,heating,electric furnace,2015,0.0173336,0.002217
+Tennessee,comm,electricity,heating,electric heat pump,2015,0.0060757,7.771e-4
+Tennessee,comm,electricity,hot water,electric heat pump water heater,2015,3.5e-5,4.5e-6
+Tennessee,comm,electricity,hot water,electric resistance water heater,2015,0.0049459,6.326e-4
+Tennessee,comm,electricity,lighting,lighting,2015,0.1036749,0.0132599
+Tennessee,comm,electricity,office,office equipment,2015,0.0923838,0.0118158
+Tennessee,comm,electricity,other,electricity,2015,0.4818389,0.0616268
+Tennessee,comm,electricity,refrigeration,refrigeration,2015,0.1005154,0.0128558
+Tennessee,comm,electricity,ventilation,ventilation,2015,0.0739213,0.0094545
+Tennessee,comm,gas,cooking,gas range,2015,0.1178649,0.005988
+Tennessee,comm,gas,cooling,gas cooling,2015,0.0123811,6.29e-4
+Tennessee,comm,gas,heating,gas furnace,2015,0.5733784,0.02913
+Tennessee,comm,gas,hot water,gas water heater,2015,0.2363036,0.0120052
+Tennessee,comm,gas,other,gas,2015,0.060072,0.0030519
+Tennessee,comm,refined liquids,heating,fuel furnace,2015,0.2505748,0.0023178
+Tennessee,comm,refined liquids,hot water,fuel water heater,2015,6.976e-4,6.5e-6
+Tennessee,comm,refined liquids,other,refined liquids,2015,0.7487276,0.0069256
+Tennessee,resid,biomass,heating,wood furnace,2015,1,0.007617
+Tennessee,resid,electricity,clothes dryers,clothes dryer,2015,0.0398434,0.0058003
+Tennessee,resid,electricity,clothes washers,clothes washer,2015,0.0053874,7.843e-4
+Tennessee,resid,electricity,computers,electricity,2015,0.014982,0.002181
+Tennessee,resid,electricity,cooking,electric oven,2015,0.0124397,0.0018109
+Tennessee,resid,electricity,cooling,air conditioning,2015,0.1328675,0.0193425
+Tennessee,resid,electricity,dishwashers,dishwasher,2015,0.0032991,4.803e-4
+Tennessee,resid,electricity,freezers,freezer,2015,0.0132331,0.0019264
+Tennessee,resid,electricity,furnace fans,electricity,2015,0.0109141,0.0015888
+Tennessee,resid,electricity,heating,electric furnace,2015,0.1406427,0.0204744
+Tennessee,resid,electricity,heating,electric heat pump,2015,0.0752693,0.0109575
+Tennessee,resid,electricity,hot water,electric resistance water heater,2015,0.1644623,0.023942
+Tennessee,resid,electricity,lighting,lighting,2015,0.0688078,0.0100169
+Tennessee,resid,electricity,other,electricity,2015,0.2745111,0.0399626
+Tennessee,resid,electricity,refrigerators,refrigerator,2015,0.0433406,0.0063094
+Tennessee,resid,gas,clothes dryers,clothes dryer,2015,0.0027465,1.941e-4
+Tennessee,resid,gas,cooking,gas oven,2015,0.0215013,0.0015198
+Tennessee,resid,gas,cooling,air conditioning,2015,0.0596602,0.0042171
+Tennessee,resid,gas,heating,gas furnace,2015,0.7045323,0.0498004
+Tennessee,resid,gas,hot water,gas water heater,2015,0.1531141,0.010823
+Tennessee,resid,gas,other,gas,2015,0.0584456,0.0041313
+Tennessee,resid,refined liquids,cooking,lpg oven,2015,0.0363113,3.311e-4
+Tennessee,resid,refined liquids,heating,fuel furnace,2015,0.796002,0.0072583
+Tennessee,resid,refined liquids,hot water,fuel water heater,2015,0.1244088,0.0011344
+Tennessee,resid,refined liquids,other,refined liquids,2015,0.0432778,3.946e-4
+Texas,comm,electricity,cooking,electric range,2015,0.0159182,0.0086575
+Texas,comm,electricity,cooling,air conditioning,2015,0.1599963,0.0870185
+Texas,comm,electricity,heating,electric furnace,2015,0.0089237,0.0048534
+Texas,comm,electricity,heating,electric heat pump,2015,0.0038281,0.002082
+Texas,comm,electricity,hot water,electric heat pump water heater,2015,3.4e-5,1.85e-5
+Texas,comm,electricity,hot water,electric resistance water heater,2015,0.0055486,0.0030178
+Texas,comm,electricity,lighting,lighting,2015,0.0976087,0.0530872
+Texas,comm,electricity,office,office equipment,2015,0.0932347,0.0507083
+Texas,comm,electricity,other,electricity,2015,0.4499186,0.2447008
+Texas,comm,electricity,refrigeration,refrigeration,2015,0.0880132,0.0478684
+Texas,comm,electricity,ventilation,ventilation,2015,0.0769758,0.0418654
+Texas,comm,gas,cooking,gas range,2015,0.1691504,0.0306971
+Texas,comm,gas,cooling,gas cooling,2015,0.0275916,0.0050073
+Texas,comm,gas,heating,gas furnace,2015,0.5298186,0.0961504
+Texas,comm,gas,hot water,gas water heater,2015,0.2337831,0.0424265
+Texas,comm,gas,other,gas,2015,0.0396563,0.0071967
+Texas,comm,refined liquids,heating,fuel furnace,2015,0,0
+Texas,comm,refined liquids,hot water,fuel water heater,2015,0,0
+Texas,comm,refined liquids,other,refined liquids,2015,1,0.0058377
+Texas,resid,biomass,heating,wood furnace,2015,1,0.0188308
+Texas,resid,electricity,clothes dryers,clothes dryer,2015,0.0389318,0.0198911
+Texas,resid,electricity,clothes washers,clothes washer,2015,0.0061192,0.0031264
+Texas,resid,electricity,computers,electricity,2015,0.0175745,0.0089792
+Texas,resid,electricity,cooking,electric oven,2015,0.008679,0.0044343
+Texas,resid,electricity,cooling,air conditioning,2015,0.2532497,0.1293909
+Texas,resid,electricity,dishwashers,dishwasher,2015,0.0041594,0.0021251
+Texas,resid,electricity,freezers,freezer,2015,0.0123001,0.0062844
+Texas,resid,electricity,furnace fans,electricity,2015,0.0180872,0.0092412
+Texas,resid,electricity,heating,electric furnace,2015,0.1076227,0.0549868
+Texas,resid,electricity,heating,electric heat pump,2015,0.0166329,0.0084981
+Texas,resid,electricity,hot water,electric resistance water heater,2015,0.1102881,0.0563486
+Texas,resid,electricity,lighting,lighting,2015,0.0719953,0.036784
+Texas,resid,electricity,other,electricity,2015,0.2838053,0.1450024
+Texas,resid,electricity,refrigerators,refrigerator,2015,0.0505549,0.0258296
+Texas,resid,gas,clothes dryers,clothes dryer,2015,0.0071941,0.0016316
+Texas,resid,gas,cooking,gas oven,2015,0.0246355,0.0055874
+Texas,resid,gas,cooling,air conditioning,2015,0.0254298,0.0057676
+Texas,resid,gas,heating,gas furnace,2015,0.6153162,0.139556
+Texas,resid,gas,hot water,gas water heater,2015,0.2346142,0.0532114
+Texas,resid,gas,other,gas,2015,0.0928103,0.0210497
+Texas,resid,refined liquids,cooking,lpg oven,2015,0.0671532,0.0013242
+Texas,resid,refined liquids,heating,fuel furnace,2015,0.5110397,0.010077
+Texas,resid,refined liquids,hot water,fuel water heater,2015,0.2271263,0.0044786
+Texas,resid,refined liquids,other,refined liquids,2015,0.1946807,0.0038388
+Utah,comm,electricity,cooking,electric range,2015,0.0176785,8.673e-4
+Utah,comm,electricity,cooling,air conditioning,2015,0.0565007,0.0027718
+Utah,comm,electricity,heating,electric furnace,2015,0.0121956,5.983e-4
+Utah,comm,electricity,heating,electric heat pump,2015,0.0048693,2.389e-4
+Utah,comm,electricity,hot water,electric heat pump water heater,2015,8.5e-6,4e-7
+Utah,comm,electricity,hot water,electric resistance water heater,2015,0.0022518,1.105e-4
+Utah,comm,electricity,lighting,lighting,2015,0.080483,0.0039483
+Utah,comm,electricity,office,office equipment,2015,0.107239,0.0052609
+Utah,comm,electricity,other,electricity,2015,0.5727637,0.0280984
+Utah,comm,electricity,refrigeration,refrigeration,2015,0.0715051,0.0035079
+Utah,comm,electricity,ventilation,ventilation,2015,0.0745048,0.003655
+Utah,comm,gas,cooking,gas range,2015,0.058041,0.0022423
+Utah,comm,gas,cooling,gas cooling,2015,0.0021355,8.25e-5
+Utah,comm,gas,heating,gas furnace,2015,0.4825728,0.0186431
+Utah,comm,gas,hot water,gas water heater,2015,0.1998126,0.0077193
+Utah,comm,gas,other,gas,2015,0.2574382,0.0099456
+Utah,comm,refined liquids,heating,fuel furnace,2015,0.0271332,1.243e-4
+Utah,comm,refined liquids,hot water,fuel water heater,2015,0,0
+Utah,comm,refined liquids,other,refined liquids,2015,0.9728668,0.0044576
+Utah,resid,biomass,heating,wood furnace,2015,1,0.0035958
+Utah,resid,electricity,clothes dryers,clothes dryer,2015,0.0441451,0.0016659
+Utah,resid,electricity,clothes washers,clothes washer,2015,0.0082056,3.097e-4
+Utah,resid,electricity,computers,electricity,2015,0.0295695,0.0011159
+Utah,resid,electricity,cooking,electric oven,2015,0.0118185,4.46e-4
+Utah,resid,electricity,cooling,air conditioning,2015,0.12873,0.004858
+Utah,resid,electricity,dishwashers,dishwasher,2015,0.0060873,2.297e-4
+Utah,resid,electricity,freezers,freezer,2015,0.0183661,6.931e-4
+Utah,resid,electricity,furnace fans,electricity,2015,0.020506,7.739e-4
+Utah,resid,electricity,heating,electric furnace,2015,0.0726833,0.0027429
+Utah,resid,electricity,heating,electric heat pump,2015,0.018584,7.013e-4
+Utah,resid,electricity,hot water,electric resistance water heater,2015,0.0719948,0.0027169
+Utah,resid,electricity,lighting,lighting,2015,0.1054481,0.0039794
+Utah,resid,electricity,other,electricity,2015,0.3908999,0.0147518
+Utah,resid,electricity,refrigerators,refrigerator,2015,0.0729615,0.0027534
+Utah,resid,gas,clothes dryers,clothes dryer,2015,0.0071109,3.733e-4
+Utah,resid,gas,cooking,gas oven,2015,0.0178039,9.346e-4
+Utah,resid,gas,cooling,air conditioning,2015,0.0178028,9.346e-4
+Utah,resid,gas,heating,gas furnace,2015,0.6078535,0.0319104
+Utah,resid,gas,hot water,gas water heater,2015,0.2904927,0.01525
+Utah,resid,gas,other,gas,2015,0.0589362,0.003094
+Utah,resid,refined liquids,cooking,lpg oven,2015,0.0310159,1.13e-4
+Utah,resid,refined liquids,heating,fuel furnace,2015,0.5680852,0.0020694
+Utah,resid,refined liquids,hot water,fuel water heater,2015,0.2331322,8.492e-4
+Utah,resid,refined liquids,other,refined liquids,2015,0.1677667,6.111e-4
+Vermont,comm,electricity,cooking,electric range,2015,0.0120756,1.078e-4
+Vermont,comm,electricity,cooling,air conditioning,2015,0.048894,4.363e-4
+Vermont,comm,electricity,heating,electric furnace,2015,0.0156825,1.399e-4
+Vermont,comm,electricity,heating,electric heat pump,2015,0.0069388,6.19e-5
+Vermont,comm,electricity,hot water,electric heat pump water heater,2015,4.2e-5,4e-7
+Vermont,comm,electricity,hot water,electric resistance water heater,2015,0.0053416,4.77e-5
+Vermont,comm,electricity,lighting,lighting,2015,0.088669799999999993,7.912e-4
+Vermont,comm,electricity,office,office equipment,2015,0.110951,9.901e-4
+Vermont,comm,electricity,other,electricity,2015,0.4952979,0.0044198
+Vermont,comm,electricity,refrigeration,refrigeration,2015,0.1403147,0.0012521
+Vermont,comm,electricity,ventilation,ventilation,2015,0.0757921,6.763e-4
+Vermont,comm,gas,cooking,gas range,2015,0.0422426,3.457e-4
+Vermont,comm,gas,cooling,gas cooling,2015,0.0018806,1.54e-5
+Vermont,comm,gas,heating,gas furnace,2015,0.2909385,0.0023811
+Vermont,comm,gas,hot water,gas water heater,2015,0.0440144,3.602e-4
+Vermont,comm,gas,other,gas,2015,0.620924,0.0050819
+Vermont,comm,refined liquids,heating,fuel furnace,2015,0.9839995,0.0037003
+Vermont,comm,refined liquids,hot water,fuel water heater,2015,0.0160005,6.02e-5
+Vermont,comm,refined liquids,other,refined liquids,2015,0,0
+Vermont,resid,biomass,heating,wood furnace,2015,1,0.0023572
+Vermont,resid,electricity,clothes dryers,clothes dryer,2015,0.0473456,3.262e-4
+Vermont,resid,electricity,clothes washers,clothes washer,2015,0.0088934,6.13e-5
+Vermont,resid,electricity,computers,electricity,2015,0.0325419,2.242e-4
+Vermont,resid,electricity,cooking,electric oven,2015,0.0158503,1.092e-4
+Vermont,resid,electricity,cooling,air conditioning,2015,0.0577003,3.975e-4
+Vermont,resid,electricity,dishwashers,dishwasher,2015,0.0060162,4.14e-5
+Vermont,resid,electricity,freezers,freezer,2015,0.0150479,1.037e-4
+Vermont,resid,electricity,furnace fans,electricity,2015,0.0302728,2.085e-4
+Vermont,resid,electricity,heating,electric furnace,2015,0.06947,4.786e-4
+Vermont,resid,electricity,heating,electric heat pump,2015,0.0028202,1.94e-5
+Vermont,resid,electricity,hot water,electric resistance water heater,2015,0.1150288,7.924e-4
+Vermont,resid,electricity,lighting,lighting,2015,0.1220162,8.406e-4
+Vermont,resid,electricity,other,electricity,2015,0.4013041,0.0027645
+Vermont,resid,electricity,refrigerators,refrigerator,2015,0.0756922,5.214e-4
+Vermont,resid,gas,clothes dryers,clothes dryer,2015,0.0055299,5.07e-5
+Vermont,resid,gas,cooking,gas oven,2015,0.0187156,1.716e-4
+Vermont,resid,gas,cooling,air conditioning,2015,5.707e-4,5.2e-6
+Vermont,resid,gas,heating,gas furnace,2015,0.7603502,0.0069706
+Vermont,resid,gas,hot water,gas water heater,2015,0.1953955,0.0017913
+Vermont,resid,gas,other,gas,2015,0.019438,1.782e-4
+Vermont,resid,refined liquids,cooking,lpg oven,2015,0.0111704,1.258e-4
+Vermont,resid,refined liquids,heating,fuel furnace,2015,0.8494985,0.0095706
+Vermont,resid,refined liquids,hot water,fuel water heater,2015,0.1163579,0.0013109
+Vermont,resid,refined liquids,other,refined liquids,2015,0.0229733,2.588e-4
+Virginia,comm,electricity,cooking,electric range,2015,0.0162549,0.0023213
+Virginia,comm,electricity,cooling,air conditioning,2015,0.1196785,0.0170905
+Virginia,comm,electricity,heating,electric furnace,2015,0.0166793,0.0023819
+Virginia,comm,electricity,heating,electric heat pump,2015,0.008736,0.0012475
+Virginia,comm,electricity,hot water,electric heat pump water heater,2015,6.57e-5,9.4e-6
+Virginia,comm,electricity,hot water,electric resistance water heater,2015,0.0064118,9.156e-4
+Virginia,comm,electricity,lighting,lighting,2015,0.1103455,0.0157578
+Virginia,comm,electricity,office,office equipment,2015,0.1161034,0.01658
+Virginia,comm,electricity,other,electricity,2015,0.3959031,0.0565365
+Virginia,comm,electricity,refrigeration,refrigeration,2015,0.1213195,0.0173249
+Virginia,comm,electricity,ventilation,ventilation,2015,0.0885024,0.0126385
+Virginia,comm,gas,cooking,gas range,2015,0.1538323,0.0131172
+Virginia,comm,gas,cooling,gas cooling,2015,0.0215678,0.0018391
+Virginia,comm,gas,heating,gas furnace,2015,0.4958442,0.0422803
+Virginia,comm,gas,hot water,gas water heater,2015,0.2246129,0.0191526
+Virginia,comm,gas,other,gas,2015,0.1041429,0.0088802
+Virginia,comm,refined liquids,heating,fuel furnace,2015,0.2817741,0.0043041
+Virginia,comm,refined liquids,hot water,fuel water heater,2015,0.0511154,7.808e-4
+Virginia,comm,refined liquids,other,refined liquids,2015,0.6671106,0.0101902
+Virginia,resid,biomass,heating,wood furnace,2015,1,0.0134129
+Virginia,resid,electricity,clothes dryers,clothes dryer,2015,0.0371902,0.0057476
+Virginia,resid,electricity,clothes washers,clothes washer,2015,0.0061771,9.546e-4
+Virginia,resid,electricity,computers,electricity,2015,0.0209173,0.0032327
+Virginia,resid,electricity,cooking,electric oven,2015,0.010752,0.0016617
+Virginia,resid,electricity,cooling,air conditioning,2015,0.1290866,0.0199497
+Virginia,resid,electricity,dishwashers,dishwasher,2015,0.0042508,6.569e-4
+Virginia,resid,electricity,freezers,freezer,2015,0.0100889,0.0015592
+Virginia,resid,electricity,furnace fans,electricity,2015,0.015028,0.0023225
+Virginia,resid,electricity,heating,electric furnace,2015,0.1331891,0.0205837
+Virginia,resid,electricity,heating,electric heat pump,2015,0.0695484,0.0107483
+Virginia,resid,electricity,hot water,electric resistance water heater,2015,0.1446534,0.0223554
+Virginia,resid,electricity,lighting,lighting,2015,0.0782779,0.0120974
+Virginia,resid,electricity,other,electricity,2015,0.2902648,0.0448589
+Virginia,resid,electricity,refrigerators,refrigerator,2015,0.0505757,0.0078162
+Virginia,resid,gas,clothes dryers,clothes dryer,2015,0.0056941,5.968e-4
+Virginia,resid,gas,cooking,gas oven,2015,0.0223096,0.0023384
+Virginia,resid,gas,cooling,air conditioning,2015,0.0437499,0.0045857
+Virginia,resid,gas,heating,gas furnace,2015,0.646211,0.0677331
+Virginia,resid,gas,hot water,gas water heater,2015,0.2086114,0.0218658
+Virginia,resid,gas,other,gas,2015,0.073424,0.007696
+Virginia,resid,refined liquids,cooking,lpg oven,2015,0.0170283,4.416e-4
+Virginia,resid,refined liquids,heating,fuel furnace,2015,0.7503676,0.019459
+Virginia,resid,refined liquids,hot water,fuel water heater,2015,0.1136965,0.0029484
+Virginia,resid,refined liquids,other,refined liquids,2015,0.1189077,0.0030836
+Washington,comm,electricity,cooking,electric range,2015,0.0180922,0.0015853
+Washington,comm,electricity,cooling,air conditioning,2015,0.0301412,0.0026411
+Washington,comm,electricity,heating,electric furnace,2015,0.0158918,0.0013925
+Washington,comm,electricity,heating,electric heat pump,2015,0.0065058,5.701e-4
+Washington,comm,electricity,hot water,electric heat pump water heater,2015,1.067e-4,9.3e-6
+Washington,comm,electricity,hot water,electric resistance water heater,2015,0.0072934,6.391e-4
+Washington,comm,electricity,lighting,lighting,2015,0.1525225,0.0133647
+Washington,comm,electricity,office,office equipment,2015,0.1370491,0.0120088
+Washington,comm,electricity,other,electricity,2015,0.351077,0.0307629
+Washington,comm,electricity,refrigeration,refrigeration,2015,0.2310092,0.020242
+Washington,comm,electricity,ventilation,ventilation,2015,0.0503112,0.0044085
+Washington,comm,gas,cooking,gas range,2015,0.1571882,0.0105844
+Washington,comm,gas,cooling,gas cooling,2015,0.0047982,3.231e-4
+Washington,comm,gas,heating,gas furnace,2015,0.3954167,0.0266257
+Washington,comm,gas,hot water,gas water heater,2015,0.2662872,0.0179306
+Washington,comm,gas,other,gas,2015,0.1763097,0.0118719
+Washington,comm,refined liquids,heating,fuel furnace,2015,0.006625,7.97e-5
+Washington,comm,refined liquids,hot water,fuel water heater,2015,1.911e-4,2.3e-6
+Washington,comm,refined liquids,other,refined liquids,2015,0.9931838,0.0119421
+Washington,resid,biomass,heating,wood furnace,2015,1,0.0165493
+Washington,resid,electricity,clothes dryers,clothes dryer,2015,0.044554,0.0052561
+Washington,resid,electricity,clothes washers,clothes washer,2015,0.0068275,8.055e-4
+Washington,resid,electricity,computers,electricity,2015,0.0256462,0.0030255
+Washington,resid,electricity,cooking,electric oven,2015,0.0146442,0.0017276
+Washington,resid,electricity,cooling,air conditioning,2015,0.0207576,0.0024488
+Washington,resid,electricity,dishwashers,dishwasher,2015,0.0054073,6.379e-4
+Washington,resid,electricity,freezers,freezer,2015,0.012214,0.0014409
+Washington,resid,electricity,furnace fans,electricity,2015,0.0067102,7.916e-4
+Washington,resid,electricity,heating,electric furnace,2015,0.2158661,0.0254661
+Washington,resid,electricity,heating,electric heat pump,2015,0.0686211,0.0080953
+Washington,resid,electricity,hot water,electric resistance water heater,2015,0.2228228,0.0262868
+Washington,resid,electricity,lighting,lighting,2015,0.0855398,0.0100913
+Washington,resid,electricity,other,electricity,2015,0.2031298,0.0239635
+Washington,resid,electricity,refrigerators,refrigerator,2015,0.0672593,0.0079347
+Washington,resid,gas,clothes dryers,clothes dryer,2015,0.0129172,0.001133
+Washington,resid,gas,cooking,gas oven,2015,0.0306481,0.0026881
+Washington,resid,gas,cooling,air conditioning,2015,0.0089175,7.822e-4
+Washington,resid,gas,heating,gas furnace,2015,0.5130736,0.0450014
+Washington,resid,gas,hot water,gas water heater,2015,0.3405142,0.0298663
+Washington,resid,gas,other,gas,2015,0.0939294,0.0082385
+Washington,resid,refined liquids,cooking,lpg oven,2015,0.0420811,5.368e-4
+Washington,resid,refined liquids,heating,fuel furnace,2015,0.4900489,0.006251
+Washington,resid,refined liquids,hot water,fuel water heater,2015,0.2738043,0.0034926
+Washington,resid,refined liquids,other,refined liquids,2015,0.1940657,0.0024755
+West Virginia,comm,electricity,cooking,electric range,2015,0.0173596,5.22e-4
+West Virginia,comm,electricity,cooling,air conditioning,2015,0.0801587,0.0024104
+West Virginia,comm,electricity,heating,electric furnace,2015,0.0269617,8.107e-4
+West Virginia,comm,electricity,heating,electric heat pump,2015,0.0066093,1.987e-4
+West Virginia,comm,electricity,hot water,electric heat pump water heater,2015,4.24e-5,1.3e-6
+West Virginia,comm,electricity,hot water,electric resistance water heater,2015,0.0045049,1.355e-4
+West Virginia,comm,electricity,lighting,lighting,2015,0.1167812,0.0035116
+West Virginia,comm,electricity,office,office equipment,2015,0.11688,0.0035146
+West Virginia,comm,electricity,other,electricity,2015,0.4124452,0.0124021
+West Virginia,comm,electricity,refrigeration,refrigeration,2015,0.1172329,0.0035252
+West Virginia,comm,electricity,ventilation,ventilation,2015,0.1010242,0.0030378
+West Virginia,comm,gas,cooking,gas range,2015,0.0763232,0.0018042
+West Virginia,comm,gas,cooling,gas cooling,2015,0.0077629,1.835e-4
+West Virginia,comm,gas,heating,gas furnace,2015,0.5667463,0.0133975
+West Virginia,comm,gas,hot water,gas water heater,2015,0.1571539,0.003715
+West Virginia,comm,gas,other,gas,2015,0.1920137,0.0045391
+West Virginia,comm,refined liquids,heating,fuel furnace,2015,0.5123044,0.0014082
+West Virginia,comm,refined liquids,hot water,fuel water heater,2015,0.0227768,6.26e-5
+West Virginia,comm,refined liquids,other,refined liquids,2015,0.4649188,0.0012779
+West Virginia,resid,biomass,heating,wood furnace,2015,1,0.0025572
+West Virginia,resid,electricity,clothes dryers,clothes dryer,2015,0.0427548,0.0012033
+West Virginia,resid,electricity,clothes washers,clothes washer,2015,0.0078629,2.213e-4
+West Virginia,resid,electricity,computers,electricity,2015,0.026147,7.359e-4
+West Virginia,resid,electricity,cooking,electric oven,2015,0.0110486,3.109e-4
+West Virginia,resid,electricity,cooling,air conditioning,2015,0.0992858,0.0027942
+West Virginia,resid,electricity,dishwashers,dishwasher,2015,0.0050868,1.432e-4
+West Virginia,resid,electricity,freezers,freezer,2015,0.0156106,4.393e-4
+West Virginia,resid,electricity,furnace fans,electricity,2015,0.0289762,8.155e-4
+West Virginia,resid,electricity,heating,electric furnace,2015,0.1371973,0.0038612
+West Virginia,resid,electricity,heating,electric heat pump,2015,0.0448932,0.0012634
+West Virginia,resid,electricity,hot water,electric resistance water heater,2015,0.1237234,0.003482
+West Virginia,resid,electricity,lighting,lighting,2015,0.0939813,0.0026449
+West Virginia,resid,electricity,other,electricity,2015,0.2992051,0.0084206
+West Virginia,resid,electricity,refrigerators,refrigerator,2015,0.0642269,0.0018076
+West Virginia,resid,gas,clothes dryers,clothes dryer,2015,0.0079848,3.087e-4
+West Virginia,resid,gas,cooking,gas oven,2015,0.0184371,7.128e-4
+West Virginia,resid,gas,cooling,air conditioning,2015,0.0082359,3.184e-4
+West Virginia,resid,gas,heating,gas furnace,2015,0.758911,0.0293405
+West Virginia,resid,gas,hot water,gas water heater,2015,0.1722817,0.0066606
+West Virginia,resid,gas,other,gas,2015,0.0341495,0.0013203
+West Virginia,resid,refined liquids,cooking,lpg oven,2015,0.0111416,6.47e-5
+West Virginia,resid,refined liquids,heating,fuel furnace,2015,0.8070212,0.0046833
+West Virginia,resid,refined liquids,hot water,fuel water heater,2015,0.1052978,6.111e-4
+West Virginia,resid,refined liquids,other,refined liquids,2015,0.0765395,4.442e-4
+Wisconsin,comm,electricity,cooking,electric range,2015,0.0180511,0.0016979
+Wisconsin,comm,electricity,cooling,air conditioning,2015,0.0451925,0.0042508
+Wisconsin,comm,electricity,heating,electric furnace,2015,0.026266,0.0024706
+Wisconsin,comm,electricity,heating,electric heat pump,2015,0.0059384,5.586e-4
+Wisconsin,comm,electricity,hot water,electric heat pump water heater,2015,5.71e-5,5.4e-6
+Wisconsin,comm,electricity,hot water,electric resistance water heater,2015,0.0041158,3.871e-4
+Wisconsin,comm,electricity,lighting,lighting,2015,0.0948988,0.0089261
+Wisconsin,comm,electricity,office,office equipment,2015,0.1046817,0.0098463
+Wisconsin,comm,electricity,other,electricity,2015,0.5270495,0.0495738
+Wisconsin,comm,electricity,refrigeration,refrigeration,2015,0.0932932,0.0087751
+Wisconsin,comm,electricity,ventilation,ventilation,2015,0.0804557,0.0075676
+Wisconsin,comm,gas,cooking,gas range,2015,0.0479367,0.0045471
+Wisconsin,comm,gas,cooling,gas cooling,2015,0.0014067,1.334e-4
+Wisconsin,comm,gas,heating,gas furnace,2015,0.5232773,0.0496359
+Wisconsin,comm,gas,hot water,gas water heater,2015,0.0981329,0.0093085
+Wisconsin,comm,gas,other,gas,2015,0.3292464,0.031231
+Wisconsin,comm,refined liquids,heating,fuel furnace,2015,0.3459017,0.0035652
+Wisconsin,comm,refined liquids,hot water,fuel water heater,2015,0.0016482,1.7e-5
+Wisconsin,comm,refined liquids,other,refined liquids,2015,0.6524501,0.0067247
+Wisconsin,resid,biomass,heating,wood furnace,2015,1,0.0153478
+Wisconsin,resid,electricity,clothes dryers,clothes dryer,2015,0.0501539,0.0040707
+Wisconsin,resid,electricity,clothes washers,clothes washer,2015,0.0087958,7.139e-4
+Wisconsin,resid,electricity,computers,electricity,2015,0.028808,0.0023382
+Wisconsin,resid,electricity,cooking,electric oven,2015,0.0138334,0.0011228
+Wisconsin,resid,electricity,cooling,air conditioning,2015,0.0552195,0.0044819
+Wisconsin,resid,electricity,dishwashers,dishwasher,2015,0.0061248,4.971e-4
+Wisconsin,resid,electricity,freezers,freezer,2015,0.0217755,0.0017674
+Wisconsin,resid,electricity,furnace fans,electricity,2015,0.0304004,0.0024674
+Wisconsin,resid,electricity,heating,electric furnace,2015,0.1009319,0.0081921
+Wisconsin,resid,electricity,heating,electric heat pump,2015,0.0197034,0.0015992
+Wisconsin,resid,electricity,hot water,electric resistance water heater,2015,0.1156586,0.0093874
+Wisconsin,resid,electricity,lighting,lighting,2015,0.1106381,0.0089799
+Wisconsin,resid,electricity,other,electricity,2015,0.362736,0.0294413
+Wisconsin,resid,electricity,refrigerators,refrigerator,2015,0.0752208,0.0061052
+Wisconsin,resid,gas,clothes dryers,clothes dryer,2015,0.0059122,7.801e-4
+Wisconsin,resid,gas,cooking,gas oven,2015,0.0132169,0.0017438
+Wisconsin,resid,gas,cooling,air conditioning,2015,0.0025791,3.403e-4
+Wisconsin,resid,gas,heating,gas furnace,2015,0.7724695,0.101919
+Wisconsin,resid,gas,hot water,gas water heater,2015,0.1864542,0.0246006
+Wisconsin,resid,gas,other,gas,2015,0.0193681,0.0025554
+Wisconsin,resid,refined liquids,cooking,lpg oven,2015,0.0123097,3.479e-4
+Wisconsin,resid,refined liquids,heating,fuel furnace,2015,0.857191,0.0242265
+Wisconsin,resid,refined liquids,hot water,fuel water heater,2015,0.0845414,0.0023894
+Wisconsin,resid,refined liquids,other,refined liquids,2015,0.0459578,0.0012989
+Wyoming,comm,electricity,cooking,electric range,2015,0.0177735,1.519e-4
+Wyoming,comm,electricity,cooling,air conditioning,2015,0.0461994,3.949e-4
+Wyoming,comm,electricity,heating,electric furnace,2015,0.0151154,1.292e-4
+Wyoming,comm,electricity,heating,electric heat pump,2015,0.0060206,5.15e-5
+Wyoming,comm,electricity,hot water,electric heat pump water heater,2015,8.9e-6,1e-7
+Wyoming,comm,electricity,hot water,electric resistance water heater,2015,0.0022886,1.96e-5
+Wyoming,comm,electricity,lighting,lighting,2015,0.0795535,6.8e-4
+Wyoming,comm,electricity,office,office equipment,2015,0.1077883,9.213e-4
+Wyoming,comm,electricity,other,electricity,2015,0.5759526,0.0049229
+Wyoming,comm,electricity,refrigeration,refrigeration,2015,0.0747533,6.389e-4
+Wyoming,comm,electricity,ventilation,ventilation,2015,0.0745459,6.372e-4
+Wyoming,comm,gas,cooking,gas range,2015,0.0579636,3.81e-4
+Wyoming,comm,gas,cooling,gas cooling,2015,0.0021264,1.4e-5
+Wyoming,comm,gas,heating,gas furnace,2015,0.4825459,0.0031717
+Wyoming,comm,gas,hot water,gas water heater,2015,0.1989781,0.0013079
+Wyoming,comm,gas,other,gas,2015,0.258386,0.0016983
+Wyoming,comm,refined liquids,heating,fuel furnace,2015,0.0304911,1.79e-5
+Wyoming,comm,refined liquids,hot water,fuel water heater,2015,2.86e-5,0
+Wyoming,comm,refined liquids,other,refined liquids,2015,0.9694803,5.681e-4
+Wyoming,resid,biomass,heating,wood furnace,2015,1,9.297e-4
+Wyoming,resid,electricity,clothes dryers,clothes dryer,2015,0.0458561,3.208e-4
+Wyoming,resid,electricity,clothes washers,clothes washer,2015,0.0084985,5.95e-5
+Wyoming,resid,electricity,computers,electricity,2015,0.0305056,2.134e-4
+Wyoming,resid,electricity,cooking,electric oven,2015,0.0129975,9.09e-5
+Wyoming,resid,electricity,cooling,air conditioning,2015,0.089763,6.28e-4
+Wyoming,resid,electricity,dishwashers,dishwasher,2015,0.0063055,4.41e-5
+Wyoming,resid,electricity,freezers,freezer,2015,0.0190599,1.333e-4
+Wyoming,resid,electricity,furnace fans,electricity,2015,0.0179522,1.256e-4
+Wyoming,resid,electricity,heating,electric furnace,2015,0.0846039,5.919e-4
+Wyoming,resid,electricity,heating,electric heat pump,2015,0.0214819,1.503e-4
+Wyoming,resid,electricity,hot water,electric resistance water heater,2015,0.0806318,5.641e-4
+Wyoming,resid,electricity,lighting,lighting,2015,0.1055724,7.386e-4
+Wyoming,resid,electricity,other,electricity,2015,0.4021237,0.0028134
+Wyoming,resid,electricity,refrigerators,refrigerator,2015,0.074648,5.223e-4
+Wyoming,resid,gas,clothes dryers,clothes dryer,2015,0.0070932,7.75e-5
+Wyoming,resid,gas,cooking,gas oven,2015,0.017768,1.941e-4
+Wyoming,resid,gas,cooling,air conditioning,2015,0.0177388,1.938e-4
+Wyoming,resid,gas,heating,gas furnace,2015,0.6085966,0.0066491
+Wyoming,resid,gas,hot water,gas water heater,2015,0.2900849,0.0031693
+Wyoming,resid,gas,other,gas,2015,0.0587184,6.415e-4
+Wyoming,resid,refined liquids,cooking,lpg oven,2015,0.032651,2.92e-5
+Wyoming,resid,refined liquids,heating,fuel furnace,2015,0.5465099,4.88e-4
+Wyoming,resid,refined liquids,hot water,fuel water heater,2015,0.2451215,2.189e-4
+Wyoming,resid,refined liquids,other,refined liquids,2015,0.1757176,1.569e-4
