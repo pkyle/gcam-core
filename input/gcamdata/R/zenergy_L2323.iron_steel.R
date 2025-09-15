@@ -259,7 +259,9 @@ module_energy_L2323.iron_steel <- function(command, ...) {
       arrange(supplysector, subsector, technology, minicam.energy.input, year) %>%
       group_by(supplysector, subsector, technology, minicam.energy.input) %>%
       mutate(coefficient = approx_fun(year, value, rule = 1),
-             coefficient = round(coefficient/1000, energy.DIGITS_COEFFICIENT)) %>%
+             coefficient = ifelse(minicam.energy.input!="scrap",
+                                  round(coefficient/1000, energy.DIGITS_COEFFICIENT),
+                                  round(coefficient, energy.DIGITS_COEFFICIENT))) %>%
       ungroup %>%
       filter(year %in% c(MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
       rename(sector.name = supplysector,
@@ -279,7 +281,9 @@ module_energy_L2323.iron_steel <- function(command, ...) {
       arrange(supplysector, subsector, technology, minicam.energy.input, year) %>%
       group_by(supplysector, subsector, technology, minicam.energy.input) %>%
       mutate(coefficient = approx_fun(year, value, rule = 1),
-             coefficient = round(coefficient/1000, energy.DIGITS_COEFFICIENT)) %>%
+             coefficient = ifelse(minicam.energy.input!="scrap",
+                                  round(coefficient/1000, energy.DIGITS_COEFFICIENT),
+                                  round(coefficient, energy.DIGITS_COEFFICIENT))) %>%
       ungroup %>%
       filter(year %in% c(MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
       rename(sector.name = supplysector,
