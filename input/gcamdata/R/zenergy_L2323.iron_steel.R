@@ -665,7 +665,7 @@ module_energy_L2323.iron_steel <- function(command, ...) {
       add_units("scrap input is unitless (Mt scrap per Mt steel); all others are GJ per kg (EJ of energy per Mt of steel)") %>%
       add_comments("Coefficients are calculated using L1323.IO_GJkg_R_iron_steel_F_Yh") %>%
       add_legacy_name("L2323.StubTechCoef_iron_steel") %>%
-      add_precursors("energy/calibrated_techs", "L1323.IO_GJkg_R_iron_steel_F_Yh", "common/GCAM_region_names") ->
+      add_precursors("energy/calibrated_techs", "energy/A_regions", "L1323.IO_GJkg_R_iron_steel_F_Yh", "common/GCAM_region_names") ->
       L2323.StubTechCoef_iron_steel
 
     L2323.PerCapitaBased_iron_steel %>%

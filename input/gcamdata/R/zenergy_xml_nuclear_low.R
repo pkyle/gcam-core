@@ -30,7 +30,7 @@ module_energy_nuclear_low_xml <- function(command, ...) {
     create_xml("nuclear_low.xml") %>%
       add_xml_data(L223.GlobalTechCapital_nuc_low, "GlobalTechCapital") %>%
       add_xml_data(L125.nuclear_hydrogen_costs_low, "GlobalTechCost") %>%
-      add_precursors("L223.GlobalTechCapital_nuc_low") ->
+      add_precursors("L223.GlobalTechCapital_nuc_low", "L125.nuclear_hydrogen_costs_low") ->
       nuclear_low.xml
 
     return_data(nuclear_low.xml)
