@@ -87,7 +87,7 @@ module_energy_L222.en_transformation <- function(command, ...) {
     median.shutdown.point <- minicam.energy.input <- minicam.non.energy.input <- object <-
     profit.shutdown.steepness <- region <- remove.fraction <- sector <- sector.name <- share.weight <-
     shutdown.rate <- steepness <- stub.technology <- subsector <- subsector.name <- supplysector <-
-    technology <- to.value <- value <- year <- year.fillout <- year.share.weight <- year.x <- year.y <-
+    technology <- to.value <- value <- year <- year.fillout <- share.weight.year <- year.x <- year.y <-
       primary.consumption <- NULL
 
     # Load required inputs ----
@@ -430,14 +430,13 @@ module_energy_L222.en_transformation <- function(command, ...) {
       rename(stub.technology = technology) %>%
       left_join(L222.out_EJ_R_refining_F_Yh, by = c("sector", "fuel")) %>%
       # rounds and renames outputs and adds year column for shareweights
-      mutate(calOutputValue = round(value, energy.DIGITS_CALOUTPUT), year.share.weight = year) %>%
+      mutate(calOutputValue = round(value, energy.DIGITS_CALOUTPUT), share.weight.year = year) %>%
       select(-sector, -GCAM_region_ID, -fuel, -value) %>%
       # sets shareweight to 1 if output exists, otherwise 0
-      mutate(share.weight = if_else(calOutputValue > 0, 1, 0)) %>%
-      set_subsector_shrwt() ->
+      mutate(tech.share.weight = if_else(calOutputValue > 0, 1, 0)) %>%
+      set_subsector_shrwt() %>%
+      select(LEVEL2_DATA_NAMES[["StubTechProd"]]) ->
       L222.StubTechProd_refining
-    # reorders columns to match expected model interface input
-    L222.StubTechProd_refining <- L222.StubTechProd_refining[c(LEVEL2_DATA_NAMES[["StubTechYr"]], "calOutputValue", "year.share.weight", "subs.share.weight", "share.weight")]
 
     # L222.StubTechCoef_refining: calibrated input-output coefficients of oil refining by region and input
     # interpolates values of IO coefficients for base years from historical values
