@@ -197,7 +197,7 @@ module_energy_L222.en_transformation <- function(command, ...) {
 
     # L222.StubTech_en: Identification of stub technologies of energy transformation
     # set up filter to keep all non-first gen bio techs in L222.StubTech_en
-    firstgenbio_techs <- c("corn ethanol", "sugarbeet ethanol", "sugar cane ethanol", "biodiesel")
+    firstgenbio_techs <- c("corn ethanol", "sugar cane ethanol", "biodiesel")
 
     # create list of regional stub.technologies
     A22.globaltech_shrwt %>%
@@ -402,13 +402,12 @@ module_energy_L222.en_transformation <- function(command, ...) {
       repeat_add_columns(tibble(year = MODEL_BASE_YEARS)) %>%
       left_join_error_no_match(L222.out_EJ_R_gasproc_F_Yh, by = c("region", "supplysector", "subsector", "stub.technology", "year")) %>%
       # rounds outputs and adds year column for shareweights
-      mutate(calOutputValue = round(value, energy.DIGITS_CALOUTPUT), year.share.weight = year) %>%
-      select(region, supplysector, subsector, stub.technology, year, calOutputValue, year.share.weight) %>%
-      # sets shareweight to 1 if output exists, otherwise 0
-      mutate(share.weight = if_else(calOutputValue > 0, 1, 0), subs.share.weight = share.weight) ->
+      mutate(calOutputValue = round(value, energy.DIGITS_CALOUTPUT),
+             share.weight.year = year,
+             tech.share.weight = if_else(calOutputValue > 0, 1, 0),
+             subs.share.weight = tech.share.weight) %>%
+      select(LEVEL2_DATA_NAMES[["StubTechProd"]]) ->
       L222.StubTechProd_gasproc
-    # reorders columns to match expected model interface input
-    L222.StubTechProd_gasproc <- L222.StubTechProd_gasproc[c(LEVEL2_DATA_NAMES[["StubTechYr"]], "calOutputValue", "year.share.weight", "subs.share.weight", "share.weight")]
 
     # Oil refining calibrated output by technology
     # interpolates values of IO coefficients for base years from historical values
