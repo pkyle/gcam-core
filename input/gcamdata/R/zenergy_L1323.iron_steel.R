@@ -226,8 +226,8 @@ module_energy_L1323.iron_steel <- function(command, ...) {
              value= if_else(value == 0 & energy_use > 0, energy_use, value), #if bottom-up calculation is non-zero and IEA value is zero, then set IEA value = bottom-up value
              scalar = replace_na(value / energy_use, 1), #calculate scalar = IEA data/bottom-up data, if NA replace scaler = 1
              scalar = if_else(energy_use == 0 & value > 0, 1, scalar),  #if IEA data is non-zero, but bottom-up data is zero; set scaler = 1
-             scalar = if_else(scalar>=1.5,1,scalar), #if IEA data is 1.5 times higher or lower than bottom-up calculation; then do not scale the results (i.e., scaler = 1)
-             scalar = if_else(scalar<=1/1.5,1,scalar)) -> Scaler
+             scalar = if_else(scalar>=1.5, 1.5, scalar), # clip the scaling to a max of 1.5x and min of 1/1.5x the bottom-up estimates, to ensure reasonable IOcoefs
+             scalar = if_else(scalar<=1/1.5, 1/1.5, scalar)) -> Scaler
 
     # Intensity scaled = Intensity from the literature times scaler.
     Intensity_literature %>%
