@@ -676,6 +676,13 @@ gcamusa.LAND_DENSITY_PARAM <- 0
 gcamusa.B_PARAM <- 3.49026
 gcamusa.INCOME_PARAM <- 0.4875
 
+# YZ 2025/08/27 Electricity consumption fraction of "resid televisions" out of "resid televisions" plus "resid other" 
+# and electricity consumption fraction of "comm non-building" out of "comm non-building" plus "comm other".
+# The two fractions are calculated based on gcamusa L144.in_EJ_state_comm_F_U_Y and L144.in_EJ_state_res_F_U_Y, values at max(year) = 2021
+# and are used to disaggregate Scout data, e.g., disagg Scout's "resid other" into "resid other" and "resid televisions"
+# because Scout does not provide value for "resid televisions" but gcamusa does
+energy.USA_RESID_OTHERELEC_TV_FRAC <- 0.223
+energy.USA_COMM_OTHERELEC_NONBLD_FRAC <- 0.477
 
 # Constants for global detailed industry
 energy.OFF_ROAD.BIOMASS_GROWTH <- c("Africa_Eastern","Africa_Southern","Africa_Western") #limit fast growth of biomass in agriculture energy use

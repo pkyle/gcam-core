@@ -63,6 +63,7 @@ module_gcamusa_L244.building <- function(command, ...) {
              "L144.in_EJ_state_comm_F_U_Y",
              "L144.in_EJ_state_res_F_U_Y",
              "L143.HDDCDD_scen_state",
+             "L145.in_EJ_state_bld_F_U_tech_fby",
              "L100.Pop_thous_state",
              "L100.pcGDP_thous90usd_state"))
   } else if(command == driver.DECLARE_OUTPUTS) {
@@ -163,6 +164,7 @@ module_gcamusa_L244.building <- function(command, ...) {
     L144.in_EJ_state_comm_F_U_Y <- get_data(all_data, "L144.in_EJ_state_comm_F_U_Y", strip_attributes = TRUE)
     L144.in_EJ_state_res_F_U_Y <- get_data(all_data, "L144.in_EJ_state_res_F_U_Y", strip_attributes = TRUE)
     L143.HDDCDD_scen_state <- get_data(all_data, "L143.HDDCDD_scen_state", strip_attributes = TRUE)
+    L145.in_EJ_state_bld_F_U_tech_fby <- get_data(all_data,"L145.in_EJ_state_bld_F_U_tech_fby", strip_attributes = TRUE)
     L100.Pop_thous_state <- get_data(all_data, "L100.Pop_thous_state", strip_attributes = TRUE)
     L100.pcGDP_thous90usd_state <- get_data(all_data, "L100.pcGDP_thous90usd_state", strip_attributes = TRUE)
     L144.hab_land_flsp_usa<- get_data(all_data, "gcam-usa/A44.hab_land_flsp_usa", strip_attributes = TRUE)
@@ -259,7 +261,8 @@ module_gcamusa_L244.building <- function(command, ...) {
 
     # L244.Satiation_flsp_gcamusa: Satiation levels assumed for floorspace
     L244.Satiation_flsp_gcamusa <- A44.satiation_flsp %>%
-      gather(gcam.consumer, value, resid, comm) %>%
+      # YZ - no more "resid" column in A44.satiation_flsp
+      gather(gcam.consumer, value, comm) %>%
       rename(region = state) %>%
       # Need to make sure that the satiation level is greater than the floorspace in the final base year
       left_join_error_no_match(L244.Floorspace_gcamusa %>%
@@ -1285,7 +1288,8 @@ module_gcamusa_L244.building <- function(command, ...) {
       add_comments("Shares calculated using efficiency averages") %>%
       add_legacy_name("L244.StubTechCalInput_bld") %>%
       add_precursors("L144.in_EJ_state_res_F_U_Y", "L144.in_EJ_state_comm_F_U_Y", "gcam-usa/calibrated_techs_bld_usa",
-                     "gcam-usa/A44.globaltech_eff", "gcam-usa/A44.globaltech_eff_avg", "gcam-usa/A44.globaltech_shares") ->
+                     "gcam-usa/A44.globaltech_eff", "gcam-usa/A44.globaltech_eff_avg", "gcam-usa/A44.globaltech_shares",
+                     "L145.in_EJ_state_bld_F_U_tech_fby") ->
       L244.StubTechCalInput_bld_gcamusa
 
     L244.StubTechMarket_bld %>%

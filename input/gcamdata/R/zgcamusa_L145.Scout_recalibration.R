@@ -50,7 +50,7 @@ module_gcamusa_L145.Scout_recalibration <- function(command, ...) {
       rename(state_name = state) %>%
       left_join_error_no_match(select(states_subregions, state, state_name),
                                by = "state_name") %>%
-      select(-state_name)
+      select(-state_name,-energy)
 
     # GPK 8/29/2023 revision: the v3 Scout data don't disaggregate commercial unspecified
     # electricity into building and non-building categories.
@@ -80,7 +80,6 @@ module_gcamusa_L145.Scout_recalibration <- function(command, ...) {
       bind_rows(L145.Scout_bld_downscale_other)
 
     # Only re-scale the year, service, and fuel categories that are in Scout. All others just keep the GCAM values.
-    # The Scout data includes comm other in general, but not refined liquids or gas, so drop those from the re-scaling
     L145.in_EJ_state_bld_F_U_tech_fby <- bind_rows(L144.in_EJ_state_comm_F_U_Y,
                                                    L144.in_EJ_state_res_F_U_Y) %>%
       semi_join(L145.Scout_bld_calibration, by = c("state", "service", "fuel", "year")) %>%

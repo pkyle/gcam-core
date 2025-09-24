@@ -425,7 +425,10 @@ module_emissions_L201.en_nonco2 <- function(command, ...) {
       filter(x, ! paste0(region, supplysector) %in% L201.delete.sectors)
     }
 
-    L244.DeleteService<-bind_rows(L244.DeleteThermalService %>% select(region,supplysector),L244.DeleteGenericService %>% select(region,supplysector))
+    L244.DeleteService<-bind_rows(L244.DeleteThermalService %>% select(region,supplysector),
+                                  L244.DeleteGenericService %>% select(region,supplysector) %>%
+                                    # do not remove USA's resid others modern (this aggregate service is needed to disagg the det services for emissions)
+                                    filter(!(region == gcam.USA_REGION & grepl('resid others modern', supplysector))))
 
     L201.delete.sectors <- paste0(L244.DeleteService$region, L244.DeleteService$supplysector)
     L201.en_pol_emissions <- delete_nonexistent_sectors(L201.en_pol_emissions, L201.delete.sectors)
