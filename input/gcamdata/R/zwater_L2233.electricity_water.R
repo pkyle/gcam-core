@@ -395,7 +395,7 @@ module_water_L2233.electricity_water <- function(command, ...) {
                                                                      "year")) %>%
       mutate(input.cost = capital.overnight * fixed.charge.rate / (capacity.factor * CONV_YEAR_HOURS * CONV_KWH_GJ),
              capital.coef = 1 / fixed.charge.rate,
-             tracking.market = "capital",
+             tracking.market = socioeconomics.EN_CAPITAL_MARKET_NAME,
              depreciation.rate = 1 / 15) %>%
       select(-capacity.factor, -capital.overnight, -fixed.charge.rate) %>%
       rename(minicam.non.energy.input = input.capital) ->
