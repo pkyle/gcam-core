@@ -334,7 +334,8 @@ module_energy_L1323.iron_steel <- function(command, ...) {
       add_units("GJ/kg steel") %>%
       add_comments("IO coefficients for steel") %>%
       add_legacy_name("L1323.IO_GJkg_R_iron_steel_F_Yh") %>%
-      add_precursors( "energy/steel_prod_process", "L1012.en_bal_EJ_R_Si_Fi_Yh", "energy/mappings/enduse_fuel_aggregation") ->
+      add_precursors( "energy/steel_prod_process", "L1012.en_bal_EJ_R_Si_Fi_Yh", "energy/mappings/enduse_fuel_aggregation",
+                      "energy/calibrated_techs", "energy/A_regions") ->
       L1323.IO_GJkg_R_iron_steel_F_Yh
 
     L1323.in_EJ_R_iron_steel_F_Y %>%
