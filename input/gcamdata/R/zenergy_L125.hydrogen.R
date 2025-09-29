@@ -119,7 +119,7 @@ module_energy_L125.hydrogen <- function(command, ...) {
     L125.nuclear_elec_costs_scen <- mutate(L223.GlobalTechCapital_elec, Scenario = "ref") %>%
       bind_rows(mutate(L223.GlobalTechCapital_nuc_adv, Scenario = "adv")) %>%
       bind_rows(mutate(L223.GlobalTechCapital_nuc_low, Scenario = "low")) %>%
-      filter(technology == "Gen_III") %>%
+      filter(technology == "large reactor") %>%
       left_join_error_no_match(L223.GlobalTechCapFac_elec,
                                by = c("sector.name", "subsector.name", "technology", "year")) %>%
       left_join_error_no_match(L223.GlobalTechOMfixed_elec,

@@ -20,7 +20,8 @@ gas (CC CCS),Natural Gas_FE,NG 2-on-1 Combined Cycle (F-Frame) 95% CCS,Gas-CC-CC
 gas (CC),Natural Gas_FE,NG 2-on-1 Combined Cycle (F-Frame),Gas-CC,1
 gas (steam/CT),Natural Gas_FE,NG Combustion Turbine (F-Frame),Gas-CT,1
 Gen_II_LWR,Nuclear,Nuclear - Large,Nuclear,1
-Gen_III,Nuclear,Nuclear - Large,Nuclear,1
+large reactor,Nuclear,Nuclear - Large,Nuclear,1
+SMR,Nuclear,Nuclear - Small,,1
 geothermal,Geothermal,Geothermal - Hydro / Flash,geohydro class 6,1
 PV,Solar - Utility PV,Utility PV - Class 5,upv,1
 PV_storage,Solar - Utility PV,Utility PV - Class 5,upv,1

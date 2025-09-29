@@ -160,7 +160,7 @@ module_energy_L1233.elec_cost_data <- function(command, ...) {
                 `OM-var` = sum(`OM-var`)) %>%
       ungroup()
 
-    # L1233.gcam_costs_from_ATB: coal (IGCC CCS) and rooftop_pv technologies
+    # L1233.gcam_costs_from_ATB: coal (IGCC CCS), rooftop_pv, and SMR technologies
     # Commercial and residential PV are averaged (unweighted) to get the rooftop_pv costs
     L1233.gcam_costs_from_ATB <- L1233.atb_costs %>%
       inner_join(select(filter(atb_gcam_elec_tech_mapping, is.na(reeds_tech)), -reeds_tech),
@@ -175,7 +175,7 @@ module_energy_L1233.elec_cost_data <- function(command, ...) {
       mutate(capital = approx_fun(year, capital, rule = 2),
              `OM-fixed` = approx_fun(year, `OM-fixed`, rule = 2),
              `OM-var` = approx_fun(year, `OM-var`, rule = 2)) %>%
-      ungroup
+      ungroup()
 
     # Biomass IGCC and IGCC_CCS costs are inferred from corresponding biomass conv, coal conv, and coal IGCC technologies
     # biomass (IGCC) = biomass (conv) + coal (IGCC) - coal (conv pul)
@@ -231,6 +231,7 @@ module_energy_L1233.elec_cost_data <- function(command, ...) {
       add_units("1975$/kW") %>%
       add_comments("Some technologies filled in from ReEDS model inputs; other imputed") %>%
       add_precursors("energy/A23.globaltech_fcr",
+                     "energy/A23.globaltech_cost_tc",
                      "energy/NREL_ATB_capital_2024",
                      "energy/ReEDS_power_plant_costs",
                      "energy/mappings/atb_gcam_elec_tech_mapping") ->
