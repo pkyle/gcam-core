@@ -138,7 +138,7 @@ module_energy_L125.hydrogen <- function(command, ...) {
     L125.nuclear_hydrogen_costs_scen <- left_join_error_no_match(L125.nuclear_elec_costs_scen, L125.nuc_IO,
                                                              by = "year") %>%
       mutate(minicam.non.energy.input = "nuclear electricity generation",
-             input.cost = nonfuel.LCOE * coefficient) %>%
+             input.cost = round(nonfuel.LCOE * coefficient, energy.DIGITS_COST)) %>%
       select(Scenario, sector.name, subsector.name, technology, year, minicam.non.energy.input, input.cost)
 
     # Split the 3 nuclear scenarios into separate tables

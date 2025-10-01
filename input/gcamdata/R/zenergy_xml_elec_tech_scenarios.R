@@ -52,10 +52,11 @@ module_energy_elec_tech_scenarios_xml <- function(command, ...) {
     get_data_list(all_data, MODULE_INPUTS, strip_attributes = TRUE)
 
     # Process data to final formats
-    # Compile capital cost assumptions, round, separate intermittent and standard technologies
+    # Compile capital cost assumptions, filter to future years, round, separate intermittent and standard technologies
     L1233.globaltech_capital_ATB_adv %>%
       mutate(scenario = "adv") %>%
       bind_rows(mutate(L1233.globaltech_capital_ATB_low, scenario = "low")) %>%
+      filter(year %in% MODEL_FUTURE_YEARS) %>%
       rename(sector.name = supplysector, subsector.name = subsector) %>%
       mutate(capital.overnight = round(capital.overnight, energy.DIGITS_CAPITAL)) %>%
       select(c("scenario", LEVEL2_DATA_NAMES[["GlobalTechCapital"]])) ->
@@ -77,14 +78,16 @@ module_energy_elec_tech_scenarios_xml <- function(command, ...) {
 
     # convert rooftop_pv costs to standard non energy input, for capital tracking purposes
     L223.StubTechCapFactor_elec %>%
-      filter(stub.technology == "rooftop_pv") %>%
+      filter(stub.technology == "rooftop_pv",
+             year %in% MODEL_FUTURE_YEARS) %>%
       repeat_add_columns(tibble(scenario = c("adv", "low"))) %>%
       left_join_error_no_match(L223.GlobalIntTechCapital_elec_scen, by=c("scenario",
                                                                          "supplysector" = "sector.name",
                                                                          "subsector" = "subsector.name",
                                                                          "stub.technology" = "intermittent.technology",
                                                                          "year")) %>%
-      mutate(input.cost = capital.overnight * fixed.charge.rate / (capacity.factor * CONV_YEAR_HOURS * CONV_KWH_GJ)) %>%
+      mutate(input.cost = round(capital.overnight * fixed.charge.rate / (capacity.factor * CONV_YEAR_HOURS * CONV_KWH_GJ),
+                                energy.DIGITS_COST)) %>%
       select(-capacity.factor, -capital.overnight, -fixed.charge.rate) %>%
       rename(minicam.non.energy.input = input.capital) ->
       L223.StubTechCost_roofpv_scen
@@ -109,6 +112,83 @@ module_energy_elec_tech_scenarios_xml <- function(command, ...) {
     L223.GlobalIntTechCapital_wind_low <- filter(L223.GlobalIntTechCapital_elec_scen, subsector.name == "wind", scenario == "low")
     L223.GlobalTechCapital_wind_low <- filter(L223.GlobalTechCapital_elec_scen, subsector.name == "wind", scenario == "low")
 
+    # Fixed O&M costs
+    L223.globaltech_OMfixed_ATB_adv <- mutate(L1233.globaltech_OMfixed_ATB_adv, scenario = "adv") %>%
+      bind_rows(mutate(L1233.globaltech_OMfixed_ATB_low, scenario = "low")) %>%
+      filter(year %in% MODEL_FUTURE_YEARS) %>%
+      rename(sector.name = supplysector, subsector.name = subsector) %>%
+      mutate(OM.fixed = round(OM.fixed, energy.DIGITS_OM)) %>%
+      select(c("scenario", LEVEL2_DATA_NAMES[["GlobalTechOMfixed"]])) ->
+      L223.GlobalTechOMfixed_elec_scen
+
+    # Separate intermittent vs. standard technologies
+    L223.GlobalTechOMfixed_elec_scen %>%
+      semi_join(A23.globalinttech, by = c("sector.name" = "supplysector",
+                                          "subsector.name" = "subsector",
+                                          "technology" = "intermittent.technology")) %>%
+      rename(intermittent.technology = technology) ->
+      L223.GlobalIntTechOMfixed_elec_scen
+
+    L223.GlobalTechOMfixed_elec_scen %>%
+      anti_join(A23.globalinttech, by = c("sector.name" = "supplysector",
+                                          "subsector.name" = "subsector",
+                                          "technology" = "intermittent.technology")) ->
+      L223.GlobalTechOMfixed_elec_scen
+
+    # Separate fixed O&M costs of global electricity technologies into individual data tables for each technology
+    # adv scenario fixed o&m costs
+    L223.GlobalTechOMfixed_geo_adv <- filter(L223.GlobalTechOMfixed_elec_scen, subsector.name == "geothermal", scenario == "adv")
+    L223.GlobalTechOMfixed_nuc_adv <- filter(L223.GlobalTechOMfixed_elec_scen, subsector.name == "nuclear", scenario == "adv")
+    L223.GlobalTechOMfixed_sol_adv <- filter(L223.GlobalTechOMfixed_elec_scen, subsector.name == "solar", scenario == "adv")
+    L223.GlobalIntTechOMfixed_sol_adv <- filter(L223.GlobalIntTechOMfixed_elec_scen, subsector.name %in% c("solar", "rooftop_pv"), scenario == "adv")
+    L223.GlobalIntTechOMfixed_wind_adv <- filter(L223.GlobalIntTechOMfixed_elec_scen, subsector.name == "wind", scenario == "adv")
+    L223.GlobalTechOMfixed_wind_adv <- filter(L223.GlobalTechOMfixed_elec_scen, subsector.name == "wind", scenario == "adv")
+
+    # low scenario fixed O&M costs
+    L223.GlobalTechOMfixed_bio_low <- filter(L223.GlobalTechOMfixed_elec_scen, subsector.name == "biomass", scenario == "low")
+    L223.GlobalTechOMfixed_geo_low <- filter(L223.GlobalTechOMfixed_elec_scen, subsector.name == "geothermal", scenario == "low")
+    L223.GlobalTechOMfixed_nuc_low <- filter(L223.GlobalTechOMfixed_elec_scen, subsector.name == "nuclear", scenario == "low")
+    L223.GlobalTechOMfixed_sol_low <- filter(L223.GlobalTechOMfixed_elec_scen, subsector.name %in% c("solar", "rooftop_pv"), scenario == "low")
+    L223.GlobalIntTechOMfixed_sol_low <- filter(L223.GlobalIntTechOMfixed_elec_scen, subsector.name == "solar", scenario == "low")
+    L223.GlobalIntTechOMfixed_wind_low <- filter(L223.GlobalIntTechOMfixed_elec_scen, subsector.name == "wind", scenario == "low")
+    L223.GlobalTechOMfixed_wind_low <- filter(L223.GlobalTechOMfixed_elec_scen, subsector.name == "wind", scenario == "low")
+
+    # Variable O&M costs. Filter out zero values (these will be zero in all scenarios; no need to duplicate)
+    L223.globaltech_OMvar_ATB_adv <- mutate(L1233.globaltech_OMvar_ATB_adv, scenario = "adv") %>%
+      bind_rows(mutate(L1233.globaltech_OMvar_ATB_low, scenario = "low")) %>%
+      filter(year %in% MODEL_FUTURE_YEARS,
+             OM.var > 0) %>%
+      rename(sector.name = supplysector, subsector.name = subsector) %>%
+      mutate(OM.var = round(OM.var, energy.DIGITS_OM)) %>%
+      select(c("scenario", LEVEL2_DATA_NAMES[["GlobalTechOMvar"]])) ->
+      L223.GlobalTechOMvar_elec_scen
+
+    # Separate intermittent vs. standard technologies
+    L223.GlobalTechOMvar_elec_scen %>%
+      semi_join(A23.globalinttech, by = c("sector.name" = "supplysector",
+                                          "subsector.name" = "subsector",
+                                          "technology" = "intermittent.technology")) %>%
+      rename(intermittent.technology = technology) ->
+      L223.GlobalIntTechOMvar_elec_scen
+
+    L223.GlobalTechOMvar_elec_scen %>%
+      anti_join(A23.globalinttech, by = c("sector.name" = "supplysector",
+                                          "subsector.name" = "subsector",
+                                          "technology" = "intermittent.technology")) ->
+      L223.GlobalTechOMvar_elec_scen
+
+    # Variable O&M costs are not provided for wind, PV, and geothermal technologies, so these are not subsetted
+    # adv scenario variable o&m costs
+    L223.GlobalTechOMvar_nuc_adv <- filter(L223.GlobalTechOMvar_elec_scen, subsector.name == "nuclear", scenario == "adv")
+    L223.GlobalTechOMvar_sol_adv <- filter(L223.GlobalTechOMvar_elec_scen, subsector.name == "solar", scenario == "adv")
+    L223.GlobalIntTechOMvar_sol_adv <- filter(L223.GlobalIntTechOMvar_elec_scen, subsector.name == "solar", scenario == "adv")
+
+    # low scenario variable O&M costs
+    L223.GlobalTechOMvar_bio_low <- filter(L223.GlobalTechOMvar_elec_scen, subsector.name == "biomass", scenario == "low")
+    L223.GlobalTechOMvar_nuc_low <- filter(L223.GlobalTechOMvar_elec_scen, subsector.name == "nuclear", scenario == "low")
+    L223.GlobalTechOMvar_sol_low <- filter(L223.GlobalTechOMvar_elec_scen, subsector.name == "solar", scenario == "low")
+    L223.GlobalIntTechOMvar_sol_low <- filter(L223.GlobalIntTechOMvar_elec_scen, subsector.name == "solar", scenario == "low")
+
 
     # ===================================================
 
@@ -116,6 +196,7 @@ module_energy_elec_tech_scenarios_xml <- function(command, ...) {
     # Adv scenario XML files
     create_xml("geo_tech_adv.xml") %>%
       add_xml_data(L223.GlobalTechCapital_geo_adv, "GlobalTechCapital") %>%
+      add_xml_data(L223.GlobalTechOMfixed_geo_adv, "GlobalTechOMfixed") %>%
       add_precursors("L1233.globaltech_capital_ATB_adv",
                      "L1233.globaltech_OMfixed_ATB_adv",
                      "L1233.globaltech_OMvar_ATB_adv") ->
@@ -123,6 +204,8 @@ module_energy_elec_tech_scenarios_xml <- function(command, ...) {
 
     create_xml("nuclear_adv.xml") %>%
       add_xml_data(L223.GlobalTechCapital_nuc_adv, "GlobalTechCapital") %>%
+      add_xml_data(L223.GlobalTechOMfixed_nuc_adv, "GlobalTechOMfixed") %>%
+      add_xml_data(L223.GlobalTechOMvar_nuc_adv, "GlobalTechOMvar") %>%
       add_xml_data(L125.nuclear_hydrogen_costs_adv, "GlobalTechCost") %>%
       same_precursors_as(geo_tech_adv.xml) %>%
       add_precursors("L125.nuclear_hydrogen_costs_adv") ->
@@ -132,6 +215,10 @@ module_energy_elec_tech_scenarios_xml <- function(command, ...) {
       add_xml_data(L223.GlobalTechCapital_sol_adv, "GlobalTechCapital") %>%
       add_xml_data(L223.GlobalIntTechCapital_sol_adv, "GlobalIntTechCapital") %>%
       add_xml_data(L223.StubTechCost_roofpv_adv, "StubTechCost") %>%
+      add_xml_data(L223.GlobalTechOMfixed_sol_adv, "GlobalTechOMfixed") %>%
+      add_xml_data(L223.GlobalIntTechOMfixed_sol_adv, "GlobalIntTechOMfixed") %>%
+      add_xml_data(L223.GlobalTechOMvar_sol_adv, "GlobalTechOMvar") %>%
+      add_xml_data(L223.GlobalIntTechOMvar_sol_adv, "GlobalIntTechOMvar") %>%
       same_precursors_as(geo_tech_adv.xml) %>%
       add_precursors("energy/A23.globalinttech",
                      "L223.StubTechCapFactor_elec") ->
@@ -140,6 +227,8 @@ module_energy_elec_tech_scenarios_xml <- function(command, ...) {
     create_xml("wind_adv.xml") %>%
       add_xml_data(L223.GlobalTechCapital_wind_adv, "GlobalTechCapital") %>%
       add_xml_data(L223.GlobalIntTechCapital_wind_adv, "GlobalIntTechCapital") %>%
+      add_xml_data(L223.GlobalTechOMfixed_wind_adv, "GlobalTechOMfixed") %>%
+      add_xml_data(L223.GlobalIntTechOMfixed_wind_adv, "GlobalIntTechOMfixed") %>%
       same_precursors_as(geo_tech_adv.xml) %>%
       add_precursors("energy/A23.globalinttech") ->
       wind_adv.xml
@@ -147,6 +236,8 @@ module_energy_elec_tech_scenarios_xml <- function(command, ...) {
     # Low scenario XML files
     create_xml("elec_bio_low.xml") %>%
       add_xml_data(L223.GlobalTechCapital_bio_low, "GlobalTechCapital") %>%
+      add_xml_data(L223.GlobalTechOMfixed_bio_low, "GlobalTechOMfixed") %>%
+      add_xml_data(L223.GlobalTechOMvar_bio_low, "GlobalTechOMvar") %>%
       add_precursors("L1233.globaltech_capital_ATB_low",
                      "L1233.globaltech_OMfixed_ATB_low",
                      "L1233.globaltech_OMvar_ATB_low") ->
@@ -154,11 +245,14 @@ module_energy_elec_tech_scenarios_xml <- function(command, ...) {
 
     create_xml("geo_low.xml") %>%
       add_xml_data(L223.GlobalTechCapital_geo_low, "GlobalTechCapital") %>%
+      add_xml_data(L223.GlobalTechOMfixed_geo_low, "GlobalTechOMfixed") %>%
       same_precursors_as(elec_bio_low.xml) ->
       geo_low.xml
 
     create_xml("nuclear_low.xml") %>%
       add_xml_data(L223.GlobalTechCapital_nuc_low, "GlobalTechCapital") %>%
+      add_xml_data(L223.GlobalTechOMfixed_nuc_low, "GlobalTechOMfixed") %>%
+      add_xml_data(L223.GlobalTechOMvar_nuc_low, "GlobalTechOMvar") %>%
       add_xml_data(L125.nuclear_hydrogen_costs_low, "GlobalTechCost") %>%
       same_precursors_as(elec_bio_low.xml) %>%
       add_precursors("L125.nuclear_hydrogen_costs_low") ->
@@ -168,6 +262,10 @@ module_energy_elec_tech_scenarios_xml <- function(command, ...) {
       add_xml_data(L223.GlobalTechCapital_sol_low, "GlobalTechCapital") %>%
       add_xml_data(L223.GlobalIntTechCapital_sol_low, "GlobalIntTechCapital") %>%
       add_xml_data(L223.StubTechCost_roofpv_low, "StubTechCost") %>%
+      add_xml_data(L223.GlobalTechOMfixed_sol_low, "GlobalTechOMfixed") %>%
+      add_xml_data(L223.GlobalIntTechOMfixed_sol_low, "GlobalIntTechOMfixed") %>%
+      add_xml_data(L223.GlobalTechOMvar_sol_low, "GlobalTechOMvar") %>%
+      add_xml_data(L223.GlobalIntTechOMvar_sol_low, "GlobalIntTechOMvar") %>%
       same_precursors_as(elec_bio_low.xml) %>%
       add_precursors("energy/A23.globalinttech",
                      "L223.StubTechCapFactor_elec") ->
@@ -176,6 +274,8 @@ module_energy_elec_tech_scenarios_xml <- function(command, ...) {
     create_xml("wind_low.xml") %>%
       add_xml_data(L223.GlobalTechCapital_wind_low, "GlobalTechCapital") %>%
       add_xml_data(L223.GlobalIntTechCapital_wind_low, "GlobalIntTechCapital") %>%
+      add_xml_data(L223.GlobalTechOMfixed_wind_low, "GlobalTechOMfixed") %>%
+      add_xml_data(L223.GlobalIntTechOMfixed_wind_low, "GlobalIntTechOMfixed") %>%
       same_precursors_as(elec_bio_low.xml) %>%
       add_precursors("energy/A23.globalinttech") ->
       wind_low.xml
