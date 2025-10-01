@@ -191,6 +191,11 @@ module_energy_L223.electricity <- function(command, ...) {
     # Write subsector logit exponents of electricity sector to all regions in L223.SubsectorLogit_elec
     L223.SubsectorLogit_elec <- write_to_all_regions(A23.subsector_logit, c(LEVEL2_DATA_NAMES[["SubsectorLogit"]], LOGIT_TYPE_COLNAME), GCAM_region_names)
 
+    # The column names of A23.subsector_shrwt_nuc_R need to be recoded, without gathering
+    names(A23.subsector_shrwt_nuc_R)[names(A23.subsector_shrwt_nuc_R) %in% names(YEAR_RECODE)] <-
+      dplyr::recode(names(A23.subsector_shrwt_nuc_R)[names(A23.subsector_shrwt_nuc_R) %in% names(YEAR_RECODE)],
+                    !!!YEAR_RECODE)
+
     # Write subsector shareweights of electricity sector to all regions, separating those interpolating to a year in L223.SubsectorShrwt_elec:
     if(any(!is.na(A23.subsector_shrwt$year))) {
       A23.subsector_shrwt %>%
