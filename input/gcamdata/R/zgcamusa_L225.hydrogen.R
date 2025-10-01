@@ -22,12 +22,10 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
              FILE = "energy/mappings/H2ALite_TEA_mapping",
              FILE = "energy/Melaina_h2_water",
              FILE = "gcam-usa/A225.structure",
-             "L223.GlobalIntTechCapital_elec",
-             "L223.GlobalIntTechOMfixed_elec",
-             "L223.GlobalIntTechCapital_sol_adv",
-             "L223.GlobalIntTechCapital_sol_low",
-             "L223.GlobalIntTechCapital_wind_adv",
-             "L223.GlobalIntTechCapital_wind_low",
+             "L1233.globaltech_capital_ATB",
+             "L1233.globaltech_OMfixed_ATB",
+             "L1233.globaltech_capital_ATB_adv",
+             "L1233.globaltech_capital_ATB_low",
              "L225.Supplysector_h2",
              "L225.SectorUseTrialMarket_h2",
              "L225.SubsectorLogit_h2",
@@ -72,12 +70,10 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
     H2ALite_wind_solar_CF <- get_data(all_data,"energy/H2ALite_wind_solar_CF", strip_attributes = TRUE)
     Melaina_h2_water <- get_data(all_data, "energy/Melaina_h2_water")
     A225.structure <- get_data(all_data, "gcam-usa/A225.structure")
-    L223.GlobalIntTechCapital_elec <- get_data(all_data, "L223.GlobalIntTechCapital_elec", strip_attributes = TRUE)
-    L223.GlobalIntTechOMfixed_elec <- get_data(all_data, "L223.GlobalIntTechOMfixed_elec", strip_attributes = TRUE)
-    L223.GlobalIntTechCapital_sol_adv <- get_data(all_data, "L223.GlobalIntTechCapital_sol_adv", strip_attributes = TRUE)
-    L223.GlobalIntTechCapital_sol_low <- get_data(all_data, "L223.GlobalIntTechCapital_sol_low", strip_attributes = TRUE)
-    L223.GlobalIntTechCapital_wind_adv <- get_data(all_data, "L223.GlobalIntTechCapital_wind_adv", strip_attributes = TRUE)
-    L223.GlobalIntTechCapital_wind_low <- get_data(all_data, "L223.GlobalIntTechCapital_wind_low", strip_attributes = TRUE)
+    L1233.globaltech_capital_ATB <- get_data(all_data, "L1233.globaltech_capital_ATB", strip_attributes = TRUE)
+    L1233.globaltech_OMfixed_ATB <- get_data(all_data, "L1233.globaltech_OMfixed_ATB", strip_attributes = TRUE)
+    L1233.globaltech_capital_ATB_adv <- get_data(all_data, "L1233.globaltech_capital_ATB_adv", strip_attributes = TRUE)
+    L1233.globaltech_capital_ATB_low <- get_data(all_data, "L1233.globaltech_capital_ATB_low", strip_attributes = TRUE)
     L225.Supplysector_h2 <- get_data(all_data, "L225.Supplysector_h2", strip_attributes = TRUE)
     L225.SectorUseTrialMarket_h2 <- get_data(all_data, "L225.SectorUseTrialMarket_h2", strip_attributes = TRUE)
     L225.SubsectorLogit_h2 <- get_data(all_data, "L225.SubsectorLogit_h2", strip_attributes = TRUE)
@@ -252,13 +248,12 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
       select(region = state, wind, solar) %>%
       gather(key = subsector, value = capacity.factor, -region)
 
-    L225.RenewElec_cost_USA_scen <- L223.GlobalIntTechCapital_elec %>%
+    L225.RenewElec_cost_USA_scen <- L1233.globaltech_capital_ATB %>%
       mutate(Scenario = "med") %>%
-      bind_rows(mutate(bind_rows(L223.GlobalIntTechCapital_wind_adv, L223.GlobalIntTechCapital_sol_adv), Scenario = "low")) %>%
-      bind_rows(mutate(bind_rows(L223.GlobalIntTechCapital_wind_low, L223.GlobalIntTechCapital_sol_low), Scenario = "high")) %>%
-      filter(intermittent.technology %in% c("wind", "PV")) %>%
-      left_join(L223.GlobalIntTechOMfixed_elec, by = c("sector.name", "subsector.name", "intermittent.technology", "year")) %>%
-      rename(supplysector = sector.name, subsector = subsector.name, stub.technology = intermittent.technology) %>%
+      bind_rows(mutate(L1233.globaltech_capital_ATB_adv, Scenario = "low")) %>%
+      bind_rows(mutate(L1233.globaltech_capital_ATB_low, Scenario = "high")) %>%
+      filter(technology %in% c("wind", "PV")) %>%
+      left_join(L1233.globaltech_OMfixed_ATB, by = c("supplysector", "subsector", "technology", "year")) %>%
       left_join(L225.CapacityFactor_USA, by = c("subsector")) %>%
       mutate(elec_cost_75USD_GJ = (capital.overnight * fixed.charge.rate + OM.fixed) /
                (CONV_YEAR_HOURS * capacity.factor * CONV_KWH_GJ)) %>%
@@ -417,8 +412,8 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
                      "energy/H2ALite_TEAdata",
                      "energy/H2ALite_wind_solar_CF",
                      "energy/mappings/H2ALite_TEA_mapping",
-                     "L223.GlobalIntTechCapital_elec",
-                     "L223.GlobalIntTechOMfixed_elec") ->
+                     "L1233.globaltech_capital_ATB",
+                     "L1233.globaltech_OMfixed_ATB") ->
       L225.StubTechCost_h2_USA_ref
 
     L225.StubTechCost_h2_USA_adv %>%
@@ -426,8 +421,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
       add_units("$1975/GJ") %>%
       add_comments("LCOH for the electrolyzer and renewables providing electricity.") %>%
       same_precursors_as(L225.StubTechCost_h2_USA_ref) %>%
-      add_precursors("L223.GlobalIntTechCapital_sol_low",
-                     "L223.GlobalIntTechCapital_wind_low") ->
+      add_precursors("L1233.globaltech_capital_ATB_low") ->
       L225.StubTechCost_h2_USA_adv
 
     L225.StubTechCost_h2_USA_lotech %>%
@@ -435,8 +429,7 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
       add_units("$1975/GJ") %>%
       add_comments("LCOH for the electrolyzer and renewables providing electricity.") %>%
       same_precursors_as(L225.StubTechCost_h2_USA_ref) %>%
-      add_precursors("L223.GlobalIntTechCapital_sol_adv",
-                     "L223.GlobalIntTechCapital_wind_adv") ->
+      add_precursors("L1233.globaltech_capital_ATB_adv") ->
       L225.StubTechCost_h2_USA_lotech
 
     L225.StubTechCoef_h2_USA_ref %>%

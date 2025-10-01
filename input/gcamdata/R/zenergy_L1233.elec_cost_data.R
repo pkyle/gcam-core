@@ -33,7 +33,11 @@ module_energy_L1233.elec_cost_data <- function(command, ...) {
       "L1233.globaltech_capital_ATB_adv",
       "L1233.globaltech_capital_ATB_low",
       "L1233.globaltech_OMfixed_ATB",
+      "L1233.globaltech_OMfixed_ATB_adv",
+      "L1233.globaltech_OMfixed_ATB_low",
       "L1233.globaltech_OMvar_ATB",
+      "L1233.globaltech_OMvar_ATB_adv",
+      "L1233.globaltech_OMvar_ATB_low",
       "L1233.globaltech_capital_ATB_battery")
 
   if(command == driver.DECLARE_INPUTS) {
@@ -219,9 +223,21 @@ module_energy_L1233.elec_cost_data <- function(command, ...) {
     L1233.globaltech_OMfixed_ATB <- filter(L1233.gcam_costs_alltechs, case == "Moderate", input == "OM-fixed") %>%
       rename(input.OM.fixed = input, OM.fixed = value) %>%
       select(-case, -fixed.charge.rate)
+    L1233.globaltech_OMfixed_ATB_adv <- filter(L1233.gcam_costs_alltechs, case == "Advanced", input == "OM-fixed") %>%
+      rename(input.OM.fixed = input, OM.fixed = value) %>%
+      select(-case, -fixed.charge.rate)
+    L1233.globaltech_OMfixed_ATB_low <- filter(L1233.gcam_costs_alltechs, case == "Conservative", input == "OM-fixed") %>%
+      rename(input.OM.fixed = input, OM.fixed = value) %>%
+      select(-case, -fixed.charge.rate)
     L1233.globaltech_OMvar_ATB <- filter(L1233.gcam_costs_alltechs, case == "Moderate", input == "OM-var") %>%
       rename(input.OM.var = input, OM.var = value) %>%
-      select(-case, fixed.charge.rate)
+      select(-case, -fixed.charge.rate)
+    L1233.globaltech_OMvar_ATB_adv <- filter(L1233.gcam_costs_alltechs, case == "Advanced", input == "OM-var") %>%
+      rename(input.OM.var = input, OM.var = value) %>%
+      select(-case, -fixed.charge.rate)
+    L1233.globaltech_OMvar_ATB_low <- filter(L1233.gcam_costs_alltechs, case == "Conservative", input == "OM-var") %>%
+      rename(input.OM.var = input, OM.var = value) %>%
+      select(-case, -fixed.charge.rate)
 
     # ===================================================
     # Produce outputs
@@ -260,14 +276,42 @@ module_energy_L1233.elec_cost_data <- function(command, ...) {
                      "energy/mappings/atb_gcam_elec_tech_mapping") ->
       L1233.globaltech_OMfixed_ATB
 
+    L1233.globaltech_OMfixed_ATB_adv %>%
+      add_title("2024 ATB-based fixed O&M costs in the Advanced case") %>%
+      add_units("1975$/kW/yr") %>%
+      add_comments("Some technologies filled in from ReEDS model inputs; other imputed") %>%
+      same_precursors_as(L1233.globaltech_OMfixed_ATB) ->
+      L1233.globaltech_OMfixed_ATB_adv
+
+    L1233.globaltech_OMfixed_ATB_low %>%
+      add_title("2024 ATB-based fixed O&M costs in the Conservative case") %>%
+      add_units("1975$/kW/yr") %>%
+      add_comments("Some technologies filled in from ReEDS model inputs; other imputed") %>%
+      same_precursors_as(L1233.globaltech_OMfixed_ATB) ->
+      L1233.globaltech_OMfixed_ATB_low
+
     L1233.globaltech_OMvar_ATB %>%
-      add_title("2024 ATB-based fixed O&M costs") %>%
+      add_title("2024 ATB-based variable O&M costs in the Moderate case") %>%
       add_units("1975$/MWh") %>%
       add_comments("Some technologies filled in from ReEDS model inputs; other imputed") %>%
       add_precursors("energy/NREL_ATB_OMvar_2024",
                      "energy/ReEDS_power_plant_costs",
                      "energy/mappings/atb_gcam_elec_tech_mapping") ->
       L1233.globaltech_OMvar_ATB
+
+    L1233.globaltech_OMvar_ATB_adv %>%
+      add_title("2024 ATB-based variable O&M costs in the Advanced case") %>%
+      add_units("1975$/MWh") %>%
+      add_comments("Some technologies filled in from ReEDS model inputs; other imputed") %>%
+      same_precursors_as(L1233.globaltech_OMvar_ATB) ->
+      L1233.globaltech_OMvar_ATB_adv
+
+    L1233.globaltech_OMvar_ATB_low %>%
+      add_title("2024 ATB-based variable O&M costs in the Conservative case") %>%
+      add_units("1975$/MWh") %>%
+      add_comments("Some technologies filled in from ReEDS model inputs; other imputed") %>%
+      same_precursors_as(L1233.globaltech_OMvar_ATB) ->
+      L1233.globaltech_OMvar_ATB_low
 
     L1233.globaltech_capital_ATB_battery %>%
       add_title("2024 ATB-based utility-scale battery costs") %>%
@@ -280,7 +324,11 @@ module_energy_L1233.elec_cost_data <- function(command, ...) {
                 L1233.globaltech_capital_ATB_adv,
                 L1233.globaltech_capital_ATB_low,
                 L1233.globaltech_OMfixed_ATB,
+                L1233.globaltech_OMfixed_ATB_adv,
+                L1233.globaltech_OMfixed_ATB_low,
                 L1233.globaltech_OMvar_ATB,
+                L1233.globaltech_OMvar_ATB_adv,
+                L1233.globaltech_OMvar_ATB_low,
                 L1233.globaltech_capital_ATB_battery)
   } else {
     stop("Unknown command")

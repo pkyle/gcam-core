@@ -30,11 +30,11 @@ module_energy_L125.hydrogen <- function(command, ...) {
              FILE = "energy/Melaina_h2_water",
              FILE = "energy/mappings/H2ALite_TEA_mapping",
              "L223.GlobalTechCapFac_elec",
-             "L223.GlobalTechCapital_elec",
-             "L223.GlobalTechCapital_nuc_adv",
-             "L223.GlobalTechCapital_nuc_low",
-             "L223.GlobalTechOMvar_elec",
-             "L223.GlobalTechOMfixed_elec",
+             "L1233.globaltech_capital_ATB",
+             "L1233.globaltech_capital_ATB_adv",
+             "L1233.globaltech_capital_ATB_low",
+             "L1233.globaltech_OMfixed_ATB",
+             "L1233.globaltech_OMvar_ATB",
              "L223.StubTechCapFactor_elec"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L125.globaltech_coef_scen",
@@ -56,11 +56,11 @@ module_energy_L125.hydrogen <- function(command, ...) {
     Melaina_h2_water <- get_data(all_data, "energy/Melaina_h2_water")
 
     L223.GlobalTechCapFac_elec <- get_data(all_data, "L223.GlobalTechCapFac_elec", strip_attributes = TRUE)
-    L223.GlobalTechCapital_elec <- get_data(all_data, "L223.GlobalTechCapital_elec", strip_attributes = TRUE)
-    L223.GlobalTechCapital_nuc_adv <- get_data(all_data, "L223.GlobalTechCapital_nuc_adv", strip_attributes = TRUE)
-    L223.GlobalTechCapital_nuc_low <- get_data(all_data, "L223.GlobalTechCapital_nuc_low", strip_attributes = TRUE)
-    L223.GlobalTechOMvar_elec <- get_data(all_data, "L223.GlobalTechOMvar_elec", strip_attributes = TRUE)
-    L223.GlobalTechOMfixed_elec <- get_data(all_data, "L223.GlobalTechOMfixed_elec", strip_attributes = TRUE)
+    L1233.globaltech_capital_ATB <- get_data(all_data, "L1233.globaltech_capital_ATB", strip_attributes = TRUE)
+    L1233.globaltech_capital_ATB_adv <- get_data(all_data, "L1233.globaltech_capital_ATB_adv", strip_attributes = TRUE)
+    L1233.globaltech_capital_ATB_low <- get_data(all_data, "L1233.globaltech_capital_ATB_low", strip_attributes = TRUE)
+    L1233.globaltech_OMvar_ATB <- get_data(all_data, "L1233.globaltech_OMvar_ATB", strip_attributes = TRUE)
+    L1233.globaltech_OMfixed_ATB <- get_data(all_data, "L1233.globaltech_OMfixed_ATB", strip_attributes = TRUE)
     L223.StubTechCapFactor_elec <- get_data(all_data, "L223.StubTechCapFactor_elec", strip_attributes = TRUE)
 
     # ===================================================
@@ -116,16 +116,16 @@ module_energy_L125.hydrogen <- function(command, ...) {
     # Nuclear electricity generation costs are estimated from power sector assumptions, multiplied by electricity IOcoef
     # In these nuclear tables we use "adv" for high tech and "low" for low tech (staying consistent with XML file names)
     # This differs from the H2Alite scenario names where "low" means low-cost (i.e., high tech)
-    L125.nuclear_elec_costs_scen <- mutate(L223.GlobalTechCapital_elec, Scenario = "ref") %>%
-      bind_rows(mutate(L223.GlobalTechCapital_nuc_adv, Scenario = "adv")) %>%
-      bind_rows(mutate(L223.GlobalTechCapital_nuc_low, Scenario = "low")) %>%
+    L125.nuclear_elec_costs_scen <- mutate(L1233.globaltech_capital_ATB, Scenario = "ref") %>%
+      bind_rows(mutate(L1233.globaltech_capital_ATB_adv, Scenario = "adv")) %>%
+      bind_rows(mutate(L1233.globaltech_capital_ATB_low, Scenario = "low")) %>%
       filter(technology == "large reactor") %>%
       left_join_error_no_match(L223.GlobalTechCapFac_elec,
-                               by = c("sector.name", "subsector.name", "technology", "year")) %>%
-      left_join_error_no_match(L223.GlobalTechOMfixed_elec,
-                               by = c("sector.name", "subsector.name", "technology", "year")) %>%
-      left_join_error_no_match(L223.GlobalTechOMvar_elec,
-                               by = c("sector.name", "subsector.name", "technology", "year")) %>%
+                               by = c(supplysector = "sector.name", subsector = "subsector.name", "technology", "year")) %>%
+      left_join_error_no_match(L1233.globaltech_OMfixed_ATB,
+                               by = c("supplysector", "subsector", "technology", "year")) %>%
+      left_join_error_no_match(L1233.globaltech_OMvar_ATB,
+                               by = c("supplysector", "subsector", "technology", "year")) %>%
       mutate(nonfuel.LCOE = (capital.overnight * fixed.charge.rate + OM.fixed ) / (capacity.factor * CONV_YEAR_HOURS * CONV_KWH_GJ) + OM.var / 1000 * CONV_KWH_GJ) %>%
       select(Scenario, year, nonfuel.LCOE)
 
@@ -382,7 +382,7 @@ module_energy_L125.hydrogen <- function(command, ...) {
       add_legacy_name("L225.GlobalTechCost_h2") %>%
       add_precursors("common/GCAM_region_names", "energy/mappings/H2ALite_TEA_mapping",
                      "energy/H2ALite_TEAdata", "energy/H2ALite_wind_solar_CF", "L223.GlobalTechCapFac_elec",
-                     "L223.GlobalTechCapital_elec", "L223.GlobalTechOMvar_elec", "L223.GlobalTechOMfixed_elec",
+                     "L1233.globaltech_capital_ATB", "L1233.globaltech_OMvar_ATB", "L1233.globaltech_OMfixed_ATB",
                      "L223.StubTechCapFactor_elec")  ->
       L125.globaltech_cost_scen
 
@@ -391,7 +391,7 @@ module_energy_L125.hydrogen <- function(command, ...) {
       add_units("1975$/GJ of hydrogen") %>%
       add_comments("Based on electrolysis IO coef and scenario-specific assumptions of nuclear electric generation costs") %>%
       same_precursors_as(L125.globaltech_cost_scen) %>%
-      add_precursors("L223.GlobalTechCapital_nuc_adv")->
+      add_precursors("L1233.globaltech_capital_ATB_adv")->
       L125.nuclear_hydrogen_costs_adv
 
     L125.nuclear_hydrogen_costs_low  %>%
@@ -399,7 +399,7 @@ module_energy_L125.hydrogen <- function(command, ...) {
       add_units("1975$/GJ of hydrogen") %>%
       add_comments("Based on electrolysis IO coef and scenario-specific assumptions of nuclear electric generation costs") %>%
       same_precursors_as(L125.globaltech_cost_scen) %>%
-      add_precursors("L223.GlobalTechCapital_nuc_low")->
+      add_precursors("L1233.globaltech_capital_ATB_low")->
       L125.nuclear_hydrogen_costs_low
 
     L125.StubTechCost_h2_hybrid_scen  %>%
