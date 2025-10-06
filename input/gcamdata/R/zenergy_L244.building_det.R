@@ -1118,7 +1118,7 @@ module_energy_L244.building_det <- function(command, ...) {
     #------------------------------------------------------
     # L244.GenericServiceSatiation: Satiation levels assumed for non-thermal building services
     # First, calculate the service output per unit floorspace in the USA region
-    L244.ServiceSatiation_USA_pre <- L144.base_service_EJ_serv_adj %>%
+    L244.ServiceSatiation_USA_pre <- L144.base_service_EJ_serv %>%
       filter(GCAM_region_ID == gcam.USA_CODE) %>%
       # YZ -comment out since this is not true (tradBio is in the L144)
       # # Add tradBio which is not consumed in USA
@@ -1137,13 +1137,9 @@ module_energy_L244.building_det <- function(command, ...) {
              supplysector = service) %>%
       select(region, sector, service, gcam.consumer, nodeInput, building.node.input,
              building.service.input = supplysector, year, value) %>%
-      left_join(L1441.supplysec_subsec %>%
-                  select(-subsector) %>%
-                  distinct(), by = c('building.service.input'='supplysector')) %>%
-      mutate(supplysector.agg = if_else(is.na(supplysector.agg), building.service.input, supplysector.agg)) %>%
       left_join_error_no_match(A44.demand_satiation_mult %>%
                                  select(supplysector,agg.service) %>%
-                                 rename(service=supplysector), by = c(supplysector.agg = "service")) %>%
+                                 rename(service=supplysector), by = "service") %>%
       group_by(region, sector, agg.service, year) %>%
       mutate(agg.value = sum(value)) %>%
       ungroup()
@@ -1165,7 +1161,7 @@ module_energy_L244.building_det <- function(command, ...) {
     L244.ServiceSatiation_USA <- L244.ServiceSatiation_USA_pre %>%
       left_join_error_no_match(L244.flsp_bm2_R %>%
                                  rename(floorspace_bm2 = value), by = c("region", "gcam.consumer")) %>%
-      left_join_error_no_match(A44.demand_satiation_mult, by = c("supplysector.agg" = "supplysector","agg.service")) %>%
+      left_join_error_no_match(A44.demand_satiation_mult, by = c("building.service.input" = "supplysector","agg.service")) %>%
       group_by(region, sector, agg.service) %>%
       mutate(satiation.level = round(agg.value[year == max(HISTORICAL_YEARS)] * multiplier / floorspace_bm2, energy.DIGITS_CALOUTPUT)) %>%
       ungroup() %>%
