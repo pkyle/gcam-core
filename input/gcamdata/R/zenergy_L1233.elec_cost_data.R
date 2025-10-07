@@ -135,9 +135,9 @@ module_energy_L1233.elec_cost_data <- function(command, ...) {
 
     # revise the battery costs to be $/kW instead of $/kwh as they are in ReEDS
     L1233.reeds_atb_costs <- L1233.reeds_atb_costs %>%
-      mutate(capital = if_else(reeds_tech == "battery_li" & year < 2022, capcost * L1233.battery_cost_ratio, capital),
-             `OM-fixed` = if_else(reeds_tech == "battery_li" & year < 2022, fom * L1233.battery_cost_ratio, `OM-fixed`),
-             `OM-var` = if_else(reeds_tech == "battery_li" & year < 2022, vom * L1233.battery_cost_ratio, `OM-var`))
+      mutate(capital = if_else(reeds_tech == "battery_li" & year < 2022, capcost * L1233.battery_cost_ratio * cost_multiplier, capital),
+             `OM-fixed` = if_else(reeds_tech == "battery_li" & year < 2022, fom * L1233.battery_cost_ratio * cost_multiplier, `OM-fixed`),
+             `OM-var` = if_else(reeds_tech == "battery_li" & year < 2022, vom * L1233.battery_cost_ratio * cost_multiplier, `OM-var`))
 
     # The battery table can be finalized for output here; it is not in the main output tables.
     # Needs to be converted to 1975$, filtered and extrapolated to all model years, applying post-2050 tech change
