@@ -437,7 +437,7 @@ chunk_inputs <- function(chunks = find_chunks()$name, call_flag = driver.DECLARE
 #' @return Character vector of inputs.
 #' @export
 inputs_of <- function(chunks) {
-  if(is.null(chunks) || chunks == "") return(NULL)
+  if(is.null(chunks) || length(chunks) == 0 || any(chunks == "")) return(NULL)
   chunk_inputs(chunks)$input
 }
 
@@ -483,7 +483,7 @@ chunk_outputs <- function(chunks = find_chunks()$name, call_flag = driver.DECLAR
 #' @return Character vector of inputs.
 #' @export
 outputs_of <- function(chunks) {
-  if(is.null(chunks) || chunks == "") return(NULL)
+  if(is.null(chunks) || length(chunks) == 0 || any(chunks == "")) return(NULL)
   chunk_outputs(chunks)$output
 }
 
