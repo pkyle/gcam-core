@@ -63,17 +63,17 @@ module_energy_L1441.building_det_en_USA <- function(command, ...) {
     ## Part 1 - energy consumption: use Scout data for detailed services & technologies in the USA region ----
     # YZ 2025/8/27 energy consumption
     # Scout output data processed to compute shares of service/technology within state/sector/fuel
-    # the 'energy' column is used to weight the state-level shares by state-level energy consumption
+    # resid cooling/gas is included in scout but not in detailed US buildings
     L1441.Scout_bld_calibration <- Scout_bld_calibration %>%
-      mutate(service = paste(sector, service),
-             weighted_share = energy*share) %>%
+      filter(!(sector == "resid" & fuel == "gas" & service == "cooling")) %>%
+      mutate(service = paste(sector, service)) %>%
       # aggregate to regional level
       group_by(sector, fuel, service, technology, year) %>%
-      summarise(share = sum(weighted_share)) %>%
+      summarise(energy = sum(energy)) %>%
       ungroup() %>%
       # re-calculate shares based on regional values
       group_by(sector, fuel, year) %>%
-      mutate(share = share / sum(share),
+      mutate(share = energy / sum(energy),
              region = gcam.USA_REGION,
              GCAM_region_ID = gcam.USA_CODE) %>%
       ungroup()
@@ -160,10 +160,6 @@ module_energy_L1441.building_det_en_USA <- function(command, ...) {
                   select(sector, supplysector, fuel, subsector, minicam.energy.input) %>%
                   mutate(sector = paste0('bld_', sector)) %>%
                   distinct(), by = c("sector", "supplysector", "fuel")) %>%
-      # 'resid cooling' using 'gas' is included in scout and gcam-32, but not in gcam-usa
-      # so it creates NAs in this category. In gcam-32, the corresponding value is small and is zero in 2021, the base year
-      # we drop it for now using na.omit
-      na.omit() %>%
       select(GCAM_region_ID, supplysector, subsector, technology, minicam.energy.input, year, calibrated.value = value) %>%
       mutate(technology = if_else(technology == "lighting", "incandescent", technology))
 
