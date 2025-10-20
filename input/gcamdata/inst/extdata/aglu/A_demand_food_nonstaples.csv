@@ -6,4 +6,4 @@
 # Column types: cccnnn
 # ----------
 gcam.consumer,nodeInput,non.staples.food.demand.input,scale.param,self.price.elasticity,income.elasticity
-FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.080569246,0.886000498
+FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.12,0.886000498
