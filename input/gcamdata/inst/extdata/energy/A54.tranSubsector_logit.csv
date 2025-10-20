@@ -54,7 +54,7 @@ trn_pass_road_LDV_4W,Mini Car,-8,Fuel types and ICE efficiency levels,absolute-c
 trn_pass_road_LDV_4W,Multipurpose Vehicle,-8,Fuel types and ICE efficiency levels,absolute-cost-logit
 trn_pass_road_LDV_4W,Subcompact Car,-8,Fuel types and ICE efficiency levels,absolute-cost-logit
 trn_pass_road_LDV_4W,Van,-8,Fuel types and ICE efficiency levels,absolute-cost-logit
-trn_shipping_intl,International Ship,-6,,absolute-cost-logit
+trn_shipping_intl,International Ship,-1,,absolute-cost-logit
 # Passthrough tranSubsectors are listed below,,,,absolute-cost-logit
 trn_pass,road,-6,,absolute-cost-logit
 trn_pass_road,LDV,-6,,absolute-cost-logit
