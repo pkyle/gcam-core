@@ -111,7 +111,7 @@
 
 		<Value name = "solver">../input/solution/cal_broyden_config.xml</Value>
 
-		<Value name = "policy">../input/policy/carbon_tax_20_5.xml</Value>
+		<Value name = "policy">../input/policy/carbon_tax_1.xml</Value>
 		
 	</ScenarioComponents>
 	<Strings>
