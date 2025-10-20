@@ -34,8 +34,7 @@ module_energy_L1322.Fert <- function(command, ...) {
       "L1321.in_EJ_R_indenergy_F_Yh",
       "L132.in_EJ_R_indfeed_F_Yh",
       "L142.ag_Fert_Prod_MtN_ctry_Y",
-      "L142.ag_Fert_NetExp_MtN_R_Y",
-      "L210.rsrc_info")
+      "L142.ag_Fert_NetExp_MtN_R_Y")
 
   MODULE_OUTPUTS <-
     c("L1322.Fert_Prod_MtNH3_R_F_Y",
