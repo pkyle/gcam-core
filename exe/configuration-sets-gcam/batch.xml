@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BatchRunner xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="batch_runner.xsd">
+	<ComponentSet name="Tech scenarios">
+		<FileSet name="RefTech">
+            <Value name = "bld_ref">../input/gcamdata/xml/building_IEF_StatedPolicies_USAreg.xml</Value>
+            <Value name = "ind_ref">../input/gcamdata/xml/industry_IEF_StatedPolicies_USAreg.xml</Value-->
+            <Value name = "bio_ref">../input/extra/biomass/BAU_ORNL.xml</Value>
+            <Value name = "trn_ref">../input/gcamdata/xml/transport_DECARB_IRA.xml</Value>
+		</FileSet>		
+		<FileSet name="HiTech">
+            <Value name = "bld_hi">../input/gcamdata/xml/building_IEF_HiTech_USAreg.xml</Value>
+            <Value name = "ind_hi">../input/gcamdata/xml/industry_IEF_HiTech_USAreg.xml</Value>
+            <Value name = "bio_hi">../input/extra/biomass/High_ORNL.xml</Value>
+            <Value name = "trn_hi">../input/gcamdata/xml/transport_AdvTech.xml</Value>
+            <Value name = "trn_hi">../input/gcamdata/xml/transport_DECARB_HiTech.xml</Value>
+		</FileSet>		
+	</ComponentSet>
+	
+</BatchRunner>
+
+

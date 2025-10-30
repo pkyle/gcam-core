@@ -1,0 +1,103 @@
+# File: ind_tech_scenarios.csv
+# Title: Parameter adjustments to define the industry scenarios
+# Units: various
+# Comments: This is intended as a single control table for scenario differentiation
+# Source: correspondence with DECARB 2a industry team (incl. ORNL and LBNL)
+# Column types: ccccccni
+# ----------
+scenario,supplysector,subsector,technology,variable,value,adj_factor,rule_number
+Stated Policies,ammonia,hydrogen,,share.weight,0,,
+Stated Policies,other industrial energy use,,,logit.exponent,-2,,
+MidTech,ammonia,hydrogen,,share.weight,0,,
+MidTech,other industrial energy use,,,logit.exponent,-2,,
+MidTech,iron and steel,BLASTFUR,,from.year,2025,,1
+MidTech,iron and steel,BLASTFUR,,to.value,0,,1
+MidTech,iron and steel,BLASTFUR,,to.year,2070,,1
+MidTech,iron and steel,BLASTFUR,,interpolation.function,linear,,1
+MidTech,other industrial energy use,coal,,from.year,2025,,1
+MidTech,other industrial energy use,coal,,to.value,0,,1
+MidTech,other industrial energy use,coal,,to.year,2070,,1
+MidTech,other industrial energy use,coal,,interpolation.function,linear,,1
+MidTech,other industrial energy use,gas,,from.year,2025,,1
+MidTech,other industrial energy use,gas,,to.value,0,,1
+MidTech,other industrial energy use,gas,,to.year,2070,,1
+MidTech,other industrial energy use,gas,,interpolation.function,linear,,1
+MidTech,other industrial energy use,refined liquids,,from.year,2025,,1
+MidTech,other industrial energy use,refined liquids,,to.value,0,,1
+MidTech,other industrial energy use,refined liquids,,to.year,2070,,1
+MidTech,other industrial energy use,refined liquids,,interpolation.function,linear,,1
+MidTech,other industrial feedstocks,coal,,from.year,2025,,1
+MidTech,other industrial feedstocks,coal,,to.value,0,,1
+MidTech,other industrial feedstocks,coal,,to.year,2070,,1
+MidTech,other industrial feedstocks,coal,,interpolation.function,linear,,1
+MidTech,other industrial feedstocks,gas,,from.year,2025,,1
+MidTech,other industrial feedstocks,gas,,to.value,0,,1
+MidTech,other industrial feedstocks,gas,,to.year,2070,,1
+MidTech,other industrial feedstocks,gas,,interpolation.function,linear,,1
+MidTech,other industrial feedstocks,refined liquids,,from.year,2025,,1
+MidTech,other industrial feedstocks,refined liquids,,to.value,0,,1
+MidTech,other industrial feedstocks,refined liquids,,to.year,2070,,1
+MidTech,other industrial feedstocks,refined liquids,,interpolation.function,linear,,1
+HiTech,H2 industrial,onsite production,,share.weight,0.1,,
+HiTech,H2 industrial,onsite production,electrolysis,price.unit.conversion,0.6,,
+HiTech,other industrial energy use,,,logit.exponent,-3,,
+HiTech,iron and steel,BLASTFUR,,from.year,2025,,1
+HiTech,iron and steel,BLASTFUR,,to.value,0,,1
+HiTech,iron and steel,BLASTFUR,,to.year,2041,,1
+HiTech,iron and steel,BLASTFUR,,interpolation.function,linear,,1
+HiTech,iron and steel,BLASTFUR,,from.year,2040,,2
+HiTech,iron and steel,BLASTFUR,,to.value,0,,2
+HiTech,iron and steel,BLASTFUR,,to.year,2100,,2
+HiTech,iron and steel,BLASTFUR,,interpolation.function,fixed,,2
+HiTech,other industrial energy use,coal,,from.year,2025,,1
+HiTech,other industrial energy use,coal,,to.value,0,,1
+HiTech,other industrial energy use,coal,,to.year,2041,,1
+HiTech,other industrial energy use,coal,,interpolation.function,linear,,1
+HiTech,other industrial energy use,coal,,from.year,2040,,2
+HiTech,other industrial energy use,coal,,to.value,0,,2
+HiTech,other industrial energy use,coal,,to.year,2100,,2
+HiTech,other industrial energy use,coal,,interpolation.function,fixed,,2
+HiTech,other industrial energy use,gas,,from.year,2025,,1
+HiTech,other industrial energy use,gas,,to.value,0,,1
+HiTech,other industrial energy use,gas,,to.year,2041,,1
+HiTech,other industrial energy use,gas,,interpolation.function,linear,,1
+HiTech,other industrial energy use,gas,,from.year,2040,,2
+HiTech,other industrial energy use,gas,,to.value,0,,2
+HiTech,other industrial energy use,gas,,to.year,2100,,2
+HiTech,other industrial energy use,gas,,interpolation.function,fixed,,2
+HiTech,other industrial energy use,refined liquids,,from.year,2025,,1
+HiTech,other industrial energy use,refined liquids,,to.value,0,,1
+HiTech,other industrial energy use,refined liquids,,to.year,2041,,1
+HiTech,other industrial energy use,refined liquids,,interpolation.function,linear,,1
+HiTech,other industrial energy use,refined liquids,,from.year,2040,,2
+HiTech,other industrial energy use,refined liquids,,to.value,0,,2
+HiTech,other industrial energy use,refined liquids,,to.year,2100,,2
+HiTech,other industrial energy use,refined liquids,,interpolation.function,fixed,,2
+HiTech,other industrial feedstocks,coal,,from.year,2025,,1
+HiTech,other industrial feedstocks,coal,,to.value,0,,1
+HiTech,other industrial feedstocks,coal,,to.year,2041,,1
+HiTech,other industrial feedstocks,coal,,interpolation.function,linear,,1
+HiTech,other industrial feedstocks,coal,,from.year,2040,,2
+HiTech,other industrial feedstocks,coal,,to.value,0,,2
+HiTech,other industrial feedstocks,coal,,to.year,2100,,2
+HiTech,other industrial feedstocks,coal,,interpolation.function,fixed,,2
+HiTech,other industrial feedstocks,gas,,from.year,2025,,1
+HiTech,other industrial feedstocks,gas,,to.value,0,,1
+HiTech,other industrial feedstocks,gas,,to.year,2041,,1
+HiTech,other industrial feedstocks,gas,,interpolation.function,linear,,1
+HiTech,other industrial feedstocks,gas,,from.year,2040,,2
+HiTech,other industrial feedstocks,gas,,to.value,0,,2
+HiTech,other industrial feedstocks,gas,,to.year,2100,,2
+HiTech,other industrial feedstocks,gas,,interpolation.function,fixed,,2
+HiTech,other industrial feedstocks,refined liquids,,from.year,2025,,1
+HiTech,other industrial feedstocks,refined liquids,,to.value,0,,1
+HiTech,other industrial feedstocks,refined liquids,,to.year,2041,,1
+HiTech,other industrial feedstocks,refined liquids,,interpolation.function,linear,,1
+HiTech,other industrial feedstocks,refined liquids,,from.year,2040,,2
+HiTech,other industrial feedstocks,refined liquids,,to.value,0,,2
+HiTech,other industrial feedstocks,refined liquids,,to.year,2100,,2
+HiTech,other industrial feedstocks,refined liquids,,interpolation.function,fixed,,2
+Stated Policies,iron and steel,BLASTFUR,Biomass-based,share.weight,0,,
+Stated Policies,iron and steel,BLASTFUR,BLASTFUR with hydrogen,share.weight,0,,
+Stated Policies,iron and steel,EAF with DRI,Hydrogen-based DRI,share.weight,0,,	
+
