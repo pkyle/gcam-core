@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BatchRunner xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="batch_runner.xsd">
 	<ComponentSet name="Tech scenarios">
-		<!--FileSet name="RefTech">
+		<FileSet name="RefTech">
             <Value name = "bld_ref">../input/gcamdata/xml/building_IEF_StatedPolicies_USAreg.xml</Value>
             <Value name = "ind_ref">../input/gcamdata/xml/industry_IEF_StatedPolicies_USAreg.xml</Value>
             <Value name = "bio_ref">../input/extra/biomass/BAU_ORNL.xml</Value>
@@ -19,7 +19,7 @@
             <Value name = "elec_hi">../input/gcamdata/xml/geo_adv.xml</Value>
             <Value name = "elec_hi">../input/gcamdata/xml/geo_tech_adv.xml</Value>
             <Value name = "hydrogen_hi">../input/gcamdata/xml/hydrogen_adv.xml</Value>
-		</FileSet-->		
+		</FileSet>		
 		<FileSet name="HiTech_NetZero">
             <Value name = "bld_hi">../input/gcamdata/xml/building_IEF_HiTech_USAreg.xml</Value>
             <Value name = "ind_hi">../input/gcamdata/xml/industry_IEF_HiTech_USAreg.xml</Value>
