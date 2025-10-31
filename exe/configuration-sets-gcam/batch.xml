@@ -18,6 +18,7 @@
             <Value name = "elec_hi">../input/gcamdata/xml/nuclear_adv.xml</Value>
             <Value name = "elec_hi">../input/gcamdata/xml/geo_adv.xml</Value>
             <Value name = "elec_hi">../input/gcamdata/xml/geo_tech_adv.xml</Value>
+            <Value name = "hydrogen_hi">../input/gcamdata/xml/hydrogen_adv.xml</Value>
 		</FileSet>		
 	</ComponentSet>
 	
