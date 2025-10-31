@@ -5,14 +5,19 @@
             <Value name = "bld_ref">../input/gcamdata/xml/building_IEF_StatedPolicies_USAreg.xml</Value>
             <Value name = "ind_ref">../input/gcamdata/xml/industry_IEF_StatedPolicies_USAreg.xml</Value-->
             <Value name = "bio_ref">../input/extra/biomass/BAU_ORNL.xml</Value>
-            <Value name = "trn_ref">../input/gcamdata/xml/transport_DECARB_IRA.xml</Value>
+            <Value name = "trn_ref">../input/gcamdata/xml/transport_IEF_StatedPolicies_USAreg.xml</Value>
 		</FileSet>		
 		<FileSet name="HiTech">
             <Value name = "bld_hi">../input/gcamdata/xml/building_IEF_HiTech_USAreg.xml</Value>
             <Value name = "ind_hi">../input/gcamdata/xml/industry_IEF_HiTech_USAreg.xml</Value>
             <Value name = "bio_hi">../input/extra/biomass/High_ORNL.xml</Value>
             <Value name = "trn_hi">../input/gcamdata/xml/transport_AdvTech.xml</Value>
-            <Value name = "trn_hi">../input/gcamdata/xml/transport_DECARB_HiTech.xml</Value>
+            <Value name = "trn_hi">../input/gcamdata/xml/transport_IEF_HiTech_USAreg.xml</Value>
+            <Value name = "elec_hi">../input/gcamdata/xml/solar_adv.xml</Value>
+            <Value name = "elec_hi">../input/gcamdata/xml/wind_adv.xml</Value>
+            <Value name = "elec_hi">../input/gcamdata/xml/nuclear_adv.xml</Value>
+            <Value name = "elec_hi">../input/gcamdata/xml/geo_adv.xml</Value>
+            <Value name = "elec_hi">../input/gcamdata/xml/geo_tech_adv.xml</Value>
 		</FileSet>		
 	</ComponentSet>
 	
