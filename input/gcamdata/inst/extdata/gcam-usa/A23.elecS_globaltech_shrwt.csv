@@ -3,7 +3,7 @@
 # Units: unitless
 # Comments: USA multiple load segments electricity sector technology shareweight assumptions
 # Source: None (GCAM assumptions)
-# Column types: ccciiiii
+# Column types: ccciiiiii
 # ----------
 supplysector,subsector,technology,1971,2010,final-calibration-year,initial-future-year,2030,2100
 base load generation,coal,coal_base_conv pul,1,1,1,1,1,1
