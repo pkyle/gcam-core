@@ -30,6 +30,8 @@ module_aglu_L203.ag_an_demand_input <- function(command, ...) {
     c(FILE = "common/GCAM_region_names",
       FILE = "aglu/A_demand_food_staples",
       FILE = "aglu/A_demand_food_nonstaples",
+      FILE = "aglu/A_demand_food_staples_reg",
+      FILE = "aglu/A_demand_food_nonstaples_reg",
       FILE = "aglu/A_demand_supplysector",
       FILE = "aglu/A_demand_nesting_subsector",
       FILE = "aglu/A_demand_subsector",
@@ -357,13 +359,28 @@ module_aglu_L203.ag_an_demand_input <- function(command, ...) {
       write_to_all_regions(LEVEL2_DATA_NAMES[["DemandFunction_food"]], GCAM_region_names = GCAM_region_names) %>%
       filter(!region %in% aglu.NO_AGLU_REGIONS)
 
-    L203.DemandStapleParams <- A_demand_food_staples %>%
-      write_to_all_regions(LEVEL2_DATA_NAMES[["DemandStapleParams"]], GCAM_region_names = GCAM_region_names) %>%
-      filter(!region %in% aglu.NO_AGLU_REGIONS)
+    USE_GLOBAL_UNIFORM_FOOD_PRICE_ELASTICITY <- FALSE # set to TRUE to to default to gcam-core
 
-    L203.DemandNonStapleParams <- A_demand_food_nonstaples %>%
-      write_to_all_regions(LEVEL2_DATA_NAMES[["DemandNonStapleParams"]], GCAM_region_names = GCAM_region_names) %>%
-      filter(!region %in% aglu.NO_AGLU_REGIONS)
+    if (USE_GLOBAL_UNIFORM_FOOD_PRICE_ELASTICITY) {
+      # global uniform elasticities
+      L203.DemandStapleParams <- A_demand_food_staples %>%
+        write_to_all_regions(LEVEL2_DATA_NAMES[["DemandStapleParams"]], GCAM_region_names = GCAM_region_names) %>%
+        filter(!region %in% aglu.NO_AGLU_REGIONS)
+
+      L203.DemandNonStapleParams <- A_demand_food_nonstaples %>%
+        write_to_all_regions(LEVEL2_DATA_NAMES[["DemandNonStapleParams"]], GCAM_region_names = GCAM_region_names) %>%
+        filter(!region %in% aglu.NO_AGLU_REGIONS)
+
+    } else {
+      # region-specific elasticities
+      L203.DemandStapleParams <- A_demand_food_staples_reg %>%
+        select(LEVEL2_DATA_NAMES[["DemandStapleParams"]]) %>%
+        filter(!region %in% aglu.NO_AGLU_REGIONS)
+
+      L203.DemandNonStapleParams <- A_demand_food_nonstaples_reg %>%
+        select(LEVEL2_DATA_NAMES[["DemandNonStapleParams"]]) %>%
+        filter(!region %in% aglu.NO_AGLU_REGIONS)
+    }
 
     if(nrow(A_diet_bias) > 0) {
     L203.DemandStapleRegBias <- select(L203.DemandStapleParams, region, gcam.consumer, nodeInput, staples.food.demand.input) %>%
@@ -619,14 +636,14 @@ module_aglu_L203.ag_an_demand_input <- function(command, ...) {
       add_title("Food demand function parameters for staples") %>%
       add_units("Unitless") %>%
       add_comments("Values copied from assumptions to all regions") %>%
-      add_precursors("aglu/A_demand_food_staples") ->
+      add_precursors("aglu/A_demand_food_staples", "aglu/A_demand_food_staples_reg") ->
       L203.DemandStapleParams
 
     L203.DemandNonStapleParams %>%
       add_title("Food demand function parameters for non-staples") %>%
       add_units("Unitless") %>%
       add_comments("Values copied from assumptions to all regions") %>%
-      add_precursors("aglu/A_demand_food_nonstaples") ->
+      add_precursors("aglu/A_demand_food_nonstaples", "aglu/A_demand_food_nonstaples_reg") ->
       L203.DemandNonStapleParams
 
     L203.DemandStapleRegBias %>%

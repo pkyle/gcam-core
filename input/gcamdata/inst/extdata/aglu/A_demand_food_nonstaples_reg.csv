@@ -1,0 +1,40 @@
+# File: A_demand_food_nonstaples_reg.csv
+# Title: Final demand (gcam-consumer) info
+# Units: Various
+# Description: Info related to gcam-consumer objects
+# Source: HNiazi JillS analysis
+# Column types: nccccnnn
+# ----------
+GCAM_region_ID,region,gcam.consumer,nodeInput,non.staples.food.demand.input,scale.param,self.price.elasticity,income.elasticity
+1,USA,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-1.166293767,0.886000498
+2,Africa_Eastern,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.841433022,0.886000498
+3,Africa_Northern,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.739028142,0.886000498
+4,Africa_Southern,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.870595456,0.886000498
+5,Africa_Western,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.862737911,0.886000498
+6,Australia_NZ,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-1.128771367,0.886000498
+7,Brazil,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.967178367,0.886000498
+8,Canada,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-1.102225267,0.886000498
+9,Central America and Caribbean,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.869914159,0.886000498
+10,Central Asia,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.952887558,0.886000498
+11,China,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.894341317,0.886000498
+12,EU-12,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.866988422,0.886000498
+13,EU-15,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.967616136,0.886000498
+14,Europe_Eastern,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.949900522,0.886000498
+15,Europe_Non_EU,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.787796744,0.886000498
+16,European Free Trade Association,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-1.1473227,0.886000498
+17,India,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.722963167,0.886000498
+18,Indonesia,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.8365098,0.886000498
+19,Japan,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.882773467,0.886000498
+20,Mexico,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.793807633,0.886000498
+21,Middle East,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.995544138,0.886000498
+22,Pakistan,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.7515042,0.886000498
+23,Russia,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.944268,0.886000498
+24,South Africa,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.753516767,0.886000498
+25,South America_Northern,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.86770635,0.886000498
+26,South America_Southern,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.857049628,0.886000498
+27,South Asia,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.8120637,0.886000498
+28,South Korea,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-1.038168167,0.886000498
+29,Southeast Asia,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.8428726,0.886000498
+30,Taiwan,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.7676163,0.886000498
+31,Argentina,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.966509267,0.886000498
+32,Colombia,FoodDemand,FoodDemand,FoodDemand_NonStaples,1.297285033,-0.919201,0.886000498

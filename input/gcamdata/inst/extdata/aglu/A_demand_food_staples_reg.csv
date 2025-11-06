@@ -1,0 +1,40 @@
+# File: A_demand_food_staples_reg.csv
+# Title: Final demand (gcam-consumer) info
+# Units: Various
+# Description: Info related to gcam-consumer objects
+# Source: HNiazi JillS analysis
+# Column types: ncccccnnnnnn
+# ----------
+GCAM_region_ID,region,gcam.consumer,nodeInput,prodDmdFnType,staples.food.demand.input,scale.param,self.price.elasticity,cross.price.elasticity,income.elasticity,income.max.term,price.received
+1,USA,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.509631333,-0.132250802,0.067210179,2.773,5.068607742
+2,Africa_Eastern,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.551939083,-0.102536368,0.067210179,2.773,5.068607742
+3,Africa_Northern,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.321425,-0.056798745,0.067210179,2.773,5.068607742
+4,Africa_Southern,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.538789259,-0.103906185,0.067210179,2.773,5.068607742
+5,Africa_Western,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.557919605,-0.097714036,0.067210179,2.773,5.068607742
+6,Australia_NZ,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.52572625,-0.108406756,0.067210179,2.773,5.068607742
+7,Brazil,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.504125167,-0.077936335,0.067210179,2.773,5.068607742
+8,Canada,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.487521167,-0.112433417,0.067210179,2.773,5.068607742
+9,Central America and Caribbean,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.467835389,-0.083078907,0.067210179,2.773,5.068607742
+10,Central Asia,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.460692896,-0.068351996,0.067210179,2.773,5.068607742
+11,China,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.45730775,-0.067208348,0.067210179,2.773,5.068607742
+12,EU-12,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.415202944,-0.099990974,0.067210179,2.773,5.068607742
+13,EU-15,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.426036122,-0.097012168,0.067210179,2.773,5.068607742
+14,Europe_Eastern,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.428949389,-0.065404789,0.067210179,2.773,5.068607742
+15,Europe_Non_EU,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.370556528,-0.067060169,0.067210179,2.773,5.068607742
+16,European Free Trade Association,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.553872611,-0.100763847,0.067210179,2.773,5.068607742
+17,India,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.463210333,-0.094683659,0.067210179,2.773,5.068607742
+18,Indonesia,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.408133167,-0.083768162,0.067210179,2.773,5.068607742
+19,Japan,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.6198505,-0.127820016,0.067210179,2.773,5.068607742
+20,Mexico,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.419681333,-0.085388506,0.067210179,2.773,5.068607742
+21,Middle East,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.433818429,-0.064604085,0.067210179,2.773,5.068607742
+22,Pakistan,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.495692333,-0.08039753,0.067210179,2.773,5.068607742
+23,Russia,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.429393167,-0.062003835,0.067210179,2.773,5.068607742
+24,South Africa,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.501498667,-0.157171105,0.067210179,2.773,5.068607742
+25,South America_Northern,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.469207167,-0.054967484,0.067210179,2.773,5.068607742
+26,South America_Southern,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.503847222,-0.072954225,0.067210179,2.773,5.068607742
+27,South Asia,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.491187333,-0.12127701,0.067210179,2.773,5.068607742
+28,South Korea,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.522004167,-0.080520299,0.067210179,2.773,5.068607742
+29,Southeast Asia,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.430972742,-0.078733786,0.067210179,2.773,5.068607742
+30,Taiwan,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.328486667,-0.062263496,0.067210179,2.773,5.068607742
+31,Argentina,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.570132167,-0.0610267,0.067210179,2.773,5.068607742
+32,Colombia,FoodDemand,FoodDemand,food-demand-function,FoodDemand_Staples,1.123707314,-0.370900833,-0.066580399,0.067210179,2.773,5.068607742
