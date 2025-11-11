@@ -21,6 +21,6 @@ aviation fuels,biomass liquids,start-year,,0
 aviation fuels,biomass liquids,initial-future-year,,1
 diesel,oil refining,start-year,,1
 diesel,biomass liquids,start-year,,0
-diesel,biomass liquids,2025,,1
+diesel,biomass liquids,2025,,0
 diesel,e-fuels,start-year,,0
-diesel,e-fuels,2025,,1
+diesel,e-fuels,2025,,0
