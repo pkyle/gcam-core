@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><scenario>
+    <world>
+        <region name="USA">
+            <demographics>
+                <populationMiniCAM year="1975">
+                    <totalPop>215467</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="1990">
+                    <totalPop>249467</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2005">
+                    <totalPop>295513</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2010">
+                    <totalPop>309331</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2015">
+                    <totalPop>320737</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2021">
+                    <totalPop>332048</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2025">
+                    <totalPop>338561</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2030">
+                    <totalPop>349684</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2035">
+                    <totalPop>360437</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2040">
+                    <totalPop>371199</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2045">
+                    <totalPop>380427</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2050">
+                    <totalPop>389660</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2055">
+                    <totalPop>398677</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2060">
+                    <totalPop>407694</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2065">
+                    <totalPop>415767</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2070">
+                    <totalPop>423839</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2075">
+                    <totalPop>429588</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2080">
+                    <totalPop>435344</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2085">
+                    <totalPop>438580</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2090">
+                    <totalPop>441810</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2095">
+                    <totalPop>442936</totalPop>
+                </populationMiniCAM>
+                <populationMiniCAM year="2100">
+                    <totalPop>444056</totalPop>
+                </populationMiniCAM>
+            </demographics>
+            <nationalAccountContainer>
+                <nationalAccount year="1975">
+                    <GDP>5201105</GDP>
+                </nationalAccount>
+                <nationalAccount year="1990">
+                    <GDP>5681176</GDP>
+                </nationalAccount>
+                <nationalAccount year="2005">
+                    <GDP>9454741</GDP>
+                </nationalAccount>
+                <nationalAccount year="2010">
+                    <GDP>9918857</GDP>
+                </nationalAccount>
+                <nationalAccount year="2015">
+                    <GDP>11097785</GDP>
+                </nationalAccount>
+                <nationalAccount year="2021">
+                    <GDP>12672439</GDP>
+                </nationalAccount>
+                <nationalAccount year="2025">
+                    <GDP>14122224</GDP>
+                </nationalAccount>
+                <nationalAccount year="2030">
+                    <GDP>15927529</GDP>
+                </nationalAccount>
+                <nationalAccount year="2035">
+                    <GDP>17572133</GDP>
+                </nationalAccount>
+                <nationalAccount year="2040">
+                    <GDP>19399042</GDP>
+                </nationalAccount>
+                <nationalAccount year="2045">
+                    <GDP>21401904</GDP>
+                </nationalAccount>
+                <nationalAccount year="2050">
+                    <GDP>23546259</GDP>
+                </nationalAccount>
+                <nationalAccount year="2055">
+                    <GDP>25744557</GDP>
+                </nationalAccount>
+                <nationalAccount year="2060">
+                    <GDP>28045419</GDP>
+                </nationalAccount>
+                <nationalAccount year="2065">
+                    <GDP>30370700</GDP>
+                </nationalAccount>
+                <nationalAccount year="2070">
+                    <GDP>32771156</GDP>
+                </nationalAccount>
+                <nationalAccount year="2075">
+                    <GDP>35044850</GDP>
+                </nationalAccount>
+                <nationalAccount year="2080">
+                    <GDP>37348312</GDP>
+                </nationalAccount>
+                <nationalAccount year="2085">
+                    <GDP>39439300</GDP>
+                </nationalAccount>
+                <nationalAccount year="2090">
+                    <GDP>41507698</GDP>
+                </nationalAccount>
+                <nationalAccount year="2095">
+                    <GDP>43331070</GDP>
+                </nationalAccount>
+                <nationalAccount year="2100">
+                    <GDP>45084660</GDP>
+                </nationalAccount>
+            </nationalAccountContainer>
+        </region>
+    </world>
+</scenario>
