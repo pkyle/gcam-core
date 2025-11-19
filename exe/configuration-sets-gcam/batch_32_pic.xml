@@ -94,6 +94,7 @@
         <Value name = "prune_ag">../input/gcamdata/xml/prune_empty_ag.xml</Value>
 
 		<Value name = "solver">../input/solution/cal_broyden_config.xml</Value>
+        <Value name = "pop_gdp">../input/extra/socio_USA_match_GCAM-USA.xml</Value>
 		</FileSet>
 	</ComponentSet>
 	<ComponentSet name="GCAM_8 scenarios">
@@ -103,15 +104,9 @@
             <Value name = "bio_ref">../input/extra/biomass/BAU_ORNL.xml</Value>
             <Value name = "trn_ref">../input/gcamdata/xml/transport_IEF_StatedPolicies_USAreg.xml</Value>
 		</FileSet>		
-		<FileSet name="RefElec_HitechBld_Reg">
-            <Value name = "bld_hi">../input/gcamdata/xml/building_IEF_HiTech_USAreg.xml</Value>
-            <Value name = "ind_ref">../input/gcamdata/xml/industry_IEF_StatedPolicies_USAreg.xml</Value>
-            <Value name = "bio_ref">../input/extra/biomass/BAU_ORNL.xml</Value>
-            <Value name = "trn_ref">../input/gcamdata/xml/transport_IEF_StatedPolicies_USAreg.xml</Value>
-		</FileSet>
 		<FileSet name="RefElec_HitechEnduse_Reg">
             <Value name = "bld_hi">../input/gcamdata/xml/building_IEF_HiTech_USAreg.xml</Value>
-            <Value name = "ind_ref">../input/gcamdata/xml/industry_IEF_StatedPolicies_USAreg.xml</Value>
+            <Value name = "ind_hi">../input/gcamdata/xml/industry_IEF_HiTech_USAreg.xml</Value>
             <Value name = "bio_ref">../input/extra/biomass/BAU_ORNL.xml</Value>
             <Value name = "trn_hi">../input/gcamdata/xml/transport_AdvTech.xml</Value>
             <Value name = "trn_hi">../input/gcamdata/xml/transport_IEF_HiTech_USAreg.xml</Value>
@@ -119,13 +114,14 @@
 		<FileSet name="AdvElec_RefEnduse_Reg">
             <Value name = "bld_ref">../input/gcamdata/xml/building_IEF_StatedPolicies_USAreg.xml</Value>
             <Value name = "ind_ref">../input/gcamdata/xml/industry_IEF_StatedPolicies_USAreg.xml</Value>
-            <Value name = "bio_ref">../input/extra/biomass/BAU_ORNL.xml</Value>
+            <Value name = "bio_hi">../input/extra/biomass/High_ORNL.xml</Value>
             <Value name = "trn_ref">../input/gcamdata/xml/transport_IEF_StatedPolicies_USAreg.xml</Value>
             <Value name = "elec_hi">../input/gcamdata/xml/solar_adv.xml</Value>
             <Value name = "elec_hi">../input/gcamdata/xml/wind_adv.xml</Value>
             <Value name = "elec_hi">../input/gcamdata/xml/nuclear_adv.xml</Value>
             <Value name = "elec_hi">../input/gcamdata/xml/geo_adv.xml</Value>
             <Value name = "elec_hi">../input/gcamdata/xml/geo_tech_adv.xml</Value>
+            <Value name = "hydrogen_hi">../input/gcamdata/xml/hydrogen_adv.xml</Value>
 		</FileSet>
 		<FileSet name="HiTech_Reg">
             <Value name = "bld_hi">../input/gcamdata/xml/building_IEF_HiTech_USAreg.xml</Value>
