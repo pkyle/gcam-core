@@ -881,6 +881,7 @@ module_energy_L223.electricity <- function(command, ...) {
     L223.GlobalIntTechCapital_elec %>%
       filter(intermittent.technology == "wind" & year == energy.WIND.BASE.COST.YEAR) %>%
       select(LEVEL2_DATA_NAMES[["GlobalIntTechCapital"]]) %>%
+      mutate(capital.overnight=371)%>%
       left_join(L223.StubTechCapFactor_elec_base, by = "year") %>%
       left_join(L223.GlobalIntTechOMvar_elec, by = c("year", "sector.name", "subsector.name", "intermittent.technology")) %>%
       left_join(L223.GlobalIntTechOMfixed_elec, by = c("year", "sector.name", "subsector.name", "intermittent.technology")) %>%
