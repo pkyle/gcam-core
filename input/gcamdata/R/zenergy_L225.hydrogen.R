@@ -332,7 +332,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
 
     L225.GlobalTechCoef_h2_ref <- bind_rows(L225.GlobalTechCoef_h2_ref,L225.GlobalTechCoef_h2_noprod) %>%
       mutate(minicam.energy.input = if_else(grepl("elect_td_trn", minicam.energy.input), "elect_td_trn", minicam.energy.input)) %>%
-      group_by(sector.name,subsector.name,technology,minicam.energy.input,units,year) %>%
+      group_by(sector.name,subsector.name,technology,minicam.energy.input,year) %>%
       summarize(coefficient = sum(coefficient)) %>%
       ungroup()
 
