@@ -33,6 +33,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
              "L1233.globaltech_capital_ATB_adv",
              "L1233.globaltech_capital_ATB_low",
              "L223.StubTechCapFactor_elec",
+             "L2231.StubTechCapFactor_onshore_wind",
              "L125.globaltech_coef_scen",
              "L125.globaltech_cost_scen",
              "L125.StubTechCost_h2_hybrid_scen",
@@ -99,6 +100,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
     L1233.globaltech_capital_ATB_adv <- get_data(all_data, "L1233.globaltech_capital_ATB_adv", strip_attributes = TRUE)
     L1233.globaltech_capital_ATB_low <- get_data(all_data, "L1233.globaltech_capital_ATB_low", strip_attributes = TRUE)
     L223.StubTechCapFactor_elec <- get_data(all_data, "L223.StubTechCapFactor_elec", strip_attributes = TRUE)
+    L2231.StubTechCapFactor_onshore_wind <- get_data(all_data, "L2231.StubTechCapFactor_onshore_wind", strip_attributes = TRUE)
     L125.globaltech_coef_scen <- get_data(all_data, "L125.globaltech_coef_scen", strip_attributes = TRUE)
     L125.globaltech_cost_scen <- get_data(all_data, "L125.globaltech_cost_scen", strip_attributes = TRUE)
     L125.StubTechCost_h2_hybrid_scen <- get_data(all_data, "L125.StubTechCost_h2_hybrid_scen", strip_attributes = TRUE)
@@ -229,6 +231,10 @@ module_energy_L225.hydrogen <- function(command, ...) {
     # We are not generating all possible combinations of renewable-electric and hydrogen-electrolysis costs; the technology scenarios differ both in
     # the $/kwh of renewable electricity, and in the kwh of electricity per kg of hydrogen produced.
     # The capacity factors use left_join in order to expand by region
+    # Capacity factors for wind in L223.StubTechCapFactor_elec are over-written by those in L2231.StubTechCapFactor_onshore_wind
+    L225.RenewElec_CapFactor <- L2231.StubTechCapFactor_onshore_wind %>%
+      filter(stub.technology == "wind") %>%
+      bind_rows(filter(L223.StubTechCapFactor_elec, stub.technology == "PV"))
     L225.RenewElec_cost_scen <- L1233.globaltech_capital_ATB %>%
       mutate(Scenario = "med") %>%
       bind_rows(mutate(L1233.globaltech_capital_ATB_adv, Scenario = "low")) %>%
@@ -236,7 +242,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
       filter(technology %in% c("wind", "PV")) %>%
       left_join(L1233.globaltech_OMfixed_ATB, by = c("supplysector", "subsector", "technology", "year")) %>%
       rename(stub.technology = technology) %>%
-      left_join(L223.StubTechCapFactor_elec, by = c("supplysector", "subsector", "stub.technology", "year")) %>%
+      left_join(L225.RenewElec_CapFactor, by = c("supplysector", "subsector", "stub.technology", "year")) %>%
       mutate(elec_cost_75USD_GJ = (capital.overnight * fixed.charge.rate + OM.fixed) /
                (CONV_YEAR_HOURS * capacity.factor * CONV_KWH_GJ)) %>%
       select(Scenario, region, renew_tech = subsector, year, elec_cost_75USD_GJ)
@@ -651,7 +657,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
       add_units("$1975/GJ") %>%
       add_comments("LCOH for the electrolyzer and renewables providing electricity.") %>%
       add_precursors("L125.StubTechCost_h2_hybrid_scen", "L1233.globaltech_capital_ATB", "L1233.globaltech_OMfixed_ATB",
-                     "L1233.globaltech_capital_ATB_adv", "L1233.globaltech_capital_ATB_low", "L223.StubTechCapFactor_elec") ->
+                     "L1233.globaltech_capital_ATB_adv", "L1233.globaltech_capital_ATB_low", "L223.StubTechCapFactor_elec", "L2231.StubTechCapFactor_onshore_wind") ->
       L225.StubTechCost_h2_hybrid_ref
 
     L225.StubTechCost_h2_hybrid_adv %>%
