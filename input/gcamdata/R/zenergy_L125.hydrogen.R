@@ -79,12 +79,15 @@ module_energy_L125.hydrogen <- function(command, ...) {
     # cost data: convert units and expand to all model years
     # for hybrid and nuclear electrolysis, these costs do not include the costs of self-generated electricity
     # this is denoted by using "other non-energy" as the name of the non-energy input cost
+    # for onsite production, these costs do not include on-site compression, refrigeration, and storage, which are added
+    # by A25.globaltech_cost. This is denoted by using "production" as the name of the NE cost
     L125.globaltech_cost_scen <- L125.H2ALite_TEAdata %>%
       mutate(input.cost = `Energy-free levelized cost [2022$/kg]` * gdp_deflator(1975,2022) / CONV_GJ_KGH2) %>%
       inner_join(H2ALite_TEA_mapping, by = "TechnologyH2A") %>%
       select(Scenario, sector.name, subsector.name, technology, year, input.cost) %>%
       complete(nesting(Scenario, sector.name, subsector.name, technology), year = MODEL_YEARS) %>%
       mutate(minicam.non.energy.input = if_else(subsector.name %in% c("hybrid", "nuclear"), "other non-energy", "non-energy"),
+             minicam.non.energy.input = if_else(subsector.name == "onsite production", "production", minicam.non.energy.input),
              units="$1975/GJ H2") %>%
       group_by(Scenario, sector.name, subsector.name, technology) %>%
       mutate(input.cost = approx_fun(year, input.cost,  rule = 2)) %>%
@@ -110,7 +113,11 @@ module_energy_L125.hydrogen <- function(command, ...) {
       ungroup() %>%
       inner_join(H2ALite_TEA_mapping, by = "TechnologyH2A") %>%
       select(Scenario, sector.name, subsector.name, technology, year, minicam.energy.input, coefficient) %>%
-      mutate(minicam.energy.input = if_else(subsector.name == "nuclear", "nuclearFuelGenIII", minicam.energy.input),
+      mutate(minicam.energy.input = if_else(subsector.name == "onsite production" & minicam.energy.input == "regional natural gas",
+                                            "delivered gas", minicam.energy.input),
+             minicam.energy.input = if_else(subsector.name == "onsite production" & minicam.energy.input == "elect_td_ind" & sector.name != "H2 industrial",
+                                            "elect_td_trn", minicam.energy.input),
+             minicam.energy.input = if_else(subsector.name == "nuclear", "nuclearFuelGenIII", minicam.energy.input),
              coefficient = if_else(subsector.name == "nuclear", coefficient * 3, coefficient))
 
     # Nuclear electricity generation costs are estimated from power sector assumptions, multiplied by electricity IOcoef
