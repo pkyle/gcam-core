@@ -36,6 +36,7 @@ module_gcamusa_L244.building <- function(command, ...) {
              FILE = "gcam-usa/calibrated_techs_bld_usa",
              FILE = "gcam-usa/states_subregions",
              FILE = "gcam-usa/A44.bld_shell_conductance",
+             FILE = "gcam-usa/A44.bld_flsp",
              FILE = "gcam-usa/A44.demandFn_flsp",
              FILE = "gcam-usa/A44.demandFn_serv",
              FILE = "gcam-usa/A44.gcam_consumer",
@@ -141,6 +142,8 @@ module_gcamusa_L244.building <- function(command, ...) {
     calibrated_techs_bld_usa <- get_data(all_data, "gcam-usa/calibrated_techs_bld_usa", strip_attributes = TRUE)
     states_subregions <- get_data(all_data, "gcam-usa/states_subregions", strip_attributes = TRUE)
     A44.bld_shell_conductance <- get_data(all_data, "gcam-usa/A44.bld_shell_conductance", strip_attributes = TRUE)
+    A44.bld_flsp <- get_data(all_data, "gcam-usa/A44.bld_flsp", strip_attributes = TRUE) %>%
+      gather_years()
     A44.demandFn_flsp <- get_data(all_data, "gcam-usa/A44.demandFn_flsp", strip_attributes = TRUE)
     A44.demandFn_serv <- get_data(all_data, "gcam-usa/A44.demandFn_serv", strip_attributes = TRUE)
     A44.gcam_consumer <- get_data(all_data, "gcam-usa/A44.gcam_consumer", strip_attributes = TRUE)
@@ -255,6 +258,14 @@ module_gcamusa_L244.building <- function(command, ...) {
     # Final output only has base years
     L244.Floorspace_gcamusa <- filter(L244.Floorspace_full, year %in% MODEL_BASE_YEARS)
 
+    # GPK 12/23/25 revision - set floorspace to 2050 based on A44.bld_flsp
+    A44.bld_flsp <- rename(A44.bld_flsp, base.building.size = value)
+    L244.Floorspace_gcamusa <- filter(L244.Floorspace_gcamusa, !year %in% A44.bld_flsp$year) %>%
+      bind_rows(A44.bld_flsp)
+
+    L244.Floorspace_full <- filter(L244.Floorspace_full, !year %in% A44.bld_flsp$year) %>%
+      bind_rows(filter(A44.bld_flsp, year %in% L244.Floorspace_full$year))
+
     # L244.DemandFunction_serv_gcamusa and L244.DemandFunction_flsp_gcamusa: demand function types
     L244.DemandFunction_serv_gcamusa <- write_to_all_states(A44.demandFn_serv, LEVEL2_DATA_NAMES[["DemandFunction_serv"]])
     L244.DemandFunction_flsp_gcamusa <- write_to_all_states(A44.demandFn_flsp, LEVEL2_DATA_NAMES[["DemandFunction_flsp"]])
@@ -274,7 +285,6 @@ module_gcamusa_L244.building <- function(command, ...) {
              # Satiation level = must be greater than the observed value in the final calibration year, so if observed value is
              # greater than calculated, multiply observed by 1.001
              satiation.level = round(pmax(value * CONV_THOUS_BIL, pcflsp_mm2cap * 1.001), energy.DIGITS_SATIATION_ADDER)) %>%
-      left_join_error_no_match(A44.gcam_consumer, by = c("gcam.consumer", "nodeInput", "building.node.input")) %>%
       select(LEVEL2_DATA_NAMES[["BldNodes"]], "satiation.level")
 
     # L244.SatiationImpedance_gcamusa: Calibrate satiation impedance per state.
@@ -1004,7 +1014,7 @@ module_gcamusa_L244.building <- function(command, ...) {
       add_units("billion m2") %>%
       add_comments("Data from L144.flsp_bm2_state_res and L144.flsp_bm2_state_comm") %>%
       add_legacy_name("L244.Floorspace") %>%
-      add_precursors("L144.flsp_bm2_state_res", "L144.flsp_bm2_state_comm", "gcam-usa/A44.gcam_consumer") ->
+      add_precursors("L144.flsp_bm2_state_res", "L144.flsp_bm2_state_comm", "gcam-usa/A44.gcam_consumer", "gcam-usa/A44.bld_flsp") ->
       L244.Floorspace_gcamusa
 
     L244.DemandFunction_serv_gcamusa %>%
