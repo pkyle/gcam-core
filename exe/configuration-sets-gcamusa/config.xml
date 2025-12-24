@@ -161,7 +161,8 @@
 		<Value name = "ghg_usa">../input/gcamdata/xml/ind_urb_proc_ghg_emissions_USA.xml</Value>
 	
 		<Value name = "solver">../input/solution/cal_broyden_config.xml</Value>
-		
+		<Value name = "pop_gdp">../input/extra/socio_USA_match_GCAM-USA.xml</Value>
+
 
 	</ScenarioComponents>
 	<Strings>
