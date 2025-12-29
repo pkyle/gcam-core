@@ -6,7 +6,6 @@
 # Column types: ccccccni
 # ----------
 scenario,supplysector,subsector,technology,variable,value,adj_factor,rule_number
-Stated Policies,ammonia,hydrogen,,share.weight,0,,
 Stated Policies,other industrial energy use,,,logit.exponent,-2,,
 MidTech,ammonia,hydrogen,,share.weight,0,,
 MidTech,other industrial energy use,,,logit.exponent,-2,,
