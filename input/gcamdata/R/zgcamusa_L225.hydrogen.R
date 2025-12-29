@@ -264,7 +264,9 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
     # Join in the costs to the coefficient table (which indicates electricity IO coefs), multiply,
     # and aggregate to get the total renewable-electric non-energy cost
     L225.StubTechCost_h2_renewelec_USA_scen <- L225.StubTechCoef_h2_USA_scen %>%
-      mutate(renew_tech = if_else(minicam.energy.input == "PV_resource", "solar", "wind")) %>%
+      mutate(renew_tech = if_else(minicam.energy.input == "PV_resource", "solar",
+                                  if_else(minicam.energy.input == "onshore wind resource", "wind", "drop"))) %>%
+      filter(renew_tech != "drop") %>%
       left_join(L225.RenewElec_cost_USA_scen, by = c("Scenario", "region", "renew_tech", "year")) %>%
       mutate(minicam.non.energy.input = "renewable electricity generation",
              input.cost = coefficient * elec_cost_75USD_GJ) %>%
