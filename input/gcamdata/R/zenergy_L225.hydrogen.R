@@ -240,6 +240,8 @@ module_energy_L225.hydrogen <- function(command, ...) {
       bind_rows(mutate(L1233.globaltech_capital_ATB_adv, Scenario = "low")) %>%
       bind_rows(mutate(L1233.globaltech_capital_ATB_low, Scenario = "high")) %>%
       filter(technology %in% c("wind", "PV")) %>%
+      # 12/26/25 gpk - over-ride model default FCR with 5.5%, consistent with ATB for renewable techs
+      mutate(fixed.charge.rate = 0.055) %>%
       left_join(L1233.globaltech_OMfixed_ATB, by = c("supplysector", "subsector", "technology", "year")) %>%
       rename(stub.technology = technology) %>%
       left_join(L225.RenewElec_CapFactor, by = c("supplysector", "subsector", "stub.technology", "year")) %>%

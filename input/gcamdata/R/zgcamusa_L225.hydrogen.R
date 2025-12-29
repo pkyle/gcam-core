@@ -253,6 +253,8 @@ module_gcamusa_L225.hydrogen <- function(command, ...) {
       bind_rows(mutate(L1233.globaltech_capital_ATB_adv, Scenario = "low")) %>%
       bind_rows(mutate(L1233.globaltech_capital_ATB_low, Scenario = "high")) %>%
       filter(technology %in% c("wind", "PV")) %>%
+      # 12/26/25 gpk - over-ride model default FCR with 5.5%, consistent with ATB for renewable techs
+      mutate(fixed.charge.rate = 0.055) %>%
       left_join(L1233.globaltech_OMfixed_ATB, by = c("supplysector", "subsector", "technology", "year")) %>%
       left_join(L225.CapacityFactor_USA, by = c("subsector")) %>%
       mutate(elec_cost_75USD_GJ = (capital.overnight * fixed.charge.rate + OM.fixed) /
