@@ -7,7 +7,7 @@
             <Value name = "bio_ref">../input/extra/biomass/BAU_ORNL.xml</Value>
             <Value name = "trn_ref">../input/gcamdata/xml/transport_IEF_StatedPolicies_USA.xml</Value>
 		</FileSet>
-		<FileSet name="HiTech">
+		<!--FileSet name="AdvTech">
             <Value name = "bld_hi">../input/gcamdata/xml/building_IEF_HiTech_USA.xml</Value>
             <Value name = "ind_hi">../input/gcamdata/xml/industry_IEF_HiTech_USA.xml</Value>
             <Value name = "bio_hi">../input/extra/biomass/High_ORNL.xml</Value>
@@ -18,8 +18,8 @@
             <Value name = "elec_hi">../input/gcamdata/xml/nuclear_adv_USA.xml</Value>
             <Value name = "elec_hi">../input/gcamdata/xml/geothermal_adv_USA.xml</Value>
             <Value name = "hydrogen_hi">../input/gcamdata/xml/hydrogen_electrolysis_USA_adv.xml</Value>
-		</FileSet>		
-		<FileSet name="HiTech_NetZero">
+		</FileSet-->		
+		<FileSet name="NZ_AdvTech">
             <Value name = "bld_hi">../input/gcamdata/xml/building_IEF_HiTech_USA.xml</Value>
             <Value name = "ind_hi">../input/gcamdata/xml/industry_IEF_HiTech_USA.xml</Value>
             <Value name = "bio_hi">../input/extra/biomass/High_ORNL.xml</Value>
