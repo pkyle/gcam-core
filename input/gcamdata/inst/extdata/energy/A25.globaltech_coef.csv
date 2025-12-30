@@ -1,7 +1,7 @@
 # File: A25.globaltech_coef.csv
 # Title: Hydrogen input-output coefficients 
 # Units: GJ input / GJ output
-# Comments: To be more intuitive in our handling of technologies with multiple inputs, we now use coefficients rather than efficiencies. This file contains the reciprocal of all values in the previous A25.globaltech_eff file for primary inputs, as well as new secondary inputs for select technologies. NREL HDSAM v4.1 for transmission distribution and dispensing technologies. H2A 2018 for forecourt production technologies,,,,,,,,,,,,,,,,,,,,
+# Comments: To be more intuitive in our handling of technologies with multiple inputs, we now use coefficients rather than efficiencies. This file contains the reciprocal of all values in the previous A25.globaltech_eff file for primary inputs, as well as new secondary inputs for select technologies. NREL HDSAM v4.1 for transmission distribution and dispensing technologies. H2A 2018 for forecourt production technologies
 # Column types: ccccnnnnnnnnnnnnnnnnnnn
 # ----------
 supplysector,subsector,technology,minicam.energy.input,price.unit.conversion,1971,final-calibration-year,initial-future-year,2030,2035,2040,2045,2050,2055,2060,2065,2070,2075,2080,2085,2090,2095,2100
