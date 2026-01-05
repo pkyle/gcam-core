@@ -476,16 +476,20 @@ module_emissions_L201.en_nonco2 <- function(command, ...) {
                           by = c("region", supplysector = "from.supplysector", subsector = "from.subsector", stub.technology = "from.stub.technology")))
 
     # L201.en_bcoc_emissions: re-assign emissions coefficients to USAbld technologies with no numerical changes
-    L201.en_bcoc_emissions <- L201.en_bcoc_emissions %>%
+    L201.en_bcoc_emissions_USAbld <- L201.en_bcoc_emissions %>%
       left_join(USAbld_emission_mapping, by = c("region", supplysector = "from.supplysector", subsector = "from.subsector", stub.technology = "from.stub.technology")) %>%
       filter(to.supplysector != "DROP") %>%
       mutate(supplysector = if_else(is.na(to.supplysector), supplysector, to.supplysector),
              subsector = if_else(is.na(to.subsector), subsector, to.subsector),
              stub.technology = if_else(is.na(to.stub.technology), stub.technology, to.stub.technology)) %>%
       select(-to.supplysector, -to.subsector, -to.stub.technology)
+
+    L201.en_bcoc_emissions <- L201.en_bcoc_emissions_USAbld %>%
+      bind_rows(anti_join(L201.en_bcoc_emissions, USAbld_emission_mapping,
+                          by = c("region", supplysector = "from.supplysector", subsector = "from.subsector", stub.technology = "from.stub.technology")))
 
     # L201.nonghg_max_reduction: copy existing assumptions to USAbld technologies
-    L201.nonghg_max_reduction <- L201.nonghg_max_reduction %>%
+    L201.nonghg_max_reduction_USAbld <- L201.nonghg_max_reduction %>%
       left_join(USAbld_emission_mapping, by = c("region", supplysector = "from.supplysector", subsector = "from.subsector", stub.technology = "from.stub.technology")) %>%
       filter(to.supplysector != "DROP") %>%
       mutate(supplysector = if_else(is.na(to.supplysector), supplysector, to.supplysector),
@@ -493,14 +497,22 @@ module_emissions_L201.en_nonco2 <- function(command, ...) {
              stub.technology = if_else(is.na(to.stub.technology), stub.technology, to.stub.technology)) %>%
       select(-to.supplysector, -to.subsector, -to.stub.technology)
 
+    L201.nonghg_max_reduction <- L201.nonghg_max_reduction_USAbld %>%
+      bind_rows(anti_join(L201.nonghg_max_reduction, USAbld_emission_mapping,
+                          by = c("region", supplysector = "from.supplysector", subsector = "from.subsector", stub.technology = "from.stub.technology")))
+
     # L201.nonghg_steepness: copy existing assumptions to USAbld technologies
-    L201.nonghg_steepness <- L201.nonghg_steepness %>%
+    L201.nonghg_steepness_USAbld <- L201.nonghg_steepness %>%
       left_join(USAbld_emission_mapping, by = c("region", supplysector = "from.supplysector", subsector = "from.subsector", stub.technology = "from.stub.technology")) %>%
       filter(to.supplysector != "DROP") %>%
       mutate(supplysector = if_else(is.na(to.supplysector), supplysector, to.supplysector),
              subsector = if_else(is.na(to.subsector), subsector, to.subsector),
              stub.technology = if_else(is.na(to.stub.technology), stub.technology, to.stub.technology)) %>%
       select(-to.supplysector, -to.subsector, -to.stub.technology)
+
+    L201.nonghg_steepness <- L201.nonghg_steepness_USAbld %>%
+      bind_rows(anti_join(L201.nonghg_steepness, USAbld_emission_mapping,
+                          by = c("region", supplysector = "from.supplysector", subsector = "from.subsector", stub.technology = "from.stub.technology")))
 
     # Produce outputs
     L201.en_pol_emissions %>%
