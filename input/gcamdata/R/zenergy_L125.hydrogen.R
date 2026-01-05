@@ -82,8 +82,8 @@ module_energy_L125.hydrogen <- function(command, ...) {
     # for onsite production, these costs do not include on-site compression, refrigeration, and storage, which are added
     # by A25.globaltech_cost. This is denoted by using "production" as the name of the NE cost
     L125.globaltech_cost_scen <- L125.H2ALite_TEAdata %>%
-      mutate(input.cost = `Energy-free levelized cost [2022$/kg]` * gdp_deflator(1975,2022) / CONV_GJ_KGH2) %>%
       inner_join(H2ALite_TEA_mapping, by = "TechnologyH2A") %>%
+      mutate(input.cost = `Energy-free levelized cost [2022$/kg]` * cost_multiplier * gdp_deflator(1975,2022) / CONV_GJ_KGH2) %>%
       select(Scenario, sector.name, subsector.name, technology, year, input.cost) %>%
       complete(nesting(Scenario, sector.name, subsector.name, technology), year = MODEL_YEARS) %>%
       mutate(minicam.non.energy.input = if_else(subsector.name %in% c("hybrid", "nuclear"), "other non-energy", "non-energy"),
