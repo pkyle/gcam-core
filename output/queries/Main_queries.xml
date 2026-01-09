@@ -1761,7 +1761,7 @@ local:generate-sector-input-coefs(remove($outputNameQueue, 1), $currTree, $coefs
                 <supplyDemandQuery title="hydrogen production by tech">
                     <axis1 name="technology">technology</axis1>
                     <axis2 name="Year">physical-output[@vintage]</axis2>
-                    <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and (@name='H2 central production' or @name='H2 wholesale dispensing' or @name='H2 industrial')]/
+                    <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and (@name='H2 central production' or @name='H2 industrial' or @name='H2 LDV' or @name='H2 MHDV' or @name='LH2')]/
                *[@type='subsector' and not (@name='H2 delivery')]/*[@type='technology']/*[@type='output' (:collapse:)]/
                physical-output/node()</xPath>
                     <comments/>
@@ -1893,7 +1893,7 @@ element input {
 			 	 $region in $regionsG 	
 			 	 let $scenario_split := tokenize($scenario, ' '), 	    
 				 $currTree := collection($collection)/scenario[@name = $scenario_split[1] and @date = $scenario_split[2]]/world/*[@type='region' and @name=$region],
-				 $currInputs := $currTree/*[@type='sector' and @name='H2 retail dispensing']/*[@type='subsector' and @name='H2 retail dispensing']//*[@type='input']
+				 $currInputs := $currTree/*[@type='sector' and (@name='H2 LDV' or @name='H2 MHDV' or @name='LH2')]/*[@type='subsector']/*[@type='technology']//*[@type='input']
 				 return 
 				    for $inputName in distinct-values($currInputs/@name)
 				    return local:append-heirarchy($currTree, local:trace-inputs($inputName, $currTree, $currInputs[@name=$inputName]/demand-physical, false()))//text()
@@ -2157,8 +2157,9 @@ element input {
                             <rewrite from="delivered coal" to="coal"/>
                             <rewrite from="delivered gas" to="gas"/>
                             <rewrite from="wholesale gas" to="gas"/>
-                            <rewrite from="H2 wholesale dispensing" to="hydrogen"/>
-                            <rewrite from="H2 retail dispensing" to="hydrogen"/>
+                            <rewrite from="H2 LDV" to="hydrogen"/>
+							<rewrite from="H2 MHDV" to="hydrogen"/>
+							<rewrite from="LH2" to="hydrogen"/>
                             <rewrite from="regional biomass" to="biomass"/>
                             <rewrite from="H2 retail delivery" to="hydrogen"/>
                             <rewrite from="elect_td_ind" to="electricity"/>
@@ -2189,8 +2190,9 @@ element input {
                             <rewrite from="delivered coal" to="coal"/>
                             <rewrite from="delivered gas" to="gas"/>
                             <rewrite from="wholesale gas" to="gas"/>
-                            <rewrite from="H2 wholesale dispensing" to="hydrogen"/>
-                            <rewrite from="H2 retail dispensing" to="hydrogen"/>
+                            <rewrite from="H2 LDV" to="hydrogen"/>
+                            <rewrite from="H2 MHDV" to="hydrogen"/>
+							<rewrite from="LH2" to="hydrogen"/>
                             <rewrite from="regional biomass" to="biomass"/>
                             <rewrite from="H2 retail delivery" to="hydrogen"/>
                             <rewrite from="elect_td_ind" to="electricity"/>
@@ -2208,7 +2210,7 @@ element input {
                     <xPath buildList="true" dataName="cost" group="false" sumAll="false">*[@type='sector' and (@name='wholesale gas' or @name='delivered gas' or
             @name='delivered coal' or @name='delivered biomass' or @name='traditional biomass' or
             @name='elect_td_ind' or @name='elect_td_bld' or @name='elect_td_trn' or
-            @name='H2 wholesale dispensing' or @name='H2 wholesale delivery' or @name='H2 retail dispensing' or @name='H2 retail delivery' or
+            @name='H2 LDV' or @name='H2 MHDV' @name='LH2' or @name='H2 wholesale delivery' or @name='H2 retail delivery' or
             @name='refined liquids industrial' or @name='refined liquids enduse' or @name='waste biomass for paper')]/
             cost/text()</xPath>
                     <comments/>
@@ -2467,7 +2469,7 @@ element input {
                         <axis2 name="Year">demand-physical[@vintage]</axis2>
                         <xPath buildList="true" dataName="input" group="false" sumAll="false">*[@type='sector' (:collapse:) and (@name='industry' or (exists(child::keyword[@final-energy='industry'])))]//
                *[@type='input' (:collapse:) and (@name='delivered biomass' or @name='delivered coal' or @name='district heat' or
-               @name='H2 wholesale delivery' or @name='H2 wholesale dispensing' or @name='H2 industrial' or @name='regional woodpulp for energy' or
+               @name='H2 wholesale delivery' or @name='H2 LDV' or @name='H2 MHDV' or @name='LH2' or @name='H2 industrial' or @name='regional woodpulp for energy' or
                @name='elect_td_ind' or @name='wholesale gas' or @name='refined liquids industrial' or @name='global solar resource')]/demand-physical/node()</xPath>
                         <comments/>
                     </supplyDemandQuery>
@@ -2476,7 +2478,7 @@ element input {
                         <axis2 name="Year">demand-physical[@vintage]</axis2>
                         <xPath buildList="true" dataName="input" group="false" sumAll="false">*[@type='sector' and (@name='industry' or (exists(child::keyword[@final-energy='industry'])))]//
                *[@type='input' (:collapse:) and (@name='delivered biomass' or @name='delivered coal' or @name='district heat' or
-               @name='H2 wholesale delivery' or @name='H2 wholesale dispensing' or @name='H2 industrial' or
+               @name='H2 wholesale delivery' or @name='H2 LDV' or @name='H2 MHDV' or @name='LH2' or @name='H2 industrial' or
                @name='elect_td_ind' or @name='wholesale gas' or @name='regional woodpulp for energy' or
                @name='refined liquids industrial' or @name='global solar resource')]/demand-physical/node()</xPath>
                         <comments>process heat cement assigned to cement, process heat food processing assigned to food processing, process heat paper assigned to paper</comments>
@@ -2494,7 +2496,7 @@ element input {
                         <axis2 name="Year">demand-physical[@vintage]</axis2>
                         <xPath buildList="true" dataName="input" group="false" sumAll="false">*[@type='sector' (:collapse:) and (@name='industry' or (exists(child::keyword[@final-energy='industry'])))]//
                *[@type='input' and (@name='delivered biomass' or @name='delivered coal' or @name='district heat' or
-               @name='H2 wholesale delivery' or @name='H2 wholesale dispensing' or @name='H2 industrial' or
+               @name='H2 wholesale delivery' or @name='H2 LDV' or @name='H2 MHDV' or @name='LH2' or @name='H2 industrial' or
                @name='elect_td_ind' or @name='wholesale gas' or @name='regional woodpulp for energy' or
                @name='refined liquids industrial' or @name='global solar resource')]/demand-physical/node()</xPath>
                         <comments/>
@@ -2504,7 +2506,7 @@ element input {
                         <axis2 name="Year">demand-physical[@vintage]</axis2>
                         <xPath buildList="true" dataName="input" group="false" sumAll="false">*[@type='sector' and (@name='industry' or (exists(child::keyword[@final-energy='industry'])))]//
                *[@type='input' and (@name='delivered biomass' or @name='delivered coal' or @name='district heat' or
-               @name='H2 wholesale delivery' or @name='H2 wholesale dispensing' or @name='H2 industrial' or
+               @name='H2 wholesale delivery' or @name='H2 LDV' or @name='H2 MHDV' or @name='LH2' or @name='H2 industrial' or
                @name='elect_td_ind' or @name='wholesale gas' or @name='regional woodpulp for energy' or
                @name='refined liquids industrial' or @name='global solar resource')]/demand-physical/node()</xPath>
                         <comments>process heat cement assigned to cement, process heat food processing assigned to food processing, process heat paper assigned to paper</comments>
@@ -2523,7 +2525,7 @@ element input {
                         <xPath buildList="true" dataName="input" group="false" sumAll="false">*[@type='sector' and (@name='industry' or (exists(child::keyword[@final-energy='industry'])))]/
                *[@type='subsector']/*[@type='technology']/
                *[@type='input' and (@name='delivered biomass' or @name='delivered coal' or @name='district heat' or
-               @name='H2 wholesale delivery' or @name='H2 wholesale dispensing' or @name='H2 industrial' or
+               @name='H2 wholesale delivery' or @name='H2 LDV' or @name='H2 MHDV' or @name='LH2' or @name='H2 industrial' or
                @name='elect_td_ind' or @name='wholesale gas' or @name='regional woodpulp for energy' or
                @name='refined liquids industrial' or @name='global solar resource')]/demand-physical/node()</xPath>
                         <comments>paper technology direct input assigned to electricity</comments>
@@ -3062,7 +3064,7 @@ element input {
                     <axis1 name="fuel">sector</axis1>
                     <axis2 name="Year">cost</axis2>
                     <xPath buildList="true" dataName="cost" group="false" sumAll="false">*[@type='sector' and (@name='delivered gas' or @name='delivered coal' or @name='elect_td_trn'
-               or @name='refined liquids enduse' or @name='H2 wholesale dispensing' or @name='H2 retail dispensing')]/cost/text()</xPath>
+               or @name='refined liquids enduse' or @name='H2 LDV' or @name='H2 MHDV' or @name='LH2')]/cost/text()</xPath>
                     <comments/>
                 </supplyDemandQuery>
                 <supplyDemandQuery title="costs of transport services">
