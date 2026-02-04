@@ -6,9 +6,9 @@
 # Column types: ccccccni
 # ----------
 scenario,supplysector,subsector,technology,variable,value,adj_factor,rule_number
-HiTech,trn_freight_road,Heavy truck,FCEV,share.weight,0.333,NA,NA
-HiTech,trn_freight_road,Light truck,FCEV,share.weight,0.333,NA,NA
-HiTech,trn_freight_road,Medium truck,FCEV,share.weight,0.167,NA,NA
+HiTech,trn_freight_road,Heavy truck,FCEV,share.weight,1.5,NA,NA
+HiTech,trn_freight_road,Light truck,FCEV,share.weight,1.5,NA,NA
+HiTech,trn_freight_road,Medium truck,FCEV,share.weight,1.5,NA,NA
 HiTech,trn_freight_road,Heavy truck,Liquids,from.year,2025,NA,1
 HiTech,trn_freight_road,Heavy truck,Liquids,to.value,0,NA,1
 HiTech,trn_freight_road,Heavy truck,Liquids,to.year,2060,NA,1
