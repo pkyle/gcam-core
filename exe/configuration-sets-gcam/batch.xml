@@ -7,19 +7,6 @@
             <Value name = "bio_ref">../input/extra/biomass/BAU_ORNL.xml</Value>
             <Value name = "trn_ref">../input/gcamdata/xml/transport_IEF_StatedPolicies_USAreg.xml</Value>
 		</FileSet>		
-		<!--FileSet name="AdvTech">
-            <Value name = "bld_hi">../input/gcamdata/xml/building_IEF_HiTech_USAreg.xml</Value>
-            <Value name = "ind_hi">../input/gcamdata/xml/industry_IEF_HiTech_USAreg.xml</Value>
-            <Value name = "bio_hi">../input/extra/biomass/High_ORNL.xml</Value>
-            <Value name = "trn_hi">../input/gcamdata/xml/transport_AdvTech.xml</Value>
-            <Value name = "trn_hi">../input/gcamdata/xml/transport_IEF_HiTech_USAreg.xml</Value>
-            <Value name = "elec_hi">../input/gcamdata/xml/solar_adv.xml</Value>
-            <Value name = "elec_hi">../input/gcamdata/xml/wind_adv.xml</Value>
-            <Value name = "elec_hi">../input/gcamdata/xml/nuclear_adv.xml</Value>
-            <Value name = "elec_hi">../input/gcamdata/xml/geo_adv.xml</Value>
-            <Value name = "elec_hi">../input/gcamdata/xml/geo_tech_adv.xml</Value>
-            <Value name = "hydrogen_hi">../input/gcamdata/xml/hydrogen_adv.xml</Value>
-		</FileSet-->		
 		<FileSet name="NZ_AdvTech">
             <Value name = "bld_hi">../input/gcamdata/xml/building_IEF_HiTech_USAreg.xml</Value>
             <Value name = "ind_hi">../input/gcamdata/xml/industry_IEF_HiTech_USAreg.xml</Value>
@@ -41,41 +28,19 @@
             <Value name = "bio_ref">../input/extra/biomass/BAU_ORNL.xml</Value>
             <Value name = "trn_ref">../input/gcamdata/xml/transport_IEF_StatedPolicies_USAreg.xml</Value>
 		</FileSet>		
+		<FileSet name="RefTech_AdvElec">
+            <Value name = "elec_hi">../input/gcamdata/xml/solar_adv.xml</Value>
+            <Value name = "elec_hi">../input/gcamdata/xml/wind_adv.xml</Value>
+            <Value name = "elec_hi">../input/gcamdata/xml/nuclear_adv.xml</Value>
+            <Value name = "elec_hi">../input/gcamdata/xml/geo_adv.xml</Value>
+            <Value name = "elec_hi">../input/gcamdata/xml/geo_tech_adv.xml</Value>
+		</FileSet>		
 		<FileSet name="RefTech_AdvTrn">
             <Value name = "bld_ref">../input/gcamdata/xml/building_IEF_StatedPolicies_USAreg.xml</Value>
             <Value name = "ind_ref">../input/gcamdata/xml/industry_IEF_StatedPolicies_USAreg.xml</Value>
             <Value name = "bio_ref">../input/extra/biomass/BAU_ORNL.xml</Value>
             <Value name = "trn_hi">../input/gcamdata/xml/transport_AdvTech.xml</Value>
             <Value name = "trn_hi">../input/gcamdata/xml/transport_IEF_HiTech_USAreg.xml</Value>
-		</FileSet>		
-		<FileSet name="NZ_AdvTech_RefTrn">
-            <Value name = "bld_hi">../input/gcamdata/xml/building_IEF_HiTech_USAreg.xml</Value>
-            <Value name = "ind_hi">../input/gcamdata/xml/industry_IEF_HiTech_USAreg.xml</Value>
-            <Value name = "bio_hi">../input/extra/biomass/High_ORNL.xml</Value>
-            <Value name = "trn_ref">../input/gcamdata/xml/transport_IEF_StatedPolicies_USAreg.xml</Value>
-            <Value name = "elec_hi">../input/gcamdata/xml/solar_adv.xml</Value>
-            <Value name = "elec_hi">../input/gcamdata/xml/wind_adv.xml</Value>
-            <Value name = "elec_hi">../input/gcamdata/xml/nuclear_adv.xml</Value>
-            <Value name = "elec_hi">../input/gcamdata/xml/geo_adv.xml</Value>
-            <Value name = "elec_hi">../input/gcamdata/xml/geo_tech_adv.xml</Value>
-            <Value name = "hydrogen_hi">../input/gcamdata/xml/hydrogen_adv.xml</Value>
-            <Value name = "co2_constraint">../input/policy/USAreg_netZero_CO2_constraint.xml</Value>
-            <Value name = "dac">../input/gcamdata/xml/dac_ssp2.xml</Value>
-		</FileSet>		
-		<FileSet name="NZ_AdvTech_RefBld">
-            <Value name = "bld_ref">../input/gcamdata/xml/building_IEF_StatedPolicies_USAreg.xml</Value>
-            <Value name = "ind_hi">../input/gcamdata/xml/industry_IEF_HiTech_USAreg.xml</Value>
-            <Value name = "bio_hi">../input/extra/biomass/High_ORNL.xml</Value>
-            <Value name = "trn_hi">../input/gcamdata/xml/transport_AdvTech.xml</Value>
-            <Value name = "trn_hi">../input/gcamdata/xml/transport_IEF_HiTech_USAreg.xml</Value>
-            <Value name = "elec_hi">../input/gcamdata/xml/solar_adv.xml</Value>
-            <Value name = "elec_hi">../input/gcamdata/xml/wind_adv.xml</Value>
-            <Value name = "elec_hi">../input/gcamdata/xml/nuclear_adv.xml</Value>
-            <Value name = "elec_hi">../input/gcamdata/xml/geo_adv.xml</Value>
-            <Value name = "elec_hi">../input/gcamdata/xml/geo_tech_adv.xml</Value>
-            <Value name = "hydrogen_hi">../input/gcamdata/xml/hydrogen_adv.xml</Value>
-            <Value name = "co2_constraint">../input/policy/USAreg_netZero_CO2_constraint.xml</Value>
-            <Value name = "dac">../input/gcamdata/xml/dac_ssp2.xml</Value>
 		</FileSet>		
 	</ComponentSet>
 </BatchRunner>
