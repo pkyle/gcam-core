@@ -1,10 +1,10 @@
 # File: FAO_an_types_manure.csv
 # Title: mapping file of FAO animal types in the NManure data to GCAM animal commodities
 # Unit: Unitless
-# Description: Maps FAO NManure animal types to GCAM animal products. 
+# Description: Maps FAO NManure animal types to GCAM animal products.
 # Sources: FAO and other databases
-# Date of last update: 2026-02-26 (GPK)
-# Column types: icc 
+# Date of last update: 2026-03-23 (JS)
+# Column types: icc
 # ----------
 element_code,element,GCAM_commodity
 946,Buffalo,Beef
@@ -12,12 +12,12 @@ element_code,element,GCAM_commodity
 961,"Cattle, non-dairy",Beef
 976,Sheep,
 1016,Goats,
-1048,Swine,Pork
+1048,Swine total,Pork
 1049,"Swine, market",
 1051,"Swine, breeding",
 1052,"Chickens, layers",
 1053,"Chickens, broilers",
-1054,Chickens,Poultry
+1054,Chickens total,Poultry
 1068,Ducks,Poultry
 1079,Turkeys,Poultry
 1096,Horses,
@@ -25,9 +25,9 @@ element_code,element,GCAM_commodity
 1110,Mules and hinnies,
 1126,Camels,
 1177,Llamas,
-1749,Sheep and Goats,SheepGoat
+1749,Sheep and Goats total,SheepGoat
 1755,All Animals,
-1757,Cattle,
-1759,Mules and Asses,
-1760,Camels and Llamas,
-2029,Poultry Birds,
+1757,Cattle total,
+1759,Mules and Asses total,
+1760,Camels and Llamas total,
+2029,Poultry Birds total,
