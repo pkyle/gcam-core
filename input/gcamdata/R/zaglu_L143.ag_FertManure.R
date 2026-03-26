@@ -112,7 +112,10 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
                 relationship = "many-to-many")
 
     L143.an_NManure_SecOut_kgNperkg_R_C_Y <- merged_df_2 %>%
-      mutate(NManure_SecOut = FAO_Value_kg / Prod_kg) %>%
+      mutate(
+        NManure_SecOut = FAO_Value_kg / Prod_kg,
+        NManure_SecOut = replace_na(NManure_SecOut, 0)
+      ) %>%
       select(GCAM_region_ID, GCAM_commodity, year, NManure_SecOut)
 
 # L143.an_NManure_Mt_R_C_Y
