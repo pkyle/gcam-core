@@ -51,6 +51,7 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
 # L143.ag_NManure_IO_R_C_Y_GLU
 
     GCAMFAOSTAT_NManure_long <- GCAMFAOSTAT_NManure %>%
+      rename(country_name = FAO_country) %>%
       pivot_longer(
         cols = `1961`:`2023`,
         names_to = "year",
@@ -58,8 +59,24 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
       ) %>%
       mutate(year = as.integer(year))
 
+    # Join to iso_GCAM_regID to get iso and GCAM_region_ID to FAO_country
+    GCAMFAOSTAT_ID <- GCAMFAOSTAT_NManure_long %>%
+      full_join(
+        iso_GCAM_regID,
+        by = c("country_name"),
+        relationship = "many-to-many"
+      )
+
+    # Join to "L122.LC_bm2_R_HarvCropLand_C_Yh_GLU"
+    GCAMFAOSTAT_HarvCropLand<- GCAMFAOSTAT_ID %>%
+      full_join(
+        L122.LC_bm2_R_HarvCropLand_C_Yh_GLU,
+        by = c("GCAM_region_ID"),
+        relationship = "many-to-many"
+      )
+
     # Only keep the total of animals per region per year
-    GCAMFAOSTAT_NManure_all_animals<- GCAMFAOSTAT_NManure_long %>%
+    GCAMFAOSTAT_NManure_all_animals<- GCAMFAOSTAT_HarvCropLand %>%
       filter(element == "All Animals")
 
     # Convert 'value' from Mt to kg
