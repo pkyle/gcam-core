@@ -61,22 +61,14 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
 
     # Join to iso_GCAM_regID to get iso and GCAM_region_ID to FAO_country
     GCAMFAOSTAT_ID <- GCAMFAOSTAT_NManure_long %>%
-      full_join(
+      left_join(
         iso_GCAM_regID,
-        by = c("country_name"),
-        relationship = "many-to-many"
-      )
-
-    # Join to "L122.LC_bm2_R_HarvCropLand_C_Yh_GLU"
-    GCAMFAOSTAT_HarvCropLand<- GCAMFAOSTAT_ID %>%
-      full_join(
-        L122.LC_bm2_R_HarvCropLand_C_Yh_GLU,
-        by = c("GCAM_region_ID"),
+        by = "country_name",
         relationship = "many-to-many"
       )
 
     # Only keep the total of animals per region per year
-    GCAMFAOSTAT_NManure_all_animals<- GCAMFAOSTAT_HarvCropLand %>%
+    GCAMFAOSTAT_NManure_all_animals<- GCAMFAOSTAT_ID %>%
       filter(element == "All Animals")
 
     # Convert 'value' from Mt to kg
@@ -84,17 +76,23 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
       mutate(Crop_Value_kg = value * 1e9)
 
     # merge datasets
-    merged_df <- L101.ag_Prod_Mt_R_C_Y_GLU %>%
-      full_join(
-        GCAMFAOSTAT_NManure_all_animals,
+    merged_df <- GCAMFAOSTAT_NManure_all_animals %>%
+      left_join(
+        L101.ag_Prod_Mt_R_C_Y_GLU,
         by = c("GCAM_region_ID", "year"),
         relationship = "many-to-many"
       )
 
-    L143.ag_NManure_IO_R_C_Y_GLU <- merged_df %>%
+    df_IO <- merged_df %>%
       mutate(NManure_IO = FAO_Value_kg / Crop_Value_kg) %>%
       select(GCAM_region_ID, GCAM_commodity, GLU, year, NManure_IO)
 
+    L143.ag_NManure_IO_R_C_Y_GLU <- df_IO %>%
+      left_join(
+        L122.LC_bm2_R_HarvCropLand_C_Yh_GLU,
+        by = c("year", "GCAM_region_ID", "GLU", "GCAM_commodity"),
+        relationship = "many-to-many"
+      )
 
 # L143.an_NManure_SecOut_kgNperkg_R_C_Y
 
@@ -110,13 +108,14 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
       "Sheep and Goats total"
     )
 
-    GCAMFAOSTAT_NManure_single_lvstk <- GCAMFAOSTAT_NManure_long %>%
+    GCAMFAOSTAT_NManure_single_lvstk <- GCAMFAOSTAT_ID %>%
       filter(element %in% required_elements)
 
     # Join NManure to animal commodity information
     merged_df_1 <- GCAMFAOSTAT_NManure_single_lvstk %>%
-      full_join(FAO_an_types_manure,
-                by = c("element"))
+      left_join(FAO_an_types_manure,
+                by = c("element"),
+                relationship = "many-to-many")
 
     # Convert 'value' from Mt to kg
     L109.an_ALL_Mt_R_C_Y_kg <-  L109.an_ALL_Mt_R_C_Y %>%
@@ -124,7 +123,7 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
 
     # Join the data sets
     merged_df_2<- merged_df_1 %>%
-      full_join(L109.an_ALL_Mt_R_C_Y_kg,
+      left_join(L109.an_ALL_Mt_R_C_Y_kg,
                 by = c("GCAM_region_ID", "year", "GCAM_commodity"),
                 relationship = "many-to-many")
 
