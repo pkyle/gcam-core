@@ -30,7 +30,7 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
 
   MODULE_OUTPUTS <-
     c("L143.ag_NManure_IO_R_C_Y_GLU",
-      "L143.an_NManure_SecOut_kgNperkg_R_C_Y",
+      "L143.an_NManure_SecOut_MtNperMt_R_C_Y",
       "L143.an_NManure_Mt_R_C_Y")
 
   if(command == driver.DECLARE_INPUTS) {
@@ -50,6 +50,8 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
 
 # L143.ag_NManure_IO_R_C_Y_GLU
 
+    # Make the wide table to long, with 'year' as a single column, and 'FAO_Value_kg' as a
+    # single column, converting Nmanure values from kg to Mt in column 'FAO_Value_Mt'
     GCAMFAOSTAT_NManure_long <- GCAMFAOSTAT_NManure %>%
       pivot_longer(
         cols = `1961`:`2023`,
@@ -59,7 +61,10 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
       mutate(year = as.integer(year),
              FAO_Value_Mt = FAO_Value_kg / 1e9)
 
-    drop_FAO <- c(
+    # Dropping totaled areas in FAO such as whole continents, whole regions, and
+    # country titles that represent several countries that are already represented in
+    # the dataset. This allows us to avoid including duplicates in our calculations.
+    drop_from_FAO <- c(
       "World", "Africa", "Eastern Africa", "Middle Africa",
       "Northern Africa", "Southern Africa", "Sub-Saharan Africa",
       "Western Africa", "Americas", "Northern America", "Central America",
@@ -78,23 +83,21 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
       "Serbia and Montenegro", "Sudan (former)", "USSR", "Yugoslav SFR", "China"
     )
 
-    GCAMFAOSTAT_NManure_clean <- GCAMFAOSTAT_NManure_long |>
-      dplyr::filter(!FAO_country %in% drop_FAO)
+    # Removing rows with the above total areas from the long NManure dataset. This results
+    # in unique countries in the column 'FAO_country'
+    GCAMFAOSTAT_NManure_unique_countries <- GCAMFAOSTAT_NManure_long |>
+      dplyr::filter(!FAO_country %in% drop_from_FAO)
 
-    # Join to iso_GCAM_regID to get iso and GCAM_region_ID to FAO_country
-    AGLU_ctry1 <- select(AGLU_ctry, FAO_country, iso) %>%
-      filter(FAO_country %in% GCAMFAOSTAT_NManure_clean$FAO_country) %>%
+    # Identifying the distinct "FAO_country" and "iso" combinations in NManure that
+    # can be satisfied by AGLU
+    AGLU_ctry_NManure_unique <- select(AGLU_ctry, FAO_country, iso) %>%
+      filter(FAO_country %in% GCAMFAOSTAT_NManure_unique_countries$FAO_country) %>%
       distinct()
 
-    #Need to make sure AGLU_ctry and GCAM_region_ID have the necessary FAO_countries to match
-    #for example, I think United Kingdom has 3 different names in each csv file, so it won't join naturally
-
-    #diff_AGLU_ctry_not_iso_GCAM_regID <- anti_join(AGLU_ctry, iso_GCAM_regID)
-    #diff_iso_GCAM_regID_not_AGLU_ctry <- anti_join(iso_GCAM_regID, AGLU_ctry)
-
-
-    GCAMFAOSTAT_ID <- GCAMFAOSTAT_NManure_clean %>%
-      left_join(AGLU_ctry1, by = "FAO_country")%>%
+    # Join NManure to AGLU_ctry by the column 'FAO_country' to attribute 'iso' codes to
+    # each unique 'FAO_country'. Join NManure to iso_GCAM_regID by 'iso' to have GCAM regions associated.
+    GCAMFAOSTAT_GCAM_region_ID <- GCAMFAOSTAT_NManure_unique_countries %>%
+      left_join(AGLU_ctry_NManure_unique, by = "FAO_country")%>%
       left_join(
         iso_GCAM_regID,
         by = "iso"
@@ -112,8 +115,9 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
       "Sheep and Goats total"
     )
 
-    # NManure by GCAM region and year
-    L143.NManure_R_Y <- GCAMFAOSTAT_ID %>%
+    # NManure aggregated by GCAM region and year, only keeping the required animal types associated to commodities in GCAM
+    # listed above and years pertinent for the GCAM model
+    L143.NManure_R_Y <- GCAMFAOSTAT_GCAM_region_ID %>%
       filter(element %in% required_elements,
              year %in% aglu.AGLU_HISTORICAL_YEARS) %>%
       group_by(GCAM_region_ID, year) %>%
@@ -122,7 +126,7 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
 
     # Land shares: share of land by crop/subsector/GLU within each GCAM region and year
     L143.LandShares_R_C_Y_GLU <- L122.LC_bm2_R_HarvCropLand_C_Yh_GLU %>%
-      filter(year %in% L143.NManure_ctry_yr$year) %>%
+      filter(year %in% L143.NManure_R_Y$year) %>%
       group_by(GCAM_region_ID, year) %>%
       mutate(landshare = value / sum(value)) %>%
       ungroup() %>%
@@ -134,76 +138,68 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
       mutate(NManure_Mt = NManure_Mt * landshare) %>%
       select(-landshare)
 
-
-
-
-    #calculate shares of land per commodity, per GLU, per region, per year
-    shares <- merged_df %>%
-      group_by(year, GCAM_region_ID) %>%
-      mutate(
-        total_year_region_glu_commodity = sum(value, na.rm = TRUE),
-        share = value / total_year_region_glu_commodity
-      ) %>%
-      ungroup()
-
-
-    shares_with_manure <- shares %>%
-      mutate(
-        manure_allocated = share * FAO_Value_Mt
-      )
-
-    # merge datasets
-    merged_df_1 <-  shares_with_manure %>%
+    # NManure multipled by land shares joined to crop production quantities
+    L143.NManure_Mt_R_C_GLU_Y_Crop_Prod <-   L143.NManure_Mt_R_C_GLU_Y %>%
       left_join(
         L101.ag_Prod_Mt_R_C_Y_GLU,
-        by = c("GCAM_region_ID", "year", "GLU", "GCAM_commodity"),
+        by = c("GCAM_region_ID","GCAM_commodity", "GCAM_subsector", "GLU", "year"),
         relationship = "many-to-many")
 
-    # L101.ag_Prod_Mt_R_C_Y_GLU only has data from 1973-2023, so I'm removing years 1961-1972
-    L143.ag_NManure_IO_R_C_Y_GLU <- merged_df_1 %>%
+    # Calculating Input/Output coefficients (NManure divided by production quantity)
+    L143.ag_NManure_IO_R_C_Y_GLU <- L143.NManure_Mt_R_C_GLU_Y_Crop_Prod %>%
       mutate(
-        NManure_IO = manure_allocated / value.y,
+        NManure_IO = NManure_Mt / value,
         NManure_IO = replace_na(NManure_IO, 0)
       ) %>%
-      filter(year >= 1973, year <= 2023) %>%
-      select(GCAM_region_ID, GCAM_commodity, year, GLU, NManure_IO)
+      select(GCAM_region_ID, GCAM_commodity,GCAM_subsector,GLU, year,NManure_IO)
 
 
 # L143.an_NManure_SecOut_MtNperMt_R_C_Y
 
+    # NManure aggregated by GCAM region and year, only keeping the required animal types associated to commodities in GCAM
+    # listed above
+    L143.NManure_R_Y_Lvstk <- GCAMFAOSTAT_GCAM_region_ID %>%
+      filter(element %in% required_elements,
+             year %in% aglu.AGLU_HISTORICAL_YEARS) %>%
+      group_by(GCAM_region_ID, year, element) %>%
+      summarise(NManure_Mt = sum(FAO_Value_Mt)) %>%
+      ungroup()
 
-    GCAMFAOSTAT_NManure_single_lvstk <- GCAMFAOSTAT_ID %>%
-      filter(element %in% required_elements)
-
-    # there are
-    merged_df_2 <- GCAMFAOSTAT_NManure_single_lvstk %>%
+    # NManure aggregated by GCAM region and year with required animal types, aggregated to animal commodities in GCAM
+    L143.NManure_R_Y_Lvstk_Commodity <- L143.NManure_R_Y_Lvstk %>%
       left_join(FAO_an_types_manure,
                 by = c("element"),
-                relationship = "many-to-one")
+                relationship = "many-to-one")%>%
+    group_by(GCAM_region_ID, year, GCAM_commodity) %>%
+      summarise(NManure_Mt_commodity = sum(NManure_Mt)) %>%
+      ungroup()
 
-    # Join the data sets
-    merged_df_3<- merged_df_2 %>%
-      left_join(L109.an_ALL_Mt_R_C_Y_kg,
+    # NManure aggregated by GCAM region and year with animal commodities joined to food (animal commodity) production in Mt
+    L143.NManure_R_Y_Lvstk_Commodity_Mt <- L143.NManure_R_Y_Lvstk_Commodity  %>%
+      left_join(L109.an_ALL_Mt_R_C_Y,
                 by = c("GCAM_region_ID", "year", "GCAM_commodity"),
                 relationship = "many-to-many")
 
-    L143.an_NManure_SecOut_MtNperMt_R_C_Y <- merged_df_3 %>%
+    # Calculating the secondary output of NManure (NManure content Mt / animal commodity Mt)
+    L143.an_NManure_SecOut_MtNperMt_R_C_Y <- L143.NManure_R_Y_Lvstk_Commodity_Mt %>%
       mutate(
-        NManure_SecOut = FAO_Value_Mt / Prod_Mt,
+        NManure_SecOut = NManure_Mt_commodity / Prod_Mt,
         NManure_SecOut = replace_na(NManure_SecOut, 0)
       ) %>%
       select(GCAM_region_ID, GCAM_commodity, year, NManure_SecOut)
 
+
 # L143.an_NManure_Mt_R_C_Y
 
-    L143.an_NManure_Mt_R_C_Y <- merged_df %>%
-      select(GCAM_region_ID, GCAM_commodity, year, FAO_Value_Mt)
+    # NManure aggregated by GCAM region and year with animal commodities to food (animal commodity) production in Mt
+    L143.an_NManure_Mt_R_C_Y <- L143.NManure_R_Y_Lvstk_Commodity_Mt %>%
+      select(GCAM_region_ID, GCAM_commodity, year,NManure_Mt_commodity)
 
 
     # Produce outputs
     L143.ag_NManure_IO_R_C_Y_GLU %>%
       add_title("N manure application per unit crop production by region/crop/year/GLU") %>%
-      add_units("Unit = kg of manure N per kg crop production") %>%
+      add_units("Unit = Mt of manure N per Mt crop production") %>%
       add_comments("Manure nitrogen is aggregated from all animal types") %>%
       add_precursors("aglu/FAO/GCAMFAOSTAT_NManure",
                      "aglu/FAO/FAO_an_types_manure",
@@ -213,7 +209,7 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
                      "L122.LC_bm2_R_HarvCropLand_C_Yh_GLU") ->
       L143.ag_NManure_IO_R_C_Y_GLU
 
-    L143.an_NManure_SecOut_kgNperkg_R_C_Y %>%
+    L143.an_NManure_SecOut_MtNperMt_R_C_Y %>%
       add_title("N manure secondary output coefficients") %>%
       add_units("Unit = Mt N manure per Mt animal commodity produced") %>%
       add_comments("N manure produced divided by production of each animal commodity by region and year") %>%
@@ -222,13 +218,13 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
                      "aglu/AGLU_ctry",
                      "common/iso_GCAM_regID",
                      "L109.an_ALL_Mt_R_C_Y") ->
-      L143.an_NManure_SecOut_kgNperkg_R_C_Y
+      L143.an_NManure_SecOut_MtNperMt_R_C_Y
 
     L143.an_NManure_Mt_R_C_Y %>%
       add_title("N manure production") %>%
       add_units("Unit = Mt N") %>%
       add_comments("N manure produced by region and animal commodity type") %>%
-      same_precursors_as(L143.an_NManure_SecOut_kgNperkg_R_C_Y) ->
+      same_precursors_as(L143.an_NManure_SecOut_MtNperMt_R_C_Y) ->
       L143.an_NManure_Mt_R_C_Y
 
     return_data(MODULE_OUTPUTS)
