@@ -140,10 +140,9 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
 
     # NManure multipled by land shares joined to crop production quantities
     L143.NManure_Mt_R_C_GLU_Y_Crop_Prod <-   L143.NManure_Mt_R_C_GLU_Y %>%
-      left_join(
+      left_join_error_no_match(
         L101.ag_Prod_Mt_R_C_Y_GLU,
-        by = c("GCAM_region_ID","GCAM_commodity", "GCAM_subsector", "GLU", "year"),
-        relationship = "many-to-many")
+        by = c("GCAM_region_ID","GCAM_commodity", "GCAM_subsector", "GLU", "year"))
 
     # Calculating Input/Output coefficients (NManure divided by production quantity)
     L143.ag_NManure_IO_R_C_Y_GLU <- L143.NManure_Mt_R_C_GLU_Y_Crop_Prod %>%
@@ -167,18 +166,16 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
 
     # NManure aggregated by GCAM region and year with required animal types, aggregated to animal commodities in GCAM
     L143.NManure_R_Y_Lvstk_Commodity <- L143.NManure_R_Y_Lvstk %>%
-      left_join(FAO_an_types_manure,
-                by = c("element"),
-                relationship = "many-to-one")%>%
+      left_join_error_no_match(FAO_an_types_manure,
+                by = "element") %>%
     group_by(GCAM_region_ID, year, GCAM_commodity) %>%
       summarise(NManure_Mt_commodity = sum(NManure_Mt)) %>%
       ungroup()
 
     # NManure aggregated by GCAM region and year with animal commodities joined to food (animal commodity) production in Mt
     L143.NManure_R_Y_Lvstk_Commodity_Mt <- L143.NManure_R_Y_Lvstk_Commodity  %>%
-      left_join(L109.an_ALL_Mt_R_C_Y,
-                by = c("GCAM_region_ID", "year", "GCAM_commodity"),
-                relationship = "many-to-many")
+      left_join_error_no_match(L109.an_ALL_Mt_R_C_Y,
+                by = c("GCAM_region_ID", "year", "GCAM_commodity"))
 
     # Calculating the secondary output of NManure (NManure content Mt / animal commodity Mt)
     L143.an_NManure_SecOut_MtNperMt_R_C_Y <- L143.NManure_R_Y_Lvstk_Commodity_Mt %>%
