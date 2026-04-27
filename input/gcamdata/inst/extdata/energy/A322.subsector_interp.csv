@@ -14,3 +14,5 @@ ammonia,hydrogen,0,share-weight,2050,end-year,,fixed
 traded ammonia,traded ammonia,1,share-weight,final-calibration-year,end-year,,fixed
 regional ammonia,domestic ammonia,0,share-weight,final-calibration-year,end-year,,fixed
 regional ammonia,imported ammonia,0,share-weight,final-calibration-year,end-year,,fixed
+N fertilizer,synthetic N,0,share-weight,final-calibration-year,end-year,,fixed
+N fertilizer,manure N,0,share-weight,final-calibration-year,end-year,,fixed

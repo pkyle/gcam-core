@@ -35,7 +35,8 @@ module_energy_L2322.Fert <- function(command, ...) {
              "L1322.Fert_Prod_MtNH3_R_F_Y",
              "L1322.IO_R_Fert_F_Yh",
              "L1322.Fert_NEcost_75USDkgNH3_F",
-             "L1322.Fert_GrossTrade_Mt_R_Y"))
+             "L1322.Fert_GrossTrade_Mt_R_Y",
+             "L143.an_NManure_Mt_R_C_Y"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L2322.Supplysector_Fert",
              "L2322.SectorUseTrialMarket_tra",
@@ -78,6 +79,7 @@ module_energy_L2322.Fert <- function(command, ...) {
     L1322.IO_R_Fert_F_Yh <- get_data(all_data, "L1322.IO_R_Fert_F_Yh", strip_attributes = TRUE)
     L1322.Fert_NEcost_75USDkgNH3_F <- get_data(all_data, "L1322.Fert_NEcost_75USDkgNH3_F")
     L1322.Fert_GrossTrade_Mt_R_Y <- get_data(all_data, "L1322.Fert_GrossTrade_Mt_R_Y", strip_attributes = TRUE)
+    L143.an_NManure_Mt_R_C_Y <- get_data(all_data, "L143.an_NManure_Mt_R_C_Y", strip_attributes = TRUE)
 
     # ===================================================
     # 0. Give binding for variable names used in pipeline
@@ -373,14 +375,26 @@ module_energy_L2322.Fert <- function(command, ...) {
                                by = c("region", "year")) %>%
       mutate(calOutputValue = round((DomConsumption + Imports) * CONV_NH3_N,
                                     energy.DIGITS_CALOUTPUT)) %>%
-      left_join_error_no_match(filter(L2322.StubTech_Fert, supplysector == aglu.FERT_NAME),
+      left_join_error_no_match(filter(L2322.StubTech_Fert, supplysector == aglu.FERT_NAME, subsector == "synthetic N"),
                                by = "region") %>%
       mutate(share.weight.year = year,
              subs.share.weight = if_else(calOutputValue > 0, 1, 0),
              tech.share.weight = if_else(calOutputValue > 0, 1, 0)) %>%
       select(LEVEL2_DATA_NAMES[["StubTechProd"]]) ->
-      L2322.StubTechProd_NtoAg
+      L2322.StubTechProd_FertDomCons
 
+     L143.an_NManure_Mt_R_C_Y %>%
+      # filter to model years, re-assign region numbers to names, group_by %>% summarise to region and year
+      # join in supplysector/subsector/technology name based on L2322.StubTech_Fert,
+      # and assign share-weights (both of these similar to lines immediately above)
+      # then select LEVEL2_DATA_NAMES[["StubTechProd"]] ->
+       # L2322.StubTechProd_manureNtoAg
+
+       # bind synthetic and manure tables
+    #L2322.StubTechProd_NtoAg <- bind_rows(L2322.StubTechProd_FertDomCons, L2322.StubTechProd_manureNtoAg)
+
+       # temporary to keep the code from breaking; delete this once L2322.StubTechProd_manureNtoAg is ready
+       L2322.StubTechProd_NtoAg <- L2322.StubTechProd_FertDomCons
     # ===================================================
     # Produce outputs
 
