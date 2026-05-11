@@ -8,7 +8,7 @@
 #' @param ... other optional parameters, depending on command
 #' @return Depends on \code{command}: either a vector of required inputs,
 #' a vector of output names, or (if \code{command} is "MAKE") all
-#' the generated outputs: \code{L142.ag_Fert_Prod_MtN_ctry_Y}, \code{L142.ag_Fert_NetExp_MtN_R_Y}, \code{L142.ag_Fert_IO_R_C_Y_GLU}. The corresponding file in the
+#' the generated outputs: \code{L143.ag_NManure_IO_R_C_Y_GLU}, \code{L143.an_NManure_SecOut_MtNperMt_R_C_Y}, \code{L143.an_NManure_Mt_R_C_Y}. The corresponding file in the
 #' original data system was \code{LB142.ag_Fert_IO_R_C_Y_GLU.R} (aglu level1).
 #' @details This chunk calculates fertilizer production by country / year (adjusted to global total consumption),
 #' fertilizer net exports by GCAM region / year as production minus consumption, and fertilizer input-output coefficients
