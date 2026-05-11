@@ -24,9 +24,10 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
     c(FILE = "common/GCAM_region_names",
        FILE = "water/basin_to_country_mapping",
        FILE = "aglu/A_Fodderbio_chars",
-       "L142.ag_Fert_IO_R_C_Y_GLU",
+       "L142.ag_SyntheticNFert_IO_R_C_Y_GLU",
        "L2052.AgCost_ag_irr_mgmt",
-       "L2052.AgCost_bio_irr_mgmt")
+       "L2052.AgCost_bio_irr_mgmt",
+       "L143.ag_NManure_IO_R_C_Y_GLU")
 
   MODULE_OUTPUTS <-
     c("L2062.AgCoef_Fert_ag_irr_mgmt",
@@ -51,8 +52,10 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
     get_data_list(all_data, MODULE_INPUTS, strip_attributes = TRUE)
 
 
-    # Process Fertilizer Coefficients: Copy coefficients to all four technologies (irr/rfd + hi/lo)
-    L142.ag_Fert_IO_R_C_Y_GLU %>%
+    # Process Fertilizer Coefficients: Add IO from N manure to IO of synthetic N, Copy coefficients to all four technologies (irr/rfd + hi/lo)
+    L142.ag_SyntheticNFert_IO_R_C_Y_GLU %>%
+      left_join_error_no_match(L143.ag_NManure_IO_R_C_Y_GLU, by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector", "GLU", "year")) %>%
+      mutate(NFert_IO= value + NManure_IO)%>%
       filter(year %in% MODEL_BASE_YEARS) %>%
       left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
       left_join_error_no_match(basin_to_country_mapping[ c("GLU_code", "GLU_name")], by = c("GLU" = "GLU_code")) %>%
@@ -69,7 +72,7 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
 
       # Add name of minicam.energy.input
       mutate(minicam.energy.input = "N fertilizer") %>%
-      rename(coefficient = value) %>%
+      rename(coefficient = NFert_IO) %>%
       select(region, AgSupplySector, AgSupplySubsector, AgProductionTechnology, minicam.energy.input, year, coefficient) ->
       L2062.AgCoef_Fert_ag_irr_mgmt
 
@@ -138,7 +141,7 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
       # If we wanted we could apply regional fertilizer adjustments here.
       # Since we are handling negative profits with the min cal profit rate there is no pressing need at the moment.
       mutate(nonLandVariableCost = round(nonLandVariableCost - FertCost, aglu.DIGITS_CALPRICE)) %>%
-      select(-minicam.energy.input, -coefficient, -FertCost) %>% 
+      select(-minicam.energy.input, -coefficient, -FertCost) %>%
       # Given the historical price of biomass is solved we could end up with negative profit rates
       # when trying to calibrate "ghost" share weights.  Which conceptually makes sense but mechanically
       # is an issue.  Instead we will modify meaning of the ghost share weight by scaling down costs during
@@ -151,12 +154,12 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
     L2062.AgCoef_Fert_ag_irr_mgmt %>%
       add_title("Fertilizer coefficients for agricultural technologies") %>%
       add_units("kgN per kg crop") %>%
-      add_comments("Map fertilizer coefficients in L142.ag_Fert_IO_R_C_Y_GLU to all technologies") %>%
+      add_comments("Map fertilizer coefficients in L142.ag_SyntheticNFert_IO_R_C_Y_GLU to all technologies") %>%
       add_comments("Note: we are using the same coefficient for all four management technologies (irrigated, rainfed, hi and lo") %>%
       add_legacy_name("L2062.AgCoef_Fert_ag_irr_mgmt") %>%
       add_precursors("common/GCAM_region_names",
                      "water/basin_to_country_mapping",
-                     "L142.ag_Fert_IO_R_C_Y_GLU") ->
+                     "L142.ag_SyntheticNFert_IO_R_C_Y_GLU") ->
       L2062.AgCoef_Fert_ag_irr_mgmt
     L2062.AgCoef_Fert_bio_irr_mgmt %>%
       add_title("Fertilizer coefficients for bioenergy technologies") %>%

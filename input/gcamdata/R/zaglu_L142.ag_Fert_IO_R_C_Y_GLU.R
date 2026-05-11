@@ -9,7 +9,7 @@
 #' @param ... other optional parameters, depending on command
 #' @return Depends on \code{command}: either a vector of required inputs,
 #' a vector of output names, or (if \code{command} is "MAKE") all
-#' the generated outputs: \code{L142.ag_Fert_Prod_MtN_ctry_Y}, \code{L142.ag_Fert_NetExp_MtN_R_Y}, \code{L142.ag_Fert_IO_R_C_Y_GLU}. The corresponding file in the
+#' the generated outputs: \code{L142.ag_Fert_Prod_MtN_ctry_Y}, \code{L142.ag_Fert_NetExp_MtN_R_Y}, \code{L142.ag_SyntheticNFert_IO_R_C_Y_GLU}. The corresponding file in the
 #' original data system was \code{LB142.ag_Fert_IO_R_C_Y_GLU.R} (aglu level1).
 #' @details This chunk calculates fertilizer production by country / year (adjusted to global total consumption),
 #' fertilizer net exports by GCAM region / year as production minus consumption, and fertilizer input-output coefficients
@@ -32,7 +32,7 @@ module_aglu_L142.ag_Fert_IO_R_C_Y_GLU <- function(command, ...) {
   MODULE_OUTPUTS <-
     c("L142.ag_Fert_Prod_MtN_ctry_Y",
       "L142.ag_Fert_NetExp_MtN_R_Y",
-      "L142.ag_Fert_IO_R_C_Y_GLU")
+      "L142.ag_SyntheticNFert_IO_R_C_Y_GLU")
 
   if(command == driver.DECLARE_INPUTS) {
     return(MODULE_INPUTS)
@@ -167,10 +167,10 @@ module_aglu_L142.ag_Fert_IO_R_C_Y_GLU <- function(command, ...) {
              # Calculate the scalced input-output coefficient
              Fert_IO = Fert_IO_unscaled * scaler) %>%
       select(GCAM_region_ID, GCAM_commodity, GCAM_subsector, GLU, year, value = Fert_IO) ->
-      L142.ag_Fert_IO_R_C_Y_GLU
+      L142.ag_SyntheticNFert_IO_R_C_Y_GLU
 
     # Check to make sure that the fertilizer inputs do not blink in and out (if present in any year, need to be present in all years)
-    L142.ag_Fert_IO_R_C_Y_GLU %>%
+    L142.ag_SyntheticNFert_IO_R_C_Y_GLU %>%
       group_by(GCAM_region_ID, GCAM_commodity, GCAM_subsector, GLU) %>%
       summarise(value = sum(value)) %>%                 # Get the total of all years
       ungroup() %>%
@@ -178,7 +178,7 @@ module_aglu_L142.ag_Fert_IO_R_C_Y_GLU <- function(command, ...) {
       select(-value) %>%
       unique() ->                                       # Select the region/commodity/GLU combinations presented
       L142.Fert_IO_check
-    L142.ag_Fert_IO_R_C_Y_GLU %>%
+    L142.ag_SyntheticNFert_IO_R_C_Y_GLU %>%
       # Filter the observations with the selected region/commodity/GLU combinations
       semi_join(L142.Fert_IO_check, by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector", "GLU")) ->
       L142.Fert_IO_check
@@ -210,19 +210,19 @@ module_aglu_L142.ag_Fert_IO_R_C_Y_GLU <- function(command, ...) {
                      "L100.FAO_Fert_Prod_tN") ->
       L142.ag_Fert_NetExp_MtN_R_Y
 
-    L142.ag_Fert_IO_R_C_Y_GLU %>%
+    L142.ag_SyntheticNFert_IO_R_C_Y_GLU %>%
       add_title("Fertilizer input-output coefficients by GCAM region / crop / year / GLU") %>%
       add_units("Unitless IO") %>%
       add_comments("Fertilizer demands are downscaled to GLU based on agriculture production share in each country") %>%
       add_comments("Input-output coefficients for each crop are first calculated as fertilizer demands divided by agriculture production in the base year") %>%
       add_comments("And then are scaled so that regional total fertilizer consumptions are balanced") %>%
-      add_legacy_name("L142.ag_Fert_IO_R_C_Y_GLU") %>%
+      add_legacy_name("L142.ag_SyntheticNFert_IO_R_C_Y_GLU") %>%
       add_precursors("common/iso_GCAM_regID",
                      "aglu/FAO/FAO_ag_items_PRODSTAT",
                      "L100.LDS_ag_prod_t",
                      "L101.ag_Prod_Mt_R_C_Y_GLU",
                      "L141.ag_Fert_Cons_MtN_ctry_crop") ->
-      L142.ag_Fert_IO_R_C_Y_GLU
+      L142.ag_SyntheticNFert_IO_R_C_Y_GLU
 
     return_data(MODULE_OUTPUTS)
   } else {
