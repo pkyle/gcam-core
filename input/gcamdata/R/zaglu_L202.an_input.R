@@ -13,7 +13,7 @@
 #' \code{L202.Supplysector_in}, \code{L202.SubsectorAll_in}, \code{L202.StubTech_in}, \code{L202.StubTechInterp_in},
 #' \code{L202.GlobalTechCoef_in}, \code{L202.GlobalTechShrwt_in}, \code{L202.StubTechProd_in},
 #' \code{L202.Supplysector_an}, \code{L202.SubsectorAll_an}, \code{L202.GlobalTechShrwt_an}, \code{L202.StubTechInterp_an}
-#' \code{L202.StubTechProd_an}, \code{L202.StubTechCoef_an}, \code{L202.StubTechCost_an},
+#' \code{L202.StubTechProd_an}, \code{L202.StubTechCoef_an}, \code{L202.StubTechCost_an},\code{L202.StubTechSecOut_an},
 #'. The corresponding file in the
 #' original data system was \code{L202.an_input.R} (aglu level2).
 #' @details This chunk produces 22 animal-related resource tables: production, import, resource curves.
@@ -46,7 +46,8 @@ module_aglu_L202.an_input <- function(command, ...) {
       "L233.TechCoef",
       "L110.IO_Coefs_pulp",
       "L1321.For_Cost",
-      "L1327.IO_woodpulp_energy")
+      "L1327.IO_woodpulp_energy",
+      "L143.an_NManure_SecOut_MtNperMt_R_C_Y")
 
   MODULE_OUTPUTS <-
     c("L202.RenewRsrc",
@@ -74,7 +75,9 @@ module_aglu_L202.an_input <- function(command, ...) {
       "L202.ag_consP_R_C_75USDkg",
       "L202.StubTechCost_For_proc",
       "L202.StubTechProd_in_Forest",
-      "L202.StubTechProd_in_pulp_energy")
+      "L202.StubTechProd_in_pulp_energy",
+      "L202.StubTechSecOut_an",
+      "L202.StubTechSecPmult_an")
 
   if(command == driver.DECLARE_INPUTS) {
     return(MODULE_INPUTS)
@@ -749,6 +752,31 @@ module_aglu_L202.an_input <- function(command, ...) {
     L202.StubTechProd_an <- filter(L202.StubTechProd_an, !region %in% aglu.NO_AGLU_REGIONS)
     L202.StubTechCoef_an <- filter(L202.StubTechCoef_an, !region %in% aglu.NO_AGLU_REGIONS)
 
+    # Secondary Outputs from N manure (JS)
+    L143.an_NManure_SecOut_MtNperMt_R_C_Y %>%
+      left_join_error_no_match(GCAM_region_names, by = c("GCAM_region_ID"))%>%
+      rename(supplysector = GCAM_commodity)%>%
+      filter(year == MODEL_FINAL_BASE_YEAR)%>%
+      repeat_add_columns(tibble(year = c(MODEL_FINAL_BASE_YEAR, MODEL_FUTURE_YEARS)))%>%
+      rename(year = year.y)%>%
+      select(-year.x)%>%
+      select(GCAM_region_ID, region, year, supplysector, NManure_SecOut)->
+        L143.an_NManure_SecOut_MtNperMt_R_Y_Supplysector
+
+    L202.StubTechCoef_an %>%
+      select(-minicam.energy.input, -coefficient, -market.name)%>%
+      select(region, year, supplysector, subsector, stub.technology)%>%
+      left_join(L143.an_NManure_SecOut_MtNperMt_R_Y_Supplysector, by = c("region",  "year", "supplysector")) %>%
+      mutate(secondary.output = supplysector)%>%
+      rename(output.ratio = NManure_SecOut)%>%
+      select(GCAM_region_ID, region, year, supplysector, subsector, stub.technology, secondary.output, output.ratio)%>%
+      select(LEVEL2_DATA_NAMES[["StubTechSecOut"]]) ->
+      L202.StubTechSecOut_an
+
+    L202.StubTechSecOut_an %>%
+      select(-output.ratio)%>%
+      mutate(pMultiplier = 0)->
+      L202.StubTechSecPmult_an
 
     # Produce outputs
     L202.RenewRsrc %>%
@@ -978,6 +1006,21 @@ module_aglu_L202.an_input <- function(command, ...) {
                      "energy/A_regions", "common/GCAM_region_names",
                      "L1327.IO_woodpulp_energy") ->
       L202.StubTechProd_in_pulp_energy
+
+    L202.StubTechSecOut_an %>%
+      add_title("Model future years for N manure secondary output coefficients") %>%
+      add_units("Unit = Mt N manure per Mt animal commodity produced") %>%
+      add_comments("N manure produced divided by production of each animal commodity by region and year") %>%
+      add_precursors("L143.an_NManure_SecOut_MtNperMt_R_C_Y", "common/GCAM_region_names",
+                     "L143.an_NManure_SecOut_MtNperMt_R_Y_Supplysector", "L202.StubTechCoef_an") ->
+      L202.StubTechSecOut_an
+
+    L202.StubTechSecPmult_an %>%
+      add_title(  ) %>%
+      add_units(  ) %>%
+      add_comments(  ) %>%
+      add_precursors("L202.StubTechSecOut_an") ->
+      L202.StubTechSecPmult_an
 
     return_data(MODULE_OUTPUTS)
   } else {
