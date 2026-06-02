@@ -13,7 +13,7 @@
 #' \code{L202.Supplysector_in}, \code{L202.SubsectorAll_in}, \code{L202.StubTech_in}, \code{L202.StubTechInterp_in},
 #' \code{L202.GlobalTechCoef_in}, \code{L202.GlobalTechShrwt_in}, \code{L202.StubTechProd_in},
 #' \code{L202.Supplysector_an}, \code{L202.SubsectorAll_an}, \code{L202.GlobalTechShrwt_an}, \code{L202.StubTechInterp_an}
-#' \code{L202.StubTechProd_an}, \code{L202.StubTechCoef_an}, \code{L202.StubTechCost_an},\code{L202.StubTechSecOut_an},
+#' \code{L202.StubTechProd_an}, \code{L202.StubTechCoef_an}, \code{L202.StubTechCost_an},\code{L202.StubTechFractSecOut_NManure},
 #'. The corresponding file in the
 #' original data system was \code{L202.an_input.R} (aglu level2).
 #' @details This chunk produces 22 animal-related resource tables: production, import, resource curves.
@@ -76,8 +76,9 @@ module_aglu_L202.an_input <- function(command, ...) {
       "L202.StubTechCost_For_proc",
       "L202.StubTechProd_in_Forest",
       "L202.StubTechProd_in_pulp_energy",
-      "L202.StubTechSecOut_an",
-      "L202.StubTechSecPmult_an")
+      "L202.StubTechFractSecOut_NManure",
+      "L202.StubTechFractProd_NManure",
+      "L202.StubTechFractCalPrice_NManure")
 
   if(command == driver.DECLARE_INPUTS) {
     return(MODULE_INPUTS)
@@ -752,31 +753,49 @@ module_aglu_L202.an_input <- function(command, ...) {
     L202.StubTechProd_an <- filter(L202.StubTechProd_an, !region %in% aglu.NO_AGLU_REGIONS)
     L202.StubTechCoef_an <- filter(L202.StubTechCoef_an, !region %in% aglu.NO_AGLU_REGIONS)
 
-    # Secondary Outputs from N manure (JS)
+    # Fractional secondary outputs of N-manure
     L143.an_NManure_SecOut_MtNperMt_R_C_Y %>%
       left_join_error_no_match(GCAM_region_names, by = c("GCAM_region_ID"))%>%
-      rename(supplysector = GCAM_commodity)%>%
-      filter(year == MODEL_FINAL_BASE_YEAR)%>%
-      repeat_add_columns(tibble(year = c(MODEL_FINAL_BASE_YEAR, MODEL_FUTURE_YEARS)))%>%
-      rename(year = year.y)%>%
-      select(-year.x)%>%
-      select(GCAM_region_ID, region, year, supplysector, NManure_SecOut)->
-        L143.an_NManure_SecOut_MtNperMt_R_Y_Supplysector
+      rename(supplysector = GCAM_commodity) %>%
+      select(-GCAM_region_ID) %>%
+      filter(year %in% MODEL_YEARS) ->
+      L202.an_NManure_SecOut_MtNperMt_R_C_Yh
+
+    L202.an_NManure_SecOut_MtNperMt_R_C_Yfut <- L202.an_NManure_SecOut_MtNperMt_R_C_Yh %>%
+      filter(year == max(year)) %>%
+      select(-year) %>%
+      repeat_add_columns(tibble(year = MODEL_FUTURE_YEARS))
+
+    L202.an_NManure_SecOut_MtNperMt_R_C_Y <- bind_rows(
+      L202.an_NManure_SecOut_MtNperMt_R_C_Yh,
+      L202.an_NManure_SecOut_MtNperMt_R_C_Yfut
+    )
 
     L202.StubTechCoef_an %>%
-      select(-minicam.energy.input, -coefficient, -market.name)%>%
-      select(region, year, supplysector, subsector, stub.technology)%>%
-      left_join(L143.an_NManure_SecOut_MtNperMt_R_Y_Supplysector, by = c("region",  "year", "supplysector")) %>%
-      mutate(secondary.output = supplysector)%>%
-      rename(output.ratio = NManure_SecOut)%>%
-      select(GCAM_region_ID, region, year, supplysector, subsector, stub.technology, secondary.output, output.ratio)%>%
-      select(LEVEL2_DATA_NAMES[["StubTechSecOut"]]) ->
-      L202.StubTechSecOut_an
+      select(region, supplysector, subsector, stub.technology, year) %>%
+      inner_join(L202.an_NManure_SecOut_MtNperMt_R_C_Y, by = c("region",  "year", "supplysector")) %>%
+      mutate(fractional.secondary.output = "manure",
+             output.ratio = round(NManure_SecOut, aglu.DIGITS_CALOUTPUT))%>%
+      select(LEVEL2_DATA_NAMES[["StubTechFractSecOut"]]) ->
+      L202.StubTechFractSecOut_NManure
 
-    L202.StubTechSecOut_an %>%
-      select(-output.ratio)%>%
-      mutate(pMultiplier = 0)->
-      L202.StubTechSecPmult_an
+    # Upper point of supply curve should be lower than the price of "N fertilizer" in each region in the base year
+    # Using 0.75 times the USDA price
+    BASE_NFERT_PRICE <- round(0.75 * aglu.FERT_PRICE * gdp_deflator(1975, 2010) / CONV_T_KG / CONV_NH3_N, digits = energy.DIGITS_COST)
+    L202.StubTechFractSecOut_NManure %>%
+      select(-output.ratio) %>%
+      mutate(P0 = 0) %>%
+      mutate(P1 = BASE_NFERT_PRICE) %>%
+      gather(key = "variable", value = "price", P0, P1) %>%
+      mutate(fraction.produced = as.numeric( sub("P", "", variable ) )) %>%
+      select(-variable) ->
+      L202.StubTechFractProd_NManure
+
+    L202.StubTechFractSecOut_NManure %>%
+      filter(year %in% MODEL_BASE_YEARS) %>%
+      select(-output.ratio) %>%
+      mutate(calPrice = BASE_NFERT_PRICE) ->
+      L202.StubTechFractCalPrice_NManure
 
     # Produce outputs
     L202.RenewRsrc %>%
@@ -1007,20 +1026,27 @@ module_aglu_L202.an_input <- function(command, ...) {
                      "L1327.IO_woodpulp_energy") ->
       L202.StubTechProd_in_pulp_energy
 
-    L202.StubTechSecOut_an %>%
-      add_title("Model future years for N manure secondary output coefficients") %>%
-      add_units("Unit = Mt N manure per Mt animal commodity produced") %>%
+    L202.StubTechFractSecOut_NManure %>%
+      add_title("N-manure fractional secondary output coefficients") %>%
+      add_units("kg N-manure per kg animal commodity produced") %>%
       add_comments("N manure produced divided by production of each animal commodity by region and year") %>%
       add_precursors("L143.an_NManure_SecOut_MtNperMt_R_C_Y", "common/GCAM_region_names",
                      "L143.an_NManure_SecOut_MtNperMt_R_Y_Supplysector", "L202.StubTechCoef_an") ->
-      L202.StubTechSecOut_an
+      L202.StubTechFractSecOut_NManure
 
-    L202.StubTechSecPmult_an %>%
-      add_title(  ) %>%
-      add_units(  ) %>%
-      add_comments(  ) %>%
-      add_precursors("L202.StubTechSecOut_an") ->
-      L202.StubTechSecPmult_an
+    L202.StubTechFractProd_NManure %>%
+      add_title("Price and production fraction for secondary manure outputs") %>%
+      add_units("1975$/kgN") %>%
+      add_comments("Used to set the supply function of nitrogen in manure that is captured from animal commodity production") %>%
+      same_precursors_as(L202.StubTechFractSecOut_NManure) ->
+      L202.StubTechFractProd_NManure
+
+    L202.StubTechFractCalPrice_NManure %>%
+      add_title("calPrice of Nmanure secondary supply") %>%
+      add_units("1975$/kgN") %>%
+      add_comments("Used to set the supply function of nitrogen in manure that is captured from animal commodity production") %>%
+      same_precursors_as(L202.StubTechFractSecOut_NManure) ->
+      L202.StubTechFractCalPrice_NManure
 
     return_data(MODULE_OUTPUTS)
   } else {
