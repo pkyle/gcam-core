@@ -47,7 +47,7 @@ module_aglu_L202.an_input <- function(command, ...) {
       "L110.IO_Coefs_pulp",
       "L1321.For_Cost",
       "L1327.IO_woodpulp_energy",
-      "L143.an_NManure_SecOut_MtNperMt_R_C_Y")
+      "L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y")
 
   MODULE_OUTPUTS <-
     c("L202.RenewRsrc",
@@ -754,9 +754,10 @@ module_aglu_L202.an_input <- function(command, ...) {
     L202.StubTechCoef_an <- filter(L202.StubTechCoef_an, !region %in% aglu.NO_AGLU_REGIONS)
 
     # Fractional secondary outputs of N-manure
-    L143.an_NManure_SecOut_MtNperMt_R_C_Y %>%
+    L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y %>%
       left_join_error_no_match(GCAM_region_names, by = c("GCAM_region_ID"))%>%
-      rename(supplysector = GCAM_commodity) %>%
+      rename(supplysector = GCAM_commodity,
+             subsector = system) %>%
       select(-GCAM_region_ID) %>%
       filter(year %in% MODEL_YEARS) ->
       L202.an_NManure_SecOut_MtNperMt_R_C_Yh
@@ -773,7 +774,7 @@ module_aglu_L202.an_input <- function(command, ...) {
 
     L202.StubTechCoef_an %>%
       select(region, supplysector, subsector, stub.technology, year) %>%
-      inner_join(L202.an_NManure_SecOut_MtNperMt_R_C_Y, by = c("region",  "year", "supplysector")) %>%
+      inner_join(L202.an_NManure_SecOut_MtNperMt_R_C_Y, by = c("region",  "year", "supplysector", "subsector")) %>%
       mutate(fractional.secondary.output = "manure",
              output.ratio = round(NManure_SecOut, aglu.DIGITS_CALOUTPUT))%>%
       select(LEVEL2_DATA_NAMES[["StubTechFractSecOut"]]) ->
@@ -1030,7 +1031,7 @@ module_aglu_L202.an_input <- function(command, ...) {
       add_title("N-manure fractional secondary output coefficients") %>%
       add_units("kg N-manure per kg animal commodity produced") %>%
       add_comments("N manure produced divided by production of each animal commodity by region and year") %>%
-      add_precursors("L143.an_NManure_SecOut_MtNperMt_R_C_Y", "common/GCAM_region_names",
+      add_precursors("L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y", "common/GCAM_region_names",
                      "L143.an_NManure_SecOut_MtNperMt_R_Y_Supplysector", "L202.StubTechCoef_an") ->
       L202.StubTechFractSecOut_NManure
 

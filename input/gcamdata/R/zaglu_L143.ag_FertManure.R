@@ -8,7 +8,7 @@
 #' @param ... other optional parameters, depending on command
 #' @return Depends on \code{command}: either a vector of required inputs,
 #' a vector of output names, or (if \code{command} is "MAKE") all
-#' the generated outputs: \code{L143.ag_NManure_IO_R_C_Y_GLU}, \code{L143.an_NManure_SecOut_MtNperMt_R_C_Y}, \code{L143.an_NManure_Mt_R_C_Y}. The corresponding file in the
+#' the generated outputs: \code{L143.ag_NManure_IO_R_C_Y_GLU}, \code{L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y}, \code{L143.an_NManure_Mt_R_C_Y}. The corresponding file in the
 #' original data system was \code{LB142.ag_Fert_IO_R_C_Y_GLU.R} (aglu level1).
 #' @details This chunk calculates fertilizer production by country / year (adjusted to global total consumption),
 #' fertilizer net exports by GCAM region / year as production minus consumption, and fertilizer input-output coefficients
@@ -25,12 +25,13 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
       FILE = "aglu/AGLU_ctry",
       FILE = "common/iso_GCAM_regID",
       "L101.ag_Prod_Mt_R_C_Y_GLU",
+      "L107.an_Prod_Mt_R_C_Sys_Fd_Y",
       "L109.an_ALL_Mt_R_C_Y",
       "L122.LC_bm2_R_HarvCropLand_C_Yh_GLU")
 
   MODULE_OUTPUTS <-
     c("L143.ag_NManure_IO_R_C_Y_GLU",
-      "L143.an_NManure_SecOut_MtNperMt_R_C_Y",
+      "L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y",
       "L143.an_NManure_Mt_R_C_Y")
 
   if(command == driver.DECLARE_INPUTS) {
@@ -153,7 +154,7 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
       select(GCAM_region_ID, GCAM_commodity,GCAM_subsector,GLU, year,NManure_IO)
 
 
-# L143.an_NManure_SecOut_MtNperMt_R_C_Y
+# L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y
 
     # NManure aggregated by GCAM region and year, only keeping the required animal types associated to commodities in GCAM
     # listed above
@@ -168,7 +169,7 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
     L143.NManure_R_Y_Lvstk_Commodity <- L143.NManure_R_Y_Lvstk %>%
       left_join_error_no_match(FAO_an_types_manure,
                 by = "element") %>%
-    group_by(GCAM_region_ID, year, GCAM_commodity) %>%
+      group_by(GCAM_region_ID, year, GCAM_commodity) %>%
       summarise(NManure_Mt_commodity = sum(NManure_Mt)) %>%
       ungroup()
 
@@ -177,13 +178,35 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
       left_join_error_no_match(L109.an_ALL_Mt_R_C_Y,
                 by = c("GCAM_region_ID", "year", "GCAM_commodity"))
 
+    # To allow downscaling to system (pastoral vs mixed), calculate shares of production by
+    # R_C_Sys_Y within R_C_Y
+    # To favor mixed over pastoral in collection, concentrate the shares towards mixed using
+    # an exogenous factor
+    aglu.MIXED_TO_PASTORAL_MANURE_COLLECTION_RATIO <- 4
+    L107.an_Prod_Mt_R_C_Sys_Fd_Y %>%
+      group_by(GCAM_region_ID, GCAM_commodity, system, year) %>%
+      summarise(Prod_Mt = sum(value)) %>%
+      ungroup() %>%
+      mutate(ProdForN_Mt = if_else(system == "Pastoral", Prod_Mt / aglu.MIXED_TO_PASTORAL_MANURE_COLLECTION_RATIO, Prod_Mt)) %>%
+      group_by(GCAM_region_ID, GCAM_commodity, year) %>%
+      mutate(SysProd_share = Prod_Mt / sum(Prod_Mt),
+             SysNShare = ProdForN_Mt / sum(ProdForN_Mt)) %>%
+      ungroup() %>%
+      replace_na(list(Sys_share = 0)) %>%
+      select(-Prod_Mt, -ProdForN_Mt) ->
+      L143.an_SysShare_R_C_Sys_Y
+
     # Calculating the secondary output of NManure (NManure content Mt / animal commodity Mt)
-    L143.an_NManure_SecOut_MtNperMt_R_C_Y <- L143.NManure_R_Y_Lvstk_Commodity_Mt %>%
+    L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y <- L143.NManure_R_Y_Lvstk_Commodity_Mt %>%
+      select(GCAM_region_ID, GCAM_commodity, year, NManure_Mt_commodity, Prod_Mt) %>%
+      left_join(L143.an_SysShare_R_C_Sys_Y, by = c("GCAM_region_ID", "GCAM_commodity", "year")) %>%
       mutate(
+        NManure_Mt_commodity = NManure_Mt_commodity * SysNShare,
+        Prod_Mt = Prod_Mt * SysProd_share,
         NManure_SecOut = NManure_Mt_commodity / Prod_Mt,
         NManure_SecOut = replace_na(NManure_SecOut, 0)
       ) %>%
-      select(GCAM_region_ID, GCAM_commodity, year, NManure_SecOut)
+      select(GCAM_region_ID, GCAM_commodity, system, year, NManure_SecOut)
 
 
 # L143.an_NManure_Mt_R_C_Y
@@ -206,22 +229,23 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
                      "L122.LC_bm2_R_HarvCropLand_C_Yh_GLU") ->
       L143.ag_NManure_IO_R_C_Y_GLU
 
-    L143.an_NManure_SecOut_MtNperMt_R_C_Y %>%
+    L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y %>%
       add_title("N manure secondary output coefficients") %>%
       add_units("Unit = Mt N manure per Mt animal commodity produced") %>%
-      add_comments("N manure produced divided by production of each animal commodity by region and year") %>%
+      add_comments("N manure produced (collected) divided by production of each animal commodity by region / system / year") %>%
       add_precursors("aglu/FAO/GCAMFAOSTAT_NManure",
                      "aglu/FAO/FAO_an_types_manure",
                      "aglu/AGLU_ctry",
                      "common/iso_GCAM_regID",
+                     "L107.an_Prod_Mt_R_C_Sys_Fd_Y",
                      "L109.an_ALL_Mt_R_C_Y") ->
-      L143.an_NManure_SecOut_MtNperMt_R_C_Y
+      L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y
 
     L143.an_NManure_Mt_R_C_Y %>%
       add_title("N manure production") %>%
       add_units("Unit = Mt N") %>%
       add_comments("N manure produced by region and animal commodity type") %>%
-      same_precursors_as(L143.an_NManure_SecOut_MtNperMt_R_C_Y) ->
+      same_precursors_as(L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y) ->
       L143.an_NManure_Mt_R_C_Y
 
     return_data(MODULE_OUTPUTS)
