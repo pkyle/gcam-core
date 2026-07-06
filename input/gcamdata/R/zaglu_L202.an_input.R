@@ -1031,8 +1031,7 @@ module_aglu_L202.an_input <- function(command, ...) {
       add_title("N-manure fractional secondary output coefficients") %>%
       add_units("kg N-manure per kg animal commodity produced") %>%
       add_comments("N manure produced divided by production of each animal commodity by region and year") %>%
-      add_precursors("L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y", "common/GCAM_region_names",
-                     "L143.an_NManure_SecOut_MtNperMt_R_Y_Supplysector", "L202.StubTechCoef_an") ->
+      add_precursors("L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y", "common/GCAM_region_names", "L202.StubTechCoef_an") ->
       L202.StubTechFractSecOut_NManure
 
     L202.StubTechFractProd_NManure %>%
