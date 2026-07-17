@@ -1,0 +1,65 @@
+"scenario","GCAM_region_ID","region","input","self.price.elasticity","cross.price.elasticity"
+"SSP2",1,"USA","FoodDemand_NonStaples",-1.16629376666667,0.00267143171818182
+"SSP2",2,"Africa_Eastern","FoodDemand_NonStaples",-0.841433022222222,-0.0152940850290556
+"SSP2",3,"Africa_Northern","FoodDemand_NonStaples",-0.739028141666667,-0.0269930129262523
+"SSP2",4,"Africa_Southern","FoodDemand_NonStaples",-0.870595455555556,-0.0125696825870034
+"SSP2",5,"Africa_Western","FoodDemand_NonStaples",-0.862737910526316,-0.0145823197673732
+"SSP2",6,"Australia_NZ","FoodDemand_NonStaples",-1.12877136666667,0.0065127661569697
+"SSP2",7,"Brazil","FoodDemand_NonStaples",-0.967178366666667,-0.00520755530151515
+"SSP2",8,"Canada","FoodDemand_NonStaples",-1.10222526666667,-0.00265016019393939
+"SSP2",9,"Central America and Caribbean","FoodDemand_NonStaples",-0.869914159259259,-0.01385637112613
+"SSP2",10,"Central Asia","FoodDemand_NonStaples",-0.952887558333333,-0.0106919144293939
+"SSP2",11,"China","FoodDemand_NonStaples",-0.894341316666667,-0.0151688311638333
+"SSP2",12,"EU-12","FoodDemand_NonStaples",-0.866988422222222,-0.0139954641086919
+"SSP2",13,"EU-15","FoodDemand_NonStaples",-0.967616135555556,-0.00706396680236041
+"SSP2",14,"Europe_Eastern","FoodDemand_NonStaples",-0.949900522222222,-0.0132074454215596
+"SSP2",15,"Europe_Non_EU","FoodDemand_NonStaples",-0.787796744444444,-0.0227395388976566
+"SSP2",16,"European Free Trade Association","FoodDemand_NonStaples",-1.1473227,0.00168236987636364
+"SSP2",17,"India","FoodDemand_NonStaples",-0.722963166666667,-0.0278495508060606
+"SSP2",18,"Indonesia","FoodDemand_NonStaples",-0.8365098,-0.021926635559697
+"SSP2",19,"Japan","FoodDemand_NonStaples",-0.882773466666667,-0.0082024371969697
+"SSP2",20,"Mexico","FoodDemand_NonStaples",-0.793807633333333,-0.0210817814778788
+"SSP2",21,"Middle East","FoodDemand_NonStaples",-0.9955441375,-0.0113539172424735
+"SSP2",22,"Pakistan","FoodDemand_NonStaples",-0.7515042,-0.0223800678060606
+"SSP2",23,"Russia","FoodDemand_NonStaples",-0.944268,-0.00907990208545455
+"SSP2",24,"South Africa","FoodDemand_NonStaples",-0.753516766666667,-0.0205790285848485
+"SSP2",25,"South America_Northern","FoodDemand_NonStaples",-0.86770635,-0.016671526295303
+"SSP2",26,"South America_Southern","FoodDemand_NonStaples",-0.857049627777778,-0.0115982109542525
+"SSP2",27,"South Asia","FoodDemand_NonStaples",-0.8120637,-0.0184254125784848
+"SSP2",28,"South Korea","FoodDemand_NonStaples",-1.03816816666667,-0.00681030001212121
+"SSP2",29,"Southeast Asia","FoodDemand_NonStaples",-0.8428726,-0.0204989088422841
+"SSP2",30,"Taiwan","FoodDemand_NonStaples",-0.7676163,-0.0262426343293939
+"SSP2",31,"Argentina","FoodDemand_NonStaples",-0.966509266666667,0.00685726141090909
+"SSP2",32,"Colombia","FoodDemand_NonStaples",-0.919201,-0.0126650364545455
+"SSP2",1,"USA","FoodDemand_Staples",-0.509631333333333,-0.132250801969697
+"SSP2",2,"Africa_Eastern","FoodDemand_Staples",-0.551939083333333,-0.102536368055556
+"SSP2",3,"Africa_Northern","FoodDemand_Staples",-0.321425,-0.0567987454924242
+"SSP2",4,"Africa_Southern","FoodDemand_Staples",-0.538789259259259,-0.103906185477273
+"SSP2",5,"Africa_Western","FoodDemand_Staples",-0.557919605263158,-0.0977140359759171
+"SSP2",6,"Australia_NZ","FoodDemand_Staples",-0.52572625,-0.108406755795455
+"SSP2",7,"Brazil","FoodDemand_Staples",-0.504125166666667,-0.0779363348484848
+"SSP2",8,"Canada","FoodDemand_Staples",-0.487521166666667,-0.112433416666667
+"SSP2",9,"Central America and Caribbean","FoodDemand_Staples",-0.467835388888889,-0.0830789068794613
+"SSP2",10,"Central Asia","FoodDemand_Staples",-0.460692895833333,-0.0683519964261364
+"SSP2",11,"China","FoodDemand_Staples",-0.45730775,-0.0672083479545455
+"SSP2",12,"EU-12","FoodDemand_Staples",-0.415202944444444,-0.0999909735542929
+"SSP2",13,"EU-15","FoodDemand_Staples",-0.426036122222222,-0.0970121681040404
+"SSP2",14,"Europe_Eastern","FoodDemand_Staples",-0.428949388888889,-0.0654047888787879
+"SSP2",15,"Europe_Non_EU","FoodDemand_Staples",-0.370556527777778,-0.0670601689646465
+"SSP2",16,"European Free Trade Association","FoodDemand_Staples",-0.553872611111111,-0.100763846984848
+"SSP2",17,"India","FoodDemand_Staples",-0.463210333333333,-0.0946836590909091
+"SSP2",18,"Indonesia","FoodDemand_Staples",-0.408133166666667,-0.0837681621212121
+"SSP2",19,"Japan","FoodDemand_Staples",-0.6198505,-0.127820015530303
+"SSP2",20,"Mexico","FoodDemand_Staples",-0.419681333333333,-0.0853885062121212
+"SSP2",21,"Middle East","FoodDemand_Staples",-0.433818429166667,-0.0646040848145833
+"SSP2",22,"Pakistan","FoodDemand_Staples",-0.495692333333333,-0.0803975303030303
+"SSP2",23,"Russia","FoodDemand_Staples",-0.429393166666667,-0.0620038348484849
+"SSP2",24,"South Africa","FoodDemand_Staples",-0.501498666666667,-0.157171104545455
+"SSP2",25,"South America_Northern","FoodDemand_Staples",-0.469207166666667,-0.0549674835606061
+"SSP2",26,"South America_Southern","FoodDemand_Staples",-0.503847222222222,-0.0729542251262626
+"SSP2",27,"South Asia","FoodDemand_Staples",-0.491187333333333,-0.12127701010101
+"SSP2",28,"South Korea","FoodDemand_Staples",-0.522004166666667,-0.0805202987878788
+"SSP2",29,"Southeast Asia","FoodDemand_Staples",-0.430972741666667,-0.0787337857272727
+"SSP2",30,"Taiwan","FoodDemand_Staples",-0.328486666666667,-0.0622634962121212
+"SSP2",31,"Argentina","FoodDemand_Staples",-0.570132166666667,-0.0610266995454545
+"SSP2",32,"Colombia","FoodDemand_Staples",-0.370900833333333,-0.0665803993939394

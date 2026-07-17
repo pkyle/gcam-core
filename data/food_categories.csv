@@ -1,0 +1,13 @@
+food,sector,input
+cheese,Protein,NonStaples
+eggs,Protein,NonStaples
+fats_and_oils,Oil,NonStaples
+fresh_dairy,Protein,NonStaples
+fruits_vegetables_pulses,FruitsVeg,NonStaples
+grains_flours,OtherGrain,Staples
+pork,Protein,NonStaples
+poultry,Protein,NonStaples
+pres_other_dairy,Protein,NonStaples
+ruminants,Protein,NonStaples
+seafood,Protein,NonStaples
+Other,NA,Staples

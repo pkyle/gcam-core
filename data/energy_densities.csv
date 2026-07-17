@@ -1,0 +1,7 @@
+Fuel,Scenario,Density
+Petroleum,elec_NH3_hicost,0.04186
+Ammonia,elec_NH3_hicost_NH3ship,0.0188
+Petroleum,elec_NH3_locost,0.04186
+Ammonia,elec_NH3_locost_NH3ship,0.0188
+Petroleum,NGCCS_NH3,0.04186
+Ammonia,NGCCS_NH3_NH3ship,0.0188
