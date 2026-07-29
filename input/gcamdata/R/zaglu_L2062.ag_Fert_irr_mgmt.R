@@ -24,10 +24,12 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
     c(FILE = "common/GCAM_region_names",
       FILE = "water/basin_to_country_mapping",
       FILE = "aglu/A_Fodderbio_chars",
-      "L142.ag_NFert_IO_R_C_Y_GLU",
+      "L1251.SoilTypeShare_R_Soil_LT_C_GLU",
+      "L142.ag_SyntheticNFert_IO_R_C_Y_GLU",
       "L142.ag_PFert_IO_R_C_Y_GLU",
       "L2052.AgCost_ag_irr_mgmt",
-      "L2052.AgCost_bio_irr_mgmt")
+      "L2052.AgCost_bio_irr_mgmt",
+      "L143.ag_NManure_IO_R_C_Y_GLU")
 
   MODULE_OUTPUTS <-
     c("L2062.AgCoef_Fert_ag_irr_mgmt",
@@ -53,8 +55,13 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
 
 
     # Process Fertilizer Coefficients: Copy coefficients to all four technologies (irr/rfd + hi/lo)
-    L142.ag_NFert_IO_R_C_Y_GLU %>%
-      mutate(minicam.energy.input = aglu.N_FERT_NAME) %>%
+    # Note: left_join_error_no_match only works here because the manure inputs to crops are restricted to
+    # region/crop/basin/years with non-zero use of synthetic nitrogen. If this restriction is revised in
+    # module_aglu_L143.ag_FertManure, then the code below should use full_join, backfilling NAs with 0
+    L142.ag_SyntheticNFert_IO_R_C_Y_GLU %>%
+      left_join_error_no_match(L143.ag_NManure_IO_R_C_Y_GLU, by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector", "GLU", "year")) %>%
+      mutate(value = value + NManure_IO,
+             minicam.energy.input = aglu.N_FERT_NAME) %>%
       bind_rows(mutate(L142.ag_PFert_IO_R_C_Y_GLU, minicam.energy.input = aglu.P_FERT_NAME)) %>%
       filter(year %in% MODEL_BASE_YEARS) %>%
       left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
@@ -158,12 +165,13 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
     L2062.AgCoef_Fert_ag_irr_mgmt %>%
       add_title("Fertilizer coefficients for agricultural technologies") %>%
       add_units("kgN per kg crop") %>%
-      add_comments("Map fertilizer coefficients in L142.ag_NFert_IO_R_C_Y_GLU to all technologies") %>%
+      add_comments("Map fertilizer coefficients in L142.ag_SyntheticNFert_IO_R_C_Y_GLU to all technologies") %>%
       add_comments("Note: we are using the same coefficient for all four management technologies (irrigated, rainfed, hi and lo") %>%
       add_legacy_name("L2062.AgCoef_Fert_ag_irr_mgmt") %>%
       add_precursors("common/GCAM_region_names",
                      "water/basin_to_country_mapping",
-                     "L142.ag_NFert_IO_R_C_Y_GLU") ->
+                     "L142.ag_SyntheticNFert_IO_R_C_Y_GLU",
+                     "L143.ag_NManure_IO_R_C_Y_GLU") ->
       L2062.AgCoef_Fert_ag_irr_mgmt
 
     L2062.AgCoef_Fert_bio_irr_mgmt %>%

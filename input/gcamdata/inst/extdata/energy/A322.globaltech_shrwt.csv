@@ -13,7 +13,8 @@ ammonia,hydrogen,hydrogen,0,0,0,0,1,1
 traded ammonia,traded ammonia,traded ammonia,1,1,1,1,1,1
 regional ammonia,domestic ammonia,domestic ammonia,0,1,1,1,1,1
 regional ammonia,imported ammonia,imported ammonia,0,1,1,1,1,1
-N fertilizer,N fertilizer,N fertilizer,0,1,1,1,1,1
+N fertilizer,synthetic N,synthetic N,0,1,1,1,1,1
+N fertilizer,manure N,manure N,0,1,1,1,1,1
 phosphate,phosphate,phosphate,0,1,1,1,1,1
 traded phosphate,traded phosphate,traded phosphate,1,1,1,1,1,1
 regional phosphate,domestic phosphate,domestic phosphate,0,1,1,1,1,1

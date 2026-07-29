@@ -15,7 +15,8 @@ ammonia,hydrogen,hydrogen,wholesale gas,0,0.011,0.0074,0.0029,0.0029
 traded ammonia,traded ammonia,traded ammonia,ammonia,1,1,1,1,1
 regional ammonia,domestic ammonia,domestic ammonia,ammonia,0,1,1,1,1
 regional ammonia,imported ammonia,imported ammonia,traded ammonia,0,1,1,1,1
-N fertilizer,N fertilizer,N fertilizer,regional ammonia,0,1.2143,1.2143,1.2143,1.2143
+N fertilizer,synthetic N,synthetic N,regional ammonia,0,1.2143,1.2143,1.2143,1.2143
+N fertilizer,manure N,manure N,manure,0,1,1,1,1
 phosphate,phosphate,phosphate,phosphate resource,0,1,1,1,1
 traded phosphate,traded phosphate,traded phosphate,phosphate,1,1,1,1,1
 regional phosphate,domestic phosphate,domestic phosphate,phosphate,0,1,1,1,1

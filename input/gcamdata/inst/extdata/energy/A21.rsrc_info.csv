@@ -1,7 +1,8 @@
 # File: A21.rsrc_info.csv
-# Title: Name and characteristics of resource for secondary outputs from refining
+# Title: Name and characteristics of resource for secondary outputs from refining and livestock
 # Units: 1975$/kg
 # Column types: cccc
 # ----------
 resource,market,output-unit,price-unit
 DDGS and feedcakes,regional,Mt,1975$/kg
+manure,regional,Mt,1975$/kg

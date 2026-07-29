@@ -38,7 +38,8 @@ module_energy_L2322.Fert <- function(command, ...) {
              "L1322.Fert_NEcost_75USDkgNH3_F",
              "L1322.Fert_GrossTrade_Mt_R_Y",
              "L142.ag_PFert_Prod_MtP2O5_R_Y",
-             "L142.ag_PFert_NetExp_MtP2O5_R_Y"))
+             "L142.ag_PFert_NetExp_MtP2O5_R_Y",
+             "L143.an_NManure_Mt_R_C_Y"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L2322.Supplysector_Fert",
              "L2322.SectorUseTrialMarket_tra",
@@ -84,6 +85,7 @@ module_energy_L2322.Fert <- function(command, ...) {
     L1322.Fert_GrossTrade_Mt_R_Y <- get_data(all_data, "L1322.Fert_GrossTrade_Mt_R_Y", strip_attributes = TRUE)
     L142.ag_PFert_Prod_MtP2O5_R_Y <- get_data(all_data, "L142.ag_PFert_Prod_MtP2O5_R_Y", strip_attributes = TRUE)
     L142.ag_PFert_NetExp_MtP2O5_R_Y <- get_data(all_data, "L142.ag_PFert_NetExp_MtP2O5_R_Y", strip_attributes = TRUE)
+    L143.an_NManure_Mt_R_C_Y <- get_data(all_data, "L143.an_NManure_Mt_R_C_Y", strip_attributes = TRUE)
 
     # ===================================================
     # 0. Give binding for variable names used in pipeline
@@ -406,17 +408,38 @@ module_energy_L2322.Fert <- function(command, ...) {
                                by = c("year", supplysector = "minicam.energy.input")) %>%
       mutate(calOutputValue = round((DomConsumption + Imports) / coefficient,
                                     energy.DIGITS_CALOUTPUT)) %>%
-      left_join_error_no_match(select(fertilizer_commodity_naming, domestic_supply_commodity, ag_commodity),
+      left_join_error_no_match(select(fertilizer_commodity_naming, domestic_supply_commodity, ag_commodity, subsector),
                                by = c(supplysector = "domestic_supply_commodity")) %>%
       select(-supplysector) %>%
       rename(supplysector = ag_commodity) %>%
       left_join_error_no_match(L2322.StubTech_Fert,
-                               by = c("region", "supplysector")) %>%
+                               by = c("region", "supplysector", "subsector")) %>%
       mutate(share.weight.year = year,
              subs.share.weight = if_else(calOutputValue > 0, 1, 0),
              tech.share.weight = if_else(calOutputValue > 0, 1, 0)) %>%
       select(LEVEL2_DATA_NAMES[["StubTechProd"]]) ->
-      L2322.StubTechProd_NPtoAg
+      L2322.StubTechProd_syntheticNPtoAg
+
+    # Calibrated flow of Nitrogen content applied to soils from manure(Nmanure) to agricultural "N fertilizer"
+    # The input of Nmanure to N fertilizer is equal to the sum of manure by all animal types
+    L143.an_NManure_Mt_R_C_Y %>%
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+      filter(year %in% MODEL_YEARS) %>%
+      group_by(region, year)%>%
+      summarise(calOutputValue = sum(NManure_Mt_commodity)) %>%
+      ungroup() %>%
+      mutate(supplysector = aglu.N_FERT_NAME) %>%
+      left_join_error_no_match(select(filter(A322.globaltech_shrwt, grepl("manure", technology)), supplysector, subsector, technology),
+                               by = "supplysector") %>%
+      mutate(stub.technology = technology,
+             share.weight.year = year,
+             subs.share.weight = if_else(calOutputValue > 0, 1, 0),
+             tech.share.weight = if_else(calOutputValue > 0, 1, 0)) %>%
+      select(LEVEL2_DATA_NAMES[["StubTechProd"]]) ->
+      L2322.StubTechProd_manureNtoAg
+
+    # bind synthetic and manure tables
+    L2322.StubTechProd_NPtoAg <- bind_rows(L2322.StubTechProd_syntheticNPtoAg, L2322.StubTechProd_manureNtoAg)
 
     # ===================================================
     # Produce outputs
@@ -549,8 +572,8 @@ module_energy_L2322.Fert <- function(command, ...) {
       L2322.GlobalTechProfitShutdown_Fert
 
     L2322.StubTechProd_NFertProd %>%
-      add_title("calibrated output of fertilizer technologies") %>%
-      add_units("Mt N") %>%
+      add_title("calibrated output of ammonia production technologies") %>%
+      add_units("Mt NH3") %>%
       add_comments("Values are calculated using L1322.Fert_Prod_MtNH3_R_F_Y then added GCAM region information") %>%
       add_legacy_name("L2322.StubTechProd_Fert") %>%
       add_precursors("L1322.Fert_Prod_MtNH3_R_F_Y", "common/GCAM_region_names", "energy/calibrated_techs") ->

@@ -333,16 +333,26 @@ module_energy_L221.en_supply <- function(command, ...) {
 
 
     # Final tables for feedcrop secondary output: the resource
-    A21.rsrc_info %>%
-      repeat_add_columns(L221.ddgs_regions) %>%
-      select(region, resource, output.unit = "output-unit", price.unit = "price-unit", market) %>%
-      mutate(market = region) -> L221.Rsrc_en
+      A21.rsrc_info %>%
+        repeat_add_columns(GCAM_region_names["region"]) %>%
+        select(region, resource, output.unit = "output-unit", price.unit = "price-unit", market) %>%
+        filter(!grepl("DDGS", resource) | region %in% L221.ddgs_regions$region) %>%
+        mutate(market = if_else(market == "regional", region, market)) ->
+        L221.Rsrc_en
 
-    # Resource prices are copied from the fractional secondary output calPrice
-    L221.StubTechFractCalPrice_en %>%
-      select(region, resource = fractional.secondary.output, year, price = calPrice) ->
-      L221.RsrcPrice_en
+      # Resource prices of DDGS are copied from the fractional secondary output calPrice
+      L221.StubTechFractCalPrice_en %>%
+        select(region, resource = fractional.secondary.output, year, price = calPrice) ->
+        L221.RsrcPrice_en
 
+      L221.RsrcPrice_NManure <- tibble(
+        region = GCAM_region_names$region,
+        resource = "manure",
+        price = round(aglu.N_FERT_PRICE * gdp_deflator(1975, 2010) / CONV_T_KG / CONV_NH3_N, digits = energy.DIGITS_COST)
+      ) %>%
+        repeat_add_columns(tibble(year = MODEL_BASE_YEARS))
+
+      L221.RsrcPrice_en <- bind_rows(L221.RsrcPrice_en, L221.RsrcPrice_NManure)
 
     # Calibration and region specific data
 

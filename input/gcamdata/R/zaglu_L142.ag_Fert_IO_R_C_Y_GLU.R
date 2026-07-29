@@ -9,7 +9,7 @@
 #' @param ... other optional parameters, depending on command
 #' @return Depends on \code{command}: either a vector of required inputs,
 #' a vector of output names, or (if \code{command} is "MAKE") all
-#' the generated outputs: \code{L142.ag_NFert_Prod_MtN_ctry_Y}, \code{L142.ag_NFert_NetExp_MtN_R_Y}, \code{L142.ag_NFert_IO_R_C_Y_GLU}. The corresponding file in the
+#' the generated outputs: \code{L142.ag_NFert_Prod_MtN_ctry_Y}, \code{L142.ag_NFert_NetExp_MtN_R_Y}, \code{L142.ag_SyntheticNFert_IO_R_C_Y_GLU}. The corresponding file in the
 #' original data system was \code{LB142.ag_Fert_IO_R_C_Y_GLU.R} (aglu level1).
 #' @details This chunk calculates fertilizer production by country / year (adjusted to global total consumption),
 #' fertilizer net exports by GCAM region / year as production minus consumption, and fertilizer input-output coefficients
@@ -33,7 +33,7 @@ module_aglu_L142.ag_Fert_IO_R_C_Y_GLU <- function(command, ...) {
   MODULE_OUTPUTS <-
     c("L142.ag_NFert_Prod_MtN_ctry_Y",
       "L142.ag_NFert_NetExp_MtN_R_Y",
-      "L142.ag_NFert_IO_R_C_Y_GLU",
+      "L142.ag_SyntheticNFert_IO_R_C_Y_GLU",
       "L142.ag_PFert_Prod_MtP2O5_R_Y",
       "L142.ag_PFert_NetExp_MtP2O5_R_Y",
       "L142.ag_PFert_IO_R_C_Y_GLU")
@@ -135,7 +135,7 @@ module_aglu_L142.ag_Fert_IO_R_C_Y_GLU <- function(command, ...) {
       select(GCAM_region_ID, GCAM_commodity, GCAM_subsector, year, value)
 
      # Expand IO coefs to the GLU. Drop the input altogether if all years have coefs of 0
-    L142.ag_NFert_IO_R_C_Y_GLU <- L101.ag_Prod_Mt_R_C_Y_GLU %>%
+    L142.ag_SyntheticNFert_IO_R_C_Y_GLU <- L101.ag_Prod_Mt_R_C_Y_GLU %>%
       select(-value) %>%
       left_join_error_no_match(L142.ag_N_Fert_IO_R_C_Yh,
                                by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector", "year")) %>%
@@ -243,17 +243,17 @@ module_aglu_L142.ag_Fert_IO_R_C_Y_GLU <- function(command, ...) {
                      "L141.ag_Fert_Cons_MtN_ctry_crop_Yh") ->
       L142.ag_NFert_NetExp_MtN_R_Y
 
-    L142.ag_NFert_IO_R_C_Y_GLU %>%
+    L142.ag_SyntheticNFert_IO_R_C_Y_GLU %>%
       add_title("Nitrogen fertilizer input-output coefficients by GCAM region / crop / year / GLU") %>%
       add_units("kg N per kg crop produced") %>%
       add_comments("Input-output coefficients for each crop are calculated as fertilizer consumption divided by crop production") %>%
-      add_legacy_name("L142.ag_NFert_IO_R_C_Y_GLU") %>%
+      add_legacy_name("L142.ag_SyntheticNFert_IO_R_C_Y_GLU") %>%
       add_precursors("common/iso_GCAM_regID",
                      "aglu/FAO/FAO_ag_items_PRODSTAT",
                      "L100.LDS_ag_prod_t",
                      "L101.ag_Prod_Mt_R_C_Y_GLU",
                      "L141.ag_Fert_Cons_MtN_ctry_crop_Yh") ->
-      L142.ag_NFert_IO_R_C_Y_GLU
+      L142.ag_SyntheticNFert_IO_R_C_Y_GLU
 
     L142.ag_PFert_Prod_MtP2O5_R_Y %>%
       add_title("Phosphate fertilizer production by region / year") %>%
@@ -276,7 +276,7 @@ module_aglu_L142.ag_Fert_IO_R_C_Y_GLU <- function(command, ...) {
       add_title("Phosphorus fertilizer input-output coefficients by GCAM region / crop / year / GLU") %>%
       add_units("kg P per kg crop produced") %>%
       add_comments("Input-output coefficients for each crop are calculated as fertilizer consumption divided by crop production") %>%
-      add_legacy_name("L142.ag_NFert_IO_R_C_Y_GLU") %>%
+      add_legacy_name("L142.ag_SyntheticNFert_IO_R_C_Y_GLU") %>%
       add_precursors("aglu/FAO/FAO_ag_items_PRODSTAT",
                      "L100.LDS_ag_prod_t",
                      "L101.ag_Prod_Mt_R_C_Y_GLU",

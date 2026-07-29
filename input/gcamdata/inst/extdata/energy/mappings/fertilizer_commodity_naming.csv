@@ -1,8 +1,8 @@
 # File: fertilizer_commodity_naming.csv
 # Title: Mapping between fertilizer commodity names at various points in the production-consumption chain
 # Units: None
-# Column types: cccc
+# Column types: ccccc
 # ----------
-ag_commodity,production_commodity,export_commodity,domestic_supply_commodity
-N fertilizer,ammonia,traded ammonia,regional ammonia
-P fertilizer,phosphate,traded phosphate,regional phosphate
+ag_commodity,production_commodity,export_commodity,domestic_supply_commodity,subsector
+N fertilizer,ammonia,traded ammonia,regional ammonia,synthetic N
+P fertilizer,phosphate,traded phosphate,regional phosphate,P fertilizer

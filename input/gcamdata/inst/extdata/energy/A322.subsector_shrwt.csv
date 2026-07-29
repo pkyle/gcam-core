@@ -13,7 +13,8 @@ ammonia,hydrogen,0,2050,,1
 traded ammonia,traded ammonia,1,start-year,,1
 regional ammonia,domestic ammonia,0,start-year,,1
 regional ammonia,imported ammonia,0,start-year,,1
-N fertilizer,N fertilizer,0,start-year,,1
+N fertilizer,synthetic N,0,start-year,,1
+N fertilizer,manure N,0,start-year,,1
 phosphate,phosphate,0,start-year,,1
 traded phosphate,traded phosphate,1,start-year,,1
 regional phosphate,domestic phosphate,0,start-year,,1
