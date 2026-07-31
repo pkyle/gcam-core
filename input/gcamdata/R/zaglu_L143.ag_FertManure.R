@@ -2,7 +2,7 @@
 
 #' module_aglu_L143.ag_FertManure
 #'
-#'  Aggregate FAO Nitrogen content in manure to GCAM livestock and crop types by country / year
+#'  Assign FAO nitrogen in manure applied to soils, to GCAM N and P from livestock to crops
 #'
 #' @param command API command to execute
 #' @param ... other optional parameters, depending on command
@@ -23,6 +23,7 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
     c(FILE = "aglu/FAO/GCAMFAOSTAT_NManure",
       FILE = "aglu/FAO/FAO_an_types_manure",
       FILE = "aglu/AGLU_ctry",
+      FILE = "aglu/A_manure_N_P_ratios",
       FILE = "common/iso_GCAM_regID",
       "L101.ag_Prod_Mt_R_C_Y_GLU",
       "L107.an_Prod_Mt_R_C_Sys_Fd_Y",
@@ -33,7 +34,10 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
   MODULE_OUTPUTS <-
     c("L143.ag_NManure_IO_R_C_Y_GLU",
       "L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y",
-      "L143.an_NManure_Mt_R_C_Y")
+      "L143.an_NManure_Mt_R_C_Y",
+      "L143.ag_PManure_IO_R_C_Y_GLU",
+      "L143.an_PManure_SecOut_MtPperMt_R_C_Sys_Y",
+      "L143.an_PManure_Mt_R_C_Y")
 
   if(command == driver.DECLARE_INPUTS) {
     return(MODULE_INPUTS)
@@ -217,6 +221,30 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
     L143.an_NManure_Mt_R_C_Y <- L143.NManure_R_Y_Lvstk_Commodity_Mt %>%
       select(GCAM_region_ID, GCAM_commodity, year,NManure_Mt_commodity)
 
+    # Calculate phosphorus using exogenous N:P ratios
+    L143.an_PManure_SecOut_MtPperMt_R_C_Sys_Y <- L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y %>%
+      left_join_error_no_match(A_manure_N_P_ratios, by = "GCAM_commodity") %>%
+      mutate(PManure_SecOut = NManure_SecOut / N_P_ratio) %>%
+      select(GCAM_region_ID, GCAM_commodity, system, year, PManure_SecOut)
+
+    L143.an_PManure_Mt_R_C_Y <- L143.an_NManure_Mt_R_C_Y %>%
+      left_join_error_no_match(A_manure_N_P_ratios, by = "GCAM_commodity") %>%
+      mutate(PManure_Mt_commodity = NManure_Mt_commodity / N_P_ratio) %>%
+      select(GCAM_region_ID, GCAM_commodity, year, PManure_Mt_commodity)
+
+    # Ag IO coefficients need to be calculated from total PManure by region/year, times land shares, divided by production
+    L143.PManure_R_Y <- L143.an_PManure_Mt_R_C_Y %>%
+      group_by(GCAM_region_ID, year) %>%
+      summarise(PManure_Mt = sum(PManure_Mt_commodity)) %>%
+      ungroup()
+
+    L143.ag_PManure_IO_R_C_Y_GLU <- L143.LandShares_R_C_Y_GLU %>%
+      left_join_error_no_match(L143.PManure_R_Y, by = c("GCAM_region_ID", "year")) %>%
+      mutate(PManure_Mt = PManure_Mt * landshare) %>%
+      left_join_error_no_match(L101.ag_Prod_Mt_R_C_Y_GLU,
+                               by = c("GCAM_region_ID","GCAM_commodity", "GCAM_subsector", "GLU", "year")) %>%
+      mutate(PManure_IO = if_else(value == 0, 0, PManure_Mt / value)) %>%
+      select(GCAM_region_ID, GCAM_commodity, GCAM_subsector, GLU, year, PManure_IO)
 
     # Produce outputs
     L143.ag_NManure_IO_R_C_Y_GLU %>%
@@ -245,11 +273,36 @@ module_aglu_L143.ag_FertManure <- function(command, ...) {
       L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y
 
     L143.an_NManure_Mt_R_C_Y %>%
-      add_title("N manure production") %>%
+      add_title("Nitrogen in manure applied to soils by region/animal commodity/year") %>%
       add_units("Unit = Mt N") %>%
       add_comments("N manure produced by region and animal commodity type") %>%
       same_precursors_as(L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y) ->
       L143.an_NManure_Mt_R_C_Y
+
+    L143.ag_PManure_IO_R_C_Y_GLU %>%
+      add_title("P manure application per unit crop production by region/crop/year/GLU") %>%
+      add_units("Unit = kg of manure P applied per kg of crop production") %>%
+      add_comments("Manure phosphorus is aggregated from all animal types") %>%
+      same_precursors_as(L143.ag_NManure_IO_R_C_Y_GLU) %>%
+      add_precursors("aglu/A_manure_N_P_ratios") ->
+      L143.ag_PManure_IO_R_C_Y_GLU
+
+    L143.an_PManure_SecOut_MtPperMt_R_C_Sys_Y %>%
+      add_title("P manure secondary output coefficients") %>%
+      add_units("Unit = kg P in manure applied to soils per kg animal commodity produced") %>%
+      add_comments("N manure produced (collected) divided by production of each animal commodity by region / system / year") %>%
+      same_precursors_as(L143.an_NManure_SecOut_MtNperMt_R_C_Sys_Y) %>%
+      add_precursors("aglu/A_manure_N_P_ratios") ->
+      L143.an_PManure_SecOut_MtPperMt_R_C_Sys_Y
+
+    L143.an_PManure_Mt_R_C_Y %>%
+      add_title("Phosphorus in manure applied to soils by region/animal commodity/year") %>%
+      add_units("Unit = Mt P") %>%
+      add_comments("Estimated from FAO N-manure and exogenous manure N:P ratios") %>%
+      same_precursors_as(L143.an_NManure_Mt_R_C_Y) %>%
+      add_precursors("aglu/A_manure_N_P_ratios") ->
+      L143.an_PManure_Mt_R_C_Y
+
 
     return_data(MODULE_OUTPUTS)
   } else {

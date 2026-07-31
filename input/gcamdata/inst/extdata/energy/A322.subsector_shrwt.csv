@@ -1,5 +1,5 @@
 # File: A322.subsector_shrwt.csv
-# Title: ammonia / traded ammonia / regional ammonia / N fertilizer default subsector shareweights
+# Title: Default subsector share-weights of N and P fertilizer (and upstream production/traded/domestic supply commodities)
 # Units: Unitless
 # Column types: cciccn
 # ----------
@@ -19,4 +19,5 @@ phosphate,phosphate,0,start-year,,1
 traded phosphate,traded phosphate,1,start-year,,1
 regional phosphate,domestic phosphate,0,start-year,,1
 regional phosphate,imported phosphate,0,start-year,,1
-P fertilizer,P fertilizer,0,start-year,,1
+P fertilizer,geologic P,0,start-year,,1
+P fertilizer,manure P,0,start-year,,1

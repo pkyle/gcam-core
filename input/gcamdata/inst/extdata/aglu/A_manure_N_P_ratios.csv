@@ -1,0 +1,12 @@
+# File: A_manure_N_P_ratios.csv
+# Title: Nitrogen to phosphorus ratios of animal manure, by animal commodity type
+# Units: None
+# Source: Table 2 of Ludemann et al. 2024: https://doi.org/10.5194/essd-16-525-2024
+# Column types: cn
+# ----------
+GCAM_commodity,N_P_ratio
+Beef,5.3
+Dairy,7.1
+Pork,3.8
+Poultry,4.1
+SheepGoat,6.1

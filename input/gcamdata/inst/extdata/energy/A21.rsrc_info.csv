@@ -5,4 +5,5 @@
 # ----------
 resource,market,output-unit,price-unit
 DDGS and feedcakes,regional,Mt,1975$/kg
-manure,regional,Mt,1975$/kg
+manure N,regional,Mt,1975$/kg
+manure P,regional,Mt,1975$/kg

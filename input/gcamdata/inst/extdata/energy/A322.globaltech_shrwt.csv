@@ -19,4 +19,5 @@ phosphate,phosphate,phosphate,0,1,1,1,1,1
 traded phosphate,traded phosphate,traded phosphate,1,1,1,1,1,1
 regional phosphate,domestic phosphate,domestic phosphate,0,1,1,1,1,1
 regional phosphate,imported phosphate,imported phosphate,0,1,1,1,1,1
-P fertilizer,P fertilizer,P fertilizer,0,1,1,1,1,1
+P fertilizer,geologic P,geologic P,0,1,1,1,1,1
+P fertilizer,manure P,manure P,0,1,1,1,1,1

@@ -23,6 +23,7 @@ module_energy_L221.en_supply <- function(command, ...) {
   MODULE_INPUTS <-
     c(FILE = "common/GCAM_region_names",
       FILE = "aglu/A_agStorageSector",
+      FILE = "energy/A10.rsrc_info_renewables_others",
       FILE = "energy/A21.sector",
       FILE = "energy/A_regions",
       FILE = "energy/A21.subsector_logit",
@@ -347,12 +348,21 @@ module_energy_L221.en_supply <- function(command, ...) {
 
       L221.RsrcPrice_NManure <- tibble(
         region = GCAM_region_names$region,
-        resource = "manure",
-        price = round(aglu.N_FERT_PRICE * gdp_deflator(1975, 2010) / CONV_T_KG / CONV_NH3_N, digits = energy.DIGITS_COST)
-      ) %>%
+        resource = aglu.MANURE_N,
+        price = round(aglu.N_FERT_PRICE * gdp_deflator(1975, 2010) / CONV_T_KG / CONV_NH3_N, digits = energy.DIGITS_COST)) %>%
         repeat_add_columns(tibble(year = MODEL_BASE_YEARS))
 
-      L221.RsrcPrice_en <- bind_rows(L221.RsrcPrice_en, L221.RsrcPrice_NManure)
+      L221.RsrcPrice_PManure <- A10.rsrc_info_renewables_others %>%
+        filter(resource == "phosphate resource") %>%
+        gather_years() %>%
+        complete(year = MODEL_BASE_YEARS) %>%
+        mutate(resource = aglu.MANURE_P,
+               price = approx_fun(year, value, rule = 2) / CONV_P2O5_P) %>%
+        filter(year %in% MODEL_BASE_YEARS) %>%
+        repeat_add_columns(GCAM_region_names["region"]) %>%
+        select(region, resource, year, price)
+
+      L221.RsrcPrice_en <- bind_rows(L221.RsrcPrice_en, L221.RsrcPrice_NManure, L221.RsrcPrice_PManure)
 
     # Calibration and region specific data
 

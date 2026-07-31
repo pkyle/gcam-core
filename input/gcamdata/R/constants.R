@@ -360,6 +360,9 @@ aglu.NO_AGLU_REGIONS <- ""
 aglu.N_FERT_NAME <- "N fertilizer"
 aglu.P_FERT_NAME <- "P fertilizer"
 
+aglu.MANURE_N <- "manure N"
+aglu.MANURE_P <- "manure P"
+
 # Average Wood Density kg/m^3 for mass conversion
 # Source: https://matmatch.com/learn/property/density-of-wood
 # We have broken down densities separately for Hardwood, Softwood. This is the mean across species.

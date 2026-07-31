@@ -26,10 +26,11 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
       FILE = "aglu/A_Fodderbio_chars",
       "L1251.SoilTypeShare_R_Soil_LT_C_GLU",
       "L142.ag_SyntheticNFert_IO_R_C_Y_GLU",
-      "L142.ag_PFert_IO_R_C_Y_GLU",
+      "L142.ag_GeologicPFert_IO_R_C_Y_GLU",
       "L2052.AgCost_ag_irr_mgmt",
       "L2052.AgCost_bio_irr_mgmt",
-      "L143.ag_NManure_IO_R_C_Y_GLU")
+      "L143.ag_NManure_IO_R_C_Y_GLU",
+      "L143.ag_PManure_IO_R_C_Y_GLU")
 
   MODULE_OUTPUTS <-
     c("L2062.AgCoef_Fert_ag_irr_mgmt",
@@ -62,7 +63,22 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
       left_join_error_no_match(L143.ag_NManure_IO_R_C_Y_GLU, by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector", "GLU", "year")) %>%
       mutate(value = value + NManure_IO,
              minicam.energy.input = aglu.N_FERT_NAME) %>%
-      bind_rows(mutate(L142.ag_PFert_IO_R_C_Y_GLU, minicam.energy.input = aglu.P_FERT_NAME)) %>%
+      select(-NManure_IO) ->
+      L2062.ag_TotalNFert_IO_R_C_Y_GLU
+
+    # P fertilizer can have NAs for manure, for legume crops where there is no nitrogen input and as such no phosphorus
+    # manure input is created either
+    L142.ag_GeologicPFert_IO_R_C_Y_GLU %>%
+      full_join(L143.ag_PManure_IO_R_C_Y_GLU,
+                               by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector", "GLU", "year")) %>%
+      replace_na(list(value = 0, PManure_IO = 0)) %>%
+      mutate(value = value + PManure_IO,
+             minicam.energy.input = aglu.P_FERT_NAME) %>%
+      select(-PManure_IO) ->
+      L2062.ag_TotalPFert_IO_R_C_Y_GLU
+
+    L2062.ag_TotalNFert_IO_R_C_Y_GLU %>%
+      bind_rows(L2062.ag_TotalPFert_IO_R_C_Y_GLU) %>%
       filter(year %in% MODEL_BASE_YEARS) %>%
       left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
       left_join_error_no_match(basin_to_country_mapping[ c("GLU_code", "GLU_name")], by = c("GLU" = "GLU_code")) %>%
@@ -171,7 +187,7 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
       add_precursors("common/GCAM_region_names",
                      "water/basin_to_country_mapping",
                      "L142.ag_SyntheticNFert_IO_R_C_Y_GLU",
-                     "L143.ag_NManure_IO_R_C_Y_GLU") ->
+                     "L143.ag_NManure_IO_R_C_Y_GLU", "L143.ag_PManure_IO_R_C_Y_GLU") ->
       L2062.AgCoef_Fert_ag_irr_mgmt
 
     L2062.AgCoef_Fert_bio_irr_mgmt %>%

@@ -39,7 +39,8 @@ module_energy_L2322.Fert <- function(command, ...) {
              "L1322.Fert_GrossTrade_Mt_R_Y",
              "L142.ag_PFert_Prod_MtP2O5_R_Y",
              "L142.ag_PFert_NetExp_MtP2O5_R_Y",
-             "L143.an_NManure_Mt_R_C_Y"))
+             "L143.an_NManure_Mt_R_C_Y",
+             "L143.an_PManure_Mt_R_C_Y"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L2322.Supplysector_Fert",
              "L2322.SectorUseTrialMarket_tra",
@@ -86,6 +87,7 @@ module_energy_L2322.Fert <- function(command, ...) {
     L142.ag_PFert_Prod_MtP2O5_R_Y <- get_data(all_data, "L142.ag_PFert_Prod_MtP2O5_R_Y", strip_attributes = TRUE)
     L142.ag_PFert_NetExp_MtP2O5_R_Y <- get_data(all_data, "L142.ag_PFert_NetExp_MtP2O5_R_Y", strip_attributes = TRUE)
     L143.an_NManure_Mt_R_C_Y <- get_data(all_data, "L143.an_NManure_Mt_R_C_Y", strip_attributes = TRUE)
+    L143.an_PManure_Mt_R_C_Y <- get_data(all_data, "L143.an_PManure_Mt_R_C_Y", strip_attributes = TRUE)
 
     # ===================================================
     # 0. Give binding for variable names used in pipeline
@@ -420,15 +422,19 @@ module_energy_L2322.Fert <- function(command, ...) {
       select(LEVEL2_DATA_NAMES[["StubTechProd"]]) ->
       L2322.StubTechProd_syntheticNPtoAg
 
-    # Calibrated flow of Nitrogen content applied to soils from manure(Nmanure) to agricultural "N fertilizer"
-    # The input of Nmanure to N fertilizer is equal to the sum of manure by all animal types
+    # Calibrated flow of N and P from manure to agricultural "N fertilizer" and "P fertilizer" commodities
+    # The input of manure N and P to N and P fertilizer is equal to the sum of manure by all animal types
     L143.an_NManure_Mt_R_C_Y %>%
+      mutate(supplysector = aglu.N_FERT_NAME) %>%
+      rename(calOutputValue = NManure_Mt_commodity) %>%
+      bind_rows(L143.an_PManure_Mt_R_C_Y %>%
+                  mutate(supplysector = aglu.P_FERT_NAME) %>%
+                  rename(calOutputValue = PManure_Mt_commodity)) %>%
       left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
       filter(year %in% MODEL_YEARS) %>%
-      group_by(region, year)%>%
-      summarise(calOutputValue = sum(NManure_Mt_commodity)) %>%
+      group_by(region, supplysector, year)%>%
+      summarise(calOutputValue = sum(calOutputValue)) %>%
       ungroup() %>%
-      mutate(supplysector = aglu.N_FERT_NAME) %>%
       left_join_error_no_match(select(filter(A322.globaltech_shrwt, grepl("manure", technology)), supplysector, subsector, technology),
                                by = "supplysector") %>%
       mutate(stub.technology = technology,
@@ -436,10 +442,10 @@ module_energy_L2322.Fert <- function(command, ...) {
              subs.share.weight = if_else(calOutputValue > 0, 1, 0),
              tech.share.weight = if_else(calOutputValue > 0, 1, 0)) %>%
       select(LEVEL2_DATA_NAMES[["StubTechProd"]]) ->
-      L2322.StubTechProd_manureNtoAg
+      L2322.StubTechProd_manureNPtoAg
 
     # bind synthetic and manure tables
-    L2322.StubTechProd_NPtoAg <- bind_rows(L2322.StubTechProd_syntheticNPtoAg, L2322.StubTechProd_manureNtoAg)
+    L2322.StubTechProd_NPtoAg <- bind_rows(L2322.StubTechProd_syntheticNPtoAg, L2322.StubTechProd_manureNPtoAg)
 
     # ===================================================
     # Produce outputs

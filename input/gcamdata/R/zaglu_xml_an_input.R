@@ -39,9 +39,9 @@ module_aglu_an_input_xml <- function(command, ...) {
       "L202.StubTechProd_in_pulp_energy",
       "L2082.StubTechCost_an_adj",
       "L2083.StubTechCoef_laborcapital_an_tfp_MA",
-      "L202.StubTechFractSecOut_NManure",
-      "L202.StubTechFractProd_NManure",
-      "L202.StubTechFractCalPrice_NManure")
+      "L202.StubTechFractSecOut_NPManure",
+      "L202.StubTechFractProd_NPManure",
+      "L202.StubTechFractCalPrice_NPManure")
 
   MODULE_OUTPUTS <-
     c(XML = "an_input.xml")
@@ -90,9 +90,9 @@ module_aglu_an_input_xml <- function(command, ...) {
       add_xml_data(L2082.StubTechCost_an_adj, "StubTechCost") %>%
       add_xml_data(L2083.StubTechCoef_laborcapital_an_tfp_MA, "StubTechCoef") %>%
       add_xml_data(L2083.StubTechCoef_laborcapital_an_tfp_MA, "StubPriceConversion") %>%
-      add_xml_data(L202.StubTechFractSecOut_NManure, "StubTechFractSecOut") %>%
-      add_xml_data(L202.StubTechFractProd_NManure, "StubTechFractProd") %>%
-      add_xml_data(L202.StubTechFractCalPrice_NManure, "StubTechFractCalPrice") %>%
+      add_xml_data(L202.StubTechFractSecOut_NPManure, "StubTechFractSecOut") %>%
+      add_xml_data(L202.StubTechFractProd_NPManure, "StubTechFractProd") %>%
+      add_xml_data(L202.StubTechFractCalPrice_NPManure, "StubTechFractCalPrice") %>%
       add_precursors(MODULE_INPUTS) ->
       an_input.xml
 

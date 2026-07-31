@@ -19,3 +19,5 @@ N fertilizer,manure N,0,share-weight,final-calibration-year,end-year,,fixed
 traded phosphate,traded phosphate,1,share-weight,final-calibration-year,end-year,,fixed
 regional phosphate,domestic phosphate,0,share-weight,final-calibration-year,end-year,,fixed
 regional phosphate,imported phosphate,0,share-weight,final-calibration-year,end-year,,fixed
+P fertilizer,geologic P,0,share-weight,final-calibration-year,end-year,,fixed
+P fertilizer,manure P,0,share-weight,final-calibration-year,end-year,,fixed

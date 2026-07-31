@@ -36,7 +36,7 @@ module_aglu_L142.ag_Fert_IO_R_C_Y_GLU <- function(command, ...) {
       "L142.ag_SyntheticNFert_IO_R_C_Y_GLU",
       "L142.ag_PFert_Prod_MtP2O5_R_Y",
       "L142.ag_PFert_NetExp_MtP2O5_R_Y",
-      "L142.ag_PFert_IO_R_C_Y_GLU")
+      "L142.ag_GeologicPFert_IO_R_C_Y_GLU")
 
   if(command == driver.DECLARE_INPUTS) {
     return(MODULE_INPUTS)
@@ -210,7 +210,7 @@ module_aglu_L142.ag_Fert_IO_R_C_Y_GLU <- function(command, ...) {
       select(GCAM_region_ID, GCAM_commodity, GCAM_subsector, year, value)
 
     # Expand IO coefs to the GLU. Drop the input altogether if all years have coefs of 0
-    L142.ag_PFert_IO_R_C_Y_GLU <- L101.ag_Prod_Mt_R_C_Y_GLU %>%
+    L142.ag_GeologicPFert_IO_R_C_Y_GLU <- L101.ag_Prod_Mt_R_C_Y_GLU %>%
       select(-value) %>%
       left_join_error_no_match(L142.ag_P_Fert_IO_R_C_Yh,
                                by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector", "year")) %>%
@@ -272,7 +272,7 @@ module_aglu_L142.ag_Fert_IO_R_C_Y_GLU <- function(command, ...) {
       same_precursors_as(L142.ag_PFert_Prod_MtP2O5_R_Y) ->
       L142.ag_PFert_NetExp_MtP2O5_R_Y
 
-    L142.ag_PFert_IO_R_C_Y_GLU %>%
+    L142.ag_GeologicPFert_IO_R_C_Y_GLU %>%
       add_title("Phosphorus fertilizer input-output coefficients by GCAM region / crop / year / GLU") %>%
       add_units("kg P per kg crop produced") %>%
       add_comments("Input-output coefficients for each crop are calculated as fertilizer consumption divided by crop production") %>%
@@ -281,7 +281,7 @@ module_aglu_L142.ag_Fert_IO_R_C_Y_GLU <- function(command, ...) {
                      "L100.LDS_ag_prod_t",
                      "L101.ag_Prod_Mt_R_C_Y_GLU",
                      "L141.ag_Fert_Cons_MtP2O5_ctry_crop_Yh") ->
-      L142.ag_PFert_IO_R_C_Y_GLU
+      L142.ag_GeologicPFert_IO_R_C_Y_GLU
 
     return_data(MODULE_OUTPUTS)
   } else {
