@@ -135,7 +135,8 @@ CONV_KG_TO_TG <- 1e-9
 CONV_KT_MT <- 0.001                   # kt to Mt
 CONV_T_MT <- 1e-6                     # t to Mt
 CONV_G_KG <- 1e-3                     # kilograms to grams
-CONV_NH3_N <- 14/17                   # Nitrogen to Ammonia
+CONV_NH3_N <- 14/17                   # Ammonia to nitrogen
+CONV_P2O5_P <- (31*2) / (31*2 + 16*5) # Phosphate to phosphorus
 CONV_KBBL_BBL <- 1000                 # thousand barrels to barrels
 CONV_BBL_TONNE_RFO <- 1 / 6.66        # barrels to tons residual fuel oil
 CONV_TONNE_GJ_RFO <- 40.87            # tons to GJ residual fuel oil
@@ -319,8 +320,8 @@ aglu.LOW_PROD_GROWTH_MULT <- 0.5 # Multipliers for low ag prod growth scenarios
 # AgLU cost constants
 aglu.BIO_GRASS_COST_75USD_GJ <- 0.75   # Production costs of biomass (from Patrick Luckow's work)
 aglu.BIO_TREE_COST_75USD_GJ  <- 0.67   # Production costs of biomass (from Patrick Luckow's work)
-aglu.FERT_PRICE              <- 596    # Price of fertilizer, 2010$ per ton NH3
-aglu.FERT_PRICE_YEAR         <- 2010   # Year corresponding to the above price/cost
+aglu.N_FERT_PRICE              <- 596    # Price of fertilizer, 2010$ per ton NH3
+aglu.N_FERT_PRICE_YEAR         <- 2010   # Year corresponding to the above price/cost
 aglu.FOR_COST_SHARE_HARDWOOD          <- 0.59   # Non-land forestry cost share (from 2011 GTAP data base)
 aglu.FOR_COST_SHARE_SOFTWOOD          <- 0.59   # Non-land forestry cost share (from 2011 GTAP data base)
 
@@ -334,10 +335,11 @@ aglu.FOR_COST_SHARE_SOFTWOOD          <- 0.59   # Non-land forestry cost share (
 aglu.PRICE_BIO_FRAC <- 1.2
 
 # Fertilizer application rate for biomass, and carbon yields. Values from Adler et al. 2007 (doi:10.1890/05-2018)
-aglu.BIO_GRASS_FERT_IO_GNM2 <- 5.6
-aglu.BIO_GRASS_YIELD_KGCM2  <- 0.34
-aglu.BIO_TREE_FERT_IO_GNM2  <- 3.36
-aglu.BIO_TREE_YIELD_KGCM2   <- 0.345
+aglu.BIO_GRASS_N_FERT_IO_GNM2 <- 5.6
+aglu.BIO_GRASS_YIELD_KGCM2    <- 0.34
+aglu.BIO_TREE_N_FERT_IO_GNM2  <- 3.36
+aglu.BIO_TREE_YIELD_KGCM2     <- 0.345
+aglu.BIO_P_TO_N_RATIO         <- 0.15
 
 # Water characteristics for biomass
 # Reference: Chaturvedi et al. 2015, Climate mitigation policy implications for global irrigation water demand, Mitig Adapt Strateg Glob Change (2015) 20:389-407. DOI 10.1007/s11027-013-9497-4
@@ -354,8 +356,9 @@ aglu.BIO_ENERGY_CONTENT_GJT <- 17.5
 # kbn 2019/09/25 Took Taiwan out from below since we have data for Taiwan now.
 aglu.NO_AGLU_REGIONS <- ""
 
-# Define GCAM category name of fertilizer for input to the agricultural sector
-aglu.FERT_NAME <- "N fertilizer"
+# Define GCAM category names of fertilizers for input to the agricultural sector
+aglu.N_FERT_NAME <- "N fertilizer"
+aglu.P_FERT_NAME <- "P fertilizer"
 
 # Average Wood Density kg/m^3 for mass conversion
 # Source: https://matmatch.com/learn/property/density-of-wood
@@ -1110,9 +1113,9 @@ gcamusa.H2_TD_MARKETS <- c("H2 pipeline","H2 liquid truck")
 gcamusa.USE_REGIONAL_FUEL_MARKETS  <- TRUE
 
 # GCAM-USA fertlizer constants
-gcamusa.FERT_LOGIT_EXP  <- -3             # Define default logit exponent used in the fertilizer subsector
-gcamusa.FERT_LOGIT_TYPE <- NA
-gcamusa.FERT_NAME       <- "ammonia" # Define GCAM-USA category name of fertilizer
+gcamusa.N_FERT_LOGIT_EXP  <- -3             # Logit exponent used in the GCAM-USA fertilizer sector
+gcamusa.N_FERT_LOGIT_TYPE <- NA             # Logit exponent type (NA = default)
+gcamusa.N_FERT_NAME       <- "ammonia"      # GCAM-USA category name of fertilizer
 
 # Fuels whose markets will be modeled at the level of the FERC regions, with prices calibrated
 gcamusa.REGIONAL_FUEL_MARKETS <- c("regional coal", "delivered coal", "wholesale gas", "delivered gas",

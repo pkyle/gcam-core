@@ -16,3 +16,8 @@ traded ammonia,traded ammonia,traded ammonia,ammonia,1,1,1,1,1
 regional ammonia,domestic ammonia,domestic ammonia,ammonia,0,1,1,1,1
 regional ammonia,imported ammonia,imported ammonia,traded ammonia,0,1,1,1,1
 N fertilizer,N fertilizer,N fertilizer,regional ammonia,0,1.2143,1.2143,1.2143,1.2143
+phosphate,phosphate,phosphate,phosphate resource,0,1,1,1,1
+traded phosphate,traded phosphate,traded phosphate,phosphate,1,1,1,1,1
+regional phosphate,domestic phosphate,domestic phosphate,phosphate,0,1,1,1,1
+regional phosphate,imported phosphate,imported phosphate,traded phosphate,0,1,1,1,1
+P fertilizer,P fertilizer,P fertilizer,regional phosphate,0,2.2903,2.2903,2.2903,2.2903

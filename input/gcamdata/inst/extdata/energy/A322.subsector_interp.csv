@@ -14,3 +14,6 @@ ammonia,hydrogen,0,share-weight,2050,end-year,,fixed
 traded ammonia,traded ammonia,1,share-weight,final-calibration-year,end-year,,fixed
 regional ammonia,domestic ammonia,0,share-weight,final-calibration-year,end-year,,fixed
 regional ammonia,imported ammonia,0,share-weight,final-calibration-year,end-year,,fixed
+traded phosphate,traded phosphate,1,share-weight,final-calibration-year,end-year,,fixed
+regional phosphate,domestic phosphate,0,share-weight,final-calibration-year,end-year,,fixed
+regional phosphate,imported phosphate,0,share-weight,final-calibration-year,end-year,,fixed

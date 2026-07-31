@@ -56,7 +56,7 @@ module_gcamusa_L1322.Fert <- function(command, ...) {
     # Add GCAM fertilizer name and fuel type to the data frame assume
     # that the only relevant fuel in the US is gas.
     L1322.VoS_share_state_Fert %>%
-      mutate(sector = gcamusa.FERT_NAME, fuel = "gas") ->
+      mutate(sector = gcamusa.N_FERT_NAME, fuel = "gas") ->
       L1322.VoS_share_state_Fert
 
     # Select generic fertilizer production data for the US, these

@@ -27,6 +27,7 @@ module_aglu_L100.FAO_preprocessing_OtherData <- function(command, ...) {
       FILE = "aglu/FAO/GCAMFAOSTAT_AnimalStock",
       FILE = "aglu/FAO/GCAMFAOSTAT_LandCover",
       FILE = "aglu/FAO/GCAMFAOSTAT_NFertilizer",
+      FILE = "aglu/FAO/GCAMFAOSTAT_PFertilizer",
       FILE = "aglu/FAO/GCAMFAOSTAT_CapitalStock")
 
   MODULE_OUTPUTS <-
@@ -36,7 +37,9 @@ module_aglu_L100.FAO_preprocessing_OtherData <- function(command, ...) {
       "L100.FAO_fallowland_kha",
       "L100.FAO_harv_CL_kha",
       "L100.FAO_Fert_Cons_tN",
+      "L100.FAO_Fert_Cons_tP2O5",
       "L100.FAO_Fert_Prod_tN",
+      "L100.FAO_Fert_Prod_tP2O5",
       "L100.FAO_For_Exp_m3",
       "L100.FAO_For_Imp_m3",
       "L100.FAO_For_Prod_m3",
@@ -202,26 +205,53 @@ module_aglu_L100.FAO_preprocessing_OtherData <- function(command, ...) {
       filter(element == "Agricultural Use") %>%
       gather_years() %>% filter(!is.na(value)) %>%
       FAO_REG_YEAR_MAP %>%
-      add_title("FAO fertilizer consumption by country, year") %>%
+      add_title("FAO nitrogen fertilizer consumption by country, year") %>%
       add_comments("FAO nitrogen N (total) consumption") %>%
       add_units("tonnes N") %>%
       add_precursors("aglu/FAO/GCAMFAOSTAT_NFertilizer",
                      "aglu/AGLU_ctry", "common/iso_GCAM_regID") ->
       L100.FAO_Fert_Cons_tN
 
+    assertthat::assert_that(
+      c("Agricultural Use", "Production") %in%
+        (GCAMFAOSTAT_PFertilizer %>% distinct(element) %>% pull) %>% all()
+    )
+
+    ##* L100.FAO_Fert_Cons_tP2O5 ----
+    GCAMFAOSTAT_PFertilizer %>%
+      filter(element == "Agricultural Use") %>%
+      gather_years() %>% filter(!is.na(value)) %>%
+      FAO_REG_YEAR_MAP %>%
+      add_title("FAO phosphate fertilizer consumption by country, year") %>%
+      add_comments("FAO phosphate P2O5 (total) consumption") %>%
+      add_units("tonnes P2O5") %>%
+      add_precursors("aglu/FAO/GCAMFAOSTAT_PFertilizer",
+                     "aglu/AGLU_ctry", "common/iso_GCAM_regID") ->
+      L100.FAO_Fert_Cons_tP2O5
 
     ##* L100.FAO_Fert_Prod_tN ----
     GCAMFAOSTAT_NFertilizer %>%
       filter(element == "Production") %>%
       gather_years() %>% filter(!is.na(value)) %>%
       FAO_REG_YEAR_MAP %>%
-      add_title("FAO fertilizer production by country, year") %>%
+      add_title("FAO nitrogen fertilizer production by country, year") %>%
       add_comments("FAO nitrogen N (total) production") %>%
       add_units("tonnes N") %>%
       add_precursors("aglu/FAO/GCAMFAOSTAT_NFertilizer",
                      "aglu/AGLU_ctry", "common/iso_GCAM_regID") ->
       L100.FAO_Fert_Prod_tN
 
+    ##* L100.FAO_Fert_Prod_tP2O5 ----
+    GCAMFAOSTAT_PFertilizer %>%
+      filter(element == "Production") %>%
+      gather_years() %>% filter(!is.na(value)) %>%
+      FAO_REG_YEAR_MAP %>%
+      add_title("FAO phosphate fertilizer production by country, year") %>%
+      add_comments("FAO phosphate P2O5 (total) production") %>%
+      add_units("tonnes P2O5") %>%
+      add_precursors("aglu/FAO/GCAMFAOSTAT_PFertilizer",
+                     "aglu/AGLU_ctry", "common/iso_GCAM_regID") ->
+      L100.FAO_Fert_Prod_tP2O5
 
     # assert that we have the right item names
     assertthat::assert_that(

@@ -28,12 +28,12 @@ module_energy_en_Fert_xml <- function(command, ...) {
              "L2322.GlobalTechCapture_Fert",
              "L2322.GlobalTechSCurve_Fert",
              "L2322.GlobalTechProfitShutdown_Fert",
-             "L2322.StubTechProd_FertProd",
+             "L2322.StubTechProd_NFertProd",
              "L2322.StubTechCoef_Fert",
              "L2322.Production_FertExport",
              "L2322.StubTechProd_FertImport",
              "L2322.StubTechProd_FertDomCons",
-             "L2322.StubTechProd_NtoAg"))
+             "L2322.StubTechProd_NPtoAg"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c(XML = "en_Fert.xml"))
   } else if(command == driver.MAKE) {
@@ -57,12 +57,12 @@ module_energy_en_Fert_xml <- function(command, ...) {
     L2322.GlobalTechCapture_Fert <- get_data(all_data, "L2322.GlobalTechCapture_Fert")
     L2322.GlobalTechSCurve_Fert <- get_data(all_data, "L2322.GlobalTechSCurve_Fert")
     L2322.GlobalTechProfitShutdown_Fert <- get_data(all_data, "L2322.GlobalTechProfitShutdown_Fert")
-    L2322.StubTechProd_FertProd <- get_data(all_data, "L2322.StubTechProd_FertProd")
+    L2322.StubTechProd_NFertProd <- get_data(all_data, "L2322.StubTechProd_NFertProd")
     L2322.StubTechCoef_Fert <- get_data(all_data, "L2322.StubTechCoef_Fert")
     L2322.Production_FertExport <- get_data(all_data, "L2322.Production_FertExport")
     L2322.StubTechProd_FertImport <- get_data(all_data, "L2322.StubTechProd_FertImport")
     L2322.StubTechProd_FertDomCons <- get_data(all_data, "L2322.StubTechProd_FertDomCons")
-    L2322.StubTechProd_NtoAg <- get_data(all_data, "L2322.StubTechProd_NtoAg")
+    L2322.StubTechProd_NPtoAg <- get_data(all_data, "L2322.StubTechProd_NPtoAg")
 
     # ===================================================
 
@@ -84,12 +84,12 @@ module_energy_en_Fert_xml <- function(command, ...) {
       add_xml_data(L2322.GlobalTechCapture_Fert, "GlobalTechCapture") %>%
       add_xml_data(L2322.GlobalTechSCurve_Fert, "GlobalTechSCurve") %>%
       add_xml_data(L2322.GlobalTechProfitShutdown_Fert, "GlobalTechProfitShutdown") %>%
-      add_xml_data(L2322.StubTechProd_FertProd, "StubTechProd") %>%
+      add_xml_data(L2322.StubTechProd_NFertProd, "StubTechProd") %>%
       add_xml_data(L2322.StubTechCoef_Fert, "StubTechCoef") %>%
       add_xml_data(L2322.Production_FertExport, "Production") %>%
       add_xml_data(L2322.StubTechProd_FertImport, "StubTechProd") %>%
       add_xml_data(L2322.StubTechProd_FertDomCons, "StubTechProd") %>%
-      add_xml_data(L2322.StubTechProd_NtoAg, "StubTechProd") %>%
+      add_xml_data(L2322.StubTechProd_NPtoAg, "StubTechProd") %>%
       add_precursors("L2322.Supplysector_Fert",
                      "L2322.SectorUseTrialMarket_tra",
                      "L2322.FinalEnergyKeyword_Fert",
@@ -106,12 +106,12 @@ module_energy_en_Fert_xml <- function(command, ...) {
                      "L2322.GlobalTechCapture_Fert",
                      "L2322.GlobalTechSCurve_Fert",
                      "L2322.GlobalTechProfitShutdown_Fert",
-                     "L2322.StubTechProd_FertProd",
+                     "L2322.StubTechProd_NFertProd",
                      "L2322.StubTechCoef_Fert",
                      "L2322.Production_FertExport",
                      "L2322.StubTechProd_FertImport",
                      "L2322.StubTechProd_FertDomCons",
-                     "L2322.StubTechProd_NtoAg") ->
+                     "L2322.StubTechProd_NPtoAg") ->
       en_Fert.xml
 
     return_data(en_Fert.xml)

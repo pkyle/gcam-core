@@ -32,8 +32,8 @@ module_energy_L1322.Fert <- function(command, ...) {
       FILE = "energy/mappings/Rt_Nfert_commodities",
       "L1321.in_EJ_R_indenergy_F_Yh",
       "L132.in_EJ_R_indfeed_F_Yh",
-      "L142.ag_Fert_Prod_MtN_ctry_Y",
-      "L142.ag_Fert_NetExp_MtN_R_Y",
+      "L142.ag_NFert_Prod_MtN_ctry_Y",
+      "L142.ag_NFert_NetExp_MtN_R_Y",
       "L210.rsrc_info")
 
   MODULE_OUTPUTS <-
@@ -92,12 +92,12 @@ module_energy_L1322.Fert <- function(command, ...) {
     # Note that IEA_ctry occasionally has muliple country names for a single iso. Dropping IEA_ctry (country name) column to avoid confusion.
     IEA_iso_region <- unique(select(IEA_ctry, iso, IEA_Fert_reg))
 
-    L142.ag_Fert_Prod_MtN_ctry_Y %>%
+    L142.ag_NFert_Prod_MtN_ctry_Y %>%
       # In the energy system, Mt N is converted to Mt NH3
       mutate(value_MtNH3 = value / CONV_NH3_N) %>%
       select(-value) %>%
       repeat_add_columns(tibble::tibble(fuel = c("coal", "gas", "refined liquids"))) %>% # Exanding table to include fuels for each iso
-      # change to inner_join here as L142.ag_Fert_Prod_MtN_ctry_Y may have unimportant FAO regions that not included in IEA_iso_region
+      # change to inner_join here as L142.ag_NFert_Prod_MtN_ctry_Y may have unimportant FAO regions that not included in IEA_iso_region
       inner_join(IEA_iso_region, by = "iso") %>% # Assign data to fert region using iso
       # Now we can attach the share data, matching to fert region
       left_join_error_no_match(L1322.IEA_fert_fuel_shares, by = c("fuel", "IEA_Fert_reg")) %>%
@@ -280,37 +280,37 @@ module_energy_L1322.Fert <- function(command, ...) {
       filter(resource == "natural gas") %>%
       gather_years() %>%
       select(resource, year, value) %>%
-      complete(resource, year = sort(unique(c(year, aglu.FERT_PRICE_YEAR)))) %>%
+      complete(resource, year = sort(unique(c(year, aglu.N_FERT_PRICE_YEAR)))) %>%
       mutate(value = approx_fun(year, value)) %>%
-      filter(year == aglu.FERT_PRICE_YEAR) %>%
+      filter(year == aglu.N_FERT_PRICE_YEAR) %>%
       mutate(value = replace_na(value, 0)) %>%
       pull(value) ->
-      A10.rsrc_cost_aglu.FERT_PRICE_YEAR # Save cost as single unique number. Units are 1975 USD per GJ.
+      A10.rsrc_cost_aglu.N_FERT_PRICE_YEAR # Save cost as single unique number. Units are 1975 USD per GJ.
 
 
     # A21.globaltech_cost and A22.globaltech_cost report costs on primary energy handling (A21) and transformation technologies (A22)
     # Units for both are 1975$/GJ
-    # As mentioned above, because aglu.FERT_PRICE_YEAR is the year used as the fertilizer base price (from L210.rsrc_info), we will interpolate for
+    # As mentioned above, because aglu.N_FERT_PRICE_YEAR is the year used as the fertilizer base price (from L210.rsrc_info), we will interpolate for
     # this year for both global tech cost tables so that we may add up all costs consistently.
 
-    # Interpolate to get cost of primary energy transformation for natural gas in aglu.FERT_PRICE_YEAR
+    # Interpolate to get cost of primary energy transformation for natural gas in aglu.N_FERT_PRICE_YEAR
     A22.globaltech_cost %>%
       filter(technology == "natural gas") %>%
       gather_years() %>%
       select(technology, year, value) %>%
-      complete(technology, year = sort(unique(c(year, aglu.FERT_PRICE_YEAR)))) %>%
+      complete(technology, year = sort(unique(c(year, aglu.N_FERT_PRICE_YEAR)))) %>%
       mutate(value = approx_fun(year, value)) %>%
-      filter(year == aglu.FERT_PRICE_YEAR) %>%
+      filter(year == aglu.N_FERT_PRICE_YEAR) %>%
       mutate(value = if_else(is.na(value),0,as.double(value))) %>%
       pull(value) -> # Save cost as single number. Units are 1975 USD per GJ.
-      A22.globaltech_cost_aglu.FERT_PRICE_YEAR
+      A22.globaltech_cost_aglu.N_FERT_PRICE_YEAR
 
     # Sum up costs. Units are 1975 USD per GJ.
-    L1322.P_gas_75USDGJ <- A10.rsrc_cost_aglu.FERT_PRICE_YEAR + energy.GAS_PIPELINE_COST_ADDER_75USDGJ
+    L1322.P_gas_75USDGJ <- A10.rsrc_cost_aglu.N_FERT_PRICE_YEAR + energy.GAS_PIPELINE_COST_ADDER_75USDGJ
 
-    # Obtain fertilizer input-output cofficient for natural gas in aglu.FERT_PRICE_YEAR
+    # Obtain fertilizer input-output cofficient for natural gas in aglu.N_FERT_PRICE_YEAR
     L1322.IO_R_Fert_F_Yh %>%
-      filter(year == aglu.FERT_PRICE_YEAR,
+      filter(year == aglu.N_FERT_PRICE_YEAR,
              GCAM_region_ID == gcam.USA_CODE,
              fuel == "gas") %>%
       pull(value) -> # Save coefficient as single number
@@ -320,10 +320,10 @@ module_energy_L1322.Fert <- function(command, ...) {
     L1322.Fert_Fuelcost_75USDGJ_gas <- L1322.P_gas_75USDGJ * L1322.IO_GJkgNH3_Fert_gas
 
     # Convert NH3 cost in 2010$/tNH3 to 1975$/kgNH3
-    # Note that aglu.FERT_PRICE is only used here for calculating nonenergy cost
-    # aglu.FERT_PRICE is not a real value since the price should be regional
+    # Note that aglu.N_FERT_PRICE is only used here for calculating nonenergy cost
+    # aglu.N_FERT_PRICE is not a real value since the price should be regional
 
-    Fert_Cost_75USDkgNH3 <- aglu.FERT_PRICE * gdp_deflator(1975, aglu.FERT_PRICE_YEAR) * CONV_KG_T
+    Fert_Cost_75USDkgNH3 <- aglu.N_FERT_PRICE * gdp_deflator(1975, aglu.N_FERT_PRICE_YEAR) * CONV_KG_T
 
     # Calculate non-fuel cost of natural gas steam reforming (includes delivery charges)
     L1322.Fert_NEcost_75USDkgNH3_gas <- as.double(Fert_Cost_75USDkgNH3 - L1322.Fert_Fuelcost_75USDGJ_gas)
@@ -422,7 +422,7 @@ module_energy_L1322.Fert <- function(command, ...) {
       ungroup()
 
     # First scale the gross exports so that the sum of global exports equals the scale of global imports
-    # Then scale the gross exports and imports to match the FAO-based net exports, in L142.ag_Fert_NetExp_MtN_R_Y
+    # Then scale the gross exports and imports to match the FAO-based net exports, in L142.ag_NFert_NetExp_MtN_R_Y
     # Rules applied:
     #  1) where RT-based net exports "NetExports_Mt" are less than FAO-based net exports "value", and
     #    1a) gross exports "Exports_Mt" exceed scaled net exports, reduce imports to balance
@@ -435,7 +435,7 @@ module_energy_L1322.Fert <- function(command, ...) {
                                                      by = "GCAM_region_ID") %>%
       mutate(Exports_Mt = Exports_Mt * sum(Imports_Mt) / sum(Exports_Mt),
              NetExports_Mt = Exports_Mt - Imports_Mt) %>%
-      full_join(filter(L142.ag_Fert_NetExp_MtN_R_Y, year==max(MODEL_BASE_YEARS)),
+      full_join(filter(L142.ag_NFert_NetExp_MtN_R_Y, year==max(MODEL_BASE_YEARS)),
                 by = "GCAM_region_ID") %>%
       replace_na(list(Exports_Mt = 0, Imports_Mt = 0, NetExports_Mt = 0)) %>%
       mutate(Imports_Mt_scaled = if_else(NetExports_Mt < value & Exports_Mt > value, Exports_Mt - value, Imports_Mt),
@@ -463,7 +463,7 @@ module_energy_L1322.Fert <- function(command, ...) {
              Imports_Mt = Imports_Mt - TradeReduction_Mt) %>%
       select(-Prod_MtN, -TradeReduction_Mt)
 
-    L1322.Fert_GrossTrade_Mt_R_Y <- L142.ag_Fert_NetExp_MtN_R_Y %>%
+    L1322.Fert_GrossTrade_Mt_R_Y <- L142.ag_NFert_NetExp_MtN_R_Y %>%
       filter(year < max(MODEL_BASE_YEARS)) %>%
       mutate(Exports_Mt = if_else(value > 0, value, 0),
              Imports_Mt = if_else(value <= 0, value * -1, 0),
@@ -482,7 +482,7 @@ module_energy_L1322.Fert <- function(command, ...) {
       add_precursors("common/iso_GCAM_regID",
                      "energy/mappings/IEA_ctry",
                      "energy/IEA_Fert_fuel_data",
-                     "L142.ag_Fert_Prod_MtN_ctry_Y") ->
+                     "L142.ag_NFert_Prod_MtN_ctry_Y") ->
       L1322.Fert_Prod_MtNH3_R_F_Y
 
     L1322.IO_R_Fert_F_Yh %>%
@@ -494,7 +494,7 @@ module_energy_L1322.Fert <- function(command, ...) {
       add_precursors("common/iso_GCAM_regID",
                      "energy/mappings/IEA_ctry",
                      "energy/IEA_Fert_fuel_data",
-                     "L142.ag_Fert_Prod_MtN_ctry_Y",
+                     "L142.ag_NFert_Prod_MtN_ctry_Y",
                      "L1321.in_EJ_R_indenergy_F_Yh",
                      "L132.in_EJ_R_indfeed_F_Yh") ->
       L1322.IO_R_Fert_F_Yh
@@ -508,7 +508,7 @@ module_energy_L1322.Fert <- function(command, ...) {
       add_precursors("common/iso_GCAM_regID",
                      "energy/mappings/IEA_ctry",
                      "energy/IEA_Fert_fuel_data",
-                     "L142.ag_Fert_Prod_MtN_ctry_Y",
+                     "L142.ag_NFert_Prod_MtN_ctry_Y",
                      "L1321.in_EJ_R_indenergy_F_Yh",
                      "L132.in_EJ_R_indfeed_F_Yh") ->
       L1322.in_EJ_R_indenergy_F_Yh
@@ -522,7 +522,7 @@ module_energy_L1322.Fert <- function(command, ...) {
       add_precursors("common/iso_GCAM_regID",
                      "energy/mappings/IEA_ctry",
                      "energy/IEA_Fert_fuel_data",
-                     "L142.ag_Fert_Prod_MtN_ctry_Y",
+                     "L142.ag_NFert_Prod_MtN_ctry_Y",
                      "L1321.in_EJ_R_indenergy_F_Yh",
                      "L132.in_EJ_R_indfeed_F_Yh") ->
       L1322.in_EJ_R_indfeed_F_Yh
@@ -541,8 +541,8 @@ module_energy_L1322.Fert <- function(command, ...) {
     L1322.Fert_GrossTrade_Mt_R_Y %>%
       add_title("N Fertilizer gross trade by GCAM region and year") %>%
       add_units("Mt N / yr") %>%
-      add_comments("ResourceTrade values scaled to match FAO-based mass balances in L142.ag_Fert_NetExp_MtN_R_Y") %>%
-      add_precursors("energy/Rt_Nfert_bilateral_trade", "energy/mappings/Rt_Nfert_commodities", "L142.ag_Fert_NetExp_MtN_R_Y") ->
+      add_comments("ResourceTrade values scaled to match FAO-based mass balances in L142.ag_NFert_NetExp_MtN_R_Y") %>%
+      add_precursors("energy/Rt_Nfert_bilateral_trade", "energy/mappings/Rt_Nfert_commodities", "L142.ag_NFert_NetExp_MtN_R_Y") ->
       L1322.Fert_GrossTrade_Mt_R_Y
 
 

@@ -83,7 +83,7 @@ module_gcamusa_L2322.Fert <- function(command, ...) {
     # GCAM-USA.
     L2322.SubsectorLogit_Fert %>%
       filter(region == gcam.USA_REGION,
-             supplysector == gcamusa.FERT_NAME) %>%
+             supplysector == gcamusa.N_FERT_NAME) %>%
       select(region, supplysector, subsector) ->
       L2322.DeleteSubsector_USAFert
 
@@ -106,16 +106,16 @@ module_gcamusa_L2322.Fert <- function(command, ...) {
     # sates that are fertilizer producers, then create subsector from state and fertilizer name.
     L2322.Supplysector_Fert %>%
       filter(region == gcam.USA_REGION,
-             supplysector == gcamusa.FERT_NAME) %>%
+             supplysector == gcamusa.N_FERT_NAME) %>%
       select(region, supplysector) %>%
       repeat_add_columns(Fert_states) %>%
-      mutate(subsector = paste(state, gcamusa.FERT_NAME)) ->
+      mutate(subsector = paste(state, gcamusa.N_FERT_NAME)) ->
       L2322.Supplysector_Fert_states
 
     # Now add the logit table information to the state fertilizer supply sector data frame.
     L2322.Supplysector_Fert_states %>%
       mutate(logit.year.fillout = min(MODEL_YEARS),
-             logit.exponent = gcamusa.FERT_LOGIT_EXP,
+             logit.exponent = gcamusa.N_FERT_LOGIT_EXP,
              logit.type = NA) %>%
       select(region, supplysector, subsector, logit.year.fillout, logit.exponent, logit.type) ->
       L2322.SubsectorLogit_USAFert
@@ -155,7 +155,7 @@ module_gcamusa_L2322.Fert <- function(command, ...) {
       mutate(calOutputValue = round(value, aglu.DIGITS_LAND_USE)) %>%
       select(-value) %>%
       mutate(region = gcam.USA_REGION,
-             supplysector = gcamusa.FERT_NAME) %>%
+             supplysector = gcamusa.N_FERT_NAME) %>%
       unite(subsector, state, supplysector, sep = " ", remove = FALSE) ->
       L2322.Production_USAFert
 
@@ -164,7 +164,7 @@ module_gcamusa_L2322.Fert <- function(command, ...) {
     # USA region ammonia sector.
     L2322.Production_USAFert %>%
       mutate(technology = subsector,
-             input = gcamusa.FERT_NAME,
+             input = gcamusa.N_FERT_NAME,
              share.weight.year = year,
              subs.share.weight = if_else(calOutputValue == 0, 0, 1),
              tech.share.weight = subs.share.weight) %>%
@@ -177,7 +177,7 @@ module_gcamusa_L2322.Fert <- function(command, ...) {
     # Add minicam energy input information and coefficient to the
     # to the technology share weight data frame.
     L2322.TechShrwt_USAFert %>%
-      mutate(minicam.energy.input = gcamusa.FERT_NAME,
+      mutate(minicam.energy.input = gcamusa.N_FERT_NAME,
              coefficient = 1) %>%
       # Parse out state market name from the fertilizer subsector.
       mutate(market.name = substr(start = 1, stop = 2, subsector)) %>%
@@ -198,7 +198,7 @@ module_gcamusa_L2322.Fert <- function(command, ...) {
       # for the USA region then it is assumed that the data frame has already been
       # processed, and the input data frame is returned as is.
       check_df <- dplyr::filter(data, region == gcam.USA_REGION,
-                                supplysector == gcamusa.FERT_NAME)
+                                supplysector == gcamusa.N_FERT_NAME)
 
       if(nrow(check_df) == 0) {
         # This does not change the entries of the data frame but will strip the attributes
@@ -218,7 +218,7 @@ module_gcamusa_L2322.Fert <- function(command, ...) {
         # fertilizer producing states.
         data %>%
           filter(region == gcam.USA_REGION,
-                 supplysector == gcamusa.FERT_NAME) %>%
+                 supplysector == gcamusa.N_FERT_NAME) %>%
           write_to_all_states(names = df_names) %>%
           filter(region %in% Fert_states[["state"]]) ->
           new_df
@@ -324,7 +324,7 @@ module_gcamusa_L2322.Fert <- function(command, ...) {
     # left_join is used because this is an expanding join for technologies with multiple inputs
     L2322.StubTechMarket_Fert_USA %>%
       left_join(A322.globaltech_coef %>%
-                  filter(supplysector == gcamusa.FERT_NAME) %>%
+                  filter(supplysector == gcamusa.N_FERT_NAME) %>%
                   select(supplysector, subsector, technology, minicam.energy.input),
                 by = c("supplysector", "subsector", c("stub.technology" = "technology"))) %>%
       mutate(market.name = gcam.USA_REGION) %>%
