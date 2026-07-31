@@ -79,8 +79,7 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
       filter(year == max(MODEL_BASE_YEARS)) %>%
       select(-year) %>%
       repeat_add_columns(tibble(year = MODEL_FUTURE_YEARS)) %>%
-      bind_rows(L2062.AgCoef_Fert_ag_irr_mgmt) %>%
-      filter(coefficient > 0) ->
+      bind_rows(L2062.AgCoef_Fert_ag_irr_mgmt) ->
       L2062.AgCoef_Fert_ag_irr_mgmt
 
     # Calculate fertilizer coefficients for grassy bioenergy crops
