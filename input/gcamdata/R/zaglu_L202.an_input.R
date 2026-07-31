@@ -783,23 +783,24 @@ module_aglu_L202.an_input <- function(command, ...) {
       select(LEVEL2_DATA_NAMES[["StubTechFractSecOut"]]) ->
       L202.StubTechFractSecOut_NPManure
 
-    # Upper point of supply curves should be lower than the prices of "N fertilizer" and "P fertilizer" in each region in the base year
-    # Using 0.75 times the USDA price
-    BASE_NFERT_PRICE <- round(0.75 * aglu.N_FERT_PRICE * gdp_deflator(1975, 2010) / CONV_T_KG / CONV_NH3_N, digits = energy.DIGITS_COST)
-    L202.BasePFertPrices <- A10.rsrc_info_renewables_others %>%
+    # Upper (100%) point of supply curves should be lower than the prices of "N fertilizer" and "P fertilizer" in each region in the base year
+    # Using aglu.FEEDCAKE_PRICE_MARGIN to calibrate the supply curves
+    P1_MULTIPLIER <- 1 - aglu.FEEDCAKE_PRICE_MARGIN
+    L202.BaseNFertPricePoints <- round(P1_MULTIPLIER * aglu.N_FERT_PRICE * gdp_deflator(1975, 2010) / CONV_T_KG / CONV_NH3_N, digits = energy.DIGITS_COST)
+    L202.BasePFertPricePoints <- A10.rsrc_info_renewables_others %>%
       filter(resource == "phosphate resource") %>%
       gather_years() %>%
       complete(year = MODEL_YEARS) %>%
       mutate(fractional.secondary.output = aglu.MANURE_P,
-             P1 = approx_fun(year, value, rule = 2) * 0.75 / CONV_P2O5_P) %>%
+             P1 = round(approx_fun(year, value, rule = 2) * P1_MULTIPLIER / CONV_P2O5_P, digits = energy.DIGITS_COST)) %>%
       filter(year %in% MODEL_YEARS) %>%
       select(year, fractional.secondary.output, P1)
 
     L202.BaseNPFertPrices <- tibble(
       fractional.secondary.output = aglu.MANURE_N,
       year = MODEL_YEARS,
-      P1 = BASE_NFERT_PRICE) %>%
-      bind_rows(L202.BasePFertPrices)
+      P1 = L202.BaseNFertPricePoints) %>%
+      bind_rows(L202.BasePFertPricePoints)
 
     L202.StubTechFractSecOut_NPManure %>%
       select(-output.ratio) %>%
@@ -810,10 +811,10 @@ module_aglu_L202.an_input <- function(command, ...) {
       select(-variable) ->
       L202.StubTechFractProd_NPManure
 
-    L202.StubTechFractSecOut_NPManure %>%
-      filter(year %in% MODEL_BASE_YEARS) %>%
-      select(-output.ratio) %>%
-      mutate(calPrice = BASE_NFERT_PRICE) ->
+    L202.StubTechFractProd_NPManure %>%
+      filter(year %in% MODEL_BASE_YEARS, fraction.produced ==1) %>%
+      mutate(calPrice = price / P1_MULTIPLIER) %>%
+      select(-fraction.produced, -price) ->
       L202.StubTechFractCalPrice_NPManure
 
     # Produce outputs
