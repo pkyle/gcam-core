@@ -784,8 +784,8 @@ module_aglu_L202.an_input <- function(command, ...) {
       L202.StubTechFractSecOut_NPManure
 
     # Upper (100%) point of supply curves should be lower than the prices of "N fertilizer" and "P fertilizer" in each region in the base year
-    # Using aglu.FEEDCAKE_PRICE_MARGIN to calibrate the supply curves
-    P1_MULTIPLIER <- 1 - aglu.FEEDCAKE_PRICE_MARGIN
+    # This could be abstracted to a global constant if more fractional secondary output curves are used
+    P1_MULTIPLIER <- 0.8
     L202.BaseNFertPricePoints <- round(P1_MULTIPLIER * aglu.N_FERT_PRICE * gdp_deflator(1975, 2010) / CONV_T_KG / CONV_NH3_N, digits = energy.DIGITS_COST)
     L202.BasePFertPricePoints <- A10.rsrc_info_renewables_others %>%
       filter(resource == "phosphate resource") %>%

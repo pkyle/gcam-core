@@ -24,7 +24,6 @@ module_aglu_L2062.ag_Fert_irr_mgmt <- function(command, ...) {
     c(FILE = "common/GCAM_region_names",
       FILE = "water/basin_to_country_mapping",
       FILE = "aglu/A_Fodderbio_chars",
-      "L1251.SoilTypeShare_R_Soil_LT_C_GLU",
       "L142.ag_SyntheticNFert_IO_R_C_Y_GLU",
       "L142.ag_GeologicPFert_IO_R_C_Y_GLU",
       "L2052.AgCost_ag_irr_mgmt",
