@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+   <world>
+      <region name="USA">
+
+         <policy-portfolio-standard name="Green_Ammonia_Target">
+            <policyType>subsidy</policyType>
+            <market>USA</market>
+            <min-price year="2025" fillout="1">-100</min-price>
+            <constraint year="2025">0.1</constraint>
+            <constraint year="2030">0.5</constraint>
+            <constraint year="2035">1</constraint>
+            <constraint year="2040">1</constraint>
+            <constraint year="2045">1</constraint>
+            <constraint year="2050">1</constraint>
+         </policy-portfolio-standard>
+
+
+         <supplysector name="ammonia">
+            <subsector name="hydrogen">
+               <technology name="hydrogen">
+                   <period year="2025">
+                       <input-subsidy name="Green_Ammonia_Target"/>
+                   </period>
+                   <period year="2030">
+                       <input-subsidy name="Green_Ammonia_Target"/>
+                   </period>
+                   <period year="2035">
+                       <input-subsidy name="Green_Ammonia_Target"/>
+                   </period>
+                   <period year="2040">
+                       <input-subsidy name="Green_Ammonia_Target"/>
+                   </period>
+                   <period year="2045">
+                       <input-subsidy name="Green_Ammonia_Target"/>
+                   </period>
+                   <period year="2050">
+                       <input-subsidy name="Green_Ammonia_Target"/>
+                   </period>
+               </technology>
+           </subsector>
+         </supplysector>
+
+
+      </region>
+   </world>
+</scenario>
