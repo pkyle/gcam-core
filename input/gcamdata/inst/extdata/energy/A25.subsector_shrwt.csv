@@ -22,10 +22,10 @@ H2 MHDV,H2 delivery,start-year,,0
 H2 MHDV,onsite production,start-year,,0
 LH2,H2 delivery,start-year,,0
 LH2,onsite production,start-year,,0
-H2 central production,gas,initial-future-year,,1
-H2 central production,biomass,initial-future-year,,1
-H2 central production,nuclear,initial-future-year,,1
-H2 central production,electricity,initial-future-year,,1
+H2 central production,gas,initial-future-year,,0
+H2 central production,biomass,initial-future-year,,0
+H2 central production,nuclear,initial-future-year,,0
+H2 central production,electricity,initial-future-year,,0
 H2 central production,hybrid,initial-future-year,,1
 H2 pipeline,H2 pipeline,initial-future-year,,1
 H2 liquid truck,H2 liquid truck,initial-future-year,,1
