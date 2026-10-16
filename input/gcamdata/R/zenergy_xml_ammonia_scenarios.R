@@ -21,7 +21,8 @@ module_energy_ammonia_scenarios <- function(command, ...) {
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c(XML = "NH3_ship.xml",
              XML = "NGCCS_NH3.xml",
-             XML = "elec_NH3.xml"))
+             XML = "elec_NH3.xml",
+             XML = "elec_NGCCS_NH3.xml"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -91,6 +92,9 @@ module_energy_ammonia_scenarios <- function(command, ...) {
       select(LEVEL2_DATA_NAMES[["GlobalTranTechShrwt"]]) ->
       L254.GlobalTranTechShrwt_NH3_ship
 
+    L2322.SubsectorInterpFrom_elec_NGCCS_NH3 <- L2322.SubsectorInterpFrom_elec_NH3 %>%
+      mutate(from.value = if_else(subsector == "gas", 1, from.value))
+
     # Produce outputs
     create_xml("NH3_ship.xml") %>%
       add_xml_data(L254.GlobalTranTechInterp_NH3_ship, "GlobalTranTechInterp") %>%
@@ -115,9 +119,19 @@ module_energy_ammonia_scenarios <- function(command, ...) {
                      "energy/A322.subsector_interp_scen") ->
       elec_NH3.xml
 
+    create_xml("elec_NGCCS_NH3.xml") %>%
+      add_xml_data(L2322.GlobalTechShrwt_NGCCS_NH3, "GlobalTechShrwt") %>%
+      add_xml_data(L225.SubsectorShrwtFllt_elec_NH3, "SubsectorShrwtFllt") %>%
+      add_xml_data(L2322.SubsectorInterpFrom_elec_NGCCS_NH3, "SubsectorInterpFrom") %>%
+      add_precursors("common/GCAM_region_names",
+                     "energy/A25.subsector_shrwt_scen",
+                     "energy/A322.subsector_interp_scen") ->
+      elec_NGCCS_NH3.xml
+
     return_data(NH3_ship.xml,
                 NGCCS_NH3.xml,
-                elec_NH3.xml)
+                elec_NH3.xml,
+                elec_NGCCS_NH3.xml)
   } else {
     stop("Unknown command")
   }
