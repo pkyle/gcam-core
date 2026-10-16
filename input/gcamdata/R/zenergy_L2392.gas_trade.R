@@ -476,9 +476,9 @@ if(command == driver.DECLARE_INPUTS) {
     select(region, supplysector, subsector0, subsector, technology) %>%
     distinct() %>%
     full_join(A_ff_RegionalTechnologyCost_NG_interp, by = c("supplysector", "subsector0", "subsector", "technology")) %>%
-    # domestic natural gas has no costs, omit these rows
+    # if domestic natural gas has no costs, omit these rows
     na.omit() %>%
-    mutate(minicam.non.energy.input = paste(cost.component, " cost"),
+    mutate(minicam.non.energy.input = paste0(cost.component, " cost"),
            input.cost = value) %>%
     select(LEVEL2_DATA_NAMES[["TechCost"]],"subsector0")
 
