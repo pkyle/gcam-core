@@ -13,4 +13,6 @@ ammonia,hydrogen,0,2050,,1
 traded ammonia,traded ammonia,1,start-year,,1
 regional ammonia,domestic ammonia,0,start-year,,1
 regional ammonia,imported ammonia,0,start-year,,1
-N fertilizer,N fertilizer,0,start-year,,1
+N fertilizer,central,0,start-year,,1
+N fertilizer,distributed,0,start-year,,0
+N fertilizer,distributed,0,initial-future-year,,1
