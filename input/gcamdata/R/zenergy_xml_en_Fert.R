@@ -33,7 +33,8 @@ module_energy_en_Fert_xml <- function(command, ...) {
              "L2322.Production_FertExport",
              "L2322.StubTechProd_FertImport",
              "L2322.StubTechProd_FertDomCons",
-             "L2322.StubTechProd_NtoAg"))
+             "L2322.StubTechProd_NtoAg",
+             "L2322.StubTechCost_NtoAg_dist"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c(XML = "en_Fert.xml"))
   } else if(command == driver.MAKE) {
@@ -63,6 +64,7 @@ module_energy_en_Fert_xml <- function(command, ...) {
     L2322.StubTechProd_FertImport <- get_data(all_data, "L2322.StubTechProd_FertImport")
     L2322.StubTechProd_FertDomCons <- get_data(all_data, "L2322.StubTechProd_FertDomCons")
     L2322.StubTechProd_NtoAg <- get_data(all_data, "L2322.StubTechProd_NtoAg")
+    L2322.StubTechCost_NtoAg_dist <- get_data(all_data, "L2322.StubTechCost_NtoAg_dist")
 
     # ===================================================
 
@@ -90,6 +92,7 @@ module_energy_en_Fert_xml <- function(command, ...) {
       add_xml_data(L2322.StubTechProd_FertImport, "StubTechProd") %>%
       add_xml_data(L2322.StubTechProd_FertDomCons, "StubTechProd") %>%
       add_xml_data(L2322.StubTechProd_NtoAg, "StubTechProd") %>%
+      add_xml_data(L2322.StubTechCost_NtoAg_dist, "StubTechCost") %>%
       add_precursors("L2322.Supplysector_Fert",
                      "L2322.SectorUseTrialMarket_tra",
                      "L2322.FinalEnergyKeyword_Fert",
@@ -111,7 +114,8 @@ module_energy_en_Fert_xml <- function(command, ...) {
                      "L2322.Production_FertExport",
                      "L2322.StubTechProd_FertImport",
                      "L2322.StubTechProd_FertDomCons",
-                     "L2322.StubTechProd_NtoAg") ->
+                     "L2322.StubTechProd_NtoAg",
+                     "L2322.StubTechCost_NtoAg_dist") ->
       en_Fert.xml
 
     return_data(en_Fert.xml)

@@ -35,7 +35,9 @@ module_energy_L2322.Fert <- function(command, ...) {
              "L1322.Fert_Prod_MtNH3_R_F_Y",
              "L1322.IO_R_Fert_F_Yh",
              "L1322.Fert_NEcost_75USDkgNH3_F",
-             "L1322.Fert_GrossTrade_Mt_R_Y"))
+             "L1322.Fert_GrossTrade_Mt_R_Y",
+             "L225.StubTechCost_h2_hybrid_ref",
+             "L225.StubTechCoef_h2_hybrid_ref"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L2322.Supplysector_Fert",
              "L2322.SectorUseTrialMarket_tra",
@@ -58,7 +60,8 @@ module_energy_L2322.Fert <- function(command, ...) {
              "L2322.Production_FertExport",
              "L2322.StubTechProd_FertImport",
              "L2322.StubTechProd_FertDomCons",
-             "L2322.StubTechProd_NtoAg"))
+             "L2322.StubTechProd_NtoAg",
+             "L2322.StubTechCost_NtoAg_dist"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -78,6 +81,8 @@ module_energy_L2322.Fert <- function(command, ...) {
     L1322.IO_R_Fert_F_Yh <- get_data(all_data, "L1322.IO_R_Fert_F_Yh", strip_attributes = TRUE)
     L1322.Fert_NEcost_75USDkgNH3_F <- get_data(all_data, "L1322.Fert_NEcost_75USDkgNH3_F")
     L1322.Fert_GrossTrade_Mt_R_Y <- get_data(all_data, "L1322.Fert_GrossTrade_Mt_R_Y", strip_attributes = TRUE)
+    L225.StubTechCost_h2_hybrid_ref <- get_data(all_data, "L225.StubTechCost_h2_hybrid_ref", strip_attributes = TRUE)
+    L225.StubTechCoef_h2_hybrid_ref <- get_data(all_data, "L225.StubTechCoef_h2_hybrid_ref", strip_attributes = TRUE)
 
     # ===================================================
     # 0. Give binding for variable names used in pipeline
@@ -391,6 +396,12 @@ module_energy_L2322.Fert <- function(command, ...) {
 
     L2322.StubTechProd_NtoAg <- bind_rows(L2322.StubTechProd_NtoAg_central, L2322.StubTechProd_NtoAg_dist)
 
+    # Costs of distributed green N fertilizer production
+    L2322.StubTechCost_NtoAg_dist <- L225.StubTechCost_h2_hybrid_ref %>%
+      mutate(input.cost = round(input.cost * CONV_GJ_KGH2 * 3/17 * 17/14, digits = energy.DIGITS_COST)) %>%
+      select(-supplysector, -subsector, -stub.technology) %>%
+      left_join_error_no_match(filter(L2322.StubTech_Fert, stub.technology == "distributed"), by = "region")
+
     # ===================================================
     # Produce outputs
 
@@ -570,6 +581,13 @@ module_energy_L2322.Fert <- function(command, ...) {
       same_precursors_as(L2322.StubTechProd_FertDomCons) ->
       L2322.StubTechProd_NtoAg
 
+    L2322.StubTechCost_NtoAg_dist %>%
+      add_title("technology producer prices of distributed green ammonia") %>%
+      add_units("1975$/kgNH3") %>%
+      add_comments("Estimated from green hydrogen production costs") %>%
+      same_precursors_as(L2322.StubTechProd_NtoAg) %>%
+      add_precursors("L225.StubTechCost_h2_hybrid_ref") ->
+      L2322.StubTechCost_NtoAg_dist
 
     return_data(L2322.Supplysector_Fert, L2322.SectorUseTrialMarket_tra,
                 L2322.FinalEnergyKeyword_Fert, L2322.SubsectorLogit_Fert,
@@ -579,7 +597,7 @@ module_energy_L2322.Fert <- function(command, ...) {
                 L2322.GlobalTechCost_Fert, L2322.GlobalTechCapture_Fert, L2322.GlobalTechSCurve_Fert,
                 L2322.GlobalTechProfitShutdown_Fert, L2322.StubTechProd_FertProd, L2322.StubTechCoef_Fert,
                 L2322.Production_FertExport, L2322.StubTechProd_FertImport, L2322.StubTechProd_FertDomCons,
-                L2322.StubTechProd_NtoAg)
+                L2322.StubTechProd_NtoAg, L2322.StubTechCost_NtoAg_dist)
   } else {
     stop("Unknown command")
   }
