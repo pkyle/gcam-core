@@ -373,13 +373,23 @@ module_energy_L2322.Fert <- function(command, ...) {
                                by = c("region", "year")) %>%
       mutate(calOutputValue = round((DomConsumption + Imports) * CONV_NH3_N,
                                     energy.DIGITS_CALOUTPUT)) %>%
-      left_join_error_no_match(filter(L2322.StubTech_Fert, supplysector == aglu.FERT_NAME),
+      left_join_error_no_match(filter(L2322.StubTech_Fert, supplysector == aglu.FERT_NAME, stub.technology == "central"),
                                by = "region") %>%
       mutate(share.weight.year = year,
              subs.share.weight = if_else(calOutputValue > 0, 1, 0),
              tech.share.weight = if_else(calOutputValue > 0, 1, 0)) %>%
       select(LEVEL2_DATA_NAMES[["StubTechProd"]]) ->
-      L2322.StubTechProd_NtoAg
+      L2322.StubTechProd_NtoAg_central
+
+    L2322.StubTechProd_NtoAg_dist <- filter(L2322.StubTech_Fert, stub.technology == "distributed") %>%
+      repeat_add_columns(tibble(year = MODEL_BASE_YEARS)) %>%
+      mutate(calOutputValue = 0,
+             share.weight.year = year,
+             subs.share.weight = 0,
+             tech.share.weight = 0) %>%
+      select(LEVEL2_DATA_NAMES[["StubTechProd"]])
+
+    L2322.StubTechProd_NtoAg <- bind_rows(L2322.StubTechProd_NtoAg_central, L2322.StubTechProd_NtoAg_dist)
 
     # ===================================================
     # Produce outputs
