@@ -255,7 +255,8 @@ module_energy_L225.hydrogen <- function(command, ...) {
                                   if_else(minicam.energy.input == "onshore wind resource", "wind", "drop"))) %>%
       filter(renew_tech != "drop") %>%
       left_join_error_no_match(L225.RenewElec_cost_scen, by = c("Scenario", "region", "renew_tech", "year")) %>%
-      mutate(minicam.non.energy.input = "renewable electricity generation",
+      mutate(minicam.non.energy.input = if_else(minicam.energy.input == "global solar resource",
+                                                "solar electricity generation", "wind electricity generation"),
              input.cost = coefficient * elec_cost_75USD_GJ) %>%
       group_by(Scenario, region, supplysector, subsector, stub.technology, year, minicam.non.energy.input) %>%
       summarise(input.cost = sum(input.cost)) %>%
